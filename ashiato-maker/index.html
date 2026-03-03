@@ -256,18 +256,6 @@
       font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7;
     }
 
-    /* ===== DEMO ===== */
-    .demo { background: #0a0e1a; }
-    .demo-wrap {
-      max-width: 800px; margin: 0 auto;
-      border-radius: 16px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .demo-wrap img {
-      width: 100%; height: auto; display: block;
-    }
-
     /* ===== HOW IT WORKS ===== */
     .howto { background: #0d1225; }
     .steps {
@@ -298,6 +286,42 @@
     }
     .step p {
       font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;
+    }
+
+    /* ===== DEMO SHOWCASE ===== */
+    .demo-section { background: #0d1225; text-align: center; }
+    .demo-wrap {
+      max-width: 900px; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .demo-wrap img {
+      width: 100%; height: auto; display: block;
+    }
+
+    /* ===== MERIT SECTION ===== */
+    .merit-section { background: #0a0e1a; text-align: center; }
+    .merit-wrap {
+      max-width: 900px; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .merit-wrap img {
+      width: 100%; height: auto; display: block;
+    }
+
+    /* ===== SCREENSHOT ===== */
+    .screenshot-section { background: #0a0e1a; text-align: center; }
+    .screenshot-wrap {
+      max-width: 900px; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .screenshot-wrap img {
+      width: 100%; height: auto; display: block;
     }
 
     /* ===== FAQ ===== */
@@ -408,6 +432,18 @@
     </div>
   </div>
 
+  <!-- ===== DEMO SHOWCASE ===== -->
+  <section class="demo-section">
+    <div class="section-inner">
+      <span class="section-label">Demo</span>
+      <h2>実際の動作イメージ</h2>
+      <p class="section-desc">Pairsでの自動訪問の様子です。操作パネルから設定・進捗を確認できます。</p>
+      <div class="demo-wrap">
+        <img src="note-img-2-demo.png" alt="足あとメーカーの動作デモ - Pairsでプロフィールを自動訪問している様子" width="1280" height="670" loading="lazy">
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FEATURES ===== -->
   <section class="features" id="features">
     <div class="section-inner">
@@ -449,14 +485,14 @@
     </div>
   </section>
 
-  <!-- ===== DEMO ===== -->
-  <section class="demo">
-    <div class="section-inner" style="text-align:center;">
-      <span class="section-label">Demo</span>
-      <h2>実際の利用イメージ</h2>
-      <p class="section-desc">Pairsでの動作例。右下のパネルから操作・進捗確認ができます。</p>
-      <div class="demo-wrap">
-        <img src="demo.png" alt="足あとメーカーの利用イメージ - Pairsでプロフィールを自動訪問している画面" width="1280" height="670" loading="lazy">
+  <!-- ===== MERIT ===== -->
+  <section class="merit-section">
+    <div class="section-inner">
+      <span class="section-label">Merit</span>
+      <h2>出会いのチャンスが広がる理由</h2>
+      <p class="section-desc">足あとは「あなたに興味があります」のサイン。大量の足あとが相手からのアクションを引き出します。</p>
+      <div class="merit-wrap">
+        <img src="note-img-3-merit.png" alt="足あとメーカーのメリット - 1時間で100人以上に足あと、足あと返しが増える、時間を節約、存在感がアップ" width="1280" height="670" loading="lazy">
       </div>
     </div>
   </section>
@@ -480,6 +516,18 @@
           <h3>開始ボタンを押す</h3>
           <p>「開始」ボタンを押すだけで自動訪問がスタート。あとは放置するだけです。</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES IMAGE ===== -->
+  <section class="screenshot-section">
+    <div class="section-inner">
+      <span class="section-label">All Features</span>
+      <h2>搭載機能</h2>
+      <p class="section-desc">すべての機能が完全無料で使えます。</p>
+      <div class="screenshot-wrap">
+        <img src="note-img-4-features.png" alt="足あとメーカーの搭載機能一覧 - 無限ループモード、複数アプリ対応、待機時間カスタマイズ、自動いいね送信" width="1280" height="670" loading="lazy">
       </div>
     </div>
   </section>
@@ -535,8 +583,9 @@
   <footer>
     <div class="footer-inner">
       <span>&copy; 2025 足あとメーカー</span>
-      <a href="https://ramune441.github.io/ashiato-maker/privacy-policy.html">プライバシーポリシー</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-3bgZ6GV-HKKnDYGe57GuE_6Es1Gy3STgLyC55RRiPSNmrg/viewform" target="_blank" rel="noopener">お問い合わせ</a>
+      <a href="https://github.com/ramune441/ashiato-maker" target="_blank" rel="noopener">GitHub</a>
+      <a href="privacy-policy.md" target="_blank">プライバシーポリシー</a>
+      <a href="mailto:warload57@gmail.com">お問い合わせ</a>
     </div>
   </footer>
 
