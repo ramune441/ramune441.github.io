@@ -25,7 +25,7 @@
   <meta name="twitter:description" content="Pairs・with・東カレデート・Tinderに対応。放置するだけで足あとが届き続ける無料Chrome拡張機能。">
   <meta name="twitter:image" content="https://ramune441.github.io/ashiato-maker/store-image-1.png">
 
-  <!-- JSON-LD 構造化データ -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -34,15 +34,8 @@
     "description": "マッチングアプリで自動的にプロフィールを訪問し、足あとを残すChrome拡張機能",
     "applicationCategory": "BrowserApplication",
     "operatingSystem": "Chrome",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "JPY"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Ramune"
-    },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+    "author": { "@type": "Person", "name": "Ramune" },
     "softwareVersion": "1.0.1",
     "browserRequirements": "Google Chrome"
   }
@@ -52,38 +45,10 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "足あとメーカーとは何ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "足あとメーカーは、Pairs・with・東カレデート・Tinderなどのマッチングアプリで、自動的にプロフィールを訪問して足あとを残すChrome拡張機能です。完全無料で利用できます。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "どのマッチングアプリに対応していますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Pairs、with、東カレデート、Tinderの4つのアプリに対応しています。また、カスタム設定で他のサイトにも対応可能です。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "料金はかかりますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "いいえ、完全無料でご利用いただけます。課金要素は一切ありません。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "使い方は難しいですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Chromeにインストール後、対応サイトを開くとページ右下に操作パネルが自動表示されます。「開始」ボタンを押すだけで自動訪問がスタートします。"
-        }
-      }
+      { "@type": "Question", "name": "本当に無料ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、完全無料です。課金要素は一切ありません。" } },
+      { "@type": "Question", "name": "どのマッチングアプリに対応していますか？", "acceptedAnswer": { "@type": "Answer", "text": "Pairs、with、東カレデート、Tinderの4つにプリセット対応。カスタム設定で他サイトにも対応可能です。" } },
+      { "@type": "Question", "name": "BANされませんか？", "acceptedAnswer": { "@type": "Answer", "text": "訪問間隔や上限を調整でき、人間の操作と区別がつきにくいペースで動作します。ただしリスクはゼロではないため自己責任でご利用ください。" } },
+      { "@type": "Question", "name": "個人情報は収集されますか？", "acceptedAnswer": { "@type": "Answer", "text": "一切収集しません。すべてのデータはブラウザ内にローカル保存され、外部サーバーへの送信は行いません。" } }
     ]
   }
   </script>
@@ -99,79 +64,39 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0e1a;
-      color: #e2e8f0;
-      line-height: 1.8;
-      overflow-x: hidden;
+      background: #0a0e1a; color: #e2e8f0; line-height: 1.8; overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
 
     /* ===== HERO ===== */
     .hero {
-      position: relative;
-      min-height: 100vh;
+      position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
       background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%);
-      overflow: hidden;
-      padding: 80px 20px 60px;
+      overflow: hidden; padding: 80px 20px 60px;
     }
     .hero::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
       background-size: 48px 48px;
     }
-    .bg-glow {
-      position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none;
-    }
+    .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none; }
     .bg-glow.g1 { width: 600px; height: 600px; background: #667eea; top: -200px; left: -100px; opacity: 0.12; }
     .bg-glow.g2 { width: 500px; height: 500px; background: #764ba2; bottom: -200px; right: -100px; opacity: 0.10; }
     .bg-glow.g3 { width: 300px; height: 300px; background: #f59e0b; top: 40%; left: 60%; opacity: 0.04; }
-
-    .hero-inner {
-      position: relative; z-index: 1;
-      max-width: 800px; text-align: center;
-    }
-    .hero-icon {
-      display: inline-flex; align-items: center; gap: 14px;
-      margin-bottom: 28px;
-    }
-    .hero-icon img {
-      width: 56px; height: 56px; border-radius: 14px;
-      box-shadow: 0 4px 24px rgba(102,126,234,0.3);
-    }
-    .hero-icon span {
-      font-size: 22px; font-weight: 900; color: #fff;
-    }
+    .hero-inner { position: relative; z-index: 1; max-width: 800px; text-align: center; }
+    .hero-icon { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+    .hero-icon img { width: 56px; height: 56px; border-radius: 14px; box-shadow: 0 4px 24px rgba(102,126,234,0.3); }
+    .hero-icon span { font-size: 22px; font-weight: 900; color: #fff; }
     .free-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #fff; font-size: 13px; font-weight: 900;
-      padding: 5px 22px; border-radius: 30px;
-      letter-spacing: 2px;
-      box-shadow: 0 4px 20px rgba(34,197,94,0.3);
-      margin-bottom: 32px;
+      display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff; font-size: 13px; font-weight: 900; padding: 5px 22px; border-radius: 30px;
+      letter-spacing: 2px; box-shadow: 0 4px 20px rgba(34,197,94,0.3); margin-bottom: 24px;
     }
-    .hero-pain {
-      font-size: clamp(14px, 2vw, 17px);
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: clamp(32px, 6vw, 56px);
-      font-weight: 900; color: #fff; line-height: 1.35;
-      margin-bottom: 24px; letter-spacing: -0.5px;
-    }
-    h1 .accent {
-      background: linear-gradient(135deg, #667eea, #a78bfa);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-sub {
-      font-size: clamp(15px, 2.5vw, 20px);
-      color: rgba(255,255,255,0.85); line-height: 1.8;
-      margin-bottom: 40px;
-    }
+    .hero-pain { font-size: clamp(14px, 2vw, 17px); color: rgba(255,255,255,0.5); margin-bottom: 16px; line-height: 1.7; }
+    h1 { font-size: clamp(32px, 6vw, 56px); font-weight: 900; color: #fff; line-height: 1.35; margin-bottom: 20px; letter-spacing: -0.5px; }
+    h1 .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: clamp(15px, 2.5vw, 20px); color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 40px; }
     .hero-sub strong { color: #a78bfa; font-weight: 700; }
     .cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
@@ -179,17 +104,11 @@
       color: #fff; font-size: 16px; font-weight: 700;
       padding: 16px 40px; border-radius: 50px; border: none; cursor: pointer;
       box-shadow: 0 8px 32px rgba(102,126,234,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s; text-decoration: none;
     }
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(102,126,234,0.5);
-    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(102,126,234,0.5); }
     .cta-btn svg { width: 20px; height: 20px; fill: currentColor; }
-    .hero-note {
-      margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.45);
-    }
+    .hero-note { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.45); }
 
     /* ===== APPS ===== */
     .apps-strip {
@@ -198,14 +117,10 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
       padding: 28px 20px;
     }
-    .apps-strip-inner {
-      max-width: 700px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
-    }
+    .apps-strip-inner { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
     .app-chip {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
       border-radius: 12px; padding: 10px 20px;
     }
     .app-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
@@ -217,174 +132,184 @@
     .app-chip-check { color: #4ade80; font-size: 13px; font-weight: 700; }
 
     /* ===== SECTIONS ===== */
-    section {
-      padding: 80px 20px;
+    section { padding: 80px 20px; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: #a78bfa; text-transform: uppercase; margin-bottom: 12px; }
+    h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .section-desc { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 48px; max-width: 650px; line-height: 1.8; }
+
+    /* ===== PROBLEM ===== */
+    .problem { background: #0a0e1a; }
+    .problem-text {
+      max-width: 700px; margin: 0 auto;
+      font-size: 16px; color: rgba(255,255,255,0.7); line-height: 2;
     }
-    .section-inner {
-      max-width: 900px; margin: 0 auto;
-    }
-    .section-label {
-      display: inline-block;
-      font-size: 12px; font-weight: 700; letter-spacing: 3px;
-      color: #a78bfa; text-transform: uppercase; margin-bottom: 12px;
-    }
-    h2 {
-      font-size: clamp(24px, 4vw, 36px);
-      font-weight: 900; color: #fff; margin-bottom: 16px;
-    }
-    .section-desc {
-      font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 48px;
-      max-width: 600px;
+    .problem-text p { margin-bottom: 20px; }
+    .problem-text strong { color: #fff; font-weight: 700; }
+    .problem-text .highlight {
+      color: #a78bfa; font-weight: 700;
     }
 
-    /* ===== STATS ===== */
-    .stats-strip {
-      background: #0a0e1a;
-      padding: 48px 20px;
+    /* ===== FLOW ===== */
+    .flow-strip {
+      background: #0d1225; padding: 48px 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .stats-inner {
+    .flow-inner {
       max-width: 800px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-      text-align: center;
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; flex-wrap: wrap;
     }
-    .stat-item { padding: 24px 16px; }
-    .stat-number {
-      font-size: clamp(32px, 5vw, 48px); font-weight: 900;
-      background: linear-gradient(135deg, #667eea, #a78bfa);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.2; margin-bottom: 8px;
+    .flow-step {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px; padding: 16px 20px; text-align: center; min-width: 120px;
     }
-    .stat-label {
-      font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 600;
-    }
+    .flow-icon { font-size: 28px; margin-bottom: 6px; }
+    .flow-label { font-size: 13px; font-weight: 700; color: #fff; }
+    .flow-arrow { font-size: 20px; color: rgba(255,255,255,0.25); }
 
-    /* ===== IMAGE SECTIONS ===== */
+    /* ===== COMPARE ===== */
+    .compare { background: #0d1225; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 700px; }
+    .compare-card {
+      border-radius: 16px; padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .compare-card.manual { background: rgba(255,255,255,0.03); }
+    .compare-card.auto { background: rgba(102,126,234,0.08); border-color: rgba(102,126,234,0.25); }
+    .compare-card h3 { font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    .compare-card.auto h3 { color: #a78bfa; }
+    .compare-number {
+      font-size: 42px; font-weight: 900; line-height: 1.2; margin-bottom: 4px;
+    }
+    .compare-card.manual .compare-number { color: rgba(255,255,255,0.4); }
+    .compare-card.auto .compare-number {
+      background: linear-gradient(135deg, #667eea, #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .compare-unit { font-size: 14px; color: rgba(255,255,255,0.45); }
+
+    /* ===== DEMO ===== */
     .img-wrap {
       max-width: 900px; width: 100%; margin: 0 auto;
       border-radius: 20px; overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.08);
     }
-    .img-wrap img {
-      width: 100%; height: auto; display: block;
-    }
+    .img-wrap img { width: 100%; height: auto; display: block; }
 
     /* ===== BENEFITS ===== */
-    .benefits { background: #0a0e1a; }
+    .benefits { background: #0d1225; }
     .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
     }
     .benefit-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
       border-radius: 16px; padding: 32px 28px;
       transition: border-color 0.3s, background 0.3s;
     }
-    .benefit-card:hover {
-      border-color: rgba(102,126,234,0.3);
-      background: rgba(102,126,234,0.06);
-    }
+    .benefit-card:hover { border-color: rgba(102,126,234,0.3); background: rgba(102,126,234,0.06); }
     .benefit-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
-    .benefit-card h3 {
-      font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;
-    }
-    .benefit-card p {
-      font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7;
-    }
+    .benefit-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .benefit-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
 
-    /* ===== HOW IT WORKS ===== */
-    .howto { background: #0d1225; }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      counter-reset: step;
+    /* ===== FEATURES ===== */
+    .features { background: #0a0e1a; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
     }
+    .feat-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 28px 24px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .feat-card:hover { border-color: rgba(102,126,234,0.3); background: rgba(102,126,234,0.06); }
+    .feat-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .feat-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* ===== HOW TO ===== */
+    .howto { background: #0d1225; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; counter-reset: step; }
     .step {
-      position: relative;
-      padding: 32px 24px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      text-align: center;
-      counter-increment: step;
+      position: relative; padding: 32px 24px;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px; text-align: center; counter-increment: step;
     }
     .step::before {
       content: counter(step);
       display: inline-flex; align-items: center; justify-content: center;
       width: 40px; height: 40px; border-radius: 50%;
       background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff; font-size: 18px; font-weight: 900;
-      margin-bottom: 16px;
+      color: #fff; font-size: 18px; font-weight: 900; margin-bottom: 16px;
     }
-    .step h3 {
-      font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px;
+    .step h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .step p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    /* ===== SAFETY ===== */
+    .safety { background: #0a0e1a; }
+    .safety-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+    .safety-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 28px 24px;
     }
-    .step p {
-      font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;
+    .safety-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .safety-card p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+    /* ===== WARNING ===== */
+    .warning-box {
+      max-width: 700px; margin: 48px auto 0;
+      background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2);
+      border-radius: 16px; padding: 24px 28px;
     }
+    .warning-box h3 { font-size: 16px; font-weight: 700; color: #fbbf24; margin-bottom: 10px; }
+    .warning-box p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.8; }
 
     /* ===== FAQ ===== */
-    .faq { background: #0a0e1a; }
-    .faq-list {
-      max-width: 700px; margin: 0 auto;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .faq-item {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px; overflow: hidden;
-    }
+    .faq { background: #0d1225; }
+    .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .faq-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; }
     .faq-q {
       width: 100%; display: flex; justify-content: space-between; align-items: center;
       background: none; border: none; cursor: pointer;
       padding: 20px 24px; font-size: 15px; font-weight: 700;
       color: #fff; text-align: left; font-family: inherit;
     }
-    .faq-q::after {
-      content: '+'; font-size: 20px; color: #a78bfa;
-      transition: transform 0.3s;
-    }
+    .faq-q::after { content: '+'; font-size: 20px; color: #a78bfa; transition: transform 0.3s; }
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-    .faq-a-inner {
-      padding: 0 24px 20px;
-      font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.8;
-    }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-a-inner { padding: 0 24px 20px; font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.8; }
     .faq-item.open .faq-a { max-height: 300px; }
 
     /* ===== CTA BOTTOM ===== */
     .cta-bottom {
       background: linear-gradient(160deg, #1e1b4b, #312e81);
-      text-align: center;
-      padding: 80px 20px;
+      text-align: center; padding: 80px 20px;
       position: relative; overflow: hidden;
     }
     .cta-bottom::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
       background-size: 48px 48px;
     }
     .cta-bottom-inner { position: relative; z-index: 1; }
     .cta-bottom h2 { margin-bottom: 12px; }
-    .cta-bottom p {
-      font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 36px;
-    }
+    .cta-bottom p { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 36px; }
     .cta-bottom .hero-note { margin-top: 16px; }
+    .cta-bottom .summary-list {
+      max-width: 500px; margin: 0 auto 36px; text-align: left;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .cta-bottom .summary-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; color: rgba(255,255,255,0.8);
+    }
+    .cta-bottom .summary-check { color: #4ade80; font-weight: 700; font-size: 16px; }
 
     /* ===== FOOTER ===== */
     footer {
-      background: #070a14;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 32px 20px;
-      text-align: center;
+      background: #070a14; border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 20px; text-align: center;
     }
     .footer-inner {
       max-width: 700px; margin: 0 auto;
@@ -398,10 +323,11 @@
       .hero { padding: 100px 16px 50px; }
       .cta-btn { padding: 14px 28px; font-size: 15px; }
       section { padding: 56px 16px; }
-      .benefits-grid { grid-template-columns: 1fr; }
+      .benefits-grid, .features-grid, .safety-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; }
-      .stats-inner { grid-template-columns: 1fr; gap: 8px; }
-      .stat-item { padding: 16px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .flow-inner { flex-direction: column; }
+      .flow-arrow { transform: rotate(90deg); }
     }
   </style>
 </head>
@@ -418,9 +344,9 @@
         <span>足あとメーカー</span>
       </div>
       <div class="free-badge">完全無料</div>
-      <p class="hero-pain">毎日スワイプするのに、マッチしない。もっと効率よく出会いたい。</p>
-      <h1>放置するだけで<br><span class="accent">足あとが届き続ける</span></h1>
-      <p class="hero-sub">1時間で<strong>100人以上</strong>のプロフィールに自動で足あと。<br>あなたが何もしなくても、相手に「気になってます」が届きます。</p>
+      <p class="hero-pain">毎日何十人ものプロフィールをポチポチ開くのって、<br>めちゃくちゃ面倒じゃないですか？</p>
+      <h1>その作業、<br><span class="accent">自動化できます。</span></h1>
+      <p class="hero-sub">マッチングアプリの足あとを自動化するChrome拡張機能。<br>ボタンを押して放置するだけで、<strong>1時間に100人以上</strong>に足あとが届きます。</p>
       <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         Chromeに追加する（無料）
@@ -439,72 +365,117 @@
     </div>
   </div>
 
-  <!-- ===== STATS ===== -->
-  <div class="stats-strip">
-    <div class="stats-inner">
-      <div class="stat-item">
-        <div class="stat-number">100+</div>
-        <div class="stat-label">1時間あたりの足あと数</div>
+  <!-- ===== WHY ASHIATO ===== -->
+  <section class="problem">
+    <div class="section-inner">
+      <span class="section-label">Why</span>
+      <h2>そもそも「足あと」ってそんなに大事？</h2>
+      <div class="problem-text">
+        <p>マッチングアプリで「いいね」をもらうには、まず<strong>相手に存在を知ってもらうこと</strong>が大前提。<br>そのために一番手軽で効果的なのが「足あと」です。</p>
+        <p>「いいね」は数に限りがあるけど、<strong>足あとは無制限</strong>。<br>しかも、足あとをつけると<strong>相手に通知が届く</strong>。</p>
+        <p>つまり ── <span class="highlight">足あとの数 ＝ 出会いのチャンスの数</span>。</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">0</div>
-        <div class="stat-label">円 - 完全無料</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">30</div>
-        <div class="stat-label">秒でインストール完了</div>
-      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLOW ===== -->
+  <div class="flow-strip">
+    <div class="flow-inner">
+      <div class="flow-step"><div class="flow-icon">&#128099;</div><div class="flow-label">足あとを残す</div></div>
+      <div class="flow-arrow">&#10132;</div>
+      <div class="flow-step"><div class="flow-icon">&#128064;</div><div class="flow-label">相手が気づく</div></div>
+      <div class="flow-arrow">&#10132;</div>
+      <div class="flow-step"><div class="flow-icon">&#128100;</div><div class="flow-label">プロフィールを見る</div></div>
+      <div class="flow-arrow">&#10132;</div>
+      <div class="flow-step"><div class="flow-icon">&#10084;&#65039;</div><div class="flow-label">いいねが届く</div></div>
     </div>
   </div>
 
-  <!-- ===== DEMO SHOWCASE ===== -->
-  <section style="background:#0d1225;">
+  <!-- ===== COMPARE ===== -->
+  <section class="compare">
+    <div class="section-inner">
+      <span class="section-label">Compare</span>
+      <h2>手動だと、1時間で何人に足あとを残せる？</h2>
+      <p class="section-desc">1人ずつプロフィールを開いて、戻って、スクロールして、またタップ。その作業、もう不要です。</p>
+      <div class="compare-grid">
+        <div class="compare-card manual">
+          <h3>手動の場合</h3>
+          <div class="compare-number">20〜30</div>
+          <div class="compare-unit">人 / 1時間</div>
+        </div>
+        <div class="compare-card auto">
+          <h3>足あとメーカー</h3>
+          <div class="compare-number">100+</div>
+          <div class="compare-unit">人 / 1時間</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEMO ===== -->
+  <section style="background:#0a0e1a;">
     <div class="section-inner">
       <span class="section-label">Demo</span>
       <h2>ボタンを押したら、あとは放置</h2>
-      <p class="section-desc">Pairsの画面で実際に動いている様子です。プロフィールを1人ずつ自動で訪問し、足あとを残していきます。</p>
+      <p class="section-desc">Pairsの画面で実際に動いている様子。プロフィールを1人ずつ自動で訪問し、足あとを残していきます。</p>
       <div class="img-wrap">
-        <img src="note-img-2-demo.png" alt="足あとメーカーの動作デモ - Pairsでプロフィールを自動訪問している様子" width="1280" height="670" loading="lazy">
+        <img src="note-img-2-demo.png" alt="足あとメーカーの動作デモ" width="1280" height="670" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- ===== BENEFITS ===== -->
-  <section class="benefits" id="benefits">
+  <section class="benefits">
     <div class="section-inner">
-      <span class="section-label">Why</span>
-      <h2>なぜ足あとが効くのか</h2>
-      <p class="section-desc">足あとは「あなたに興味があります」のサイン。相手からのアクションを自然に引き出します。</p>
+      <span class="section-label">Benefits</span>
+      <h2>使うと何が変わるのか</h2>
+      <p class="section-desc">足あとメーカーを導入すると、アプリの使い方が根本的に変わります。</p>
       <div class="benefits-grid">
         <article class="benefit-card">
-          <span class="benefit-emoji">&#128064;</span>
-          <h3>相手の画面に表示される</h3>
-          <p>足あとを残すと、相手の「足あと一覧」にあなたが表示されます。プロフィールを見てもらえるきっかけになります。</p>
+          <span class="benefit-emoji">&#128200;</span>
+          <h3>足あとの数が桁違いになる</h3>
+          <p>手動では1時間20〜30人が限界。足あとメーカーなら100人以上。しかも放置でOK。</p>
         </article>
         <article class="benefit-card">
           <span class="benefit-emoji">&#128257;</span>
-          <h3>足あと返しが来る</h3>
-          <p>あなたの足あとに気づいた相手がプロフィールを見に来ます。お互いの関心がマッチングに繋がります。</p>
-        </article>
-        <article class="benefit-card">
-          <span class="benefit-emoji">&#128200;</span>
-          <h3>いいね数が増える</h3>
-          <p>あなたの存在を知った相手から「いいね」が届くようになります。手動では不可能な数の相手にアプローチ可能。</p>
+          <h3>「足あと返し」が増える</h3>
+          <p>足あとに気づいた相手があなたのプロフィールを見に来る。これが「いいね」に繋がる。</p>
         </article>
         <article class="benefit-card">
           <span class="benefit-emoji">&#9203;</span>
-          <h3>時間を節約できる</h3>
-          <p>1人ずつプロフィールを見る作業は不要。PCで放置するだけで、勝手に足あとが増え続けます。</p>
+          <h3>時間が浮く</h3>
+          <p>アプリに費やしていた時間を、自己紹介文の改善や写真の見直しに使えます。</p>
         </article>
-        <article class="benefit-card">
-          <span class="benefit-emoji">&#10084;&#65039;</span>
-          <h3>自動いいね機能</h3>
-          <p>東カレデート・Tinderでは、足あとと同時に「いいね」も自動送信。さらにマッチング率アップ。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <span class="section-label">Features</span>
+      <h2>搭載機能</h2>
+      <p class="section-desc">全機能完全無料。課金要素ゼロ。</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <h3>&#128260; 無限ループモード</h3>
+          <p>指定人数ごとにページを自動リロード。新しいプロフィールを読み込んで訪問を続けます。一度開始したら、文字通り放置するだけ。</p>
         </article>
-        <article class="benefit-card">
-          <span class="benefit-emoji">&#128260;</span>
-          <h3>無限ループで放置OK</h3>
-          <p>ページを自動リロードして新しいプロフィールを次々と訪問。寝ている間も足あとが増え続けます。</p>
+        <article class="feat-card">
+          <h3>&#9201; 訪問間隔の調整</h3>
+          <p>訪問ごとの待機時間を自由に設定。推奨は2〜4秒。自然なペースで足あとを残せます。</p>
+        </article>
+        <article class="feat-card">
+          <h3>&#128290; 訪問上限の設定</h3>
+          <p>1回あたりの訪問数に上限を設定できるので、使いすぎを防止。</p>
+        </article>
+        <article class="feat-card">
+          <h3>&#10084;&#65039; 自動いいね</h3>
+          <p>東カレデートとTinderでは、足あとをつけながら自動で「いいね」も送信可能。</p>
+        </article>
+        <article class="feat-card">
+          <h3>&#128295; カスタム対応</h3>
+          <p>プリセット以外のサイトでも、URLパターンとCSSセレクターを指定すれば対応できます。</p>
         </article>
       </div>
     </div>
@@ -515,15 +486,15 @@
     <div class="section-inner">
       <span class="section-label">How to use</span>
       <h2>たった3ステップ、30秒で開始</h2>
-      <p class="section-desc">難しい設定は一切なし。インストールしたらすぐに使えます。</p>
+      <p class="section-desc">面倒な設定は不要。プリセットが用意されているので、インストールしたらすぐに使えます。</p>
       <div class="steps">
         <div class="step">
           <h3>Chromeに追加</h3>
-          <p>ウェブストアから追加するだけ。登録もログインも不要です。</p>
+          <p>ウェブストアから追加するだけ。登録もログインも不要。</p>
         </div>
         <div class="step">
           <h3>マッチングアプリを開く</h3>
-          <p>Pairs・with・東カレ・TinderをChromeで開くと、操作パネルが自動表示。</p>
+          <p>対応アプリをChromeで開くと、右下に操作パネルが自動表示。</p>
         </div>
         <div class="step">
           <h3>「開始」を押して放置</h3>
@@ -533,32 +504,66 @@
     </div>
   </section>
 
+  <!-- ===== SAFETY ===== -->
+  <section class="safety">
+    <div class="section-inner">
+      <span class="section-label">Safety</span>
+      <h2>安全性とプライバシー</h2>
+      <p class="section-desc">安心して使えるように、以下の点を押さえています。</p>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h3>&#128274; 個人情報の収集なし</h3>
+          <p>一切の個人情報を収集しません。すべてのデータはブラウザ内にローカル保存。</p>
+        </div>
+        <div class="safety-card">
+          <h3>&#128421; 外部通信なし</h3>
+          <p>外部サーバーへのデータ送信は行いません。アンインストールすればデータは完全削除されます。</p>
+        </div>
+        <div class="safety-card">
+          <h3>&#9201; 自然な動作ペース</h3>
+          <p>訪問間隔を調整できるので、人間の操作と区別がつきにくいペースで動作します。</p>
+        </div>
+        <div class="safety-card">
+          <h3>&#128290; 訪問上限で防止</h3>
+          <p>上限を設定できるので、異常な大量アクセスを防ぎ、リスクを最小限に抑えます。</p>
+        </div>
+      </div>
+      <div class="warning-box">
+        <h3>&#9888; 利用上の注意</h3>
+        <p>各マッチングアプリの利用規約に違反する可能性があります。アカウント停止のリスクはゼロではないため、使う・使わないは自己判断でお願いします。あくまで自己責任でのご利用をお願いします。</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== FAQ ===== -->
   <section class="faq" id="faq">
     <div class="section-inner">
       <span class="section-label">FAQ</span>
       <h2>よくある質問</h2>
-      <p class="section-desc">足あとメーカーに関するよくある質問にお答えします。</p>
       <div class="faq-list">
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">本当に無料ですか？</button>
           <div class="faq-a"><div class="faq-a-inner">はい、完全無料です。課金要素は一切ありません。今後も無料のまま提供します。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">どのマッチングアプリに対応していますか？</button>
-          <div class="faq-a"><div class="faq-a-inner">Pairs、with、東カレデート、Tinderの4つにプリセット対応しています。URLパターンとCSSセレクターを指定すれば、他のサイトにもカスタム対応が可能です。</div></div>
+          <button class="faq-q" aria-expanded="false">どのアプリに対応していますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">Pairs、with、東カレデート、Tinderの4つにプリセット対応。URLパターンとCSSセレクターを指定すれば他のサイトにもカスタム対応可能です。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">個人情報は収集されますか？</button>
-          <div class="faq-a"><div class="faq-a-inner">いいえ。すべてのデータはブラウザ内にローカル保存され、外部サーバーへの送信は一切行いません。</div></div>
+          <button class="faq-q" aria-expanded="false">BANされませんか？</button>
+          <div class="faq-a"><div class="faq-a-inner">訪問間隔や上限を調整でき、人間の操作と区別がつきにくいペースで動作します。ただし、利用規約違反の可能性があるためリスクはゼロではありません。自己責任でご利用ください。</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">バレたりしませんか？</button>
-          <div class="faq-a"><div class="faq-a-inner">通常の足あとと同じ形で表示されるため、自動訪問であることは相手にはわかりません。ただし、各マッチングアプリの利用規約に違反する可能性がありますので、自己責任でご利用ください。</div></div>
+          <div class="faq-a"><div class="faq-a-inner">通常の足あとと同じ形で表示されるため、自動訪問であることは相手にはわかりません。</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">スマホでも使えますか？</button>
           <div class="faq-a"><div class="faq-a-inner">Chrome拡張機能のため、PC版Google Chromeが必要です。スマホのChromeでは利用できません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">個人情報は収集されますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">一切収集しません。すべてのデータはブラウザ内にローカル保存。外部サーバーへの送信はなく、アンインストールでデータは完全削除されます。</div></div>
         </div>
       </div>
     </div>
@@ -567,13 +572,18 @@
   <!-- ===== CTA BOTTOM ===== -->
   <section class="cta-bottom">
     <div class="cta-bottom-inner">
-      <h2>あなたが寝ている間も<br>足あとは届き続ける</h2>
-      <p>完全無料。30秒で始められます。</p>
+      <h2>「いいね」を待つ前に、<br>まず存在を知ってもらおう。</h2>
+      <div class="summary-list">
+        <div class="summary-item"><span class="summary-check">&#10003;</span>Pairs・with・東カレデート・Tinderに対応</div>
+        <div class="summary-item"><span class="summary-check">&#10003;</span>完全無料、登録不要</div>
+        <div class="summary-item"><span class="summary-check">&#10003;</span>30秒でインストール、放置するだけ</div>
+        <div class="summary-item"><span class="summary-check">&#10003;</span>1時間で100人以上に足あと</div>
+      </div>
       <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         今すぐ無料でインストール
       </a>
-      <p class="hero-note">登録不要 - Chrome ウェブストアからすぐに追加</p>
+      <p class="hero-note">Chrome ウェブストアからすぐに追加</p>
     </div>
   </section>
 
@@ -583,10 +593,10 @@
       <span>&copy; 2025 足あとメーカー</span>
       <a href="privacy-policy.html" target="_blank">プライバシーポリシー</a>
       <a href="mailto:warload57@gmail.com">お問い合わせ</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-3bgZ6GV-HKKnDYGe57GuE_6Es1Gy3STgLyC55RRiPSNmrg/viewform" target="_blank" rel="noopener">不具合・要望</a>
     </div>
   </footer>
 
-  <!-- FAQ アコーディオン -->
   <script>
     document.querySelectorAll('.faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
