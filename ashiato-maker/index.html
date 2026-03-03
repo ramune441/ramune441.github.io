@@ -288,39 +288,23 @@
       font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;
     }
 
-    /* ===== DEMO SHOWCASE ===== */
-    .demo-section { background: #0d1225; text-align: center; }
-    .demo-wrap {
-      max-width: 900px; margin: 0 auto;
+    /* ===== IMAGE SECTIONS (shared) ===== */
+    .img-section {
+      text-align: center;
+    }
+    .img-section .section-inner {
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .img-section .section-desc {
+      text-align: center;
+    }
+    .img-wrap {
+      max-width: 900px; width: 100%; margin: 0 auto;
       border-radius: 20px; overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.08);
     }
-    .demo-wrap img {
-      width: 100%; height: auto; display: block;
-    }
-
-    /* ===== MERIT SECTION ===== */
-    .merit-section { background: #0a0e1a; text-align: center; }
-    .merit-wrap {
-      max-width: 900px; margin: 0 auto;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .merit-wrap img {
-      width: 100%; height: auto; display: block;
-    }
-
-    /* ===== SCREENSHOT ===== */
-    .screenshot-section { background: #0a0e1a; text-align: center; }
-    .screenshot-wrap {
-      max-width: 900px; margin: 0 auto;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .screenshot-wrap img {
+    .img-wrap img {
       width: 100%; height: auto; display: block;
     }
 
@@ -433,19 +417,19 @@
   </div>
 
   <!-- ===== DEMO SHOWCASE ===== -->
-  <section class="demo-section">
+  <section class="img-section" style="background:#0a0e1a;">
     <div class="section-inner">
       <span class="section-label">Demo</span>
       <h2>実際の動作イメージ</h2>
       <p class="section-desc">Pairsでの自動訪問の様子です。操作パネルから設定・進捗を確認できます。</p>
-      <div class="demo-wrap">
+      <div class="img-wrap">
         <img src="note-img-2-demo.png" alt="足あとメーカーの動作デモ - Pairsでプロフィールを自動訪問している様子" width="1280" height="670" loading="lazy">
       </div>
     </div>
   </section>
 
   <!-- ===== FEATURES ===== -->
-  <section class="features" id="features">
+  <section class="features" id="features" style="background:#0d1225;">
     <div class="section-inner">
       <span class="section-label">Features</span>
       <h2>できること</h2>
@@ -485,20 +469,8 @@
     </div>
   </section>
 
-  <!-- ===== MERIT ===== -->
-  <section class="merit-section">
-    <div class="section-inner">
-      <span class="section-label">Merit</span>
-      <h2>出会いのチャンスが広がる理由</h2>
-      <p class="section-desc">足あとは「あなたに興味があります」のサイン。大量の足あとが相手からのアクションを引き出します。</p>
-      <div class="merit-wrap">
-        <img src="note-img-3-merit.png" alt="足あとメーカーのメリット - 1時間で100人以上に足あと、足あと返しが増える、時間を節約、存在感がアップ" width="1280" height="670" loading="lazy">
-      </div>
-    </div>
-  </section>
-
   <!-- ===== HOW TO USE ===== -->
-  <section class="howto" id="howto">
+  <section class="howto" id="howto" style="background:#0a0e1a;">
     <div class="section-inner">
       <span class="section-label">How to use</span>
       <h2>使い方はかんたん3ステップ</h2>
@@ -516,18 +488,6 @@
           <h3>開始ボタンを押す</h3>
           <p>「開始」ボタンを押すだけで自動訪問がスタート。あとは放置するだけです。</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FEATURES IMAGE ===== -->
-  <section class="screenshot-section">
-    <div class="section-inner">
-      <span class="section-label">All Features</span>
-      <h2>搭載機能</h2>
-      <p class="section-desc">すべての機能が完全無料で使えます。</p>
-      <div class="screenshot-wrap">
-        <img src="note-img-4-features.png" alt="足あとメーカーの搭載機能一覧 - 無限ループモード、複数アプリ対応、待機時間カスタマイズ、自動いいね送信" width="1280" height="670" loading="lazy">
       </div>
     </div>
   </section>
