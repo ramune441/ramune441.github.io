@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>足あとメーカー｜マッチングアプリの足あとを自動化するChrome拡張機能</title>
+  <meta name="description" content="Pairs・with・東カレデート・Tinderに対応。ボタンひとつで自動訪問を開始し、放置するだけで足あとが届き続ける無料のChrome拡張機能です。">
+  <meta name="keywords" content="足あと 自動, マッチングアプリ 足あと, Pairs 足あと, with 足あと, 東カレデート 足あと, Tinder 自動, マッチングアプリ 自動訪問, Chrome拡張機能, 足あとメーカー">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/ashiato-maker/">
+
+  <!-- OGP -->
+  <meta property="og:title" content="足あとメーカー｜マッチングアプリの足あとを自動化">
+  <meta property="og:description" content="Pairs・with・東カレデート・Tinderに対応。放置するだけで足あとが届き続ける無料Chrome拡張機能。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/ashiato-maker/">
+  <meta property="og:image" content="https://ramune441.github.io/ashiato-maker/store-image-1.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="足あとメーカー">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="足あとメーカー｜マッチングアプリの足あとを自動化">
+  <meta name="twitter:description" content="Pairs・with・東カレデート・Tinderに対応。放置するだけで足あとが届き続ける無料Chrome拡張機能。">
+  <meta name="twitter:image" content="https://ramune441.github.io/ashiato-maker/store-image-1.png">
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "足あとメーカー",
+    "description": "マッチングアプリで自動的にプロフィールを訪問し、足あとを残すChrome拡張機能",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ramune"
+    },
+    "softwareVersion": "1.0.1",
+    "browserRequirements": "Google Chrome"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "足あとメーカーとは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "足あとメーカーは、Pairs・with・東カレデート・Tinderなどのマッチングアプリで、自動的にプロフィールを訪問して足あとを残すChrome拡張機能です。完全無料で利用できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "どのマッチングアプリに対応していますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pairs、with、東カレデート、Tinderの4つのアプリに対応しています。また、カスタム設定で他のサイトにも対応可能です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "料金はかかりますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "いいえ、完全無料でご利用いただけます。課金要素は一切ありません。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "使い方は難しいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chromeにインストール後、対応サイトを開くとページ右下に操作パネルが自動表示されます。「開始」ボタンを押すだけで自動訪問がスタートします。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0e1a;
+      color: #e2e8f0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%);
+      overflow: hidden;
+      padding: 80px 20px 60px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+      background-size: 48px 48px;
+    }
+    .bg-glow {
+      position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none;
+    }
+    .bg-glow.g1 { width: 600px; height: 600px; background: #667eea; top: -200px; left: -100px; opacity: 0.12; }
+    .bg-glow.g2 { width: 500px; height: 500px; background: #764ba2; bottom: -200px; right: -100px; opacity: 0.10; }
+    .bg-glow.g3 { width: 300px; height: 300px; background: #f59e0b; top: 40%; left: 60%; opacity: 0.04; }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 800px; text-align: center;
+    }
+    .hero-icon {
+      display: inline-flex; align-items: center; gap: 14px;
+      margin-bottom: 28px;
+    }
+    .hero-icon img {
+      width: 56px; height: 56px; border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(102,126,234,0.3);
+    }
+    .hero-icon span {
+      font-size: 22px; font-weight: 900; color: #fff;
+    }
+    .free-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff; font-size: 13px; font-weight: 900;
+      padding: 5px 22px; border-radius: 30px;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+      margin-bottom: 32px;
+    }
+    h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 900; color: #fff; line-height: 1.35;
+      margin-bottom: 24px; letter-spacing: -0.5px;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, #667eea, #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2.5vw, 20px);
+      color: rgba(255,255,255,0.85); line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff; font-size: 16px; font-weight: 700;
+      padding: 16px 40px; border-radius: 50px; border: none; cursor: pointer;
+      box-shadow: 0 8px 32px rgba(102,126,234,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(102,126,234,0.5);
+    }
+    .cta-btn svg { width: 20px; height: 20px; fill: currentColor; }
+    .hero-note {
+      margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.45);
+    }
+
+    /* ===== APPS ===== */
+    .apps-strip {
+      background: #0d1225;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 20px;
+    }
+    .apps-strip-inner {
+      max-width: 700px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+    }
+    .app-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 12px; padding: 10px 20px;
+    }
+    .app-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .app-dot.pairs { background: #e040fb; box-shadow: 0 0 8px rgba(224,64,251,0.5); }
+    .app-dot.with { background: #29b6f6; box-shadow: 0 0 8px rgba(41,182,246,0.5); }
+    .app-dot.toukare { background: #ffc107; box-shadow: 0 0 8px rgba(255,193,7,0.5); }
+    .app-dot.tinder { background: #ff5722; box-shadow: 0 0 8px rgba(255,87,34,0.5); }
+    .app-chip-name { font-size: 14px; font-weight: 700; color: #fff; }
+    .app-chip-check { color: #4ade80; font-size: 13px; font-weight: 700; }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 80px 20px;
+    }
+    .section-inner {
+      max-width: 900px; margin: 0 auto;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 12px; font-weight: 700; letter-spacing: 3px;
+      color: #a78bfa; text-transform: uppercase; margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 900; color: #fff; margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    /* ===== FEATURES ===== */
+    .features { background: #0a0e1a; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .feat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 32px 28px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .feat-card:hover {
+      border-color: rgba(102,126,234,0.3);
+      background: rgba(102,126,234,0.06);
+    }
+    .feat-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
+    .feat-card h3 {
+      font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;
+    }
+    .feat-card p {
+      font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .howto { background: #0d1225; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      counter-reset: step;
+    }
+    .step {
+      position: relative;
+      padding: 32px 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      text-align: center;
+      counter-increment: step;
+    }
+    .step::before {
+      content: counter(step);
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff; font-size: 18px; font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .step h3 {
+      font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;
+    }
+
+    /* ===== SCREENSHOT ===== */
+    .screenshot-section { background: #0a0e1a; text-align: center; }
+    .screenshot-wrap {
+      max-width: 700px; margin: 0 auto;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .screenshot-wrap img {
+      width: 100%; height: auto; display: block;
+    }
+
+    /* ===== FAQ ===== */
+    .faq { background: #0d1225; }
+    .faq-list {
+      max-width: 700px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .faq-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px; overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      background: none; border: none; cursor: pointer;
+      padding: 20px 24px; font-size: 15px; font-weight: 700;
+      color: #fff; text-align: left; font-family: inherit;
+    }
+    .faq-q::after {
+      content: '+'; font-size: 20px; color: #a78bfa;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-a-inner {
+      padding: 0 24px 20px;
+      font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.8;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ===== CTA BOTTOM ===== */
+    .cta-bottom {
+      background: linear-gradient(160deg, #1e1b4b, #312e81);
+      text-align: center;
+      padding: 80px 20px;
+      position: relative; overflow: hidden;
+    }
+    .cta-bottom::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+      background-size: 48px 48px;
+    }
+    .cta-bottom-inner { position: relative; z-index: 1; }
+    .cta-bottom h2 { margin-bottom: 12px; }
+    .cta-bottom p {
+      font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 36px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #070a14;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 700px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
+      font-size: 13px; color: rgba(255,255,255,0.35);
+    }
+    .footer-inner a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .hero { padding: 100px 16px 50px; }
+      .cta-btn { padding: 14px 28px; font-size: 15px; }
+      section { padding: 56px 16px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="top">
+    <div class="bg-glow g1"></div>
+    <div class="bg-glow g2"></div>
+    <div class="bg-glow g3"></div>
+    <div class="hero-inner">
+      <div class="hero-icon">
+        <img src="icons/icon128.png" alt="足あとメーカー アイコン" width="56" height="56">
+        <span>足あとメーカー</span>
+      </div>
+      <div class="free-badge">完全無料</div>
+      <h1>放置するだけで<br><span class="accent">足あとが届き続ける</span></h1>
+      <p class="hero-sub">マッチングアプリのプロフィール訪問を自動化するChrome拡張機能。<br>ボタンひとつで開始。あなたが何もしなくても、相手に足あとが届きます。</p>
+      <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        Chromeに追加する（無料）
+      </a>
+      <p class="hero-note">Chrome ウェブストアからインストール</p>
+    </div>
+  </header>
+
+  <!-- ===== SUPPORTED APPS ===== -->
+  <div class="apps-strip" aria-label="対応アプリ一覧">
+    <div class="apps-strip-inner">
+      <div class="app-chip"><span class="app-dot pairs"></span><span class="app-chip-name">Pairs</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><span class="app-dot with"></span><span class="app-chip-name">with</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><span class="app-dot toukare"></span><span class="app-chip-name">東カレデート</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><span class="app-dot tinder"></span><span class="app-chip-name">Tinder</span><span class="app-chip-check">&#10003;</span></div>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <span class="section-label">Features</span>
+      <h2>できること</h2>
+      <p class="section-desc">足あとメーカーが提供する主な機能をご紹介します。</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <span class="feat-emoji" role="img" aria-label="自動訪問">&#128065;</span>
+          <h3>プロフィール自動訪問</h3>
+          <p>対応アプリのページを開いてボタンを押すだけ。プロフィールを自動で巡回し、相手に足あとを残します。</p>
+        </article>
+        <article class="feat-card">
+          <span class="feat-emoji" role="img" aria-label="無限ループ">&#128260;</span>
+          <h3>無限ループモード</h3>
+          <p>ページを自動リロードして新しいプロフィールを読み込み、訪問を繰り返します。放置するだけでOK。</p>
+        </article>
+        <article class="feat-card">
+          <span class="feat-emoji" role="img" aria-label="自動いいね">&#10084;&#65039;</span>
+          <h3>自動いいね機能</h3>
+          <p>東カレデート・Tinderでは、訪問と同時に自動で「いいね」を送ることも可能です。</p>
+        </article>
+        <article class="feat-card">
+          <span class="feat-emoji" role="img" aria-label="タイマー">&#9201;</span>
+          <h3>訪問間隔の調整</h3>
+          <p>訪問ごとの待機時間を自由に設定。自然なペースでの訪問が可能です。</p>
+        </article>
+        <article class="feat-card">
+          <span class="feat-emoji" role="img" aria-label="上限設定">&#128290;</span>
+          <h3>訪問上限の設定</h3>
+          <p>1回あたり・全体の訪問回数に上限を設定できます。使いすぎを防止。</p>
+        </article>
+        <article class="feat-card">
+          <span class="feat-emoji" role="img" aria-label="カスタム設定">&#128295;</span>
+          <h3>カスタム対応</h3>
+          <p>URLパターンとCSSセレクターを指定すれば、プリセット以外のサイトにも対応できます。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO USE ===== -->
+  <section class="howto" id="howto">
+    <div class="section-inner">
+      <span class="section-label">How to use</span>
+      <h2>使い方はかんたん3ステップ</h2>
+      <p class="section-desc">インストールから自動訪問開始まで、わずか数分で完了します。</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Chromeに追加</h3>
+          <p>Chrome ウェブストアから「足あとメーカー」をインストールします。登録やログインは不要です。</p>
+        </div>
+        <div class="step">
+          <h3>アプリを開く</h3>
+          <p>対応するマッチングアプリのWebページをChromeで開きます。操作パネルが右下に自動表示されます。</p>
+        </div>
+        <div class="step">
+          <h3>開始ボタンを押す</h3>
+          <p>「開始」ボタンを押すだけで自動訪問がスタート。あとは放置するだけです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SCREENSHOT ===== -->
+  <section class="screenshot-section">
+    <div class="section-inner">
+      <span class="section-label">Preview</span>
+      <h2>ストアプレビュー</h2>
+      <p class="section-desc">Chrome ウェブストアでの表示イメージです。</p>
+      <div class="screenshot-wrap">
+        <img src="store-image-1.png" alt="足あとメーカーのChrome ウェブストア掲載イメージ" width="1280" height="800" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="section-inner">
+      <span class="section-label">FAQ</span>
+      <h2>よくある質問</h2>
+      <p class="section-desc">足あとメーカーに関するよくある質問にお答えします。</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">足あとメーカーとは何ですか？</button>
+          <div class="faq-a"><div class="faq-a-inner">足あとメーカーは、Pairs・with・東カレデート・Tinderなどのマッチングアプリで、自動的にプロフィールを訪問して足あとを残すChrome拡張機能です。完全無料で利用できます。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">どのマッチングアプリに対応していますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">Pairs、with、東カレデート、Tinderの4つのアプリにプリセット対応しています。また、URLパターンとCSSセレクターを自分で指定すれば、他のサイトにもカスタム対応が可能です。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">料金はかかりますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">いいえ、完全無料でご利用いただけます。課金要素は一切ありません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">使い方は難しいですか？</button>
+          <div class="faq-a"><div class="faq-a-inner">Chromeにインストール後、対応サイトを開くとページ右下に操作パネルが自動表示されます。「開始」ボタンを押すだけで自動訪問がスタートします。プリセットが用意されているので、細かい設定は不要です。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">個人情報は収集されますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">いいえ。足あとメーカーは個人情報を一切収集しません。すべてのデータはお使いのブラウザ内にローカル保存され、外部サーバーへの送信は行いません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">利用上の注意点はありますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">各マッチングアプリの利用規約に違反する可能性があります。アカウント停止等のリスクがありますので、自己責任でご利用ください。学習目的や個人的な小規模利用を想定しています。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BOTTOM ===== -->
+  <section class="cta-bottom">
+    <div class="cta-bottom-inner">
+      <h2>今すぐ足あとメーカーを試してみよう</h2>
+      <p>インストールは無料。登録不要ですぐに使えます。</p>
+      <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        Chromeに追加する（無料）
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2025 足あとメーカー</span>
+      <a href="https://github.com/ramune441/ashiato-maker" target="_blank" rel="noopener">GitHub</a>
+      <a href="privacy-policy.md" target="_blank">プライバシーポリシー</a>
+      <a href="mailto:warload57@gmail.com">お問い合わせ</a>
+    </div>
+  </footer>
+
+  <!-- FAQ アコーディオン -->
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
