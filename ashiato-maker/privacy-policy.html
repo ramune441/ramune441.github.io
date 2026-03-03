@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー｜足あとメーカー</title>
+  <meta name="description" content="Chrome拡張機能「足あとメーカー」のプライバシーポリシーです。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/ashiato-maker/privacy-policy.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0e1a;
+      color: #cbd5e1;
+      line-height: 1.9;
+    }
+    a { color: #a78bfa; }
+    a:hover { color: #c4b5fd; }
+
+    .header {
+      background: linear-gradient(160deg, #0f172a, #1e1b4b);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 24px;
+    }
+    .header-inner {
+      max-width: 760px; margin: 0 auto;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header img { width: 32px; height: 32px; border-radius: 8px; }
+    .header a {
+      font-size: 15px; font-weight: 700; color: #fff; text-decoration: none;
+    }
+
+    main {
+      max-width: 760px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    h1 {
+      font-size: 28px; font-weight: 900; color: #fff;
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    h2 {
+      font-size: 18px; font-weight: 700; color: #e2e8f0;
+      margin-top: 40px; margin-bottom: 12px;
+    }
+    h3 {
+      font-size: 15px; font-weight: 700; color: #cbd5e1;
+      margin-top: 20px; margin-bottom: 8px;
+    }
+    p, li {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    ul {
+      padding-left: 20px; margin-bottom: 12px;
+    }
+    li { margin-bottom: 4px; }
+    strong { color: #e2e8f0; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px; color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-inner">
+      <img src="icons/icon128.png" alt="" width="32" height="32">
+      <a href="./">足あとメーカー</a>
+    </div>
+  </div>
+
+  <main>
+    <h1>プライバシーポリシー</h1>
+
+    <h2>1. はじめに</h2>
+    <p>本プライバシーポリシーは、開発者 Ramune（以下「当開発者」）が提供する Chrome 拡張機能「足あとメーカー」（以下「本拡張機能」）における、利用者情報の取扱いについて定めるものです。</p>
+
+    <h2>2. 取得する情報について</h2>
+    <p>本拡張機能では、機能提供のため、以下の情報を取得・利用する場合があります。</p>
+
+    <h3>(1) 閲覧中のページ情報</h3>
+    <ul>
+      <li>対象ウェブサイト上の DOM 要素（プロフィールリンク等）</li>
+      <li>現在のページ URL</li>
+    </ul>
+    <p>これらの情報は、本拡張機能の自動訪問機能を実現するためにのみ使用されます。</p>
+
+    <h3>(2) ローカルに保存される情報</h3>
+    <ul>
+      <li>ユーザーが設定した各種設定値（訪問人数、待機時間、プリセット選択等）</li>
+      <li>訪問済みプロフィールの履歴情報</li>
+    </ul>
+    <p>これらの情報は、Chrome の Storage API（<code>chrome.storage.sync</code> および <code>chrome.storage.local</code>）を利用して、ユーザーの端末内にのみ保存されます。</p>
+    <p>※ 氏名、メールアドレス、電話番号、住所など、個人を直接特定できる情報は取得しません。</p>
+
+    <h2>3. 情報の利用目的</h2>
+    <p>取得した情報は、以下の目的のためにのみ利用します。</p>
+    <ul>
+      <li>プロフィールの自動訪問機能の提供</li>
+      <li>訪問済みプロフィールの重複防止</li>
+      <li>ユーザー設定の保存・復元</li>
+    </ul>
+
+    <h2>4. 外部への情報送信について</h2>
+    <p>本拡張機能は、取得した情報を外部サーバーに送信することはありません。すべてのデータはユーザーの端末内でのみ処理・保存されます。</p>
+
+    <h2>5. 第三者への提供について</h2>
+    <p>取得した情報は、以下の場合を除き、第三者に提供することはありません。</p>
+    <ul>
+      <li>法令に基づく場合</li>
+      <li>ユーザーの明示的な同意がある場合</li>
+    </ul>
+
+    <h2>6. ウェブページへのアクセスについて</h2>
+    <p>本拡張機能は、自動訪問機能を提供するため、対象ウェブサイトのページコンテンツにアクセスします。ページコンテンツへのアクセスは本拡張機能の機能提供以外の目的では使用せず、ページの内容を保存・蓄積することはありません。</p>
+
+    <h2>7. 権限について</h2>
+    <p>本拡張機能は、以下の Chrome 権限を使用します。</p>
+    <ul>
+      <li><strong>storage</strong>: ユーザー設定および訪問履歴の保存</li>
+      <li><strong>activeTab</strong>: 現在のタブへのアクセス</li>
+      <li><strong>scripting</strong>: 対象ページへのスクリプト注入（自動訪問機能の実行）</li>
+      <li><strong>tabs</strong>: タブ情報の取得</li>
+      <li><strong>host_permissions (https://*//*)</strong>: 対象ウェブサイトでの動作</li>
+    </ul>
+    <p>これらの権限は、本拡張機能の機能を実現するために必要最小限のものです。</p>
+
+    <h2>8. データの保存について</h2>
+    <p>本拡張機能が保存するデータは、すべてユーザーの端末内（Chrome のストレージ領域）に限定されます。当開発者がユーザーのデータを独自に収集・保存することはありません。ユーザーは拡張機能内の「履歴をリセット」機能、または拡張機能のアンインストールにより、保存されたデータを削除できます。</p>
+
+    <h2>9. お問い合わせ先</h2>
+    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
+    <p>メールアドレス：warload57@gmail.com</p>
+
+    <h2>10. プライバシーポリシーの変更</h2>
+    <p>本ポリシーは、法令の変更やサービス内容の変更に応じて、必要に応じて改定されることがあります。変更後のプライバシーポリシーは、本ページにて速やかに公開します。</p>
+  </main>
+
+  <footer>
+    &copy; 2025 足あとメーカー
+  </footer>
+
+</body>
+</html>
