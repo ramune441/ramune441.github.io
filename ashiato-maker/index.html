@@ -152,6 +152,11 @@
       box-shadow: 0 4px 20px rgba(34,197,94,0.3);
       margin-bottom: 32px;
     }
+    .hero-pain {
+      font-size: clamp(14px, 2vw, 17px);
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
     h1 {
       font-size: clamp(32px, 6vw, 56px);
       font-weight: 900; color: #fff; line-height: 1.35;
@@ -167,6 +172,7 @@
       color: rgba(255,255,255,0.85); line-height: 1.8;
       margin-bottom: 40px;
     }
+    .hero-sub strong { color: #a78bfa; font-weight: 700; }
     .cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
       background: linear-gradient(135deg, #667eea, #764ba2);
@@ -231,28 +237,61 @@
       max-width: 600px;
     }
 
-    /* ===== FEATURES ===== */
-    .features { background: #0a0e1a; }
-    .features-grid {
+    /* ===== STATS ===== */
+    .stats-strip {
+      background: #0a0e1a;
+      padding: 48px 20px;
+    }
+    .stats-inner {
+      max-width: 800px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      text-align: center;
+    }
+    .stat-item { padding: 24px 16px; }
+    .stat-number {
+      font-size: clamp(32px, 5vw, 48px); font-weight: 900;
+      background: linear-gradient(135deg, #667eea, #a78bfa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2; margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 14px; color: rgba(255,255,255,0.5); font-weight: 600;
+    }
+
+    /* ===== IMAGE SECTIONS ===== */
+    .img-wrap {
+      max-width: 900px; width: 100%; margin: 0 auto;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .img-wrap img {
+      width: 100%; height: auto; display: block;
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits { background: #0a0e1a; }
+    .benefits-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
     }
-    .feat-card {
+    .benefit-card {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 16px; padding: 32px 28px;
       transition: border-color 0.3s, background 0.3s;
     }
-    .feat-card:hover {
+    .benefit-card:hover {
       border-color: rgba(102,126,234,0.3);
       background: rgba(102,126,234,0.06);
     }
-    .feat-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
-    .feat-card h3 {
+    .benefit-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
+    .benefit-card h3 {
       font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 10px;
     }
-    .feat-card p {
+    .benefit-card p {
       font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7;
     }
 
@@ -288,19 +327,8 @@
       font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7;
     }
 
-    /* ===== IMAGE SECTIONS ===== */
-    .img-wrap {
-      max-width: 900px; width: 100%; margin: 0 auto;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .img-wrap img {
-      width: 100%; height: auto; display: block;
-    }
-
     /* ===== FAQ ===== */
-    .faq { background: #0d1225; }
+    .faq { background: #0a0e1a; }
     .faq-list {
       max-width: 700px; margin: 0 auto;
       display: flex; flex-direction: column; gap: 16px;
@@ -349,6 +377,7 @@
     .cta-bottom p {
       font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 36px;
     }
+    .cta-bottom .hero-note { margin-top: 16px; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -369,8 +398,10 @@
       .hero { padding: 100px 16px 50px; }
       .cta-btn { padding: 14px 28px; font-size: 15px; }
       section { padding: 56px 16px; }
-      .features-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr; gap: 8px; }
+      .stat-item { padding: 16px; }
     }
   </style>
 </head>
@@ -387,13 +418,14 @@
         <span>足あとメーカー</span>
       </div>
       <div class="free-badge">完全無料</div>
+      <p class="hero-pain">毎日スワイプするのに、マッチしない。もっと効率よく出会いたい。</p>
       <h1>放置するだけで<br><span class="accent">足あとが届き続ける</span></h1>
-      <p class="hero-sub">マッチングアプリのプロフィール訪問を自動化するChrome拡張機能。<br>ボタンひとつで開始。あなたが何もしなくても、相手に足あとが届きます。</p>
+      <p class="hero-sub">1時間で<strong>100人以上</strong>のプロフィールに自動で足あと。<br>あなたが何もしなくても、相手に「気になってます」が届きます。</p>
       <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         Chromeに追加する（無料）
       </a>
-      <p class="hero-note">Chrome ウェブストアからインストール</p>
+      <p class="hero-note">30秒でインストール完了 - 登録不要</p>
     </div>
   </header>
 
@@ -407,77 +439,95 @@
     </div>
   </div>
 
+  <!-- ===== STATS ===== -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">1時間あたりの足あと数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">0</div>
+        <div class="stat-label">円 - 完全無料</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30</div>
+        <div class="stat-label">秒でインストール完了</div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== DEMO SHOWCASE ===== -->
-  <section style="background:#0a0e1a;">
+  <section style="background:#0d1225;">
     <div class="section-inner">
       <span class="section-label">Demo</span>
-      <h2>実際の動作イメージ</h2>
-      <p class="section-desc">Pairsでの自動訪問の様子です。操作パネルから設定・進捗を確認できます。</p>
+      <h2>ボタンを押したら、あとは放置</h2>
+      <p class="section-desc">Pairsの画面で実際に動いている様子です。プロフィールを1人ずつ自動で訪問し、足あとを残していきます。</p>
       <div class="img-wrap">
         <img src="note-img-2-demo.png" alt="足あとメーカーの動作デモ - Pairsでプロフィールを自動訪問している様子" width="1280" height="670" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- ===== FEATURES ===== -->
-  <section class="features" id="features" style="background:#0d1225;">
+  <!-- ===== BENEFITS ===== -->
+  <section class="benefits" id="benefits">
     <div class="section-inner">
-      <span class="section-label">Features</span>
-      <h2>できること</h2>
-      <p class="section-desc">足あとメーカーが提供する主な機能をご紹介します。</p>
-      <div class="features-grid">
-        <article class="feat-card">
-          <span class="feat-emoji" role="img" aria-label="自動訪問">&#128065;</span>
-          <h3>プロフィール自動訪問</h3>
-          <p>対応アプリのページを開いてボタンを押すだけ。プロフィールを自動で巡回し、相手に足あとを残します。</p>
+      <span class="section-label">Why</span>
+      <h2>なぜ足あとが効くのか</h2>
+      <p class="section-desc">足あとは「あなたに興味があります」のサイン。相手からのアクションを自然に引き出します。</p>
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <span class="benefit-emoji">&#128064;</span>
+          <h3>相手の画面に表示される</h3>
+          <p>足あとを残すと、相手の「足あと一覧」にあなたが表示されます。プロフィールを見てもらえるきっかけになります。</p>
         </article>
-        <article class="feat-card">
-          <span class="feat-emoji" role="img" aria-label="無限ループ">&#128260;</span>
-          <h3>無限ループモード</h3>
-          <p>ページを自動リロードして新しいプロフィールを読み込み、訪問を繰り返します。放置するだけでOK。</p>
+        <article class="benefit-card">
+          <span class="benefit-emoji">&#128257;</span>
+          <h3>足あと返しが来る</h3>
+          <p>あなたの足あとに気づいた相手がプロフィールを見に来ます。お互いの関心がマッチングに繋がります。</p>
         </article>
-        <article class="feat-card">
-          <span class="feat-emoji" role="img" aria-label="自動いいね">&#10084;&#65039;</span>
+        <article class="benefit-card">
+          <span class="benefit-emoji">&#128200;</span>
+          <h3>いいね数が増える</h3>
+          <p>あなたの存在を知った相手から「いいね」が届くようになります。手動では不可能な数の相手にアプローチ可能。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-emoji">&#9203;</span>
+          <h3>時間を節約できる</h3>
+          <p>1人ずつプロフィールを見る作業は不要。PCで放置するだけで、勝手に足あとが増え続けます。</p>
+        </article>
+        <article class="benefit-card">
+          <span class="benefit-emoji">&#10084;&#65039;</span>
           <h3>自動いいね機能</h3>
-          <p>東カレデート・Tinderでは、訪問と同時に自動で「いいね」を送ることも可能です。</p>
+          <p>東カレデート・Tinderでは、足あとと同時に「いいね」も自動送信。さらにマッチング率アップ。</p>
         </article>
-        <article class="feat-card">
-          <span class="feat-emoji" role="img" aria-label="タイマー">&#9201;</span>
-          <h3>訪問間隔の調整</h3>
-          <p>訪問ごとの待機時間を自由に設定。自然なペースでの訪問が可能です。</p>
-        </article>
-        <article class="feat-card">
-          <span class="feat-emoji" role="img" aria-label="上限設定">&#128290;</span>
-          <h3>訪問上限の設定</h3>
-          <p>1回あたり・全体の訪問回数に上限を設定できます。使いすぎを防止。</p>
-        </article>
-        <article class="feat-card">
-          <span class="feat-emoji" role="img" aria-label="カスタム設定">&#128295;</span>
-          <h3>カスタム対応</h3>
-          <p>URLパターンとCSSセレクターを指定すれば、プリセット以外のサイトにも対応できます。</p>
+        <article class="benefit-card">
+          <span class="benefit-emoji">&#128260;</span>
+          <h3>無限ループで放置OK</h3>
+          <p>ページを自動リロードして新しいプロフィールを次々と訪問。寝ている間も足あとが増え続けます。</p>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ===== HOW TO USE ===== -->
-  <section class="howto" id="howto" style="background:#0a0e1a;">
+  <section class="howto" id="howto">
     <div class="section-inner">
       <span class="section-label">How to use</span>
-      <h2>使い方はかんたん3ステップ</h2>
-      <p class="section-desc">インストールから自動訪問開始まで、わずか数分で完了します。</p>
+      <h2>たった3ステップ、30秒で開始</h2>
+      <p class="section-desc">難しい設定は一切なし。インストールしたらすぐに使えます。</p>
       <div class="steps">
         <div class="step">
           <h3>Chromeに追加</h3>
-          <p>Chrome ウェブストアから「足あとメーカー」をインストールします。登録やログインは不要です。</p>
+          <p>ウェブストアから追加するだけ。登録もログインも不要です。</p>
         </div>
         <div class="step">
-          <h3>アプリを開く</h3>
-          <p>対応するマッチングアプリのWebページをChromeで開きます。操作パネルが右下に自動表示されます。</p>
+          <h3>マッチングアプリを開く</h3>
+          <p>Pairs・with・東カレ・TinderをChromeで開くと、操作パネルが自動表示。</p>
         </div>
         <div class="step">
-          <h3>開始ボタンを押す</h3>
-          <p>「開始」ボタンを押すだけで自動訪問がスタート。あとは放置するだけです。</p>
+          <h3>「開始」を押して放置</h3>
+          <p>あとは何もしなくてOK。自動で足あとが増え続けます。</p>
         </div>
       </div>
     </div>
@@ -491,28 +541,24 @@
       <p class="section-desc">足あとメーカーに関するよくある質問にお答えします。</p>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">足あとメーカーとは何ですか？</button>
-          <div class="faq-a"><div class="faq-a-inner">足あとメーカーは、Pairs・with・東カレデート・Tinderなどのマッチングアプリで、自動的にプロフィールを訪問して足あとを残すChrome拡張機能です。完全無料で利用できます。</div></div>
+          <button class="faq-q" aria-expanded="false">本当に無料ですか？</button>
+          <div class="faq-a"><div class="faq-a-inner">はい、完全無料です。課金要素は一切ありません。今後も無料のまま提供します。</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">どのマッチングアプリに対応していますか？</button>
-          <div class="faq-a"><div class="faq-a-inner">Pairs、with、東カレデート、Tinderの4つのアプリにプリセット対応しています。また、URLパターンとCSSセレクターを自分で指定すれば、他のサイトにもカスタム対応が可能です。</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">料金はかかりますか？</button>
-          <div class="faq-a"><div class="faq-a-inner">いいえ、完全無料でご利用いただけます。課金要素は一切ありません。</div></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">使い方は難しいですか？</button>
-          <div class="faq-a"><div class="faq-a-inner">Chromeにインストール後、対応サイトを開くとページ右下に操作パネルが自動表示されます。「開始」ボタンを押すだけで自動訪問がスタートします。プリセットが用意されているので、細かい設定は不要です。</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Pairs、with、東カレデート、Tinderの4つにプリセット対応しています。URLパターンとCSSセレクターを指定すれば、他のサイトにもカスタム対応が可能です。</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">個人情報は収集されますか？</button>
-          <div class="faq-a"><div class="faq-a-inner">いいえ。足あとメーカーは個人情報を一切収集しません。すべてのデータはお使いのブラウザ内にローカル保存され、外部サーバーへの送信は行いません。</div></div>
+          <div class="faq-a"><div class="faq-a-inner">いいえ。すべてのデータはブラウザ内にローカル保存され、外部サーバーへの送信は一切行いません。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false">利用上の注意点はありますか？</button>
-          <div class="faq-a"><div class="faq-a-inner">各マッチングアプリの利用規約に違反する可能性があります。アカウント停止等のリスクがありますので、自己責任でご利用ください。学習目的や個人的な小規模利用を想定しています。</div></div>
+          <button class="faq-q" aria-expanded="false">バレたりしませんか？</button>
+          <div class="faq-a"><div class="faq-a-inner">通常の足あとと同じ形で表示されるため、自動訪問であることは相手にはわかりません。ただし、各マッチングアプリの利用規約に違反する可能性がありますので、自己責任でご利用ください。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">スマホでも使えますか？</button>
+          <div class="faq-a"><div class="faq-a-inner">Chrome拡張機能のため、PC版Google Chromeが必要です。スマホのChromeでは利用できません。</div></div>
         </div>
       </div>
     </div>
@@ -521,12 +567,13 @@
   <!-- ===== CTA BOTTOM ===== -->
   <section class="cta-bottom">
     <div class="cta-bottom-inner">
-      <h2>今すぐ足あとメーカーを試してみよう</h2>
-      <p>インストールは無料。登録不要ですぐに使えます。</p>
+      <h2>あなたが寝ている間も<br>足あとは届き続ける</h2>
+      <p>完全無料。30秒で始められます。</p>
       <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        Chromeに追加する（無料）
+        今すぐ無料でインストール
       </a>
+      <p class="hero-note">登録不要 - Chrome ウェブストアからすぐに追加</p>
     </div>
   </section>
 
@@ -534,8 +581,7 @@
   <footer>
     <div class="footer-inner">
       <span>&copy; 2025 足あとメーカー</span>
-      <a href="https://github.com/ramune441/ashiato-maker" target="_blank" rel="noopener">GitHub</a>
-      <a href="privacy-policy.md" target="_blank">プライバシーポリシー</a>
+      <a href="privacy-policy.html" target="_blank">プライバシーポリシー</a>
       <a href="mailto:warload57@gmail.com">お問い合わせ</a>
     </div>
   </footer>
