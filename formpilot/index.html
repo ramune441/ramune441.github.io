@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FormPilot｜AIがWebフォームをワンクリックで自動入力するChrome拡張機能</title>
+  <meta name="description" content="会員登録・問い合わせ・注文フォームなど、あらゆるWebフォームをAIが解析してワンクリックで自動入力。複数プロフィール・11言語対応の無料Chrome拡張機能。">
+  <meta name="keywords" content="フォーム自動入力, Chrome拡張機能, AI自動入力, フォーム入力 自動化, FormPilot, 会員登録 自動, 住所入力 自動, auto fill form, AI form filler">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/formpilot/">
+
+  <!-- OGP -->
+  <meta property="og:title" content="FormPilot｜AIがWebフォームをワンクリックで自動入力">
+  <meta property="og:description" content="会員登録・問い合わせ・注文フォームなど、あらゆるWebフォームをAIが解析してワンクリックで自動入力する無料Chrome拡張機能。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/formpilot/">
+  <meta property="og:image" content="https://ramune441.github.io/formpilot/store-image-1.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="FormPilot">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FormPilot｜AIがWebフォームをワンクリックで自動入力">
+  <meta name="twitter:description" content="会員登録・問い合わせ・注文フォームなど、あらゆるWebフォームをAIが解析してワンクリックで自動入力する無料Chrome拡張機能。">
+  <meta name="twitter:image" content="https://ramune441.github.io/formpilot/store-image-1.png">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FormPilot",
+    "description": "AI-powered Chrome extension that auto-fills web forms using saved profiles",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Ramune" },
+    "softwareVersion": "1.0.0",
+    "browserRequirements": "Google Chrome"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is it really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No API key, no sign-up, no hidden costs." } },
+      { "@type": "Question", "name": "What forms does it support?", "acceptedAnswer": { "@type": "Answer", "text": "Sign-ups, contact forms, e-commerce checkout, government forms, and more. AI analyzes form structure so no per-site setup is needed." } },
+      { "@type": "Question", "name": "Is my personal data safe?", "acceptedAnswer": { "@type": "Answer", "text": "All profile data is stored locally in the browser. Only form structure metadata is sent to AI — your personal information is never transmitted." } },
+      { "@type": "Question", "name": "How is this different from browser autofill?", "acceptedAnswer": { "@type": "Answer", "text": "Browser autofill only covers basic name and address fields, sometimes fills in wrong values, and doesn't support furigana or custom fields. FormPilot's AI understands the entire form structure, filling every field accurately." } }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+
+  <style>
+    :root {
+      --green-50: #ecfdf5; --green-100: #d1fae5; --green-200: #a7f3d0;
+      --green-400: #34d399; --green-500: #10b981; --green-600: #059669;
+      --green-700: #047857; --green-800: #065f46;
+      --text: #1e293b; --text-sub: #64748b; --text-light: #94a3b8;
+      --bg: #ffffff; --bg-alt: #f8fafc; --border: #e2e8f0;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.8; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-select {
+      appearance: none; background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: 6px; padding: 5px 28px 5px 10px; font-size: 13px; font-weight: 500;
+      color: var(--text); cursor: pointer; font-family: inherit;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 8px center;
+    }
+    .nav-cta {
+      background: var(--green-600); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 8px 20px; border-radius: 8px; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-700); }
+
+    /* HERO */
+    .hero { padding: 120px 24px 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .hero-deco { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, var(--green-100) 0%, transparent 70%); top: -200px; right: -200px; pointer-events: none; opacity: 0.6; }
+    .hero-deco2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, var(--green-50) 0%, transparent 70%); bottom: -100px; left: -100px; pointer-events: none; opacity: 0.8; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-50); color: var(--green-700); font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 100px; border: 1px solid var(--green-200); margin-bottom: 24px; }
+    .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-500); }
+    h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: var(--text); line-height: 1.3; margin-bottom: 20px; letter-spacing: -0.5px; }
+    h1 .accent { color: var(--green-600); }
+    .hero-desc { font-size: 17px; color: var(--text-sub); line-height: 1.8; margin-bottom: 36px; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--green-600); color: #fff; font-size: 15px; font-weight: 600; padding: 14px 32px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(5,150,105,0.25); transition: all 0.2s; text-decoration: none; }
+    .btn-primary:hover { background: var(--green-700); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(5,150,105,0.3); }
+    .btn-primary svg { width: 18px; height: 18px; fill: currentColor; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); font-size: 14px; font-weight: 500; padding: 14px 8px; transition: color 0.2s; }
+    .btn-ghost:hover { color: var(--green-600); }
+    .hero-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
+    .hero-image { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04); border: 1px solid var(--border); }
+    .hero-image img { display: block; width: 100%; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 24px; }
+    .trust-bar-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--text-sub); }
+    .trust-icon { font-size: 18px; }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-600); margin-bottom: 12px; }
+    h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: var(--text); line-height: 1.35; margin-bottom: 16px; }
+    .section-lead { font-size: 16px; color: var(--text-sub); max-width: 600px; line-height: 1.8; margin-bottom: 56px; }
+    .section-center { text-align: center; }
+    .section-center .section-lead { margin-left: auto; margin-right: auto; }
+
+    /* PROBLEM BANNER */
+    .problem-banner { background: linear-gradient(135deg, var(--green-700), var(--green-600)); color: #fff; padding: 64px 24px; text-align: center; }
+    .problem-banner h2 { color: #fff; margin-bottom: 16px; }
+    .problem-banner p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 650px; margin: 0 auto; line-height: 1.8; }
+    .problem-banner .highlight { color: var(--green-200); font-weight: 700; }
+
+    /* FLOW */
+    .flow { background: var(--bg-alt); }
+    .flow-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; max-width: 900px; margin: 0 auto; }
+    .flow-timeline::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 12px); right: calc(12.5% + 12px); height: 3px; background: var(--green-200); border-radius: 2px; }
+    .flow-item { text-align: center; position: relative; z-index: 1; }
+    .flow-num { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--green-600); color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(5,150,105,0.25); }
+    .flow-item h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .flow-item p { font-size: 13px; color: var(--text-sub); line-height: 1.6; padding: 0 8px; }
+
+    /* COMPARE */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 700px; }
+    .compare-card { border-radius: 16px; padding: 40px 32px; text-align: center; }
+    .compare-card.manual { background: var(--bg-alt); border: 1px solid var(--border); }
+    .compare-card.ai { background: var(--green-50); border: 2px solid var(--green-400); position: relative; }
+    .compare-card.ai::after { content: 'FormPilot'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green-600); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 14px; border-radius: 100px; letter-spacing: 1px; }
+    .compare-card h3 { font-size: 14px; font-weight: 600; color: var(--text-sub); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+    .compare-number { font-size: 48px; font-weight: 800; line-height: 1; margin-bottom: 4px; }
+    .compare-card.manual .compare-number { color: var(--text-light); }
+    .compare-card.ai .compare-number { color: var(--green-600); }
+    .compare-unit { font-size: 14px; color: var(--text-sub); }
+
+    /* DEMO */
+    .demo { background: var(--bg-alt); }
+    .demo-img { max-width: 900px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.08); border: 1px solid var(--border); }
+    .demo-img img { display: block; width: 100%; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; transition: box-shadow 0.3s, border-color 0.3s; }
+    .feat-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); border-color: var(--green-400); }
+    .feat-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--green-50); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* LANGUAGES */
+    .lang-section { background: var(--bg-alt); }
+    .lang-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .lang-tag { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 10px 20px; font-size: 14px; font-weight: 500; color: var(--text); transition: border-color 0.2s, box-shadow 0.2s; }
+    .lang-tag:hover { border-color: var(--green-400); box-shadow: 0 2px 8px rgba(16,185,129,0.1); }
+
+    /* BENEFITS */
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .benefit-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 36px 28px; text-align: center; transition: box-shadow 0.3s, transform 0.3s; }
+    .benefit-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); transform: translateY(-4px); }
+    .benefit-num { font-size: 40px; font-weight: 800; color: var(--green-500); line-height: 1; margin-bottom: 12px; }
+    .benefit-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .benefit-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* HOW TO */
+    .howto { background: var(--bg-alt); }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .step-card { text-align: center; }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50%; border: 3px solid var(--green-500); color: var(--green-600); font-size: 24px; font-weight: 800; margin-bottom: 20px; background: var(--bg); }
+    .step-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .step-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* SAFETY */
+    .safety-section { background: linear-gradient(180deg, var(--green-800) 0%, var(--green-700) 100%); color: #fff; }
+    .safety-section .section-tag { color: var(--green-200); }
+    .safety-section h2 { color: #fff; }
+    .safety-section .section-lead { color: rgba(255,255,255,0.75); }
+    .safety-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .safety-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 24px; backdrop-filter: blur(8px); }
+    .safety-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .safety-card p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-item:hover { border-color: var(--green-400); }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; padding: 20px 24px; font-size: 15px; font-weight: 600; color: var(--text); text-align: left; font-family: inherit; line-height: 1.5; }
+    .faq-q::after { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-left: 16px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2.5'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/contain no-repeat; transition: transform 0.3s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-a-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-sub); line-height: 1.8; }
+    .faq-a-inner a { color: var(--green-600); text-decoration: underline; }
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    /* CTA BOTTOM */
+    .cta-bottom { background: var(--green-50); text-align: center; padding: 80px 24px; border-top: 1px solid var(--green-200); }
+    .cta-bottom h2 { margin-bottom: 24px; }
+    .cta-checklist { max-width: 440px; margin: 0 auto 36px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
+    .cta-check-item { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--text); }
+    .cta-check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--green-500); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .cta-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
+
+    /* FOOTER */
+    footer { background: var(--text); padding: 40px 24px; text-align: center; }
+    .footer-inner { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; font-size: 13px; color: rgba(255,255,255,0.45); }
+    .footer-inner a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-inner a:hover { color: rgba(255,255,255,0.8); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { padding: 100px 20px 60px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .hero-actions { justify-content: center; }
+      .hero-image { order: -1; }
+      .features-grid, .benefits-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+      .safety-grid { grid-template-columns: 1fr; }
+      .compare-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+      .flow-timeline { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .flow-timeline::before { display: none; }
+      .trust-bar-inner { gap: 16px; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 64px 16px; }
+      .flow-timeline { grid-template-columns: 1fr; gap: 24px; }
+      .nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <img src="icons/icon48.png" alt="" width="32" height="32">
+        <span>FormPilot</span>
+      </div>
+      <div class="nav-right">
+        <select id="lang-select" class="lang-select">
+          <option value="ja">日本語</option>
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+          <option value="ko">한국어</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="hi">हिन्दी</option>
+          <option value="id">Indonesia</option>
+          <option value="ar">العربية</option>
+        </select>
+        <a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav_cta">Chromeに追加</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-deco2"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">完全無料 · 11言語対応</span></div>
+        <h1><span data-i18n="hero_h1_1">フォーム入力を、</span><br><span class="accent" data-i18n="hero_h1_2">AIが3秒で終わらせる。</span></h1>
+        <p class="hero-desc" data-i18n="hero_desc">会員登録、問い合わせ、注文フォーム。毎回同じ情報を手打ちする時代は終わりました。AIがフォームを解析し、ワンクリックで自動入力します。</p>
+        <div class="hero-actions">
+          <a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" class="btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span data-i18n="hero_cta">Chromeに追加する（無料）</span>
+          </a>
+          <a href="#features" class="btn-ghost"><span data-i18n="hero_ghost">機能を見る ↓</span></a>
+        </div>
+        <p class="hero-note" data-i18n="hero_note">30秒でインストール完了 · 登録不要</p>
+      </div>
+      <div class="hero-image">
+        <img src="store-image-1.png" alt="FormPilot UI" width="1280" height="800" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item"><span class="trust-icon">&#128221;</span><span data-i18n="trust_signup">会員登録</span></div>
+      <div class="trust-item"><span class="trust-icon">&#128172;</span><span data-i18n="trust_contact">問い合わせ</span></div>
+      <div class="trust-item"><span class="trust-icon">&#128722;</span><span data-i18n="trust_order">注文フォーム</span></div>
+      <div class="trust-item"><span class="trust-icon">&#127970;</span><span data-i18n="trust_gov">行政手続き</span></div>
+      <div class="trust-item"><span class="trust-icon">&#128188;</span><span data-i18n="trust_job">求人応募</span></div>
+      <div class="trust-item"><span class="trust-icon">&#128295;</span><span data-i18n="trust_all">その他すべてのフォーム</span></div>
+    </div>
+  </div>
+
+  <!-- PROBLEM BANNER -->
+  <div class="problem-banner">
+    <h2 data-i18n="problem_h2">まだ同じ住所を手入力してますか？</h2>
+    <p data-i18n-html="problem_p">名前、メール、住所、電話番号 ── 毎回おなじ情報を打ち込むのは時間のムダ。<br>ブラウザの自動補完はフリガナやカスタム項目に非対応で、入力を間違えることも。<br>FormPilotなら、<span class="highlight">AIがフォーム構造を理解して、すべての項目を正確に埋めます</span>。</p>
+  </div>
+
+  <!-- FLOW -->
+  <section class="flow">
+    <div class="section-inner section-center">
+      <span class="section-tag">How it works</span>
+      <h2 data-i18n="flow_h2">AIが自動で判断して入力する、4つのステップ</h2>
+      <p class="section-lead" data-i18n="flow_lead">サイトごとの設定は一切不要。AIがフォームの意味を理解します。</p>
+      <div class="flow-timeline">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <h3 data-i18n="flow1_h3">フォームを開く</h3>
+          <p data-i18n="flow1_p">任意のWebサイトでフォームのあるページを開きます</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <h3 data-i18n="flow2_h3">AIが構造を解析</h3>
+          <p data-i18n="flow2_p">AIがフォームの各フィールドの意味を自動判別</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <h3 data-i18n="flow3_h3">プロフィールと照合</h3>
+          <p data-i18n="flow3_p">保存済みの情報と各フィールドを正確にマッチング</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <h3 data-i18n="flow4_h3">入力完了</h3>
+          <p data-i18n="flow4_p">ワンクリックですべてのフィールドが自動入力されます</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag">Before / After</span>
+      <h2 data-i18n="compare_h2">フォーム1件の入力時間</h2>
+      <p class="section-lead" data-i18n="compare_lead">会員登録フォームを例にした比較。フォームが多いサイトほど差は広がります。</p>
+      <div class="compare-grid" style="margin: 0 auto;">
+        <div class="compare-card manual">
+          <h3 data-i18n="compare_manual">手動入力</h3>
+          <div class="compare-number" data-i18n="compare_manual_num">2〜5分</div>
+          <div class="compare-unit" data-i18n="compare_manual_unit">/ 1フォーム</div>
+        </div>
+        <div class="compare-card ai">
+          <h3 data-i18n="compare_ai">AI自動入力</h3>
+          <div class="compare-number" data-i18n="compare_ai_num">3秒</div>
+          <div class="compare-unit" data-i18n="compare_ai_unit">/ 1フォーム</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO: Profile Mapping -->
+  <section class="demo">
+    <div class="section-inner section-center">
+      <span class="section-tag">Demo</span>
+      <h2 data-i18n="demo_h2">ボタンひとつで、すべて入力</h2>
+      <p class="section-lead" data-i18n="demo_lead">プロフィールを選択して「AI Auto-Fill」をクリック。あとはAIにおまかせ。</p>
+      <div class="demo-img">
+        <img src="store-image-3.png" alt="FormPilot profile mapping demo" width="1280" height="800" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO: Save & Restore -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag">Save &amp; Restore</span>
+      <h2 data-i18n="demo2_h2">フォームデータを保存して、いつでも復元</h2>
+      <p class="section-lead" data-i18n="demo2_lead">入力済みのフォームをサイトごとに保存。次回訪問時にワンクリックで復元できます。</p>
+      <div class="demo-img">
+        <img src="store-image-4.png" alt="FormPilot save and restore demo" width="1280" height="800" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner section-center">
+      <span class="section-tag">Features</span>
+      <h2 data-i18n="features_h2">搭載機能</h2>
+      <p class="section-lead" data-i18n="features_lead">AIの力で、あらゆるフォームに対応する機能を搭載。</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <div class="feat-icon">&#129302;</div>
+          <h3 data-i18n="feat1_h3">AI フォーム解析</h3>
+          <p data-i18n="feat1_p">AIがフォームの各項目を自動判別。ラベル・属性・構造を解析し、プロフィールデータと正確にマッチング。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#128101;</div>
+          <h3 data-i18n="feat2_h3">複数プロフィール</h3>
+          <p data-i18n="feat2_p">最大10個のプロフィールを登録可能。仕事用・個人用・テスト用など、用途に合わせて使い分け。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#128295;</div>
+          <h3 data-i18n="feat3_h3">カスタムフィールド</h3>
+          <p data-i18n="feat3_p">フリガナ・部署名・社員番号など、標準項目にないフィールドも追加可能。1プロフィールあたり最大20個。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#127760;</div>
+          <h3 data-i18n="feat4_h3">11言語対応</h3>
+          <p data-i18n="feat4_p">日本語・英語・中国語・韓国語・スペイン語など11言語に対応。海外サイトのフォームも自動入力。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#128190;</div>
+          <h3 data-i18n="feat5_h3">サイト別データ保存</h3>
+          <p data-i18n="feat5_p">特定サイトのフォーム入力内容を保存し、次回訪問時にワンクリックで復元。リピートサイトに便利。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#127769;</div>
+          <h3 data-i18n="feat6_h3">テーマ切替</h3>
+          <p data-i18n="feat6_p">ライト／ダーク／Auto（システム設定追従）の3モード。好みに合わせて快適に利用。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="lang-section">
+    <div class="section-inner section-center">
+      <span class="section-tag">Languages</span>
+      <h2 data-i18n="lang_h2">11言語に対応</h2>
+      <p class="section-lead" data-i18n="lang_lead">UIもフォーム解析も、あなたの言語で動作します。</p>
+      <div class="lang-grid">
+        <span class="lang-tag">&#127471;&#127477; 日本語</span>
+        <span class="lang-tag">&#127468;&#127463; English</span>
+        <span class="lang-tag">&#127464;&#127475; 中文</span>
+        <span class="lang-tag">&#127472;&#127479; 한국어</span>
+        <span class="lang-tag">&#127466;&#127480; Español</span>
+        <span class="lang-tag">&#127467;&#127479; Français</span>
+        <span class="lang-tag">&#127465;&#127466; Deutsch</span>
+        <span class="lang-tag">&#127463;&#127479; Português</span>
+        <span class="lang-tag">&#127470;&#127475; हिन्दी</span>
+        <span class="lang-tag">&#127470;&#127465; Indonesia</span>
+        <span class="lang-tag">&#127480;&#127462; العربية</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag">Benefits</span>
+      <h2 data-i18n="benefits_h2">FormPilotで変わること</h2>
+      <p class="section-lead" data-i18n="benefits_lead">フォーム入力のストレスから解放されます。</p>
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="benefit-num" data-i18n="ben1_num">3秒</div>
+          <h3 data-i18n="ben1_h3">入力時間が激減</h3>
+          <p data-i18n="ben1_p">名前・住所・メールなど、繰り返し入力していた情報をワンクリックで自動入力。</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-num">0</div>
+          <h3 data-i18n="ben2_h3">入力ミスがゼロに</h3>
+          <p data-i18n="ben2_p">AIがフォーム構造を解析して正確にマッチング。タイプミスや入力欄の間違いを防止。</p>
+        </article>
+        <article class="benefit-card">
+          <div class="benefit-num">10</div>
+          <h3 data-i18n="ben3_h3">プロフィール管理</h3>
+          <p data-i18n="ben3_p">仕事用・個人用・副業用など、最大10個を使い分け。シーンに合わせてワンタップ切替。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO -->
+  <section class="howto">
+    <div class="section-inner section-center">
+      <span class="section-tag">Get started</span>
+      <h2 data-i18n="howto_h2">たった3ステップで開始</h2>
+      <p class="section-lead" data-i18n="howto_lead">初回のプロフィール登録だけ。あとはどのサイトでもワンクリック。</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3 data-i18n="step1_h3">Chromeに追加</h3>
+          <p data-i18n="step1_p">ウェブストアから追加するだけ。アカウント登録は不要です。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3 data-i18n="step2_h3">プロフィールを登録</h3>
+          <p data-i18n="step2_p">名前・住所・メールなどを入力。一度登録すれば使い回せます。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3 data-i18n="step3_h3">AI Auto-Fill をクリック</h3>
+          <p data-i18n="step3_p">フォームのあるページで押すだけ。AIが解析して自動入力。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="safety-section">
+    <div class="section-inner section-center">
+      <span class="section-tag">Privacy & Safety</span>
+      <h2 data-i18n="safety_h2">あなたの個人情報は、ブラウザから出ません</h2>
+      <p class="section-lead" data-i18n="safety_lead">安全に使えるよう、プライバシーファーストで設計しています。</p>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h3>&#128274; <span data-i18n="safe1_h3">ローカル保存</span></h3>
+          <p data-i18n="safe1_p">プロフィール情報はすべてブラウザ内（chrome.storage.local）に保存。外部サーバーには一切送信しません。</p>
+        </div>
+        <div class="safety-card">
+          <h3>&#129302; <span data-i18n="safe2_h3">AIに送るのは構造情報だけ</span></h3>
+          <p data-i18n="safe2_p">送信されるのはフォームのラベルや属性などの構造情報のみ。名前・住所・メールなどの個人情報は送信されません。</p>
+        </div>
+        <div class="safety-card">
+          <h3>&#128465; <span data-i18n="safe4_h3">完全削除</span></h3>
+          <p data-i18n="safe4_p">アンインストールすれば保存データはすべて削除。データが残り続けることはありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-inner section-center">
+      <span class="section-tag">FAQ</span>
+      <h2 data-i18n="faq_h2">よくある質問</h2>
+      <div class="faq-list" style="margin-top: 48px;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq1_q">本当に無料ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">はい、完全無料です。APIキーも不要、アカウント登録も不要。隠れたコストは一切ありません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq2_q">どんなフォームに対応していますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">会員登録、問い合わせ、ECの注文フォーム、行政手続き、求人応募など、あらゆるWebフォームに対応します。AIがフォーム構造を解析するため、サイトごとの個別設定は不要です。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq3_q">個人情報は安全ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">すべてのプロフィール情報はブラウザ内にローカル保存されます。AIに送信されるのはフォームの構造情報（ラベル・属性など）のみで、あなたの個人情報は一切外部に送信されません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq5_q">ブラウザの自動補完と何が違いますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq5_a">ブラウザの自動補完は基本的な名前・住所のみ対応で、誤った値を入力してしまうこともあります。フリガナ・カスタム項目には非対応です。FormPilotはAIがフォーム全体の構造を理解するため、あらゆるフィールドに対して正確に入力できます。複数プロフィールの切替やサイト別データ保存にも対応しています。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq6_q">スマホでも使えますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq6_a">Chrome拡張機能のため、PC版Google Chromeが必要です。スマホのChromeでは利用できません。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <h2 data-i18n="cta_h2">フォーム入力のストレスから、今日解放されよう。</h2>
+      <div class="cta-checklist">
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check1">AIがフォームを自動解析＆入力</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check2">完全無料、登録不要</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check3">複数プロフィール・11言語対応</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check4">個人情報はローカル保存で安全</span></div>
+      </div>
+      <a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <span data-i18n="cta_btn">今すぐ無料でインストール</span>
+      </a>
+      <p class="cta-note" data-i18n="cta_note">Chrome ウェブストアからすぐに追加できます</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2025 FormPilot</span>
+      <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">プライバシーポリシー</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener" data-i18n="footer_contact">お問い合わせ</a>
+    </div>
+  </footer>
+
+  <script src="i18n-lp.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

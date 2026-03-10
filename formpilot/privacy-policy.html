@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー｜FormPilot</title>
+  <meta name="description" content="FormPilotのプライバシーポリシー">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc; color: #1e293b; line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #059669; }
+    .container { max-width: 700px; margin: 0 auto; padding: 60px 20px 80px; }
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 32px; font-size: 14px; font-weight: 500;
+      color: #64748b; text-decoration: none; transition: color 0.2s;
+    }
+    .back:hover { color: #059669; }
+    h1 { font-size: 28px; font-weight: 800; color: #1e293b; margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; color: #1e293b; margin-top: 40px; margin-bottom: 16px; }
+    h3 { font-size: 16px; font-weight: 700; color: #1e293b; margin-top: 24px; margin-bottom: 8px; }
+    p, li { font-size: 15px; color: #475569; margin-bottom: 12px; }
+    ul { padding-left: 24px; }
+    strong { color: #1e293b; font-weight: 700; }
+    code {
+      background: #e2e8f0; padding: 2px 6px; border-radius: 4px;
+      font-size: 13px; color: #334155;
+    }
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 24px 20px; text-align: center;
+      font-size: 13px; color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="./" class="back">&larr; FormPilot トップに戻る</a>
+    <h1>プライバシーポリシー</h1>
+
+    <h2>1. はじめに</h2>
+    <p>本プライバシーポリシーは、開発者 Ramune（以下「当開発者」）が提供する Chrome 拡張機能「FormPilot」（以下「本拡張機能」）における、利用者情報の取扱いについて定めるものです。</p>
+
+    <h2>2. 取得する情報について</h2>
+    <p>本拡張機能では、機能提供のため、以下の情報を取得・利用する場合があります。</p>
+
+    <h3>(1) ユーザーが入力するプロフィール情報</h3>
+    <ul>
+      <li>氏名、メールアドレス、電話番号、住所などの個人情報</li>
+      <li>ユーザーが任意で追加するカスタムフィールドの情報</li>
+    </ul>
+    <p>これらの情報は、Webフォームへの自動入力機能を提供するために使用されます。</p>
+
+    <h3>(2) ウェブサイト上のフォーム情報</h3>
+    <ul>
+      <li>閲覧中のページ上のフォーム要素（input、select、textarea）の構造情報（ラベル、属性、フィールドタイプ）</li>
+      <li>ユーザーが「Save Current Form」機能を使用した際のフォーム入力値</li>
+    </ul>
+    <p>フォーム構造情報は、AI自動入力機能の実行時に、フィールドの種類を判別するためにのみ使用されます。</p>
+
+    <h3>(3) ローカルに保存される情報</h3>
+    <ul>
+      <li>ユーザーが登録したプロフィール情報</li>
+      <li>サイトごとに保存されたフォームデータ</li>
+      <li>各種設定値（言語、テーマ、APIキー）</li>
+    </ul>
+    <p>これらの情報は、Chrome の Storage API（<code>chrome.storage.local</code>）を利用して、ユーザーの端末内にのみ保存されます。</p>
+
+    <h2>3. 情報の利用目的</h2>
+    <p>取得した情報は、以下の目的のためにのみ利用します。</p>
+    <ul>
+      <li>Webフォームへの自動入力機能の提供</li>
+      <li>保存されたフォームデータの復元</li>
+      <li>AI によるフォームフィールドの自動判別</li>
+      <li>ユーザー設定の保存・復元</li>
+    </ul>
+
+    <h2>4. 外部への情報送信について</h2>
+    <p>本拡張機能は、AI自動入力機能の利用時に、フォームの構造情報（ラベル、属性、フィールドタイプ等のHTML メタデータ）を Anthropic API（api.anthropic.com）に送信します。</p>
+    <p><strong>重要：ユーザーの個人情報（氏名、メールアドレス、住所等）は外部に送信されません。</strong>送信されるのは空のフォームの構造情報のみです。</p>
+    <p>上記以外のデータが外部サーバーに送信されることはありません。</p>
+
+    <h2>5. 第三者への提供について</h2>
+    <p>取得した情報は、以下の場合を除き、第三者に提供することはありません。</p>
+    <ul>
+      <li>法令に基づく場合</li>
+      <li>ユーザーの明示的な同意がある場合</li>
+    </ul>
+
+    <h2>6. 第三者サービスについて</h2>
+    <p>本拡張機能が利用する外部サービスは <strong>Anthropic API</strong>（api.anthropic.com）のみであり、フォームフィールドの種類判別に使用されます。その他の第三者サービスにデータが送信されることはありません。</p>
+
+    <h2>7. 権限について</h2>
+    <p>本拡張機能は、以下の Chrome 権限を使用します。</p>
+    <ul>
+      <li><strong>storage</strong>: ユーザーのプロフィール情報、サイトごとのフォームデータ、設定の保存</li>
+      <li><strong>activeTab</strong>: 現在のタブ上のフォームフィールドの検出および自動入力の実行</li>
+    </ul>
+    <p>これらの権限は、本拡張機能の機能を実現するために必要最小限のものです。</p>
+
+    <h2>8. データの保存について</h2>
+    <p>本拡張機能が保存するデータは、すべてユーザーの端末内（Chrome のストレージ領域）に限定されます。当開発者がユーザーのデータを独自に収集・保存することはありません。ユーザーは拡張機能のアンインストールにより、保存されたすべてのデータを削除できます。</p>
+
+    <h2>9. お問い合わせ先</h2>
+    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
+    <p>お問い合わせフォーム：<a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener">こちら</a></p>
+
+    <h2>10. プライバシーポリシーの変更</h2>
+    <p>本ポリシーは、法令の変更やサービス内容の変更に応じて、必要に応じて改定されることがあります。変更後のプライバシーポリシーは、本ページにて速やかに公開します。</p>
+  </div>
+
+  <footer>
+    &copy; 2025 FormPilot
+  </footer>
+</body>
+</html>
