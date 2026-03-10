@@ -4,24 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>使い方ガイド｜FormPilot</title>
-  <meta name="description" content="FormPilotの使い方をデモ画面付きで解説。プロフィール作成からAI自動入力、データ保存・復元まで。">
+  <meta name="description" content="FormPilotの使い方ガイド。実際の画面をもとに操作方法を解説します。">
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
   <style>
     :root {
       --green-50: #ecfdf5; --green-100: #d1fae5; --green-200: #a7f3d0;
-      --green-500: #10b981; --green-600: #059669; --green-700: #047857;
+      --green-500: #10b981; --green-600: #059669; --green-700: #047857; --green-800: #065f46; --green-900: #064e3b;
       --text: #1e293b; --text-sub: #475569; --text-light: #94a3b8;
       --bg: #f8fafc; --border: #e2e8f0;
     }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif;
       background: var(--bg); color: var(--text); line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
     }
     a { color: var(--green-600); text-decoration: none; }
     a:hover { color: var(--green-700); }
@@ -30,90 +29,143 @@
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 24px; height: 64px;
+      border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px;
       display: flex; align-items: center; justify-content: center;
     }
-    .nav-inner { max-width: 900px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
     .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; }
     .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
-    .nav-cta {
-      background: var(--green-600); color: #fff; font-size: 13px; font-weight: 600;
-      padding: 8px 20px; border-radius: 8px; transition: background 0.2s;
-    }
+    .nav-cta { background: var(--green-600); color: #fff; font-size: 13px; font-weight: 600; padding: 8px 20px; border-radius: 8px; transition: background 0.2s; }
     .nav-cta:hover { background: var(--green-700); color: #fff; }
 
-    /* MAIN */
-    .container { max-width: 900px; margin: 0 auto; padding: 88px 24px 80px; }
-    .back {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-bottom: 24px; font-size: 14px; font-weight: 500;
-      color: var(--text-light); text-decoration: none; transition: color 0.2s;
-    }
+    /* CONTAINER */
+    .container { max-width: 960px; margin: 0 auto; padding: 88px 24px 80px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; font-size: 14px; font-weight: 500; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
     .back:hover { color: var(--green-600); }
-    .page-title { font-size: 32px; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-    .page-desc { font-size: 16px; color: var(--text-sub); margin-bottom: 48px; }
+    .page-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .page-desc { font-size: 15px; color: var(--text-sub); margin-bottom: 48px; }
 
-    /* DEMO BLOCK */
-    .demo-block { margin-bottom: 64px; }
-    .demo-block h2 {
-      font-size: 22px; font-weight: 800; color: var(--text);
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 12px;
+    /* SECTION */
+    .section { margin-bottom: 64px; }
+    .section-title { font-size: 20px; font-weight: 700; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 2px solid var(--green-200); }
+
+    /* LAYOUT: Mockup left, description right */
+    .guide-row { display: flex; gap: 36px; align-items: flex-start; margin-bottom: 40px; }
+    .guide-row.reverse { flex-direction: row-reverse; }
+
+    /* POPUP MOCKUP */
+    .mockup-wrap { flex-shrink: 0; width: 320px; }
+    .mockup {
+      width: 320px; background: #f9fafb; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid #d1d5db; font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 12px;
     }
-    .demo-block h2 .num {
+    /* Popup header */
+    .mock-header {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+      padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .mock-header-left { display: flex; align-items: center; gap: 7px; }
+    .mock-header-left img { width: 18px; height: 18px; border-radius: 4px; }
+    .mock-header-left span { color: #fff; font-size: 14px; font-weight: 700; }
+    .mock-header-right { display: flex; gap: 6px; }
+    .mock-select-sm {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+      color: #fff; border-radius: 4px; padding: 2px 6px; font-size: 10px; font-family: inherit;
+    }
+    /* Tabs */
+    .mock-tabs { display: flex; border-bottom: 1px solid #e5e7eb; background: #fff; }
+    .mock-tab {
+      flex: 1; text-align: center; padding: 10px 0; font-size: 12px; font-weight: 600;
+      color: #9ca3af; border-bottom: 2px solid transparent; cursor: default;
+    }
+    .mock-tab.active { color: var(--green-600); border-bottom-color: var(--green-600); }
+    /* Body */
+    .mock-body { padding: 14px; background: #f9fafb; }
+    .mock-label { font-size: 10px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .mock-input {
+      width: 100%; background: #fff; border: 1px solid #d1d5db; border-radius: 6px;
+      padding: 7px 10px; font-size: 12px; color: #111827; font-family: inherit;
+    }
+    .mock-input-row { display: flex; gap: 8px; }
+    .mock-input-row .mock-field { flex: 1; }
+    .mock-field { margin-bottom: 10px; }
+    .mock-section-label { font-size: 9px; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px; }
+    .mock-section-label:first-child { margin-top: 0; }
+    /* Buttons */
+    .mock-btn {
+      width: 100%; padding: 10px; border: none; border-radius: 8px;
+      font-size: 13px; font-weight: 600; font-family: inherit; cursor: default; text-align: center;
+    }
+    .mock-btn-green { background: linear-gradient(135deg, #059669, #10b981); color: #fff; }
+    .mock-btn-save { background: #059669; color: #fff; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .mock-btn-outline { background: transparent; border: 1.5px dashed #059669; color: #059669; }
+    /* Checkbox */
+    .mock-check { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #6b7280; margin: 8px 0; }
+    .mock-check-box { width: 14px; height: 14px; border: 1.5px solid #059669; border-radius: 3px; background: #059669; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; }
+    /* Status */
+    .mock-status { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 8px 10px; font-size: 11px; color: #065f46; margin-top: 10px; text-align: center; }
+    .mock-status-error { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+    /* Saved inputs */
+    .mock-saved-section { margin-top: 14px; }
+    .mock-saved-header { font-size: 9px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .mock-saved-item {
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+    }
+    .mock-saved-name { font-size: 12px; font-weight: 600; color: #111827; }
+    .mock-saved-meta { font-size: 10px; color: #9ca3af; }
+    .mock-saved-restore { background: #059669; color: #fff; border: none; border-radius: 5px; padding: 4px 12px; font-size: 10px; font-weight: 600; cursor: default; }
+    /* Custom fields */
+    .mock-custom-row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+    .mock-custom-row input { flex: 1; }
+    .mock-custom-del { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #e5e7eb; background: #fff; color: #9ca3af; font-size: 12px; display: flex; align-items: center; justify-content: center; cursor: default; }
+    .mock-custom-header { display: flex; justify-content: space-between; align-items: center; }
+    .mock-custom-count { font-size: 10px; color: #9ca3af; }
+    .mock-add-btn { font-size: 10px; color: #059669; font-weight: 600; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 4px; padding: 2px 8px; cursor: default; }
+    /* Preset bar */
+    .mock-preset-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
+    .mock-preset-bar .mock-edit-label { font-size: 11px; color: #059669; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+    .mock-preset-select { flex: 1; background: #fff; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 12px; color: #111827; font-family: inherit; }
+    .mock-preset-count { font-size: 11px; color: #9ca3af; }
+    .mock-preset-add { width: 26px; height: 26px; border-radius: 6px; background: #059669; color: #fff; border: none; font-size: 14px; display: flex; align-items: center; justify-content: center; cursor: default; }
+    /* Annotation marker */
+    .anno {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--green-600); color: #fff;
-      font-size: 16px; font-weight: 700; flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: #ef4444; color: #fff; font-size: 10px; font-weight: 700;
+      position: absolute; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-    .demo-block > p { font-size: 15px; color: var(--text-sub); margin-bottom: 20px; }
+    .mockup-wrap { position: relative; }
 
-    /* DEMO IMAGE */
-    .demo-img {
-      margin: 0 0 16px; border-radius: 14px; overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
-      border: 1px solid var(--border); background: #fff;
+    /* DESCRIPTION SIDE */
+    .guide-desc { flex: 1; min-width: 0; }
+    .guide-desc h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .guide-desc p { font-size: 14px; color: var(--text-sub); margin-bottom: 10px; }
+
+    .desc-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+    .desc-item { display: flex; gap: 10px; align-items: flex-start; }
+    .desc-num {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: #ef4444; color: #fff; font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
     }
-    .demo-img img { display: block; width: 100%; }
+    .desc-text { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
+    .desc-text strong { color: var(--text); }
 
-    /* CALLOUTS under image */
-    .callouts { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-    .callout {
-      display: flex; gap: 14px; align-items: flex-start;
-      background: #fff; border: 1px solid var(--border); border-radius: 10px;
-      padding: 16px 20px;
-    }
-    .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
-    .callout-text { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
-    .callout-text strong { color: var(--text); }
-
-    /* TIP */
-    .tip {
-      background: var(--green-50); border: 1px solid var(--green-200); border-radius: 10px;
-      padding: 16px 20px; margin: 20px 0; display: flex; gap: 12px; align-items: flex-start;
-    }
-    .tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
-    .tip p { margin-bottom: 0; font-size: 14px; color: var(--text-sub); }
-    .tip strong { color: var(--text); }
-
-    /* DIVIDER */
-    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .note { font-size: 13px; color: var(--text-light); margin-top: 12px; padding-left: 14px; border-left: 3px solid var(--green-200); }
 
     /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 20px; text-align: center;
-      font-size: 13px; color: var(--text-light);
-    }
+    footer { border-top: 1px solid var(--border); padding: 24px 20px; text-align: center; font-size: 13px; color: var(--text-light); }
     footer a { color: var(--text-light); margin: 0 12px; transition: color 0.2s; }
     footer a:hover { color: var(--green-600); }
 
     /* RESPONSIVE */
-    @media (max-width: 600px) {
-      .container { padding: 80px 16px 60px; }
-      .page-title { font-size: 26px; }
-      .demo-block h2 { font-size: 19px; }
+    @media (max-width: 720px) {
+      .guide-row, .guide-row.reverse { flex-direction: column; align-items: center; }
+      .mockup-wrap { width: 100%; max-width: 340px; }
+      .mockup { width: 100%; }
+      .guide-desc { width: 100%; }
     }
   </style>
 </head>
@@ -121,10 +173,7 @@
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="./" class="nav-brand">
-        <img src="icons/icon48.png" alt="" width="32" height="32">
-        <span>FormPilot</span>
-      </a>
+      <a href="./" class="nav-brand"><img src="icons/icon48.png" alt="" width="32" height="32"><span>FormPilot</span></a>
       <a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" class="nav-cta" target="_blank" rel="noopener">Chromeに追加</a>
     </div>
   </nav>
@@ -132,118 +181,304 @@
   <div class="container">
     <a href="./" class="back">&larr; トップページに戻る</a>
     <h1 class="page-title">使い方ガイド</h1>
-    <p class="page-desc">実際の画面で、FormPilotの使い方を解説します。</p>
+    <p class="page-desc">FormPilotの各機能を、実際の操作画面で解説します。</p>
 
-    <!-- SECTION 1: 3ステップの全体像 -->
-    <div class="demo-block">
-      <h2><span class="num">1</span> 3ステップで自動入力</h2>
-      <p>プロフィールを登録し、ボタンを押すだけ。たった3ステップでフォーム入力が完了します。</p>
+    <!-- ==============================
+         1. PROFILE TAB
+    =============================== -->
+    <div class="section">
+      <h2 class="section-title">プロフィールを登録する</h2>
 
-      <div class="demo-img">
-        <img src="store-image-2.png" alt="FormPilotの3ステップ: プロフィール登録→AI Auto-Fill→完了" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="callouts">
-        <div class="callout">
-          <span class="callout-icon">&#9312;</span>
-          <div class="callout-text"><strong>プロフィールを登録</strong> &#8212; 「Profile」タブで名前・メール・住所などの情報を入力して保存します。最大10個のプロフィールを用途別に管理できます。</div>
+      <div class="guide-row">
+        <div class="mockup-wrap">
+          <span class="anno" style="top:88px; right:-10px;">1</span>
+          <span class="anno" style="top:132px; left:-10px;">2</span>
+          <span class="anno" style="top:392px; right:-10px;">3</span>
+          <span class="anno" style="bottom:12px; left:50%; transform:translateX(-50%);">4</span>
+          <div class="mockup">
+            <div class="mock-header">
+              <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
+              <div class="mock-header-right">
+                <select class="mock-select-sm"><option>EN</option></select>
+                <select class="mock-select-sm"><option>Light</option></select>
+              </div>
+            </div>
+            <div class="mock-tabs">
+              <div class="mock-tab">&#9655; Run</div>
+              <div class="mock-tab active">&#9823; Profile</div>
+            </div>
+            <div class="mock-body">
+              <!-- Preset bar -->
+              <div class="mock-preset-bar">
+                <span class="mock-edit-label">&#9998; Editing</span>
+                <select class="mock-preset-select"><option>Alex Johnson (Personal)</option></select>
+                <span class="mock-preset-count">1/10</span>
+                <div class="mock-preset-add">+</div>
+              </div>
+              <!-- Profile Name -->
+              <div class="mock-field">
+                <div class="mock-label">Profile Name</div>
+                <input class="mock-input" value="Alex Johnson (Personal)" readonly>
+              </div>
+              <!-- NAME -->
+              <div class="mock-section-label">Name</div>
+              <div class="mock-input-row">
+                <div class="mock-field"><div class="mock-label">First Name</div><input class="mock-input" value="Alex" readonly></div>
+                <div class="mock-field"><div class="mock-label">Last Name</div><input class="mock-input" value="Johnson" readonly></div>
+              </div>
+              <!-- CONTACT -->
+              <div class="mock-section-label">Contact</div>
+              <div class="mock-field"><div class="mock-label">Email</div><input class="mock-input" value="alex@example.com" readonly></div>
+              <div class="mock-field"><div class="mock-label">Phone</div><input class="mock-input" value="+1 555-123-4567" readonly></div>
+              <!-- ADDRESS -->
+              <div class="mock-section-label">Address</div>
+              <div class="mock-field"><div class="mock-label">Country</div><input class="mock-input" value="United States" readonly></div>
+              <div class="mock-input-row">
+                <div class="mock-field"><div class="mock-label">City</div><input class="mock-input" value="Springfield" readonly></div>
+                <div class="mock-field"><div class="mock-label">State</div><input class="mock-input" value="IL" readonly></div>
+              </div>
+              <!-- OTHER -->
+              <div class="mock-section-label">Other</div>
+              <div class="mock-input-row">
+                <div class="mock-field"><div class="mock-label">Company</div><input class="mock-input" value="Acme Corp" readonly></div>
+                <div class="mock-field"><div class="mock-label">Gender</div><select class="mock-input"><option>Male</option></select></div>
+              </div>
+              <!-- CUSTOM FIELDS -->
+              <div class="mock-section-label" style="margin-top:14px;">
+                <div class="mock-custom-header">
+                  <span>Extra Fields</span>
+                  <span style="display:flex;gap:6px;align-items:center;"><span class="mock-custom-count">2/20</span><span class="mock-add-btn">+ Add</span></span>
+                </div>
+              </div>
+              <div class="mock-custom-row">
+                <input class="mock-input" value="LinkedIn" readonly style="flex:0.7">
+                <input class="mock-input" value="linkedin.com/in/alexj" readonly style="flex:1">
+                <div class="mock-custom-del">&times;</div>
+              </div>
+              <div class="mock-custom-row">
+                <input class="mock-input" value="Ticket Type" readonly style="flex:0.7">
+                <input class="mock-input" value="Professional" readonly style="flex:1">
+                <div class="mock-custom-del">&times;</div>
+              </div>
+              <!-- Save -->
+              <div style="margin-top: 14px;">
+                <div class="mock-btn mock-btn-save">&#128190; Save</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="callout">
-          <span class="callout-icon">&#9313;</span>
-          <div class="callout-text"><strong>「AI Auto-Fill」をクリック</strong> &#8212; フォームのあるページで「Run」タブを開き、プロフィールを選択して「AI Auto-Fill」ボタンを押します。</div>
-        </div>
-        <div class="callout">
-          <span class="callout-icon">&#9314;</span>
-          <div class="callout-text"><strong>入力完了</strong> &#8212; AIがフォームの構造を解析し、すべてのフィールドに自動入力します。完了すると入力件数が表示されます。</div>
-        </div>
-      </div>
 
-      <div class="tip">
-        <span class="tip-icon">&#128161;</span>
-        <p>「Skip already filled fields」にチェックを入れると、すでに値が入っているフィールドはスキップされます。</p>
+        <div class="guide-desc">
+          <h3>「Profile」タブでプロフィールを作成</h3>
+          <p>自動入力に使う情報をプロフィールとして登録します。一度保存すれば、あらゆるフォームで使い回せます。</p>
+
+          <ul class="desc-list">
+            <li class="desc-item">
+              <span class="desc-num">1</span>
+              <div class="desc-text"><strong>プロフィールの切替・追加</strong><br>ドロップダウンでプロフィールを選択できます。「+」ボタンで新しいプロフィールを追加します。最大10個まで作成可能です。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">2</span>
+              <div class="desc-text"><strong>基本情報を入力</strong><br>名前・メール・電話番号・住所・会社名・性別・生年月日を入力します。必要な項目だけ入力すればOKです。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">3</span>
+              <div class="desc-text"><strong>カスタムフィールド</strong><br>「+ Add」でフリガナ・部署名・SNSアカウントなど、標準にない項目を追加できます。1プロフィールあたり最大20個。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">4</span>
+              <div class="desc-text"><strong>保存</strong><br>「Save」ボタンで保存します。入力内容はすべてブラウザ内にローカル保存されます。</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <hr class="divider">
+    <!-- ==============================
+         2. RUN TAB - AI Auto-Fill
+    =============================== -->
+    <div class="section">
+      <h2 class="section-title">AI自動入力を実行する</h2>
 
-    <!-- SECTION 2: プロフィール→フォームのマッピング -->
-    <div class="demo-block">
-      <h2><span class="num">2</span> AIがプロフィールをフォームにマッピング</h2>
-      <p>登録したプロフィール情報が、AIによってフォームの各フィールドに正確にマッピングされます。</p>
-
-      <div class="demo-img">
-        <img src="store-image-3.png" alt="プロフィール情報からフォームフィールドへの自動マッピング" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="callouts">
-        <div class="callout">
-          <span class="callout-icon">&#127912;</span>
-          <div class="callout-text"><strong>色分けでわかるマッチング</strong> &#8212; Name（青）、Contact（紫）、Address（黄）、Other（緑）、Custom（ピンク）で、どの情報がどのフィールドに入力されたか一目でわかります。</div>
+      <div class="guide-row reverse">
+        <div class="mockup-wrap">
+          <span class="anno" style="top:88px; right:-10px;">1</span>
+          <span class="anno" style="top:140px; left:-10px;">2</span>
+          <span class="anno" style="top:178px; right:-10px;">3</span>
+          <span class="anno" style="top:222px; left:-10px;">4</span>
+          <div class="mockup">
+            <div class="mock-header">
+              <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
+              <div class="mock-header-right">
+                <select class="mock-select-sm"><option>EN</option></select>
+                <select class="mock-select-sm"><option>Light</option></select>
+              </div>
+            </div>
+            <div class="mock-tabs">
+              <div class="mock-tab active">&#9655; Run</div>
+              <div class="mock-tab">&#9823; Profile</div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-field">
+                <div class="mock-label">Active Profile</div>
+                <select class="mock-input"><option>Alex Johnson (Personal)</option></select>
+              </div>
+              <div class="mock-btn mock-btn-green">&#128269; AI Auto-Fill</div>
+              <div class="mock-check">
+                <div class="mock-check-box">&#10003;</div>
+                Skip already filled fields
+              </div>
+              <div class="mock-status">&#10003; Filled 9 of 9 fields (2.3s)</div>
+            </div>
+          </div>
         </div>
-        <div class="callout">
-          <span class="callout-icon">&#128295;</span>
-          <div class="callout-text"><strong>カスタムフィールドも対応</strong> &#8212; フリガナ・部署名・社員番号・SNSアカウントなど、標準項目にない項目もカスタムフィールドとして登録でき、AIが自動マッチングします（1プロフィールあたり最大20個）。</div>
-        </div>
-        <div class="callout">
-          <span class="callout-icon">&#127760;</span>
-          <div class="callout-text"><strong>あらゆるフォームに対応</strong> &#8212; テキスト入力・セレクトボックス・ラジオボタン・チェックボックス・日付入力など、あらゆる形式のフォームフィールドに対応しています。</div>
+
+        <div class="guide-desc">
+          <h3>「Run」タブでAI自動入力</h3>
+          <p>フォームがあるページを開いた状態で、以下の操作を行います。</p>
+
+          <ul class="desc-list">
+            <li class="desc-item">
+              <span class="desc-num">1</span>
+              <div class="desc-text"><strong>プロフィールを選択</strong><br>「Active Profile」から使用するプロフィールを選びます。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">2</span>
+              <div class="desc-text"><strong>「AI Auto-Fill」をクリック</strong><br>AIがページ上のフォームを解析し、プロフィール情報を各フィールドに自動入力します。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">3</span>
+              <div class="desc-text"><strong>Skip already filled fields</strong><br>チェックを入れると、すでに値が入力済みのフィールドをスキップします。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">4</span>
+              <div class="desc-text"><strong>結果表示</strong><br>入力が完了すると、入力されたフィールド数と処理時間が表示されます。</div>
+            </li>
+          </ul>
+
+          <p class="note">AIに送信されるのはフォームの構造情報（ラベルや属性）のみです。個人情報は送信されません。</p>
         </div>
       </div>
     </div>
 
-    <hr class="divider">
+    <!-- ==============================
+         3. SAVE & RESTORE
+    =============================== -->
+    <div class="section">
+      <h2 class="section-title">フォームデータの保存・復元</h2>
 
-    <!-- SECTION 3: Before / After -->
-    <div class="demo-block">
-      <h2><span class="num">3</span> ワンクリックでフォームが埋まる</h2>
-      <p>空のフォームが、ボタン1つですべて入力済みになります。</p>
+      <div class="guide-row">
+        <div class="mockup-wrap">
+          <span class="anno" style="top:264px; left:-10px;">1</span>
+          <span class="anno" style="top:330px; right:-10px;">2</span>
+          <div class="mockup">
+            <div class="mock-header">
+              <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
+              <div class="mock-header-right">
+                <select class="mock-select-sm"><option>EN</option></select>
+                <select class="mock-select-sm"><option>Light</option></select>
+              </div>
+            </div>
+            <div class="mock-tabs">
+              <div class="mock-tab active">&#9655; Run</div>
+              <div class="mock-tab">&#9823; Profile</div>
+            </div>
+            <div class="mock-body">
+              <div class="mock-field">
+                <div class="mock-label">Active Profile</div>
+                <select class="mock-input"><option>Alex Johnson (Personal)</option></select>
+              </div>
+              <div class="mock-btn mock-btn-green">&#128269; AI Auto-Fill</div>
+              <div class="mock-check">
+                <div class="mock-check-box">&#10003;</div>
+                Skip already filled fields
+              </div>
 
-      <div class="demo-img">
-        <img src="store-image-1.png" alt="Before: 空のフォーム → After: AI自動入力で全フィールド入力済み" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="callouts">
-        <div class="callout">
-          <span class="callout-icon">&#9664;</span>
-          <div class="callout-text"><strong>Before</strong> &#8212; 名前・メール・住所・性別・チケット種別など、多数のフィールドがある空のフォーム。</div>
+              <div class="mock-saved-section">
+                <div class="mock-saved-header">Saved Inputs</div>
+                <div class="mock-btn mock-btn-outline" style="margin-bottom:10px;">&#128190; Save Current Form</div>
+                <div class="mock-saved-item">
+                  <div>
+                    <div class="mock-saved-name">Checkout - Mar 1</div>
+                    <div class="mock-saved-meta">8 fields saved</div>
+                  </div>
+                  <button class="mock-saved-restore">Restore</button>
+                </div>
+                <div class="mock-saved-item">
+                  <div>
+                    <div class="mock-saved-name">Alex Johnson</div>
+                    <div class="mock-saved-meta">5 fields saved</div>
+                  </div>
+                  <button class="mock-saved-restore">Restore</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="callout">
-          <span class="callout-icon">&#9654;</span>
-          <div class="callout-text"><strong>After</strong> &#8212; 「AI Auto-Fill」をクリックするだけで、テキスト入力はもちろん、セレクトボックスやラジオボタン、チェックボックスまですべて自動入力されます。</div>
-        </div>
-      </div>
 
-      <div class="tip">
-        <span class="tip-icon">&#128272;</span>
-        <p><strong>個人情報はAIに送信されません。</strong>AIに送信されるのはフォームの構造情報（ラベルや属性）のみです。あなたの名前・住所・メールなどの個人データは一切外部に送られません。</p>
+        <div class="guide-desc">
+          <h3>サイトごとにフォームデータを保存・復元</h3>
+          <p>入力済みのフォーム内容をサイト単位で保存し、次回訪問時にワンクリックで復元できます。</p>
+
+          <ul class="desc-list">
+            <li class="desc-item">
+              <span class="desc-num">1</span>
+              <div class="desc-text"><strong>保存する</strong><br>フォーム入力後、「Save Current Form」をクリックするとその時点のフォーム内容がサイトごとに保存されます。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">2</span>
+              <div class="desc-text"><strong>復元する</strong><br>同じサイトを再訪問すると保存済みのエントリーが表示されます。「Restore」をクリックするとフォームが復元されます。</div>
+            </li>
+          </ul>
+
+          <p class="note">1サイトあたり最大20件、合計50サイトまで保存可能です。上限を超えると古いサイトのデータが自動削除されます。</p>
+        </div>
       </div>
     </div>
 
-    <hr class="divider">
+    <!-- ==============================
+         4. HEADER SETTINGS
+    =============================== -->
+    <div class="section">
+      <h2 class="section-title">テーマ・言語の変更</h2>
 
-    <!-- SECTION 4: Save & Restore -->
-    <div class="demo-block">
-      <h2><span class="num">4</span> フォームデータを保存して、いつでも復元</h2>
-      <p>入力済みのフォームをサイトごとに保存。次回訪問時にワンクリックで復元できます。</p>
-
-      <div class="demo-img">
-        <img src="store-image-4.png" alt="フォームデータの保存と復元フロー" width="1280" height="800" loading="lazy">
-      </div>
-
-      <div class="callouts">
-        <div class="callout">
-          <span class="callout-icon">&#128190;</span>
-          <div class="callout-text"><strong>Step 1: 保存</strong> &#8212; フォームを入力した状態で「Save Current Form」をクリック。その時点の全フィールドの値がサイトごとに保存されます。</div>
+      <div class="guide-row reverse">
+        <div class="mockup-wrap">
+          <span class="anno" style="top:8px; right:68px;">1</span>
+          <span class="anno" style="top:8px; right:16px;">2</span>
+          <div class="mockup">
+            <div class="mock-header">
+              <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
+              <div class="mock-header-right">
+                <select class="mock-select-sm" style="border:2px solid #fbbf24;"><option>JA</option></select>
+                <select class="mock-select-sm" style="border:2px solid #fbbf24;"><option>Dark</option></select>
+              </div>
+            </div>
+            <div class="mock-tabs">
+              <div class="mock-tab active">&#9655; Run</div>
+              <div class="mock-tab">&#9823; Profile</div>
+            </div>
+            <div class="mock-body" style="min-height: 80px;">
+              <p style="font-size:11px; color:#9ca3af; text-align:center; padding:20px 0;">ヘッダー右上のセレクターで切替できます</p>
+            </div>
+          </div>
         </div>
-        <div class="callout">
-          <span class="callout-icon">&#128260;</span>
-          <div class="callout-text"><strong>Step 2: 復元</strong> &#8212; 同じサイトを再訪問したとき、保存済みエントリーの「Restore」をクリックするだけで、すべてのフィールドが復元されます。</div>
-        </div>
-      </div>
 
-      <div class="tip">
-        <span class="tip-icon">&#128161;</span>
-        <p>1サイトあたり最大<strong>20件</strong>、最大<strong>50サイト</strong>まで保存できます。上限を超えると古いデータが自動削除されます。</p>
+        <div class="guide-desc">
+          <h3>ヘッダーから設定を変更</h3>
+          <p>ポップアップの右上にある2つのセレクターで、言語とテーマを切り替えられます。</p>
+
+          <ul class="desc-list">
+            <li class="desc-item">
+              <span class="desc-num">1</span>
+              <div class="desc-text"><strong>言語</strong><br>11言語に対応（日本語・English・中文・한국어・Español・Fran&ccedil;ais・Deutsch・Portugu&ecirc;s・&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;・Indonesia・&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;）。初回はブラウザの言語から自動検出されます。</div>
+            </li>
+            <li class="desc-item">
+              <span class="desc-num">2</span>
+              <div class="desc-text"><strong>テーマ</strong><br>Light / Dark / Auto（OS設定に連動）の3つから選択できます。</div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
