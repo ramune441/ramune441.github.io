@@ -60,7 +60,6 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
       border: 1px solid #d1d5db; font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 12px;
     }
-    /* Popup header */
     .mock-header {
       background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
       padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;
@@ -73,14 +72,12 @@
       background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
       color: #fff; border-radius: 4px; padding: 2px 6px; font-size: 10px; font-family: inherit;
     }
-    /* Tabs */
     .mock-tabs { display: flex; border-bottom: 1px solid #e5e7eb; background: #fff; }
     .mock-tab {
       flex: 1; text-align: center; padding: 10px 0; font-size: 12px; font-weight: 600;
       color: #9ca3af; border-bottom: 2px solid transparent; cursor: default;
     }
     .mock-tab.active { color: var(--green-600); border-bottom-color: var(--green-600); }
-    /* Body */
     .mock-body { padding: 14px; background: #f9fafb; }
     .mock-label { font-size: 10px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
     .mock-input {
@@ -92,7 +89,6 @@
     .mock-field { margin-bottom: 10px; }
     .mock-section-label { font-size: 9px; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: 1px; margin: 14px 0 6px; }
     .mock-section-label:first-child { margin-top: 0; }
-    /* Buttons */
     .mock-btn {
       width: 100%; padding: 10px; border: none; border-radius: 8px;
       font-size: 13px; font-weight: 600; font-family: inherit; cursor: default; text-align: center;
@@ -100,13 +96,9 @@
     .mock-btn-green { background: linear-gradient(135deg, #059669, #10b981); color: #fff; }
     .mock-btn-save { background: #059669; color: #fff; display: flex; align-items: center; justify-content: center; gap: 6px; }
     .mock-btn-outline { background: transparent; border: 1.5px dashed #059669; color: #059669; }
-    /* Checkbox */
     .mock-check { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #6b7280; margin: 8px 0; }
     .mock-check-box { width: 14px; height: 14px; border: 1.5px solid #059669; border-radius: 3px; background: #059669; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; }
-    /* Status */
     .mock-status { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; padding: 8px 10px; font-size: 11px; color: #065f46; margin-top: 10px; text-align: center; }
-    .mock-status-error { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
-    /* Saved inputs */
     .mock-saved-section { margin-top: 14px; }
     .mock-saved-header { font-size: 9px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
     .mock-saved-item {
@@ -116,20 +108,17 @@
     .mock-saved-name { font-size: 12px; font-weight: 600; color: #111827; }
     .mock-saved-meta { font-size: 10px; color: #9ca3af; }
     .mock-saved-restore { background: #059669; color: #fff; border: none; border-radius: 5px; padding: 4px 12px; font-size: 10px; font-weight: 600; cursor: default; }
-    /* Custom fields */
     .mock-custom-row { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
     .mock-custom-row input { flex: 1; }
     .mock-custom-del { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #e5e7eb; background: #fff; color: #9ca3af; font-size: 12px; display: flex; align-items: center; justify-content: center; cursor: default; }
     .mock-custom-header { display: flex; justify-content: space-between; align-items: center; }
     .mock-custom-count { font-size: 10px; color: #9ca3af; }
     .mock-add-btn { font-size: 10px; color: #059669; font-weight: 600; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 4px; padding: 2px 8px; cursor: default; }
-    /* Preset bar */
     .mock-preset-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; }
     .mock-preset-bar .mock-edit-label { font-size: 11px; color: #059669; font-weight: 600; display: flex; align-items: center; gap: 4px; }
     .mock-preset-select { flex: 1; background: #fff; border: 1px solid #d1d5db; border-radius: 6px; padding: 6px 10px; font-size: 12px; color: #111827; font-family: inherit; }
     .mock-preset-count { font-size: 11px; color: #9ca3af; }
     .mock-preset-add { width: 26px; height: 26px; border-radius: 6px; background: #059669; color: #fff; border: none; font-size: 14px; display: flex; align-items: center; justify-content: center; cursor: default; }
-    /* Annotation marker */
     .anno {
       display: inline-flex; align-items: center; justify-content: center;
       width: 20px; height: 20px; border-radius: 50%;
@@ -142,7 +131,6 @@
     .guide-desc { flex: 1; min-width: 0; }
     .guide-desc h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
     .guide-desc p { font-size: 14px; color: var(--text-sub); margin-bottom: 10px; }
-
     .desc-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
     .desc-item { display: flex; gap: 10px; align-items: flex-start; }
     .desc-num {
@@ -152,7 +140,6 @@
     }
     .desc-text { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
     .desc-text strong { color: var(--text); }
-
     .note { font-size: 13px; color: var(--text-light); margin-top: 12px; padding-left: 14px; border-left: 3px solid var(--green-200); }
 
     /* FOOTER */
@@ -174,21 +161,18 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="./" class="nav-brand"><img src="icons/icon48.png" alt="" width="32" height="32"><span>FormPilot</span></a>
-      <a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" class="nav-cta" target="_blank" rel="noopener">Chromeに追加</a>
+      <a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav_cta">Chromeに追加</a>
     </div>
   </nav>
 
   <div class="container">
-    <a href="./" class="back">&larr; トップページに戻る</a>
-    <h1 class="page-title">使い方ガイド</h1>
-    <p class="page-desc">FormPilotの各機能を、実際の操作画面で解説します。</p>
+    <a href="./" class="back" data-i18n="guide_back">&larr; トップページに戻る</a>
+    <h1 class="page-title" data-i18n="guide_title">使い方ガイド</h1>
+    <p class="page-desc" data-i18n="guide_desc">FormPilotの各機能を、実際の操作画面で解説します。</p>
 
-    <!-- ==============================
-         1. PROFILE TAB
-    =============================== -->
+    <!-- 1. PROFILE TAB -->
     <div class="section">
-      <h2 class="section-title">プロフィールを登録する</h2>
-
+      <h2 class="section-title" data-i18n="guide_s1_title">プロフィールを登録する</h2>
       <div class="guide-row">
         <div class="mockup-wrap">
           <span class="anno" style="top:88px; right:-10px;">1</span>
@@ -208,42 +192,32 @@
               <div class="mock-tab active">&#9823; Profile</div>
             </div>
             <div class="mock-body">
-              <!-- Preset bar -->
               <div class="mock-preset-bar">
                 <span class="mock-edit-label">&#9998; Editing</span>
                 <select class="mock-preset-select"><option>Alex Johnson (Personal)</option></select>
                 <span class="mock-preset-count">1/10</span>
                 <div class="mock-preset-add">+</div>
               </div>
-              <!-- Profile Name -->
-              <div class="mock-field">
-                <div class="mock-label">Profile Name</div>
-                <input class="mock-input" value="Alex Johnson (Personal)" readonly>
-              </div>
-              <!-- NAME -->
+              <div class="mock-field"><div class="mock-label">Profile Name</div><input class="mock-input" value="Alex Johnson (Personal)" readonly></div>
               <div class="mock-section-label">Name</div>
               <div class="mock-input-row">
                 <div class="mock-field"><div class="mock-label">First Name</div><input class="mock-input" value="Alex" readonly></div>
                 <div class="mock-field"><div class="mock-label">Last Name</div><input class="mock-input" value="Johnson" readonly></div>
               </div>
-              <!-- CONTACT -->
               <div class="mock-section-label">Contact</div>
               <div class="mock-field"><div class="mock-label">Email</div><input class="mock-input" value="alex@example.com" readonly></div>
               <div class="mock-field"><div class="mock-label">Phone</div><input class="mock-input" value="+1 555-123-4567" readonly></div>
-              <!-- ADDRESS -->
               <div class="mock-section-label">Address</div>
               <div class="mock-field"><div class="mock-label">Country</div><input class="mock-input" value="United States" readonly></div>
               <div class="mock-input-row">
                 <div class="mock-field"><div class="mock-label">City</div><input class="mock-input" value="Springfield" readonly></div>
                 <div class="mock-field"><div class="mock-label">State</div><input class="mock-input" value="IL" readonly></div>
               </div>
-              <!-- OTHER -->
               <div class="mock-section-label">Other</div>
               <div class="mock-input-row">
                 <div class="mock-field"><div class="mock-label">Company</div><input class="mock-input" value="Acme Corp" readonly></div>
                 <div class="mock-field"><div class="mock-label">Gender</div><select class="mock-input"><option>Male</option></select></div>
               </div>
-              <!-- CUSTOM FIELDS -->
               <div class="mock-section-label" style="margin-top:14px;">
                 <div class="mock-custom-header">
                   <span>Extra Fields</span>
@@ -260,46 +234,26 @@
                 <input class="mock-input" value="Professional" readonly style="flex:1">
                 <div class="mock-custom-del">&times;</div>
               </div>
-              <!-- Save -->
-              <div style="margin-top: 14px;">
-                <div class="mock-btn mock-btn-save">&#128190; Save</div>
-              </div>
+              <div style="margin-top: 14px;"><div class="mock-btn mock-btn-save">&#128190; Save</div></div>
             </div>
           </div>
         </div>
-
         <div class="guide-desc">
-          <h3>「Profile」タブでプロフィールを作成</h3>
-          <p>自動入力に使う情報をプロフィールとして登録します。一度保存すれば、あらゆるフォームで使い回せます。</p>
-
+          <h3 data-i18n="guide_s1_h3">「Profile」タブでプロフィールを作成</h3>
+          <p data-i18n="guide_s1_p">自動入力に使う情報をプロフィールとして登録します。一度保存すれば、あらゆるフォームで使い回せます。</p>
           <ul class="desc-list">
-            <li class="desc-item">
-              <span class="desc-num">1</span>
-              <div class="desc-text"><strong>プロフィールの切替・追加</strong><br>ドロップダウンでプロフィールを選択できます。「+」ボタンで新しいプロフィールを追加します。最大10個まで作成可能です。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">2</span>
-              <div class="desc-text"><strong>基本情報を入力</strong><br>名前・メール・電話番号・住所・会社名・性別・生年月日を入力します。必要な項目だけ入力すればOKです。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">3</span>
-              <div class="desc-text"><strong>カスタムフィールド</strong><br>「+ Add」でフリガナ・部署名・SNSアカウントなど、標準にない項目を追加できます。1プロフィールあたり最大20個。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">4</span>
-              <div class="desc-text"><strong>保存</strong><br>「Save」ボタンで保存します。入力内容はすべてブラウザ内にローカル保存されます。</div>
-            </li>
+            <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s1_d1"><strong>プロフィールの切替・追加</strong><br>ドロップダウンでプロフィールを選択できます。「+」ボタンで新しいプロフィールを追加します。最大10個まで作成可能です。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s1_d2"><strong>基本情報を入力</strong><br>名前・メール・電話番号・住所・会社名・性別・生年月日を入力します。必要な項目だけ入力すればOKです。</div></li>
+            <li class="desc-item"><span class="desc-num">3</span><div class="desc-text" data-i18n-html="guide_s1_d3"><strong>カスタムフィールド</strong><br>「+ Add」でフリガナ・部署名・SNSアカウントなど、標準にない項目を追加できます。1プロフィールあたり最大20個。</div></li>
+            <li class="desc-item"><span class="desc-num">4</span><div class="desc-text" data-i18n-html="guide_s1_d4"><strong>保存</strong><br>「Save」ボタンで保存します。入力内容はすべてブラウザ内にローカル保存されます。</div></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- ==============================
-         2. RUN TAB - AI Auto-Fill
-    =============================== -->
+    <!-- 2. RUN TAB -->
     <div class="section">
-      <h2 class="section-title">AI自動入力を実行する</h2>
-
+      <h2 class="section-title" data-i18n="guide_s2_title">AI自動入力を実行する</h2>
       <div class="guide-row reverse">
         <div class="mockup-wrap">
           <span class="anno" style="top:88px; right:-10px;">1</span>
@@ -319,54 +273,30 @@
               <div class="mock-tab">&#9823; Profile</div>
             </div>
             <div class="mock-body">
-              <div class="mock-field">
-                <div class="mock-label">Active Profile</div>
-                <select class="mock-input"><option>Alex Johnson (Personal)</option></select>
-              </div>
+              <div class="mock-field"><div class="mock-label">Active Profile</div><select class="mock-input"><option>Alex Johnson (Personal)</option></select></div>
               <div class="mock-btn mock-btn-green">&#128269; AI Auto-Fill</div>
-              <div class="mock-check">
-                <div class="mock-check-box">&#10003;</div>
-                Skip already filled fields
-              </div>
+              <div class="mock-check"><div class="mock-check-box">&#10003;</div>Skip already filled fields</div>
               <div class="mock-status">&#10003; Filled 9 of 9 fields (2.3s)</div>
             </div>
           </div>
         </div>
-
         <div class="guide-desc">
-          <h3>「Run」タブでAI自動入力</h3>
-          <p>フォームがあるページを開いた状態で、以下の操作を行います。</p>
-
+          <h3 data-i18n="guide_s2_h3">「Run」タブでAI自動入力</h3>
+          <p data-i18n="guide_s2_p">フォームがあるページを開いた状態で、以下の操作を行います。</p>
           <ul class="desc-list">
-            <li class="desc-item">
-              <span class="desc-num">1</span>
-              <div class="desc-text"><strong>プロフィールを選択</strong><br>「Active Profile」から使用するプロフィールを選びます。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">2</span>
-              <div class="desc-text"><strong>「AI Auto-Fill」をクリック</strong><br>AIがページ上のフォームを解析し、プロフィール情報を各フィールドに自動入力します。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">3</span>
-              <div class="desc-text"><strong>Skip already filled fields</strong><br>チェックを入れると、すでに値が入力済みのフィールドをスキップします。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">4</span>
-              <div class="desc-text"><strong>結果表示</strong><br>入力が完了すると、入力されたフィールド数と処理時間が表示されます。</div>
-            </li>
+            <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s2_d1"><strong>プロフィールを選択</strong><br>「Active Profile」から使用するプロフィールを選びます。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s2_d2"><strong>「AI Auto-Fill」をクリック</strong><br>AIがページ上のフォームを解析し、プロフィール情報を各フィールドに自動入力します。</div></li>
+            <li class="desc-item"><span class="desc-num">3</span><div class="desc-text" data-i18n-html="guide_s2_d3"><strong>Skip already filled fields</strong><br>チェックを入れると、すでに値が入力済みのフィールドをスキップします。</div></li>
+            <li class="desc-item"><span class="desc-num">4</span><div class="desc-text" data-i18n-html="guide_s2_d4"><strong>結果表示</strong><br>入力が完了すると、入力されたフィールド数と処理時間が表示されます。</div></li>
           </ul>
-
-          <p class="note">AIに送信されるのはフォームの構造情報（ラベルや属性）のみです。個人情報は送信されません。</p>
+          <p class="note" data-i18n="guide_s2_note">AIに送信されるのはフォームの構造情報（ラベルや属性）のみです。個人情報は送信されません。</p>
         </div>
       </div>
     </div>
 
-    <!-- ==============================
-         3. SAVE & RESTORE
-    =============================== -->
+    <!-- 3. SAVE & RESTORE -->
     <div class="section">
-      <h2 class="section-title">フォームデータの保存・復元</h2>
-
+      <h2 class="section-title" data-i18n="guide_s3_title">フォームデータの保存・復元</h2>
       <div class="guide-row">
         <div class="mockup-wrap">
           <span class="anno" style="top:264px; left:-10px;">1</span>
@@ -384,64 +314,39 @@
               <div class="mock-tab">&#9823; Profile</div>
             </div>
             <div class="mock-body">
-              <div class="mock-field">
-                <div class="mock-label">Active Profile</div>
-                <select class="mock-input"><option>Alex Johnson (Personal)</option></select>
-              </div>
+              <div class="mock-field"><div class="mock-label">Active Profile</div><select class="mock-input"><option>Alex Johnson (Personal)</option></select></div>
               <div class="mock-btn mock-btn-green">&#128269; AI Auto-Fill</div>
-              <div class="mock-check">
-                <div class="mock-check-box">&#10003;</div>
-                Skip already filled fields
-              </div>
-
+              <div class="mock-check"><div class="mock-check-box">&#10003;</div>Skip already filled fields</div>
               <div class="mock-saved-section">
                 <div class="mock-saved-header">Saved Inputs</div>
                 <div class="mock-btn mock-btn-outline" style="margin-bottom:10px;">&#128190; Save Current Form</div>
                 <div class="mock-saved-item">
-                  <div>
-                    <div class="mock-saved-name">Checkout - Mar 1</div>
-                    <div class="mock-saved-meta">8 fields saved</div>
-                  </div>
+                  <div><div class="mock-saved-name">Checkout - Mar 1</div><div class="mock-saved-meta">8 fields saved</div></div>
                   <button class="mock-saved-restore">Restore</button>
                 </div>
                 <div class="mock-saved-item">
-                  <div>
-                    <div class="mock-saved-name">Alex Johnson</div>
-                    <div class="mock-saved-meta">5 fields saved</div>
-                  </div>
+                  <div><div class="mock-saved-name">Alex Johnson</div><div class="mock-saved-meta">5 fields saved</div></div>
                   <button class="mock-saved-restore">Restore</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="guide-desc">
-          <h3>サイトごとにフォームデータを保存・復元</h3>
-          <p>入力済みのフォーム内容をサイト単位で保存し、次回訪問時にワンクリックで復元できます。</p>
-
+          <h3 data-i18n="guide_s3_h3">サイトごとにフォームデータを保存・復元</h3>
+          <p data-i18n="guide_s3_p">入力済みのフォーム内容をサイト単位で保存し、次回訪問時にワンクリックで復元できます。</p>
           <ul class="desc-list">
-            <li class="desc-item">
-              <span class="desc-num">1</span>
-              <div class="desc-text"><strong>保存する</strong><br>フォーム入力後、「Save Current Form」をクリックするとその時点のフォーム内容がサイトごとに保存されます。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">2</span>
-              <div class="desc-text"><strong>復元する</strong><br>同じサイトを再訪問すると保存済みのエントリーが表示されます。「Restore」をクリックするとフォームが復元されます。</div>
-            </li>
+            <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s3_d1"><strong>保存する</strong><br>フォーム入力後、「Save Current Form」をクリックするとその時点のフォーム内容がサイトごとに保存されます。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s3_d2"><strong>復元する</strong><br>同じサイトを再訪問すると保存済みのエントリーが表示されます。「Restore」をクリックするとフォームが復元されます。</div></li>
           </ul>
-
-          <p class="note">1サイトあたり最大20件、合計50サイトまで保存可能です。上限を超えると古いサイトのデータが自動削除されます。</p>
+          <p class="note" data-i18n="guide_s3_note">1サイトあたり最大20件、合計50サイトまで保存可能です。上限を超えると古いサイトのデータが自動削除されます。</p>
         </div>
       </div>
     </div>
 
-    <!-- ==============================
-         4. HEADER SETTINGS
-    =============================== -->
+    <!-- 4. SETTINGS -->
     <div class="section">
-      <h2 class="section-title">テーマ・言語の変更</h2>
-
+      <h2 class="section-title" data-i18n="guide_s4_title">テーマ・言語の変更</h2>
       <div class="guide-row reverse">
         <div class="mockup-wrap">
           <span class="anno" style="top:8px; right:68px;">1</span>
@@ -459,24 +364,16 @@
               <div class="mock-tab">&#9823; Profile</div>
             </div>
             <div class="mock-body" style="min-height: 80px;">
-              <p style="font-size:11px; color:#9ca3af; text-align:center; padding:20px 0;">ヘッダー右上のセレクターで切替できます</p>
+              <p style="font-size:11px; color:#9ca3af; text-align:center; padding:20px 0;" data-i18n="guide_s4_mock">ヘッダー右上のセレクターで切替できます</p>
             </div>
           </div>
         </div>
-
         <div class="guide-desc">
-          <h3>ヘッダーから設定を変更</h3>
-          <p>ポップアップの右上にある2つのセレクターで、言語とテーマを切り替えられます。</p>
-
+          <h3 data-i18n="guide_s4_h3">ヘッダーから設定を変更</h3>
+          <p data-i18n="guide_s4_p">ポップアップの右上にある2つのセレクターで、言語とテーマを切り替えられます。</p>
           <ul class="desc-list">
-            <li class="desc-item">
-              <span class="desc-num">1</span>
-              <div class="desc-text"><strong>言語</strong><br>11言語に対応（日本語・English・中文・한국어・Español・Fran&ccedil;ais・Deutsch・Portugu&ecirc;s・&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;・Indonesia・&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;）。初回はブラウザの言語から自動検出されます。</div>
-            </li>
-            <li class="desc-item">
-              <span class="desc-num">2</span>
-              <div class="desc-text"><strong>テーマ</strong><br>Light / Dark / Auto（OS設定に連動）の3つから選択できます。</div>
-            </li>
+            <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s4_d1"><strong>言語</strong><br>11言語に対応。初回はブラウザの言語から自動検出されます。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s4_d2"><strong>テーマ</strong><br>Light / Dark / Auto（OS設定に連動）の3つから選択できます。</div></li>
           </ul>
         </div>
       </div>
@@ -486,9 +383,10 @@
 
   <footer>
     <span>&copy; 2025 FormPilot</span>
-    <a href="privacy-policy.html" target="_blank">プライバシーポリシー</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener">お問い合わせ</a>
+    <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">プライバシーポリシー</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener" data-i18n="footer_contact">お問い合わせ</a>
   </footer>
 
+  <script src="i18n-lp.js"></script>
 </body>
 </html>
