@@ -103,7 +103,8 @@ cta_check4: "Personal data stored locally & securely",
 cta_btn: "Install free now",
 cta_note: "Add it instantly from the Chrome Web Store",
 footer_privacy: "Privacy Policy",
-footer_contact: "Contact"
+footer_contact: "Contact",
+footer_guide: "User Guide"
 },
 
 // ── Japanese ────────────────────────────────────────────────────────
@@ -206,7 +207,8 @@ cta_check4: "個人情報はローカル保存で安全",
 cta_btn: "今すぐ無料でインストール",
 cta_note: "Chrome ウェブストアからすぐに追加できます",
 footer_privacy: "プライバシーポリシー",
-footer_contact: "お問い合わせ"
+footer_contact: "お問い合わせ",
+footer_guide: "使い方ガイド"
 },
 
 // ── Chinese (Simplified) ────────────────────────────────────────────
@@ -309,7 +311,8 @@ cta_check4: "个人信息本地存储，安全可靠",
 cta_btn: "立即免费安装",
 cta_note: "可从 Chrome 应用商店立即添加",
 footer_privacy: "隐私政策",
-footer_contact: "联系我们"
+footer_contact: "联系我们",
+footer_guide: "使用指南"
 },
 
 // ── Korean ──────────────────────────────────────────────────────────
@@ -412,7 +415,8 @@ cta_check4: "개인정보는 로컬 저장으로 안전",
 cta_btn: "지금 무료로 설치",
 cta_note: "Chrome 웹 스토어에서 바로 추가할 수 있습니다",
 footer_privacy: "개인정보처리방침",
-footer_contact: "문의하기"
+footer_contact: "문의하기",
+footer_guide: "사용 가이드"
 },
 
 // ── Spanish ─────────────────────────────────────────────────────────
@@ -515,7 +519,8 @@ cta_check4: "Datos personales almacenados localmente y seguros",
 cta_btn: "Instalar gratis ahora",
 cta_note: "Añádelo directamente desde la Chrome Web Store",
 footer_privacy: "Política de privacidad",
-footer_contact: "Contacto"
+footer_contact: "Contacto",
+footer_guide: "Guía de uso"
 },
 
 // ── French ───────────────────────────────────────────────────────────
@@ -618,7 +623,8 @@ cta_check4: "Données personnelles stockées localement en toute sécurité",
 cta_btn: "Installer gratuitement maintenant",
 cta_note: "Ajoutez-le directement depuis le Chrome Web Store",
 footer_privacy: "Politique de confidentialité",
-footer_contact: "Contact"
+footer_contact: "Contact",
+footer_guide: "Guide d'utilisation"
 },
 
 // ── German ───────────────────────────────────────────────────────────
@@ -721,7 +727,8 @@ cta_check4: "Persönliche Daten lokal und sicher gespeichert",
 cta_btn: "Jetzt kostenlos installieren",
 cta_note: "Sofort im Chrome Web Store hinzufügen",
 footer_privacy: "Datenschutzrichtlinie",
-footer_contact: "Kontakt"
+footer_contact: "Kontakt",
+footer_guide: "Benutzerhandbuch"
 },
 
 // ── Portuguese ───────────────────────────────────────────────────────
@@ -824,7 +831,8 @@ cta_check4: "Dados pessoais armazenados localmente com segurança",
 cta_btn: "Instalar grátis agora",
 cta_note: "Adicione diretamente pela Chrome Web Store",
 footer_privacy: "Política de Privacidade",
-footer_contact: "Contato"
+footer_contact: "Contato",
+footer_guide: "Guia de uso"
 },
 
 // ── Hindi ────────────────────────────────────────────────────────────
@@ -927,7 +935,8 @@ cta_check4: "व्यक्तिगत डेटा लोकल और सु
 cta_btn: "अभी मुफ़्त इंस्टॉल करें",
 cta_note: "Chrome Web Store से तुरंत जोड़ें",
 footer_privacy: "गोपनीयता नीति",
-footer_contact: "संपर्क करें"
+footer_contact: "संपर्क करें",
+footer_guide: "उपयोग गाइड"
 },
 
 // ── Indonesian ───────────────────────────────────────────────────────
@@ -1030,7 +1039,8 @@ cta_check4: "Data pribadi disimpan lokal dengan aman",
 cta_btn: "Instal gratis sekarang",
 cta_note: "Tambahkan langsung dari Chrome Web Store",
 footer_privacy: "Kebijakan Privasi",
-footer_contact: "Kontak"
+footer_contact: "Kontak",
+footer_guide: "Panduan penggunaan"
 },
 
 // ── Arabic ───────────────────────────────────────────────────────────
@@ -1133,7 +1143,8 @@ cta_check4: "البيانات الشخصية مخزنة محليًا وبأما�
 cta_btn: "ثبّت مجانًا الآن",
 cta_note: "أضفه فورًا من سوق Chrome الإلكتروني",
 footer_privacy: "سياسة الخصوصية",
-footer_contact: "اتصل بنا"
+footer_contact: "اتصل بنا",
+footer_guide: "دليل الاستخدام"
 }
 
 }; // end LP_MESSAGES
