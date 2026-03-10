@@ -1201,5 +1201,9 @@ function initLP() {
   }
 }
 
-// ── Auto-init on DOMContentLoaded ───────────────────────────────────
-document.addEventListener("DOMContentLoaded", initLP);
+// ── Auto-init ───────────────────────────────────────────────────────
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLP);
+} else {
+  initLP();
+}
