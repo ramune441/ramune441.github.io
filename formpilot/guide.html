@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>使い方ガイド｜FormPilot</title>
-  <meta name="description" content="FormPilotの使い方をわかりやすく解説。インストールからプロフィール作成、AI自動入力、データ保存・復元まで。">
+  <meta name="description" content="FormPilotの使い方をデモ画面付きで解説。プロフィール作成からAI自動入力、データ保存・復元まで。">
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
       padding: 0 24px; height: 64px;
       display: flex; align-items: center; justify-content: center;
     }
-    .nav-inner { max-width: 800px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-inner { max-width: 900px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
     .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; }
     .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
     .nav-cta {
@@ -44,7 +44,7 @@
     .nav-cta:hover { background: var(--green-700); color: #fff; }
 
     /* MAIN */
-    .container { max-width: 800px; margin: 0 auto; padding: 88px 24px 80px; }
+    .container { max-width: 900px; margin: 0 auto; padding: 88px 24px 80px; }
     .back {
       display: inline-flex; align-items: center; gap: 6px;
       margin-bottom: 24px; font-size: 14px; font-weight: 500;
@@ -52,54 +52,41 @@
     }
     .back:hover { color: var(--green-600); }
     .page-title { font-size: 32px; font-weight: 800; color: var(--text); margin-bottom: 12px; }
-    .page-desc { font-size: 16px; color: var(--text-sub); margin-bottom: 40px; }
+    .page-desc { font-size: 16px; color: var(--text-sub); margin-bottom: 48px; }
 
-    /* TOC */
-    .toc {
-      background: #fff; border: 1px solid var(--border); border-radius: 12px;
-      padding: 24px 28px; margin-bottom: 56px;
-    }
-    .toc-title { font-size: 14px; font-weight: 700; color: var(--text-light); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
-    .toc-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-    .toc-list a { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--text-sub); padding: 6px 0; transition: color 0.2s; }
-    .toc-list a:hover { color: var(--green-600); }
-    .toc-num { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 6px; background: var(--green-50); color: var(--green-600); font-size: 12px; font-weight: 700; flex-shrink: 0; }
-
-    /* SECTIONS */
-    .guide-section { margin-bottom: 56px; }
-    .guide-section h2 {
+    /* DEMO BLOCK */
+    .demo-block { margin-bottom: 64px; }
+    .demo-block h2 {
       font-size: 22px; font-weight: 800; color: var(--text);
       display: flex; align-items: center; gap: 12px;
-      padding-bottom: 12px; border-bottom: 2px solid var(--green-200);
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
-    .guide-section h2 .icon { font-size: 24px; }
-    .guide-section h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-top: 28px; margin-bottom: 10px; }
-    .guide-section p, .guide-section li { font-size: 15px; color: var(--text-sub); margin-bottom: 12px; }
-    .guide-section ul, .guide-section ol { padding-left: 24px; }
-    .guide-section strong { color: var(--text); font-weight: 700; }
+    .demo-block h2 .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--green-600); color: #fff;
+      font-size: 16px; font-weight: 700; flex-shrink: 0;
+    }
+    .demo-block > p { font-size: 15px; color: var(--text-sub); margin-bottom: 20px; }
 
-    /* STEPS */
-    .steps { display: flex; flex-direction: column; gap: 16px; margin: 20px 0; }
-    .step {
-      display: flex; gap: 16px; align-items: flex-start;
-      background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+    /* DEMO IMAGE */
+    .demo-img {
+      margin: 0 0 16px; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid var(--border); background: #fff;
     }
-    .step-num {
-      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
-      background: var(--green-600); color: #fff; font-size: 14px; font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .step-text h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .step-text p { margin-bottom: 0; }
+    .demo-img img { display: block; width: 100%; }
 
-    /* IMAGE */
-    .guide-img {
-      margin: 24px 0; border-radius: 12px; overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid var(--border);
+    /* CALLOUTS under image */
+    .callouts { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
+    .callout {
+      display: flex; gap: 14px; align-items: flex-start;
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      padding: 16px 20px;
     }
-    .guide-img img { display: block; width: 100%; }
-    .guide-img-caption { padding: 12px 16px; background: #fff; font-size: 13px; color: var(--text-light); text-align: center; }
+    .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .callout-text { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+    .callout-text strong { color: var(--text); }
 
     /* TIP */
     .tip {
@@ -108,13 +95,10 @@
     }
     .tip-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
     .tip p { margin-bottom: 0; font-size: 14px; color: var(--text-sub); }
+    .tip strong { color: var(--text); }
 
-    /* LIMIT TABLE */
-    .limit-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
-    .limit-table th, .limit-table td { padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--border); }
-    .limit-table th { background: var(--green-50); color: var(--text); font-weight: 600; font-size: 13px; }
-    .limit-table td { color: var(--text-sub); }
-    .limit-table td:last-child { font-weight: 600; color: var(--green-600); }
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
 
     /* FOOTER */
     footer {
@@ -129,8 +113,7 @@
     @media (max-width: 600px) {
       .container { padding: 80px 16px 60px; }
       .page-title { font-size: 26px; }
-      .guide-section h2 { font-size: 19px; }
-      .step { flex-direction: column; gap: 10px; }
+      .demo-block h2 { font-size: 19px; }
     }
   </style>
 </head>
@@ -149,233 +132,120 @@
   <div class="container">
     <a href="./" class="back">&larr; トップページに戻る</a>
     <h1 class="page-title">使い方ガイド</h1>
-    <p class="page-desc">FormPilotのインストールから基本操作まで、すべてをわかりやすく解説します。</p>
+    <p class="page-desc">実際の画面で、FormPilotの使い方を解説します。</p>
 
-    <!-- TOC -->
-    <div class="toc">
-      <div class="toc-title">目次</div>
-      <ol class="toc-list">
-        <li><a href="#install"><span class="toc-num">1</span>インストール</a></li>
-        <li><a href="#profile"><span class="toc-num">2</span>プロフィールを作成する</a></li>
-        <li><a href="#autofill"><span class="toc-num">3</span>AI自動入力を使う</a></li>
-        <li><a href="#save-restore"><span class="toc-num">4</span>サイト別データ保存・復元</a></li>
-        <li><a href="#custom-fields"><span class="toc-num">5</span>カスタムフィールド</a></li>
-        <li><a href="#settings"><span class="toc-num">6</span>テーマ・言語設定</a></li>
-      </ol>
+    <!-- SECTION 1: 3ステップの全体像 -->
+    <div class="demo-block">
+      <h2><span class="num">1</span> 3ステップで自動入力</h2>
+      <p>プロフィールを登録し、ボタンを押すだけ。たった3ステップでフォーム入力が完了します。</p>
+
+      <div class="demo-img">
+        <img src="store-image-2.png" alt="FormPilotの3ステップ: プロフィール登録→AI Auto-Fill→完了" width="1280" height="800" loading="lazy">
+      </div>
+
+      <div class="callouts">
+        <div class="callout">
+          <span class="callout-icon">&#9312;</span>
+          <div class="callout-text"><strong>プロフィールを登録</strong> &#8212; 「Profile」タブで名前・メール・住所などの情報を入力して保存します。最大10個のプロフィールを用途別に管理できます。</div>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">&#9313;</span>
+          <div class="callout-text"><strong>「AI Auto-Fill」をクリック</strong> &#8212; フォームのあるページで「Run」タブを開き、プロフィールを選択して「AI Auto-Fill」ボタンを押します。</div>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">&#9314;</span>
+          <div class="callout-text"><strong>入力完了</strong> &#8212; AIがフォームの構造を解析し、すべてのフィールドに自動入力します。完了すると入力件数が表示されます。</div>
+        </div>
+      </div>
+
+      <div class="tip">
+        <span class="tip-icon">&#128161;</span>
+        <p>「Skip already filled fields」にチェックを入れると、すでに値が入っているフィールドはスキップされます。</p>
+      </div>
     </div>
 
-    <!-- 1. INSTALL -->
-    <section class="guide-section" id="install">
-      <h2><span class="icon">&#128229;</span> インストール</h2>
-      <p>FormPilotはChromeウェブストアから無料でインストールできます。アカウント登録やAPIキーは不要です。</p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            <h4>Chromeウェブストアを開く</h4>
-            <p><a href="https://chromewebstore.google.com/detail/formpilot/pedgekkfockobnmkokefjkclahjekend" target="_blank" rel="noopener">FormPilotのストアページ</a>にアクセスします。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            <h4>「Chromeに追加」をクリック</h4>
-            <p>ストアページの「Chromeに追加」ボタンをクリックしてインストールします。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-text">
-            <h4>ツールバーに表示</h4>
-            <p>インストール完了後、Chromeのツールバーにアイコンが表示されます。ピン留めしておくと便利です。</p>
-          </div>
-        </div>
-      </div>
-      <div class="tip">
-        <span class="tip-icon">&#128161;</span>
-        <p>ツールバーのパズルアイコン（拡張機能メニュー）からFormPilotのピンアイコンをクリックすると、常にツールバーに表示されます。</p>
-      </div>
-    </section>
+    <hr class="divider">
 
-    <!-- 2. PROFILE -->
-    <section class="guide-section" id="profile">
-      <h2><span class="icon">&#128100;</span> プロフィールを作成する</h2>
-      <p>まずは自分の情報をプロフィールとして登録しましょう。一度登録すれば、あらゆるフォームで使い回せます。</p>
+    <!-- SECTION 2: プロフィール→フォームのマッピング -->
+    <div class="demo-block">
+      <h2><span class="num">2</span> AIがプロフィールをフォームにマッピング</h2>
+      <p>登録したプロフィール情報が、AIによってフォームの各フィールドに正確にマッピングされます。</p>
 
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            <h4>「Profile」タブを開く</h4>
-            <p>ツールバーのFormPilotアイコンをクリックし、ポップアップ上部の「Profile」タブを選択します。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            <h4>各項目を入力する</h4>
-            <p>名前、メール、電話番号、住所、会社名、性別、生年月日など、必要な項目を入力します。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-text">
-            <h4>「Save」で保存</h4>
-            <p>入力が完了したら「Save」ボタンをクリックして保存します。</p>
-          </div>
-        </div>
+      <div class="demo-img">
+        <img src="store-image-3.png" alt="プロフィール情報からフォームフィールドへの自動マッピング" width="1280" height="800" loading="lazy">
       </div>
 
-      <div class="guide-img">
-        <img src="store-image-3.png" alt="プロフィールからフォームへのマッピング" width="1280" height="800" loading="lazy">
-        <div class="guide-img-caption">プロフィールの情報がAIによって各フォームフィールドに自動マッピングされます</div>
+      <div class="callouts">
+        <div class="callout">
+          <span class="callout-icon">&#127912;</span>
+          <div class="callout-text"><strong>色分けでわかるマッチング</strong> &#8212; Name（青）、Contact（紫）、Address（黄）、Other（緑）、Custom（ピンク）で、どの情報がどのフィールドに入力されたか一目でわかります。</div>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">&#128295;</span>
+          <div class="callout-text"><strong>カスタムフィールドも対応</strong> &#8212; フリガナ・部署名・社員番号・SNSアカウントなど、標準項目にない項目もカスタムフィールドとして登録でき、AIが自動マッチングします（1プロフィールあたり最大20個）。</div>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">&#127760;</span>
+          <div class="callout-text"><strong>あらゆるフォームに対応</strong> &#8212; テキスト入力・セレクトボックス・ラジオボタン・チェックボックス・日付入力など、あらゆる形式のフォームフィールドに対応しています。</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- SECTION 3: Before / After -->
+    <div class="demo-block">
+      <h2><span class="num">3</span> ワンクリックでフォームが埋まる</h2>
+      <p>空のフォームが、ボタン1つですべて入力済みになります。</p>
+
+      <div class="demo-img">
+        <img src="store-image-1.png" alt="Before: 空のフォーム → After: AI自動入力で全フィールド入力済み" width="1280" height="800" loading="lazy">
+      </div>
+
+      <div class="callouts">
+        <div class="callout">
+          <span class="callout-icon">&#9664;</span>
+          <div class="callout-text"><strong>Before</strong> &#8212; 名前・メール・住所・性別・チケット種別など、多数のフィールドがある空のフォーム。</div>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">&#9654;</span>
+          <div class="callout-text"><strong>After</strong> &#8212; 「AI Auto-Fill」をクリックするだけで、テキスト入力はもちろん、セレクトボックスやラジオボタン、チェックボックスまですべて自動入力されます。</div>
+        </div>
       </div>
 
       <div class="tip">
-        <span class="tip-icon">&#128161;</span>
-        <p>プロフィールは最大<strong>10個</strong>まで作成可能です。仕事用・個人用・テスト用など、用途に合わせて使い分けましょう。プロフィール名の横にある「+」ボタンで追加できます。</p>
+        <span class="tip-icon">&#128272;</span>
+        <p><strong>個人情報はAIに送信されません。</strong>AIに送信されるのはフォームの構造情報（ラベルや属性）のみです。あなたの名前・住所・メールなどの個人データは一切外部に送られません。</p>
       </div>
-    </section>
+    </div>
 
-    <!-- 3. AUTOFILL -->
-    <section class="guide-section" id="autofill">
-      <h2><span class="icon">&#129302;</span> AI自動入力を使う</h2>
-      <p>プロフィールを登録したら、あとはボタンひとつでフォームが自動入力されます。</p>
+    <hr class="divider">
 
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            <h4>フォームがあるページを開く</h4>
-            <p>会員登録や問い合わせフォームなど、入力フォームがあるWebページを開きます。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            <h4>プロフィールを選択</h4>
-            <p>FormPilotのポップアップを開き、「Run」タブで使いたいプロフィールを「Active Profile」から選択します。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-text">
-            <h4>「AI Auto-Fill」をクリック</h4>
-            <p>ボタンをクリックすると、AIがフォームの構造を解析し、プロフィール情報を各フィールドに自動入力します。</p>
-          </div>
-        </div>
+    <!-- SECTION 4: Save & Restore -->
+    <div class="demo-block">
+      <h2><span class="num">4</span> フォームデータを保存して、いつでも復元</h2>
+      <p>入力済みのフォームをサイトごとに保存。次回訪問時にワンクリックで復元できます。</p>
+
+      <div class="demo-img">
+        <img src="store-image-4.png" alt="フォームデータの保存と復元フロー" width="1280" height="800" loading="lazy">
       </div>
 
-      <h3>「入力済みをスキップ」オプション</h3>
-      <p>「Skip filled」にチェックを入れると、すでに値が入力されているフィールドはスキップされます。一部だけ手動で変更したい場合に便利です。</p>
+      <div class="callouts">
+        <div class="callout">
+          <span class="callout-icon">&#128190;</span>
+          <div class="callout-text"><strong>Step 1: 保存</strong> &#8212; フォームを入力した状態で「Save Current Form」をクリック。その時点の全フィールドの値がサイトごとに保存されます。</div>
+        </div>
+        <div class="callout">
+          <span class="callout-icon">&#128260;</span>
+          <div class="callout-text"><strong>Step 2: 復元</strong> &#8212; 同じサイトを再訪問したとき、保存済みエントリーの「Restore」をクリックするだけで、すべてのフィールドが復元されます。</div>
+        </div>
+      </div>
 
       <div class="tip">
         <span class="tip-icon">&#128161;</span>
-        <p>AIはフォームのラベル・属性・構造を解析してフィールドの種類を判別します。<strong>個人情報はAIに送信されません</strong>。送信されるのはフォームの構造情報のみです。</p>
+        <p>1サイトあたり最大<strong>20件</strong>、最大<strong>50サイト</strong>まで保存できます。上限を超えると古いデータが自動削除されます。</p>
       </div>
-    </section>
-
-    <!-- 4. SAVE/RESTORE -->
-    <section class="guide-section" id="save-restore">
-      <h2><span class="icon">&#128190;</span> サイト別データ保存・復元</h2>
-      <p>よく使うサイトのフォーム入力内容をサイトごとに保存し、次回訪問時にワンクリックで復元できます。</p>
-
-      <h3>保存する</h3>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            <h4>フォームを入力した状態で「Save Current Form」をクリック</h4>
-            <p>手動またはAI自動入力でフォームを埋めた後、FormPilotのポップアップから「Save Current Form」をクリックします。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            <h4>エントリー名を確認して保存</h4>
-            <p>名前やメールから自動生成されたエントリー名が表示されます。必要に応じて変更し、保存します。</p>
-          </div>
-        </div>
-      </div>
-
-      <h3>復元する</h3>
-      <p>同じサイトを再訪問したとき、保存済みエントリーの「Restore」ボタンをクリックするだけで、すべてのフィールドが復元されます。</p>
-
-      <div class="guide-img">
-        <img src="store-image-4.png" alt="フォームデータの保存と復元" width="1280" height="800" loading="lazy">
-        <div class="guide-img-caption">Step 1: フォーム入力後に保存 → Step 2: 次回訪問時にワンクリックで復元</div>
-      </div>
-
-      <table class="limit-table">
-        <thead>
-          <tr><th>項目</th><th>上限</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1サイトあたりの保存件数</td><td>20件</td></tr>
-          <tr><td>保存可能なサイト数</td><td>50サイト</td></tr>
-        </tbody>
-      </table>
-
-      <div class="tip">
-        <span class="tip-icon">&#128161;</span>
-        <p>サイト数が上限に達した場合、最も古いサイトのデータが自動的に削除されます。</p>
-      </div>
-    </section>
-
-    <!-- 5. CUSTOM FIELDS -->
-    <section class="guide-section" id="custom-fields">
-      <h2><span class="icon">&#128295;</span> カスタムフィールド</h2>
-      <p>標準の入力項目（名前・メール・住所など）にない項目も、カスタムフィールドとして追加できます。</p>
-
-      <h3>追加できる項目の例</h3>
-      <ul>
-        <li><strong>フリガナ</strong>（カタカナ）</li>
-        <li><strong>部署名</strong>・役職</li>
-        <li><strong>社員番号</strong>・会員番号</li>
-        <li><strong>SNSアカウント</strong>（LinkedIn、Xなど）</li>
-        <li><strong>チケット種別</strong>など任意の項目</li>
-      </ul>
-
-      <h3>追加方法</h3>
-      <p>「Profile」タブのカスタムフィールドセクションにある「+ Add」ボタンをクリックし、項目名（キー）と値を入力して保存します。</p>
-
-      <table class="limit-table">
-        <thead>
-          <tr><th>項目</th><th>上限</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1プロフィールあたりのカスタムフィールド数</td><td>20個</td></tr>
-          <tr><td>項目名（キー）の最大文字数</td><td>50文字</td></tr>
-          <tr><td>値の最大文字数</td><td>200文字</td></tr>
-        </tbody>
-      </table>
-
-      <div class="tip">
-        <span class="tip-icon">&#128161;</span>
-        <p>カスタムフィールドもAI自動入力の対象です。AIがフォーム上の対応するフィールドを自動で検出し、マッチングします。</p>
-      </div>
-    </section>
-
-    <!-- 6. SETTINGS -->
-    <section class="guide-section" id="settings">
-      <h2><span class="icon">&#9881;&#65039;</span> テーマ・言語設定</h2>
-
-      <h3>テーマ</h3>
-      <p>ポップアップ右上のテーマ切替ボタンから、以下の3モードを選択できます。</p>
-      <ul>
-        <li><strong>Light</strong> &#8212; 白を基調とした明るいテーマ</li>
-        <li><strong>Dark</strong> &#8212; ダークテーマ</li>
-        <li><strong>Auto</strong> &#8212; OSのシステム設定に連動して自動切替</li>
-      </ul>
-
-      <h3>言語</h3>
-      <p>ポップアップ左上の言語セレクターから表示言語を切り替えられます。以下の11言語に対応しています。</p>
-      <ul>
-        <li>日本語 / English / 中文 / 한국어 / Español</li>
-        <li>Français / Deutsch / Português / हिन्दी / Indonesia / العربية</li>
-      </ul>
-      <p>初回起動時はブラウザの言語設定に基づいて自動検出されます。</p>
-    </section>
+    </div>
 
   </div>
 
