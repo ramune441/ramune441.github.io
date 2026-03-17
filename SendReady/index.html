@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SendReady｜AIがあなたの文章をワンタップで変換するAndroidアプリ</title>
+  <meta name="description" content="LINE・メール・SNS、どのアプリでもAIが文章を丁寧語・翻訳・絵文字追加などワンタップで変換。カスタムプリセット対応の無料Androidアプリ。">
+  <meta name="keywords" content="AI文章変換, テキスト変換アプリ, Android, 丁寧語変換, AI翻訳, 文章校正, SendReady, テキスト自動変換, AI文章作成">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/SendReady/">
+
+  <meta property="og:title" content="SendReady｜AIがあなたの文章をワンタップで変換">
+  <meta property="og:description" content="LINE・メール・SNS、どのアプリでもAIが文章を丁寧語・翻訳・絵文字追加などワンタップで変換する無料Androidアプリ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/SendReady/">
+  <meta property="og:image" content="https://ramune441.github.io/SendReady/images/store-image-1.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="SendReady">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SendReady｜AIがあなたの文章をワンタップで変換">
+  <meta name="twitter:description" content="LINE・メール・SNS、どのアプリでもAIが文章を丁寧語・翻訳・絵文字追加などワンタップで変換する無料Androidアプリ。">
+  <meta name="twitter:image" content="https://ramune441.github.io/SendReady/images/store-image-1.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SendReady",
+    "description": "AI-powered Android app that transforms text with one tap across any app",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Android",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Ramune" },
+    "softwareVersion": "1.19"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "本当に無料ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、完全無料です。アカウント登録も不要。1日50回まで無料で使えます。" } },
+      { "@type": "Question", "name": "どのアプリで使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "LINE、メール、X（Twitter）、Instagram、ブラウザなど、テキスト入力があるすべてのAndroidアプリで利用できます。" } },
+      { "@type": "Question", "name": "個人情報は安全ですか？", "acceptedAnswer": { "@type": "Answer", "text": "プリセットや設定はすべてデバイス内に保存されます。AIに送信されるのは変換対象のテキストのみです。" } }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap">
+
+  <style>
+    :root {
+      --blue: #4361EE;
+      --blue-dark: #3A0CA3;
+      --blue-light: #7B93FF;
+      --blue-50: #EEF1FF;
+      --blue-100: #D8DEFF;
+      --blue-200: #B0BDFF;
+      --yellow: #FFE066;
+      --yellow-dark: #FFBE0B;
+      --text: #1e293b;
+      --text-sub: #64748b;
+      --text-light: #94a3b8;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.8; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-cta {
+      background: var(--blue); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 8px 20px; border-radius: 8px; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-dark); }
+
+    /* HERO */
+    .hero {
+      padding: 100px 24px 0; background: linear-gradient(160deg, #1a1d4e 0%, #2d3cb5 30%, var(--blue) 60%, #3555d4 90%);
+      position: relative; overflow: hidden;
+    }
+    .hero-deco { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(255,224,102,0.1) 0%, transparent 70%); top: -200px; right: -200px; pointer-events: none; }
+    .hero-deco2 { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(58,12,163,0.2) 0%, transparent 70%); bottom: -200px; left: -100px; pointer-events: none; }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; position: relative; z-index: 1;
+      text-align: center; padding-bottom: 0;
+    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); color: #fff; font-size: 14px; font-weight: 600; padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 28px; backdrop-filter: blur(8px); }
+    .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+    h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 20px; letter-spacing: -0.5px; }
+    h1 .accent { color: var(--yellow); }
+    .hero-desc { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 36px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--yellow); color: var(--text); font-size: 15px; font-weight: 700; padding: 14px 32px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(255,224,102,0.3); transition: all 0.2s; text-decoration: none; }
+    .btn-primary:hover { background: var(--yellow-dark); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(255,190,11,0.35); }
+    .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 500; padding: 14px 8px; transition: color 0.2s; }
+    .btn-ghost:hover { color: #fff; }
+    .hero-note { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 48px; }
+
+    .hero-screenshot {
+      max-width: 900px; margin: 0 auto; border-radius: 16px 16px 0 0; overflow: hidden;
+      box-shadow: 0 -8px 48px rgba(0,0,0,0.2);
+    }
+    .hero-screenshot img { width: 100%; display: block; }
+
+    /* ANY APP BANNER */
+    .anyapp-bar {
+      background: linear-gradient(135deg, var(--blue-50), var(--blue-100));
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 36px 24px; text-align: center;
+    }
+    .anyapp-inner { max-width: 700px; margin: 0 auto; }
+    .anyapp-heading { font-size: 22px; font-weight: 800; color: var(--blue); margin-bottom: 8px; line-height: 1.4; }
+    .anyapp-sub { font-size: 15px; color: var(--text-sub); line-height: 1.7; }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+    h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: var(--text); line-height: 1.35; margin-bottom: 16px; }
+    .section-lead { font-size: 16px; color: var(--text-sub); max-width: 600px; line-height: 1.8; margin-bottom: 56px; }
+    .section-center { text-align: center; }
+    .section-center .section-lead { margin-left: auto; margin-right: auto; }
+
+    /* SCREENSHOT SHOWCASE */
+    .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .showcase.reverse { direction: rtl; }
+    .showcase.reverse > * { direction: ltr; }
+    .showcase-text { }
+    .showcase-text h3 { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 12px; line-height: 1.3; }
+    .showcase-text p { font-size: 16px; color: var(--text-sub); line-height: 1.8; margin-bottom: 20px; }
+    .showcase-text .feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .showcase-text .feat-list li {
+      display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-sub); line-height: 1.6;
+    }
+    .showcase-text .feat-list li::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--yellow-dark);
+      flex-shrink: 0; margin-top: 8px;
+    }
+    .showcase-img {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+    }
+    .showcase-img img { width: 100%; display: block; }
+
+    /* PROBLEM BANNER */
+    .problem-banner { background: linear-gradient(135deg, #1a1d4e, var(--blue)); color: #fff; padding: 64px 24px; text-align: center; }
+    .problem-banner h2 { color: #fff; margin-bottom: 16px; }
+    .problem-banner p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 650px; margin: 0 auto; line-height: 1.8; }
+    .problem-banner .highlight { color: var(--yellow); font-weight: 700; }
+
+    /* FLOW */
+    .flow { background: var(--bg-alt); }
+    .flow-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; max-width: 900px; margin: 0 auto; }
+    .flow-timeline::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 12px); right: calc(12.5% + 12px); height: 3px; background: var(--blue-200); border-radius: 2px; }
+    .flow-item { text-align: center; position: relative; z-index: 1; }
+    .flow-num { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(67,97,238,0.25); }
+    .flow-item h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .flow-item p { font-size: 13px; color: var(--text-sub); line-height: 1.6; padding: 0 8px; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .feat-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 32px 28px; transition: box-shadow 0.3s, border-color 0.3s; }
+    .feat-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); border-color: var(--blue-light); }
+    .feat-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-50); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* SAFETY */
+    .safety-section { background: linear-gradient(180deg, #1a1d4e 0%, var(--blue) 100%); color: #fff; }
+    .safety-section .section-tag { color: var(--yellow); }
+    .safety-section h2 { color: #fff; }
+    .safety-section .section-lead { color: rgba(255,255,255,0.7); }
+    .safety-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .safety-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 28px 24px; backdrop-filter: blur(8px); }
+    .safety-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .safety-card p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-item:hover { border-color: var(--blue-light); }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; padding: 20px 24px; font-size: 15px; font-weight: 600; color: var(--text); text-align: left; font-family: inherit; line-height: 1.5; }
+    .faq-q::after { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-left: 16px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234361EE' stroke-width='2.5'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/contain no-repeat; transition: transform 0.3s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-a { max-height: 400px; }
+    .faq-a-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-sub); line-height: 1.8; }
+
+    /* CTA BOTTOM */
+    .cta-bottom { background: var(--blue-50); text-align: center; padding: 80px 24px; border-top: 1px solid var(--blue-200); }
+    .cta-bottom h2 { margin-bottom: 24px; }
+    .cta-checklist { max-width: 440px; margin: 0 auto 36px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
+    .cta-check-item { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--text); }
+    .cta-check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+    .cta-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
+
+    /* FOOTER */
+    footer { background: var(--text); padding: 40px 24px; text-align: center; }
+    .footer-inner { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; font-size: 13px; color: rgba(255,255,255,0.45); }
+    .footer-inner a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-inner a:hover { color: rgba(255,255,255,0.8); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { padding: 90px 20px 0; }
+      .hero-screenshot { max-width: 100%; border-radius: 12px 12px 0 0; }
+      .showcase { grid-template-columns: 1fr; gap: 32px; }
+      .showcase.reverse { direction: ltr; }
+      .showcase-img { order: -1; }
+      .features-grid, .benefits-grid { grid-template-columns: 1fr; }
+      .safety-grid { grid-template-columns: 1fr; }
+      .flow-timeline { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .flow-timeline::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 64px 16px; }
+      .flow-timeline { grid-template-columns: 1fr; gap: 24px; }
+      .nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <img src="icons/icon512.png" alt="" width="32" height="32">
+        <span>SendReady</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.sendready" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav_cta">Google Playで入手</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-deco2"></div>
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">無料 &middot; 11言語対応</span></div>
+      <h1><span data-i18n="hero_h1_1">送信前の文章を、</span><br><span class="accent" data-i18n="hero_h1_2">AIがワンタップで仕上げる。</span></h1>
+      <p class="hero-desc" data-i18n="hero_desc">LINE、メール、SNS ── どのアプリでも、入力中のテキストをAIが丁寧語に変換、翻訳、絵文字追加。カスタムプリセットで自分だけの変換を作れます。</p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.sendready" class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+          <span data-i18n="hero_cta">Google Playで入手（無料）</span>
+        </a>
+        <a href="#features" class="btn-ghost" data-i18n="hero_ghost">機能を見る &#8595;</a>
+      </div>
+      <p class="hero-note" data-i18n="hero_note">Android 7.0以上 &middot; 登録不要 &middot; 1日50回まで無料</p>
+      <div class="hero-screenshot">
+        <img src="images/store-image-1.png" alt="SendReady - Your words, but better." loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- ANY APP BANNER -->
+  <div class="anyapp-bar">
+    <div class="anyapp-inner">
+      <p class="anyapp-heading" data-i18n="anyapp_h">どのアプリでも。どのテキストフォームでも。</p>
+      <p class="anyapp-sub" data-i18n="anyapp_sub">メッセージ、メール、SNS、ブラウザ、メモ帳 ── テキスト入力があるすべてのAndroidアプリでSendReadyが使えます。</p>
+    </div>
+  </div>
+
+  <!-- PROBLEM BANNER -->
+  <div class="problem-banner">
+    <h2 data-i18n="problem_h2">送信ボタンを押す前に、不安になったことありませんか？</h2>
+    <p data-i18n-html="problem_p">「この文章、失礼じゃないかな」「もっと丁寧に書きたい」「英語で送りたいけど自信がない」──<br>
+    毎回悩む時間がもったいない。<br>
+    SendReadyなら、<span class="highlight">AIがあなたの文章を瞬時に最適化</span>します。</p>
+  </div>
+
+  <!-- FLOW -->
+  <section class="flow">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="flow_tag">How it works</span>
+      <h2 data-i18n="flow_h2">どのアプリでも、ワンタップで文章変換</h2>
+      <p class="section-lead" data-i18n="flow_lead">アプリごとの設定は不要。テキスト入力があるすべてのアプリで動作します。</p>
+      <div class="flow-timeline">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <h3 data-i18n="flow1_h3">テキストを入力</h3>
+          <p data-i18n="flow1_p">LINE、メールなど好きなアプリでテキストを入力</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <h3 data-i18n="flow2_h3">プリセットを選択</h3>
+          <p data-i18n="flow2_p">丁寧語・翻訳・絵文字など、使いたい変換を選択</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <h3 data-i18n="flow3_h3">AIが変換</h3>
+          <p data-i18n="flow3_p">Gemini AIが文脈を理解して最適なテキストに変換</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <h3 data-i18n="flow4_h3">そのまま送信</h3>
+          <p data-i18n="flow4_p">変換結果がそのまま入力欄に反映。あとは送信するだけ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIGGER MARKERS -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="trigger_tag">Trigger Markers</span>
+          <h3 data-i18n-html="trigger_h3">入力するだけで、<br>自動変換。</h3>
+          <p data-i18n="trigger_p">プリセットにトリガー文字列を設定すれば、テキストを入力するだけでAIが自動変換。タップすら不要の最速フロー。</p>
+          <ul class="feat-list">
+            <li data-i18n="trigger_f1">テキストをトリガーで囲むだけ</li>
+            <li data-i18n="trigger_f2">即座にAIが変換を実行</li>
+            <li data-i18n="trigger_f3">チャット中でもシームレスに使える</li>
+          </ul>
+        </div>
+        <div class="showcase-img">
+          <img src="images/store-image-2.png" alt="Trigger Markers" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMIZE -->
+  <section style="background: var(--bg-alt);">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="customize_tag">Customize</span>
+          <h3 data-i18n-html="customize_h3">自分だけの<br>プリセットを作成。</h3>
+          <p data-i18n="customize_p">タイトル、トリガー、指示文を自由に設定。最大10個のオリジナル変換パターンを作成して、ワンタップで呼び出し。</p>
+          <ul class="feat-list">
+            <li data-i18n="customize_f1">カスタムタイトル & トリガー</li>
+            <li data-i18n="customize_f2">自由な変換指示文</li>
+            <li data-i18n="customize_f3">いつでも編集可能</li>
+          </ul>
+        </div>
+        <div class="showcase-img">
+          <img src="images/store-image-3.png" alt="Customize" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM PROMPTS -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="prompt_tag">Custom Prompts</span>
+          <h3 data-i18n-html="prompt_h3">どんな指示でも、<br>その場で即実行。</h3>
+          <p data-i18n="prompt_p">プリセットを使わず、その場で自由にプロンプトを入力して変換。ビジネスメール、SNS投稿、翻訳 ── 何でも対応。</p>
+          <ul class="feat-list">
+            <li data-i18n="prompt_f1">プリセット不要でAI変換</li>
+            <li data-i18n="prompt_f2">自由な指示文を毎回入力可能</li>
+            <li data-i18n="prompt_f3">結果をワンタップで適用</li>
+          </ul>
+        </div>
+        <div class="showcase-img">
+          <img src="images/store-image-4.png" alt="Custom Prompts" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section style="background: var(--bg-alt);">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="lang_tag">Languages & Themes</span>
+          <h3 data-i18n-html="lang_h3">11言語対応。<br>ダーク & ライトテーマ。</h3>
+          <p data-i18n="lang_p">日本語・英語・中国語・韓国語・スペイン語など11言語に対応。UIも自動でローカライズ。ダークモードにも完全対応。</p>
+          <ul class="feat-list">
+            <li data-i18n="lang_f1">11言語のUI自動切替</li>
+            <li data-i18n="lang_f2">ダーク / ライト / システム追従</li>
+            <li data-i18n="lang_f3">どの言語でも自然な翻訳</li>
+          </ul>
+        </div>
+        <div class="showcase-img">
+          <img src="images/store-image-5.png" alt="11 Languages" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="features_tag">Features</span>
+      <h2 data-i18n="features_h2">搭載機能</h2>
+      <p class="section-lead" data-i18n="features_lead">AIの力で、あらゆるテキスト変換に対応する機能を搭載。</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <div class="feat-icon">&#128640;</div>
+          <h3 data-i18n="feat1_h3">3秒で変換完了</h3>
+          <p data-i18n="feat1_p">丁寧語変換、翻訳、文体調整 ── 手動で数分かかる作業がAIのワンタップ変換で瞬時に完了。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#9997;</div>
+          <h3 data-i18n="feat2_h3">カスタムプリセット</h3>
+          <p data-i18n="feat2_p">最大10個のオリジナル変換プリセットを作成可能。よく使う変換パターンをワンタップで呼び出し。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#128241;</div>
+          <h3 data-i18n="feat3_h3">全アプリ対応</h3>
+          <p data-i18n="feat3_p">アクセシビリティサービスでどのアプリでも動作。LINE、メール、SNS、ブラウザなど制限なし。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#127760;</div>
+          <h3 data-i18n="feat4_h3">11言語対応</h3>
+          <p data-i18n="feat4_p">日本語・英語・中国語・韓国語・スペイン語など11言語に対応。UIも自動でローカライズ。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#9889;</div>
+          <h3 data-i18n="feat5_h3">トリガーマーカー</h3>
+          <p data-i18n="feat5_p">プリセットにトリガー文字列を設定可能。入力中にトリガーを含めるだけで即座に変換を実行。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#127769;</div>
+          <h3 data-i18n="feat6_h3">ダークモード</h3>
+          <p data-i18n="feat6_p">ライト／ダーク／Auto（システム追従）の3モード。目に優しいデザインで快適に利用。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="safety-section">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="safety_tag">Privacy & Safety</span>
+      <h2 data-i18n="safety_h2">あなたのデータは安全です</h2>
+      <p class="section-lead" data-i18n="safety_lead">安心して使えるよう、プライバシーファーストで設計しています。</p>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h3 data-i18n="safe1_h3">&#128274; ローカル保存</h3>
+          <p data-i18n="safe1_p">プリセットや設定はすべてデバイス内に保存。外部サーバーには一切送信しません。</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe2_h3">&#129302; AIに送るのはテキストだけ</h3>
+          <p data-i18n="safe2_p">変換のためにAIに送信されるのは変換対象のテキストのみ。アカウント情報や端末情報は送信されません。</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe3_h3">&#128465; 完全削除</h3>
+          <p data-i18n="safe3_p">アンインストールすれば保存データはすべて削除。データが残り続けることはありません。</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe4_h3">&#128272; アクセシビリティ権限</h3>
+          <p data-i18n="safe4_p">テキスト入力の検出にのみ使用。画面の録画や個人情報の収集は一切行いません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="faq_tag">FAQ</span>
+      <h2 data-i18n="faq_h2">よくある質問</h2>
+      <div class="faq-list" style="margin-top: 48px;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq1_q">本当に無料ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">はい、完全無料です。アカウント登録も不要。1日50回まで無料で変換できます。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq2_q">どのアプリで使えますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">LINE、メール、X（Twitter）、Instagram、ブラウザなど、テキスト入力があるすべてのAndroidアプリで利用できます。アクセシビリティサービスを使用しているため、アプリごとの個別設定は不要です。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq3_q">個人情報は安全ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">プリセットや設定はすべてデバイス内に保存されます。AIに送信されるのは変換対象のテキストのみで、アカウント情報や端末情報は送信されません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq4_q">アクセシビリティ権限は何に使いますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">テキスト入力欄を検出し、変換結果を入力するために使用します。画面の録画や個人情報の収集は一切行いません。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq5_q">iPhoneでも使えますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq5_a">現在はAndroid版のみ提供しています。Android 7.0（API 24）以上の端末で利用できます。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq6_q">プリセットはカスタマイズできますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq6_a">はい、最大10個のカスタムプリセットを作成できます。タイトル、変換指示、トリガーマーカーを自由に設定可能です。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <h2 data-i18n="cta_h2">テキスト入力のストレスから、今日解放されよう。</h2>
+      <div class="cta-checklist">
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check1">AIが文章をワンタップで変換</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check2">完全無料、登録不要</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check3">カスタムプリセット・11言語対応</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">&#10003;</span><span data-i18n="cta_check4">すべてのAndroidアプリで動作</span></div>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.sendready" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+        <span data-i18n="cta_btn">今すぐ無料でインストール</span>
+      </a>
+      <p class="cta-note" data-i18n="cta_note">Google Play からすぐにダウンロードできます</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2025 SendReady</span>
+      <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">プライバシーポリシー</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener" data-i18n="footer_contact">お問い合わせ</a>
+    </div>
+  </footer>
+
+  <script src="i18n-lp.js"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use | SendReady</title>
+  <meta name="description" content="SendReadyの使い方ガイド。アクセシビリティの設定、プリセット作成、トリガーマーカーの使い方をステップバイステップで解説。">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap">
+  <style>
+    :root {
+      --blue: #4361EE;
+      --blue-dark: #3A0CA3;
+      --blue-light: #7B93FF;
+      --blue-50: #EEF1FF;
+      --blue-100: #D8DEFF;
+      --blue-200: #B0BDFF;
+      --yellow: #FFE066;
+      --yellow-dark: #FFBE0B;
+      --text: #1e293b;
+      --text-sub: #64748b;
+      --text-light: #94a3b8;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-alt); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; height: auto; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 860px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-cta {
+      background: var(--blue); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 8px 20px; border-radius: 8px; transition: background 0.2s; text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--blue-dark); text-decoration: none; }
+
+    /* HERO */
+    .tutorial-hero {
+      background: linear-gradient(160deg, #1a1d4e 0%, #2d3cb5 30%, var(--blue) 60%, #3555d4 90%);
+      padding: 100px 24px 56px; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .tutorial-hero::before {
+      content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,224,102,0.1) 0%, transparent 70%);
+      top: -200px; right: -150px; pointer-events: none;
+    }
+    .tutorial-hero h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 900; margin-bottom: 14px; position: relative; }
+    .tutorial-hero p { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto; position: relative; }
+    .tutorial-hero .step-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); color: #fff; font-size: 14px; font-weight: 600;
+      padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.2);
+      margin-bottom: 20px; backdrop-filter: blur(8px); position: relative;
+    }
+    .tutorial-hero .step-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow); }
+
+    /* CONTENT */
+    .content { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; position: relative; }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative; padding-top: 48px;
+    }
+    .timeline::before {
+      content: ''; position: absolute; left: 32px; top: 48px; bottom: 0;
+      width: 3px; background: linear-gradient(180deg, var(--blue), var(--blue-200), var(--border));
+      border-radius: 2px;
+    }
+
+    /* STEP CARD */
+    .step-card {
+      position: relative; margin-bottom: 40px; padding-left: 80px;
+    }
+    .step-card:last-child { margin-bottom: 0; }
+
+    .step-num {
+      position: absolute; left: 12px; top: 0;
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 800; z-index: 2;
+      box-shadow: 0 4px 14px rgba(67,97,238,0.3);
+    }
+
+    .card-body {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
+      padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s;
+    }
+    .card-body:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+
+    .step-title {
+      font-size: 22px; font-weight: 800; color: var(--text); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-body p { font-size: 15px; color: var(--text-sub); margin-bottom: 16px; line-height: 1.8; }
+    .card-body ol, .card-body ul { padding-left: 24px; margin-bottom: 20px; }
+    .card-body li { font-size: 15px; color: var(--text-sub); margin-bottom: 10px; line-height: 1.7; }
+    .card-body li strong { color: var(--text); }
+
+    /* CODE */
+    code {
+      background: var(--blue-50); color: var(--blue-dark);
+      padding: 3px 8px; border-radius: 6px;
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+      font-size: 0.9em; font-weight: 500;
+    }
+    .code-block {
+      background: linear-gradient(135deg, #1a1d4e, var(--blue-dark));
+      padding: 20px 24px; border-radius: 12px;
+      margin: 20px 0;
+      font-family: 'SF Mono', Monaco, Consolas, monospace;
+      font-size: 16px; color: var(--yellow); font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 16px rgba(58,12,163,0.2);
+    }
+
+    /* MEDIA */
+    .media-frame {
+      background: linear-gradient(135deg, var(--bg-alt), var(--blue-50));
+      border-radius: 14px; padding: 16px;
+      margin: 24px 0 0; border: 1px solid var(--border); text-align: center;
+    }
+    .media-frame img {
+      width: 100%; max-width: 400px; border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1); cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .media-frame img:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .media-caption { font-size: 13px; color: var(--text-light); margin-top: 12px; }
+
+    /* TIP */
+    .tip-box {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border-left: 4px solid var(--yellow-dark);
+      border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0;
+    }
+    .tip-box strong { color: #92400e; }
+    .tip-box p { font-size: 14px; color: #78350f; margin: 0; line-height: 1.7; }
+
+    /* RESULT */
+    .result-box {
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      border-left: 4px solid #10b981;
+      border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0;
+    }
+    .result-box p { font-size: 14px; color: #065f46; margin: 0; line-height: 1.7; }
+
+    /* SECTION CARD */
+    .section-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; margin-top: 48px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .section-card h2 {
+      font-size: 20px; font-weight: 800; color: var(--blue);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .section-card ul { padding-left: 24px; }
+    .section-card li { font-size: 15px; color: var(--text-sub); margin-bottom: 12px; line-height: 1.7; }
+    .section-card li strong { color: var(--text); }
+
+    /* FOOTER */
+    .tutorial-footer {
+      text-align: center; padding: 40px 24px; font-size: 13px;
+      color: var(--text-light); background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .tutorial-footer a { color: var(--blue); }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.92); z-index: 9999; cursor: pointer;
+    }
+    .modal-overlay.active {
+      display: flex; align-items: center; justify-content: center; padding: 16px;
+    }
+    .modal-overlay img {
+      max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .timeline::before { left: 24px; }
+      .step-card { padding-left: 64px; }
+      .step-num { left: 4px; width: 38px; height: 38px; font-size: 16px; }
+      .card-body { padding: 24px 20px; }
+      .step-title { font-size: 19px; }
+    }
+    @media (max-width: 480px) {
+      .content { padding: 0 12px 64px; }
+      .timeline::before { display: none; }
+      .step-card { padding-left: 0; margin-bottom: 24px; }
+      .step-num {
+        position: relative; left: auto; top: auto;
+        margin-bottom: 12px;
+      }
+      .card-body { padding: 20px 16px; border-radius: 12px; }
+      .step-title { font-size: 18px; }
+      .tutorial-hero { padding: 80px 16px 40px; }
+      .media-frame { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand">
+        <img src="icons/icon512.png" alt="" width="32" height="32">
+        <span>SendReady</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.sendready" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav_cta">Google Playで入手</a>
+    </div>
+  </nav>
+
+  <div class="tutorial-hero">
+    <div class="step-badge"><span class="step-badge-dot"></span>4 Steps</div>
+    <h1 data-i18n="tut_hero_h1">SendReady の使い方</h1>
+    <p data-i18n="tut_hero_p">AI搭載のテキストアシスタント。4ステップで始められます。</p>
+  </div>
+
+  <div class="content">
+    <div class="timeline">
+
+      <!-- STEP 1 -->
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="card-body">
+          <div class="step-title" data-i18n="tut_s1_title">アクセシビリティサービスを有効にする</div>
+          <p data-i18n="tut_s1_desc">アプリの「設定を開く」ボタンをタップするか、以下の手順に従ってください：</p>
+          <ol>
+            <li data-i18n-html="tut_s1_1"><strong>設定</strong>に移動します</li>
+            <li data-i18n-html="tut_s1_2"><strong>アクセシビリティ</strong>を探してタップします</li>
+            <li data-i18n-html="tut_s1_3"><strong>ダウンロード済みアプリ</strong>をタップします</li>
+            <li data-i18n-html="tut_s1_4">リストから<strong>SendReady</strong>を探してタップします</li>
+            <li data-i18n-html="tut_s1_5">トグルスイッチをタップしてオンにします</li>
+            <li data-i18n-html="tut_s1_6">確認ダイアログで<strong>許可</strong>をタップします</li>
+          </ol>
+          <div class="result-box">
+            <p data-i18n-html="tut_s1_result"><strong>結果：</strong> SendReady に戻ると「✅ サービスが有効です」と表示されます。</p>
+          </div>
+          <div class="media-frame">
+            <img src="images/allow_accesibility.gif" alt="アクセシビリティを有効にする" loading="lazy">
+            <div class="media-caption" data-i18n="tut_s1_cap">アクセシビリティサービスを有効にする手順</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="card-body">
+          <div class="step-title" data-i18n="tut_s2_title">プリセットを作成する</div>
+          <p data-i18n="tut_s2_desc">プリセットは再利用できる AI 命令です。各プリセットには以下を設定できます：</p>
+          <ul>
+            <li data-i18n-html="tut_s2_1"><strong>タイトル：</strong> 例：「丁寧」「英語に翻訳」（最大 20 文字）</li>
+            <li data-i18n-html="tut_s2_2"><strong>命令：</strong> 例：「丁寧でプロらしくする」「文法を修正」「短くする」（最大 200 文字）</li>
+            <li data-i18n-html="tut_s2_3"><strong>トリガー：</strong> オプション - <code>;;</code>、<code>en;;</code> などのショートカット文字列（最大 10 文字）</li>
+          </ul>
+          <div class="media-frame">
+            <img src="images/instruction.gif" alt="プリセットを作成する" loading="lazy">
+            <div class="media-caption" data-i18n="tut_s2_cap">「新規追加」をタップしてプリセットを作成</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="card-body">
+          <div class="step-title" data-i18n="tut_s3_title">トリガーを使って自動変換</div>
+          <p data-i18n="tut_s3_desc">任意のアプリで、テキストをトリガーで囲みます：</p>
+          <div class="code-block" data-i18n="tut_s3_example">;;会議を延期できますか？;;</div>
+          <div class="tip-box">
+            <p data-i18n-html="tut_s3_tip"><strong>ヒント：</strong> トリガーを <code>;;テキスト;;</code> の形で使うと、手動で指示を入力できます。</p>
+          </div>
+          <p data-i18n="tut_s3_result">AI がテキストを処理し、変換結果のポップアップを自動的に表示します。</p>
+          <div class="media-frame">
+            <img src="images/trigger.gif" alt="トリガーを使用する" loading="lazy">
+            <div class="media-caption" data-i18n="tut_s3_cap">トリガーマーカーでテキストを囲んで自動変換</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="card-body">
+          <div class="step-title" data-i18n="tut_s4_title">またはテキストを選択して処理</div>
+          <p data-i18n="tut_s4_desc">トリガーなしでも使えます：</p>
+          <ol>
+            <li data-i18n="tut_s4_1">長押ししてテキストを選択</li>
+            <li data-i18n-html="tut_s4_2">メニューの<strong>SendReady</strong>をタップ</li>
+            <li data-i18n="tut_s4_3">プリセットを選択</li>
+            <li data-i18n-html="tut_s4_4">または<strong>手動で指示を入力</strong>を選んで1回だけの指示を入力</li>
+            <li data-i18n="tut_s4_5">AI で変換されたテキストを即座に取得</li>
+          </ol>
+          <div class="media-frame">
+            <img src="images/textmenu.gif" alt="選択して処理する" loading="lazy">
+            <div class="media-caption" data-i18n="tut_s4_cap">テキストを長押し → SendReady → プリセット選択</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TROUBLESHOOTING -->
+    <div class="section-card">
+      <h2 data-i18n="tut_trouble_h2">🔧 トラブルシューティング</h2>
+      <ul>
+        <li data-i18n-html="tut_trouble_1"><strong>ポップアップが表示されない：</strong> アクセシビリティサービスが有効になっているか確認してください</li>
+        <li data-i18n-html="tut_trouble_2"><strong>トリガーが機能しない：</strong> テキストがトリガーで始まり、終わっていることを確認してください</li>
+        <li data-i18n-html="tut_trouble_3"><strong>SendReady がテキストメニューにない：</strong> 一部のアプリはテキスト処理を制限しています。トリガー方法を使用してください</li>
+        <li data-i18n-html="tut_trouble_4"><strong>ネットワークエラー：</strong> AI 処理にはインターネット接続が必要です</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="tutorial-footer">
+    <p><a href="./">SendReady トップへ戻る</a> &middot; <a href="privacy-policy.html">プライバシーポリシー</a></p>
+    <p style="margin-top: 8px;">&copy; 2025 SendReady by Ramune</p>
+  </div>
+
+  <div class="modal-overlay" id="imageModal">
+    <img id="modalImage" src="" alt="">
+  </div>
+
+  <script src="i18n-lp.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var modal = document.getElementById('imageModal');
+      var modalImg = document.getElementById('modalImage');
+      document.querySelectorAll('.media-frame img').forEach(function(img) {
+        img.addEventListener('click', function() {
+          modal.classList.add('active');
+          modalImg.src = this.src;
+          modalImg.alt = this.alt;
+        });
+      });
+      modal.addEventListener('click', function() { this.classList.remove('active'); });
+    });
+  </script>
+
+</body>
+</html>
