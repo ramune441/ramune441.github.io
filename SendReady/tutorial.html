@@ -26,6 +26,22 @@
       --bg-alt: #f8fafc;
       --border: #e2e8f0;
     }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --blue: #7B93FF;
+        --blue-dark: #5B6FFF;
+        --blue-light: #A3B3FF;
+        --blue-50: #1e2240;
+        --blue-100: #252a50;
+        --blue-200: #3a4080;
+        --text: #e8eaf6;
+        --text-sub: #9ca3c0;
+        --text-light: #6b7194;
+        --bg: #1a1d2e;
+        --bg-alt: #12141f;
+        --border: #2e3350;
+      }
+    }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -43,6 +59,9 @@
       border-bottom: 1px solid var(--border);
       padding: 0 24px; height: 64px;
       display: flex; align-items: center; justify-content: center;
+    }
+    @media (prefers-color-scheme: dark) {
+      .nav { background: rgba(26,29,46,0.92); }
     }
     .nav-inner { max-width: 860px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
     .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; }
@@ -164,6 +183,16 @@
       border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0;
     }
     .result-box p { font-size: 14px; color: #065f46; margin: 0; line-height: 1.7; }
+
+    @media (prefers-color-scheme: dark) {
+      .tip-box { background: linear-gradient(135deg, #2d2510, #332a12); }
+      .tip-box strong { color: #fbbf24; }
+      .tip-box p { color: #d4a940; }
+      .result-box { background: linear-gradient(135deg, #0d2818, #0f3020); }
+      .result-box p { color: #6ee7b7; }
+      .media-frame { background: linear-gradient(135deg, var(--bg), var(--blue-50)); }
+      code { background: var(--blue-50); color: var(--blue-light); }
+    }
 
     /* SECTION CARD */
     .section-card {
