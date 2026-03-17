@@ -7,6 +7,7 @@ const LP_MESSAGES = {
 // English
 // ============================================================
 en: {
+  nav_tutorial: "How to Use",
   nav_cta: "Get on Google Play",
   hero_badge: "Free · 11 Languages",
   hero_h1_1: "Refine your texts,",
@@ -146,6 +147,7 @@ en: {
 // Japanese
 // ============================================================
 ja: {
+  nav_tutorial: "使い方",
   nav_cta: "Google Playで入手",
   hero_badge: "無料 · 11言語対応",
   hero_h1_1: "送信前の文章を、",
@@ -285,6 +287,7 @@ ja: {
 // Chinese (Simplified)
 // ============================================================
 zh: {
+  nav_tutorial: "使用方法",
   nav_cta: "在 Google Play 下载",
   hero_badge: "免费 · 支持11种语言",
   hero_h1_1: "发送前的文字，",
@@ -376,6 +379,7 @@ zh: {
 // Korean
 // ============================================================
 ko: {
+  nav_tutorial: "사용 방법",
   nav_cta: "Google Play에서 받기",
   hero_badge: "무료 · 11개 언어 지원",
   hero_h1_1: "보내기 전 문장을,",
@@ -467,6 +471,7 @@ ko: {
 // Spanish
 // ============================================================
 es: {
+  nav_tutorial: "Cómo usar",
   nav_cta: "Obtener en Google Play",
   hero_badge: "Gratis · 11 idiomas",
   hero_h1_1: "Mejora tus textos,",
@@ -558,6 +563,7 @@ es: {
 // French
 // ============================================================
 fr: {
+  nav_tutorial: "Mode d'emploi",
   nav_cta: "Télécharger sur Google Play",
   hero_badge: "Gratuit · 11 langues",
   hero_h1_1: "Peaufinez vos textes,",
@@ -649,6 +655,7 @@ fr: {
 // German
 // ============================================================
 de: {
+  nav_tutorial: "Anleitung",
   nav_cta: "Bei Google Play laden",
   hero_badge: "Kostenlos · 11 Sprachen",
   hero_h1_1: "Verfeinere deine Texte,",
@@ -740,6 +747,7 @@ de: {
 // Portuguese
 // ============================================================
 pt: {
+  nav_tutorial: "Como usar",
   nav_cta: "Baixar no Google Play",
   hero_badge: "Grátis · 11 idiomas",
   hero_h1_1: "Refine seus textos,",
@@ -831,6 +839,7 @@ pt: {
 // Hindi
 // ============================================================
 hi: {
+  nav_tutorial: "उपयोग कैसे करें",
   nav_cta: "Google Play पर पाएं",
   hero_badge: "मुफ़्त · 11 भाषाएं",
   hero_h1_1: "अपने टेक्स्ट को,",
@@ -922,6 +931,7 @@ hi: {
 // Indonesian
 // ============================================================
 id: {
+  nav_tutorial: "Cara Pakai",
   nav_cta: "Dapatkan di Google Play",
   hero_badge: "Gratis · 11 Bahasa",
   hero_h1_1: "Perbaiki teksmu,",
@@ -1013,6 +1023,7 @@ id: {
 // Arabic (RTL)
 // ============================================================
 ar: {
+  nav_tutorial: "طريقة الاستخدام",
   nav_cta: "احصل عليه من Google Play",
   hero_badge: "مجاني · 11 لغة",
   hero_h1_1: "حسّن نصوصك،",
