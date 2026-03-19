@@ -140,7 +140,8 @@ en: {
   tut_trouble_1: "<strong>Popup not showing:</strong> Check if the accessibility service is enabled",
   tut_trouble_2: "<strong>Trigger not working:</strong> Make sure text starts and ends with the trigger",
   tut_trouble_3: "<strong>SendReady not in text menu:</strong> Some apps restrict text processing. Use the trigger method instead",
-  tut_trouble_4: "<strong>Network error:</strong> Internet connection is required for AI processing"
+  tut_trouble_4: "<strong>Network error:</strong> Internet connection is required for AI processing",
+  tut_auth_notice: "🔐 <strong>First-time sign-in:</strong> To prevent unauthorized access, Google sign-in is required on your first use. You will be signed in automatically afterwards."
 },
 
 // ============================================================
@@ -280,7 +281,8 @@ ja: {
   tut_trouble_1: "<strong>ポップアップが表示されない：</strong> アクセシビリティサービスが有効になっているか確認してください",
   tut_trouble_2: "<strong>トリガーが機能しない：</strong> テキストがトリガーで始まり、終わっていることを確認してください",
   tut_trouble_3: "<strong>SendReady がテキストメニューにない：</strong> 一部のアプリはテキスト処理を制限しています。トリガー方法を使用してください",
-  tut_trouble_4: "<strong>ネットワークエラー：</strong> AI 処理にはインターネット接続が必要です"
+  tut_trouble_4: "<strong>ネットワークエラー：</strong> AI 処理にはインターネット接続が必要です",
+  tut_auth_notice: "🔐 <strong>初回認証について：</strong> 不正ユーザーを防ぐため、初回起動時のみ Google アカウントでの認証が必要です。2回目以降は自動でサインインされます。"
 },
 
 // ============================================================
@@ -372,7 +374,8 @@ zh: {
   tut_trouble_1: "<strong>弹窗不显示：</strong>检查无障碍服务是否已启用",
   tut_trouble_2: "<strong>触发器不起作用：</strong>确保文字以触发器开头和结尾",
   tut_trouble_3: "<strong>文字菜单中没有SendReady：</strong>部分应用限制文字处理。请使用触发器方法",
-  tut_trouble_4: "<strong>网络错误：</strong>AI处理需要网络连接"
+  tut_trouble_4: "<strong>网络错误：</strong>AI处理需要网络连接",
+  tut_auth_notice: "🔐 <strong>首次登录说明：</strong>为防止未授权用户，首次使用需要 Google 账号认证。之后将自动登录。"
 },
 
 // ============================================================
@@ -464,7 +467,8 @@ ko: {
   tut_trouble_1: "<strong>팝업이 표시되지 않음:</strong> 접근성 서비스가 활성화되어 있는지 확인",
   tut_trouble_2: "<strong>트리거가 작동하지 않음:</strong> 텍스트가 트리거로 시작하고 끝나는지 확인",
   tut_trouble_3: "<strong>텍스트 메뉴에 SendReady가 없음:</strong> 일부 앱은 텍스트 처리를 제한합니다. 트리거 방법을 사용하세요",
-  tut_trouble_4: "<strong>네트워크 오류:</strong> AI 처리에는 인터넷 연결이 필요합니다"
+  tut_trouble_4: "<strong>네트워크 오류:</strong> AI 처리에는 인터넷 연결이 필요합니다",
+  tut_auth_notice: "🔐 <strong>첫 로그인 안내：</strong> 비인가 사용자 방지를 위해 첫 실행 시 Google 계정 인증이 필요합니다. 이후에는 자동으로 로그인됩니다."
 },
 
 // ============================================================
@@ -556,7 +560,8 @@ es: {
   tut_trouble_1: "<strong>No aparece el popup:</strong> Verifica que el servicio de accesibilidad esté activado",
   tut_trouble_2: "<strong>El activador no funciona:</strong> Asegúrate de que el texto empiece y termine con el activador",
   tut_trouble_3: "<strong>SendReady no aparece en el menú:</strong> Algunas apps restringen el procesamiento de texto. Usa el método de activador",
-  tut_trouble_4: "<strong>Error de red:</strong> Se requiere conexión a internet para el procesamiento con IA"
+  tut_trouble_4: "<strong>Error de red:</strong> Se requiere conexión a internet para el procesamiento con IA",
+  tut_auth_notice: "🔐 <strong>Inicio de sesión inicial:</strong> Para prevenir accesos no autorizados, se requiere autenticación con Google la primera vez. El inicio de sesión será automático a partir de entonces."
 },
 
 // ============================================================
@@ -648,7 +653,8 @@ fr: {
   tut_trouble_1: "<strong>Popup absent :</strong> Vérifiez que le service d'accessibilité est activé",
   tut_trouble_2: "<strong>Déclencheur ne fonctionne pas :</strong> Vérifiez que le texte commence et finit par le déclencheur",
   tut_trouble_3: "<strong>SendReady absent du menu :</strong> Certaines apps restreignent le traitement. Utilisez les déclencheurs",
-  tut_trouble_4: "<strong>Erreur réseau :</strong> Connexion internet requise pour l'IA"
+  tut_trouble_4: "<strong>Erreur réseau :</strong> Connexion internet requise pour l'IA",
+  tut_auth_notice: "🔐 <strong>Première connexion :</strong> Pour éviter les accès non autorisés, une authentification Google est requise à la première utilisation. La connexion sera automatique par la suite."
 },
 
 // ============================================================
@@ -740,7 +746,8 @@ de: {
   tut_trouble_1: "<strong>Popup erscheint nicht:</strong> Prüfe ob der Barrierefreiheitsdienst aktiviert ist",
   tut_trouble_2: "<strong>Trigger funktioniert nicht:</strong> Stelle sicher, dass der Text mit dem Trigger beginnt und endet",
   tut_trouble_3: "<strong>SendReady nicht im Menü:</strong> Einige Apps beschränken Textverarbeitung. Nutze die Trigger-Methode",
-  tut_trouble_4: "<strong>Netzwerkfehler:</strong> Internetverbindung für KI-Verarbeitung erforderlich"
+  tut_trouble_4: "<strong>Netzwerkfehler:</strong> Internetverbindung für KI-Verarbeitung erforderlich",
+  tut_auth_notice: "🔐 <strong>Erstmalige Anmeldung:</strong> Zum Schutz vor unbefugtem Zugriff ist beim ersten Start eine Google-Anmeldung erforderlich. Danach wird automatisch angemeldet."
 },
 
 // ============================================================
@@ -832,7 +839,8 @@ pt: {
   tut_trouble_1: "<strong>Popup não aparece:</strong> Verifique se o serviço de acessibilidade está ativado",
   tut_trouble_2: "<strong>Ativador não funciona:</strong> Certifique-se de que o texto começa e termina com o ativador",
   tut_trouble_3: "<strong>SendReady não aparece no menu:</strong> Alguns apps restringem processamento. Use ativadores",
-  tut_trouble_4: "<strong>Erro de rede:</strong> Conexão com internet é necessária para processamento com IA"
+  tut_trouble_4: "<strong>Erro de rede:</strong> Conexão com internet é necessária para processamento com IA",
+  tut_auth_notice: "🔐 <strong>Login inicial:</strong> Para evitar usuários não autorizados, o login com Google é necessário na primeira utilização. Após isso, o login será automático."
 },
 
 // ============================================================
@@ -924,7 +932,8 @@ hi: {
   tut_trouble_1: "<strong>पॉपअप नहीं दिख रहा:</strong> एक्सेसिबिलिटी सर्विस सक्षम है या नहीं जांचें",
   tut_trouble_2: "<strong>ट्रिगर काम नहीं कर रहा:</strong> टेक्स्ट ट्रिगर से शुरू और ख़त्म होना चाहिए",
   tut_trouble_3: "<strong>मेन्यू में SendReady नहीं:</strong> कुछ ऐप्स टेक्स्ट प्रोसेसिंग सीमित करते हैं। ट्रिगर मेथड इस्तेमाल करें",
-  tut_trouble_4: "<strong>नेटवर्क एरर:</strong> AI प्रोसेसिंग के लिए इंटरनेट ज़रूरी है"
+  tut_trouble_4: "<strong>नेटवर्क एरर:</strong> AI प्रोसेसिंग के लिए इंटरनेट ज़रूरी है",
+  tut_auth_notice: "🔐 <strong>पहली बार साइन-इन:</strong> अनधिकृत उपयोगकर्ताओं को रोकने के लिए, पहली बार उपयोग में Google खाते से प्रमाणीकरण आवश्यक है। इसके बाद स्वतः साइन-इन होगा।"
 },
 
 // ============================================================
@@ -1016,7 +1025,8 @@ id: {
   tut_trouble_1: "<strong>Popup tidak muncul:</strong> Periksa apakah layanan aksesibilitas sudah aktif",
   tut_trouble_2: "<strong>Pemicu tidak berfungsi:</strong> Pastikan teks diawali dan diakhiri dengan pemicu",
   tut_trouble_3: "<strong>SendReady tidak ada di menu:</strong> Beberapa aplikasi membatasi pemrosesan teks. Gunakan metode pemicu",
-  tut_trouble_4: "<strong>Error jaringan:</strong> Koneksi internet diperlukan untuk pemrosesan AI"
+  tut_trouble_4: "<strong>Error jaringan:</strong> Koneksi internet diperlukan untuk pemrosesan AI",
+  tut_auth_notice: "🔐 <strong>Login pertama kali:</strong> Untuk mencegah pengguna tidak sah, autentikasi Google diperlukan saat pertama kali digunakan. Setelah itu, login akan otomatis."
 },
 
 // ============================================================
@@ -1108,7 +1118,8 @@ ar: {
   tut_trouble_1: "<strong>النافذة لا تظهر:</strong> تحقق من تفعيل خدمة إمكانية الوصول",
   tut_trouble_2: "<strong>المشغّل لا يعمل:</strong> تأكد أن النص يبدأ وينتهي بالمشغّل",
   tut_trouble_3: "<strong>SendReady غير موجود في القائمة:</strong> بعض التطبيقات تقيّد معالجة النص. استخدم طريقة المشغّل",
-  tut_trouble_4: "<strong>خطأ في الشبكة:</strong> يلزم اتصال بالإنترنت لمعالجة الذكاء الاصطناعي"
+  tut_trouble_4: "<strong>خطأ في الشبكة:</strong> يلزم اتصال بالإنترنت لمعالجة الذكاء الاصطناعي",
+  tut_auth_notice: "🔐 <strong>تسجيل الدخول للمرة الأولى:</strong> لمنع المستخدمين غير المصرح لهم، يلزم المصادقة عبر Google عند الاستخدام الأول. بعد ذلك، سيتم تسجيل الدخول تلقائيًا."
 }
 
 };
