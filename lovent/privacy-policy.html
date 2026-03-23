@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Lovent</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+  <style>
+    :root { --teal: #009688; --text: #1A2420; --text-sub: #5A6B64; --border: #dce8e3; --bg: #fff; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.9; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--teal); }
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 760px; width: 100%; display: flex; align-items: center; gap: 10px; }
+    .nav-inner .nav-icon { width: 28px; height: 28px; border-radius: 6px; background: var(--teal); display: flex; align-items: center; justify-content: center; }
+    .nav-inner .nav-icon svg { width: 18px; height: 18px; }
+    .nav-inner a { font-weight: 700; font-size: 15px; color: var(--text); text-decoration: none; }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: var(--text-sub); margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: var(--text); }
+    p, ul { font-size: 15px; color: var(--text-sub); margin-bottom: 16px; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 6px; }
+    footer { text-align: center; padding: 32px 24px; font-size: 13px; color: var(--text-sub); border-top: 1px solid var(--border); }
+    @media (max-width: 480px) { .container { padding: 32px 16px 64px; } h1 { font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 8V34H20V8H16Z" fill="white"/>
+          <path d="M20 34H32V30H20V34Z" fill="white"/>
+          <path d="M24 38C24 40.2 22.2 42 20 42C17.8 42 16 40.2 16 38C16 35.8 17.8 34 20 34C22.2 34 24 35.8 24 38Z" fill="white"/>
+        </svg>
+      </div>
+      <a href="./">Lovent</a>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: March 23, 2026</p>
+
+    <p>Lovent ("we", "the app") is an Android application developed by Ramune that discovers local events using AI-powered web search. This Privacy Policy explains how we handle your information.</p>
+
+    <h2>1. Data We Collect</h2>
+    <p>Lovent is designed with a privacy-first approach. We collect and process the minimum data necessary for the app to function:</p>
+    <ul>
+      <li><strong>Google Account:</strong> We use Google Sign-In for authentication. Your Google ID token is sent to our server to verify your identity and prevent abuse. We do not access your email content, contacts, or other Google account data beyond basic authentication.</li>
+      <li><strong>Area names:</strong> The area names you register (e.g. "Shibuya", "Manhattan") are sent to the AI service (OpenAI) via our proxy server for event discovery. These area names are not stored on our servers.</li>
+      <li><strong>Calendar data:</strong> If you enable Google Calendar sync, the app reads your calendar list to let you choose a target calendar, and writes event entries when you favorite events. Calendar access is used solely for this purpose.</li>
+    </ul>
+    <p>All other data is stored <strong>locally on your device only</strong>:</p>
+    <ul>
+      <li>Collected event data (titles, dates, locations, descriptions)</li>
+      <li>Favorites and reminder settings</li>
+      <li>App preferences (theme, language, category filters)</li>
+      <li>Registered area names</li>
+    </ul>
+    <p>We do <strong>not</strong> collect:</p>
+    <ul>
+      <li>Device identifiers or advertising IDs</li>
+      <li>Usage analytics or tracking data</li>
+      <li>Precise location data (GPS)</li>
+      <li>Contact lists or call logs</li>
+      <li>Browsing history</li>
+    </ul>
+
+    <h2>2. Google Authentication</h2>
+    <p>Lovent requires Google Sign-In to authenticate API requests and prevent abuse. When you sign in:</p>
+    <ul>
+      <li>Your Google ID token is sent to our Cloudflare Worker server for verification</li>
+      <li>The server validates the token against Google's public keys</li>
+      <li>No personal information from your Google account is stored on our servers</li>
+      <li>The token is used solely for request authentication and rate limiting</li>
+    </ul>
+
+    <h2>3. Google Calendar Access</h2>
+    <p>If you choose to enable Google Calendar sync, Lovent requests calendar read/write permission. This permission is used <strong>solely</strong> for:</p>
+    <ul>
+      <li>Reading your calendar list to let you select a target calendar</li>
+      <li>Creating calendar events when you add events to favorites</li>
+      <li>Deleting calendar events when you remove events from favorites</li>
+      <li>Setting reminders at your chosen time</li>
+    </ul>
+    <p>Calendar permission is <strong>optional</strong> and the app functions fully without it.</p>
+
+    <h2>4. Third-Party Services</h2>
+    <p>Lovent uses the following third-party services:</p>
+    <ul>
+      <li><strong>OpenAI API</strong> (via Cloudflare Worker proxy): Used to search the web and discover events in your registered areas. Only area names and search parameters are sent. Please refer to <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI's Privacy Policy</a>.</li>
+      <li><strong>Google Maps SDK:</strong> Used to display events on a map. Please refer to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+      <li><strong>Firebase Authentication:</strong> Used for Google Sign-In. Please refer to <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a>.</li>
+    </ul>
+    <p>No advertising SDKs, analytics tools, or other tracking services are used.</p>
+
+    <h2>5. Data Storage</h2>
+    <p>All event data, favorites, settings, and user preferences are stored locally on your device using Android Room Database and DataStore. No event data or user preferences are stored on external servers controlled by us.</p>
+
+    <h2>6. Data Deletion</h2>
+    <p>Since all data is stored locally on your device:</p>
+    <ul>
+      <li>Uninstalling Lovent will permanently delete all stored data.</li>
+      <li>You can clear the app's data at any time through Android Settings &gt; Apps &gt; Lovent &gt; Clear Data.</li>
+      <li>Calendar events created by the app can be managed through Google Calendar.</li>
+    </ul>
+
+    <h2>7. Children's Privacy</h2>
+    <p>Lovent is not directed at children under 13. We do not knowingly collect any personal information from children.</p>
+
+    <h2>8. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be reflected by updating the "Last updated" date at the top of this page.</p>
+
+    <h2>9. Contact</h2>
+    <p>If you have questions about this Privacy Policy, please contact us via our <a href="https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog" target="_blank" rel="noopener">contact form</a>.</p>
+  </div>
+  <footer>&copy; 2025 Lovent by Ramune</footer>
+</body>
+</html>
