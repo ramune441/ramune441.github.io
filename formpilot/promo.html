@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>FormPilot Promo Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f0fdf4; }
+  body { font-family: 'Noto Sans JP', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+  .green { color: #059669; }
+
+  /* ===== S1: Intro ===== */
+  #s1 { background: linear-gradient(135deg, #ecfdf5, #d1fae5); flex-direction: column; gap: 48px; }
+  #s1 .logo-row { display: flex; align-items: center; gap: 36px; opacity: 0; transform: translateY(40px); }
+  #s1 .logo-icon {
+    width: 140px; height: 140px; border-radius: 32px;
+    box-shadow: 0 0 80px rgba(16,185,129,0.3);
+    overflow: hidden;
+  }
+  #s1 .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  #s1 .logo-text { font-size: 110px; font-weight: 900; color: #064e3b; letter-spacing: -3px; }
+  #s1 .tagline { font-size: 52px; font-weight: 600; color: #475569; opacity: 0; transform: translateY(30px); }
+  #s1 .tagline .green { font-weight: 800; }
+
+  /* ===== S2: Repetitive Input (stacking forms) ===== */
+  #s2 { background: linear-gradient(135deg, #f8fafc, #f1f5f9); flex-direction: column; gap: 0; }
+  #s2 .s2-layout {
+    display: flex; flex-direction: column; align-items: center;
+    width: 100%; height: 100%; padding: 60px 0 40px;
+  }
+  #s2 .rep-title {
+    font-size: 64px; font-weight: 800; color: #1e293b; text-align: center; line-height: 1.4;
+    opacity: 0; transform: translateY(40px); flex-shrink: 0;
+  }
+  #s2 .rep-title .orange { color: #ea580c; }
+  #s2 .stack-area {
+    position: relative; width: 640px; flex: 1; margin-top: 40px;
+  }
+  .stack-form {
+    position: absolute; top: 50px; left: 0; width: 640px;
+    background: #fff; border-radius: 20px; padding: 36px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .stack-form .sf-bar {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+    padding-bottom: 12px; border-bottom: 1px solid #e2e8f0;
+  }
+  .sf-bar .sf-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .sf-bar .sf-dot-r { background: #ef4444; } .sf-bar .sf-dot-y { background: #eab308; } .sf-bar .sf-dot-g { background: #22c55e; }
+  .sf-bar .sf-url { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 6px 14px; font-size: 14px; color: #64748b; margin-left: 8px; }
+  .stack-form h4 { font-size: 20px; color: #1e293b; font-weight: 700; margin-bottom: 14px; }
+  .sf-field { margin-bottom: 8px; }
+  .sf-field .sf-label { font-size: 12px; color: #94a3b8; font-weight: 600; margin-bottom: 3px; }
+  .sf-field .sf-input {
+    height: 38px; border: 1.5px solid #e2e8f0; border-radius: 8px;
+    padding: 0 12px; font-size: 15px; color: #64748b; background: #f8fafc;
+    display: flex; align-items: center;
+  }
+  #s2 .s2-bottom-area {
+    flex-shrink: 0; height: 80px; display: flex; align-items: center; justify-content: center;
+    position: relative; width: 100%;
+  }
+  #s2 .sigh-text {
+    font-size: 40px; color: #dc2626; font-weight: 700;
+    opacity: 0; transform: translateY(20px);
+    position: absolute;
+  }
+  #s2 .rep-bottom {
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transform: translateY(20px);
+    position: absolute;
+  }
+  .rep-save-card {
+    background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+    border: 2px solid #a7f3d0; border-radius: 20px;
+    padding: 28px 48px; display: flex; align-items: center; gap: 20px;
+  }
+  .rep-save-icon { font-size: 48px; }
+  .rep-save-text { font-size: 28px; color: #1e293b; font-weight: 500; line-height: 1.6; }
+  .rep-save-text .green { font-weight: 800; }
+
+  /* ===== S3: Chrome Autofill Problem ===== */
+  #s3 { background: linear-gradient(135deg, #fff1f2, #fef2f2); flex-direction: row; gap: 80px; padding: 0 100px; }
+  #s3 .problem-left { flex: 0 0 620px; display: flex; flex-direction: column; gap: 36px; }
+  #s3 .problem-title { font-size: 60px; font-weight: 800; color: #1e293b; line-height: 1.4; opacity: 0; transform: translateY(40px); }
+  #s3 .problem-title .red { color: #dc2626; }
+  #s3 .problem-list { display: flex; flex-direction: column; gap: 20px; opacity: 0; }
+  .problem-item { display: flex; align-items: center; gap: 18px; font-size: 28px; color: #334155; font-weight: 500; opacity: 0; transform: translateX(-30px); }
+  .problem-item .x-icon {
+    width: 40px; height: 40px; border-radius: 50%; background: #fee2e2;
+    border: 2px solid #ef4444; display: flex; align-items: center; justify-content: center;
+    color: #dc2626; font-size: 20px; font-weight: 800; flex-shrink: 0;
+  }
+  #s3 .problem-right { flex: 1; display: flex; justify-content: center; align-items: center; }
+  #s3 .chrome-form {
+    width: 640px; background: #fff; border-radius: 20px; padding: 40px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.08); opacity: 0; transform: scale(0.9); position: relative;
+    border: 1px solid #e2e8f0;
+  }
+  .chrome-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid #e2e8f0; }
+  .chrome-bar .dot { width: 14px; height: 14px; border-radius: 50%; }
+  .chrome-bar .dot-r { background: #ef4444; } .chrome-bar .dot-y { background: #eab308; } .chrome-bar .dot-g { background: #22c55e; }
+  .chrome-bar .url-bar { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 8px 16px; font-size: 14px; color: #94a3b8; margin-left: 8px; }
+  .chrome-form h3 { font-size: 24px; color: #1e293b; margin-bottom: 24px; font-weight: 700; }
+  .cf-row { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+  .cf-row label { display: block; font-size: 15px; color: #64748b; margin-bottom: 4px; font-weight: 600; width: 100%; }
+  .cf-field { width: 100%; height: 48px; border: 2px solid #e2e8f0; border-radius: 8px; padding: 0 14px; font-size: 16px; color: #1e293b; background: #f8fafc; display: flex; align-items: center; transition: all 0.4s; }
+  .cf-field.ok { border-color: #86efac; background: #f0fdf4; }
+  .cf-field.wrong { border-color: #fca5a5; background: #fef2f2; color: #ef4444; }
+  .cf-field.empty { border-color: #fbbf24; background: #fffbeb; }
+  .cf-status { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; opacity: 0; transform: scale(0.5); transition: all 0.3s cubic-bezier(0.16,1,0.3,1); }
+  .cf-status.show { opacity: 1; transform: scale(1); }
+  .cf-status.s-ok { background: #dcfce7; color: #16a34a; }
+  .cf-status.s-ng { background: #fee2e2; color: #dc2626; }
+  .cf-status.s-warn { background: #fef3c7; color: #d97706; }
+  .chrome-form .autofill-badge { position: absolute; top: 16px; right: 16px; background: #dbeafe; color: #2563eb; font-size: 14px; font-weight: 700; padding: 6px 16px; border-radius: 8px; opacity: 0; transition: opacity 0.3s; }
+
+  /* ===== S4: Solution ===== */
+  #s4 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); flex-direction: column; gap: 48px; }
+  #s4 .solution-title { font-size: 84px; font-weight: 900; color: #064e3b; text-align: center; opacity: 0; transform: scale(0.8); }
+  #s4 .three-sec { font-size: 220px; font-weight: 900; color: #059669; opacity: 0; transform: scale(0.5); text-shadow: 0 0 80px rgba(5,150,105,0.2); line-height: 1; }
+  #s4 .three-sec-label { font-size: 48px; color: #065f46; margin-top: -8px; opacity: 0; }
+  #s4 .solution-sub { font-size: 40px; color: #1e293b; text-align: center; opacity: 0; transform: translateY(30px); }
+
+  /* ===== S5: Demo ===== */
+  #s5 { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); flex-direction: row; gap: 80px; padding: 0 100px; }
+  #s5 .demo-left { flex: 0 0 580px; display: flex; flex-direction: column; gap: 32px; }
+  #s5 .demo-badge { display: inline-flex; align-items: center; gap: 10px; background: #d1fae5; border: 1px solid #a7f3d0; padding: 12px 28px; border-radius: 100px; font-size: 20px; color: #059669; font-weight: 600; width: fit-content; opacity: 0; }
+  #s5 .demo-title { font-size: 60px; font-weight: 800; color: #1e293b; line-height: 1.3; opacity: 0; transform: translateX(-40px); }
+  #s5 .demo-desc { font-size: 26px; color: #475569; line-height: 1.8; opacity: 0; }
+  #s5 .demo-right { flex: 1; display: flex; justify-content: center; }
+  #s5 .demo-form { width: 700px; background: #fff; border-radius: 20px; padding: 44px; box-shadow: 0 32px 80px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; opacity: 0; transform: translateX(60px); }
+  .demo-form .form-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+  .demo-form .form-header h3 { font-size: 26px; color: #1e293b; font-weight: 700; }
+  .demo-form .autofill-btn { display: flex; align-items: center; gap: 10px; background: #10b981; color: #fff; border: none; border-radius: 12px; padding: 14px 32px; font-size: 18px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 16px rgba(16,185,129,0.3); position: relative; overflow: hidden; }
+  .autofill-btn .btn-shine { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); }
+  .demo-form .field { margin-bottom: 18px; }
+  .demo-form .field label { display: block; font-size: 15px; color: #64748b; margin-bottom: 6px; font-weight: 600; }
+  .demo-form .field .demo-input { width: 100%; height: 50px; border: 2px solid #e2e8f0; border-radius: 10px; padding: 0 16px; font-size: 17px; color: #1e293b; background: #f8fafc; display: flex; align-items: center; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s; }
+  .demo-form .field .demo-input.filled { border-color: #10b981; background: #ecfdf5; box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+  .demo-form .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .demo-select { width: 100%; height: 50px; border: 2px solid #e2e8f0; border-radius: 10px; padding: 0 16px; font-size: 17px; color: #94a3b8; background: #f8fafc; display: flex; align-items: center; justify-content: space-between; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s; }
+  .demo-select .select-arrow { font-size: 12px; color: #94a3b8; transition: color 0.3s; }
+  .demo-select.filled { border-color: #10b981; background: #ecfdf5; color: #1e293b; box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+  .demo-select.filled .select-arrow { color: #10b981; }
+  .demo-radio-group { display: flex; gap: 20px; padding: 10px 0; }
+  .demo-radio { display: flex; align-items: center; gap: 10px; font-size: 17px; color: #64748b; cursor: default; transition: color 0.3s; }
+  .demo-radio .radio-circle { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #cbd5e1; background: #fff; display: flex; align-items: center; justify-content: center; transition: border-color 0.3s, box-shadow 0.3s; }
+  .demo-radio .radio-dot { width: 12px; height: 12px; border-radius: 50%; background: transparent; transition: background 0.3s, transform 0.3s; transform: scale(0); }
+  .demo-radio.selected { color: #1e293b; font-weight: 600; }
+  .demo-radio.selected .radio-circle { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+  .demo-radio.selected .radio-dot { background: #10b981; transform: scale(1); }
+  .demo-checkbox-group { padding: 6px 0; }
+  .demo-checkbox { display: flex; align-items: center; gap: 10px; font-size: 17px; color: #64748b; cursor: default; transition: color 0.3s; }
+  .demo-checkbox .check-box { width: 24px; height: 24px; border-radius: 6px; border: 2px solid #cbd5e1; background: #fff; display: flex; align-items: center; justify-content: center; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s; font-size: 14px; color: transparent; font-weight: 800; }
+  .demo-checkbox.checked { color: #1e293b; font-weight: 600; }
+  .demo-checkbox.checked .check-box { border-color: #10b981; background: #10b981; color: #fff; box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+
+  /* ===== S6: Features ===== */
+  #s6 { background: linear-gradient(135deg, #f8fafc, #f1f5f9); flex-direction: column; gap: 64px; }
+  #s6 .feat-title { font-size: 64px; font-weight: 800; color: #1e293b; text-align: center; opacity: 0; }
+  #s6 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; max-width: 1600px; width: 90%; }
+  .feat-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 24px; padding: 44px 36px; text-align: center; opacity: 0; transform: translateY(40px); box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+  .feat-item .feat-emoji { font-size: 64px; margin-bottom: 20px; display: block; }
+  .feat-item h4 { font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 12px; }
+  .feat-item p { font-size: 19px; color: #64748b; line-height: 1.7; }
+
+  /* ===== S7: CTA ===== */
+  #s7 { background: linear-gradient(135deg, #ecfdf5, #d1fae5); flex-direction: column; gap: 48px; }
+  #s7 .cta-title { font-size: 72px; font-weight: 900; color: #064e3b; text-align: center; opacity: 0; transform: translateY(40px); }
+  #s7 .cta-checks { display: flex; flex-direction: column; gap: 24px; opacity: 0; }
+  .cta-check { display: flex; align-items: center; gap: 18px; font-size: 32px; color: #1e293b; font-weight: 500; }
+  .cta-check .check-circle { width: 48px; height: 48px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; font-weight: 800; }
+  #s7 .cta-btn { display: inline-flex; align-items: center; gap: 16px; background: #10b981; color: #fff; font-size: 30px; font-weight: 800; padding: 28px 64px; border-radius: 20px; border: none; box-shadow: 0 8px 32px rgba(16,185,129,0.3); opacity: 0; transform: translateY(20px); }
+  #s7 .cta-note { font-size: 22px; color: #64748b; opacity: 0; }
+
+</style>
+</head>
+<body>
+
+
+<!-- S1: Intro -->
+<div class="scene active" id="s1">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:32px;">
+    <div class="logo-row" id="e1a"><div class="logo-icon"><img src="icons/icon128.png" alt="FormPilot"></div><div class="logo-text">FormPilot</div></div>
+    <div class="tagline" id="e1b">AI-powered <span class="green">one-click</span> form auto-fill</div>
+  </div>
+</div>
+
+<!-- S2: Repetitive Input (stacking forms) -->
+<div class="scene" id="s2">
+  <div class="s2-layout">
+  <div class="rep-title" id="e2a">Tired of typing the same info<br><span class="orange">over and over again?</span></div>
+  <div class="stack-area" id="e2b">
+    <div class="stack-form" id="sf1" style="z-index:5;">
+      <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">shopping-site.com/signup</div></div>
+      <h4>Sign Up</h4>
+      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+    </div>
+    <div class="stack-form" id="sf2" style="z-index:4;">
+      <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">bank-service.jp/apply</div></div>
+      <h4>Open Account</h4>
+      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+    </div>
+    <div class="stack-form" id="sf3" style="z-index:3;">
+      <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">job-apply.co.jp/entry</div></div>
+      <h4>Job Application</h4>
+      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+    </div>
+    <div class="stack-form" id="sf4" style="z-index:2;">
+      <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">insurance.co.jp/quote</div></div>
+      <h4>Get a Quote</h4>
+      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+    </div>
+    <div class="stack-form" id="sf5" style="z-index:1;">
+      <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">delivery.com/checkout</div></div>
+      <h4>Shipping Info</h4>
+      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+    </div>
+  </div>
+  <div class="s2-bottom-area">
+    <div class="sigh-text" id="e2sigh">&#128553; Not this form again...</div>
+    <div class="rep-bottom" id="e2c">
+      <div class="rep-save-card">
+        <div class="rep-save-icon">&#128190;</div>
+        <div class="rep-save-text">With FormPilot, <span class="green">set up once.</span><br>Auto-fill &amp; restore on any site with one click.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- S3: Chrome Autofill Problem -->
+<div class="scene" id="s3">
+  <div class="problem-left">
+    <div class="problem-title" id="e3a">Chrome autofill is<br><span class="red">frustrating, isn't it?</span></div>
+    <div class="problem-list" id="e3b">
+      <div class="problem-item" id="p1"><div class="x-icon">&#10007;</div>Skips custom fields entirely</div>
+      <div class="problem-item" id="p2"><div class="x-icon">&#10007;</div>Fills the wrong fields</div>
+      <div class="problem-item" id="p3"><div class="x-icon">&#10007;</div>Ignores non-standard inputs</div>
+      <div class="problem-item" id="p4"><div class="x-icon">&#10007;</div>Can't handle dropdowns</div>
+      <div class="problem-item" id="p5"><div class="x-icon">&#10007;</div>You end up fixing it manually...</div>
+    </div>
+  </div>
+  <div class="problem-right">
+    <div class="chrome-form" id="e3c">
+      <div class="autofill-badge" id="e3d">Chrome Autofill</div>
+      <div class="chrome-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="url-bar">example.com/register</div></div>
+      <h3>Sign Up</h3>
+      <div class="cf-row"><div style="flex:1"><label>Full Name</label><div class="cf-field" id="cf1"></div></div><div class="cf-status s-ok" id="cs1">&#10003;</div></div>
+      <div class="cf-row"><div style="flex:1"><label>Company</label><div class="cf-field" id="cf2"></div></div><div class="cf-status s-warn" id="cs2">？</div></div>
+      <div class="cf-row"><div style="flex:1"><label>Email</label><div class="cf-field" id="cf3"></div></div><div class="cf-status s-ok" id="cs3">&#10003;</div></div>
+      <div class="cf-row"><div style="flex:1"><label>Phone</label><div class="cf-field" id="cf4"></div></div><div class="cf-status s-ng" id="cs4">&#10007;</div></div>
+      <div class="cf-row"><div style="flex:1"><label>Department</label><div class="cf-field" id="cf5"></div></div><div class="cf-status s-ng" id="cs5">&#10007;</div></div>
+      <div class="cf-row"><div style="flex:1"><label>Preferred Date</label><div class="cf-field" id="cf6" style="color:#94a3b8;"></div></div><div class="cf-status s-ng" id="cs6">&#10007;</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Solution -->
+<div class="scene" id="s4">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+    <div class="solution-title" id="e4a">With FormPilot</div>
+    <div class="three-sec" id="e4b">3 sec</div>
+    <div class="three-sec-label" id="e4c">to fill any form.</div>
+    <div class="solution-sub" id="e4d" style="margin-top:24px;">AI analyzes form structure and <strong>accurately fills every field</strong></div>
+  </div>
+</div>
+
+<!-- S5: Demo -->
+<div class="scene" id="s5">
+  <div class="demo-left">
+    <div class="demo-badge" id="e5a">&#9889; AI Auto-Fill</div>
+    <div class="demo-title" id="e5b">One button,<br><span class="green">every field filled.</span></div>
+    <div class="demo-desc" id="e5c">Not just text fields — AI also handles<br><span style="color:#059669;font-weight:700;">dropdowns, radio buttons &amp; checkboxes</span><br>automatically.</div>
+  </div>
+  <div class="demo-right">
+    <div class="demo-form" id="e5d">
+      <div class="form-header">
+        <h3>Contact Form</h3>
+        <div class="autofill-btn" id="e5btn"><span>&#9889;</span> AI Auto-Fill<div class="btn-shine" id="e5shine"></div></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Last Name</label><div class="demo-input" id="d1"></div></div>
+        <div class="field"><label>First Name</label><div class="demo-input" id="d2"></div></div>
+      </div>
+      <div class="field"><label>Email</label><div class="demo-input" id="d3"></div></div>
+      <div class="field"><label>Phone</label><div class="demo-input" id="d4"></div></div>
+      <div class="field"><label>Inquiry Type</label><div class="demo-select" id="d5"><span class="select-text">Select...</span><span class="select-arrow">&#9660;</span></div></div>
+      <div class="field"><label>Gender</label>
+        <div class="demo-radio-group">
+          <div class="demo-radio" id="dr1"><div class="radio-circle"><div class="radio-dot"></div></div>Male</div>
+          <div class="demo-radio" id="dr2"><div class="radio-circle"><div class="radio-dot"></div></div>Female</div>
+          <div class="demo-radio" id="dr3"><div class="radio-circle"><div class="radio-dot"></div></div>Other</div>
+        </div>
+      </div>
+      <div class="field"><label>Contact Method</label><div class="demo-select" id="d6"><span class="select-text">Select...</span><span class="select-arrow">&#9660;</span></div></div>
+      <div class="field"><label>Agree to Privacy Policy</label>
+        <div class="demo-checkbox-group"><div class="demo-checkbox" id="dc1"><div class="check-box">&#10003;</div>I agree</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: Features -->
+<div class="scene" id="s6">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:56px;">
+    <div class="feat-title" id="e6a">Features</div>
+    <div class="feat-grid">
+      <div class="feat-item" id="f1"><span class="feat-emoji">&#129302;</span><h4>AI Form Analysis</h4><p>AI understands form fields automatically<br>No per-site setup needed</p></div>
+      <div class="feat-item" id="f2"><span class="feat-emoji">&#128101;</span><h4>Multiple Profiles</h4><p>Work, personal, testing — up to<br>10 profiles to switch between</p></div>
+      <div class="feat-item" id="f3"><span class="feat-emoji">&#128295;</span><h4>Custom Fields</h4><p>Add any non-standard field<br>Up to 20 per profile</p></div>
+      <div class="feat-item" id="f4"><span class="feat-emoji">&#127760;</span><h4>11 Languages</h4><p>English, Japanese, Chinese &amp; more<br>Auto-fill forms in any language</p></div>
+      <div class="feat-item" id="f5"><span class="feat-emoji">&#128190;</span><h4>Per-Site Data Save</h4><p>Save form data per website<br>Restore with one click next time</p></div>
+      <div class="feat-item" id="f6"><span class="feat-emoji">&#128274;</span><h4>Local Storage Only</h4><p>All data stays in your browser<br>Nothing sent to external servers</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: CTA -->
+<div class="scene" id="s7">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:36px;">
+    <div class="cta-title" id="e7a">Start <span style="color:#059669">automating</span><br>your form filling today.</div>
+    <div class="cta-checks" id="e7b">
+      <div class="cta-check"><div class="check-circle">&#10003;</div> 100% Free</div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div> No sign-up required</div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div> Install in 30 seconds</div>
+    </div>
+    <div class="cta-btn" id="e7c">&#9889; Add to Chrome — Free</div>
+    <div class="cta-note" id="e7d">Available on Chrome Web Store</div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const scenes = ['s1','s2','s3','s4','s5','s6','s7'];
+let timeline = [], timelineIndex = 0, isPaused = false, timer = null;
+let startTime = Date.now();
+
+function showScene(id) { scenes.forEach(s => $(s).classList.remove('active')); $(id).classList.add('active'); }
+
+function anim(el, styles, dur = 600) {
+  if (typeof el === 'string') el = $(el);
+  if (!el) return;
+  el.style.transition = `all ${dur}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+  Object.assign(el.style, styles);
+}
+
+function fillField(id, text) {
+  const el = $(id); if (!el) return;
+  el.textContent = text; el.classList.add('filled');
+}
+
+function buildTimeline() {
+  timeline = [];
+  let t = 0;
+
+  // S1: Intro (0-2.5s)
+  timeline.push([t, () => {
+    showScene('s1');
+    setTimeout(() => anim('e1a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 600);
+  }]);
+  t += 2500;
+
+  // S2: Repetitive Input - stacking forms (2.5-9s)
+  timeline.push([t, () => {
+    showScene('s2');
+    setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
+
+    const forms = ['sf1','sf2','sf3','sf4','sf5'];
+    forms.forEach((id, i) => {
+      setTimeout(() => {
+        const el = $(id);
+        if (i > 0) {
+          const prev = $(forms[i - 1]);
+          prev.style.transform = 'translateY(-40px) scale(0.92)';
+          prev.style.opacity = '0';
+          prev.style.filter = 'blur(3px)';
+        }
+        el.style.transition = 'none';
+        el.style.transform = 'translateY(60px) scale(0.95)';
+        el.style.opacity = '0';
+        el.style.filter = '';
+        el.style.zIndex = 10 + i;
+        void el.offsetHeight;
+        el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        el.style.transform = 'translateY(0) scale(1)';
+        el.style.opacity = '1';
+      }, 600 + i * 700);
+    });
+
+    // Sigh text
+    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 4200);
+    // Then show solution
+    setTimeout(() => {
+      anim('e2sigh', {opacity:0});
+      setTimeout(() => anim('e2c', {opacity:1, transform:'translateY(0)'}), 300);
+    }, 5200);
+  }]);
+  t += 6500;
+
+  // S3: Chrome Autofill Problem (9-15s)
+  timeline.push([t, () => {
+    showScene('s3');
+    setTimeout(() => anim('e3a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e3c', {opacity:1, transform:'scale(1)'}), 400);
+    setTimeout(() => anim('e3d', {opacity:1}), 700);
+    const cfData = [
+      ['cf1','John Smith','ok',900], ['cf2','','empty',1050],
+      ['cf3','john@example.com','ok',1200], ['cf4','123 Main St...','wrong',1350],
+      ['cf5','','empty',1500], ['cf6','Select... ▾','empty',1650],
+    ];
+    cfData.forEach(([id, text, status, delay]) => {
+      setTimeout(() => { const el=$(id); if(text) el.textContent=text; el.classList.add(status); }, delay);
+    });
+    ['cs1','cs2','cs3','cs4','cs5','cs6'].forEach((id, i) => {
+      setTimeout(() => $(id).classList.add('show'), 1900 + i * 100);
+    });
+    setTimeout(() => anim('e3b', {opacity:1}), 2600);
+    ['p1','p2','p3','p4','p5'].forEach((id, i) => {
+      setTimeout(() => anim(id, {opacity:1, transform:'translateX(0)'}), 2900 + i * 250);
+    });
+  }]);
+  t += 6000;
+
+  // S4: Solution (15-18.5s)
+  timeline.push([t, () => {
+    showScene('s4');
+    setTimeout(() => anim('e4a', {opacity:1, transform:'scale(1)'}, 600), 200);
+    setTimeout(() => anim('e4b', {opacity:1, transform:'scale(1)'}, 800), 500);
+    setTimeout(() => anim('e4c', {opacity:1}), 1100);
+    setTimeout(() => anim('e4d', {opacity:1, transform:'translateY(0)'}), 1600);
+  }]);
+  t += 3500;
+
+  // S5: Demo (18.5-24s)
+  timeline.push([t, () => {
+    showScene('s5');
+    setTimeout(() => anim('e5a', {opacity:1}), 150);
+    setTimeout(() => anim('e5b', {opacity:1, transform:'translateX(0)'}), 350);
+    setTimeout(() => anim('e5c', {opacity:1}), 700);
+    setTimeout(() => anim('e5d', {opacity:1, transform:'translateX(0)'}, 600), 400);
+    setTimeout(() => {
+      $('e5btn').style.transform = 'scale(0.95)';
+      setTimeout(() => $('e5btn').style.transform = 'scale(1)', 150);
+      $('e5shine').style.transition = 'left 0.6s ease'; $('e5shine').style.left = '100%';
+    }, 1800);
+    const steps = [
+      [2200, () => fillField('d1','Smith')], [2350, () => fillField('d2','John')],
+      [2500, () => fillField('d3','john.smith@example.com')], [2650, () => fillField('d4','+1 (555) 123-4567')],
+      [2850, () => { const s=$('d5'); s.querySelector('.select-text').textContent='Product Inquiry'; s.classList.add('filled'); }],
+      [3050, () => $('dr1').classList.add('selected')],
+      [3250, () => { const s=$('d6'); s.querySelector('.select-text').textContent='Email'; s.classList.add('filled'); }],
+      [3450, () => $('dc1').classList.add('checked')],
+    ];
+    steps.forEach(([delay, fn]) => setTimeout(fn, delay));
+  }]);
+  t += 5500;
+
+  // S6: Features (24-27.5s)
+  timeline.push([t, () => {
+    showScene('s6');
+    setTimeout(() => anim('e6a', {opacity:1}), 200);
+    ['f1','f2','f3','f4','f5','f6'].forEach((id, i) => {
+      setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i * 150);
+    });
+  }]);
+  t += 3500;
+
+  // S7: CTA (27.5-31s)
+  timeline.push([t, () => {
+    showScene('s7');
+    setTimeout(() => anim('e7a', {opacity:1, transform:'translateY(0)'}, 600), 200);
+    setTimeout(() => anim('e7b', {opacity:1}), 700);
+    setTimeout(() => anim('e7c', {opacity:1, transform:'translateY(0)'}), 1200);
+    setTimeout(() => anim('e7d', {opacity:1}), 1700);
+  }]);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  ['e1a','e1b','e2a','e2c','e2sigh','e3a','e3b','e3d','e4a','e4b','e4c','e4d',
+   'e5a','e5b','e5c','e6a','e7a','e7b','e7c','e7d'].forEach(id => {
+    const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='';}
+  });
+  $('e3c')&&Object.assign($('e3c').style,{transition:'none',opacity:'0',transform:'scale(0.9)'});
+  $('e5d')&&Object.assign($('e5d').style,{transition:'none',opacity:'0',transform:'translateX(60px)'});
+  ['sf1','sf2','sf3','sf4','sf5'].forEach((id,i)=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(60px) scale(0.95)';el.style.filter='';el.style.zIndex=5-i;}});
+  ['cf1','cf2','cf3','cf4','cf5','cf6'].forEach(id=>{const el=$(id);if(el){el.textContent='';el.classList.remove('ok','wrong','empty');}});
+  ['cs1','cs2','cs3','cs4','cs5','cs6'].forEach(id=>{const el=$(id);if(el)el.classList.remove('show');});
+  ['p1','p2','p3','p4','p5'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateX(-30px)';}});
+  ['d1','d2','d3','d4'].forEach(id=>{const el=$(id);if(el){el.textContent='';el.classList.remove('filled');}});
+  ['d5','d6'].forEach(id=>{const el=$(id);if(el){el.classList.remove('filled');const t=el.querySelector('.select-text');if(t)t.textContent='Select...';}});
+  ['dr1','dr2','dr3'].forEach(id=>{const el=$(id);if(el)el.classList.remove('selected');});
+  const dc=$('dc1');if(dc)dc.classList.remove('checked');
+  const sh=$('e5shine');if(sh){sh.style.transition='none';sh.style.left='-100%';}
+  ['f1','f2','f3','f4','f5','f6'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
+}
+
+function runTimeline() {
+  if (timelineIndex >= timeline.length) return;
+  const [delay, fn] = timeline[timelineIndex];
+  const wait = Math.max(0, delay - (Date.now() - startTime));
+  timer = setTimeout(() => { if (!isPaused) { fn(); timelineIndex++; runTimeline(); } }, wait);
+}
+
+function start() {
+  resetAll(); startTime = Date.now(); timelineIndex = 0; isPaused = false;
+  buildTimeline(); void document.body.offsetHeight; runTimeline();
+}
+
+start();
+</script>
+</body>
+</html>

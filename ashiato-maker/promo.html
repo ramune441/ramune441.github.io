@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>足あとメーカー Promo Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0f172a; }
+  body { font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+
+  /* ===== S1: Intro ===== */
+  #s1 {
+    background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%);
+    flex-direction: column; gap: 48px;
+  }
+  #s1::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 48px 48px;
+  }
+  #s1 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none; }
+  #s1 .g1 { width: 600px; height: 600px; background: #667eea; top: -200px; left: -100px; opacity: 0.12; }
+  #s1 .g2 { width: 500px; height: 500px; background: #764ba2; bottom: -200px; right: -100px; opacity: 0.10; }
+  #s1 .logo-row { display: flex; align-items: center; gap: 28px; opacity: 0; transform: translateY(40px); position: relative; z-index: 1; }
+  #s1 .logo-icon {
+    width: 120px; height: 120px; border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(102,126,234,0.3);
+    overflow: hidden;
+  }
+  #s1 .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  #s1 .logo-text { font-size: 96px; font-weight: 900; color: #fff; letter-spacing: -2px; }
+  #s1 .free-badge {
+    display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff; font-size: 28px; font-weight: 900; padding: 8px 36px; border-radius: 30px;
+    letter-spacing: 3px; box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+    opacity: 0; transform: translateY(20px); position: relative; z-index: 1;
+  }
+  #s1 .tagline { font-size: 48px; font-weight: 600; color: rgba(255,255,255,0.85); opacity: 0; transform: translateY(30px); position: relative; z-index: 1; line-height: 1.6; text-align: center; }
+  #s1 .tagline .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
+  #s1 .apps-row { display: flex; gap: 16px; opacity: 0; position: relative; z-index: 1; }
+  .app-chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 10px 20px; }
+  .app-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .app-dot.pairs { background: #e040fb; box-shadow: 0 0 8px rgba(224,64,251,0.5); }
+  .app-dot.with { background: #29b6f6; box-shadow: 0 0 8px rgba(41,182,246,0.5); }
+  .app-dot.toukare { background: #ffc107; box-shadow: 0 0 8px rgba(255,193,7,0.5); }
+  .app-dot.tinder { background: #ff5722; box-shadow: 0 0 8px rgba(255,87,34,0.5); }
+  .app-chip-name { font-size: 20px; font-weight: 700; color: #fff; }
+  .app-chip-check { color: #4ade80; font-size: 18px; font-weight: 700; }
+
+  /* ===== S2: Problem ===== */
+  #s2 { background: linear-gradient(160deg, #0f172a, #1a1033); flex-direction: column; gap: 0; }
+  #s2 .s2-layout { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 60px 0 40px; }
+  #s2 .prob-title {
+    font-size: 64px; font-weight: 800; color: #fff; text-align: center; line-height: 1.4;
+    opacity: 0; transform: translateY(40px); flex-shrink: 0;
+  }
+  #s2 .prob-title .orange { color: #fb923c; }
+
+  /* Compare cards */
+  #s2 .compare-area { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin-top: 60px; opacity: 0; transform: translateY(30px); }
+  .compare-card { border-radius: 20px; padding: 48px 40px; border: 1px solid rgba(255,255,255,0.08); text-align: center; }
+  .compare-card.manual { background: rgba(255,255,255,0.03); }
+  .compare-card.auto { background: rgba(102,126,234,0.08); border-color: rgba(102,126,234,0.25); }
+  .compare-card h3 { font-size: 24px; font-weight: 700; color: rgba(255,255,255,0.75); margin-bottom: 24px; }
+  .compare-card.auto h3 { color: #a78bfa; }
+  .compare-number { font-size: 72px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
+  .compare-card.manual .compare-number { color: #f87171; }
+  .compare-card.auto .compare-number { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .compare-unit { font-size: 22px; color: rgba(255,255,255,0.7); }
+
+  #s2 .s2-bottom-area {
+    flex-shrink: 0; height: 100px; display: flex; align-items: center; justify-content: center;
+    position: relative; width: 100%; margin-top: 48px;
+  }
+  #s2 .sigh-text { font-size: 40px; color: #fb923c; font-weight: 700; opacity: 0; transform: translateY(20px); position: absolute; }
+  #s2 .prob-bottom { display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); position: absolute; }
+  .prob-save-card {
+    background: rgba(102,126,234,0.1); border: 2px solid rgba(102,126,234,0.3); border-radius: 20px;
+    padding: 28px 48px; display: flex; align-items: center; gap: 20px;
+  }
+  .prob-save-icon { font-size: 48px; }
+  .prob-save-text { font-size: 28px; color: #e2e8f0; font-weight: 500; line-height: 1.6; }
+  .prob-save-text .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
+
+  /* ===== S3: Solution - 3 Steps ===== */
+  #s3 { background: linear-gradient(160deg, #0d1225, #1e1b4b); flex-direction: row; gap: 48px; padding: 0 120px; }
+  .flow-step-large {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 48px 36px; text-align: center; min-width: 360px;
+    opacity: 0; transform: translateY(40px);
+  }
+  .flow-step-large .flow-num { font-size: 56px; font-weight: 900; background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; }
+  .flow-step-large .flow-icon { font-size: 64px; margin-bottom: 16px; display: block; }
+  .flow-step-large .flow-label { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .flow-step-large .flow-desc { font-size: 18px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .flow-arrow-large { font-size: 48px; color: rgba(255,255,255,0.2); opacity: 0; }
+
+  /* ===== S4: Demo ===== */
+  #s4 { background: #f5f0eb; position: relative; overflow: hidden; }
+  #s4 .demo-wrapper { display: flex; width: 100%; height: 100%; }
+
+  /* Pairs-like search page mock */
+  .pairs-mock { flex: 1; display: flex; flex-direction: column; background: #fff; height: 1080px; overflow: hidden; }
+  .pairs-nav { display: flex; align-items: center; height: 56px; background: #fff; border-bottom: 1px solid #eee; padding: 0 32px; flex-shrink: 0; }
+  .pairs-nav .nav-logo { font-size: 22px; font-weight: 800; color: #e040fb; }
+  .pairs-nav .nav-items { display: flex; gap: 32px; margin-left: 48px; }
+  .pairs-nav .nav-item { font-size: 14px; color: #888; font-weight: 500; padding: 16px 0; border-bottom: 2px solid transparent; }
+  .pairs-nav .nav-item.active { color: #e040fb; border-bottom-color: #e040fb; }
+
+  .pairs-body { flex: 1; display: flex; overflow: hidden; }
+  .pairs-sidebar { width: 240px; background: #faf8f6; border-right: 1px solid #eee; padding: 20px; flex-shrink: 0; }
+  .sidebar-section { margin-bottom: 20px; }
+  .sidebar-label { font-size: 11px; color: #999; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+  .sidebar-value { font-size: 13px; color: #333; background: #fff; border: 1px solid #eee; border-radius: 6px; padding: 8px 12px; }
+
+  .pairs-grid-area { flex: 1; padding: 24px 32px; overflow: hidden; }
+  .pairs-grid-header { font-size: 14px; color: #888; margin-bottom: 16px; }
+  .pairs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; height: calc(1080px - 56px - 24px - 24px - 30px); align-content: start; }
+
+  /* Profile card — Pairs style */
+  .p-card {
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.16,1,0.3,1); position: relative;
+  }
+  .p-card .p-photo {
+    width: 100%; height: 0; padding-bottom: 120%; display: flex; align-items: center; justify-content: center;
+    font-size: 56px; position: relative;
+  }
+  .p-card .p-photo > span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; }
+  .p-card .p-photo-bg { position: absolute; inset: 0; }
+  .p-card .p-info { padding: 8px 10px; }
+  .p-card .p-name { font-size: 13px; font-weight: 700; color: #333; }
+  .p-card .p-detail { font-size: 10px; color: #999; margin-top: 2px; }
+
+  /* Highlight animation — matches real product */
+  @keyframes ashiato-pulse-demo {
+    0%, 100% { box-shadow: 0 0 12px 4px rgba(102,126,234,0.5); }
+    50% { box-shadow: 0 0 24px 10px rgba(118,75,162,0.7); }
+  }
+  .p-card.visiting {
+    border-color: #764ba2 !important;
+    animation: ashiato-pulse-demo 1.2s ease-in-out infinite;
+  }
+  @keyframes badge-pulse-demo {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
+    50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  }
+  .p-card .visit-badge {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; font-size: 13px; font-weight: 800; padding: 8px 18px;
+    border-radius: 20px; z-index: 10; pointer-events: none;
+    white-space: nowrap; letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(102,126,234,0.5), 0 0 40px rgba(118,75,162,0.3);
+    animation: badge-pulse-demo 1.5s ease-in-out infinite;
+    backdrop-filter: blur(4px);
+    display: none;
+  }
+  .p-card.visiting .visit-badge { display: block; }
+  .p-card.visited { opacity: 0.5; }
+
+  /* Floating panel — exact replica */
+  .panel-replica {
+    position: absolute; bottom: 24px; right: 24px; width: 240px;
+    background: #fff; border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18); z-index: 10;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px; color: #333; overflow: hidden;
+    opacity: 0; transform: translateY(20px);
+  }
+  .panel-header {
+    display: flex; align-items: center; padding: 6px 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff; gap: 4px;
+  }
+  .panel-header .panel-icon { width: 18px; height: 18px; border-radius: 4px; }
+  .panel-header .panel-title { font-weight: 700; font-size: 12px; }
+  .panel-header .panel-app-badge { background: rgba(255,255,255,0.25); padding: 1px 8px; border-radius: 8px; font-size: 10px; font-weight: 600; }
+  .panel-header .panel-toggle { background: none; border: none; color: #fff; font-size: 16px; line-height: 1; padding: 0 4px; margin-left: auto; }
+  .panel-body { padding: 8px 10px; }
+  .panel-check { margin-bottom: 6px; font-size: 11px; display: flex; align-items: center; gap: 4px; }
+  .panel-check input[type="checkbox"] { accent-color: #667eea; width: 14px; height: 14px; }
+  .panel-check .p-inline-num { width: 42px; padding: 2px 4px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 12px; text-align: center; background: #fafafa; }
+  .panel-row { display: flex; gap: 6px; margin-bottom: 6px; }
+  .panel-setting { flex: 1; }
+  .panel-setting label { display: block; font-size: 10px; color: #888; margin-bottom: 2px; font-weight: 500; }
+  .panel-setting input { width: 100%; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 12px; background: #fafafa; }
+  .panel-btn { width: 100%; padding: 7px; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; margin-bottom: 6px; }
+  .panel-btn-start { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
+  .panel-btn-stop { background: #f44336; color: #fff; display: none; }
+  .panel-stats { display: flex; flex-direction: column; gap: 3px; }
+  .panel-stat { display: flex; align-items: center; justify-content: space-between; background: #f8f8f8; padding: 4px 8px; border-radius: 5px; border: 1px solid #eee; }
+  .panel-stat-label { font-size: 10px; color: #888; }
+  .panel-stat-value { font-size: 12px; font-weight: 700; color: #333; }
+  .panel-reset { background: none; border: 1px solid #ddd; border-radius: 4px; font-size: 11px; padding: 3px 0; color: #888; width: 100%; }
+  .panel-contact { display: block; text-align: center; margin-top: 6px; font-size: 10px; color: #999; text-decoration: none; }
+
+  /* Notification toast */
+  .notif-toast {
+    position: absolute; top: 20px; right: 20px; background: #4CAF50; color: #fff;
+    padding: 12px 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 14px; z-index: 20; display: flex; align-items: center; gap: 10px;
+    opacity: 0; transform: translateY(-10px);
+  }
+  .notif-toast .notif-icon { width: 22px; height: 22px; border-radius: 4px; }
+
+  /* Feature callouts on demo */
+  .callout {
+    position: absolute; z-index: 30;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff; border-radius: 14px; padding: 16px 24px;
+    box-shadow: 0 8px 32px rgba(102,126,234,0.5), 0 0 0 2px rgba(255,255,255,0.15);
+    opacity: 0; scale: 0.8;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .callout.show { opacity: 1; scale: 1; }
+  .callout .callout-title { font-size: 18px; font-weight: 800; margin-bottom: 4px; letter-spacing: 0.5px; }
+  .callout .callout-desc { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  .callout .callout-arrow {
+    position: absolute; width: 0; height: 0;
+    border: 10px solid transparent;
+  }
+  .callout .callout-arrow.arrow-right { right: -20px; top: 50%; transform: translateY(-50%); border-left-color: #764ba2; }
+  .callout .callout-arrow.arrow-left { left: -20px; top: 50%; transform: translateY(-50%); border-right-color: #667eea; }
+  .callout .callout-arrow.arrow-down { bottom: -20px; left: 50%; transform: translateX(-50%); border-top-color: #6f6be0; }
+  .callout .callout-arrow.arrow-up { top: -20px; left: 50%; transform: translateX(-50%); border-bottom-color: #667eea; }
+
+  /* Panel highlight ring */
+  @keyframes panel-ring-pulse {
+    0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 0px rgba(102,126,234,0); }
+    50% { box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 6px rgba(102,126,234,0.4); }
+  }
+  .panel-replica.highlight-ring { animation: panel-ring-pulse 1.5s ease-in-out infinite; }
+
+  /* ===== S5: Features ===== */
+  #s5 { background: linear-gradient(160deg, #0f172a, #1a1033); flex-direction: column; gap: 64px; }
+  #s5 .feat-title { font-size: 64px; font-weight: 800; color: #fff; text-align: center; opacity: 0; }
+  #s5 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; max-width: 1600px; width: 90%; }
+  .feat-item {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px; padding: 44px 36px; text-align: center;
+    opacity: 0; transform: translateY(40px);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .feat-item .feat-emoji { font-size: 64px; margin-bottom: 20px; display: block; }
+  .feat-item h4 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .feat-item p { font-size: 19px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+
+  /* ===== S6: CTA ===== */
+  #s6 {
+    background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%);
+    flex-direction: column; gap: 48px;
+  }
+  #s6::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 48px 48px;
+  }
+  #s6 .cta-title { font-size: 72px; font-weight: 900; color: #fff; text-align: center; opacity: 0; transform: translateY(40px); line-height: 1.4; position: relative; z-index: 1; }
+  #s6 .cta-title .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  #s6 .cta-checks { display: flex; flex-direction: column; gap: 24px; opacity: 0; position: relative; z-index: 1; }
+  .cta-check { display: flex; align-items: center; gap: 18px; font-size: 32px; color: #fff; font-weight: 500; }
+  .cta-check .check-circle { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; font-weight: 800; }
+  #s6 .cta-btn {
+    display: inline-flex; align-items: center; gap: 16px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff; font-size: 30px; font-weight: 800;
+    padding: 28px 64px; border-radius: 50px; border: none;
+    box-shadow: 0 8px 32px rgba(102,126,234,0.4);
+    opacity: 0; transform: translateY(20px); position: relative; z-index: 1;
+  }
+  #s6 .cta-apps { display: flex; gap: 16px; opacity: 0; position: relative; z-index: 1; }
+  #s6 .cta-note { font-size: 22px; color: rgba(255,255,255,0.45); opacity: 0; position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+
+<!-- S1: Intro -->
+<div class="scene active" id="s1">
+  <div class="bg-glow g1"></div><div class="bg-glow g2"></div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:28px;">
+    <div class="logo-row" id="e1a"><div class="logo-icon"><img src="icons/icon128.png" alt="足あとメーカー"></div><div class="logo-text">足あとメーカー</div></div>
+    <div class="free-badge" id="e1free">FREE</div>
+    <div class="tagline" id="e1b">マッチングアプリの足あとを<br><span class="accent">ワンクリックで自動化</span></div>
+    <div class="apps-row" id="e1c">
+      <div class="app-chip"><div class="app-dot pairs"></div><span class="app-chip-name">Pairs</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><div class="app-dot with"></div><span class="app-chip-name">with</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><div class="app-dot toukare"></div><span class="app-chip-name">東カレデート</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><div class="app-dot tinder"></div><span class="app-chip-name">Tinder</span><span class="app-chip-check">&#10003;</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Problem -->
+<div class="scene" id="s2">
+  <div class="s2-layout">
+    <div class="prob-title" id="e2a">毎日ポチポチ、プロフィールを開く…<br><span class="orange">面倒じゃないですか？</span></div>
+    <div class="compare-area" id="e2compare">
+      <div class="compare-card manual">
+        <h3>&#128542; 手動で足あとを残す場合</h3>
+        <div class="compare-number">30分</div>
+        <div class="compare-unit">50人に足あとを残すのにかかる時間</div>
+      </div>
+      <div class="compare-card auto">
+        <h3>&#10024; 足あとメーカーなら</h3>
+        <div class="compare-number">3秒</div>
+        <div class="compare-unit">ボタンを押すだけ。あとは放置でOK</div>
+      </div>
+    </div>
+    <div class="s2-bottom-area">
+      <div class="sigh-text" id="e2sigh">&#128553; 毎回これを何十人分も手作業で…</div>
+      <div class="prob-bottom" id="e2c">
+        <div class="prob-save-card">
+          <div class="prob-save-icon">&#10024;</div>
+          <div class="prob-save-text">足あとメーカーなら<span class="accent">ボタン1つ</span>で<br>あとは放置するだけ。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: 3 Steps -->
+<div class="scene" id="s3">
+  <div class="flow-step-large" id="fs1">
+    <div class="flow-num">STEP 1</div>
+    <div class="flow-icon">&#128229;</div>
+    <div class="flow-label">Chromeに追加</div>
+    <div class="flow-desc">Chrome ウェブストアから<br>ワンクリックでインストール</div>
+  </div>
+  <div class="flow-arrow-large" id="fa1">&#10132;</div>
+  <div class="flow-step-large" id="fs2">
+    <div class="flow-num">STEP 2</div>
+    <div class="flow-icon">&#127760;</div>
+    <div class="flow-label">アプリを開く</div>
+    <div class="flow-desc">対応アプリのページを開くと<br>右下にパネルが自動表示</div>
+  </div>
+  <div class="flow-arrow-large" id="fa2">&#10132;</div>
+  <div class="flow-step-large" id="fs3">
+    <div class="flow-num">STEP 3</div>
+    <div class="flow-icon">&#9654;&#65039;</div>
+    <div class="flow-label">開始ボタンを押す</div>
+    <div class="flow-desc">あとは放置するだけで<br>自動で足あとが届きます</div>
+  </div>
+</div>
+
+<!-- S4: Demo — Pairs-like UI with real floating panel -->
+<div class="scene" id="s4">
+  <div class="demo-wrapper">
+    <div class="pairs-mock">
+      <div class="pairs-nav">
+        <div class="nav-logo">Pairs</div>
+        <div class="nav-items">
+          <div class="nav-item active">さがす</div>
+          <div class="nav-item">コミュニティ</div>
+          <div class="nav-item">メッセージ</div>
+          <div class="nav-item">その他</div>
+        </div>
+      </div>
+      <div class="pairs-body">
+        <div class="pairs-sidebar">
+          <div class="sidebar-section"><div class="sidebar-label">年齢</div><div class="sidebar-value">20 〜 30歳</div></div>
+          <div class="sidebar-section"><div class="sidebar-label">居住地</div><div class="sidebar-value">東京都</div></div>
+          <div class="sidebar-section"><div class="sidebar-label">身長</div><div class="sidebar-value">指定なし</div></div>
+          <div class="sidebar-section"><div class="sidebar-label">職業</div><div class="sidebar-value">指定なし</div></div>
+        </div>
+        <div class="pairs-grid-area">
+          <div class="pairs-grid-header">検索結果: 2,483人</div>
+          <div class="pairs-grid">
+            <div class="p-card" id="pc1"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"></div><span &#128105;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">あいさん</div><div class="p-detail">25歳 東京都</div></div></div>
+            <div class="p-card" id="pc2"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"></div><span &#128105;&#8205;&#127806;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">みくさん</div><div class="p-detail">23歳 大阪府</div></div></div>
+            <div class="p-card" id="pc3"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb);"></div><span &#128113;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ゆいさん</div><div class="p-detail">27歳 福岡県</div></div></div>
+            <div class="p-card" id="pc4"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"></div><span &#129489;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">はなさん</div><div class="p-detail">24歳 愛知県</div></div></div>
+            <div class="p-card" id="pc5"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"></div><span &#128103;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">りんさん</div><div class="p-detail">26歳 札幌市</div></div></div>
+            <div class="p-card" id="pc6"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"></div><span &#128105;&#8205;&#128187;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">さくらさん</div><div class="p-detail">22歳 横浜市</div></div></div>
+            <div class="p-card" id="pc7"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);"></div><span &#128131;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ももさん</div><div class="p-detail">28歳 京都府</div></div></div>
+            <div class="p-card" id="pc8"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"></div><span &#128587;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">まいさん</div><div class="p-detail">21歳 神奈川県</div></div></div>
+            <div class="p-card" id="pc9"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fff8e1,#ffecb3);"></div><span &#129490;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ななさん</div><div class="p-detail">29歳 千葉県</div></div></div>
+            <div class="p-card" id="pc10"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);"></div><span &#128519;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ことねさん</div><div class="p-detail">25歳 埼玉県</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating panel — exact replica of actual product -->
+    <div class="panel-replica" id="e4panel">
+      <div class="panel-header">
+        <img class="panel-icon" src="icons/icon128.png" alt="">
+        <span class="panel-title">足あとメーカー</span>
+        <span class="panel-app-badge">Pairs</span>
+        <button class="panel-toggle">−</button>
+      </div>
+      <div class="panel-body">
+        <div class="panel-check"><input type="checkbox" checked><span class="p-inline-num">30</span><span>人ごとにリロード</span></div>
+        <div class="panel-row">
+          <div class="panel-setting"><label>最大訪問数</label><input type="number" value="100"></div>
+          <div class="panel-setting"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨2〜4</span></label><input type="number" value="3.0"></div>
+        </div>
+        <button class="panel-btn panel-btn-start" id="panel-start">開始</button>
+        <button class="panel-btn panel-btn-stop" id="panel-stop">停止</button>
+        <div class="panel-stats">
+          <div class="panel-stat"><span class="panel-stat-label">進捗</span><span class="panel-stat-value" id="panel-progress">0 / 100</span></div>
+          <div class="panel-stat"><span class="panel-stat-label">リロードまで</span><span class="panel-stat-value" id="panel-reload">30人</span></div>
+          <div class="panel-stat"><span class="panel-stat-label">リロード数</span><span class="panel-stat-value">0回</span></div>
+          <button class="panel-reset">↺</button>
+        </div>
+        <a class="panel-contact" href="#">不具合報告・お問い合わせ</a>
+      </div>
+    </div>
+
+    <!-- Notification toast -->
+    <div class="notif-toast" id="e4notif">
+      <img class="notif-icon" src="icons/icon128.png" alt="">
+      <span id="notif-text">自動訪問を開始しました</span>
+    </div>
+
+    <!-- Feature callouts -->
+    <div class="callout" id="co1" style="bottom:220px;right:290px;">
+      <div class="callout-title">&#128065; 対応アプリを自動検出</div>
+      <div class="callout-desc">Pairs / with / 東カレ / Tinder<br>ページを開くだけでパネルが表示</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co2" style="bottom:140px;right:290px;">
+      <div class="callout-title">&#9654;&#65039; ワンクリックで開始</div>
+      <div class="callout-desc">開始ボタンを押すだけで<br>自動訪問がスタート</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co3" style="top:60px;left:50%;transform:translateX(-50%);">
+      <div class="callout-title">&#10024; プロフィールを自動訪問</div>
+      <div class="callout-desc">プロフィールを順番にクリックして足あとを自動で残していきます</div>
+      <div class="callout-arrow arrow-down"></div>
+    </div>
+    <div class="callout" id="co4" style="top:60px;left:50%;transform:translateX(-50%);">
+      <div class="callout-title">&#128203; 訪問済みは自動スキップ</div>
+      <div class="callout-desc">一度訪問したプロフィールは記録され、同じ人に重複訪問しません</div>
+      <div class="callout-arrow arrow-down"></div>
+    </div>
+    <div class="callout" id="co5" style="bottom:100px;right:290px;">
+      <div class="callout-title">&#128260; 無限ループモード</div>
+      <div class="callout-desc">指定人数ごとに自動リロード<br>新しいプロフィールを訪問し続けます</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co6" style="bottom:165px;right:290px;">
+      <div class="callout-title">&#9200; 訪問間隔を自由に設定</div>
+      <div class="callout-desc">待機秒数を調整して<br>自然なペースで訪問可能</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: Features -->
+<div class="scene" id="s5">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:56px;">
+    <div class="feat-title" id="e5a">主な機能</div>
+    <div class="feat-grid">
+      <div class="feat-item" id="f1"><span class="feat-emoji">&#128065;</span><h4>プロフィール自動訪問</h4><p>ボタンひとつで自動訪問を開始<br>足あとを自動で残します</p></div>
+      <div class="feat-item" id="f2"><span class="feat-emoji">&#128260;</span><h4>無限ループモード</h4><p>ページを自動リロードして<br>新しいプロフィールを訪問し続けます</p></div>
+      <div class="feat-item" id="f3"><span class="feat-emoji">&#128077;</span><h4>自動いいね</h4><p>東カレデート・Tinderでは<br>訪問と同時にいいねも自動送信</p></div>
+      <div class="feat-item" id="f4"><span class="feat-emoji">&#9200;</span><h4>訪問間隔の調整</h4><p>自然なペースで訪問できるよう<br>待機時間を自由に設定可能</p></div>
+      <div class="feat-item" id="f5"><span class="feat-emoji">&#128203;</span><h4>訪問履歴の管理</h4><p>訪問済みプロフィールを記録<br>重複訪問を自動でスキップ</p></div>
+      <div class="feat-item" id="f6"><span class="feat-emoji">&#128274;</span><h4>完全ローカル保存</h4><p>すべてのデータはブラウザ内に保存<br>外部サーバーへの送信は一切なし</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: CTA -->
+<div class="scene" id="s6">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:36px;">
+    <div class="cta-title" id="e6a">足あとを<span class="accent">自動化</span>して<br>出会いのチャンスを広げよう。</div>
+    <div class="cta-checks" id="e6b">
+      <div class="cta-check"><div class="check-circle">&#10003;</div>完全無料・課金要素なし</div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div>登録・ログイン不要</div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div>30秒でインストール完了</div>
+    </div>
+    <div class="cta-btn" id="e6c"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Chromeに追加 &#8212; 無料</div>
+    <div class="cta-apps" id="e6apps">
+      <div class="app-chip"><div class="app-dot pairs"></div><span class="app-chip-name">Pairs</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><div class="app-dot with"></div><span class="app-chip-name">with</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><div class="app-dot toukare"></div><span class="app-chip-name">東カレデート</span><span class="app-chip-check">&#10003;</span></div>
+      <div class="app-chip"><div class="app-dot tinder"></div><span class="app-chip-name">Tinder</span><span class="app-chip-check">&#10003;</span></div>
+    </div>
+    <div class="cta-note" id="e6d">Chrome ウェブストアで公開中</div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const scenes = ['s1','s2','s3','s4','s5','s6'];
+let timeline = [], timelineIndex = 0, timer = null, startTime = Date.now();
+
+function showScene(id) { scenes.forEach(s => $(s).classList.remove('active')); $(id).classList.add('active'); }
+
+function anim(el, styles, dur = 600) {
+  if (typeof el === 'string') el = $(el);
+  if (!el) return;
+  el.style.transition = `all ${dur}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+  Object.assign(el.style, styles);
+}
+
+function buildTimeline() {
+  timeline = [];
+  let t = 0;
+
+  // S1: Intro (0-3s)
+  timeline.push([t, () => {
+    showScene('s1');
+    setTimeout(() => anim('e1a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e1free', {opacity:1, transform:'translateY(0)'}), 500);
+    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 700);
+    setTimeout(() => anim('e1c', {opacity:1}), 1100);
+  }]);
+  t += 3000;
+
+  // S2: Problem — compare (3-9.5s)
+  timeline.push([t, () => {
+    showScene('s2');
+    setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e2compare', {opacity:1, transform:'translateY(0)'}), 700);
+    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 3500);
+    setTimeout(() => {
+      anim('e2sigh', {opacity:0});
+      setTimeout(() => anim('e2c', {opacity:1, transform:'translateY(0)'}), 300);
+    }, 4800);
+  }]);
+  t += 6500;
+
+  // S3: 3 Steps (9.5-14s)
+  timeline.push([t, () => {
+    showScene('s3');
+    setTimeout(() => anim('fs1', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('fa1', {opacity:1}), 600);
+    setTimeout(() => anim('fs2', {opacity:1, transform:'translateY(0)'}), 800);
+    setTimeout(() => anim('fa2', {opacity:1}), 1200);
+    setTimeout(() => anim('fs3', {opacity:1, transform:'translateY(0)'}), 1400);
+  }]);
+  t += 4500;
+
+  // S4: Demo (14-30s) — extended for callouts
+  timeline.push([t, () => {
+    showScene('s4');
+    const allCallouts = ['co1','co2','co3','co4','co5','co6'];
+    const hideAllCallouts = () => allCallouts.forEach(id => $(id).classList.remove('show'));
+
+    // Show panel
+    setTimeout(() => {
+      anim('e4panel', {opacity:1, transform:'translateY(0)'});
+      $('e4panel').classList.add('highlight-ring');
+    }, 500);
+
+    // Callout 1: Auto-detect app
+    setTimeout(() => { hideAllCallouts(); $('co1').classList.add('show'); }, 800);
+
+    // Callout 2: One-click start
+    setTimeout(() => { hideAllCallouts(); $('co2').classList.add('show'); }, 2500);
+
+    // Click start — button changes
+    setTimeout(() => {
+      $('panel-start').style.display = 'none';
+      $('panel-stop').style.display = 'block';
+      $('e4panel').classList.remove('highlight-ring');
+    }, 3200);
+
+    // Show notification toast
+    setTimeout(() => anim('e4notif', {opacity:1, transform:'translateY(0)'}), 3400);
+    setTimeout(() => anim('e4notif', {opacity:0}), 5000);
+
+    // Callout 3: Auto-visit profiles
+    setTimeout(() => { hideAllCallouts(); $('co3').classList.add('show'); }, 3800);
+
+    // Auto-visit profiles one by one
+    const cards = ['pc1','pc2','pc3','pc4','pc5','pc6','pc7','pc8','pc9','pc10'];
+    cards.forEach((id, i) => {
+      const delay = 4200 + i * 800;
+      setTimeout(() => {
+        cards.forEach(c => $(c).classList.remove('visiting'));
+        $(id).classList.add('visiting');
+        $('panel-progress').textContent = `${i} / 100`;
+        $('panel-reload').textContent = `${30 - i}人`;
+      }, delay);
+      setTimeout(() => {
+        $(id).classList.remove('visiting');
+        $(id).classList.add('visited');
+        $('panel-progress').textContent = `${i + 1} / 100`;
+      }, delay + 600);
+    });
+
+    // Callout 4: Skip visited (after 4 cards visited)
+    setTimeout(() => { hideAllCallouts(); $('co4').classList.add('show'); }, 7800);
+
+    // Callout 5: Infinite loop mode (point to reload setting)
+    setTimeout(() => { hideAllCallouts(); $('co5').classList.add('show'); }, 10200);
+
+    // Callout 6: Delay setting
+    setTimeout(() => { hideAllCallouts(); $('co6').classList.add('show'); }, 12400);
+
+    // Hide last callout before scene change
+    setTimeout(() => { hideAllCallouts(); }, 14800);
+  }]);
+  t += 16000;
+
+  // S5: Features (24-27.5s)
+  timeline.push([t, () => {
+    showScene('s5');
+    setTimeout(() => anim('e5a', {opacity:1}), 200);
+    ['f1','f2','f3','f4','f5','f6'].forEach((id, i) => {
+      setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i * 150);
+    });
+  }]);
+  t += 3500;
+
+  // S6: CTA (27.5-31s)
+  timeline.push([t, () => {
+    showScene('s6');
+    setTimeout(() => anim('e6a', {opacity:1, transform:'translateY(0)'}, 600), 200);
+    setTimeout(() => anim('e6b', {opacity:1}), 700);
+    setTimeout(() => anim('e6c', {opacity:1, transform:'translateY(0)'}), 1200);
+    setTimeout(() => anim('e6apps', {opacity:1}), 1600);
+    setTimeout(() => anim('e6d', {opacity:1}), 1900);
+  }]);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  ['e1a','e1b','e1c','e1free','e2a','e2compare','e2c','e2sigh',
+   'e5a','e6a','e6b','e6c','e6d','e6apps'].forEach(id => {
+    const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='';}
+  });
+  // Steps
+  ['fs1','fs2','fs3'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
+  ['fa1','fa2'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';}});
+  // Panel
+  $('e4panel')&&Object.assign($('e4panel').style,{transition:'none',opacity:'0',transform:'translateY(20px)'});
+  $('e4panel')&&$('e4panel').classList.remove('highlight-ring');
+  $('e4notif')&&Object.assign($('e4notif').style,{transition:'none',opacity:'0',transform:'translateY(-10px)'});
+  ['co1','co2','co3','co4','co5','co6'].forEach(id=>{const el=$(id);if(el)el.classList.remove('show');});
+  $('panel-start').style.display='block'; $('panel-stop').style.display='none';
+  $('panel-progress').textContent='0 / 100';
+  $('panel-reload').textContent='30人';
+  // Profile cards
+  for(let i=1;i<=10;i++){const el=$('pc'+i);if(el){el.classList.remove('visiting','visited');}}
+  // Features
+  ['f1','f2','f3','f4','f5','f6'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
+}
+
+function runTimeline() {
+  if (timelineIndex >= timeline.length) return;
+  const [delay, fn] = timeline[timelineIndex];
+  const wait = Math.max(0, delay - (Date.now() - startTime));
+  timer = setTimeout(() => { fn(); timelineIndex++; runTimeline(); }, wait);
+}
+
+function start() {
+  resetAll(); startTime = Date.now(); timelineIndex = 0;
+  buildTimeline(); void document.body.offsetHeight; runTimeline();
+}
+
+start();
+</script>
+</body>
+</html>
