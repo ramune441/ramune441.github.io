@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>SendReady Promo Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0a0e1a; }
+  body { font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .scene {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s ease;
+  }
+  .scene.active { opacity: 1; pointer-events: auto; }
+
+  /* ===== S1: Intro ===== */
+  #s1 {
+    background: linear-gradient(160deg, #1a1d4e 0%, #2d3cb5 40%, #4361EE 100%);
+    flex-direction: column; gap: 36px;
+  }
+  #s1::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 48px 48px;
+  }
+  #s1 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none; }
+  #s1 .g1 { width: 600px; height: 600px; background: #FFE066; top: -200px; right: -100px; opacity: 0.08; }
+  #s1 .g2 { width: 500px; height: 500px; background: #3A0CA3; bottom: -200px; left: -100px; opacity: 0.15; }
+  #s1 .logo-row { display: flex; align-items: center; gap: 36px; opacity: 0; transform: translateY(40px); position: relative; z-index: 1; }
+  #s1 .logo-icon { width: 160px; height: 160px; border-radius: 36px; box-shadow: 0 4px 24px rgba(67,97,238,0.3); overflow: hidden; }
+  #s1 .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+  #s1 .logo-text { font-size: 120px; font-weight: 900; color: #fff; letter-spacing: -3px; }
+  #s1 .free-badge {
+    display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff; font-size: 36px; font-weight: 900; padding: 10px 48px; border-radius: 30px;
+    letter-spacing: 4px; box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+    opacity: 0; transform: translateY(20px); position: relative; z-index: 1;
+  }
+  #s1 .tagline { font-size: 60px; font-weight: 700; color: #fff; opacity: 0; transform: translateY(30px); position: relative; z-index: 1; line-height: 1.5; text-align: center; }
+  #s1 .tagline .accent { color: #FFE066; font-weight: 900; }
+  #s1 .platform-badge { display: flex; align-items: center; gap: 16px; opacity: 0; position: relative; z-index: 1; }
+  #s1 .platform-badge .badge-item {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px; padding: 14px 28px;
+  }
+  .badge-icon { font-size: 28px; }
+  .badge-text { font-size: 26px; font-weight: 700; color: #fff; }
+
+  /* ===== S2: Problem ===== */
+  #s2 { background: linear-gradient(160deg, #0a0e1a, #1a1033); flex-direction: column; gap: 0; }
+  #s2 .s2-layout { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 100px 0 40px; }
+  #s2 .prob-title { font-size: 76px; font-weight: 800; color: #fff; text-align: center; line-height: 1.4; opacity: 0; transform: translateY(40px); flex-shrink: 0; }
+  #s2 .prob-title .yellow { color: #FFE066; }
+  #s2 .pain-cards { display: flex; gap: 36px; margin-top: 72px; opacity: 0; transform: translateY(30px); }
+  .pain-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 48px 40px; text-align: center; width: 380px;
+  }
+  .pain-card .pain-emoji { font-size: 72px; margin-bottom: 20px; display: block; }
+  .pain-card .pain-text { font-size: 28px; color: rgba(255,255,255,0.85); line-height: 1.6; font-weight: 500; }
+  #s2 .solution-banner {
+    margin-top: 64px; display: flex; align-items: center; gap: 24px;
+    background: rgba(67,97,238,0.12); border: 2px solid rgba(67,97,238,0.3);
+    border-radius: 20px; padding: 32px 56px;
+    opacity: 0; transform: translateY(20px);
+  }
+  .solution-icon { font-size: 56px; }
+  .solution-text { font-size: 36px; color: #fff; font-weight: 500; line-height: 1.6; }
+  .solution-text .accent { color: #FFE066; font-weight: 800; }
+
+  /* ===== S3: Solution - 4 Steps ===== */
+  #s3 { background: linear-gradient(160deg, #0d1225, #1a1d4e); flex-direction: row; gap: 28px; padding: 0 60px; }
+  .flow-step-large {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px; padding: 48px 36px; text-align: center; flex: 1;
+    opacity: 0; transform: translateY(40px);
+  }
+  .flow-step-large .flow-num { font-size: 56px; font-weight: 900; color: #FFE066; margin-bottom: 16px; }
+  .flow-step-large .flow-icon { font-size: 72px; margin-bottom: 16px; display: block; }
+  .flow-step-large .flow-label { font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .flow-step-large .flow-desc { font-size: 20px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .flow-arrow-large { font-size: 56px; color: rgba(255,255,255,0.3); opacity: 0; flex-shrink: 0; }
+
+  /* ===== S4: Demo ===== */
+  #s4 { background: linear-gradient(160deg, #0f172a, #1e1b4b); position: relative; overflow: hidden; }
+  #s4 .demo-wrapper { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; gap: 0; position: relative; }
+
+  /* Android phone mockup */
+  .phone-frame {
+    width: 420px; height: 860px; background: #1a1a1a; border-radius: 48px;
+    border: 4px solid #333; position: relative; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 2px #111;
+    flex-shrink: 0;
+  }
+  .phone-status-bar {
+    height: 36px; background: #1a1a1a; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 24px; font-size: 13px; color: #aaa;
+  }
+  .phone-screen { height: calc(100% - 36px); background: #fff; overflow: hidden; position: relative; }
+
+  /* LINE-like chat mockup */
+  .chat-app { height: 100%; display: flex; flex-direction: column; }
+  .chat-header {
+    height: 56px; background: #06C755; display: flex; align-items: center;
+    padding: 0 16px; gap: 12px; flex-shrink: 0;
+  }
+  .chat-back { color: #fff; font-size: 24px; }
+  .chat-avatar { width: 36px; height: 36px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .chat-name { color: #fff; font-size: 17px; font-weight: 700; }
+  .chat-body { flex: 1; background: #8CABD9; padding: 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden; }
+  .chat-bubble {
+    max-width: 75%; padding: 10px 14px; border-radius: 16px;
+    font-size: 15px; line-height: 1.5; position: relative;
+  }
+  .chat-bubble.received { background: #fff; color: #333; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .chat-bubble.sent { background: #06C755; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+  .chat-input-area {
+    height: 56px; background: #f5f5f5; border-top: 1px solid #ddd;
+    display: flex; align-items: center; padding: 0 12px; gap: 8px;
+  }
+  .chat-input {
+    flex: 1; height: 38px; background: #fff; border: 1px solid #ddd; border-radius: 20px;
+    padding: 0 14px; font-size: 15px; color: #333; font-family: inherit;
+    display: flex; align-items: center; overflow: hidden; white-space: nowrap;
+  }
+  .chat-send-btn {
+    width: 38px; height: 38px; border-radius: 50%; background: #06C755; border: none;
+    color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ===== SendReady Overlay (actual app design) ===== */
+  .sr-dim {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 20;
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .sr-dim.show { opacity: 1; }
+  .sr-dim.dark { background: rgba(0,0,0,0.5); }
+
+  .sr-overlay {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
+    width: 340px; z-index: 25;
+    background: linear-gradient(180deg, #FFFFFF, #F0F3FF);
+    border: 1.5px solid #D0D5E8; border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 14px; font-family: 'Noto Sans JP', sans-serif;
+    opacity: 0; transition: opacity 0.3s, transform 0.3s;
+  }
+  .sr-overlay.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+
+  /* Header */
+  .sr-header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .sr-header-icon { width: 40px; height: 40px; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+  .sr-header-icon img { width: 100%; height: 100%; object-fit: cover; }
+  .sr-header-text { flex: 1; }
+  .sr-header-title { font-size: 17px; font-weight: 700; color: #4361EE; line-height: 1.2; }
+  .sr-header-subtitle { font-size: 12px; color: #6B7194; margin-top: 2px; }
+  .sr-header-spinner {
+    width: 24px; height: 24px; border: 3px solid #D0D5E8; border-top-color: #4361EE;
+    border-radius: 50%; flex-shrink: 0;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Preset list */
+  .sr-preset-list { max-height: 200px; overflow-y: auto; margin-top: 8px; }
+  .sr-preset-item {
+    padding: 12px 14px; font-size: 15px; color: #1A1D2E; border-bottom: 1px solid #D0D5E8;
+    display: flex; align-items: center; gap: 8px;
+    transition: background 0.15s;
+  }
+  .sr-preset-item:last-child { border-bottom: none; }
+  .sr-preset-item.highlight { background: #EEF1FF; }
+  .sr-preset-item .preset-trigger {
+    font-size: 11px; color: #6B7194; background: #F0F3FF; border-radius: 4px;
+    padding: 2px 6px; margin-left: auto; font-family: monospace;
+  }
+
+  /* Custom prompt input */
+  .sr-prompt-input {
+    width: 100%; min-height: 72px; max-height: 120px; resize: none;
+    background: #FAFBFF; border: 1.5px solid #C5CCEC; border-radius: 14px;
+    padding: 14px; font-size: 15px; color: #1A1D2E; font-family: inherit;
+    line-height: 1.5; outline: none; margin-top: 8px;
+  }
+  .sr-prompt-input::placeholder { color: #6B7194; }
+  .sr-char-count { font-size: 11px; color: #6B7194; text-align: right; margin-top: 6px; }
+
+  /* Suggestion text area */
+  .sr-suggestion-text {
+    width: 100%; height: 100px; resize: none;
+    background: #FAFBFF; border: 1.5px solid #C5CCEC; border-radius: 14px;
+    padding: 14px; font-size: 15px; color: #1A1D2E; font-family: inherit;
+    line-height: 1.5; outline: none; margin-top: 14px;
+  }
+
+  /* Buttons */
+  .sr-btn-group { padding-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .sr-btn-primary {
+    width: 100%; padding: 12px 16px; border: none; border-radius: 14px;
+    background: linear-gradient(90deg, #4361EE, #3A0CA3);
+    color: #fff; font-size: 15px; font-weight: 700; font-family: inherit;
+    text-align: center;
+  }
+  .sr-btn-secondary {
+    width: 100%; padding: 12px 16px; border: 1.5px solid #D0D5E8; border-radius: 14px;
+    background: transparent; color: #4361EE; font-size: 15px; font-weight: 700;
+    font-family: inherit; text-align: center;
+  }
+
+  /* Feature callouts */
+  .callout {
+    position: absolute; z-index: 30;
+    background: #1e1b4b; border: 3px solid rgba(67,97,238,0.6);
+    color: #fff; border-radius: 20px; padding: 28px 36px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    opacity: 0; scale: 0.8;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none; max-width: 420px;
+  }
+  .callout.show { opacity: 1; scale: 1; }
+  .callout .callout-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+  .callout .callout-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+  .callout .callout-desc { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  .callout .callout-arrow { position: absolute; width: 0; height: 0; border: 14px solid transparent; }
+  .callout .callout-arrow.arrow-right { right: -28px; top: 50%; transform: translateY(-50%); border-left-color: rgba(67,97,238,0.6); }
+  .callout .callout-arrow.arrow-left { left: -28px; top: 50%; transform: translateY(-50%); border-right-color: rgba(67,97,238,0.6); }
+
+  /* ===== S5: Features ===== */
+  #s5 { background: linear-gradient(160deg, #0a0e1a, #1a1033); flex-direction: column; gap: 56px; }
+  #s5 .feat-title { font-size: 80px; font-weight: 800; color: #fff; text-align: center; opacity: 0; }
+  #s5 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1760px; width: 94%; }
+  .feat-item {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 40px 32px; text-align: center;
+    opacity: 0; transform: translateY(40px);
+  }
+  .feat-item .feat-emoji { font-size: 72px; margin-bottom: 16px; display: block; }
+  .feat-item h4 { font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .feat-item p { font-size: 22px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+  /* ===== S6: CTA ===== */
+  #s6 {
+    background: linear-gradient(160deg, #1a1d4e 0%, #2d3cb5 40%, #4361EE 100%);
+    flex-direction: column; gap: 48px;
+  }
+  #s6::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 48px 48px;
+  }
+  #s6 .cta-title { font-size: 84px; font-weight: 900; color: #fff; text-align: center; opacity: 0; transform: translateY(40px); line-height: 1.4; position: relative; z-index: 1; }
+  #s6 .cta-title .accent { color: #FFE066; }
+  #s6 .cta-checks { display: flex; flex-direction: column; gap: 24px; opacity: 0; position: relative; z-index: 1; }
+  .cta-check { display: flex; align-items: center; gap: 20px; font-size: 38px; color: #fff; font-weight: 600; }
+  .cta-check .check-circle { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #4361EE, #3A0CA3); display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; font-weight: 800; }
+  #s6 .cta-btn {
+    display: inline-flex; align-items: center; gap: 18px;
+    background: #FFE066; color: #1e293b;
+    font-size: 36px; font-weight: 800;
+    padding: 32px 72px; border-radius: 50px; border: none;
+    box-shadow: 0 8px 32px rgba(255,224,102,0.3);
+    opacity: 0; transform: translateY(20px); position: relative; z-index: 1;
+  }
+  #s6 .cta-btn svg { fill: currentColor; }
+  #s6 .cta-note { font-size: 26px; color: rgba(255,255,255,0.6); opacity: 0; position: relative; z-index: 1; }
+</style>
+</head>
+<body>
+
+<!-- S1: Intro -->
+<div class="scene active" id="s1">
+  <div class="bg-glow g1"></div><div class="bg-glow g2"></div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:28px;">
+    <div class="logo-row" id="e1a">
+      <div class="logo-icon"><img src="icons/icon512.png" alt="SendReady"></div>
+      <div class="logo-text">SendReady</div>
+    </div>
+    <div class="free-badge" id="e1free">FREE</div>
+    <div class="tagline" id="e1b">送信前の文章を、<br><span class="accent">AIがワンタップで仕上げる。</span></div>
+    <div class="platform-badge" id="e1c">
+      <div class="badge-item"><span class="badge-icon">📱</span><span class="badge-text">Android対応</span></div>
+      <div class="badge-item"><span class="badge-icon">🌐</span><span class="badge-text">11言語対応</span></div>
+      <div class="badge-item"><span class="badge-icon">⚡</span><span class="badge-text">全アプリで動作</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: Problem -->
+<div class="scene" id="s2">
+  <div class="s2-layout">
+    <div class="prob-title" id="e2a">送信ボタンを押す前に、<br><span class="yellow">不安になったことありませんか？</span></div>
+    <div class="pain-cards" id="e2cards">
+      <div class="pain-card">
+        <span class="pain-emoji">😰</span>
+        <div class="pain-text">「この文章、<br>失礼じゃないかな…」</div>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">🤔</span>
+        <div class="pain-text">「もっと丁寧に<br>書きたいけど…」</div>
+      </div>
+      <div class="pain-card">
+        <span class="pain-emoji">🌍</span>
+        <div class="pain-text">「英語で送りたいけど<br>自信がない…」</div>
+      </div>
+    </div>
+    <div class="solution-banner" id="e2sol">
+      <div class="solution-icon">✨</div>
+      <div class="solution-text">SendReadyなら<span class="accent">ワンタップ</span>で<br>AIが文章を最適化します。</div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: 4 Steps -->
+<div class="scene" id="s3">
+  <div class="flow-step-large" id="fs1">
+    <div class="flow-num">STEP 1</div>
+    <div class="flow-icon">📥</div>
+    <div class="flow-label">インストール</div>
+    <div class="flow-desc">Google Playから<br>無料でダウンロード</div>
+  </div>
+  <div class="flow-arrow-large" id="fa1">➔</div>
+  <div class="flow-step-large" id="fs2">
+    <div class="flow-num">STEP 2</div>
+    <div class="flow-icon">✍️</div>
+    <div class="flow-label">テキストを入力</div>
+    <div class="flow-desc">LINE、メールなど<br>好きなアプリでテキストを入力</div>
+  </div>
+  <div class="flow-arrow-large" id="fa2">➔</div>
+  <div class="flow-step-large" id="fs3">
+    <div class="flow-num">STEP 3</div>
+    <div class="flow-icon">🎯</div>
+    <div class="flow-label">プリセットを選択</div>
+    <div class="flow-desc">丁寧語・翻訳・絵文字など<br>変換タイプを選ぶ</div>
+  </div>
+  <div class="flow-arrow-large" id="fa3">➔</div>
+  <div class="flow-step-large" id="fs4">
+    <div class="flow-num">STEP 4</div>
+    <div class="flow-icon">🚀</div>
+    <div class="flow-label">送信するだけ</div>
+    <div class="flow-desc">変換結果がそのまま<br>入力欄に反映されます</div>
+  </div>
+</div>
+
+<!-- S4: Demo -->
+<div class="scene" id="s4">
+  <div class="demo-wrapper">
+    <!-- Phone -->
+    <div class="phone-frame" id="phone">
+      <div class="phone-status-bar">
+        <span>12:34</span>
+        <span>📶 🔋</span>
+      </div>
+      <div class="phone-screen">
+        <div class="chat-app">
+          <div class="chat-header">
+            <span class="chat-back">←</span>
+            <div class="chat-avatar">👤</div>
+            <span class="chat-name">田中部長</span>
+          </div>
+          <div class="chat-body" id="chat-body">
+            <div class="chat-bubble received">お疲れ様です。明日の会議の資料、準備できていますか？</div>
+            <div class="chat-bubble sent">はい、現在最終確認中です。</div>
+            <div class="chat-bubble received">了解です。17時までにお願いしますね。</div>
+          </div>
+          <div class="chat-input-area">
+            <div class="chat-input" id="chat-input"></div>
+            <div class="chat-send-btn">▶</div>
+          </div>
+        </div>
+
+        <!-- Dim overlay -->
+        <div class="sr-dim" id="sr-dim"></div>
+
+        <!-- Preset Selector Overlay -->
+        <div class="sr-overlay" id="ov-preset">
+          <div class="sr-header">
+            <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
+            <div class="sr-header-text">
+              <div class="sr-header-title">プリセットを選択</div>
+              <div class="sr-header-subtitle">変換方法を選んでください</div>
+            </div>
+          </div>
+          <div class="sr-preset-list">
+            <div class="sr-preset-item" id="pi-polite">丁寧に 💝<span class="preset-trigger">;;p</span></div>
+            <div class="sr-preset-item" id="pi-hello">おはようございます 👋<span class="preset-trigger">hlhl</span></div>
+            <div class="sr-preset-item" id="pi-closing">温かい終わり ✨<span class="preset-trigger">;;sc</span></div>
+            <div class="sr-preset-item" id="pi-chinese">中国語に翻訳 🌏<span class="preset-trigger">toC</span></div>
+            <div class="sr-preset-item" id="pi-emoji">かわいい絵文字 🥰<span class="preset-trigger">!em</span></div>
+            <div class="sr-preset-item" id="pi-custom">✏️ 手動で指示を入力</div>
+          </div>
+          <div class="sr-btn-group">
+            <div class="sr-btn-secondary">キャンセル</div>
+          </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="sr-overlay" id="ov-loading" style="width:280px;">
+          <div class="sr-header">
+            <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
+            <div class="sr-header-text">
+              <div class="sr-header-title">SendReady</div>
+              <div class="sr-header-subtitle">サジェスションを生成中</div>
+            </div>
+            <div class="sr-header-spinner"></div>
+          </div>
+          <div class="sr-btn-group">
+            <div class="sr-btn-secondary">キャンセル</div>
+          </div>
+        </div>
+
+        <!-- Suggestion Overlay -->
+        <div class="sr-overlay" id="ov-suggestion" style="width:360px;">
+          <div class="sr-header">
+            <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
+            <div class="sr-header-text">
+              <div class="sr-header-title">SendReady Suggestion</div>
+              <div class="sr-header-subtitle">確認して適用してください</div>
+            </div>
+          </div>
+          <textarea class="sr-suggestion-text" id="suggestion-text" readonly></textarea>
+          <div class="sr-btn-group">
+            <div class="sr-btn-primary" id="btn-apply">適用</div>
+            <div class="sr-btn-secondary">キャンセル</div>
+          </div>
+        </div>
+
+        <!-- Custom Prompt Overlay -->
+        <div class="sr-overlay" id="ov-prompt" style="width:340px;">
+          <div class="sr-header">
+            <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
+            <div class="sr-header-text">
+              <div class="sr-header-title">手動で指示を入力</div>
+              <div class="sr-header-subtitle">今回の変換指示を入力</div>
+            </div>
+          </div>
+          <textarea class="sr-prompt-input" id="prompt-input" placeholder="例: 簡潔にまとめて" readonly></textarea>
+          <div class="sr-char-count" id="prompt-counter">0/200</div>
+          <div class="sr-btn-group">
+            <div class="sr-btn-primary">実行</div>
+            <div class="sr-btn-secondary">キャンセル</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Callouts -->
+    <div class="callout" id="co1" style="top:50%;right:calc(50% + 250px);transform:translateY(-50%);">
+      <div class="callout-icon">📱</div>
+      <div class="callout-title">全アプリで動作</div>
+      <div class="callout-desc">LINE・メール・SNS・ブラウザ<br>テキスト入力があるすべてのアプリで使えます</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co2" style="top:25%;left:calc(50% + 250px);">
+      <div class="callout-icon">✍️</div>
+      <div class="callout-title">テキストを入力</div>
+      <div class="callout-desc">文章を入力したら<br>テキストを選択してSendReadyを起動</div>
+      <div class="callout-arrow arrow-left"></div>
+    </div>
+    <div class="callout" id="co3" style="top:40%;left:calc(50% + 250px);">
+      <div class="callout-icon">🎯</div>
+      <div class="callout-title">プリセットを選択</div>
+      <div class="callout-desc">「丁寧に」を選ぶだけで<br>AIが自動で変換します</div>
+      <div class="callout-arrow arrow-left"></div>
+    </div>
+    <div class="callout" id="co4" style="top:40%;left:calc(50% + 250px);">
+      <div class="callout-icon">🤖</div>
+      <div class="callout-title">Gemini AIが変換</div>
+      <div class="callout-desc">文脈を理解して最適な<br>テキストに仕上げます</div>
+      <div class="callout-arrow arrow-left"></div>
+    </div>
+    <div class="callout" id="co5" style="top:40%;left:calc(50% + 250px);">
+      <div class="callout-icon">✅</div>
+      <div class="callout-title">結果を確認して適用</div>
+      <div class="callout-desc">編集もできます<br>「適用」で元のテキストに反映</div>
+      <div class="callout-arrow arrow-left"></div>
+    </div>
+    <div class="callout" id="co6" style="top:30%;right:calc(50% + 250px);">
+      <div class="callout-icon">⚡</div>
+      <div class="callout-title">トリガーマーカー</div>
+      <div class="callout-desc">;;p テキスト ;;p のように<br>トリガーで囲むだけで自動変換</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co7" style="top:55%;left:calc(50% + 250px);">
+      <div class="callout-icon">✏️</div>
+      <div class="callout-title">カスタムプロンプト</div>
+      <div class="callout-desc">プリセットを使わず<br>自由な指示でAI変換</div>
+      <div class="callout-arrow arrow-left"></div>
+    </div>
+    <div class="callout" id="co8" style="bottom:20%;right:calc(50% + 250px);">
+      <div class="callout-icon">🔒</div>
+      <div class="callout-title">プライバシー保護</div>
+      <div class="callout-desc">データはすべてデバイス内に保存<br>AIに送るのはテキストだけ</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: Features -->
+<div class="scene" id="s5">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:56px;">
+    <div class="feat-title" id="e5a">搭載機能</div>
+    <div class="feat-grid">
+      <div class="feat-item" id="f1"><span class="feat-emoji">🚀</span><h4>3秒で変換完了</h4><p>丁寧語・翻訳・文体調整<br>AIのワンタップ変換で瞬時に完了</p></div>
+      <div class="feat-item" id="f2"><span class="feat-emoji">✏️</span><h4>カスタムプリセット</h4><p>最大10個のオリジナル変換パターンを<br>ワンタップで呼び出し</p></div>
+      <div class="feat-item" id="f3"><span class="feat-emoji">📱</span><h4>全アプリ対応</h4><p>アクセシビリティサービスで<br>どのアプリでも制限なく動作</p></div>
+      <div class="feat-item" id="f4"><span class="feat-emoji">🌐</span><h4>11言語対応</h4><p>日本語・英語・中国語・韓国語など<br>UIも自動でローカライズ</p></div>
+      <div class="feat-item" id="f5"><span class="feat-emoji">⚡</span><h4>トリガーマーカー</h4><p>;;p テキスト ;;p のように囲むだけで<br>即座に変換を実行</p></div>
+      <div class="feat-item" id="f6"><span class="feat-emoji">🌙</span><h4>ダークモード</h4><p>ライト / ダーク / Auto の3モード<br>目に優しいデザイン</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: CTA -->
+<div class="scene" id="s6">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:36px;">
+    <div class="cta-title" id="e6a">テキスト入力のストレスから、<br><span class="accent">今日解放されよう。</span></div>
+    <div class="cta-checks" id="e6b">
+      <div class="cta-check"><div class="check-circle">✓</div>AIが文章をワンタップで変換</div>
+      <div class="cta-check"><div class="check-circle">✓</div>完全無料、登録不要</div>
+      <div class="cta-check"><div class="check-circle">✓</div>すべてのAndroidアプリで動作</div>
+    </div>
+    <div class="cta-btn" id="e6c">
+      <svg viewBox="0 0 24 24" width="28" height="28"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+      Google Playで入手 — 無料
+    </div>
+    <div class="cta-note" id="e6d">Android 7.0以上 ・ 登録不要 ・ 1日50回まで無料</div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const scenes = ['s1','s2','s3','s4','s5','s6'];
+let timeline = [], timelineIndex = 0, timer = null, startTime = Date.now();
+
+function showScene(id) { scenes.forEach(s => $(s).classList.remove('active')); $(id).classList.add('active'); }
+
+function anim(el, styles, dur = 600) {
+  if (typeof el === 'string') el = $(el);
+  if (!el) return;
+  el.style.transition = `all ${dur}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+  Object.assign(el.style, styles);
+}
+
+const allCallouts = ['co1','co2','co3','co4','co5','co6','co7','co8'];
+function hideAllCallouts() { allCallouts.forEach(id => $(id).classList.remove('show')); }
+
+const allOverlays = ['ov-preset','ov-loading','ov-suggestion','ov-prompt'];
+function hideAllOverlays() {
+  allOverlays.forEach(id => $(id).classList.remove('show'));
+  $('sr-dim').classList.remove('show','dark');
+}
+
+function showOverlay(id, darkDim) {
+  hideAllOverlays();
+  $('sr-dim').classList.add('show');
+  if (darkDim) $('sr-dim').classList.add('dark');
+  $(id).classList.add('show');
+}
+
+function typeText(el, text, speed = 60) {
+  let i = 0;
+  el.textContent = '';
+  return new Promise(resolve => {
+    const iv = setInterval(() => {
+      el.textContent += text[i++];
+      if (i >= text.length) { clearInterval(iv); resolve(); }
+    }, speed);
+  });
+}
+
+function buildTimeline() {
+  timeline = [];
+  let t = 0;
+
+  // S1: Intro (0-3s)
+  timeline.push([t, () => {
+    showScene('s1');
+    setTimeout(() => anim('e1a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e1free', {opacity:1, transform:'translateY(0)'}), 500);
+    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 800);
+    setTimeout(() => anim('e1c', {opacity:1}), 1200);
+  }]);
+  t += 3000;
+
+  // S2: Problem (3-8.5s)
+  timeline.push([t, () => {
+    showScene('s2');
+    setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e2cards', {opacity:1, transform:'translateY(0)'}), 800);
+    setTimeout(() => anim('e2sol', {opacity:1, transform:'translateY(0)'}), 3500);
+  }]);
+  t += 5500;
+
+  // S3: 4 Steps (8.5-12.5s)
+  timeline.push([t, () => {
+    showScene('s3');
+    setTimeout(() => anim('fs1', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('fa1', {opacity:1}), 500);
+    setTimeout(() => anim('fs2', {opacity:1, transform:'translateY(0)'}), 700);
+    setTimeout(() => anim('fa2', {opacity:1}), 1000);
+    setTimeout(() => anim('fs3', {opacity:1, transform:'translateY(0)'}), 1200);
+    setTimeout(() => anim('fa3', {opacity:1}), 1500);
+    setTimeout(() => anim('fs4', {opacity:1, transform:'translateY(0)'}), 1700);
+  }]);
+  t += 4000;
+
+  // S4: Demo (12.5s - 33.5s = 21s)
+  timeline.push([t, () => {
+    showScene('s4');
+    const input = $('chat-input');
+
+    // Phase 1: Show app context (0-2s)
+    setTimeout(() => $('co1').classList.add('show'), 300);
+    setTimeout(() => hideAllCallouts(), 2200);
+
+    // Phase 2: User types text (2-4s)
+    setTimeout(() => {
+      $('co2').classList.add('show');
+      typeText(input, 'りょーかいっす。あざす！', 80);
+    }, 2500);
+    setTimeout(() => hideAllCallouts(), 4500);
+
+    // Phase 3: Preset selector overlay appears (4.5-6.5s)
+    setTimeout(() => {
+      showOverlay('ov-preset', false);
+      $('co3').classList.add('show');
+    }, 5000);
+
+    // Phase 4: Select "丁寧に 💝" (6.5-7.5s)
+    setTimeout(() => {
+      hideAllCallouts();
+      $('pi-polite').classList.add('highlight');
+    }, 7000);
+
+    // Phase 5: Loading overlay (7.5-9.5s)
+    setTimeout(() => {
+      $('pi-polite').classList.remove('highlight');
+      showOverlay('ov-loading', false);
+      $('co4').classList.add('show');
+    }, 8000);
+
+    // Phase 6: Suggestion overlay (9.5-12s)
+    setTimeout(() => {
+      hideAllCallouts();
+      $('suggestion-text').value = '承知いたしました。ありがとうございます！';
+      showOverlay('ov-suggestion', true);
+      $('co5').classList.add('show');
+    }, 10000);
+
+    // Phase 7: Apply result (12-13s)
+    setTimeout(() => {
+      hideAllCallouts();
+      hideAllOverlays();
+      input.textContent = '承知いたしました。ありがとうございます！';
+    }, 12500);
+
+    // Phase 8: Trigger marker demo (13-16.5s)
+    setTimeout(() => {
+      input.textContent = '';
+      $('co6').classList.add('show');
+      typeText(input, ';;p 明日の資料送ります ;;p', 70);
+    }, 13500);
+
+    // Trigger detected → loading
+    setTimeout(() => {
+      hideAllCallouts();
+      showOverlay('ov-loading', false);
+    }, 15500);
+
+    // Suggestion appears
+    setTimeout(() => {
+      $('suggestion-text').value = '明日の資料をお送りいたします。';
+      showOverlay('ov-suggestion', true);
+    }, 16500);
+
+    // Apply
+    setTimeout(() => {
+      hideAllOverlays();
+      input.textContent = '明日の資料をお送りいたします。';
+    }, 18000);
+
+    // Phase 9: Custom prompt demo (18-21s)
+    setTimeout(() => {
+      input.textContent = '来週の月曜って空いてますか？';
+      $('co7').classList.add('show');
+      showOverlay('ov-prompt', false);
+      $('prompt-input').value = '英語に翻訳して';
+      $('prompt-counter').textContent = '7/200';
+    }, 18500);
+
+    setTimeout(() => {
+      hideAllCallouts();
+      showOverlay('ov-loading', false);
+    }, 20000);
+
+    setTimeout(() => {
+      $('suggestion-text').value = 'Are you available next Monday?';
+      showOverlay('ov-suggestion', true);
+    }, 21000);
+
+    setTimeout(() => {
+      hideAllOverlays();
+      input.textContent = 'Are you available next Monday?';
+    }, 22500);
+
+    // Phase 10: Privacy (22.5-24s)
+    setTimeout(() => $('co8').classList.add('show'), 23000);
+    setTimeout(() => hideAllCallouts(), 24500);
+  }]);
+  t += 25000;
+
+  // S5: Features (37.5-41.5s)
+  timeline.push([t, () => {
+    showScene('s5');
+    setTimeout(() => anim('e5a', {opacity:1}), 200);
+    ['f1','f2','f3','f4','f5','f6'].forEach((id, i) => {
+      setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i * 150);
+    });
+  }]);
+  t += 4000;
+
+  // S6: CTA (41.5-45.5s)
+  timeline.push([t, () => {
+    showScene('s6');
+    setTimeout(() => anim('e6a', {opacity:1, transform:'translateY(0)'}, 500), 200);
+    setTimeout(() => anim('e6b', {opacity:1}), 600);
+    setTimeout(() => anim('e6c', {opacity:1, transform:'translateY(0)'}), 1200);
+    setTimeout(() => anim('e6d', {opacity:1}), 1600);
+  }]);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  ['e1a','e1b','e1c','e1free','e2a','e2cards','e2sol',
+   'e5a','e6a','e6b','e6c','e6d'].forEach(id => {
+    const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='';}
+  });
+  ['fs1','fs2','fs3','fs4'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
+  ['fa1','fa2','fa3'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';}});
+  ['f1','f2','f3','f4','f5','f6'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
+  hideAllCallouts();
+  hideAllOverlays();
+  $('chat-input').textContent = '';
+  $('suggestion-text').value = '';
+  $('prompt-input').value = '';
+  $('prompt-counter').textContent = '0/200';
+  $('pi-polite').classList.remove('highlight');
+}
+
+function runTimeline() {
+  if (timelineIndex >= timeline.length) return;
+  const [delay, fn] = timeline[timelineIndex];
+  const wait = Math.max(0, delay - (Date.now() - startTime));
+  timer = setTimeout(() => { fn(); timelineIndex++; runTimeline(); }, wait);
+}
+
+function start() {
+  resetAll(); startTime = Date.now(); timelineIndex = 0;
+  buildTimeline(); void document.body.offsetHeight; runTimeline();
+}
+
+start();
+</script>
+</body>
+</html>

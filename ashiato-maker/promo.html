@@ -22,7 +22,7 @@
   /* ===== S1: Intro ===== */
   #s1 {
     background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%);
-    flex-direction: column; gap: 48px;
+    flex-direction: column; gap: 36px;
   }
   #s1::before {
     content: ''; position: absolute; inset: 0;
@@ -32,127 +32,100 @@
   #s1 .bg-glow { position: absolute; border-radius: 50%; filter: blur(140px); pointer-events: none; }
   #s1 .g1 { width: 600px; height: 600px; background: #667eea; top: -200px; left: -100px; opacity: 0.12; }
   #s1 .g2 { width: 500px; height: 500px; background: #764ba2; bottom: -200px; right: -100px; opacity: 0.10; }
-  #s1 .logo-row { display: flex; align-items: center; gap: 28px; opacity: 0; transform: translateY(40px); position: relative; z-index: 1; }
-  #s1 .logo-icon {
-    width: 120px; height: 120px; border-radius: 28px;
-    box-shadow: 0 4px 24px rgba(102,126,234,0.3);
-    overflow: hidden;
-  }
+  #s1 .logo-row { display: flex; align-items: center; gap: 36px; opacity: 0; transform: translateY(40px); position: relative; z-index: 1; }
+  #s1 .logo-icon { width: 160px; height: 160px; border-radius: 36px; box-shadow: 0 4px 24px rgba(102,126,234,0.3); overflow: hidden; }
   #s1 .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
-  #s1 .logo-text { font-size: 96px; font-weight: 900; color: #fff; letter-spacing: -2px; }
+  #s1 .logo-text { font-size: 120px; font-weight: 900; color: #fff; letter-spacing: -3px; }
   #s1 .free-badge {
     display: inline-block; background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: #fff; font-size: 28px; font-weight: 900; padding: 8px 36px; border-radius: 30px;
-    letter-spacing: 3px; box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+    color: #fff; font-size: 36px; font-weight: 900; padding: 10px 48px; border-radius: 30px;
+    letter-spacing: 4px; box-shadow: 0 4px 20px rgba(34,197,94,0.3);
     opacity: 0; transform: translateY(20px); position: relative; z-index: 1;
   }
-  #s1 .tagline { font-size: 48px; font-weight: 600; color: rgba(255,255,255,0.85); opacity: 0; transform: translateY(30px); position: relative; z-index: 1; line-height: 1.6; text-align: center; }
-  #s1 .tagline .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
-  #s1 .apps-row { display: flex; gap: 16px; opacity: 0; position: relative; z-index: 1; }
-  .app-chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: 12px; padding: 10px 20px; }
-  .app-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  #s1 .tagline { font-size: 60px; font-weight: 700; color: #fff; opacity: 0; transform: translateY(30px); position: relative; z-index: 1; line-height: 1.5; text-align: center; }
+  #s1 .tagline .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900; }
+  #s1 .apps-row { display: flex; gap: 20px; opacity: 0; position: relative; z-index: 1; }
+  .app-chip { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 14px 28px; }
+  .app-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
   .app-dot.pairs { background: #e040fb; box-shadow: 0 0 8px rgba(224,64,251,0.5); }
   .app-dot.with { background: #29b6f6; box-shadow: 0 0 8px rgba(41,182,246,0.5); }
   .app-dot.toukare { background: #ffc107; box-shadow: 0 0 8px rgba(255,193,7,0.5); }
   .app-dot.tinder { background: #ff5722; box-shadow: 0 0 8px rgba(255,87,34,0.5); }
-  .app-chip-name { font-size: 20px; font-weight: 700; color: #fff; }
-  .app-chip-check { color: #4ade80; font-size: 18px; font-weight: 700; }
+  .app-chip-name { font-size: 26px; font-weight: 700; color: #fff; }
+  .app-chip-check { color: #4ade80; font-size: 24px; font-weight: 700; }
 
   /* ===== S2: Problem ===== */
   #s2 { background: linear-gradient(160deg, #0f172a, #1a1033); flex-direction: column; gap: 0; }
-  #s2 .s2-layout { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 60px 0 40px; }
-  #s2 .prob-title {
-    font-size: 64px; font-weight: 800; color: #fff; text-align: center; line-height: 1.4;
-    opacity: 0; transform: translateY(40px); flex-shrink: 0;
-  }
+  #s2 .s2-layout { display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%; padding: 80px 0 40px; }
+  #s2 .prob-title { font-size: 76px; font-weight: 800; color: #fff; text-align: center; line-height: 1.4; opacity: 0; transform: translateY(40px); flex-shrink: 0; }
   #s2 .prob-title .orange { color: #fb923c; }
-
-  /* Compare cards */
-  #s2 .compare-area { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin-top: 60px; opacity: 0; transform: translateY(30px); }
-  .compare-card { border-radius: 20px; padding: 48px 40px; border: 1px solid rgba(255,255,255,0.08); text-align: center; }
-  .compare-card.manual { background: rgba(255,255,255,0.03); }
-  .compare-card.auto { background: rgba(102,126,234,0.08); border-color: rgba(102,126,234,0.25); }
-  .compare-card h3 { font-size: 24px; font-weight: 700; color: rgba(255,255,255,0.75); margin-bottom: 24px; }
-  .compare-card.auto h3 { color: #a78bfa; }
-  .compare-number { font-size: 72px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
+  #s2 .compare-area { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 1400px; width: 80%; margin-top: 60px; opacity: 0; transform: translateY(30px); }
+  .compare-card { border-radius: 24px; padding: 56px 48px; border: 1px solid rgba(255,255,255,0.12); text-align: center; }
+  .compare-card.manual { background: rgba(255,255,255,0.05); }
+  .compare-card.auto { background: rgba(102,126,234,0.12); border-color: rgba(102,126,234,0.3); }
+  .compare-card h3 { font-size: 30px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+  .compare-card.auto h3 { color: #c4b5fd; }
+  .compare-number { font-size: 100px; font-weight: 900; line-height: 1.2; margin-bottom: 12px; }
   .compare-card.manual .compare-number { color: #f87171; }
   .compare-card.auto .compare-number { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .compare-unit { font-size: 22px; color: rgba(255,255,255,0.7); }
-
-  #s2 .s2-bottom-area {
-    flex-shrink: 0; height: 100px; display: flex; align-items: center; justify-content: center;
-    position: relative; width: 100%; margin-top: 48px;
-  }
-  #s2 .sigh-text { font-size: 40px; color: #fb923c; font-weight: 700; opacity: 0; transform: translateY(20px); position: absolute; }
+  .compare-unit { font-size: 26px; color: rgba(255,255,255,0.75); }
+  #s2 .s2-bottom-area { flex-shrink: 0; height: 120px; display: flex; align-items: center; justify-content: center; position: relative; width: 100%; margin-top: 48px; }
+  #s2 .sigh-text { font-size: 48px; color: #fb923c; font-weight: 700; opacity: 0; transform: translateY(20px); position: absolute; }
   #s2 .prob-bottom { display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); position: absolute; }
-  .prob-save-card {
-    background: rgba(102,126,234,0.1); border: 2px solid rgba(102,126,234,0.3); border-radius: 20px;
-    padding: 28px 48px; display: flex; align-items: center; gap: 20px;
-  }
-  .prob-save-icon { font-size: 48px; }
-  .prob-save-text { font-size: 28px; color: #e2e8f0; font-weight: 500; line-height: 1.6; }
+  .prob-save-card { background: rgba(102,126,234,0.12); border: 2px solid rgba(102,126,234,0.3); border-radius: 20px; padding: 32px 56px; display: flex; align-items: center; gap: 24px; }
+  .prob-save-icon { font-size: 56px; }
+  .prob-save-text { font-size: 36px; color: #fff; font-weight: 500; line-height: 1.6; }
   .prob-save-text .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800; }
 
   /* ===== S3: Solution - 3 Steps ===== */
-  #s3 { background: linear-gradient(160deg, #0d1225, #1e1b4b); flex-direction: row; gap: 48px; padding: 0 120px; }
+  #s3 { background: linear-gradient(160deg, #0d1225, #1e1b4b); flex-direction: row; gap: 40px; padding: 0 80px; }
   .flow-step-large {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 24px; padding: 48px 36px; text-align: center; min-width: 360px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px; padding: 56px 44px; text-align: center; flex: 1;
     opacity: 0; transform: translateY(40px);
   }
-  .flow-step-large .flow-num { font-size: 56px; font-weight: 900; background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; }
-  .flow-step-large .flow-icon { font-size: 64px; margin-bottom: 16px; display: block; }
-  .flow-step-large .flow-label { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-  .flow-step-large .flow-desc { font-size: 18px; color: rgba(255,255,255,0.5); line-height: 1.6; }
-  .flow-arrow-large { font-size: 48px; color: rgba(255,255,255,0.2); opacity: 0; }
+  .flow-step-large .flow-num { font-size: 64px; font-weight: 900; background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; }
+  .flow-step-large .flow-icon { font-size: 80px; margin-bottom: 20px; display: block; }
+  .flow-step-large .flow-label { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .flow-step-large .flow-desc { font-size: 22px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+  .flow-arrow-large { font-size: 56px; color: rgba(255,255,255,0.3); opacity: 0; flex-shrink: 0; }
 
   /* ===== S4: Demo ===== */
   #s4 { background: #f5f0eb; position: relative; overflow: hidden; }
-  #s4 .demo-wrapper { display: flex; width: 100%; height: 100%; }
+  #s4 .demo-wrapper { display: flex; width: 100%; height: 100%; position: relative; }
 
-  /* Pairs-like search page mock */
   .pairs-mock { flex: 1; display: flex; flex-direction: column; background: #fff; height: 1080px; overflow: hidden; }
-  .pairs-nav { display: flex; align-items: center; height: 56px; background: #fff; border-bottom: 1px solid #eee; padding: 0 32px; flex-shrink: 0; }
-  .pairs-nav .nav-logo { font-size: 22px; font-weight: 800; color: #e040fb; }
-  .pairs-nav .nav-items { display: flex; gap: 32px; margin-left: 48px; }
-  .pairs-nav .nav-item { font-size: 14px; color: #888; font-weight: 500; padding: 16px 0; border-bottom: 2px solid transparent; }
+  .pairs-nav { display: flex; align-items: center; height: 64px; background: #fff; border-bottom: 1px solid #eee; padding: 0 40px; flex-shrink: 0; }
+  .pairs-nav .nav-logo { font-size: 28px; font-weight: 800; color: #e040fb; }
+  .pairs-nav .nav-items { display: flex; gap: 40px; margin-left: 56px; }
+  .pairs-nav .nav-item { font-size: 18px; color: #888; font-weight: 500; padding: 18px 0; border-bottom: 3px solid transparent; }
   .pairs-nav .nav-item.active { color: #e040fb; border-bottom-color: #e040fb; }
-
   .pairs-body { flex: 1; display: flex; overflow: hidden; }
-  .pairs-sidebar { width: 240px; background: #faf8f6; border-right: 1px solid #eee; padding: 20px; flex-shrink: 0; }
-  .sidebar-section { margin-bottom: 20px; }
-  .sidebar-label { font-size: 11px; color: #999; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
-  .sidebar-value { font-size: 13px; color: #333; background: #fff; border: 1px solid #eee; border-radius: 6px; padding: 8px 12px; }
+  .pairs-sidebar { width: 280px; background: #faf8f6; border-right: 1px solid #eee; padding: 28px; flex-shrink: 0; }
+  .sidebar-section { margin-bottom: 24px; }
+  .sidebar-label { font-size: 14px; color: #999; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px; }
+  .sidebar-value { font-size: 16px; color: #333; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px 14px; }
+  .pairs-grid-area { flex: 1; padding: 28px 40px; overflow: hidden; }
+  .pairs-grid-header { font-size: 18px; color: #888; margin-bottom: 20px; }
+  .pairs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-content: start; }
 
-  .pairs-grid-area { flex: 1; padding: 24px 32px; overflow: hidden; }
-  .pairs-grid-header { font-size: 14px; color: #888; margin-bottom: 16px; }
-  .pairs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; height: calc(1080px - 56px - 24px - 24px - 30px); align-content: start; }
-
-  /* Profile card — Pairs style */
   .p-card {
-    background: #fff; border-radius: 12px; overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06); border: 2px solid transparent;
+    background: #fff; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 3px solid transparent;
     transition: all 0.4s cubic-bezier(0.16,1,0.3,1); position: relative;
   }
-  .p-card .p-photo {
-    width: 100%; height: 0; padding-bottom: 120%; display: flex; align-items: center; justify-content: center;
-    font-size: 56px; position: relative;
-  }
-  .p-card .p-photo > span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; }
+  .p-card .p-photo { width: 100%; height: 0; padding-bottom: 110%; position: relative; }
+  .p-card .p-photo > span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; font-size: 72px; }
   .p-card .p-photo-bg { position: absolute; inset: 0; }
-  .p-card .p-info { padding: 8px 10px; }
-  .p-card .p-name { font-size: 13px; font-weight: 700; color: #333; }
-  .p-card .p-detail { font-size: 10px; color: #999; margin-top: 2px; }
+  .p-card .p-info { padding: 12px 14px; }
+  .p-card .p-name { font-size: 18px; font-weight: 700; color: #333; }
+  .p-card .p-detail { font-size: 14px; color: #999; margin-top: 3px; }
 
-  /* Highlight animation — matches real product */
   @keyframes ashiato-pulse-demo {
     0%, 100% { box-shadow: 0 0 12px 4px rgba(102,126,234,0.5); }
     50% { box-shadow: 0 0 24px 10px rgba(118,75,162,0.7); }
   }
-  .p-card.visiting {
-    border-color: #764ba2 !important;
-    animation: ashiato-pulse-demo 1.2s ease-in-out infinite;
-  }
+  .p-card.visiting { border-color: #764ba2 !important; animation: ashiato-pulse-demo 1.2s ease-in-out infinite; }
   @keyframes badge-pulse-demo {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.95; }
     50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
@@ -160,104 +133,147 @@
   .p-card .visit-badge {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff; font-size: 13px; font-weight: 800; padding: 8px 18px;
-    border-radius: 20px; z-index: 10; pointer-events: none;
+    color: #fff; font-size: 18px; font-weight: 800; padding: 12px 24px;
+    border-radius: 24px; z-index: 10; pointer-events: none;
     white-space: nowrap; letter-spacing: 1px;
     box-shadow: 0 4px 20px rgba(102,126,234,0.5), 0 0 40px rgba(118,75,162,0.3);
     animation: badge-pulse-demo 1.5s ease-in-out infinite;
-    backdrop-filter: blur(4px);
-    display: none;
+    backdrop-filter: blur(4px); display: none;
   }
   .p-card.visiting .visit-badge { display: block; }
-  .p-card.visited { opacity: 0.5; }
+  .p-card.visited { opacity: 0.45; }
+  .p-card.visited::after {
+    content: '✓ 訪問済み'; position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(102,126,234,0.85); color: #fff; font-size: 14px; font-weight: 700;
+    text-align: center; padding: 5px 0; letter-spacing: 1px;
+  }
 
-  /* Floating panel — exact replica */
+  /* Profile modal overlay */
+  .modal-overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+    z-index: 15; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .modal-overlay.show { opacity: 1; pointer-events: auto; }
+  .modal-card {
+    width: 680px; background: #fff; border-radius: 24px; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .modal-overlay.show .modal-card { transform: scale(1); }
+  .modal-photo { height: 400px; position: relative; display: flex; align-items: center; justify-content: center; font-size: 140px; }
+  .modal-photo-bg { position: absolute; inset: 0; }
+  .modal-photo > span { position: relative; z-index: 1; }
+  .modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.4); color: #fff; border: none; font-size: 22px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; }
+  .modal-body { padding: 32px; }
+  .modal-name { font-size: 32px; font-weight: 800; color: #333; margin-bottom: 6px; }
+  .modal-detail { font-size: 18px; color: #888; margin-bottom: 20px; }
+  .modal-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .modal-tag { background: #f3f4f6; border-radius: 10px; padding: 8px 18px; font-size: 16px; color: #555; }
+  .modal-ashiato-done {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #667eea, #764ba2); color: #fff;
+    font-size: 28px; font-weight: 800; padding: 18px 44px; border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(102,126,234,0.5);
+    opacity: 0; transition: opacity 0.3s; z-index: 3; white-space: nowrap;
+  }
+  .modal-ashiato-done.show { opacity: 1; }
+
+  /* Reload flash */
+  .reload-flash {
+    position: absolute; inset: 0; background: #fff; z-index: 25;
+    opacity: 0; pointer-events: none; transition: opacity 0.15s;
+  }
+  .reload-flash.show { opacity: 1; }
+
+  /* Floating panel */
   .panel-replica {
-    position: absolute; bottom: 24px; right: 24px; width: 240px;
-    background: #fff; border-radius: 10px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.18); z-index: 10;
+    position: absolute; bottom: 28px; right: 28px; width: 340px;
+    background: #fff; border-radius: 14px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.22); z-index: 20;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 12px; color: #333; overflow: hidden;
+    font-size: 15px; color: #333; overflow: hidden;
     opacity: 0; transform: translateY(20px);
   }
   .panel-header {
-    display: flex; align-items: center; padding: 6px 10px;
+    display: flex; align-items: center; padding: 10px 14px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff; gap: 4px;
+    color: #fff; gap: 6px;
   }
-  .panel-header .panel-icon { width: 18px; height: 18px; border-radius: 4px; }
-  .panel-header .panel-title { font-weight: 700; font-size: 12px; }
-  .panel-header .panel-app-badge { background: rgba(255,255,255,0.25); padding: 1px 8px; border-radius: 8px; font-size: 10px; font-weight: 600; }
-  .panel-header .panel-toggle { background: none; border: none; color: #fff; font-size: 16px; line-height: 1; padding: 0 4px; margin-left: auto; }
-  .panel-body { padding: 8px 10px; }
-  .panel-check { margin-bottom: 6px; font-size: 11px; display: flex; align-items: center; gap: 4px; }
-  .panel-check input[type="checkbox"] { accent-color: #667eea; width: 14px; height: 14px; }
-  .panel-check .p-inline-num { width: 42px; padding: 2px 4px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 12px; text-align: center; background: #fafafa; }
-  .panel-row { display: flex; gap: 6px; margin-bottom: 6px; }
+  .panel-header .panel-icon { width: 24px; height: 24px; border-radius: 5px; }
+  .panel-header .panel-title { font-weight: 700; font-size: 16px; }
+  .panel-header .panel-app-badge { background: rgba(255,255,255,0.25); padding: 2px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; }
+  .panel-header .panel-toggle { background: none; border: none; color: #fff; font-size: 20px; line-height: 1; padding: 0 6px; margin-left: auto; }
+  .panel-body { padding: 12px 14px; }
+  .panel-check { margin-bottom: 8px; font-size: 15px; display: flex; align-items: center; gap: 6px; }
+  .panel-check input[type="checkbox"] { accent-color: #667eea; width: 18px; height: 18px; }
+  .panel-check .p-inline-num { width: 56px; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 15px; text-align: center; background: #fafafa; }
+  .panel-row { display: flex; gap: 8px; margin-bottom: 8px; }
   .panel-setting { flex: 1; }
-  .panel-setting label { display: block; font-size: 10px; color: #888; margin-bottom: 2px; font-weight: 500; }
-  .panel-setting input { width: 100%; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 4px; font-size: 12px; background: #fafafa; }
-  .panel-btn { width: 100%; padding: 7px; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; margin-bottom: 6px; }
+  .panel-setting label { display: block; font-size: 13px; color: #888; margin-bottom: 3px; font-weight: 500; }
+  .panel-setting input { width: 100%; padding: 6px 8px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 15px; background: #fafafa; }
+  .panel-btn { width: 100%; padding: 10px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; margin-bottom: 8px; }
   .panel-btn-start { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
   .panel-btn-stop { background: #f44336; color: #fff; display: none; }
-  .panel-stats { display: flex; flex-direction: column; gap: 3px; }
-  .panel-stat { display: flex; align-items: center; justify-content: space-between; background: #f8f8f8; padding: 4px 8px; border-radius: 5px; border: 1px solid #eee; }
-  .panel-stat-label { font-size: 10px; color: #888; }
-  .panel-stat-value { font-size: 12px; font-weight: 700; color: #333; }
-  .panel-reset { background: none; border: 1px solid #ddd; border-radius: 4px; font-size: 11px; padding: 3px 0; color: #888; width: 100%; }
-  .panel-contact { display: block; text-align: center; margin-top: 6px; font-size: 10px; color: #999; text-decoration: none; }
+  .panel-stats { display: flex; flex-direction: column; gap: 4px; }
+  .panel-stat { display: flex; align-items: center; justify-content: space-between; background: #f8f8f8; padding: 6px 10px; border-radius: 6px; border: 1px solid #eee; }
+  .panel-stat-label { font-size: 13px; color: #888; }
+  .panel-stat-value { font-size: 16px; font-weight: 700; color: #333; }
+  .panel-reset { background: none; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; padding: 5px 0; color: #888; width: 100%; }
+  .panel-contact { display: block; text-align: center; margin-top: 8px; font-size: 13px; color: #999; text-decoration: none; }
 
   /* Notification toast */
   .notif-toast {
-    position: absolute; top: 20px; right: 20px; background: #4CAF50; color: #fff;
-    padding: 12px 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    font-size: 14px; z-index: 20; display: flex; align-items: center; gap: 10px;
+    position: absolute; top: 24px; right: 24px; background: #4CAF50; color: #fff;
+    padding: 16px 28px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 20px; z-index: 30; display: flex; align-items: center; gap: 12px;
     opacity: 0; transform: translateY(-10px);
   }
-  .notif-toast .notif-icon { width: 22px; height: 22px; border-radius: 4px; }
+  .notif-toast .notif-icon { width: 28px; height: 28px; border-radius: 5px; }
 
-  /* Feature callouts on demo */
+  /* Feature callouts */
   .callout {
     position: absolute; z-index: 30;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff; border-radius: 14px; padding: 16px 24px;
-    box-shadow: 0 8px 32px rgba(102,126,234,0.5), 0 0 0 2px rgba(255,255,255,0.15);
+    background: #1e1b4b; border: 3px solid rgba(102,126,234,0.6);
+    color: #fff; border-radius: 20px; padding: 28px 36px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
     opacity: 0; scale: 0.8;
     transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
   }
   .callout.show { opacity: 1; scale: 1; }
-  .callout .callout-title { font-size: 18px; font-weight: 800; margin-bottom: 4px; letter-spacing: 0.5px; }
-  .callout .callout-desc { font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.85); line-height: 1.5; }
-  .callout .callout-arrow {
-    position: absolute; width: 0; height: 0;
-    border: 10px solid transparent;
-  }
-  .callout .callout-arrow.arrow-right { right: -20px; top: 50%; transform: translateY(-50%); border-left-color: #764ba2; }
-  .callout .callout-arrow.arrow-left { left: -20px; top: 50%; transform: translateY(-50%); border-right-color: #667eea; }
-  .callout .callout-arrow.arrow-down { bottom: -20px; left: 50%; transform: translateX(-50%); border-top-color: #6f6be0; }
-  .callout .callout-arrow.arrow-up { top: -20px; left: 50%; transform: translateX(-50%); border-bottom-color: #667eea; }
+  .callout .callout-icon { font-size: 36px; margin-bottom: 10px; display: block; }
+  .callout .callout-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+  .callout .callout-desc { font-size: 18px; font-weight: 500; color: rgba(255,255,255,0.85); line-height: 1.6; }
+  .callout .callout-arrow { position: absolute; width: 0; height: 0; border: 14px solid transparent; }
+  .callout .callout-arrow.arrow-right { right: -28px; top: 50%; transform: translateY(-50%); border-left-color: rgba(102,126,234,0.6); }
+  .callout .callout-arrow.arrow-down { bottom: -28px; left: 50%; transform: translateX(-50%); border-top-color: rgba(102,126,234,0.6); }
 
-  /* Panel highlight ring */
   @keyframes panel-ring-pulse {
     0%, 100% { box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 0px rgba(102,126,234,0); }
-    50% { box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 6px rgba(102,126,234,0.4); }
+    50% { box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 6px rgba(102,126,234,0.5); }
   }
   .panel-replica.highlight-ring { animation: panel-ring-pulse 1.5s ease-in-out infinite; }
 
-  /* ===== S5: Features ===== */
-  #s5 { background: linear-gradient(160deg, #0f172a, #1a1033); flex-direction: column; gap: 64px; }
-  #s5 .feat-title { font-size: 64px; font-weight: 800; color: #fff; text-align: center; opacity: 0; }
-  #s5 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; max-width: 1600px; width: 90%; }
-  .feat-item {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 24px; padding: 44px 36px; text-align: center;
-    opacity: 0; transform: translateY(40px);
-    transition: border-color 0.3s, background 0.3s;
+  /* Highlight flash on panel elements */
+  @keyframes setting-highlight {
+    0% { box-shadow: 0 0 0 0 rgba(102,126,234,0); }
+    30% { box-shadow: 0 0 0 4px rgba(102,126,234,0.5); }
+    100% { box-shadow: 0 0 0 0 rgba(102,126,234,0); }
   }
-  .feat-item .feat-emoji { font-size: 64px; margin-bottom: 20px; display: block; }
-  .feat-item h4 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-  .feat-item p { font-size: 19px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  .panel-setting-flash { animation: setting-highlight 1.2s ease-out; }
+
+  /* ===== S5: Features ===== */
+  #s5 { background: linear-gradient(160deg, #0f172a, #1a1033); flex-direction: column; gap: 56px; }
+  #s5 .feat-title { font-size: 80px; font-weight: 800; color: #fff; text-align: center; opacity: 0; }
+  #s5 .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1760px; width: 94%; }
+  .feat-item {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 40px 32px; text-align: center;
+    opacity: 0; transform: translateY(40px);
+  }
+  .feat-item .feat-emoji { font-size: 72px; margin-bottom: 16px; display: block; }
+  .feat-item h4 { font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .feat-item p { font-size: 22px; color: rgba(255,255,255,0.7); line-height: 1.7; }
 
   /* ===== S6: CTA ===== */
   #s6 {
@@ -269,21 +285,21 @@
     background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
     background-size: 48px 48px;
   }
-  #s6 .cta-title { font-size: 72px; font-weight: 900; color: #fff; text-align: center; opacity: 0; transform: translateY(40px); line-height: 1.4; position: relative; z-index: 1; }
+  #s6 .cta-title { font-size: 84px; font-weight: 900; color: #fff; text-align: center; opacity: 0; transform: translateY(40px); line-height: 1.4; position: relative; z-index: 1; }
   #s6 .cta-title .accent { background: linear-gradient(135deg, #667eea, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   #s6 .cta-checks { display: flex; flex-direction: column; gap: 24px; opacity: 0; position: relative; z-index: 1; }
-  .cta-check { display: flex; align-items: center; gap: 18px; font-size: 32px; color: #fff; font-weight: 500; }
-  .cta-check .check-circle { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; font-weight: 800; }
+  .cta-check { display: flex; align-items: center; gap: 20px; font-size: 38px; color: #fff; font-weight: 600; }
+  .cta-check .check-circle { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; font-weight: 800; }
   #s6 .cta-btn {
-    display: inline-flex; align-items: center; gap: 16px;
+    display: inline-flex; align-items: center; gap: 18px;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    color: #fff; font-size: 30px; font-weight: 800;
-    padding: 28px 64px; border-radius: 50px; border: none;
+    color: #fff; font-size: 36px; font-weight: 800;
+    padding: 32px 72px; border-radius: 50px; border: none;
     box-shadow: 0 8px 32px rgba(102,126,234,0.4);
     opacity: 0; transform: translateY(20px); position: relative; z-index: 1;
   }
-  #s6 .cta-apps { display: flex; gap: 16px; opacity: 0; position: relative; z-index: 1; }
-  #s6 .cta-note { font-size: 22px; color: rgba(255,255,255,0.45); opacity: 0; position: relative; z-index: 1; }
+  #s6 .cta-apps { display: flex; gap: 20px; opacity: 0; position: relative; z-index: 1; }
+  #s6 .cta-note { font-size: 26px; color: rgba(255,255,255,0.6); opacity: 0; position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -356,7 +372,7 @@
   </div>
 </div>
 
-<!-- S4: Demo — Pairs-like UI with real floating panel -->
+<!-- S4: Demo -->
 <div class="scene" id="s4">
   <div class="demo-wrapper">
     <div class="pairs-mock">
@@ -379,22 +395,45 @@
         <div class="pairs-grid-area">
           <div class="pairs-grid-header">検索結果: 2,483人</div>
           <div class="pairs-grid">
-            <div class="p-card" id="pc1"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"></div><span &#128105;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">あいさん</div><div class="p-detail">25歳 東京都</div></div></div>
-            <div class="p-card" id="pc2"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"></div><span &#128105;&#8205;&#127806;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">みくさん</div><div class="p-detail">23歳 大阪府</div></div></div>
-            <div class="p-card" id="pc3"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb);"></div><span &#128113;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ゆいさん</div><div class="p-detail">27歳 福岡県</div></div></div>
-            <div class="p-card" id="pc4"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"></div><span &#129489;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">はなさん</div><div class="p-detail">24歳 愛知県</div></div></div>
-            <div class="p-card" id="pc5"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"></div><span &#128103;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">りんさん</div><div class="p-detail">26歳 札幌市</div></div></div>
-            <div class="p-card" id="pc6"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"></div><span &#128105;&#8205;&#128187;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">さくらさん</div><div class="p-detail">22歳 横浜市</div></div></div>
-            <div class="p-card" id="pc7"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);"></div><span &#128131;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ももさん</div><div class="p-detail">28歳 京都府</div></div></div>
-            <div class="p-card" id="pc8"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"></div><span &#128587;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">まいさん</div><div class="p-detail">21歳 神奈川県</div></div></div>
-            <div class="p-card" id="pc9"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fff8e1,#ffecb3);"></div><span &#129490;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ななさん</div><div class="p-detail">29歳 千葉県</div></div></div>
-            <div class="p-card" id="pc10"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#ede7f6,#d1c4e9);"></div><span &#128519;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ことねさん</div><div class="p-detail">25歳 埼玉県</div></div></div>
+            <div class="p-card" id="pc1"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"></div><span>&#128105;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">あいさん</div><div class="p-detail">25歳 東京都</div></div></div>
+            <div class="p-card" id="pc2"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"></div><span>&#128105;&#8205;&#127806;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">みくさん</div><div class="p-detail">23歳 大阪府</div></div></div>
+            <div class="p-card" id="pc3"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb);"></div><span>&#128113;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ゆいさん</div><div class="p-detail">27歳 福岡県</div></div></div>
+            <div class="p-card" id="pc4"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"></div><span>&#129489;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">はなさん</div><div class="p-detail">24歳 愛知県</div></div></div>
+            <div class="p-card" id="pc5"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"></div><span>&#128103;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">りんさん</div><div class="p-detail">26歳 札幌市</div></div></div>
+            <div class="p-card" id="pc6"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"></div><span>&#128105;&#8205;&#128187;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">さくらさん</div><div class="p-detail">22歳 横浜市</div></div></div>
+            <div class="p-card" id="pc7"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);"></div><span>&#128131;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ももさん</div><div class="p-detail">28歳 京都府</div></div></div>
+            <div class="p-card" id="pc8"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"></div><span>&#128587;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">まいさん</div><div class="p-detail">21歳 神奈川県</div></div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Floating panel — exact replica of actual product -->
+    <!-- Profile modal -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal-card">
+        <div class="modal-photo" id="modal-photo">
+          <div class="modal-photo-bg" id="modal-photo-bg"></div>
+          <span id="modal-emoji"></span>
+          <button class="modal-close">&#10005;</button>
+          <div class="modal-ashiato-done" id="modal-done">&#128065; 足あと済み !</div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-name" id="modal-name"></div>
+          <div class="modal-detail" id="modal-detail"></div>
+          <div class="modal-tags">
+            <div class="modal-tag">&#128205; 東京都</div>
+            <div class="modal-tag">&#128188; 会社員</div>
+            <div class="modal-tag">&#127863; お酒好き</div>
+            <div class="modal-tag">&#127932; 音楽鑑賞</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reload flash -->
+    <div class="reload-flash" id="reload-flash"></div>
+
+    <!-- Floating panel -->
     <div class="panel-replica" id="e4panel">
       <div class="panel-header">
         <img class="panel-icon" src="icons/icon128.png" alt="">
@@ -403,17 +442,17 @@
         <button class="panel-toggle">−</button>
       </div>
       <div class="panel-body">
-        <div class="panel-check"><input type="checkbox" checked><span class="p-inline-num">30</span><span>人ごとにリロード</span></div>
+        <div class="panel-check" id="panel-reload-row"><input type="checkbox" checked><span class="p-inline-num" id="panel-reload-num">30</span><span>人ごとにリロード</span></div>
         <div class="panel-row">
-          <div class="panel-setting"><label>最大訪問数</label><input type="number" value="100"></div>
-          <div class="panel-setting"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨2〜4</span></label><input type="number" value="3.0"></div>
+          <div class="panel-setting" id="ps-max"><label>最大訪問数</label><input type="number" value="100"></div>
+          <div class="panel-setting" id="ps-delay"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨2〜4</span></label><input type="number" value="3.0"></div>
         </div>
         <button class="panel-btn panel-btn-start" id="panel-start">開始</button>
         <button class="panel-btn panel-btn-stop" id="panel-stop">停止</button>
         <div class="panel-stats">
           <div class="panel-stat"><span class="panel-stat-label">進捗</span><span class="panel-stat-value" id="panel-progress">0 / 100</span></div>
           <div class="panel-stat"><span class="panel-stat-label">リロードまで</span><span class="panel-stat-value" id="panel-reload">30人</span></div>
-          <div class="panel-stat"><span class="panel-stat-label">リロード数</span><span class="panel-stat-value">0回</span></div>
+          <div class="panel-stat"><span class="panel-stat-label">リロード数</span><span class="panel-stat-value" id="panel-reload-times">0回</span></div>
           <button class="panel-reset">↺</button>
         </div>
         <a class="panel-contact" href="#">不具合報告・お問い合わせ</a>
@@ -427,35 +466,46 @@
     </div>
 
     <!-- Feature callouts -->
-    <div class="callout" id="co1" style="bottom:220px;right:290px;">
-      <div class="callout-title">&#128065; 対応アプリを自動検出</div>
-      <div class="callout-desc">Pairs / with / 東カレ / Tinder<br>ページを開くだけでパネルが表示</div>
+    <div class="callout" id="co1" style="bottom:220px;right:395px;">
+      <div class="callout-icon">&#128065;</div>
+      <div class="callout-title">対応アプリを自動検出</div>
+      <div class="callout-desc">Pairs / with / 東カレ / Tinder<br>ページを開くだけでパネルが表示されます</div>
       <div class="callout-arrow arrow-right"></div>
     </div>
-    <div class="callout" id="co2" style="bottom:140px;right:290px;">
-      <div class="callout-title">&#9654;&#65039; ワンクリックで開始</div>
-      <div class="callout-desc">開始ボタンを押すだけで<br>自動訪問がスタート</div>
+    <div class="callout" id="co2" style="bottom:140px;right:395px;">
+      <div class="callout-icon">&#9654;&#65039;</div>
+      <div class="callout-title">ワンクリックで開始</div>
+      <div class="callout-desc">開始ボタンを押すだけで<br>自動訪問がスタートします</div>
       <div class="callout-arrow arrow-right"></div>
     </div>
-    <div class="callout" id="co3" style="top:60px;left:50%;transform:translateX(-50%);">
-      <div class="callout-title">&#10024; プロフィールを自動訪問</div>
-      <div class="callout-desc">プロフィールを順番にクリックして足あとを自動で残していきます</div>
+    <div class="callout" id="co3" style="top:70px;left:50%;transform:translateX(-50%);">
+      <div class="callout-icon">&#10024;</div>
+      <div class="callout-title">プロフィールを自動訪問</div>
+      <div class="callout-desc">モーダルを開いて足あとを残し、自動で閉じて次へ進みます</div>
       <div class="callout-arrow arrow-down"></div>
     </div>
-    <div class="callout" id="co4" style="top:60px;left:50%;transform:translateX(-50%);">
-      <div class="callout-title">&#128203; 訪問済みは自動スキップ</div>
+    <div class="callout" id="co4" style="top:70px;left:50%;transform:translateX(-50%);">
+      <div class="callout-icon">&#128203;</div>
+      <div class="callout-title">訪問済みは自動スキップ</div>
       <div class="callout-desc">一度訪問したプロフィールは記録され、同じ人に重複訪問しません</div>
       <div class="callout-arrow arrow-down"></div>
     </div>
-    <div class="callout" id="co5" style="bottom:100px;right:290px;">
-      <div class="callout-title">&#128260; 無限ループモード</div>
-      <div class="callout-desc">指定人数ごとに自動リロード<br>新しいプロフィールを訪問し続けます</div>
+    <div class="callout" id="co5" style="bottom:80px;right:395px;">
+      <div class="callout-icon">&#128260;</div>
+      <div class="callout-title">無限ループモード</div>
+      <div class="callout-desc">指定人数ごとに自動リロードして<br>新しいプロフィールを訪問し続けます</div>
       <div class="callout-arrow arrow-right"></div>
     </div>
-    <div class="callout" id="co6" style="bottom:165px;right:290px;">
-      <div class="callout-title">&#9200; 訪問間隔を自由に設定</div>
-      <div class="callout-desc">待機秒数を調整して<br>自然なペースで訪問可能</div>
+    <div class="callout" id="co6" style="bottom:160px;right:395px;">
+      <div class="callout-icon">&#9200;</div>
+      <div class="callout-title">訪問間隔を自由に設定</div>
+      <div class="callout-desc">待機秒数を調整して自然なペースで訪問<br>検知リスクを低減できます</div>
       <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co7" style="top:70px;left:50%;transform:translateX(-50%);">
+      <div class="callout-icon">&#128274;</div>
+      <div class="callout-title">完全ローカル保存</div>
+      <div class="callout-desc">すべてのデータはブラウザ内に保存。外部サーバーへの送信は一切なし</div>
     </div>
   </div>
 </div>
@@ -509,6 +559,35 @@ function anim(el, styles, dur = 600) {
   Object.assign(el.style, styles);
 }
 
+const allCallouts = ['co1','co2','co3','co4','co5','co6','co7'];
+function hideAllCallouts() { allCallouts.forEach(id => $(id).classList.remove('show')); }
+
+const profileData = [
+  { emoji: '&#128105;', bg: 'linear-gradient(135deg,#fce4ec,#f8bbd0)', name: 'あいさん', detail: '25歳 東京都 / 会社員' },
+  { emoji: '&#128105;&#8205;&#127806;', bg: 'linear-gradient(135deg,#e8eaf6,#c5cae9)', name: 'みくさん', detail: '23歳 大阪府 / 看護師' },
+  { emoji: '&#128113;&#8205;&#9792;&#65039;', bg: 'linear-gradient(135deg,#e0f2f1,#b2dfdb)', name: 'ゆいさん', detail: '27歳 福岡県 / デザイナー' },
+  { emoji: '&#129489;', bg: 'linear-gradient(135deg,#fff3e0,#ffe0b2)', name: 'はなさん', detail: '24歳 愛知県 / 学生' },
+  { emoji: '&#128103;', bg: 'linear-gradient(135deg,#f3e5f5,#e1bee7)', name: 'りんさん', detail: '26歳 札幌市 / 美容師' },
+];
+
+function openModal(i) {
+  const d = profileData[i];
+  $('modal-photo-bg').style.background = d.bg;
+  $('modal-emoji').innerHTML = d.emoji;
+  $('modal-name').textContent = d.name;
+  $('modal-detail').textContent = d.detail;
+  $('modal-done').classList.remove('show');
+  $('modal').classList.add('show');
+}
+function showModalDone() { $('modal-done').classList.add('show'); }
+function closeModal() { $('modal').classList.remove('show'); }
+
+function flashReload() {
+  const f = $('reload-flash');
+  f.classList.add('show');
+  setTimeout(() => f.classList.remove('show'), 300);
+}
+
 function buildTimeline() {
   timeline = [];
   let t = 0;
@@ -518,25 +597,25 @@ function buildTimeline() {
     showScene('s1');
     setTimeout(() => anim('e1a', {opacity:1, transform:'translateY(0)'}), 200);
     setTimeout(() => anim('e1free', {opacity:1, transform:'translateY(0)'}), 500);
-    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 700);
-    setTimeout(() => anim('e1c', {opacity:1}), 1100);
+    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 800);
+    setTimeout(() => anim('e1c', {opacity:1}), 1200);
   }]);
   t += 3000;
 
-  // S2: Problem — compare (3-9.5s)
+  // S2: Problem (3-9s)
   timeline.push([t, () => {
     showScene('s2');
     setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
-    setTimeout(() => anim('e2compare', {opacity:1, transform:'translateY(0)'}), 700);
-    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 3500);
+    setTimeout(() => anim('e2compare', {opacity:1, transform:'translateY(0)'}), 600);
+    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 2800);
     setTimeout(() => {
       anim('e2sigh', {opacity:0});
       setTimeout(() => anim('e2c', {opacity:1, transform:'translateY(0)'}), 300);
-    }, 4800);
+    }, 4200);
   }]);
-  t += 6500;
+  t += 6000;
 
-  // S3: 3 Steps (9.5-14s)
+  // S3: 3 Steps (9-13s)
   timeline.push([t, () => {
     showScene('s3');
     setTimeout(() => anim('fs1', {opacity:1, transform:'translateY(0)'}), 200);
@@ -545,72 +624,91 @@ function buildTimeline() {
     setTimeout(() => anim('fa2', {opacity:1}), 1200);
     setTimeout(() => anim('fs3', {opacity:1, transform:'translateY(0)'}), 1400);
   }]);
-  t += 4500;
+  t += 4000;
 
-  // S4: Demo (14-30s) — extended for callouts
+  // S4: Demo — feature showcase
   timeline.push([t, () => {
     showScene('s4');
-    const allCallouts = ['co1','co2','co3','co4','co5','co6'];
-    const hideAllCallouts = () => allCallouts.forEach(id => $(id).classList.remove('show'));
 
-    // Show panel
+    // Phase 1: Panel appears + auto-detect (0-2.5s)
     setTimeout(() => {
       anim('e4panel', {opacity:1, transform:'translateY(0)'});
       $('e4panel').classList.add('highlight-ring');
-    }, 500);
+    }, 300);
+    setTimeout(() => $('co1').classList.add('show'), 600);
+    setTimeout(() => hideAllCallouts(), 2200);
 
-    // Callout 1: Auto-detect app
-    setTimeout(() => { hideAllCallouts(); $('co1').classList.add('show'); }, 800);
-
-    // Callout 2: One-click start
-    setTimeout(() => { hideAllCallouts(); $('co2').classList.add('show'); }, 2500);
-
-    // Click start — button changes
+    // Phase 2: Click start (2.5-4s)
+    setTimeout(() => $('co2').classList.add('show'), 2400);
     setTimeout(() => {
+      hideAllCallouts();
       $('panel-start').style.display = 'none';
       $('panel-stop').style.display = 'block';
       $('e4panel').classList.remove('highlight-ring');
-    }, 3200);
+    }, 3600);
 
-    // Show notification toast
-    setTimeout(() => anim('e4notif', {opacity:1, transform:'translateY(0)'}), 3400);
-    setTimeout(() => anim('e4notif', {opacity:0}), 5000);
+    // Notification
+    setTimeout(() => anim('e4notif', {opacity:1, transform:'translateY(0)'}), 3800);
+    setTimeout(() => anim('e4notif', {opacity:0}), 5200);
 
-    // Callout 3: Auto-visit profiles
-    setTimeout(() => { hideAllCallouts(); $('co3').classList.add('show'); }, 3800);
+    // Phase 3: Auto-visit with modal — 3 profiles (4-9s)
+    setTimeout(() => $('co3').classList.add('show'), 4000);
 
-    // Auto-visit profiles one by one
-    const cards = ['pc1','pc2','pc3','pc4','pc5','pc6','pc7','pc8','pc9','pc10'];
+    const cards = ['pc1','pc2','pc3'];
+    const interval = 1600;
     cards.forEach((id, i) => {
-      const delay = 4200 + i * 800;
+      const base = 4500 + i * interval;
       setTimeout(() => {
         cards.forEach(c => $(c).classList.remove('visiting'));
         $(id).classList.add('visiting');
         $('panel-progress').textContent = `${i} / 100`;
         $('panel-reload').textContent = `${30 - i}人`;
-      }, delay);
+      }, base);
+      setTimeout(() => openModal(i), base + 300);
+      setTimeout(() => showModalDone(), base + 700);
       setTimeout(() => {
+        closeModal();
         $(id).classList.remove('visiting');
         $(id).classList.add('visited');
         $('panel-progress').textContent = `${i + 1} / 100`;
-      }, delay + 600);
+      }, base + 1200);
     });
 
-    // Callout 4: Skip visited (after 4 cards visited)
-    setTimeout(() => { hideAllCallouts(); $('co4').classList.add('show'); }, 7800);
+    // Phase 4: Skip visited (9.5-11.5s)
+    setTimeout(() => { hideAllCallouts(); $('co4').classList.add('show'); }, 9500);
+    setTimeout(() => hideAllCallouts(), 11200);
 
-    // Callout 5: Infinite loop mode (point to reload setting)
-    setTimeout(() => { hideAllCallouts(); $('co5').classList.add('show'); }, 10200);
+    // Phase 5: Delay setting (11.5-13.5s)
+    setTimeout(() => {
+      $('co6').classList.add('show');
+      $('ps-delay').classList.add('panel-setting-flash');
+    }, 11500);
+    setTimeout(() => {
+      hideAllCallouts();
+      $('ps-delay').classList.remove('panel-setting-flash');
+    }, 13200);
 
-    // Callout 6: Delay setting
-    setTimeout(() => { hideAllCallouts(); $('co6').classList.add('show'); }, 12400);
+    // Phase 6: Infinite loop + reload (13.5-16s)
+    setTimeout(() => {
+      $('co5').classList.add('show');
+      $('panel-reload-row').classList.add('panel-setting-flash');
+    }, 13500);
+    setTimeout(() => {
+      flashReload();
+      $('panel-reload-times').textContent = '1回';
+      for (let i = 1; i <= 8; i++) $('pc' + i).classList.remove('visited');
+      $('panel-reload').textContent = '30人';
+      $('panel-reload-row').classList.remove('panel-setting-flash');
+    }, 15200);
+    setTimeout(() => hideAllCallouts(), 16000);
 
-    // Hide last callout before scene change
-    setTimeout(() => { hideAllCallouts(); }, 14800);
+    // Phase 7: Privacy (16-18s)
+    setTimeout(() => $('co7').classList.add('show'), 16300);
+    setTimeout(() => hideAllCallouts(), 18200);
   }]);
-  t += 16000;
+  t += 19000;
 
-  // S5: Features (24-27.5s)
+  // S5: Features (4s)
   timeline.push([t, () => {
     showScene('s5');
     setTimeout(() => anim('e5a', {opacity:1}), 200);
@@ -618,16 +716,16 @@ function buildTimeline() {
       setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i * 150);
     });
   }]);
-  t += 3500;
+  t += 4000;
 
-  // S6: CTA (27.5-31s)
+  // S6: CTA (4s)
   timeline.push([t, () => {
     showScene('s6');
-    setTimeout(() => anim('e6a', {opacity:1, transform:'translateY(0)'}, 600), 200);
-    setTimeout(() => anim('e6b', {opacity:1}), 700);
+    setTimeout(() => anim('e6a', {opacity:1, transform:'translateY(0)'}, 500), 200);
+    setTimeout(() => anim('e6b', {opacity:1}), 600);
     setTimeout(() => anim('e6c', {opacity:1, transform:'translateY(0)'}), 1200);
     setTimeout(() => anim('e6apps', {opacity:1}), 1600);
-    setTimeout(() => anim('e6d', {opacity:1}), 1900);
+    setTimeout(() => anim('e6d', {opacity:1}), 2000);
   }]);
 }
 
@@ -637,20 +735,20 @@ function resetAll() {
    'e5a','e6a','e6b','e6c','e6d','e6apps'].forEach(id => {
     const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='';}
   });
-  // Steps
   ['fs1','fs2','fs3'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
   ['fa1','fa2'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';}});
-  // Panel
   $('e4panel')&&Object.assign($('e4panel').style,{transition:'none',opacity:'0',transform:'translateY(20px)'});
   $('e4panel')&&$('e4panel').classList.remove('highlight-ring');
   $('e4notif')&&Object.assign($('e4notif').style,{transition:'none',opacity:'0',transform:'translateY(-10px)'});
-  ['co1','co2','co3','co4','co5','co6'].forEach(id=>{const el=$(id);if(el)el.classList.remove('show');});
+  allCallouts.forEach(id=>{$(id).classList.remove('show');});
+  closeModal();
+  $('reload-flash').classList.remove('show');
   $('panel-start').style.display='block'; $('panel-stop').style.display='none';
   $('panel-progress').textContent='0 / 100';
   $('panel-reload').textContent='30人';
-  // Profile cards
-  for(let i=1;i<=10;i++){const el=$('pc'+i);if(el){el.classList.remove('visiting','visited');}}
-  // Features
+  $('panel-reload-times').textContent='0回';
+  for(let i=1;i<=8;i++){const el=$('pc'+i);if(el){el.classList.remove('visiting','visited');}}
+  ['ps-delay','ps-max','panel-reload-row'].forEach(id=>{$(id)&&$(id).classList.remove('panel-setting-flash');});
   ['f1','f2','f3','f4','f5','f6'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
 }
 
