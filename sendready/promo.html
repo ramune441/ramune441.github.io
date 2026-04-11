@@ -10,22 +10,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #0a0e1a; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #FAFBFF; }
   body { font-family: 'Noto Sans JP', sans-serif; -webkit-font-smoothing: antialiased; }
 
   /* === Backgrounds === */
   .bg { position: absolute; inset: 0; opacity: 0; transition: opacity 0.8s ease; }
   .bg.show { opacity: 1; }
-  .bg-1 { background: linear-gradient(135deg, #1e1f3e 0%, #2a2d5e 50%, #3a2d5e 100%); }
-  .bg-2 { background: linear-gradient(135deg, #0d1a3a 0%, #1a0d2e 50%, #2d0d3a 100%); }
-  .bg-3 { background: linear-gradient(135deg, #3a1a3e 0%, #2a1a4e 50%, #1a1a3e 100%); }
-  .bg-4 { background: linear-gradient(135deg, #050810 0%, #0a1428 100%); }
-  .bg-5 { background: linear-gradient(160deg, #1a1d4e 0%, #2d3cb5 40%, #4361EE 100%); }
-  .bg::after {
-    content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-    background-size: 48px 48px;
-  }
+  .bg-1 { background: linear-gradient(135deg, #FFFFFF 0%, #EEF1FF 50%, #D8E1FF 100%); }
+  .bg-2 { background: linear-gradient(135deg, #FFFEF8 0%, #FFF4C4 50%, #FFE8A0 100%); }
+  .bg-3 { background: linear-gradient(135deg, #FFFFFF 0%, #E8EEFF 50%, #CCD6FF 100%); }
+  .bg-4 { background: linear-gradient(135deg, #FAFBFF 0%, #EEF1FF 100%); }
+  .bg-5 { background: linear-gradient(160deg, #FFFFFF 0%, #EEF1FF 40%, #D8E1FF 100%); }
+  .bg-6 { background: linear-gradient(135deg, #FFFEF8 0%, #FFF9E0 50%, #EEF1FF 100%); }
 
   /* === Phone Stage === */
   .phone-stage {
@@ -39,9 +35,9 @@
     width: 480px; height: 960px;
     background: #0a0a0a; border-radius: 56px;
     border: 8px solid #1a1a1a;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 2px #2a2a2a;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     overflow: hidden;
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: left 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     left: 720px; top: 60px;
   }
   .phone-frame.pos-left { left: 180px; top: 60px; }
@@ -139,6 +135,194 @@
   #chat-pairs .chat-body { background: #fef0f5; }
   #chat-pairs .bubble.sent { background: #e040fb; }
   #chat-pairs .chat-send { background: #e040fb; }
+
+  /* Settings screen style */
+  #chat-settings { background: #FAFBFF; }
+  .sr-topbar {
+    height: 68px; background: linear-gradient(135deg, #4361EE, #3A0CA3);
+    display: flex; align-items: center; padding: 0 14px; gap: 10px; flex-shrink: 0;
+  }
+  .sr-topbar-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .sr-topbar-text { flex: 1; }
+  .sr-topbar-title { font-size: 19px; font-weight: 700; color: #fff; line-height: 1.2; }
+  .sr-topbar-subtitle { font-size: 10px; color: rgba(255,255,255,0.75); letter-spacing: 1.2px; margin-top: 2px; }
+  .sr-topbar-menu {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: rgba(255,255,255,0.14);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 22px; font-weight: 700;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .sr-topbar-menu.highlight {
+    background: rgba(255,255,255,0.35);
+    transform: scale(1.08);
+  }
+  .sr-main {
+    flex: 1; padding: 16px 16px 20px; overflow: hidden;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .sr-status-banner {
+    padding: 12px 14px; border-radius: 14px;
+    background: #ECFDF5; border: 1px solid rgba(16,185,129,0.3);
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 700; color: #059669;
+  }
+  .sr-status-icon {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: #10B981; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  .sr-presets-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 2px 2px 4px;
+  }
+  .sr-presets-title { font-size: 18px; font-weight: 800; color: #1A1D2E; line-height: 1.2; }
+  .sr-presets-sub { font-size: 11px; color: #6B7194; margin-top: 3px; }
+  .sr-btn-addnew {
+    background: #EEF1FF; color: #4361EE;
+    border: none; border-radius: 11px;
+    padding: 9px 14px; font-size: 13px; font-weight: 700;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  .sr-btn-addnew.highlight {
+    background: #4361EE; color: #fff;
+    box-shadow: 0 0 0 4px rgba(67,97,238,0.35);
+    transform: scale(1.08);
+  }
+  .sr-preset-list-settings { display: flex; flex-direction: column; gap: 8px; }
+  .sr-set-card {
+    display: flex; align-items: stretch;
+    background: #fff; border: 1px solid #E8ECF4;
+    border-radius: 14px; overflow: hidden;
+    height: 50px;
+  }
+  .sr-set-bar { width: 4px; background: #4361EE; }
+  .sr-set-info { flex: 1; padding: 7px 14px; display: flex; flex-direction: column; justify-content: center; }
+  .sr-set-name { font-size: 14px; font-weight: 700; color: #1A1D2E; line-height: 1.2; }
+  .sr-set-trig { font-size: 10px; color: #4361EE; margin-top: 3px; font-family: 'Courier New', monospace; }
+
+  /* Preset edit dialog */
+  .sr-edit-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 54; opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .sr-edit-backdrop.show { opacity: 1; }
+  .sr-edit-dialog {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%) scale(0.92);
+    width: 380px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+    padding: 22px;
+    z-index: 55;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .sr-edit-dialog.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  .sr-edit-title {
+    font-size: 20px; font-weight: 800;
+    color: #1A1D2E; margin-bottom: 16px;
+  }
+  .sr-edit-field { margin-bottom: 14px; }
+  .sr-edit-field-label {
+    display: block; font-size: 11px; font-weight: 700;
+    color: #4361EE; margin-bottom: 6px; letter-spacing: 0.5px;
+  }
+  .sr-edit-input {
+    width: 100%; padding: 11px 13px;
+    border: 1.5px solid #C5CCEC; border-radius: 11px;
+    font-size: 14px; color: #1A1D2E; font-weight: 500;
+    background: #FAFBFF; outline: none;
+    font-family: inherit;
+    min-height: 20px;
+    display: flex; align-items: center;
+  }
+  .sr-edit-textarea {
+    width: 100%; padding: 11px 13px;
+    border: 1.5px solid #C5CCEC; border-radius: 11px;
+    font-size: 14px; color: #1A1D2E; font-weight: 500;
+    background: #FAFBFF; outline: none;
+    font-family: inherit;
+    min-height: 56px;
+    line-height: 1.5;
+  }
+  .sr-edit-counter {
+    font-size: 10px; color: #6B7194;
+    text-align: right; margin-top: 5px;
+  }
+  .sr-edit-buttons {
+    display: flex; gap: 10px; margin-top: 18px;
+  }
+  .sr-edit-btn-cancel {
+    flex: 1; padding: 12px; text-align: center;
+    color: #6B7194; font-weight: 700; font-size: 14px;
+    border-radius: 11px;
+  }
+  .sr-edit-btn-save {
+    flex: 1.4; padding: 12px; text-align: center;
+    background: linear-gradient(90deg, #4361EE, #3A0CA3);
+    color: #fff; font-weight: 800; font-size: 14px;
+    border-radius: 11px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .sr-edit-btn-save.highlight {
+    box-shadow: 0 0 0 4px rgba(67,97,238,0.4);
+    transform: scale(1.05);
+  }
+
+  /* New preset card animation */
+  @keyframes new-card-in {
+    0% { opacity: 0; transform: translateY(-8px) scale(0.95); box-shadow: 0 0 0 3px rgba(255,190,11,0); }
+    50% { opacity: 1; transform: translateY(0) scale(1); box-shadow: 0 0 0 4px rgba(255,190,11,0.55); }
+    100% { opacity: 1; transform: translateY(0) scale(1); box-shadow: 0 0 0 0 rgba(255,190,11,0); }
+  }
+  .sr-new-card {
+    animation: new-card-in 1.4s ease-out;
+    background: #FFFBEB !important;
+    border-color: #FFD43B !important;
+  }
+
+  /* Dropdown menu */
+  .sr-dropdown {
+    position: absolute; top: 62px; right: 14px;
+    width: 200px; background: #fff; border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+    padding: 8px 0; z-index: 50;
+    opacity: 0; transform: translateY(-8px) scale(0.95);
+    transform-origin: top right;
+    transition: opacity 0.25s, transform 0.25s;
+    max-height: 480px; overflow: hidden;
+  }
+  .sr-dropdown.show { opacity: 1; transform: translateY(0) scale(1); }
+  .sr-dd-item {
+    padding: 11px 18px; font-size: 14px; color: #1A1D2E;
+    font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
+    transition: background 0.2s;
+  }
+  .sr-dd-item.sr-dd-back {
+    color: #4361EE; font-weight: 700;
+    border-bottom: 1px solid #eef1f7;
+    margin-bottom: 4px;
+  }
+  .sr-dd-selected {
+    background: #EEF1FF; color: #4361EE; font-weight: 700;
+    margin: 2px 8px; border-radius: 8px; padding: 10px 10px;
+  }
+  .sr-dd-item.highlight { background: #F0F3FF; color: #4361EE; font-weight: 700; }
+
+  /* Scene inline label (for narration) */
+  .scene-inline {
+    display: block;
+    font-size: 28px; font-weight: 800;
+    color: #FFBE0B; letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
 
   /* Notes / Trigger demo style */
   #chat-notes .chat-header { background: #0a0a0a; color: #fff; border-bottom: 1px solid #2a2a2a; }
@@ -243,10 +427,10 @@
   .scene-title-strip {
     position: absolute; top: 70px;
     display: flex; align-items: center; gap: 28px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 100px; padding: 18px 44px;
-    backdrop-filter: blur(8px);
+    background: #fff;
+    border: 2px solid #4361EE;
+    box-shadow: 0 6px 24px rgba(67,97,238,0.18);
+    border-radius: 100px; padding: 16px 40px;
     opacity: 0; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 5;
   }
@@ -257,28 +441,28 @@
   .scene-title-strip.right.show { transform: translateY(0); }
   .scene-title-strip.center { left: 50%; transform: translateX(-50%) translateY(-20px); }
   .scene-title-strip.center.show { transform: translateX(-50%) translateY(0); }
-  .scene-num { font-size: 22px; font-weight: 800; color: #FFE066; letter-spacing: 2px; }
-  .scene-label { font-size: 36px; font-weight: 800; color: #fff; }
+  .scene-num { font-size: 26px; font-weight: 800; color: #FFBE0B; letter-spacing: 2px; }
+  .scene-label { font-size: 44px; font-weight: 800; color: #1A1D2E; }
 
   /* === Narration === */
   .narration {
-    position: absolute; width: 600px;
+    position: absolute; width: 680px;
     opacity: 0; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 5;
   }
   .narration.show { opacity: 1; }
-  .narration.left { left: 100px; bottom: 220px; transform: translateY(20px); }
+  .narration.left { left: 90px; bottom: 180px; transform: translateY(20px); }
   .narration.left.show { transform: translateY(0); }
-  .narration.right { right: 100px; bottom: 220px; transform: translateY(20px); }
+  .narration.right { right: 90px; bottom: 180px; transform: translateY(20px); }
   .narration.right.show { transform: translateY(0); }
   .narration-quote {
-    font-size: 48px; font-weight: 800; color: #fff;
-    line-height: 1.4; margin-bottom: 24px;
+    font-size: 60px; font-weight: 800; color: #1A1D2E;
+    line-height: 1.35; margin-bottom: 26px;
   }
-  .narration-quote .accent { color: #FFE066; }
+  .narration-quote .accent { color: #4361EE; }
   .narration-detail {
-    font-size: 26px; font-weight: 500; color: rgba(255,255,255,0.75);
-    line-height: 1.7;
+    font-size: 32px; font-weight: 500; color: #6B7194;
+    line-height: 1.6;
   }
 
   /* === Final Scenes === */
@@ -304,16 +488,16 @@
   }
   .logo-burst .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
   .logo-burst .logo-text {
-    font-size: 140px; font-weight: 900; color: #fff; letter-spacing: -4px;
+    font-size: 160px; font-weight: 900; color: #1A1D2E; letter-spacing: -4px;
   }
   .logo-tagline {
-    font-size: 56px; font-weight: 700; color: #fff;
+    font-size: 68px; font-weight: 700; color: #1A1D2E;
     text-align: center; line-height: 1.4;
     opacity: 0; transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .logo-tagline.show { opacity: 1; transform: translateY(0); }
-  .logo-tagline .accent { color: #FFE066; }
+  .logo-tagline .accent { color: #4361EE; }
   .logo-features {
     display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
     opacity: 0; transform: translateY(20px);
@@ -322,34 +506,92 @@
   .logo-features.show { opacity: 1; transform: translateY(0); }
   .logo-feat {
     display: inline-flex; align-items: center; gap: 12px;
-    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 16px; padding: 18px 32px; backdrop-filter: blur(6px);
+    background: #fff; border: 2px solid #E0E7FF;
+    box-shadow: 0 4px 18px rgba(67,97,238,0.1);
+    border-radius: 16px; padding: 18px 32px;
   }
-  .logo-feat-icon { font-size: 32px; }
-  .logo-feat-text { font-size: 26px; font-weight: 700; color: #fff; }
+  .logo-feat-icon { font-size: 38px; }
+  .logo-feat-text { font-size: 32px; font-weight: 700; color: #1A1D2E; }
+
+  /* Features scene */
+  #features-scene {
+    background: linear-gradient(160deg, #FFFFFF 0%, #EEF1FF 50%, #D8E1FF 100%);
+  }
+  .features-wrap {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 56px; width: 94%; max-width: 1700px;
+  }
+  .features-head {
+    text-align: center;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .features-head.show { opacity: 1; transform: translateY(0); }
+  .features-label {
+    display: inline-block; font-size: 28px; font-weight: 800;
+    color: #FFBE0B; letter-spacing: 4px; margin-bottom: 18px;
+  }
+  .features-head h2 {
+    font-size: 84px; font-weight: 900; color: #1A1D2E;
+    line-height: 1.25;
+  }
+  .features-head h2 .accent { color: #4361EE; }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 28px; width: 100%;
+  }
+  .feat-card {
+    background: #fff;
+    border: 1.5px solid #E8ECF4;
+    box-shadow: 0 8px 32px rgba(67,97,238,0.08);
+    border-radius: 24px; padding: 44px 36px;
+    text-align: center;
+    opacity: 0; transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .feat-card.show { opacity: 1; transform: translateY(0); }
+  .feat-card-icon {
+    width: 108px; height: 108px; border-radius: 26px;
+    background: linear-gradient(135deg, #FFF4C4, #FFE066);
+    border: 1.5px solid #FFD43B;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px; margin: 0 auto 24px;
+  }
+  .feat-card h3 {
+    font-size: 38px; font-weight: 800; color: #1A1D2E;
+    margin-bottom: 14px;
+  }
+  .feat-card p {
+    font-size: 26px; font-weight: 500;
+    color: #6B7194; line-height: 1.55;
+  }
 
   /* CTA */
+  #cta-scene {
+    background: linear-gradient(160deg, #FFFFFF 0%, #EEF1FF 50%, #D8E1FF 100%);
+  }
   .cta-title {
-    font-size: 88px; font-weight: 900; color: #fff;
-    text-align: center; line-height: 1.4;
+    font-size: 100px; font-weight: 900; color: #1A1D2E;
+    text-align: center; line-height: 1.3;
     opacity: 0; transform: translateY(40px);
     transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .cta-title.show { opacity: 1; transform: translateY(0); }
-  .cta-title .accent { color: #FFE066; }
+  .cta-title .accent { color: #4361EE; }
   .cta-button {
-    display: inline-flex; align-items: center; gap: 18px;
-    background: #FFE066; color: #1e293b;
-    font-size: 40px; font-weight: 800;
-    padding: 36px 84px; border-radius: 60px;
-    box-shadow: 0 12px 48px rgba(255,224,102,0.4);
+    display: inline-flex; align-items: center; gap: 20px;
+    background: linear-gradient(135deg, #FFE066, #FFBE0B); color: #1A1D2E;
+    font-size: 46px; font-weight: 800;
+    padding: 40px 92px; border-radius: 64px;
+    box-shadow: 0 12px 48px rgba(255,190,11,0.5);
     opacity: 0; transform: translateY(20px);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .cta-button.show { opacity: 1; transform: translateY(0); }
   .cta-button svg { fill: currentColor; }
   .cta-stats {
-    font-size: 28px; color: rgba(255,255,255,0.6);
+    font-size: 32px; color: #6B7194;
     opacity: 0; transition: opacity 0.5s;
   }
   .cta-stats.show { opacity: 1; }
@@ -363,11 +605,12 @@
 <div class="bg bg-3" id="bg3"></div>
 <div class="bg bg-4" id="bg4"></div>
 <div class="bg bg-5" id="bg5"></div>
+<div class="bg bg-6" id="bg6"></div>
 
 <!-- Scene Title -->
 <div class="scene-title-strip" id="scene-strip">
   <span class="scene-num" id="scene-num">SCENE 01</span>
-  <span class="scene-label" id="scene-label">上司への返信</span>
+  <span class="scene-label" id="scene-label">A reply to your boss</span>
 </div>
 
 <!-- Narration -->
@@ -391,13 +634,13 @@
           <span class="chat-back">←</span>
           <div class="chat-avatar">👔</div>
           <div>
-            <div class="chat-name">田中部長</div>
-            <div class="chat-status">オンライン</div>
+            <div class="chat-name">Mr. Johnson</div>
+            <div class="chat-status">Online</div>
           </div>
         </div>
         <div class="chat-body" id="line-body">
-          <div class="bubble received">明日の会議の資料、準備できた？</div>
-          <div class="bubble received">17時までに頼むよ</div>
+          <div class="bubble received">Hey, is the report ready?</div>
+          <div class="bubble received">I need it by 5 PM today.</div>
         </div>
         <div class="chat-input-row">
           <div class="chat-input" id="input-line"></div>
@@ -411,13 +654,13 @@
           <span class="chat-back">←</span>
           <div class="chat-avatar">👩</div>
           <div>
-            <div class="chat-name">sarah_jp</div>
-            <div class="chat-status">アクティブ</div>
+            <div class="chat-name">li_wei</div>
+            <div class="chat-status">Active now</div>
           </div>
         </div>
         <div class="chat-body" id="ig-body">
-          <div class="bubble received">Hey! Are you free this weekend?</div>
-          <div class="bubble received">Want to grab ramen? 🍜</div>
+          <div class="bubble received">嘿！周末有空吗？</div>
+          <div class="bubble received">要不要一起喝咖啡？☕</div>
         </div>
         <div class="chat-input-row">
           <div class="chat-input" id="input-ig"></div>
@@ -431,14 +674,14 @@
           <span class="chat-back">←</span>
           <div class="chat-avatar">👩</div>
           <div>
-            <div class="chat-name">あいさん</div>
-            <div class="chat-status">25歳・東京都</div>
+            <div class="chat-name">Emma</div>
+            <div class="chat-status">25 · New York</div>
           </div>
           <div style="margin-left:auto;font-size:22px;">💕</div>
         </div>
         <div class="chat-body" id="pairs-body">
-          <div class="bubble received">プロフィール見ていただきありがとうございます😊</div>
-          <div class="bubble received">よろしければお話しませんか？</div>
+          <div class="bubble received">Hey! Thanks for the match 😊</div>
+          <div class="bubble received">How's your week going?</div>
         </div>
         <div class="chat-input-row">
           <div class="chat-input" id="input-pairs"></div>
@@ -452,14 +695,98 @@
           <span class="chat-back">←</span>
           <div class="chat-avatar">⚡</div>
           <div>
-            <div class="chat-name">トリガーマーカー</div>
-            <div class="chat-status">入力するだけで自動変換</div>
+            <div class="chat-name">Trigger Markers</div>
+            <div class="chat-status">Type to auto-transform</div>
           </div>
         </div>
         <div class="chat-body" id="notes-body"></div>
         <div class="chat-input-row">
           <div class="chat-input" id="input-notes"></div>
           <div class="chat-send">▶</div>
+        </div>
+      </div>
+
+      <!-- Settings screen -->
+      <div class="chat-content" id="chat-settings">
+        <div class="sr-topbar">
+          <img class="sr-topbar-icon" src="icons/icon512.png" alt="">
+          <div class="sr-topbar-text">
+            <div class="sr-topbar-title">SendReady</div>
+            <div class="sr-topbar-subtitle">AI TEXT ASSISTANT</div>
+          </div>
+          <div class="sr-topbar-menu" id="sr-topbar-menu">⋮</div>
+        </div>
+        <div class="sr-main">
+          <div class="sr-status-banner">
+            <span class="sr-status-icon">✓</span>
+            <span>Service is Active</span>
+          </div>
+          <div class="sr-presets-head">
+            <div>
+              <div class="sr-presets-title">Instructions</div>
+              <div class="sr-presets-sub" id="sr-presets-sub">5 / 10 presets</div>
+            </div>
+            <div class="sr-btn-addnew" id="sr-btn-addnew">＋ Add New</div>
+          </div>
+          <div class="sr-preset-list-settings" id="settings-list">
+            <div class="sr-set-card"><div class="sr-set-bar"></div><div class="sr-set-info"><div class="sr-set-name">Be Polite 💝</div><div class="sr-set-trig">Trigger: ;;p</div></div></div>
+            <div class="sr-set-card"><div class="sr-set-bar"></div><div class="sr-set-info"><div class="sr-set-name">Say Hello 👋</div><div class="sr-set-trig">Trigger: hlhl</div></div></div>
+            <div class="sr-set-card"><div class="sr-set-bar"></div><div class="sr-set-info"><div class="sr-set-name">Soft Closing ✨</div><div class="sr-set-trig">Trigger: ;;sc</div></div></div>
+            <div class="sr-set-card"><div class="sr-set-bar"></div><div class="sr-set-info"><div class="sr-set-name">Translate to Chinese 🌏</div><div class="sr-set-trig">Trigger: toC</div></div></div>
+            <div class="sr-set-card"><div class="sr-set-bar"></div><div class="sr-set-info"><div class="sr-set-name">Cute Emojis 🥰</div><div class="sr-set-trig">Trigger: !em</div></div></div>
+          </div>
+        </div>
+        <div class="sr-dropdown" id="sr-dropdown-main">
+          <div class="sr-dd-item"><span>🎨</span>Theme</div>
+          <div class="sr-dd-item" id="dd-lang-item"><span>🌐</span>Language</div>
+          <div class="sr-dd-item"><span>📖</span>Manual</div>
+          <div class="sr-dd-item"><span>✉️</span>Contact Us</div>
+        </div>
+        <div class="sr-dropdown" id="sr-dropdown-lang">
+          <div class="sr-dd-item sr-dd-back">← Back</div>
+          <div class="sr-dd-item">Auto</div>
+          <div class="sr-dd-item sr-dd-selected">English ✓</div>
+          <div class="sr-dd-item">日本語</div>
+          <div class="sr-dd-item">Español</div>
+          <div class="sr-dd-item">Français</div>
+          <div class="sr-dd-item">Deutsch</div>
+          <div class="sr-dd-item">中文</div>
+          <div class="sr-dd-item">한국어</div>
+          <div class="sr-dd-item">Português</div>
+          <div class="sr-dd-item">हिन्दी</div>
+          <div class="sr-dd-item">Indonesia</div>
+          <div class="sr-dd-item">العربية</div>
+        </div>
+        <div class="sr-dropdown" id="sr-dropdown-theme">
+          <div class="sr-dd-item sr-dd-back">← Back</div>
+          <div class="sr-dd-item">Auto</div>
+          <div class="sr-dd-item sr-dd-selected">Light ✓</div>
+          <div class="sr-dd-item">Dark</div>
+        </div>
+
+        <!-- Preset Edit Dialog -->
+        <div class="sr-edit-backdrop" id="sr-edit-backdrop"></div>
+        <div class="sr-edit-dialog" id="sr-edit-dialog">
+          <div class="sr-edit-title">New Preset</div>
+          <div class="sr-edit-field">
+            <label class="sr-edit-field-label">TITLE</label>
+            <div class="sr-edit-input" id="edit-title"></div>
+            <div class="sr-edit-counter" id="edit-title-count">0/20</div>
+          </div>
+          <div class="sr-edit-field">
+            <label class="sr-edit-field-label">TRIGGER MARKER (OPTIONAL)</label>
+            <div class="sr-edit-input" id="edit-trigger"></div>
+            <div class="sr-edit-counter" id="edit-trigger-count">0/10</div>
+          </div>
+          <div class="sr-edit-field">
+            <label class="sr-edit-field-label">INSTRUCTION</label>
+            <div class="sr-edit-textarea" id="edit-instruction"></div>
+            <div class="sr-edit-counter" id="edit-instruction-count">0/200</div>
+          </div>
+          <div class="sr-edit-buttons">
+            <div class="sr-edit-btn-cancel">Cancel</div>
+            <div class="sr-edit-btn-save" id="edit-save-btn">Save</div>
+          </div>
         </div>
       </div>
 
@@ -470,20 +797,20 @@
         <div class="sr-header">
           <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
           <div class="sr-header-text">
-            <div class="sr-header-title">プリセットを選択</div>
-            <div class="sr-header-subtitle">変換方法を選んでください</div>
+            <div class="sr-header-title">Select a preset</div>
+            <div class="sr-header-subtitle">Choose how to transform your text</div>
           </div>
         </div>
         <div class="sr-preset-list">
-          <div class="sr-preset-item" id="pi-polite">丁寧に 💝<span class="preset-trigger">;;p</span></div>
-          <div class="sr-preset-item" id="pi-hello">おはようございます 👋<span class="preset-trigger">hlhl</span></div>
-          <div class="sr-preset-item" id="pi-closing">温かい終わり ✨<span class="preset-trigger">;;sc</span></div>
-          <div class="sr-preset-item" id="pi-chinese">中国語に翻訳 🌏<span class="preset-trigger">toC</span></div>
-          <div class="sr-preset-item" id="pi-emoji">かわいい絵文字 🥰<span class="preset-trigger">!em</span></div>
-          <div class="sr-preset-item" id="pi-custom">✏️ 手動で指示を入力</div>
+          <div class="sr-preset-item" id="pi-polite">Be Polite 💝<span class="preset-trigger">;;p</span></div>
+          <div class="sr-preset-item" id="pi-hello">Say Hello 👋<span class="preset-trigger">hlhl</span></div>
+          <div class="sr-preset-item" id="pi-closing">Soft Closing ✨<span class="preset-trigger">;;sc</span></div>
+          <div class="sr-preset-item" id="pi-chinese">Translate to Chinese 🌏<span class="preset-trigger">toC</span></div>
+          <div class="sr-preset-item" id="pi-emoji">Cute Emojis 🥰<span class="preset-trigger">!em</span></div>
+          <div class="sr-preset-item" id="pi-custom">✏️ Custom prompt</div>
         </div>
         <div class="sr-btn-group">
-          <div class="sr-btn-secondary">キャンセル</div>
+          <div class="sr-btn-secondary">Cancel</div>
         </div>
       </div>
 
@@ -492,12 +819,12 @@
           <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
           <div class="sr-header-text">
             <div class="sr-header-title">SendReady</div>
-            <div class="sr-header-subtitle">サジェスションを生成中</div>
+            <div class="sr-header-subtitle">Generating your suggestion</div>
           </div>
           <div class="sr-header-spinner"></div>
         </div>
         <div class="sr-btn-group">
-          <div class="sr-btn-secondary">キャンセル</div>
+          <div class="sr-btn-secondary">Cancel</div>
         </div>
       </div>
 
@@ -506,13 +833,13 @@
           <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
           <div class="sr-header-text">
             <div class="sr-header-title">SendReady Suggestion</div>
-            <div class="sr-header-subtitle">確認して適用してください</div>
+            <div class="sr-header-subtitle">Review and apply</div>
           </div>
         </div>
         <textarea class="sr-suggestion-text" id="suggestion-text" readonly></textarea>
         <div class="sr-btn-group">
-          <div class="sr-btn-primary">適用</div>
-          <div class="sr-btn-secondary">キャンセル</div>
+          <div class="sr-btn-primary">Apply</div>
+          <div class="sr-btn-secondary">Cancel</div>
         </div>
       </div>
 
@@ -520,15 +847,15 @@
         <div class="sr-header">
           <div class="sr-header-icon"><img src="icons/icon512.png" alt=""></div>
           <div class="sr-header-text">
-            <div class="sr-header-title">手動で指示を入力</div>
-            <div class="sr-header-subtitle">今回の変換指示を入力</div>
+            <div class="sr-header-title">Custom prompt</div>
+            <div class="sr-header-subtitle">Enter instruction for this run</div>
           </div>
         </div>
         <textarea class="sr-input" id="prompt-input" readonly></textarea>
         <div class="sr-char-count" id="prompt-counter">0/200</div>
         <div class="sr-btn-group">
-          <div class="sr-btn-primary">実行</div>
-          <div class="sr-btn-secondary">キャンセル</div>
+          <div class="sr-btn-primary">Run</div>
+          <div class="sr-btn-secondary">Cancel</div>
         </div>
       </div>
     </div>
@@ -543,31 +870,54 @@
       <div class="logo-text">SendReady</div>
     </div>
     <div class="logo-tagline" id="intro-tagline">
-      送信前の文章を、<br><span class="accent">AIがワンタップで仕上げる。</span>
+      Polish your text with AI,<br><span class="accent">in just one tap.</span>
     </div>
     <div class="logo-features" id="intro-features">
-      <div class="logo-feat"><span class="logo-feat-icon">📱</span><span class="logo-feat-text">Android対応</span></div>
-      <div class="logo-feat"><span class="logo-feat-icon">⚡</span><span class="logo-feat-text">全アプリで動作</span></div>
-      <div class="logo-feat"><span class="logo-feat-icon">🆓</span><span class="logo-feat-text">無料・登録不要</span></div>
+      <div class="logo-feat"><span class="logo-feat-icon">📱</span><span class="logo-feat-text">Android</span></div>
+      <div class="logo-feat"><span class="logo-feat-icon">⚡</span><span class="logo-feat-text">Any app</span></div>
+      <div class="logo-feat"><span class="logo-feat-icon">🆓</span><span class="logo-feat-text">Free · No signup</span></div>
     </div>
   </div>
 </div>
 
 <!-- Logo Reveal -->
-<div class="final-scene" id="logo-reveal">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:36px;">
-    <div class="logo-burst" id="logo-burst">
-      <div class="logo-icon"><img src="icons/icon512.png" alt=""></div>
-      <div class="logo-text">SendReady</div>
+<div class="final-scene" id="features-scene">
+  <div class="features-wrap">
+    <div class="features-head" id="features-head">
+      <span class="features-label">FEATURES</span>
+      <h2>Every feature, <span class="accent">one tap away.</span></h2>
     </div>
-    <div class="logo-tagline" id="logo-tagline">
-      あなたの<span class="accent">全アプリ</span>で、<br>AIが文章を仕上げる。
-    </div>
-    <div class="logo-features" id="logo-features">
-      <div class="logo-feat"><span class="logo-feat-icon">🚀</span><span class="logo-feat-text">3秒で変換</span></div>
-      <div class="logo-feat"><span class="logo-feat-icon">🌐</span><span class="logo-feat-text">11言語対応</span></div>
-      <div class="logo-feat"><span class="logo-feat-icon">⚡</span><span class="logo-feat-text">トリガー自動変換</span></div>
-      <div class="logo-feat"><span class="logo-feat-icon">🔒</span><span class="logo-feat-text">プライバシー保護</span></div>
+    <div class="features-grid">
+      <div class="feat-card" id="fc1">
+        <div class="feat-card-icon">🚀</div>
+        <h3>Instant Transform</h3>
+        <p>AI polishes your text<br>in seconds</p>
+      </div>
+      <div class="feat-card" id="fc2">
+        <div class="feat-card-icon">✏️</div>
+        <h3>Custom Presets</h3>
+        <p>Create up to 10<br>of your own</p>
+      </div>
+      <div class="feat-card" id="fc3">
+        <div class="feat-card-icon">📱</div>
+        <h3>Works Everywhere</h3>
+        <p>Messages, email, social —<br>any app</p>
+      </div>
+      <div class="feat-card" id="fc4">
+        <div class="feat-card-icon">🌐</div>
+        <h3>11 Languages</h3>
+        <p>Translate naturally<br>between languages</p>
+      </div>
+      <div class="feat-card" id="fc5">
+        <div class="feat-card-icon">⚡</div>
+        <h3>Trigger Markers</h3>
+        <p>Wrap and auto-transform<br>no tap needed</p>
+      </div>
+      <div class="feat-card" id="fc6">
+        <div class="feat-card-icon">🔒</div>
+        <h3>Privacy First</h3>
+        <p>Data stays on your device<br>only text sent to AI</p>
+      </div>
     </div>
   </div>
 </div>
@@ -576,14 +926,14 @@
 <div class="final-scene" id="cta-scene">
   <div style="display:flex;flex-direction:column;align-items:center;gap:48px;">
     <div class="cta-title" id="cta-title">
-      テキスト入力のストレスから、<br><span class="accent">今日解放されよう。</span>
+      Free yourself from<br><span class="accent">texting stress.</span>
     </div>
     <div class="cta-button" id="cta-button">
       <svg viewBox="0 0 24 24" width="32" height="32"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
-      Google Playで入手 — 無料
+      Get it on Google Play — Free
     </div>
     <div class="cta-stats" id="cta-stats">
-      Android 7.0以上 ・ 登録不要 ・ 1日50回まで無料
+      Android 7.0+ · No signup · Completely free
     </div>
   </div>
 </div>
@@ -592,7 +942,7 @@
 const $ = id => document.getElementById(id);
 
 function showBg(n) {
-  ['bg1','bg2','bg3','bg4','bg5'].forEach(id => $(id).classList.remove('show'));
+  ['bg1','bg2','bg3','bg4','bg5','bg6'].forEach(id => $(id).classList.remove('show'));
   $('bg' + n).classList.add('show');
 }
 
@@ -661,236 +1011,271 @@ function buildTimeline() {
   timeline = [];
   let t = 0;
 
-  // ============ INTRO: アプリ紹介 (0 - 5s) ============
-  at(t, () => {
-    showBg(5);
-    $('intro-scene').classList.add('show');
-  });
-  at(t + 300, () => $('intro-burst').classList.add('show'));
-  at(t + 1200, () => $('intro-tagline').classList.add('show'));
-  at(t + 2000, () => $('intro-features').classList.add('show'));
-  at(t + 4600, () => $('intro-scene').classList.remove('show'));
-  t += 5000;
+  // ============ INTRO: App showcase ============
+  at(t + 100, () => $('intro-burst').classList.add('show'));
+  at(t + 500, () => $('intro-tagline').classList.add('show'));
+  at(t + 1000, () => $('intro-features').classList.add('show'));
+  at(t + 2500, () => $('intro-scene').classList.remove('show'));
+  t += 2900;
 
-  // ============ SCENE 1: LINE 上司 ============
+  // ============ SCENE 1: Work chat boss ============
   at(t, () => {
     showBg(1);
     showChat('line');
     setPhonePos('left');
     $('phone-stage').classList.add('show');
   });
-  at(t + 300, () => {
-    setSceneTitle('01', '上司への返信', 'right');
+  at(t + 200, () => {
+    setSceneTitle('01', 'A reply to your boss', 'right');
     $('scene-strip').classList.add('show');
   });
-  at(t + 700, () => {
+  at(t + 500, () => {
     setNarration(
-      '金曜17時。<br><span class="accent">急な締切の催促。</span>',
-      '思わずカジュアルに返したくなる。<br>でもそのまま送って大丈夫？',
+      'Friday, 5 PM.<br><span class="accent">A sudden deadline.</span>',
+      'A casual reply slips out.<br>But should you really send it?',
       'right'
     );
     $('narration').classList.add('show');
   });
-  at(t + 2200, () => typeText($('input-line'), 'りょーかいっす！あざす！', 90));
-  at(t + 4600, () => $('input-line').classList.add('warn'));
-  at(t + 5100, () => {
-    $('input-line').classList.remove('warn');
-    showOverlay('ov-preset', false);
-  });
-  at(t + 6200, () => $('pi-polite').classList.add('highlight'));
-  at(t + 6700, () => {
+  at(t + 900, () => typeText($('input-line'), 'got it lol thx 👍', 50));
+  at(t + 1950, () => showOverlay('ov-preset', false));
+  at(t + 2400, () => $('pi-polite').classList.add('highlight'));
+  at(t + 2650, () => {
     $('pi-polite').classList.remove('highlight');
     showOverlay('ov-loading', false);
   });
-  at(t + 7600, () => {
-    $('suggestion-text').value = '承知いたしました。17時までに準備いたします。';
+  at(t + 3100, () => {
+    $('suggestion-text').value = "Understood. I'll have it ready by 5 PM.";
     showOverlay('ov-suggestion', true);
   });
-  at(t + 8500, () => {
+  at(t + 3700, () => {
     hideAllOverlays();
-    $('input-line').textContent = '承知いたしました。17時までに準備いたします。';
-  });
-  at(t + 8900, () => {
     $('input-line').textContent = '';
-    appendBubble('line-body', '承知いたしました。17時までに準備いたします。');
+    appendBubble('line-body', "Understood. I'll have it ready by 5 PM.");
   });
-  at(t + 9200, () => {
+  at(t + 4000, () => {
     $('scene-strip').classList.remove('show');
     $('narration').classList.remove('show');
   });
-  t += 9700;
+  t += 4300;
 
-  // ============ SCENE 2: Instagram DM 海外友達 (9.7 - 18s) ============
+  // ============ SCENE 2: Instagram DM friend abroad ============
   at(t, () => {
     showBg(2);
     showChat('ig');
     setPhonePos('right');
   });
-  at(t + 300, () => {
-    setSceneTitle('02', '海外の友達', 'left');
+  at(t + 200, () => {
+    setSceneTitle('02', 'A friend abroad', 'left');
     $('scene-strip').classList.add('show');
   });
-  at(t + 700, () => {
+  at(t + 500, () => {
     setNarration(
-      '英語が苦手でも、<br><span class="accent">気持ちは伝えたい。</span>',
-      '日本語で書いて、カスタムプロンプトで<br>英語に翻訳できる。',
+      'Reach friends in<br><span class="accent">any language.</span>',
+      'Write in English.<br>Translate with one tap.',
       'left'
     );
     $('narration').classList.add('show');
   });
-  at(t + 2200, () => typeText($('input-ig'), '今週末ラーメン行こう！', 85));
-  at(t + 4400, () => showOverlay('ov-preset', false));
-  at(t + 5100, () => $('pi-custom').classList.add('highlight'));
-  at(t + 5500, () => {
-    $('pi-custom').classList.remove('highlight');
-    $('prompt-input').value = '英語に翻訳して';
-    $('prompt-counter').textContent = '7/200';
-    showOverlay('ov-prompt', false);
+  at(t + 900, () => typeText($('input-ig'), 'sure! coffee sounds great', 50));
+  at(t + 2250, () => showOverlay('ov-preset', false));
+  at(t + 2700, () => $('pi-chinese').classList.add('highlight'));
+  at(t + 2950, () => {
+    $('pi-chinese').classList.remove('highlight');
+    showOverlay('ov-loading', false);
   });
-  at(t + 6400, () => showOverlay('ov-loading', false));
-  at(t + 7100, () => {
-    $('suggestion-text').value = "Let's grab some ramen this weekend!";
+  at(t + 3400, () => {
+    $('suggestion-text').value = '好啊!咖啡听起来不错';
     showOverlay('ov-suggestion', true);
   });
-  at(t + 8000, () => {
+  at(t + 4000, () => {
     hideAllOverlays();
-    $('input-ig').textContent = "Let's grab some ramen this weekend!";
-  });
-  at(t + 8400, () => {
     $('input-ig').textContent = '';
-    appendBubble('ig-body', "Let's grab some ramen this weekend!");
+    appendBubble('ig-body', '好啊!咖啡听起来不错');
   });
-  at(t + 8700, () => {
+  at(t + 4300, () => {
     $('scene-strip').classList.remove('show');
     $('narration').classList.remove('show');
   });
-  t += 9000;
+  t += 4600;
 
-  // ============ SCENE 3: Pairs マッチング (18.7 - 26.5s) ============
+  // ============ SCENE 3: Dating app ============
   at(t, () => {
     showBg(3);
     showChat('pairs');
     setPhonePos('left');
   });
-  at(t + 300, () => {
-    setSceneTitle('03', '気になる人へ', 'right');
+  at(t + 200, () => {
+    setSceneTitle('03', 'To someone special', 'right');
     $('scene-strip').classList.add('show');
   });
-  at(t + 700, () => {
+  at(t + 500, () => {
     setNarration(
-      '硬すぎると、<br><span class="accent">距離を感じる。</span>',
-      'かわいい絵文字を足すだけで、<br>印象がぐっと変わる。',
+      'Too formal feels<br><span class="accent">distant.</span>',
+      'Just add cute emojis<br>and the vibe changes.',
       'right'
     );
     $('narration').classList.add('show');
   });
-  at(t + 2200, () => typeText($('input-pairs'), 'こちらこそありがとうございます', 80));
-  at(t + 4400, () => showOverlay('ov-preset', false));
-  at(t + 5100, () => $('pi-emoji').classList.add('highlight'));
-  at(t + 5500, () => {
+  at(t + 900, () => typeText($('input-pairs'), 'Thank you. Nice to meet you.', 50));
+  at(t + 2400, () => showOverlay('ov-preset', false));
+  at(t + 2850, () => $('pi-emoji').classList.add('highlight'));
+  at(t + 3100, () => {
     $('pi-emoji').classList.remove('highlight');
     showOverlay('ov-loading', false);
   });
-  at(t + 6300, () => {
-    $('suggestion-text').value = 'こちらこそ、ありがとうございます😊✨ぜひお話したいです🥰';
+  at(t + 3550, () => {
+    $('suggestion-text').value = 'Thank you 😊✨ So nice to meet you 🥰';
     showOverlay('ov-suggestion', true);
   });
-  at(t + 7300, () => {
+  at(t + 4200, () => {
     hideAllOverlays();
-    $('input-pairs').textContent = 'こちらこそ、ありがとうございます😊✨ぜひお話したいです🥰';
-  });
-  at(t + 7700, () => {
     $('input-pairs').textContent = '';
-    appendBubble('pairs-body', 'こちらこそ、ありがとうございます😊✨ぜひお話したいです🥰');
+    appendBubble('pairs-body', 'Thank you 😊✨ So nice to meet you 🥰');
   });
-  at(t + 8000, () => {
+  at(t + 4500, () => {
     $('scene-strip').classList.remove('show');
     $('narration').classList.remove('show');
   });
-  t += 8300;
+  t += 4800;
 
-  // ============ SCENE 4: Trigger Speedrun (27 - 35s) ============
+  // ============ SCENE 4: Trigger Speedrun ============
   at(t, () => {
     showBg(4);
     showChat('notes');
-    setPhonePos('center');
+    setPhonePos('right');
   });
-  at(t + 300, () => {
-    setSceneTitle('04', 'タップすら不要', 'center');
+  at(t + 150, () => {
+    setSceneTitle('04', 'No tap required', 'left');
     $('scene-strip').classList.add('show');
   });
-  at(t + 700, () => {
+  at(t + 350, () => {
     setNarration(
-      'トリガーで囲むだけで、<br><span class="accent">瞬時に変換。</span>',
-      ';;p / !em / toC ── プリセットの<br>トリガーマーカーが文章を自動検出。',
+      'Wrap it in a trigger.<br><span class="accent">Instantly done.</span>',
+      ';;p / !em / toC — Preset trigger markers<br>detect your text automatically.',
       'left'
     );
     $('narration').classList.add('show');
   });
   // Demo 1: !em
-  at(t + 2000, () => {
+  at(t + 900, () => {
     $('input-notes').textContent = '';
-    typeText($('input-notes'), '!em ありがとう !em', 55);
+    typeText($('input-notes'), '!em thank you !em', 38);
   });
-  at(t + 3400, () => $('input-notes').classList.add('flash'));
-  at(t + 3700, () => {
+  at(t + 1650, () => $('input-notes').classList.add('flash'));
+  at(t + 1800, () => {
     $('input-notes').classList.remove('flash');
-    $('input-notes').textContent = 'ありがとう✨🥰💕';
-    appendBubble('notes-body', 'ありがとう✨🥰💕');
+    $('input-notes').textContent = 'Thank you 🥰✨💕';
+    appendBubble('notes-body', 'Thank you 🥰✨💕');
   });
   // Demo 2: toC
-  at(t + 4400, () => {
+  at(t + 2100, () => {
     $('input-notes').textContent = '';
-    typeText($('input-notes'), 'toC こんにちは toC', 55);
+    typeText($('input-notes'), 'toC hello toC', 38);
   });
-  at(t + 5700, () => $('input-notes').classList.add('flash'));
-  at(t + 6000, () => {
+  at(t + 2700, () => $('input-notes').classList.add('flash'));
+  at(t + 2850, () => {
     $('input-notes').classList.remove('flash');
     $('input-notes').textContent = '你好';
     appendBubble('notes-body', '你好');
   });
   // Demo 3: ;;p
-  at(t + 6700, () => {
+  at(t + 3150, () => {
     $('input-notes').textContent = '';
-    typeText($('input-notes'), ';;p よろしく ;;p', 55);
+    typeText($('input-notes'), ';;p got it ;;p', 38);
   });
-  at(t + 7900, () => $('input-notes').classList.add('flash'));
-  at(t + 8200, () => {
+  at(t + 3750, () => $('input-notes').classList.add('flash'));
+  at(t + 3900, () => {
     $('input-notes').classList.remove('flash');
-    $('input-notes').textContent = 'よろしくお願いいたします。';
-    appendBubble('notes-body', 'よろしくお願いいたします。');
+    $('input-notes').textContent = "Understood. I'll take care of it.";
+    appendBubble('notes-body', "Understood. I'll take care of it.");
   });
-  at(t + 8800, () => {
+  at(t + 4300, () => {
     $('scene-strip').classList.remove('show');
+    $('narration').classList.remove('show');
+  });
+  t += 4500;
+
+  // ============ SCENE 5: Create new preset ============
+  at(t, () => {
+    showBg(6);
+    showChat('settings');
+    setPhonePos('left');
+  });
+  at(t + 200, () => {
+    setNarration(
+      '<span class="scene-inline">SCENE 05 · CUSTOMIZE</span>Build your<br><span class="accent">own presets.</span>',
+      'Create up to 10 custom instructions<br>with your own trigger markers.',
+      'right'
+    );
+    $('narration').classList.add('show');
+  });
+  // Highlight Add New
+  at(t + 700, () => $('sr-btn-addnew').classList.add('highlight'));
+  at(t + 1000, () => {
+    $('sr-btn-addnew').classList.remove('highlight');
+    $('sr-edit-backdrop').classList.add('show');
+    $('sr-edit-dialog').classList.add('show');
+  });
+  // Type title
+  at(t + 1300, () => typeText($('edit-title'), 'Summarize', 45));
+  at(t + 1800, () => $('edit-title-count').textContent = '9/20');
+  // Type trigger
+  at(t + 1950, () => typeText($('edit-trigger'), 'sum', 55));
+  at(t + 2150, () => $('edit-trigger-count').textContent = '3/10');
+  // Type instruction
+  at(t + 2300, () => typeText($('edit-instruction'), 'Summarize in 3 bullet points', 28));
+  at(t + 3200, () => $('edit-instruction-count').textContent = '28/200');
+  // Save
+  at(t + 3350, () => $('edit-save-btn').classList.add('highlight'));
+  at(t + 3700, () => {
+    $('edit-save-btn').classList.remove('highlight');
+    $('sr-edit-backdrop').classList.remove('show');
+    $('sr-edit-dialog').classList.remove('show');
+  });
+  // New card added to list
+  at(t + 3900, () => {
+    $('sr-presets-sub').textContent = '6 / 10 presets';
+    const list = $('settings-list');
+    const card = document.createElement('div');
+    card.className = 'sr-set-card sr-new-card';
+    card.innerHTML = '<div class="sr-set-bar"></div><div class="sr-set-info"><div class="sr-set-name">Summarize</div><div class="sr-set-trig">Trigger: sum</div></div>';
+    list.appendChild(card);
+  });
+  at(t + 4900, () => {
     $('narration').classList.remove('show');
     $('phone-stage').classList.remove('show');
   });
-  t += 9200;
+  t += 5100;
 
-  // ============ SCENE 5: Logo Reveal (36.2 - 41s) ============
+  // ============ SCENE 6: Features ============
   at(t, () => {
-    showBg(5);
-    $('logo-reveal').classList.add('show');
+    ['bg1','bg2','bg3','bg4','bg5','bg6'].forEach(id => $(id).classList.remove('show'));
+    $('features-scene').classList.add('show');
   });
-  at(t + 400, () => $('logo-burst').classList.add('show'));
-  at(t + 1400, () => $('logo-tagline').classList.add('show'));
-  at(t + 2200, () => $('logo-features').classList.add('show'));
-  t += 4800;
+  at(t + 150, () => $('features-head').classList.add('show'));
+  at(t + 400, () => $('fc1').classList.add('show'));
+  at(t + 480, () => $('fc2').classList.add('show'));
+  at(t + 560, () => $('fc3').classList.add('show'));
+  at(t + 640, () => $('fc4').classList.add('show'));
+  at(t + 720, () => $('fc5').classList.add('show'));
+  at(t + 800, () => $('fc6').classList.add('show'));
+  t += 3000;
 
-  // ============ SCENE 6: CTA (41 - 45.5s) ============
+  // ============ SCENE 7: CTA ============
   at(t, () => {
-    $('logo-reveal').classList.remove('show');
+    $('features-scene').classList.remove('show');
     $('cta-scene').classList.add('show');
   });
-  at(t + 400, () => $('cta-title').classList.add('show'));
-  at(t + 1100, () => $('cta-button').classList.add('show'));
-  at(t + 1700, () => $('cta-stats').classList.add('show'));
-  t += 4500;
+  at(t + 150, () => $('cta-title').classList.add('show'));
+  at(t + 550, () => $('cta-button').classList.add('show'));
+  at(t + 950, () => $('cta-stats').classList.add('show'));
+  t += 2700;
 }
 
 let initialBodies = {};
 function captureInitialBodies() {
-  ['line-body','ig-body','pairs-body','notes-body'].forEach(id => {
+  ['line-body','ig-body','pairs-body','notes-body','settings-list'].forEach(id => {
     initialBodies[id] = $(id).innerHTML;
   });
 }
@@ -900,17 +1285,16 @@ function restoreInitialBodies() {
 
 function reset() {
   clearTimeout(timer);
-  ['bg1','bg2','bg3','bg4','bg5'].forEach(id => $(id).classList.remove('show'));
+  ['bg1','bg2','bg3','bg4','bg5','bg6'].forEach(id => $(id).classList.remove('show'));
   $('phone-stage').classList.remove('show');
   $('intro-scene').classList.remove('show');
-  $('logo-reveal').classList.remove('show');
+  $('features-scene').classList.remove('show');
   $('cta-scene').classList.remove('show');
   $('intro-burst').classList.remove('show');
   $('intro-tagline').classList.remove('show');
   $('intro-features').classList.remove('show');
-  $('logo-burst').classList.remove('show');
-  $('logo-tagline').classList.remove('show');
-  $('logo-features').classList.remove('show');
+  $('features-head').classList.remove('show');
+  ['fc1','fc2','fc3','fc4','fc5','fc6'].forEach(id => $(id).classList.remove('show'));
   $('cta-title').classList.remove('show');
   $('cta-button').classList.remove('show');
   $('cta-stats').classList.remove('show');
@@ -922,6 +1306,18 @@ function reset() {
   $('prompt-input').value = '';
   $('prompt-counter').textContent = '0/200';
   document.querySelectorAll('.sr-preset-item.highlight').forEach(el => el.classList.remove('highlight'));
+  ['sr-dropdown-main','sr-dropdown-lang','sr-dropdown-theme','sr-edit-backdrop','sr-edit-dialog'].forEach(id => $(id).classList.remove('show'));
+  $('sr-topbar-menu').classList.remove('highlight');
+  $('sr-btn-addnew').classList.remove('highlight');
+  $('dd-lang-item').classList.remove('highlight');
+  $('edit-save-btn').classList.remove('highlight');
+  $('edit-title').textContent = '';
+  $('edit-trigger').textContent = '';
+  $('edit-instruction').textContent = '';
+  $('edit-title-count').textContent = '0/20';
+  $('edit-trigger-count').textContent = '0/10';
+  $('edit-instruction-count').textContent = '0/200';
+  $('sr-presets-sub').textContent = '5 / 10 presets';
   restoreInitialBodies();
 }
 
@@ -937,12 +1333,20 @@ function start() {
   reset();
   buildTimeline();
   idx = 0;
-  t0 = Date.now();
+  const bg5 = $('bg5');
+  const intro = $('intro-scene');
+  bg5.style.transition = 'none';
+  intro.style.transition = 'none';
+  bg5.classList.add('show');
+  intro.classList.add('show');
   void document.body.offsetHeight;
+  bg5.style.transition = '';
+  intro.style.transition = '';
+  t0 = Date.now();
   run();
 }
 
-start();
+if (!navigator.webdriver) start();
 </script>
 </body>
 </html>
