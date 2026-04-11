@@ -1,0 +1,14 @@
+# robots.txt for ramune441.github.io
+User-agent: *
+Allow: /
+
+# プロモ動画用HTMLはインデックス対象外
+Disallow: /formpilot/promo.html
+Disallow: /ashiato-maker/promo.html
+Disallow: /lovent/promo.html
+Disallow: /sendready/promo.html
+
+# ビルド成果物
+Disallow: /formpilot/node_modules/
+
+Sitemap: https://ramune441.github.io/sitemap.xml

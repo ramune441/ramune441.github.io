@@ -8,11 +8,16 @@ Chrome拡張機能のLP・プロモーション動画・ストア画像を管理
 
 ```
 ramune441.github.io/
+├── index.html       # ルートポータル（全プロダクトの一覧）
+├── robots.txt       # クローラー設定
+├── sitemap.xml      # サイトマップ
 ├── formpilot/       # FormPilot（フォーム自動入力）
 ├── ashiato-maker/   # 足あとメーカー（マッチングアプリ自動訪問）
 ├── lovent/          # Lovent
 └── sendready/       # SendReady
 ```
+
+新しいプロダクトを追加したら、`sitemap.xml` と ルート `index.html` のカードを忘れず更新すること。
 
 各プロダクトに含まれるファイル:
 - `index.html` — LP
