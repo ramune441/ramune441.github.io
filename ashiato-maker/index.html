@@ -9,6 +9,28 @@
     gtag('js', new Date());
     gtag('config', 'G-XE2VP0VX1Z');
   </script>
+  <!-- Google tag (gtag.js) - Google 広告 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17017238782"></script>
+  <script>
+    gtag('config', 'AW-17017238782');
+  </script>
+  <!-- Event snippet for Chrome拡張インストールページ遷移 -->
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17017238782/BxxRCJ7YsZwcEP7pubI_',
+      'value': 1.0,
+      'currency': 'JPY',
+      'event_callback': callback
+    });
+    return false;
+  }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>足あとメーカー｜マッチングアプリの足あとを自動化するChrome拡張機能</title>
@@ -355,7 +377,8 @@
       <p class="hero-pain">毎日何十人ものプロフィールをポチポチ開くのって、<br>めちゃくちゃ面倒じゃないですか？</p>
       <h1>その作業、<br><span class="accent">自動化できます。</span></h1>
       <p class="hero-sub">マッチングアプリの足あとを自動化するChrome拡張機能。<br>ボタンを押して放置するだけで、<strong>1時間に100人以上</strong>に足あとが届きます。</p>
-      <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
+      <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener"
+         onclick="gtag_report_conversion(this.href); return false;">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         Chromeに追加する（無料）
       </a>
@@ -598,7 +621,8 @@
         <div class="summary-item"><span class="summary-check">&#10003;</span>30秒でインストール、放置するだけ</div>
         <div class="summary-item"><span class="summary-check">&#10003;</span>1時間で100人以上に足あと</div>
       </div>
-      <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener">
+      <a href="https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo" class="cta-btn" target="_blank" rel="noopener"
+         onclick="gtag_report_conversion(this.href); return false;">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         今すぐ無料でインストール
       </a>
