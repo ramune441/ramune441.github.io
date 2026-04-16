@@ -3,6 +3,7 @@
   var translations = {
     en: {
       nav_cta: "Get on Google Play",
+      nav_tutorial: "How to Use",
       hero_badge: "Free \u00b7 11 Languages",
       hero_h1_1: "Local events,",
       hero_h1_2: "found by AI.",
@@ -100,6 +101,7 @@
     },
     es: {
       nav_cta: "Obtener en Google Play",
+      nav_tutorial: "C\u00f3mo usar",
       hero_badge: "Gratis \u00b7 11 idiomas",
       hero_h1_1: "Eventos locales,",
       hero_h1_2: "encontrados por IA.",
@@ -116,6 +118,7 @@
     },
     fr: {
       nav_cta: "Obtenir sur Google Play",
+      nav_tutorial: "Comment utiliser",
       hero_badge: "Gratuit \u00b7 11 langues",
       hero_h1_1: "\u00c9v\u00e9nements locaux,",
       hero_h1_2: "trouv\u00e9s par l\u2019IA.",
@@ -132,6 +135,7 @@
     },
     de: {
       nav_cta: "Bei Google Play holen",
+      nav_tutorial: "Anleitung",
       hero_badge: "Kostenlos \u00b7 11 Sprachen",
       hero_h1_1: "Lokale Events,",
       hero_h1_2: "von KI gefunden.",
@@ -148,6 +152,7 @@
     },
     zh: {
       nav_cta: "\u5728Google Play\u4e0b\u8f7d",
+      nav_tutorial: "\u4f7f\u7528\u6307\u5357",
       hero_badge: "\u514d\u8d39 \u00b7 11\u79cd\u8bed\u8a00",
       hero_h1_1: "\u672c\u5730\u6d3b\u52a8\uff0c",
       hero_h1_2: "AI\u81ea\u52a8\u53d1\u73b0\u3002",
@@ -164,6 +169,7 @@
     },
     ko: {
       nav_cta: "Google Play\uc5d0\uc11c \ub2e4\uc6b4\ub85c\ub4dc",
+      nav_tutorial: "\uc0ac\uc6a9 \ubc29\ubc95",
       hero_badge: "\ubb34\ub8cc \u00b7 11\uac1c \uc5b8\uc5b4",
       hero_h1_1: "\uc9c0\uc5ed \uc774\ubca4\ud2b8\ub97c,",
       hero_h1_2: "AI\uac00 \uc790\ub3d9\uc73c\ub85c \ucc3e\uc544\uc90d\ub2c8\ub2e4.",
@@ -180,6 +186,7 @@
     },
     pt: {
       nav_cta: "Baixar no Google Play",
+      nav_tutorial: "Como usar",
       hero_badge: "Gr\u00e1tis \u00b7 11 idiomas",
       hero_h1_1: "Eventos locais,",
       hero_h1_2: "encontrados pela IA.",
@@ -202,6 +209,7 @@
     },
     id: {
       nav_cta: "Dapatkan di Google Play",
+      nav_tutorial: "Cara Penggunaan",
       hero_badge: "Gratis \u00b7 11 bahasa",
       hero_h1_1: "Acara lokal,",
       hero_h1_2: "ditemukan oleh AI.",
@@ -214,6 +222,7 @@
     },
     ar: {
       nav_cta: "\u0627\u062d\u0635\u0644 \u0639\u0644\u064a\u0647 \u0645\u0646 Google Play",
+      nav_tutorial: "\u0643\u064a\u0641\u064a\u0629 \u0627\u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645",
       hero_badge: "\u0645\u062c\u0627\u0646\u064a \u00b7 11 \u0644\u063a\u0629",
       hero_h1_1: "\u0627\u0644\u0641\u0639\u0627\u0644\u064a\u0627\u062a \u0627\u0644\u0645\u062d\u0644\u064a\u0629\u060c",
       hero_h1_2: "\u064a\u0643\u062a\u0634\u0641\u0647\u0627 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a.",

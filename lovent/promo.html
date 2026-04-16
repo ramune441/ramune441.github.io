@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<title>Lovent Promo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  width: 1920px; height: 1080px;
+  overflow: hidden;
+  background: #130C09;
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  color: #ECE0DB;
+}
+
+/* ── Scene base ── */
+.scene {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.scene.active { opacity: 1; pointer-events: auto; }
+
+/* ── Common bg ── */
+.bg-dark {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #0d0604 0%, #1a0c06 25%, #2d1208 50%, #3b1500 75%);
+}
+.bg-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 900px 600px at 50% 50%, rgba(216,67,21,0.12) 0%, transparent 70%);
+}
+
+/* ── Utility ── */
+.fade-item { opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(20px); }
+.fade-item.show { opacity: 1; transform: translateY(0); }
+
+/* ═══════════════════════════════════════
+   S1: Intro
+═══════════════════════════════════════ */
+#s1 .content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 28px;
+}
+#s1 .logo-row {
+  display: flex; align-items: center; gap: 20px;
+}
+#s1 .logo-icon { width: 80px; height: 80px; }
+#s1 .logo-text {
+  font-size: 100px; font-weight: 900;
+  color: #fff;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+#s1 .tagline {
+  font-size: 56px; font-weight: 700;
+  color: #F9C94E;
+  letter-spacing: -1px;
+}
+#s1 .badge {
+  background: rgba(255,171,145,0.15);
+  border: 1px solid rgba(255,171,145,0.35);
+  color: #FFAB91;
+  font-size: 28px; font-weight: 600;
+  padding: 10px 36px;
+  border-radius: 100px;
+}
+#s1 .inner { opacity: 0; transition: opacity 0.8s ease; }
+#s1.active .inner { opacity: 1; }
+
+/* ═══════════════════════════════════════
+   S2: Problem
+═══════════════════════════════════════ */
+#s2 .content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 64px;
+}
+#s2 .headline {
+  font-size: 60px; font-weight: 800;
+  color: #fff;
+  text-align: center;
+  max-width: 1200px;
+}
+#s2 .pain-cards {
+  display: flex; gap: 32px;
+}
+.pain-card {
+  width: 480px;
+  background: rgba(216,67,21,0.08);
+  border: 1px solid rgba(216,67,21,0.2);
+  border-radius: 20px;
+  padding: 40px 36px;
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.pain-card .emoji { font-size: 72px; }
+.pain-card .text { font-size: 28px; font-weight: 600; color: #ECE0DB; line-height: 1.4; }
+
+/* ═══════════════════════════════════════
+   S3: Solution
+═══════════════════════════════════════ */
+#s3 .content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 72px;
+}
+#s3 .headline {
+  font-size: 72px; font-weight: 900;
+  color: #fff;
+  text-align: center;
+}
+#s3 .steps {
+  display: flex; align-items: center; gap: 0;
+}
+.step-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 24px;
+  width: 340px;
+}
+.step-circle {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D84315, #FF6E40);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; font-weight: 900; color: #fff;
+}
+.step-emoji { font-size: 48px; }
+.step-label { font-size: 38px; font-weight: 700; color: #ECE0DB; text-align: center; }
+.step-arrow {
+  font-size: 56px; color: rgba(216,67,21,0.6);
+  margin: 0 8px; margin-bottom: 80px;
+}
+
+/* ═══════════════════════════════════════
+   S4: Demo
+═══════════════════════════════════════ */
+#s4 .demo-layout {
+  position: absolute; inset: 0;
+  display: flex;
+}
+#s4 .callout-area {
+  width: 840px; height: 1080px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px;
+}
+#s4 .phone-area {
+  flex: 1; height: 1080px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Callout */
+.callout {
+  background: #1e1b4b;
+  border-radius: 20px;
+  padding: 40px 48px;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(-24px);
+  max-width: 680px;
+}
+.callout.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.callout-title {
+  font-size: 44px; font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.callout-desc {
+  font-size: 26px; font-weight: 400;
+  color: #B89990;
+  line-height: 1.5;
+}
+
+/* Phone mock */
+.phone-mock {
+  width: 430px; height: 760px;
+  background: #FFFBFF;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08);
+  position: relative;
+  display: flex; flex-direction: column;
+}
+
+/* Phone TopAppBar */
+.top-app-bar {
+  background: #FFFBFF;
+  border-bottom: 1px solid #D8C2BA;
+  padding: 14px 16px 10px;
+  display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+.top-app-bar .app-logo-row {
+  display: flex; align-items: center; gap: 8px; flex: 1;
+}
+.top-app-bar .app-name {
+  font-size: 18px; font-weight: 700; color: #1C1612;
+}
+.top-app-bar .icon-row {
+  display: flex; gap: 8px; align-items: center;
+}
+.top-app-bar .icon {
+  width: 20px; height: 20px;
+  fill: none; stroke: #3E302B; stroke-width: 1.8;
+}
+
+/* Phone Content scroll area */
+.phone-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  background: #F5DED6;
+}
+
+/* Demo phases */
+.demo-phase {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  overflow-y: auto;
+  background: #F5DED6;
+  padding: 10px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.demo-phase.active { opacity: 1; }
+
+/* Event Card */
+.evt-card {
+  background: #FFFBFF;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.09), 0 0 0 0.5px rgba(0,0,0,0.04);
+  flex-shrink: 0;
+}
+.card-img {
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  height: 168px;
+  font-size: 56px;
+}
+.card-img .gr {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.22));
+}
+.card-body {
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.card-ttl {
+  font-size: 15px; font-weight: 600; color: #1C1612; line-height: 1.3;
+}
+.card-badge {
+  font-size: 11px; font-weight: 700;
+  padding: 3px 10px; border-radius: 6px; color: #fff;
+  display: inline-block; align-self: flex-start;
+}
+.badge-music { background: #283593; }
+.badge-food { background: #D84315; }
+.badge-sports { background: #00695C; }
+.badge-art { background: #C2185B; }
+.badge-tech { background: #00838F; }
+.badge-free { background: #009688; }
+.meta-row {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 12px; color: #3E302B;
+}
+
+/* Filter chip row */
+.chip-row {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  padding: 6px 2px;
+}
+.filter-chip {
+  background: #FFDBCF;
+  color: #D84315;
+  font-size: 12px; font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* Bottom sheet */
+.bottom-sheet {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: #FFFBFF;
+  border-radius: 24px 24px 0 0;
+  padding: 12px 16px 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  z-index: 20;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.bottom-sheet.open { transform: translateY(0); }
+.sheet-handle {
+  width: 36px; height: 4px;
+  background: #D8C2BA; border-radius: 2px;
+  margin: 0 auto 12px;
+}
+.sheet-section-title {
+  font-size: 13px; font-weight: 700; color: #3E302B;
+  margin-bottom: 8px; margin-top: 10px;
+}
+.sheet-badges {
+  display: flex; gap: 7px; flex-wrap: wrap;
+}
+.sh-badge {
+  font-size: 12px; font-weight: 600;
+  padding: 5px 12px; border-radius: 8px;
+  border: 1.5px solid #D8C2BA;
+  color: #3E302B;
+  background: transparent;
+}
+.sh-badge.selected {
+  background: #FFDBCF;
+  border-color: #D84315;
+  color: #D84315;
+}
+.date-options { display: flex; gap: 7px; }
+.date-opt {
+  flex: 1; text-align: center;
+  font-size: 12px; font-weight: 600;
+  padding: 6px 8px; border-radius: 8px;
+  border: 1.5px solid #D8C2BA; color: #3E302B; background: transparent;
+}
+.date-opt.selected { background: #FFDBCF; border-color: #D84315; color: #D84315; }
+.toggle-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 10px;
+}
+.toggle-label { font-size: 13px; font-weight: 600; color: #1C1612; flex: 1; }
+.toggle-switch {
+  width: 44px; height: 24px; border-radius: 12px;
+  background: #D84315; position: relative;
+}
+.toggle-switch::after {
+  content: ''; position: absolute; right: 3px; top: 3px;
+  width: 18px; height: 18px; border-radius: 50%; background: #fff;
+}
+
+/* Map view */
+.map-bg {
+  position: absolute; inset: 0;
+  background: #E8F0E8;
+}
+.map-road-h {
+  position: absolute; left: 0; right: 0; height: 8px;
+  background: rgba(255,255,255,0.7);
+}
+.map-road-v {
+  position: absolute; top: 0; bottom: 0; width: 8px;
+  background: rgba(255,255,255,0.7);
+}
+.map-block {
+  position: absolute;
+  background: rgba(200,220,200,0.6);
+  border-radius: 4px;
+}
+.map-marker {
+  position: absolute;
+  width: 34px; height: 34px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+.map-marker::after {
+  content: attr(data-emoji);
+  transform: rotate(45deg);
+  font-size: 16px;
+  display: block;
+}
+.map-label {
+  position: absolute;
+  font-size: 10px; font-weight: 700;
+  background: #fff; padding: 2px 6px; border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  color: #1C1612;
+}
+
+/* Detail view */
+.detail-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #D8C2BA;
+  flex-shrink: 0;
+  background: #FFFBFF;
+}
+.detail-back {
+  font-size: 18px; color: #D84315; cursor: pointer;
+  font-weight: 700; padding: 2px 6px;
+}
+.detail-title-bar {
+  font-size: 16px; font-weight: 700; color: #1C1612;
+}
+.detail-big-img {
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 72px;
+  background: #F5DED6;
+  flex-shrink: 0;
+}
+.detail-body { padding: 14px; display: flex; flex-direction: column; gap: 10px; overflow: auto; }
+.detail-name { font-size: 18px; font-weight: 700; color: #1C1612; }
+.detail-meta { font-size: 13px; color: #3E302B; }
+.cal-card {
+  background: #F5DED6; border-radius: 12px; padding: 10px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.cal-icon { font-size: 22px; }
+.cal-text { font-size: 12px; font-weight: 600; color: #3E302B; }
+
+/* Reminder section */
+.reminder-section {
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.reminder-title { font-size: 14px; font-weight: 700; color: #3E302B; margin-bottom: 4px; }
+.reminder-opt {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; border-radius: 10px;
+  font-size: 13px; color: #1C1612;
+}
+.reminder-opt.selected { background: #FFDBCF; }
+.radio-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid #D8C2BA;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+}
+.radio-dot.on { border-color: #D84315; }
+.radio-dot.on::after {
+  content: ''; width: 8px; height: 8px; border-radius: 50%; background: #D84315;
+}
+
+/* ═══════════════════════════════════════
+   S5: Features
+═══════════════════════════════════════ */
+#s5 .content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 56px;
+  padding: 60px 120px;
+}
+#s5 .headline {
+  font-size: 80px; font-weight: 900; color: #fff;
+}
+#s5 .feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+.feat-card {
+  background: rgba(216,67,21,0.08);
+  border: 1px solid rgba(216,67,21,0.15);
+  border-radius: 20px;
+  padding: 36px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.feat-icon { font-size: 48px; }
+.feat-title { font-size: 32px; font-weight: 700; color: #fff; }
+.feat-body { font-size: 22px; color: #B89990; line-height: 1.5; }
+
+/* ═══════════════════════════════════════
+   S6: CTA
+═══════════════════════════════════════ */
+#s6 .content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 40px;
+}
+#s6 .headline {
+  font-size: 96px; font-weight: 900; color: #fff;
+  text-align: center;
+  max-width: 1400px;
+  line-height: 1.1;
+}
+#s6 .free-badge {
+  background: rgba(255,171,145,0.15);
+  border: 1px solid rgba(255,171,145,0.35);
+  color: #FFAB91;
+  font-size: 28px; font-weight: 600;
+  padding: 10px 36px; border-radius: 100px;
+}
+.gplay-btn {
+  display: flex; align-items: center; gap: 16px;
+  background: #000;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 12px 32px;
+  width: 340px; height: 80px;
+  cursor: pointer;
+}
+.gplay-icon { width: 28px; height: 28px; flex-shrink: 0; }
+.gplay-text { display: flex; flex-direction: column; }
+.gplay-get { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1; }
+.gplay-name { font-size: 26px; font-weight: 700; color: #fff; line-height: 1.2; }
+#s6 .sub-text { font-size: 28px; color: #B89990; }
+#s6 .inner {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+#s6.active .inner { opacity: 1; transform: scale(1); }
+</style>
+</head>
+<body>
+
+<!-- ═══════ S1: INTRO ═══════ -->
+<div class="scene" id="s1">
+  <div class="bg-dark"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="inner">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:28px;">
+        <div class="logo-row">
+          <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="white" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+          </svg>
+          <span class="logo-text">Lovent</span>
+        </div>
+        <div class="tagline">AI discovers events near you.</div>
+        <div class="badge">Free · Android · 11 Languages</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ S2: PROBLEM ═══════ -->
+<div class="scene" id="s2">
+  <div class="bg-dark"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="headline">Finding local events shouldn't be this hard.</div>
+    <div class="pain-cards">
+      <div class="pain-card fade-item" id="pain1">
+        <div class="emoji">😩</div>
+        <div class="text">Scattered across apps &amp; websites</div>
+      </div>
+      <div class="pain-card fade-item" id="pain2">
+        <div class="emoji">⏰</div>
+        <div class="text">Heard about it after it was over</div>
+      </div>
+      <div class="pain-card fade-item" id="pain3">
+        <div class="emoji">😕</div>
+        <div class="text">Nothing matched your interests</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ S3: SOLUTION ═══════ -->
+<div class="scene" id="s3">
+  <div class="bg-dark"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="headline">With Lovent, it's simple.</div>
+    <div class="steps">
+      <div class="step-item fade-item" id="step1">
+        <div class="step-circle">1</div>
+        <div class="step-emoji">📍</div>
+        <div class="step-label">Set your area</div>
+      </div>
+      <div class="step-arrow fade-item" id="arrow1">→</div>
+      <div class="step-item fade-item" id="step2">
+        <div class="step-circle">2</div>
+        <div class="step-emoji">🤖</div>
+        <div class="step-label">AI collects events</div>
+      </div>
+      <div class="step-arrow fade-item" id="arrow2">→</div>
+      <div class="step-item fade-item" id="step3">
+        <div class="step-circle">3</div>
+        <div class="step-emoji">🎉</div>
+        <div class="step-label">Browse &amp; save</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ S4: DEMO ═══════ -->
+<div class="scene" id="s4">
+  <div class="bg-dark"></div>
+  <div class="bg-glow"></div>
+  <div class="demo-layout">
+
+    <!-- Left: Callout -->
+    <div class="callout-area">
+      <div class="callout" id="co-a">
+        <div class="callout-title">📍 Events near you</div>
+        <div class="callout-desc">AI discovers events in your area automatically</div>
+      </div>
+      <div class="callout" id="co-b">
+        <div class="callout-title">🔍 Filter your way</div>
+        <div class="callout-desc">15 categories, date range, free-only</div>
+      </div>
+      <div class="callout" id="co-c">
+        <div class="callout-title">✓ Results filtered</div>
+        <div class="callout-desc">Showing: Music · Free only</div>
+      </div>
+      <div class="callout" id="co-d">
+        <div class="callout-title">🗺️ Map view</div>
+        <div class="callout-desc">See where every event is</div>
+      </div>
+      <div class="callout" id="co-e">
+        <div class="callout-title">♥ to save</div>
+        <div class="callout-desc">Auto-adds to Google Calendar</div>
+      </div>
+      <div class="callout" id="co-f">
+        <div class="callout-title">⏰ Never miss it</div>
+        <div class="callout-desc">Reminder set automatically</div>
+      </div>
+    </div>
+
+    <!-- Right: Phone -->
+    <div class="phone-area">
+      <div class="phone-mock">
+
+        <!-- Top App Bar -->
+        <div class="top-app-bar">
+          <div class="app-logo-row">
+            <svg width="22" height="22" viewBox="0 0 24 24">
+              <path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+            </svg>
+            <span class="app-name">Lovent</span>
+          </div>
+          <div class="icon-row">
+            <!-- heart icon -->
+            <svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <!-- map icon -->
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" stroke-linecap="round" stroke-linejoin="round"/><line x1="8" y1="2" x2="8" y2="18" stroke-linecap="round"/><line x1="16" y1="6" x2="16" y2="22" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+
+        <!-- Phone Content -->
+        <div class="phone-content">
+
+          <!-- Phase A: Event list -->
+          <div class="demo-phase" id="ph-a">
+            <!-- Card 1: Music -->
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#3949AB,#1A237E);">
+                <span>🎵</span>
+                <div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-badge badge-music">Music</div>
+                <div class="card-ttl">Jazz Night at Blue Moon Bar</div>
+                <div class="meta-row">📅 Sat, Apr 19 · 8:00 PM</div>
+                <div class="meta-row">📍 Blue Moon Bar, Shibuya</div>
+              </div>
+            </div>
+            <!-- Card 2: Food -->
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#BF360C,#E64A19);">
+                <span>🍜</span>
+                <div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-badge badge-food">Food</div>
+                <div class="card-ttl">Ramen Festival 2025 – 40 Shops</div>
+                <div class="meta-row">📅 Sun, Apr 20 · 11:00 AM</div>
+                <div class="meta-row">📍 Yoyogi Park, Shibuya</div>
+              </div>
+            </div>
+            <!-- Card 3: Sports -->
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#004D40,#00796B);">
+                <span>🏃</span>
+                <div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-badge badge-sports">Sports</div>
+                <div class="card-ttl">City Marathon 5K Fun Run</div>
+                <div class="meta-row">📅 Sun, Apr 20 · 7:00 AM</div>
+                <div class="meta-row">📍 Shinjuku Central Park</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase B: Filter sheet -->
+          <div class="demo-phase" id="ph-b">
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#3949AB,#1A237E);">
+                <span>🎵</span><div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-badge badge-music">Music</div>
+                <div class="card-ttl">Jazz Night at Blue Moon Bar</div>
+                <div class="meta-row">📅 Sat, Apr 19 · 8:00 PM</div>
+              </div>
+            </div>
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#BF360C,#E64A19);">
+                <span>🍜</span><div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-badge badge-food">Food</div>
+                <div class="card-ttl">Ramen Festival 2025</div>
+                <div class="meta-row">📅 Sun, Apr 20 · 11:00 AM</div>
+              </div>
+            </div>
+            <!-- Bottom Sheet -->
+            <div class="bottom-sheet" id="filter-sheet">
+              <div class="sheet-handle"></div>
+              <div class="sheet-section-title">Category</div>
+              <div class="sheet-badges">
+                <span class="sh-badge selected">✓ Music</span>
+                <span class="sh-badge">Food</span>
+                <span class="sh-badge">Sports</span>
+                <span class="sh-badge">Art</span>
+                <span class="sh-badge">Tech</span>
+                <span class="sh-badge">Other</span>
+              </div>
+              <div class="sheet-section-title">Date</div>
+              <div class="date-options">
+                <div class="date-opt">Today</div>
+                <div class="date-opt selected">✓ Weekend</div>
+                <div class="date-opt">Tomorrow</div>
+              </div>
+              <div class="toggle-row">
+                <span class="toggle-label">Free only</span>
+                <div class="toggle-switch"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase C: Filtered list -->
+          <div class="demo-phase" id="ph-c">
+            <div class="chip-row">
+              <div class="filter-chip">Music ×</div>
+              <div class="filter-chip">Free ×</div>
+            </div>
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#3949AB,#1A237E);">
+                <span>🎵</span><div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div style="display:flex;gap:6px;">
+                  <div class="card-badge badge-music">Music</div>
+                  <div class="card-badge badge-free">Free</div>
+                </div>
+                <div class="card-ttl">Free Acoustic Session – Harajuku</div>
+                <div class="meta-row">📅 Sat, Apr 19 · 6:00 PM</div>
+                <div class="meta-row">📍 Harajuku Station West Exit</div>
+              </div>
+            </div>
+            <div class="evt-card">
+              <div class="card-img" style="background:linear-gradient(135deg,#1565C0,#283593);">
+                <span>🎸</span><div class="gr"></div>
+              </div>
+              <div class="card-body">
+                <div style="display:flex;gap:6px;">
+                  <div class="card-badge badge-music">Music</div>
+                  <div class="card-badge badge-free">Free</div>
+                </div>
+                <div class="card-ttl">Street Live – Shimokitazawa</div>
+                <div class="meta-row">📅 Sun, Apr 20 · 3:00 PM</div>
+                <div class="meta-row">📍 Shimokitazawa South Exit</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase D: Map view -->
+          <div class="demo-phase" id="ph-d" style="padding:0;background:#E8F0E8;position:relative;">
+            <div class="map-bg"></div>
+            <!-- roads -->
+            <div class="map-road-h" style="top:35%;"></div>
+            <div class="map-road-h" style="top:60%;"></div>
+            <div class="map-road-v" style="left:30%;"></div>
+            <div class="map-road-v" style="left:65%;"></div>
+            <!-- blocks -->
+            <div class="map-block" style="top:10%;left:8%;width:19%;height:22%;"></div>
+            <div class="map-block" style="top:10%;left:35%;width:26%;height:22%;"></div>
+            <div class="map-block" style="top:10%;left:70%;width:22%;height:22%;"></div>
+            <div class="map-block" style="top:40%;left:8%;width:19%;height:17%;"></div>
+            <div class="map-block" style="top:40%;left:35%;width:26%;height:17%;"></div>
+            <div class="map-block" style="top:40%;left:70%;width:22%;height:17%;"></div>
+            <div class="map-block" style="top:64%;left:8%;width:19%;height:28%;"></div>
+            <div class="map-block" style="top:64%;left:35%;width:26%;height:28%;"></div>
+            <div class="map-block" style="top:64%;left:70%;width:22%;height:28%;"></div>
+            <!-- markers -->
+            <div class="map-marker" style="background:#283593;top:18%;left:14%;" data-emoji="🎵"></div>
+            <div class="map-label" style="top:8%;left:8%;">Jazz Night</div>
+            <div class="map-marker" style="background:#D84315;top:18%;left:50%;" data-emoji="🍜"></div>
+            <div class="map-label" style="top:8%;left:44%;">Ramen Fest</div>
+            <div class="map-marker" style="background:#00695C;top:42%;left:25%;" data-emoji="🏃"></div>
+            <div class="map-label" style="top:32%;left:18%;">5K Run</div>
+            <div class="map-marker" style="background:#C2185B;top:42%;left:72%;" data-emoji="🎨"></div>
+            <div class="map-label" style="top:32%;left:65%;">Art Expo</div>
+            <div class="map-marker" style="background:#00838F;top:68%;left:55%;" data-emoji="💻"></div>
+            <div class="map-label" style="top:58%;left:50%;">Tech Talk</div>
+          </div>
+
+          <!-- Phase E: Detail view -->
+          <div class="demo-phase" id="ph-e" style="padding:0;display:block;">
+            <div class="detail-bar">
+              <div class="detail-back">←</div>
+              <div class="detail-title-bar">Event Detail</div>
+            </div>
+            <div class="detail-big-img">🎵</div>
+            <div class="detail-body">
+              <div class="detail-name">Jazz Night at Blue Moon Bar</div>
+              <div class="detail-meta">📅 Sat, Apr 19 · 8:00 PM – 11:00 PM</div>
+              <div class="detail-meta">📍 Blue Moon Bar, Shibuya, Tokyo</div>
+              <div class="detail-meta" style="margin-top:4px;">Live jazz performance by Kenji Trio. Drinks available. All welcome.</div>
+              <div class="cal-card">
+                <div class="cal-icon">📅</div>
+                <div class="cal-text">Added to Google Calendar<br><span style="font-weight:400;font-size:11px;color:#85736D;">Sat, Apr 19 · Reminder on</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phase F: Reminder -->
+          <div class="demo-phase" id="ph-f" style="padding:0;display:block;">
+            <div class="detail-bar">
+              <div class="detail-back">←</div>
+              <div class="detail-title-bar">Jazz Night at Blue Moon Bar</div>
+            </div>
+            <div class="detail-big-img" style="height:140px;font-size:56px;">🎵</div>
+            <div class="reminder-section">
+              <div class="reminder-title">⏰ Reminder</div>
+              <div class="reminder-opt">
+                <div class="radio-dot"></div>
+                <span>Day before · 9:00 AM</span>
+              </div>
+              <div class="reminder-opt selected">
+                <div class="radio-dot on"></div>
+                <span style="font-weight:600;">Day of event · 9:00 AM ✓</span>
+              </div>
+              <div class="reminder-opt">
+                <div class="radio-dot"></div>
+                <span>1 hour before</span>
+              </div>
+            </div>
+            <div class="detail-body" style="padding-top:4px;">
+              <div class="cal-card">
+                <div class="cal-icon">✅</div>
+                <div class="cal-text">Reminder set: Day of event, 9:00 AM</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /phone-content -->
+      </div><!-- /phone-mock -->
+    </div><!-- /phone-area -->
+  </div><!-- /demo-layout -->
+</div>
+
+<!-- ═══════ S5: FEATURES ═══════ -->
+<div class="scene" id="s5">
+  <div class="bg-dark"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="headline">Everything you need</div>
+    <div class="feat-grid">
+      <div class="feat-card fade-item" id="fc1">
+        <div class="feat-icon">🤖</div>
+        <div class="feat-title">AI Auto-Collection</div>
+        <div class="feat-body">Searches the web to find events in your area daily</div>
+      </div>
+      <div class="feat-card fade-item" id="fc2">
+        <div class="feat-icon">🗺️</div>
+        <div class="feat-title">Map &amp; List Views</div>
+        <div class="feat-body">Browse events on a map or card list</div>
+      </div>
+      <div class="feat-card fade-item" id="fc3">
+        <div class="feat-icon">📅</div>
+        <div class="feat-title">Google Calendar</div>
+        <div class="feat-body">Favorite to auto-add. Reminders included.</div>
+      </div>
+      <div class="feat-card fade-item" id="fc4">
+        <div class="feat-icon">🏷️</div>
+        <div class="feat-title">15 Categories</div>
+        <div class="feat-body">Music, Food, Sports, Art, Tech &amp; more</div>
+      </div>
+      <div class="feat-card fade-item" id="fc5">
+        <div class="feat-icon">🌐</div>
+        <div class="feat-title">11 Languages</div>
+        <div class="feat-body">Auto-switches to your device language</div>
+      </div>
+      <div class="feat-card fade-item" id="fc6">
+        <div class="feat-icon">🌙</div>
+        <div class="feat-title">Dark &amp; Light Mode</div>
+        <div class="feat-body">Follows your system or set manually</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ S6: CTA ═══════ -->
+<div class="scene" id="s6">
+  <div class="bg-dark"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="inner">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:40px;">
+        <div class="headline">Start discovering events today.</div>
+        <div class="free-badge">Free · No sign-up needed</div>
+        <button class="gplay-btn">
+          <svg class="gplay-icon" viewBox="0 0 24 24" fill="white">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/>
+          </svg>
+          <div class="gplay-text">
+            <span class="gplay-get">GET IT ON</span>
+            <span class="gplay-name">Google Play</span>
+          </div>
+        </button>
+        <div class="sub-text">Available on Android 8.0+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var timers = [];
+
+function push(ms, fn) {
+  timers.push(setTimeout(fn, ms));
+}
+
+function showScene(id) {
+  document.querySelectorAll('.scene').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+}
+
+function showEl(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.add('show');
+}
+
+function hideEl(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.remove('show');
+}
+
+function showCallout(id) {
+  document.querySelectorAll('.callout').forEach(function(c) { c.classList.remove('show'); });
+  var el = document.getElementById(id);
+  if (el) el.classList.add('show');
+}
+
+function showPhase(id) {
+  document.querySelectorAll('.demo-phase').forEach(function(p) { p.classList.remove('active'); });
+  var el = document.getElementById(id);
+  if (el) el.classList.add('active');
+}
+
+function openSheet() {
+  var s = document.getElementById('filter-sheet');
+  if (s) s.classList.add('open');
+}
+
+function closeSheet() {
+  var s = document.getElementById('filter-sheet');
+  if (s) s.classList.remove('open');
+}
+
+function resetAll() {
+  timers.forEach(function(t) { clearTimeout(t); });
+  timers = [];
+  document.querySelectorAll('.scene').forEach(function(s) { s.classList.remove('active'); });
+  document.querySelectorAll('.fade-item').forEach(function(el) { el.classList.remove('show'); });
+  document.querySelectorAll('.callout').forEach(function(c) { c.classList.remove('show'); });
+  document.querySelectorAll('.demo-phase').forEach(function(p) { p.classList.remove('active'); });
+  closeSheet();
+}
+
+function buildTimeline() {
+  var t = 0;
+
+  // S1: Intro (0 – 3500ms)
+  push(t, function() { showScene('s1'); });
+  t += 3500;
+
+  // S2: Problem (3500 – 9000ms)
+  push(t, function() { showScene('s2'); });
+  push(t + 500,  function() { showEl('pain1'); });
+  push(t + 1000, function() { showEl('pain2'); });
+  push(t + 1500, function() { showEl('pain3'); });
+  t += 5500;
+
+  // S3: Solution (9000 – 13500ms)
+  push(t, function() { showScene('s3'); });
+  push(t + 500,  function() { showEl('step1'); });
+  push(t + 800,  function() { showEl('arrow1'); });
+  push(t + 1000, function() { showEl('step2'); });
+  push(t + 1300, function() { showEl('arrow2'); });
+  push(t + 1500, function() { showEl('step3'); });
+  t += 4500;
+
+  // S4: Demo (13500 – 31500ms)
+  push(t, function() {
+    showScene('s4');
+    showPhase('ph-a');
+    showCallout('co-a');
+  });
+
+  // Phase B: Filter (t+3000)
+  push(t + 3000, function() {
+    showPhase('ph-b');
+    showCallout('co-b');
+    setTimeout(openSheet, 400);
+  });
+
+  // Phase C: Filtered (t+6000)
+  push(t + 6000, function() {
+    closeSheet();
+    showPhase('ph-c');
+    showCallout('co-c');
+  });
+
+  // Phase D: Map (t+9000)
+  push(t + 9000, function() {
+    showPhase('ph-d');
+    showCallout('co-d');
+  });
+
+  // Phase E: Detail (t+12000)
+  push(t + 12000, function() {
+    showPhase('ph-e');
+    showCallout('co-e');
+  });
+
+  // Phase F: Reminder (t+15000)
+  push(t + 15000, function() {
+    showPhase('ph-f');
+    showCallout('co-f');
+  });
+
+  t += 18000;
+
+  // S5: Features (31500 – 36000ms)
+  push(t, function() { showScene('s5'); });
+  push(t + 300,  function() { showEl('fc1'); });
+  push(t + 450,  function() { showEl('fc2'); });
+  push(t + 600,  function() { showEl('fc3'); });
+  push(t + 750,  function() { showEl('fc4'); });
+  push(t + 900,  function() { showEl('fc5'); });
+  push(t + 1050, function() { showEl('fc6'); });
+  t += 4500;
+
+  // S6: CTA (36000 – 41000ms)
+  push(t, function() { showScene('s6'); });
+}
+
+function runTimeline() {
+  // タイマーはbuildTimeline()内でセット済み
+}
+
+function start() {
+  resetAll();
+  buildTimeline();
+  runTimeline();
+}
+
+// 自動スタート（ブラウザプレビュー用）
+window.addEventListener('load', function() { start(); });
+</script>
+</body>
+</html>

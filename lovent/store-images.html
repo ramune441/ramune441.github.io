@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Lovent Store Images</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#C8C0B8; font-family:'Inter','Noto Sans JP',sans-serif; }
+
+/*
+  ── Light mode design tokens (Theme.kt) ──
+  primary              : #D84315
+  primaryContainer     : #FFDBCF
+  surface / background : #FFFBFF
+  surfaceVariant       : #F5DED6
+  onSurface            : #1C1612
+  onSurfaceVariant     : #3E302B
+  secondary            : #6B4C41
+  outline              : #85736D
+  outlineVariant       : #D8C2BA
+  Free badge           : #009688
+  Category colors (light):
+    Music #283593  Art #C2185B  Food #D84315  Tech #00838F
+    Sports #00695C  Festival #A67C00  Workshop #6A1B9A
+*/
+:root {
+  --pr: #D84315;    /* primary */
+  --pc: #FFDBCF;    /* primaryContainer */
+  --sf: #FFFBFF;    /* surface */
+  --sv: #F5DED6;    /* surfaceVariant */
+  --t1: #1C1612;    /* onSurface */
+  --t2: #3E302B;    /* onSurfaceVariant */
+  --t3: #6B4C41;    /* secondary */
+  --t4: #85736D;    /* outline */
+  --dv: #D8C2BA;    /* outlineVariant / divider */
+  --fr: #009688;    /* Free badge teal */
+  --cmu: #283593; --car: #C2185B; --cfo: #D84315;
+  --ctc: #00838F; --csp: #00695C; --cfe: #A67C00; --cwk: #6A1B9A;
+}
+
+/* ── Store image canvas ── */
+.si { width:1024px; height:500px; position:relative; overflow:hidden; margin:0 auto 64px; background:#FFF8F5; }
+
+/* ── Left problem/solution panel ── */
+.panel {
+  position:absolute; left:0; top:0; bottom:0; width:490px;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:0 52px; z-index:2;
+}
+.p-emoji { font-size:56px; line-height:1; margin-bottom:14px; }
+.p-title { font-size:36px; font-weight:900; color:var(--t1); line-height:1.2; letter-spacing:-0.5px; margin-bottom:8px; }
+.p-sub   { font-size:14px; color:var(--t3); line-height:1.7; margin-bottom:20px; }
+.dvr { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.dvr-l { flex:1; height:1px; background:var(--dv); }
+.dvr-p { background:var(--pr); color:#fff; font-size:11px; font-weight:700; padding:4px 14px; border-radius:20px; white-space:nowrap; letter-spacing:0.3px; }
+.s-title { font-size:26px; font-weight:800; color:var(--pr); line-height:1.3; margin-bottom:6px; }
+.s-sub   { font-size:13.5px; color:var(--t3); line-height:1.65; }
+
+/* ── Phone frame (light mode) ── */
+.ph {
+  position:absolute;
+  background:var(--sf); border-radius:30px; overflow:hidden;
+  box-shadow:0 20px 56px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.07);
+  display:flex; flex-direction:column;
+}
+
+/* TopAppBar — matches Lovent TopAppBar exactly */
+.tab {
+  background:var(--sf); padding:12px 14px 8px;
+  display:flex; align-items:center; gap:8px;
+  border-bottom:1px solid var(--dv); flex-shrink:0;
+}
+.tab-logo { width:22px; height:22px; flex-shrink:0; }
+.tab-logo path { fill:var(--pr); }
+.tab-name { font-size:15px; font-weight:700; color:var(--t1); flex:1; }
+.tab-ico  { width:18px; height:18px; flex-shrink:0; }
+.tab-ico path { fill:var(--t2); }
+
+/* Filter chip row */
+.frow {
+  padding:6px 10px; display:flex; gap:5px; flex-shrink:0;
+  border-bottom:1px solid var(--dv); background:var(--sf); overflow:hidden;
+}
+.fc {
+  display:inline-flex; align-items:center; gap:3px;
+  border:1px solid var(--dv); border-radius:8px;
+  padding:3px 9px; font-size:10px; font-weight:600;
+  color:var(--t2); background:var(--sf); white-space:nowrap;
+}
+.fc.on { background:var(--pc); border-color:transparent; color:var(--pr); }
+
+/* EventCard — matches EventCard.kt */
+.ec {
+  background:var(--sf); border-radius:14px; overflow:hidden;
+  box-shadow:0 1px 4px rgba(0,0,0,0.09), 0 0 0 0.5px rgba(0,0,0,0.04);
+  flex-shrink:0;
+}
+.ec-img { position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.ec-img .gr { position:absolute; inset:0; background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.22)); }
+.ec-body { padding:10px 12px; display:flex; flex-direction:column; gap:6px; }
+.ec-r1 { display:flex; justify-content:space-between; align-items:flex-start; }
+.ec-ttl { font-size:12.5px; font-weight:600; color:var(--t1); line-height:1.3; flex:1; }
+.hrt { flex-shrink:0; margin-left:6px; }
+.hrt svg { width:17px; height:17px; }
+.hrt-off path { fill:none; stroke:var(--t4); stroke-width:1.8; }
+.hrt-on path { fill:#E53935; }
+.badges { display:flex; gap:4px; }
+.badge { font-size:9.5px; font-weight:700; padding:2px 8px; border-radius:5px; color:#fff; }
+.b-fr { background:var(--fr); }
+.meta { display:flex; flex-direction:column; gap:3px; }
+.mr { display:flex; align-items:center; gap:4px; font-size:10px; color:var(--t2); }
+.mr svg { width:11px; height:11px; flex-shrink:0; }
+.ic-pr path { fill:var(--pr); }
+.ic-t3 path { fill:var(--t3); }
+
+/* Category badge backgrounds */
+.cmu{background:var(--cmu)} .car{background:var(--car)} .cfo{background:var(--cfo)}
+.ctc{background:var(--ctc)} .csp{background:var(--csp)} .cwk{background:var(--cwk)}
+
+/* Reusable SVG paths */
+/* Calendar icon: CalendarToday */
+/* Location icon: LocationOn */
+/* Heart outline / filled */
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 1  週末、なにしよう？→ AIがイベントを自動発見
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img1">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FFFBFF 0%,#FFF0E8 60%,#FFFBFF 100%);"></div>
+  <div style="position:absolute;right:0;top:-80px;width:550px;height:550px;border-radius:50%;
+    background:radial-gradient(circle,rgba(230,74,25,0.07) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <!-- LEFT: Problem → Solution -->
+  <div class="panel">
+    <div class="p-emoji">🤔</div>
+    <div class="p-title">What to do<br>this weekend?</div>
+    <div class="p-sub">Events scattered across SNS, websites, flyers —<br>finding them is a real hassle.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p">With Lovent</div><div class="dvr-l"></div></div>
+    <div class="s-title">AI discovers<br>nearby events</div>
+    <div class="s-sub">Just open the app. Events around you appear instantly.<br>No sign-up required.</div>
+  </div>
+
+  <!-- RIGHT: Phone — EventList screen -->
+  <div class="ph" style="width:382px;height:492px;right:20px;top:4px;">
+    <!-- TopAppBar -->
+    <div class="tab">
+      <svg class="tab-logo" viewBox="0 0 24 24" fill="none">
+        <path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+      </svg>
+      <span class="tab-name">Lovent</span>
+      <!-- FavoriteBorder -->
+      <svg class="tab-ico" viewBox="0 0 24 24">
+        <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+      </svg>
+      <!-- Map -->
+      <svg class="tab-ico" viewBox="0 0 24 24">
+        <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM11 17.94l-2-.67V7.06l2 .67v10.21zm4-.27l-2 .67V8.06l2-.67v10.28z"/>
+      </svg>
+    </div>
+    <!-- Event List (scrollable appearance) -->
+    <div style="flex:1;padding:8px 10px 0;display:flex;flex-direction:column;gap:10px;overflow:hidden;">
+      <!-- Card 1: Music, with image (2.2:1 → 265px wide → 120px tall) -->
+      <div class="ec">
+        <div class="ec-img" style="height:160px;background:linear-gradient(135deg,#C0BCE8,#8080C8);">
+          <span style="font-size:32px;z-index:1;">🎵</span><div class="gr"></div>
+        </div>
+        <div class="ec-body">
+          <div class="ec-r1">
+            <span class="ec-ttl">Summer Jazz Night 2026</span>
+            <div class="hrt hrt-on"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+          </div>
+          <div class="badges"><span class="badge cmu">Music</span><span class="badge b-fr">Free</span></div>
+          <div class="meta">
+            <div class="mr"><svg class="ic-pr" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 12 · 19:00</div>
+            <div class="mr"><svg class="ic-t3" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Blue Note Tokyo</div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2: Food, no image -->
+      <div class="ec">
+        <div class="ec-body">
+          <div class="ec-r1">
+            <span class="ec-ttl">Shibuya Street Food Festival</span>
+            <div class="hrt hrt-off"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+          </div>
+          <div class="badges"><span class="badge cfo">Food</span></div>
+          <div class="meta">
+            <div class="mr"><svg class="ic-pr" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 14–15 · 11:00</div>
+            <div class="mr"><svg class="ic-t3" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Shibuya Hikarie Plaza</div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3: Sports, image partially clipped at bottom by phone overflow -->
+      <div class="ec">
+        <div class="ec-img" style="height:160px;background:linear-gradient(135deg,#A8D4CC,#308898);">
+          <span style="font-size:32px;z-index:1;">🏃</span><div class="gr"></div>
+        </div>
+        <div class="ec-body">
+          <div class="ec-r1"><span class="ec-ttl">Tokyo Marathon Pre-Event</span></div>
+          <div class="badges"><span class="badge csp">Sports</span><span class="badge b-fr">Free</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 2  場所がわかりにくい → 地図でひと目でわかる
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img2">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FFFBFF 0%,#FFF4EE 100%);"></div>
+
+  <!-- LEFT: Problem → Solution -->
+  <div class="panel">
+    <div class="p-emoji">📍</div>
+    <div class="p-title">Hard to tell<br>where it is</div>
+    <div class="p-sub">Event listings lack location context.<br>You end up searching the address separately.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p">With Lovent</div><div class="dvr-l"></div></div>
+    <div class="s-title">See every event<br>on the map</div>
+    <div class="s-sub">Spot event locations at a glance.<br>One tap to open directions.</div>
+  </div>
+
+  <!-- RIGHT: Phone — Map view -->
+  <div class="ph" style="width:382px;height:492px;right:20px;top:4px;">
+    <!-- TopAppBar (Map mode: ViewList icon shown since we're in map view) -->
+    <div class="tab">
+      <svg class="tab-logo" viewBox="0 0 24 24" fill="none">
+        <path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+      </svg>
+      <span class="tab-name">Lovent</span>
+      <svg class="tab-ico" viewBox="0 0 24 24">
+        <path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/>
+      </svg>
+      <!-- ViewList (リストに切り替えボタン、今はマップ表示中) -->
+      <svg class="tab-ico" viewBox="0 0 24 24">
+        <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+      </svg>
+    </div>
+    <!-- Map fills rest of phone -->
+    <div style="flex:1;position:relative;overflow:hidden;background:#EDE8E0;">
+      <!-- Light Google-Maps-style map -->
+      <!-- Roads H -->
+      <div style="position:absolute;top:28%;left:0;right:0;height:20px;background:#fff;"></div>
+      <div style="position:absolute;top:54%;left:0;right:0;height:13px;background:#fff;"></div>
+      <div style="position:absolute;top:70%;left:0;right:0;height:8px;background:#F5F0EB;"></div>
+      <div style="position:absolute;top:16%;left:0;right:0;height:8px;background:#F5F0EB;"></div>
+      <!-- Roads V -->
+      <div style="position:absolute;left:20%;top:0;bottom:0;width:18px;background:#fff;"></div>
+      <div style="position:absolute;left:48%;top:0;bottom:0;width:13px;background:#fff;"></div>
+      <div style="position:absolute;left:68%;top:0;bottom:0;width:8px;background:#F5F0EB;"></div>
+      <div style="position:absolute;left:35%;top:0;bottom:0;width:8px;background:#F5F0EB;"></div>
+      <!-- City blocks -->
+      <div style="position:absolute;top:17%;left:22%;width:12%;height:10%;background:#D8D2CA;border-radius:2px;"></div>
+      <div style="position:absolute;top:17%;left:37%;width:10%;height:10%;background:#D8D2CA;border-radius:2px;"></div>
+      <div style="position:absolute;top:30%;left:0;width:19%;height:23%;background:#D0C8C0;"></div>
+      <div style="position:absolute;top:30%;left:22%;width:12%;height:23%;background:#D0C8C0;border-radius:2px;"></div>
+      <div style="position:absolute;top:30%;left:37%;width:10%;height:23%;background:#D0C8C0;border-radius:2px;"></div>
+      <div style="position:absolute;top:30%;left:50%;width:16%;height:23%;background:#D0C8C0;border-radius:2px;"></div>
+      <div style="position:absolute;top:30%;left:70%;width:22%;height:23%;background:#D0C8C0;border-radius:2px;"></div>
+      <div style="position:absolute;top:56%;left:22%;width:12%;height:12%;background:#D0C8C0;border-radius:2px;"></div>
+      <div style="position:absolute;top:56%;left:50%;width:16%;height:12%;background:#D0C8C0;border-radius:2px;"></div>
+      <div style="position:absolute;top:56%;left:70%;width:22%;height:12%;background:#C8D8C0;border-radius:2px;"></div><!-- park -->
+      <div style="position:absolute;top:73%;left:22%;width:25%;height:10%;background:#D0C8C0;border-radius:2px;"></div>
+
+      <!-- Markers -->
+      <div style="position:absolute;left:21%;top:26%;transform:translate(-50%,-100%);">
+        <svg width="28" height="36" viewBox="0 0 34 42"><path d="M17 0C10.4 0 5 5.4 5 12c0 9.5 12 30 12 30S29 21.5 29 12C29 5.4 23.6 0 17 0z" fill="#283593"/><text x="17" y="17" text-anchor="middle" fill="white" font-size="13" font-weight="700">♪</text></svg>
+      </div>
+      <!-- Food – selected (larger) -->
+      <div style="position:absolute;left:49%;top:52%;transform:translate(-50%,-100%);">
+        <svg width="38" height="46" viewBox="0 0 44 54"><circle cx="22" cy="14" r="16" fill="rgba(230,74,25,0.15)"/><path d="M22 0C14.3 0 8 6.3 8 14c0 12.3 14 40 14 40S36 26.3 36 14C36 6.3 29.7 0 22 0z" fill="#E64A19"/><text x="22" y="19" text-anchor="middle" font-size="14">🍜</text></svg>
+      </div>
+      <div style="position:absolute;left:36%;top:14%;transform:translate(-50%,-100%);">
+        <svg width="28" height="36" viewBox="0 0 34 42"><path d="M17 0C10.4 0 5 5.4 5 12c0 9.5 12 30 12 30S29 21.5 29 12C29 5.4 23.6 0 17 0z" fill="#00695C"/><text x="17" y="17" text-anchor="middle" font-size="12">🏃</text></svg>
+      </div>
+      <div style="position:absolute;left:70%;top:30%;transform:translate(-50%,-100%);">
+        <svg width="28" height="36" viewBox="0 0 34 42"><path d="M17 0C10.4 0 5 5.4 5 12c0 9.5 12 30 12 30S29 21.5 29 12C29 5.4 23.6 0 17 0z" fill="#00838F"/><text x="17" y="17" text-anchor="middle" font-size="11">💻</text></svg>
+      </div>
+      <div style="position:absolute;left:83%;top:58%;transform:translate(-50%,-50%);">
+        <svg width="32" height="32" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#D84315"/><text x="20" y="25" text-anchor="middle" fill="white" font-size="13" font-weight="800">+3</text></svg>
+      </div>
+
+      <!-- Event count badge -->
+      <div style="position:absolute;top:10px;right:10px;background:#FFFBFF;border-radius:16px;
+        padding:5px 10px;display:flex;align-items:center;gap:5px;
+        font-size:11px;font-weight:600;color:var(--t1);box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#D84315" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+        8 events
+      </div>
+
+      <!-- Bottom preview card (selected Food event) -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:#FFFBFF;
+        border-radius:16px 16px 0 0;padding:11px 12px;
+        box-shadow:0 -4px 16px rgba(0,0,0,0.1);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:56px;height:42px;border-radius:8px;flex-shrink:0;
+            background:linear-gradient(135deg,#FFD0A8,#FF8040);
+            display:flex;align-items:center;justify-content:center;font-size:20px;">🍜</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:12px;font-weight:700;color:var(--t1);margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Shibuya Street Food Festival</div>
+            <div style="display:flex;gap:4px;margin-bottom:3px;">
+              <span class="badge cfo" style="font-size:9px;">Food</span>
+            </div>
+            <div style="font-size:10px;color:var(--t2);">Jul 14–15 · Shibuya</div>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#85736D" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 3  興味ないイベントばかり → フィルターで絞り込み
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img3">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FFFBFF 0%,#FFF4EE 100%);"></div>
+
+  <!-- LEFT: Problem → Solution -->
+  <div class="panel">
+    <div class="p-emoji">🔍</div>
+    <div class="p-title">Nothing but<br>irrelevant events…</div>
+    <div class="p-sub">Mixed genres everywhere — it takes too long<br>to find events you actually care about.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p">With Lovent</div><div class="dvr-l"></div></div>
+    <div class="s-title">15 categories +<br>Free filter</div>
+    <div class="s-sub">Music, Food, Sports & 12 more.<br>This weekend · Free only — pinpoint search.</div>
+  </div>
+
+  <!-- RIGHT: Phone — Filter bottom sheet open -->
+  <div class="ph" style="width:382px;height:492px;right:20px;top:4px;">
+    <div class="tab">
+      <svg class="tab-logo" viewBox="0 0 24 24" fill="none"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+      <span class="tab-name">Shibuya</span>
+      <svg class="tab-ico" viewBox="0 0 24 24"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+      <svg class="tab-ico" viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM11 17.94l-2-.67V7.06l2 .67v10.21zm4-.27l-2 .67V8.06l2-.67v10.28z"/></svg>
+    </div>
+    <!-- Active chips row -->
+    <div class="frow">
+      <div class="fc on">
+        <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#D84315" d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+        Filter (2)
+      </div>
+      <div class="fc on">Music ×</div>
+      <div class="fc on">Free ×</div>
+    </div>
+    <!-- List (dimmed behind sheet) -->
+    <div style="flex:1;position:relative;overflow:hidden;">
+      <div style="padding:8px 10px;display:flex;flex-direction:column;gap:10px;opacity:0.2;">
+        <div class="ec">
+          <div class="ec-body">
+            <div class="ec-ttl" style="font-size:12px;">Summer Jazz Night 2026</div>
+            <div class="badges" style="margin-top:4px;"><span class="badge cmu">Music</span><span class="badge b-fr">Free</span></div>
+          </div>
+        </div>
+        <div class="ec">
+          <div class="ec-body">
+            <div class="ec-ttl" style="font-size:12px;">Jazz Café Session Shinjuku</div>
+            <div class="badges" style="margin-top:4px;"><span class="badge cmu">Music</span><span class="badge b-fr">Free</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Bottom Sheet -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:#FFFBFF;
+        border-radius:20px 20px 0 0;padding:12px 12px 16px;
+        box-shadow:0 -6px 24px rgba(0,0,0,0.1);">
+        <!-- Handle -->
+        <div style="width:28px;height:3px;background:var(--dv);border-radius:2px;margin:0 auto 12px;"></div>
+        <!-- Category section -->
+        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);margin-bottom:7px;">Category</div>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;">
+          <span class="badge cmu" style="font-size:10px;padding:3px 9px;border-radius:14px;">Music ✓</span>
+          <span class="badge cfo" style="font-size:10px;padding:3px 9px;border-radius:14px;">Food</span>
+          <span class="badge csp" style="font-size:10px;padding:3px 9px;border-radius:14px;">Sports</span>
+          <span class="badge car" style="font-size:10px;padding:3px 9px;border-radius:14px;">Art</span>
+          <span class="badge ctc" style="font-size:10px;padding:3px 9px;border-radius:14px;">Tech</span>
+          <span style="background:var(--sv);color:var(--t3);font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;">Festival</span>
+          <span class="badge cwk" style="font-size:10px;padding:3px 9px;border-radius:14px;">Workshop</span>
+          <span style="background:var(--sv);color:var(--t3);font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;">Culture</span>
+          <span style="background:var(--sv);color:var(--t3);font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;">Outdoor</span>
+          <span style="background:var(--sv);color:var(--t3);font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;">Health</span>
+        </div>
+        <!-- Date section -->
+        <div style="font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t4);margin-bottom:7px;">Date</div>
+        <div style="display:flex;gap:5px;margin-bottom:12px;">
+          <span style="background:var(--sv);color:var(--t3);font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;">Today</span>
+          <span style="background:var(--sv);color:var(--t3);font-size:10px;font-weight:600;padding:3px 9px;border-radius:14px;">Tomorrow</span>
+          <span style="background:var(--pc);color:var(--pr);font-size:10px;font-weight:700;padding:3px 9px;border-radius:14px;">This Weekend ✓</span>
+        </div>
+        <!-- Free only — FilterChip selected (primaryContainer colors) -->
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:inline-flex;align-items:center;gap:5px;
+            background:var(--pc);border-radius:8px;padding:5px 12px;">
+            <svg width="13" height="13" viewBox="0 0 24 24"><path fill="#D84315" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            <span style="font-size:11px;font-weight:700;color:var(--pr);">Free only</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 4  見つけても忘れる → ♥でカレンダー自動登録
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img4">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FFFBFF 0%,#FFF4EE 100%);"></div>
+  <div style="position:absolute;right:0;top:-80px;width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(230,74,25,0.07) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <!-- LEFT: Problem → Solution -->
+  <div class="panel">
+    <div class="p-emoji">📅</div>
+    <div class="p-title">Found it,<br>then forgot it</div>
+    <div class="p-sub">Even when you find an event you like,<br>adding it to your calendar is a chore.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p">With Lovent</div><div class="dvr-l"></div></div>
+    <div class="s-title">♥ saves to<br>Google Calendar</div>
+    <div class="s-sub">Tap favorite once — the event is saved<br>and a reminder is set automatically.</div>
+  </div>
+
+  <!-- RIGHT: Phone — Event detail + calendar sync + reminder -->
+  <div class="ph" style="width:382px;height:492px;right:20px;top:4px;">
+    <!-- Back nav TopAppBar -->
+    <div class="tab">
+      <svg width="18" height="18" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#D84315" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      <span class="tab-name" style="font-size:14px;">Event Detail</span>
+      <!-- Favorite (filled = favorited) -->
+      <svg width="20" height="20" viewBox="0 0 24 24" style="flex-shrink:0;"><path fill="#E53935" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <!-- Content -->
+    <div style="flex:1;padding:10px;display:flex;flex-direction:column;gap:9px;overflow:hidden;background:#FFFBFF;">
+
+      <!-- Mini event card -->
+      <div class="ec">
+        <div class="ec-img" style="height:120px;background:linear-gradient(135deg,#C0BCE8,#8080C8);">
+          <span style="font-size:26px;z-index:1;">🎵</span><div class="gr"></div>
+        </div>
+        <div class="ec-body" style="padding:9px 11px;">
+          <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:5px;">Summer Jazz Night 2026</div>
+          <div class="badges"><span class="badge cmu">Music</span><span class="badge b-fr">Free</span></div>
+          <div class="meta" style="margin-top:5px;">
+            <div class="mr"><svg class="ic-pr" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 12, 2026 · 19:00</div>
+            <div class="mr"><svg class="ic-t3" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Blue Note Tokyo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calendar auto-sync row (surfaceVariant card from code) -->
+      <div style="background:var(--sv);border-radius:14px;padding:10px 12px;
+        display:flex;align-items:center;gap:9px;">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#E53935" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#85736D" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        <div style="width:16px;height:16px;background:#4285F4;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+        </div>
+        <div style="flex:1;font-size:10.5px;font-weight:600;color:var(--t1);">Added to Google Calendar</div>
+        <svg width="13" height="13" viewBox="0 0 24 24"><path fill="#D84315" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+      </div>
+
+      <!-- Reminder dialog (surfaceVariant card) -->
+      <div style="background:var(--sv);border-radius:14px;padding:11px 12px;">
+        <div style="font-size:11px;font-weight:700;color:var(--t1);margin-bottom:9px;display:flex;align-items:center;gap:5px;">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path fill="#D84315" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          Reminder
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <!-- Unselected option -->
+          <div style="background:#FFFBFF;border:1px solid var(--dv);border-radius:9px;padding:7px 11px;font-size:10.5px;font-weight:500;color:var(--t2);">Day before · 9:00</div>
+          <!-- Selected option (primaryContainer) -->
+          <div style="background:var(--pc);border-radius:9px;padding:7px 11px;
+            font-size:10.5px;font-weight:700;color:var(--pr);
+            display:flex;align-items:center;justify-content:space-between;">
+            Day of · 9:00
+            <svg width="13" height="13" viewBox="0 0 24 24"><path fill="#D84315" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <!-- Unselected option -->
+          <div style="background:#FFFBFF;border:1px solid var(--dv);border-radius:9px;padding:7px 11px;font-size:10.5px;font-weight:500;color:var(--t2);">1 hour before</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 5  日本語以外の友人と使えない → 11言語に自動対応
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img5">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FFF4EE 0%,#FFFBFF 100%);"></div>
+  <div style="position:absolute;left:-40px;top:-60px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(230,74,25,0.07) 0%,transparent 60%);pointer-events:none;"></div>
+
+  <!-- LEFT: Problem → Solution -->
+  <div class="panel" style="width:380px;">
+    <div class="p-emoji">🌏</div>
+    <div class="p-title">Can't use it<br>with foreign friends</div>
+    <div class="p-sub">Most event apps are Japanese-only —<br>you can't browse together.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p">With Lovent</div><div class="dvr-l"></div></div>
+    <div class="s-title">11 languages,<br>automatically</div>
+    <div class="s-sub">Follows your device language setting.<br>Japanese, English, Chinese, Korean & more.</div>
+  </div>
+
+  <!-- RIGHT: Two phones side by side (JA + EN) -->
+  <div style="position:absolute;right:28px;top:0;bottom:0;display:flex;align-items:center;gap:16px;z-index:2;">
+
+    <!-- JA phone -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div class="ph" style="position:relative;width:218px;height:400px;">
+        <div class="tab" style="padding:10px 12px 7px;">
+          <svg class="tab-logo" viewBox="0 0 24 24" fill="none" style="width:20px;height:20px;"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+          <span class="tab-name" style="font-size:13px;">渋谷区のイベント</span>
+        </div>
+        <div style="flex:1;padding:7px 9px;display:flex;flex-direction:column;gap:8px;overflow:hidden;background:#FFFBFF;">
+          <!-- JA Card 1 -->
+          <div class="ec">
+            <div class="ec-img" style="height:88px;background:linear-gradient(135deg,#C0BCE8,#8080C8);">
+              <span style="font-size:26px;z-index:1;">🎵</span><div class="gr"></div>
+            </div>
+            <div class="ec-body" style="padding:8px 10px;">
+              <div class="ec-r1">
+                <span class="ec-ttl" style="font-size:11.5px;">サマージャズナイト 2026</span>
+                <div class="hrt hrt-on"><svg viewBox="0 0 24 24" style="width:15px;height:15px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+              </div>
+              <div class="badges"><span class="badge cmu" style="font-size:9px;">音楽</span><span class="badge b-fr" style="font-size:9px;">無料</span></div>
+              <div class="meta" style="margin-top:4px;">
+                <div class="mr" style="font-size:9.5px;"><svg class="ic-pr" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>7月12日 · 19:00</div>
+                <div class="mr" style="font-size:9.5px;"><svg class="ic-t3" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>ブルーノート東京</div>
+              </div>
+            </div>
+          </div>
+          <!-- JA Card 2 -->
+          <div class="ec">
+            <div class="ec-body" style="padding:8px 10px;">
+              <div class="ec-r1">
+                <span class="ec-ttl" style="font-size:11.5px;">渋谷ストリートフード祭</span>
+                <div class="hrt hrt-off"><svg viewBox="0 0 24 24" style="width:15px;height:15px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+              </div>
+              <div class="badges"><span class="badge cfo" style="font-size:9px;">フード</span></div>
+              <div class="meta" style="margin-top:4px;">
+                <div class="mr" style="font-size:9.5px;"><svg class="ic-pr" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>7月14–15日</div>
+              </div>
+            </div>
+          </div>
+          <!-- JA Card 3 faded -->
+          <div class="ec" style="opacity:0.4;">
+            <div class="ec-body" style="padding:8px 10px;">
+              <span class="ec-ttl" style="font-size:11.5px;">東京マラソン前夜祭</span>
+              <div class="badges" style="margin-top:4px;"><span class="badge csp" style="font-size:9px;">スポーツ</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Language label -->
+      <div style="background:var(--pc);border-radius:16px;padding:4px 12px;
+        font-size:11px;font-weight:700;color:var(--pr);">🇯🇵 日本語</div>
+    </div>
+
+    <!-- EN phone -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div class="ph" style="position:relative;width:218px;height:400px;">
+        <div class="tab" style="padding:10px 12px 7px;">
+          <svg class="tab-logo" viewBox="0 0 24 24" fill="none" style="width:20px;height:20px;"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+          <span class="tab-name" style="font-size:13px;">Shibuya Events</span>
+        </div>
+        <div style="flex:1;padding:7px 9px;display:flex;flex-direction:column;gap:8px;overflow:hidden;background:#FFFBFF;">
+          <!-- EN Card 1 -->
+          <div class="ec">
+            <div class="ec-img" style="height:88px;background:linear-gradient(135deg,#FFD0A8,#FF8040);">
+              <span style="font-size:26px;z-index:1;">🍜</span><div class="gr"></div>
+            </div>
+            <div class="ec-body" style="padding:8px 10px;">
+              <div class="ec-r1">
+                <span class="ec-ttl" style="font-size:11.5px;">Street Food Festival</span>
+                <div class="hrt hrt-off"><svg viewBox="0 0 24 24" style="width:15px;height:15px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+              </div>
+              <div class="badges"><span class="badge cfo" style="font-size:9px;">Food</span></div>
+              <div class="meta" style="margin-top:4px;">
+                <div class="mr" style="font-size:9.5px;"><svg class="ic-pr" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 14–15</div>
+                <div class="mr" style="font-size:9.5px;"><svg class="ic-t3" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Shibuya Hikarie</div>
+              </div>
+            </div>
+          </div>
+          <!-- EN Card 2 -->
+          <div class="ec">
+            <div class="ec-body" style="padding:8px 10px;">
+              <div class="ec-r1">
+                <span class="ec-ttl" style="font-size:11.5px;">Tech Meetup Shibuya</span>
+                <div class="hrt hrt-off"><svg viewBox="0 0 24 24" style="width:15px;height:15px;"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+              </div>
+              <div class="badges"><span class="badge ctc" style="font-size:9px;">Tech</span><span class="badge b-fr" style="font-size:9px;">Free</span></div>
+              <div class="meta" style="margin-top:4px;">
+                <div class="mr" style="font-size:9.5px;"><svg class="ic-pr" viewBox="0 0 24 24" style="width:10px;height:10px;"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 18 · 19:00</div>
+              </div>
+            </div>
+          </div>
+          <!-- EN Card 3 faded -->
+          <div class="ec" style="opacity:0.4;">
+            <div class="ec-body" style="padding:8px 10px;">
+              <span class="ec-ttl" style="font-size:11.5px;">Summer Art Exhibition</span>
+              <div class="badges" style="margin-top:4px;"><span class="badge car" style="font-size:9px;">Art</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Language label -->
+      <div style="background:var(--pc);border-radius:16px;padding:4px 12px;
+        font-size:11px;font-weight:700;color:var(--pr);">🇺🇸 English</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FEATURE GRAPHIC  フィーチャーグラフィック (1024×500) v2
+     Google Play ストアページ最上部に表示されるバナー
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img-feature">
+  <!-- Rich orange gradient -->
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#FF6D40 0%,#E64A19 45%,#BF360C 100%);"></div>
+  <!-- Glows -->
+  <div style="position:absolute;top:-100px;left:-60px;width:440px;height:440px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,180,140,0.2) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;right:260px;width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(80,10,0,0.3) 0%,transparent 60%);pointer-events:none;"></div>
+  <!-- Texture -->
+  <div style="position:absolute;inset:0;opacity:0.035;
+    background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);
+    background-size:18px 18px;pointer-events:none;"></div>
+
+  <!-- LEFT: Brand + tagline + feature bullets -->
+  <div style="position:absolute;left:0;top:0;bottom:0;width:490px;
+    display:flex;flex-direction:column;justify-content:center;padding:0 60px;z-index:2;">
+    <!-- Logo -->
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+      <div style="width:48px;height:48px;background:rgba(255,255,255,0.2);border-radius:13px;
+        display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 10px rgba(0,0,0,0.15);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path fill="white" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+        </svg>
+      </div>
+      <span style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-0.5px;">Lovent</span>
+    </div>
+    <!-- Headline -->
+    <div style="font-size:46px;font-weight:900;color:#fff;line-height:1.1;
+      letter-spacing:-1.5px;margin-bottom:16px;text-shadow:0 2px 16px rgba(0,0,0,0.12);">
+      AI discovers<br>events near you.
+    </div>
+    <!-- Feature bullets -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:22px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:28px;height:28px;background:rgba(255,255,255,0.18);border-radius:8px;
+          display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">📍</div>
+        <span style="font-size:13.5px;color:rgba(255,255,255,0.92);font-weight:500;">AI auto-lists nearby events</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:28px;height:28px;background:rgba(255,255,255,0.18);border-radius:8px;
+          display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">🔍</div>
+        <span style="font-size:13.5px;color:rgba(255,255,255,0.92);font-weight:500;">15 categories + date & free filters</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:28px;height:28px;background:rgba(255,255,255,0.18);border-radius:8px;
+          display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;">📅</div>
+        <span style="font-size:13.5px;color:rgba(255,255,255,0.92);font-weight:500;">♥ saves to Google Calendar</span>
+      </div>
+    </div>
+    <!-- Google Play badge -->
+    <div style="display:inline-flex;align-items:center;gap:9px;
+      background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.35);
+      color:#fff;font-size:12.5px;font-weight:700;padding:10px 20px;border-radius:12px;
+      align-self:flex-start;box-shadow:0 2px 12px rgba(0,0,0,0.12);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/>
+      </svg>
+      GET IT ON GOOGLE PLAY
+    </div>
+  </div>
+
+  <!-- MAIN Phone -->
+  <div style="position:absolute;right:54px;top:12px;z-index:3;
+    transform:rotate(-2deg);filter:drop-shadow(0 28px 44px rgba(0,0,0,0.32));">
+    <div style="width:272px;height:476px;background:#FFFBFF;border-radius:28px;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(0,0,0,0.08);display:flex;flex-direction:column;">
+      <!-- TopAppBar -->
+      <div style="background:#FFFBFF;padding:12px 14px 8px;display:flex;align-items:center;gap:8px;
+        border-bottom:1px solid #D8C2BA;flex-shrink:0;">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none">
+          <path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+        </svg>
+        <span style="font-size:15px;font-weight:700;color:#1C1612;flex:1;">Lovent</span>
+        <svg width="17" height="17" viewBox="0 0 24 24"><path fill="#3E302B" d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+        <svg width="17" height="17" viewBox="0 0 24 24"><path fill="#3E302B" d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM11 17.94l-2-.67V7.06l2 .67v10.21zm4-.27l-2 .67V8.06l2-.67v10.28z"/></svg>
+      </div>
+      <!-- EventList -->
+      <div style="flex:1;padding:9px 10px 0;display:flex;flex-direction:column;gap:10px;overflow:hidden;background:#FFFBFF;">
+        <!-- Card 1: Music with image -->
+        <div style="background:#FFFBFF;border-radius:14px;overflow:hidden;
+          box-shadow:0 1px 4px rgba(0,0,0,0.09),0 0 0 0.5px rgba(0,0,0,0.04);flex-shrink:0;">
+          <div style="height:114px;background:linear-gradient(135deg,#C0BCE8,#8080C8);
+            display:flex;align-items:center;justify-content:center;font-size:30px;position:relative;">
+            🎵<div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.22));"></div>
+          </div>
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <span style="font-size:12.5px;font-weight:600;color:#1C1612;flex:1;line-height:1.3;">Summer Jazz Night 2026</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="flex-shrink:0;margin-left:5px;"><path fill="#E53935" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div style="display:flex;gap:4px;">
+              <span style="background:#283593;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:5px;">Music</span>
+              <span style="background:#009688;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:5px;">Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:#3E302B;">
+              <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#D84315" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 12 · 19:00</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:#3E302B;">
+              <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#6B4C41" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Blue Note Tokyo</div>
+          </div>
+        </div>
+        <!-- Card 2: Tech no image -->
+        <div style="background:#FFFBFF;border-radius:14px;overflow:hidden;
+          box-shadow:0 1px 4px rgba(0,0,0,0.09),0 0 0 0.5px rgba(0,0,0,0.04);flex-shrink:0;">
+          <div style="padding:10px 12px;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <span style="font-size:12.5px;font-weight:600;color:#1C1612;flex:1;line-height:1.3;">Tech Meetup Shibuya</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" style="flex-shrink:0;margin-left:5px;"><path fill="none" stroke="#85736D" stroke-width="1.8" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div style="display:flex;gap:4px;">
+              <span style="background:#00838F;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:5px;">Tech</span>
+              <span style="background:#009688;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:5px;">Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:#3E302B;">
+              <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#D84315" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 18 · 19:00</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:#3E302B;">
+              <svg width="11" height="11" viewBox="0 0 24 24"><path fill="#6B4C41" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Shibuya Stream Hall</div>
+          </div>
+        </div>
+        <!-- Card 3: Sports partial -->
+        <div style="background:#FFFBFF;border-radius:14px;overflow:hidden;
+          box-shadow:0 1px 4px rgba(0,0,0,0.09),0 0 0 0.5px rgba(0,0,0,0.04);flex-shrink:0;opacity:0.65;">
+          <div style="height:114px;background:linear-gradient(135deg,#A8D4CC,#308898);
+            display:flex;align-items:center;justify-content:center;font-size:30px;">🏃</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     FEATURE GRAPHIC v2  — 2台スマホで余白解消
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img-feature">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#FF6D40 0%,#E64A19 45%,#BF360C 100%);"></div>
+  <div style="position:absolute;top:-140px;left:-80px;width:500px;height:500px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,180,140,0.2) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;right:240px;width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(80,10,0,0.28) 0%,transparent 60%);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;opacity:0.04;
+    background:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);
+    background-size:20px 20px;pointer-events:none;"></div>
+
+  <!-- LEFT: Brand + tagline + bullets + badge -->
+  <div style="position:absolute;left:0;top:0;bottom:0;width:480px;
+    display:flex;flex-direction:column;justify-content:center;padding:0 52px;z-index:2;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;">
+      <div style="width:48px;height:48px;background:rgba(255,255,255,0.18);border-radius:13px;
+        display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path fill="white" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/>
+        </svg>
+      </div>
+      <span style="font-size:30px;font-weight:800;color:#fff;letter-spacing:-0.3px;">Lovent</span>
+    </div>
+    <div style="font-size:50px;font-weight:900;color:#fff;line-height:1.1;
+      letter-spacing:-1.5px;margin-bottom:13px;text-shadow:0 2px 14px rgba(0,0,0,0.12);">
+      近くのイベントを、<br>AIが見つける。
+    </div>
+    <div style="font-size:14px;color:rgba(255,255,255,0.82);line-height:1.6;margin-bottom:20px;">
+      登録不要。開くだけで今すぐ使える。
+    </div>
+    <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:22px;">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <div style="width:32px;height:32px;background:rgba(255,255,255,0.16);border-radius:9px;
+          display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="white" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#fff;">AIが周辺イベントを自動収集</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.68);">15カテゴリ・地図/リスト表示</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:11px;">
+        <div style="width:32px;height:32px;background:rgba(255,255,255,0.16);border-radius:9px;
+          display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="white" d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#fff;">カテゴリ・無料フィルターで絞り込み</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.68);">今週末・無料のみ など細かく設定</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:11px;">
+        <div style="width:32px;height:32px;background:rgba(255,255,255,0.16);border-radius:9px;
+          display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="white" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#fff;">♥でGoogleカレンダーに自動登録</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.68);">リマインダーも自動でセット</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.28);
+      color:#fff;font-size:12.5px;font-weight:700;
+      padding:10px 20px;border-radius:11px;align-self:flex-start;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/>
+      </svg>
+      GET IT ON GOOGLE PLAY
+    </div>
+  </div>
+
+  <!-- Phone 2: Map view (back, tilted) -->
+  <div style="position:absolute;right:290px;top:68px;z-index:2;
+    transform:rotate(5deg);filter:drop-shadow(0 18px 30px rgba(0,0,0,0.28));">
+    <div style="width:208px;height:360px;background:#FFFBFF;border-radius:26px;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(0,0,0,0.08);display:flex;flex-direction:column;opacity:0.92;">
+      <div style="background:#FFFBFF;padding:10px 12px 7px;display:flex;align-items:center;gap:7px;
+        border-bottom:1px solid #D8C2BA;flex-shrink:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+        <span style="font-size:13px;font-weight:700;color:#1C1612;flex:1;">Lovent</span>
+        <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#3E302B" d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+      </div>
+      <div style="flex:1;position:relative;background:#EDE8E0;overflow:hidden;">
+        <div style="position:absolute;top:25%;left:0;right:0;height:16px;background:#fff;"></div>
+        <div style="position:absolute;top:52%;left:0;right:0;height:11px;background:#fff;"></div>
+        <div style="position:absolute;top:68%;left:0;right:0;height:7px;background:#F5F0EB;"></div>
+        <div style="position:absolute;left:18%;top:0;bottom:0;width:15px;background:#fff;"></div>
+        <div style="position:absolute;left:46%;top:0;bottom:0;width:11px;background:#fff;"></div>
+        <div style="position:absolute;left:65%;top:0;bottom:0;width:7px;background:#F5F0EB;"></div>
+        <div style="position:absolute;top:27%;left:20%;width:25%;height:24%;background:#D0C8C0;border-radius:2px;"></div>
+        <div style="position:absolute;top:27%;left:48%;width:16%;height:24%;background:#D0C8C0;border-radius:2px;"></div>
+        <div style="position:absolute;top:27%;left:67%;width:26%;height:24%;background:#C8D8C0;border-radius:2px;"></div>
+        <div style="position:absolute;top:54%;left:0;width:17%;height:13%;background:#D0C8C0;"></div>
+        <div style="position:absolute;top:54%;left:20%;width:25%;height:13%;background:#D0C8C0;border-radius:2px;"></div>
+        <div style="position:absolute;top:54%;left:48%;width:16%;height:13%;background:#D0C8C0;border-radius:2px;"></div>
+        <div style="position:absolute;left:19%;top:22%;transform:translate(-50%,-100%);">
+          <svg width="22" height="28" viewBox="0 0 34 42"><path d="M17 0C10.4 0 5 5.4 5 12c0 9.5 12 30 12 30S29 21.5 29 12C29 5.4 23.6 0 17 0z" fill="#283593"/><text x="17" y="17" text-anchor="middle" fill="white" font-size="14" font-weight="700">♪</text></svg>
+        </div>
+        <div style="position:absolute;left:47%;top:49%;transform:translate(-50%,-100%);">
+          <svg width="28" height="34" viewBox="0 0 44 54"><circle cx="22" cy="14" r="12" fill="rgba(230,74,25,0.18)"/><path d="M22 0C14.3 0 8 6.3 8 14c0 12.3 14 40 14 40S36 26.3 36 14C36 6.3 29.7 0 22 0z" fill="#E64A19"/><text x="22" y="19" text-anchor="middle" font-size="12">🍜</text></svg>
+        </div>
+        <div style="position:absolute;left:66%;top:24%;transform:translate(-50%,-100%);">
+          <svg width="22" height="28" viewBox="0 0 34 42"><path d="M17 0C10.4 0 5 5.4 5 12c0 9.5 12 30 12 30S29 21.5 29 12C29 5.4 23.6 0 17 0z" fill="#00838F"/><text x="17" y="17" text-anchor="middle" font-size="11">💻</text></svg>
+        </div>
+        <div style="position:absolute;top:8px;right:8px;background:#FFFBFF;border-radius:10px;
+          padding:3px 7px;font-size:9px;font-weight:600;color:#1C1612;
+          box-shadow:0 1px 5px rgba(0,0,0,0.12);">8 events</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:#FFFBFF;
+          border-radius:12px 12px 0 0;padding:8px 9px;">
+          <div style="display:flex;align-items:center;gap:7px;">
+            <div style="width:34px;height:26px;border-radius:5px;flex-shrink:0;
+              background:linear-gradient(135deg,#FFD0A8,#FF8040);
+              display:flex;align-items:center;justify-content:center;font-size:13px;">🍜</div>
+            <div>
+              <div style="font-size:9.5px;font-weight:700;color:#1C1612;">Street Food Festival</div>
+              <div style="font-size:8.5px;color:#3E302B;">Jul 14–15 · Shibuya</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phone 1: Event list (front, straight) -->
+  <div style="position:absolute;right:22px;top:20px;z-index:3;
+    filter:drop-shadow(0 28px 42px rgba(0,0,0,0.32));">
+    <div style="width:258px;height:460px;background:#FFFBFF;border-radius:28px;overflow:hidden;
+      box-shadow:0 0 0 1px rgba(0,0,0,0.07);display:flex;flex-direction:column;">
+      <div style="background:#FFFBFF;padding:11px 13px 8px;display:flex;align-items:center;gap:7px;
+        border-bottom:1px solid #D8C2BA;flex-shrink:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+        <span style="font-size:14px;font-weight:700;color:#1C1612;flex:1;">Lovent</span>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#3E302B" d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#3E302B" d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM11 17.94l-2-.67V7.06l2 .67v10.21zm4-.27l-2 .67V8.06l2-.67v10.28z"/></svg>
+      </div>
+      <div style="flex:1;padding:8px 9px 0;display:flex;flex-direction:column;gap:9px;overflow:hidden;background:#FFFBFF;">
+        <div style="background:#FFFBFF;border-radius:13px;overflow:hidden;
+          box-shadow:0 1px 4px rgba(0,0,0,0.09),0 0 0 0.5px rgba(0,0,0,0.04);flex-shrink:0;">
+          <div style="height:109px;background:linear-gradient(135deg,#C0BCE8,#8080C8);
+            display:flex;align-items:center;justify-content:center;font-size:30px;position:relative;">
+            🎵<div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.22));"></div>
+          </div>
+          <div style="padding:9px 11px;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <span style="font-size:12px;font-weight:600;color:#1C1612;flex:1;line-height:1.3;">Summer Jazz Night 2026</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0;margin-left:5px;"><path fill="#E53935" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div style="display:flex;gap:4px;">
+              <span style="background:#283593;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;">Music</span>
+              <span style="background:#009688;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;">Free</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:9.5px;color:#3E302B;">
+              <svg width="10" height="10" viewBox="0 0 24 24"><path fill="#D84315" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 12 · 19:00</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:9.5px;color:#3E302B;">
+              <svg width="10" height="10" viewBox="0 0 24 24"><path fill="#6B4C41" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Blue Note Tokyo</div>
+          </div>
+        </div>
+        <div style="background:#FFFBFF;border-radius:13px;overflow:hidden;
+          box-shadow:0 1px 4px rgba(0,0,0,0.09),0 0 0 0.5px rgba(0,0,0,0.04);flex-shrink:0;">
+          <div style="padding:9px 11px;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+              <span style="font-size:12px;font-weight:600;color:#1C1612;flex:1;line-height:1.3;">Shibuya Street Food Festival</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" style="flex-shrink:0;margin-left:5px;"><path fill="none" stroke="#85736D" stroke-width="1.8" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div style="display:flex;gap:4px;">
+              <span style="background:#D84315;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;">Food</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:9.5px;color:#3E302B;">
+              <svg width="10" height="10" viewBox="0 0 24 24"><path fill="#D84315" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>Jul 14–15 · 11:00</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:9.5px;color:#3E302B;">
+              <svg width="10" height="10" viewBox="0 0 24 24"><path fill="#6B4C41" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Shibuya Hikarie Plaza</div>
+          </div>
+        </div>
+        <div style="background:#FFFBFF;border-radius:13px;overflow:hidden;
+          box-shadow:0 1px 4px rgba(0,0,0,0.09),0 0 0 0.5px rgba(0,0,0,0.04);flex-shrink:0;opacity:0.6;">
+          <div style="height:109px;background:linear-gradient(135deg,#A8D4CC,#308898);
+            display:flex;align-items:center;justify-content:center;font-size:30px;">🏃</div>
+          <div style="padding:9px 11px;">
+            <span style="font-size:12px;font-weight:600;color:#1C1612;">Tokyo Marathon Pre-Event</span>
+            <div style="display:flex;gap:4px;margin-top:5px;">
+              <span style="background:#00695C;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;">Sports</span>
+              <span style="background:#009688;color:#fff;font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;">Free</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

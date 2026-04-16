@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XE2VP0VX1Z"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XE2VP0VX1Z');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use Lovent | Tutorial</title>
+  <meta name="description" content="Learn how to use Lovent — the AI-powered Android app that finds local events for you. Step-by-step tutorial to get started in minutes.">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap">
+
+  <style>
+    :root {
+      --orange: #D84315;
+      --orange-light: #FF6E40;
+      --orange-pale: #FF8A65;
+      --bg: #FFFBFF;
+      --bg-alt: #F5DED6;
+      --bg-card: #FFFBFF;
+      --border: #D8C2BA;
+      --border-light: #C4A89F;
+      --text: #1C1612;
+      --text-sub: #3E302B;
+      --text-light: #6B4C41;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.8; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,251,255,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); }
+    .nav-brand .nav-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--orange); display: flex; align-items: center; justify-content: center; }
+    .nav-brand .nav-icon svg { width: 20px; height: 20px; }
+    .nav-cta {
+      background: var(--orange); color: #fff; font-size: 13px; font-weight: 600;
+      padding: 8px 20px; border-radius: 8px; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--orange-light); }
+
+    /* HERO */
+    .hero {
+      padding: 120px 24px 80px;
+      background: linear-gradient(160deg, #FFFBFF 0%, #FFF4EE 40%, #FFE8DC 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(216,67,21,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(216,67,21,0.10); color: var(--orange);
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 100px; border: 1px solid rgba(216,67,21,0.3);
+      margin-bottom: 24px; backdrop-filter: blur(8px);
+    }
+    h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; }
+    .hero-sub { font-size: 18px; color: var(--text-sub); line-height: 1.8; }
+
+    /* STEPS SECTION */
+    .steps-section { padding: 96px 24px; }
+    .steps-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; }
+
+    .step-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .step-row.reverse { direction: rtl; }
+    .step-row.reverse > * { direction: ltr; }
+
+    .step-text { display: flex; flex-direction: column; gap: 16px; }
+    .step-num-row { display: flex; align-items: center; gap: 16px; }
+    .step-number {
+      font-size: 64px; font-weight: 900; line-height: 1;
+      color: var(--orange); opacity: 0.85; flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+    .step-icon { font-size: 36px; }
+    .step-text h3 { font-size: 26px; font-weight: 800; color: var(--text); line-height: 1.3; }
+    .step-text p { font-size: 16px; color: var(--text-sub); line-height: 1.85; max-width: 480px; }
+
+    .step-img {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 16px 56px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+    }
+    .step-img img { width: 100%; display: block; }
+
+    /* TIPS SECTION */
+    .tips-section {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 96px 24px;
+    }
+    .tips-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block; font-size: 12px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--orange);
+      margin-bottom: 12px;
+    }
+    h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; color: var(--text); line-height: 1.35; margin-bottom: 48px; }
+    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feat-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 28px;
+      transition: box-shadow 0.3s, border-color 0.3s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .feat-card:hover { box-shadow: 0 8px 32px rgba(216,67,21,0.12); border-color: var(--border-light); }
+    .feat-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(216,67,21,0.12); border: 1px solid rgba(216,67,21,0.2);
+      display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px;
+    }
+    .feat-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      background: linear-gradient(160deg, #FFF4EE, #FFE8DC, #FFDDD0);
+      text-align: center; padding: 96px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .cta-bottom h2 { margin-bottom: 32px; color: var(--text); }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff; font-size: 16px; font-weight: 700;
+      padding: 16px 36px; border-radius: 10px; border: none; cursor: pointer;
+      box-shadow: 0 4px 24px rgba(216,67,21,0.35); transition: all 0.2s; text-decoration: none;
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-1px); box-shadow: 0 6px 32px rgba(255,110,64,0.35); }
+    .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
+
+    /* FOOTER */
+    footer { background: #F5DED6; padding: 40px 24px; text-align: center; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; font-size: 13px; color: var(--text-light); }
+    .footer-inner a { color: var(--text-light); transition: color 0.2s; }
+    .footer-inner a:hover { color: var(--orange-pale); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .step-row { grid-template-columns: 1fr; gap: 32px; }
+      .step-row.reverse { direction: ltr; }
+      .step-img { order: -1; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .step-number { font-size: 48px; }
+      .step-text h3 { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .steps-section { padding: 64px 16px; }
+      .tips-section { padding: 64px 16px; }
+      .cta-bottom { padding: 64px 16px; }
+      .nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 8V34H20V8H16Z" fill="white"/>
+            <path d="M20 34H32V30H20V34Z" fill="white"/>
+            <path d="M24 38C24 40.2 22.2 42 20 42C17.8 42 16 40.2 16 38C16 35.8 17.8 34 20 34C22.2 34 24 35.8 24 38Z" fill="white"/>
+          </svg>
+        </div>
+        <span>Lovent</span>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.lovent" class="nav-cta" target="_blank" rel="noopener">Get on Google Play</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Tutorial</div>
+      <h1>How to Use Lovent</h1>
+      <p class="hero-sub">Get started in minutes. No complex setup required.</p>
+    </div>
+  </header>
+
+  <!-- STEPS -->
+  <section class="steps-section">
+    <div class="steps-inner">
+
+      <!-- Step 1 -->
+      <div class="step-row">
+        <div class="step-text">
+          <div class="step-num-row">
+            <span class="step-number">1</span>
+            <span class="step-icon">🔑</span>
+          </div>
+          <h3>Sign in with Google</h3>
+          <p>Open the app and sign in with your Google account. This is required to sync events to Google Calendar.</p>
+        </div>
+        <div class="step-img">
+          <img src="images/store-image-5.png" alt="Sign in with Google screen" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-row reverse">
+        <div class="step-text">
+          <div class="step-num-row">
+            <span class="step-number">2</span>
+            <span class="step-icon">📍</span>
+          </div>
+          <h3>Set your search areas</h3>
+          <p>Tap the area selector in the top bar and enter a neighborhood, city, or region. You can save up to 5 areas. Try "Downtown Manhattan", "Shibuya", or your neighborhood.</p>
+        </div>
+        <div class="step-img">
+          <img src="images/store-image-1.png" alt="Area selector screen" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step-row">
+        <div class="step-text">
+          <div class="step-num-row">
+            <span class="step-number">3</span>
+            <span class="step-icon">📋</span>
+          </div>
+          <h3>Browse the event list</h3>
+          <p>Events for the next 14 days appear automatically. Scroll through the card list or switch to map view with the map icon in the top bar.</p>
+        </div>
+        <div class="step-img">
+          <img src="images/store-image-1.png" alt="Event list screen" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-row reverse">
+        <div class="step-text">
+          <div class="step-num-row">
+            <span class="step-number">4</span>
+            <span class="step-icon">🔍</span>
+          </div>
+          <h3>Filter events</h3>
+          <p>Tap the filter chip at the top to open the filter panel. Select categories (Music, Food, Sports, etc.), date range (Today / Tomorrow / This Weekend), or enable Free Only to narrow results.</p>
+        </div>
+        <div class="step-img">
+          <img src="images/store-image-3.png" alt="Filter panel screen" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-row">
+        <div class="step-text">
+          <div class="step-num-row">
+            <span class="step-number">5</span>
+            <span class="step-icon">🗺️</span>
+          </div>
+          <h3>Switch to Map view</h3>
+          <p>Tap the map icon to see all events plotted on Google Maps. Tap a marker to see a preview card. Tap the card to open directions.</p>
+        </div>
+        <div class="step-img">
+          <img src="images/store-image-2.png" alt="Map view screen" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step-row reverse">
+        <div class="step-text">
+          <div class="step-num-row">
+            <span class="step-number">6</span>
+            <span class="step-icon">📅</span>
+          </div>
+          <h3>Tap ♥ to save to Google Calendar</h3>
+          <p>Tap the heart icon on any event card or detail page. The event is instantly added to your Google Calendar with a reminder. You can customize the reminder time (day before, day of, 1 hour before) in the event detail.</p>
+        </div>
+        <div class="step-img">
+          <img src="images/store-image-4.png" alt="Save to Google Calendar screen" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="tips-section">
+    <div class="tips-inner">
+      <span class="section-tag">Tips</span>
+      <h2>Good to know</h2>
+      <div class="tips-grid">
+        <div class="feat-card">
+          <div class="feat-icon">💡</div>
+          <h3>Events update daily</h3>
+          <p>AI re-collects events automatically every day at noon.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🌐</div>
+          <h3>Works worldwide</h3>
+          <p>Works for any city or region worldwide — just type the area name.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🌙</div>
+          <h3>Dark &amp; light themes</h3>
+          <p>Switch between Dark, Light, or follow your system theme in app settings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-bottom">
+    <h2>Ready to discover local events?</h2>
+    <a href="https://play.google.com/store/apps/details?id=com.lovent" class="btn-primary" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+      Get on Google Play (Free)
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2025 Lovent</span>
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
