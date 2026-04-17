@@ -11,204 +11,221 @@
 body{
   width:1920px;height:1080px;overflow:hidden;
   font-family:'Inter','Noto Sans JP',sans-serif;
-  color:#e2e8f0;background:#0a0e1a;
+  background:#FFFBFF;
 }
 
 /* ── Scene ── */
 .scene{position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;pointer-events:none}
 .scene.active{opacity:1;pointer-events:auto}
 
-/* ── BG ── */
-.bg{position:absolute;inset:0;background:linear-gradient(145deg,#0a0e1a 0%,#0f1629 40%,#1a1040 70%,#0a0e1a 100%)}
-.glow{position:absolute;inset:0;background:radial-gradient(ellipse 1000px 700px at 50% 45%,rgba(124,58,237,.14) 0%,transparent 65%)}
-.glow-orange{position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 72% 55%,rgba(255,107,53,.10) 0%,transparent 60%)}
+/* ── LP-matching warm background ── */
+.bg{
+  position:absolute;inset:0;
+  background:linear-gradient(155deg,#FFFBFF 0%,#FFF4EE 35%,#FFE8DC 70%,#FFFBFF 100%);
+}
+.glow{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 1200px 800px at 50% 50%,rgba(216,67,21,.12) 0%,transparent 65%);
+}
+.glow-top{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 900px 500px at 50% 0%,rgba(216,67,21,.10) 0%,transparent 60%);
+}
 
 /* ── Utility ── */
-.fi{opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateY(22px)}
+.fi{opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateY(24px)}
 .fi.show{opacity:1;transform:translateY(0)}
 
-/* ═══ S1: Intro ═══ */
-#s1 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px}
-#s1 .logo-row{display:flex;align-items:center;gap:22px}
-.logo-svg{width:88px;height:88px;flex-shrink:0}
-#s1 .brand{font-size:108px;font-weight:900;color:#fff;letter-spacing:-3px;line-height:1}
-#s1 .tagline{font-size:54px;font-weight:700;color:#ff8c42;letter-spacing:-1px}
+/* ══════════════════════════════
+   S1: INTRO
+══════════════════════════════ */
+#s1 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+#s1 .logo-row{display:flex;align-items:center;gap:24px}
+.logo-svg{width:92px;height:92px}
+#s1 .brand{font-size:112px;font-weight:900;color:#1C1612;letter-spacing:-4px;line-height:1}
+#s1 .tagline{font-size:52px;font-weight:700;color:#D84315;letter-spacing:-1px}
 #s1 .pills{display:flex;gap:16px}
-.pill{background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);color:#ffb07a;font-size:26px;font-weight:600;padding:10px 32px;border-radius:100px}
+.pill{
+  background:rgba(216,67,21,.09);border:1px solid rgba(216,67,21,.25);
+  color:#D84315;font-size:26px;font-weight:700;padding:10px 32px;border-radius:100px;
+}
 #s1 .inner{opacity:0;transition:opacity .9s ease}
 #s1.active .inner{opacity:1}
 
-/* ═══ S2: Problem ═══ */
-#s2 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:72px}
-#s2 .head{font-size:68px;font-weight:900;color:#fff;text-align:center;line-height:1.15}
-#s2 .head span{color:#ff8c42}
-#s2 .cards{display:flex;gap:36px}
-.pain{width:460px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:44px 36px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
-.pain .ico{font-size:76px}
-.pain .txt{font-size:28px;font-weight:600;color:#cbd5e1;line-height:1.4}
+/* ══════════════════════════════
+   S2: PROBLEM
+══════════════════════════════ */
+#s2 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:72px;padding:0 140px}
+#s2 .head{font-size:72px;font-weight:900;color:#1C1612;text-align:center;line-height:1.15;max-width:1300px}
+#s2 .head em{color:#D84315;font-style:normal}
+#s2 .sub{font-size:34px;font-weight:500;color:#3E302B;text-align:center;margin-top:-32px}
+#s2 .cards{display:flex;gap:40px}
+.pain{
+  width:460px;
+  background:rgba(216,67,21,.07);
+  border:1.5px solid rgba(216,67,21,.18);
+  border-radius:28px;padding:48px 40px;
+  display:flex;flex-direction:column;align-items:flex-start;gap:20px;
+}
+.pain .ico{font-size:64px;line-height:1}
+.pain .ptitle{font-size:28px;font-weight:800;color:#1C1612;line-height:1.3}
+.pain .pdesc{font-size:20px;color:#3E302B;line-height:1.6}
 
-/* ═══ S3: Solution ═══ */
+/* ══════════════════════════════
+   S3: SOLUTION
+══════════════════════════════ */
 #s3 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:80px}
-#s3 .head{font-size:80px;font-weight:900;color:#fff;text-align:center;line-height:1.1}
-#s3 .head span{color:#ff8c42}
-#s3 .steps{display:flex;align-items:center;gap:0}
-.sitem{display:flex;flex-direction:column;align-items:center;gap:20px;width:320px}
-.scircle{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#ff6b35);display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:#fff;box-shadow:0 0 32px rgba(124,58,237,.4)}
+#s3 .head{font-size:78px;font-weight:900;color:#1C1612;text-align:center;line-height:1.15}
+#s3 .head em{color:#D84315;font-style:normal}
+#s3 .steps{display:flex;align-items:center}
+.sitem{display:flex;flex-direction:column;align-items:center;gap:22px;width:340px}
+.scircle{
+  width:90px;height:90px;border-radius:50%;
+  background:linear-gradient(135deg,#D84315,#FF6E40);
+  display:flex;align-items:center;justify-content:center;
+  font-size:40px;font-weight:900;color:#fff;
+  box-shadow:0 8px 32px rgba(216,67,21,.35);
+}
 .semoji{font-size:52px}
-.slabel{font-size:34px;font-weight:700;color:#e2e8f0;text-align:center;line-height:1.3}
-.sarrow{font-size:52px;color:rgba(124,58,237,.6);margin:0 4px;margin-bottom:80px}
+.slabel{font-size:32px;font-weight:700;color:#1C1612;text-align:center;line-height:1.35}
+.slabel span{display:block;font-size:22px;font-weight:500;color:#3E302B;margin-top:6px}
+.sarrow{font-size:56px;color:rgba(216,67,21,.4);margin:0 8px;margin-bottom:100px}
 
-/* ═══ S4: Demo ═══ */
-#s4 .layout{position:absolute;inset:0;display:flex}
-#s4 .co-area{width:800px;height:1080px;display:flex;align-items:center;justify-content:center;padding:80px}
+/* ══════════════════════════════
+   S4: DEMO
+══════════════════════════════ */
+#s4 .layout{position:absolute;inset:0;display:flex;background:linear-gradient(155deg,#FFFBFF 0%,#FFF4EE 40%,#FFE8DC 100%)}
+#s4 .co-area{width:820px;height:1080px;display:flex;align-items:center;justify-content:center;padding:80px}
 #s4 .ph-area{flex:1;height:1080px;display:flex;align-items:center;justify-content:center}
 
-.co{background:#1e1b4b;border:1px solid rgba(124,58,237,.35);border-radius:20px;padding:40px 48px;
-  opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateX(-24px);max-width:640px;
-  position:absolute}
+/* Callout — dark on light bg */
+.co{
+  background:#1C1612;border:1px solid rgba(216,67,21,.5);border-radius:22px;
+  padding:44px 52px;
+  opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateX(-24px);
+  max-width:660px;position:absolute;
+}
 .co.show{opacity:1;transform:translateX(0)}
-.co-title{font-size:46px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.2}
-.co-desc{font-size:26px;color:#a5b4fc;line-height:1.55}
+.co-eyebrow{font-size:20px;font-weight:600;color:#FF8A65;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.co-title{font-size:48px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px}
+.co-desc{font-size:26px;color:rgba(255,255,255,.72);line-height:1.55}
 
-/* Phone */
-.phone{width:400px;height:800px;background:#fffbff;border-radius:40px;overflow:hidden;
-  box-shadow:0 48px 140px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.1);
-  position:relative;display:flex;flex-direction:column}
-
-/* TopAppBar */
-.tab{background:#fffbff;border-bottom:1px solid #d8c2ba;padding:14px 14px 10px;
-  display:flex;align-items:center;gap:8px;flex-shrink:0}
+/* ── Phone mock ── */
+.phone{
+  width:400px;height:800px;background:#FFFBFF;border-radius:40px;overflow:hidden;
+  box-shadow:0 48px 140px rgba(28,22,18,.25),0 0 0 1px rgba(216,67,21,.12);
+  position:relative;display:flex;flex-direction:column;
+}
+.tab{background:#FFFBFF;border-bottom:1px solid #D8C2BA;padding:14px 14px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .tab-logo{display:flex;align-items:center;gap:8px;flex:1}
-.tab-name{font-size:19px;font-weight:700;color:#1c1612}
-.tab-icons{display:flex;gap:2px;align-items:center}
-.ticon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%}
-.ticon svg{width:20px;height:20px;fill:none;stroke:#3e302b;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-
-/* Area chips */
-.area-row{padding:8px 10px 4px;display:flex;gap:8px;flex-shrink:0;background:#fffbff;overflow:hidden}
-.achip{background:#ffdbcf;color:#d84315;font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px;white-space:nowrap;display:flex;align-items:center;gap:4px}
-.achip.sel{background:#d84315;color:#fff}
-
-/* Filter bar */
-.fbar{padding:6px 10px 8px;display:flex;gap:8px;align-items:center;flex-shrink:0;background:#fffbff;border-bottom:1px solid #f0e0d8}
-.fchip{display:flex;align-items:center;gap:5px;background:#ffdbcf;color:#d84315;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px}
-.fchip.main{background:#d84315;color:#fff}
-
-/* Content */
-.pcontent{flex:1;overflow:hidden;position:relative;background:#f5ded6}
-
-/* Demo phases */
-.dphase{position:absolute;inset:0;opacity:0;transition:opacity .45s ease;overflow-y:auto;
-  background:#f5ded6;padding:10px;display:flex;flex-direction:column;gap:10px}
+.tab-name{font-size:19px;font-weight:700;color:#1C1612}
+.tab-icons{display:flex;gap:2px}
+.ticon{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.ticon svg{width:20px;height:20px;fill:none;stroke:#3E302B;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.area-row{padding:8px 10px 4px;display:flex;gap:8px;flex-shrink:0;background:#FFFBFF}
+.achip{background:#FFE8DC;color:#D84315;font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px;display:flex;align-items:center;gap:4px}
+.achip.sel{background:#D84315;color:#fff}
+.fbar{padding:6px 10px 8px;display:flex;gap:8px;align-items:center;flex-shrink:0;background:#FFFBFF;border-bottom:1px solid #F0E0D8}
+.fchip{display:flex;align-items:center;gap:5px;background:#FFE8DC;color:#D84315;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px}
+.fchip.main{background:#D84315;color:#fff}
+.pcontent{flex:1;overflow:hidden;position:relative;background:#F5DED6}
+.dphase{position:absolute;inset:0;opacity:0;transition:opacity .4s ease;overflow-y:auto;background:#F5DED6;padding:10px;display:flex;flex-direction:column;gap:10px}
 .dphase.active{opacity:1}
-
-/* Event card */
-.ecard{background:#fffbff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.09);flex-shrink:0}
-.ecard-hero{height:140px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden}
+.ecard{background:#FFFBFF;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(28,22,18,.1);flex-shrink:0}
+.ecard-hero{height:140px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
 .ecard-hero .gr{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.2))}
 .ecard-body{padding:12px 14px;display:flex;flex-direction:column;gap:7px}
-.ecard-row1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.ecard-title{font-size:14px;font-weight:600;color:#1c1612;line-height:1.35;flex:1}
-.eheart{font-size:18px;flex-shrink:0;margin-top:1px}
-.ecard-chips{display:flex;gap:6px}
-.cat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;color:#fff;display:inline-block}
-.cat-music{background:#283593}.cat-food{background:#d84315}.cat-sports{background:#00695c}
-.cat-art{background:#c2185b}.cat-tech{background:#00838f}.cat-fest{background:#a67c00}
-.cat-free{background:#009688}
-.emeta{display:flex;align-items:center;gap:5px;font-size:12px;color:#3e302b}
-
-/* Bottom sheet */
-.bsheet{position:absolute;left:0;right:0;bottom:0;background:#fffbff;border-radius:24px 24px 0 0;
-  padding:12px 14px 20px;box-shadow:0 -4px 24px rgba(0,0,0,.18);z-index:20;
+.ecard-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.ecard-title{font-size:14px;font-weight:600;color:#1C1612;line-height:1.35;flex:1}
+.eheart{font-size:18px;flex-shrink:0}
+.echips{display:flex;gap:6px}
+.cat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;color:#fff}
+.cm{background:#283593}.cf{background:#D84315}.cs{background:#00695C}
+.ca{background:#C2185B}.ct{background:#00838F}.cfr{background:#009688}
+.emeta{display:flex;align-items:center;gap:5px;font-size:12px;color:#3E302B}
+.bsheet{position:absolute;left:0;right:0;bottom:0;background:#FFFBFF;border-radius:24px 24px 0 0;
+  padding:12px 14px 20px;box-shadow:0 -4px 24px rgba(28,22,18,.15);z-index:20;
   transform:translateY(100%);transition:transform .4s ease}
 .bsheet.open{transform:translateY(0)}
-.bhandle{width:36px;height:4px;background:#d8c2ba;border-radius:2px;margin:0 auto 14px}
-.bsect{font-size:12px;font-weight:700;color:#3e302b;margin-bottom:8px;margin-top:10px}
-.bcats{display:flex;gap:7px;flex-wrap:wrap}
-.bcat{font-size:11px;font-weight:600;padding:5px 10px;border-radius:7px;border:1.5px solid #d8c2ba;color:#3e302b;background:transparent}
-.bcat.on{background:#ffdbcf;border-color:#d84315;color:#d84315}
+.bhandle{width:36px;height:4px;background:#D8C2BA;border-radius:2px;margin:0 auto 14px}
+.bsect{font-size:12px;font-weight:700;color:#3E302B;margin-bottom:8px;margin-top:10px}
+.bcats{display:flex;gap:6px;flex-wrap:wrap}
+.bcat{font-size:11px;font-weight:600;padding:5px 10px;border-radius:7px;border:1.5px solid #D8C2BA;color:#3E302B;background:transparent}
+.bcat.on{background:#FFE8DC;border-color:#D84315;color:#D84315}
 .bdates{display:flex;gap:6px}
-.bdate{flex:1;text-align:center;font-size:11px;font-weight:600;padding:6px 4px;border-radius:7px;border:1.5px solid #d8c2ba;color:#3e302b;background:transparent}
-.bdate.on{background:#ffdbcf;border-color:#d84315;color:#d84315}
+.bdate{flex:1;text-align:center;font-size:11px;font-weight:600;padding:6px 4px;border-radius:7px;border:1.5px solid #D8C2BA;color:#3E302B;background:transparent}
+.bdate.on{background:#FFE8DC;border-color:#D84315;color:#D84315}
 .btoggle{display:flex;align-items:center;gap:8px;margin-top:10px}
-.btlabel{font-size:12px;font-weight:600;color:#1c1612;flex:1}
-.btsw{width:40px;height:22px;border-radius:11px;background:#d84315;position:relative;flex-shrink:0}
+.btlabel{font-size:12px;font-weight:600;color:#1C1612;flex:1}
+.btsw{width:40px;height:22px;border-radius:11px;background:#D84315;position:relative;flex-shrink:0}
 .btsw::after{content:'';position:absolute;right:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#fff}
-.bapply{margin-top:12px;width:100%;background:#d84315;color:#fff;font-size:13px;font-weight:700;
-  padding:10px;border-radius:10px;border:none;font-family:inherit;cursor:pointer}
-
-/* Map */
-.mapbg{position:absolute;inset:0;background:#e8f0e8}
-.mroad-h{position:absolute;left:0;right:0;height:9px;background:rgba(255,255,255,.75)}
-.mroad-v{position:absolute;top:0;bottom:0;width:9px;background:rgba(255,255,255,.75)}
-.mblock{position:absolute;background:rgba(200,220,200,.6);border-radius:5px}
-.mpin{position:absolute;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
-  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.mapbg{position:absolute;inset:0;background:#E8F0E8}
+.mr-h{position:absolute;left:0;right:0;height:9px;background:rgba(255,255,255,.75)}
+.mr-v{position:absolute;top:0;bottom:0;width:9px;background:rgba(255,255,255,.75)}
+.mblock{position:absolute;background:rgba(200,220,200,.55);border-radius:5px}
+.mpin{position:absolute;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 .mpin::after{content:attr(data-e);transform:rotate(45deg);font-size:17px;display:block}
-.mlabel{position:absolute;font-size:10px;font-weight:700;background:#fff;padding:2px 7px;
-  border-radius:4px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.2);color:#1c1612}
-
-/* Detail */
-.dbar{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #d8c2ba;flex-shrink:0;background:#fffbff}
-.dback{font-size:20px;color:#d84315;font-weight:700}
-.dtitle{font-size:15px;font-weight:700;color:#1c1612}
-.dhero{height:180px;display:flex;align-items:center;justify-content:center;font-size:72px;background:#f5ded6;flex-shrink:0}
+.mlabel{position:absolute;font-size:10px;font-weight:700;background:#fff;padding:2px 7px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.18);color:#1C1612}
+.dbar{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #D8C2BA;flex-shrink:0;background:#FFFBFF}
+.dback{font-size:20px;color:#D84315;font-weight:700}
+.dtitle{font-size:15px;font-weight:700;color:#1C1612}
+.dhero{height:170px;display:flex;align-items:center;justify-content:center;font-size:68px;background:#F5DED6;flex-shrink:0}
 .dbody{padding:14px;display:flex;flex-direction:column;gap:10px;overflow:auto}
-.dname{font-size:18px;font-weight:700;color:#1c1612}
-.dmeta{font-size:13px;color:#3e302b;display:flex;align-items:center;gap:6px}
-.calcard{background:#f5ded6;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-top:2px}
-.calcard-text{font-size:12px;font-weight:600;color:#3e302b;line-height:1.5}
-.fav-btn{margin-top:4px;background:#d84315;color:#fff;font-size:14px;font-weight:700;
-  padding:12px;border-radius:12px;border:none;font-family:inherit;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .3s}
+.dname{font-size:17px;font-weight:700;color:#1C1612}
+.dmeta{font-size:12px;color:#3E302B;display:flex;align-items:center;gap:6px}
+.calcard{background:#F5DED6;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-top:2px}
+.calcard-text{font-size:12px;font-weight:600;color:#3E302B;line-height:1.55}
+.favbtn{background:#D84315;color:#fff;font-size:13px;font-weight:700;padding:12px;
+  border-radius:12px;border:none;font-family:inherit;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:8px}
 
-/* Collect loading phase */
-.collecting{position:absolute;inset:0;background:#f5ded6;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:20px;opacity:0;transition:opacity .4s}
-.collecting.active{opacity:1}
-.spin{width:36px;height:36px;border:3px solid #ffdbcf;border-top-color:#d84315;
-  border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.coll-text{font-size:14px;font-weight:600;color:#3e302b}
-
-/* ═══ S5: Features ═══ */
+/* ══════════════════════════════
+   S5: FEATURES
+══════════════════════════════ */
 #s5 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:52px;padding:60px 100px}
-#s5 .head{font-size:84px;font-weight:900;color:#fff}
+#s5 .head{font-size:80px;font-weight:900;color:#1C1612}
+#s5 .head em{color:#D84315;font-style:normal}
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;width:100%}
-.fcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:14px}
+.fcard{background:rgba(216,67,21,.06);border:1px solid rgba(216,67,21,.16);border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:14px}
 .fcard .fi-ico{font-size:48px}
-.fcard .fi-title{font-size:30px;font-weight:700;color:#fff}
-.fcard .fi-body{font-size:21px;color:#94a3b8;line-height:1.5}
+.fcard .fi-title{font-size:28px;font-weight:700;color:#1C1612}
+.fcard .fi-body{font-size:20px;color:#3E302B;line-height:1.55}
 
-/* ═══ S6: CTA ═══ */
-#s6 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px}
-#s6 .head{font-size:100px;font-weight:900;color:#fff;text-align:center;line-height:1.05;max-width:1500px}
-#s6 .head span{color:#ff8c42}
-#s6 .badge{background:rgba(255,107,53,.12);border:1px solid rgba(255,107,53,.3);color:#ffb07a;font-size:28px;font-weight:600;padding:10px 36px;border-radius:100px}
-.gpbtn{display:flex;align-items:center;gap:16px;background:#111827;border:1.5px solid rgba(255,255,255,.18);border-radius:16px;padding:14px 36px;min-width:340px;height:86px}
-.gpbtn svg{width:30px;height:30px;flex-shrink:0}
-.gptxt{display:flex;flex-direction:column}
-.gpget{font-size:14px;color:rgba(255,255,255,.65);line-height:1}
-.gpname{font-size:28px;font-weight:700;color:#fff;line-height:1.25}
-#s6 .sub{font-size:28px;color:#64748b}
-#s6 .inner{opacity:0;transform:scale(.92);transition:opacity .7s ease,transform .7s ease}
+/* ══════════════════════════════
+   S6: CTA
+══════════════════════════════ */
+#s6 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px}
+#s6 .head{font-size:96px;font-weight:900;color:#1C1612;text-align:center;line-height:1.1;max-width:1400px}
+#s6 .head em{color:#D84315;font-style:normal}
+#s6 .badge{background:rgba(216,67,21,.09);border:1px solid rgba(216,67,21,.25);color:#D84315;font-size:26px;font-weight:700;padding:10px 36px;border-radius:100px}
+.gpbtn{
+  display:flex;align-items:center;gap:18px;
+  background:#1C1612;border:none;border-radius:16px;
+  padding:16px 42px;min-width:360px;height:90px;cursor:pointer;
+  box-shadow:0 8px 40px rgba(216,67,21,.25);
+}
+.gpbtn svg{width:32px;height:32px;flex-shrink:0}
+.gptxt{display:flex;flex-direction:column;text-align:left}
+.gpget{font-size:14px;color:rgba(255,255,255,.6);line-height:1}
+.gpname{font-size:30px;font-weight:700;color:#fff;line-height:1.25}
+#s6 .sub{font-size:26px;color:#6B4C41}
+#s6 .inner{opacity:0;transform:scale(.93);transition:opacity .7s ease,transform .7s ease}
 #s6.active .inner{opacity:1;transform:scale(1)}
 </style>
 </head>
 <body>
 
-<!-- S1: INTRO -->
+<!-- ══ S1: INTRO ══ -->
 <div class="scene" id="s1">
-  <div class="bg"></div>
-  <div class="glow"></div>
+  <div class="bg"></div><div class="glow"></div><div class="glow-top"></div>
   <div class="wrap">
     <div class="inner">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:32px">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:36px">
         <div class="logo-row">
-          <svg class="logo-svg" viewBox="0 0 24 24"><path fill="#ff6b35" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+          <svg class="logo-svg" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
           <span class="brand">Lovent</span>
         </div>
-        <div class="tagline">AI discovers events near you.</div>
+        <div class="tagline">Your area's events, found by AI.</div>
         <div class="pills">
           <span class="pill">Free</span>
           <span class="pill">Android</span>
@@ -219,54 +236,102 @@ body{
   </div>
 </div>
 
-<!-- S2: PROBLEM -->
+<!-- ══ S2: PROBLEM ══ -->
 <div class="scene" id="s2">
   <div class="bg"></div><div class="glow"></div>
   <div class="wrap">
-    <div class="head">Tired of <span>missing out</span> on local events?</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+      <div class="head fi" id="ph">地元のイベント、<em>見つけるのが大変</em>じゃない？</div>
+      <div class="sub fi" id="ps">情報はバラバラ、気づいたら終わってる…</div>
+    </div>
     <div class="cards">
-      <div class="pain fi" id="p1"><div class="ico">😩</div><div class="txt">Scattered across dozens of sites &amp; apps</div></div>
-      <div class="pain fi" id="p2"><div class="ico">⏰</div><div class="txt">Found out about it after it ended</div></div>
-      <div class="pain fi" id="p3"><div class="ico">🔍</div><div class="txt">Nothing matched your interests</div></div>
+      <div class="pain fi" id="p1">
+        <div class="ico">😩</div>
+        <div class="ptitle">情報がバラバラ</div>
+        <div class="pdesc">ポータルサイト、SNS、口コミ…毎回バラバラで探すのが面倒</div>
+      </div>
+      <div class="pain fi" id="p2">
+        <div class="ico">⏰</div>
+        <div class="ptitle">気づいたら終わってた</div>
+        <div class="pdesc">知ったときには既に終了。前もって把握できない</div>
+      </div>
+      <div class="pain fi" id="p3">
+        <div class="ico">🔍</div>
+        <div class="ptitle">自分好みが見つからない</div>
+        <div class="pdesc">音楽・フード・スポーツ… 興味に合うイベントが埋もれてしまう</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- S3: SOLUTION -->
+<!-- ══ S3: SOLUTION ══ -->
 <div class="scene" id="s3">
   <div class="bg"></div><div class="glow"></div>
   <div class="wrap">
-    <div class="head">With Lovent, <span>it's simple.</span></div>
+    <div class="head fi" id="sh">Loventなら、<em>エリア設定だけ。</em></div>
     <div class="steps">
-      <div class="sitem fi" id="st1"><div class="scircle">1</div><div class="semoji">📍</div><div class="slabel">Set your area</div></div>
+      <div class="sitem fi" id="st1">
+        <div class="scircle">1</div>
+        <div class="semoji">📍</div>
+        <div class="slabel">エリアを設定<span>最大5か所まで登録</span></div>
+      </div>
       <div class="sarrow fi" id="sa1">→</div>
-      <div class="sitem fi" id="st2"><div class="scircle">2</div><div class="semoji">🤖</div><div class="slabel">AI collects events</div></div>
+      <div class="sitem fi" id="st2">
+        <div class="scircle">2</div>
+        <div class="semoji">🤖</div>
+        <div class="slabel">AIが自動収集<span>最大14日先まで</span></div>
+      </div>
       <div class="sarrow fi" id="sa2">→</div>
-      <div class="sitem fi" id="st3"><div class="scircle">3</div><div class="semoji">🎉</div><div class="slabel">Browse &amp; save</div></div>
+      <div class="sitem fi" id="st3">
+        <div class="scircle">3</div>
+        <div class="semoji">🎉</div>
+        <div class="slabel">一覧・マップで確認<span>気になったらカレンダーに保存</span></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- S4: DEMO -->
+<!-- ══ S4: DEMO ══ -->
 <div class="scene" id="s4">
-  <div class="bg"></div><div class="glow"></div><div class="glow-orange"></div>
   <div class="layout">
 
     <!-- Callouts -->
     <div class="co-area">
-      <div class="co" id="co-a"><div class="co-title">📍 Events near you</div><div class="co-desc">AI discovers events in your area automatically every day</div></div>
-      <div class="co" id="co-b"><div class="co-title">🔍 Filter your way</div><div class="co-desc">15 categories · Date range · Free only</div></div>
-      <div class="co" id="co-c"><div class="co-title">✅ Filtered results</div><div class="co-desc">Showing: Music · Free events this weekend</div></div>
-      <div class="co" id="co-d"><div class="co-title">🗺️ Map view</div><div class="co-desc">See every event pinned on Google Maps</div></div>
-      <div class="co" id="co-e"><div class="co-title">♥ Tap to save</div><div class="co-desc">Instantly added to Google Calendar with reminder</div></div>
-      <div class="co" id="co-f"><div class="co-title">⏰ Never miss it</div><div class="co-desc">Reminder fires right before the event starts</div></div>
+      <div class="co" id="co-a">
+        <div class="co-eyebrow">自動収集</div>
+        <div class="co-title">📍 エリアのイベントが自動で届く</div>
+        <div class="co-desc">設定したエリアのイベントをAIが毎日自動収集。最大14日先まで対応。</div>
+      </div>
+      <div class="co" id="co-b">
+        <div class="co-eyebrow">スマートフィルター</div>
+        <div class="co-title">🔍 15カテゴリで絞り込める</div>
+        <div class="co-desc">音楽・フード・スポーツなど15カテゴリ、日付、無料イベントで絞り込み。</div>
+      </div>
+      <div class="co" id="co-c">
+        <div class="co-eyebrow">絞り込み結果</div>
+        <div class="co-title">✅ ぴったりのイベントだけ表示</div>
+        <div class="co-desc">音楽 × 無料 × 週末 — 条件に合うイベントだけが残る。</div>
+      </div>
+      <div class="co" id="co-d">
+        <div class="co-eyebrow">マップ表示</div>
+        <div class="co-title">🗺️ 地図でイベントの場所を確認</div>
+        <div class="co-desc">Google Maps上にピン表示。タップでプレビュー、そのままナビも可能。</div>
+      </div>
+      <div class="co" id="co-e">
+        <div class="co-eyebrow">お気に入り</div>
+        <div class="co-title">♥ タップするだけで保存</div>
+        <div class="co-desc">ハートをタップするとGoogleカレンダーに自動登録。もう見逃さない。</div>
+      </div>
+      <div class="co" id="co-f">
+        <div class="co-eyebrow">リマインダー</div>
+        <div class="co-title">⏰ 直前にお知らせ</div>
+        <div class="co-desc">イベント当日・前日・1時間前など、好きなタイミングで通知設定できる。</div>
+      </div>
     </div>
 
-    <!-- Phone -->
+    <!-- Phone mock -->
     <div class="ph-area">
       <div class="phone">
-
-        <!-- TopAppBar -->
         <div class="tab">
           <div class="tab-logo">
             <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
@@ -278,155 +343,146 @@ body{
             <div class="ticon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
           </div>
         </div>
-
-        <!-- Area chips -->
         <div class="area-row">
-          <div class="achip sel">Shibuya</div>
-          <div class="achip">Shinjuku</div>
-          <div class="achip">Osaka</div>
+          <div class="achip sel">渋谷</div>
+          <div class="achip">新宿</div>
+          <div class="achip">大阪</div>
         </div>
-
-        <!-- Filter bar -->
         <div class="fbar">
-          <div class="fchip main">≡ Filter</div>
+          <div class="fchip main">≡ フィルター</div>
         </div>
-
-        <!-- Content -->
         <div class="pcontent">
 
-          <!-- Phase A: Event list -->
+          <!-- Phase A: イベント一覧 -->
           <div class="dphase" id="ph-a">
             <div class="ecard">
               <div class="ecard-hero" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
               <div class="ecard-body">
-                <div class="ecard-row1"><div class="ecard-title">Jazz Night at Blue Moon Bar</div><div class="eheart">🤍</div></div>
-                <div class="ecard-chips"><span class="cat cat-music">Music</span></div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sat, Apr 19 · 8:00 PM</div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#6b4c41" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Blue Moon Bar, Shibuya</div>
+                <div class="ecard-r1"><div class="ecard-title">ジャズナイト at ブルームーンバー</div><div class="eheart">🤍</div></div>
+                <div class="echips"><span class="cat cm">音楽</span></div>
+                <div class="emeta">📅 4/19(土) 20:00〜</div>
+                <div class="emeta">📍 渋谷区 ブルームーンバー</div>
               </div>
             </div>
             <div class="ecard">
               <div class="ecard-hero" style="background:linear-gradient(135deg,#BF360C,#E64A19)">🍜<div class="gr"></div></div>
               <div class="ecard-body">
-                <div class="ecard-row1"><div class="ecard-title">Ramen Festival 2025 – 40 Shops</div><div class="eheart">🤍</div></div>
-                <div class="ecard-chips"><span class="cat cat-food">Food</span><span class="cat cat-free">Free</span></div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sun, Apr 20 · 11:00 AM</div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#6b4c41" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Yoyogi Park, Shibuya</div>
+                <div class="ecard-r1"><div class="ecard-title">ラーメンフェスティバル 2025 — 40店舗</div><div class="eheart">🤍</div></div>
+                <div class="echips"><span class="cat cf">フード</span><span class="cat cfr">無料</span></div>
+                <div class="emeta">📅 4/20(日) 11:00〜</div>
+                <div class="emeta">📍 代々木公園</div>
               </div>
             </div>
             <div class="ecard">
               <div class="ecard-hero" style="background:linear-gradient(135deg,#004D40,#00796B)">🏃<div class="gr"></div></div>
               <div class="ecard-body">
-                <div class="ecard-row1"><div class="ecard-title">City Marathon 5K Fun Run</div><div class="eheart">🤍</div></div>
-                <div class="ecard-chips"><span class="cat cat-sports">Sports</span></div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sun, Apr 20 · 7:00 AM</div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#6b4c41" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Shinjuku Central Park</div>
+                <div class="ecard-r1"><div class="ecard-title">シティマラソン 5Kファンラン</div><div class="eheart">🤍</div></div>
+                <div class="echips"><span class="cat cs">スポーツ</span></div>
+                <div class="emeta">📅 4/20(日) 7:00〜</div>
+                <div class="emeta">📍 新宿中央公園</div>
               </div>
             </div>
           </div>
 
-          <!-- Phase B: Filter sheet -->
+          <!-- Phase B: フィルターシート -->
           <div class="dphase" id="ph-b">
-            <div class="ecard" style="opacity:.5">
+            <div class="ecard" style="opacity:.45">
               <div class="ecard-hero" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
-              <div class="ecard-body"><div class="ecard-row1"><div class="ecard-title">Jazz Night at Blue Moon Bar</div></div></div>
+              <div class="ecard-body"><div class="ecard-r1"><div class="ecard-title">ジャズナイト at ブルームーンバー</div></div></div>
             </div>
             <div class="bsheet" id="bsheet">
               <div class="bhandle"></div>
-              <div class="bsect">Category</div>
+              <div class="bsect">カテゴリ</div>
               <div class="bcats">
-                <span class="bcat on">✓ Music</span><span class="bcat">Food</span><span class="bcat">Sports</span>
-                <span class="bcat">Art</span><span class="bcat">Tech</span><span class="bcat">Festival</span>
+                <span class="bcat on">✓ 音楽</span><span class="bcat">フード</span><span class="bcat">スポーツ</span>
+                <span class="bcat">アート</span><span class="bcat">テック</span><span class="bcat">フェス</span>
               </div>
-              <div class="bsect">Date</div>
+              <div class="bsect">日付</div>
               <div class="bdates">
-                <div class="bdate">Today</div><div class="bdate">Tomorrow</div><div class="bdate on">✓ Weekend</div><div class="bdate">All</div>
+                <div class="bdate">今日</div><div class="bdate">明日</div><div class="bdate on">✓ 週末</div><div class="bdate">すべて</div>
               </div>
               <div class="btoggle">
-                <span class="btlabel">Free only</span>
+                <span class="btlabel">無料のみ</span>
                 <div class="btsw"></div>
               </div>
-              <button class="bapply">Apply</button>
             </div>
           </div>
 
-          <!-- Phase C: Filtered -->
+          <!-- Phase C: 絞り込み結果 -->
           <div class="dphase" id="ph-c">
             <div style="display:flex;gap:6px;flex-wrap:wrap;padding:2px 2px 6px">
-              <div class="fchip">Music ×</div><div class="fchip">Weekend ×</div><div class="fchip">Free ×</div>
+              <div class="fchip">音楽 ×</div><div class="fchip">週末 ×</div><div class="fchip">無料 ×</div>
             </div>
             <div class="ecard">
               <div class="ecard-hero" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
               <div class="ecard-body">
-                <div class="ecard-row1"><div class="ecard-title">Free Acoustic Session – Harajuku</div><div class="eheart">🤍</div></div>
-                <div class="ecard-chips"><span class="cat cat-music">Music</span><span class="cat cat-free">Free</span></div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sat, Apr 19 · 6:00 PM</div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#6b4c41" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Harajuku Station West Exit</div>
+                <div class="ecard-r1"><div class="ecard-title">フリーアコースティックセッション — 原宿</div><div class="eheart">🤍</div></div>
+                <div class="echips"><span class="cat cm">音楽</span><span class="cat cfr">無料</span></div>
+                <div class="emeta">📅 4/19(土) 18:00〜</div>
+                <div class="emeta">📍 原宿駅 西口</div>
               </div>
             </div>
             <div class="ecard">
               <div class="ecard-hero" style="background:linear-gradient(135deg,#1565C0,#283593)">🎸<div class="gr"></div></div>
               <div class="ecard-body">
-                <div class="ecard-row1"><div class="ecard-title">Street Live – Shimokitazawa</div><div class="eheart">🤍</div></div>
-                <div class="ecard-chips"><span class="cat cat-music">Music</span><span class="cat cat-free">Free</span></div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sun, Apr 20 · 3:00 PM</div>
-                <div class="emeta"><svg width="13" height="13" fill="none" stroke="#6b4c41" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Shimokitazawa South Exit</div>
+                <div class="ecard-r1"><div class="ecard-title">ストリートライブ — 下北沢</div><div class="eheart">🤍</div></div>
+                <div class="echips"><span class="cat cm">音楽</span><span class="cat cfr">無料</span></div>
+                <div class="emeta">📅 4/20(日) 15:00〜</div>
+                <div class="emeta">📍 下北沢 南口</div>
               </div>
             </div>
           </div>
 
-          <!-- Phase D: Map -->
-          <div class="dphase" id="ph-d" style="padding:0;background:#e8f0e8">
+          <!-- Phase D: マップ -->
+          <div class="dphase" id="ph-d" style="padding:0;background:#E8F0E8">
             <div class="mapbg"></div>
-            <div class="mroad-h" style="top:33%"></div>
-            <div class="mroad-h" style="top:60%"></div>
-            <div class="mroad-v" style="left:28%"></div>
-            <div class="mroad-v" style="left:64%"></div>
-            <div class="mblock" style="top:8%;left:6%;width:19%;height:22%"></div>
-            <div class="mblock" style="top:8%;left:33%;width:27%;height:22%"></div>
-            <div class="mblock" style="top:8%;left:69%;width:22%;height:22%"></div>
-            <div class="mblock" style="top:38%;left:6%;width:19%;height:18%"></div>
-            <div class="mblock" style="top:38%;left:33%;width:27%;height:18%"></div>
-            <div class="mblock" style="top:38%;left:69%;width:22%;height:18%"></div>
-            <div class="mblock" style="top:63%;left:6%;width:19%;height:30%"></div>
-            <div class="mblock" style="top:63%;left:33%;width:27%;height:30%"></div>
-            <div class="mblock" style="top:63%;left:69%;width:22%;height:30%"></div>
-            <div class="mpin" style="background:#283593;top:15%;left:12%" data-e="🎵"></div>
-            <div class="mlabel" style="top:5%;left:5%">Jazz Night</div>
-            <div class="mpin" style="background:#d84315;top:15%;left:48%" data-e="🍜"></div>
-            <div class="mlabel" style="top:5%;left:42%">Ramen Fest</div>
-            <div class="mpin" style="background:#00695c;top:40%;left:22%" data-e="🏃"></div>
-            <div class="mlabel" style="top:30%;left:16%">5K Run</div>
-            <div class="mpin" style="background:#c2185b;top:40%;left:70%" data-e="🎨"></div>
-            <div class="mlabel" style="top:30%;left:64%">Art Expo</div>
-            <div class="mpin" style="background:#00838f;top:66%;left:52%" data-e="💻"></div>
-            <div class="mlabel" style="top:57%;left:47%">Tech Talk</div>
+            <div class="mr-h" style="top:33%"></div><div class="mr-h" style="top:61%"></div>
+            <div class="mr-v" style="left:28%"></div><div class="mr-v" style="left:65%"></div>
+            <div class="mblock" style="top:8%;left:5%;width:20%;height:22%"></div>
+            <div class="mblock" style="top:8%;left:33%;width:28%;height:22%"></div>
+            <div class="mblock" style="top:8%;left:70%;width:22%;height:22%"></div>
+            <div class="mblock" style="top:37%;left:5%;width:20%;height:21%"></div>
+            <div class="mblock" style="top:37%;left:33%;width:28%;height:21%"></div>
+            <div class="mblock" style="top:37%;left:70%;width:22%;height:21%"></div>
+            <div class="mblock" style="top:65%;left:5%;width:20%;height:28%"></div>
+            <div class="mblock" style="top:65%;left:33%;width:28%;height:28%"></div>
+            <div class="mblock" style="top:65%;left:70%;width:22%;height:28%"></div>
+            <div class="mpin" style="background:#283593;top:15%;left:11%" data-e="🎵"></div>
+            <div class="mlabel" style="top:5%;left:5%">ジャズナイト</div>
+            <div class="mpin" style="background:#D84315;top:15%;left:47%" data-e="🍜"></div>
+            <div class="mlabel" style="top:5%;left:41%">ラーメンフェス</div>
+            <div class="mpin" style="background:#00695C;top:40%;left:20%" data-e="🏃"></div>
+            <div class="mlabel" style="top:30%;left:14%">5K ラン</div>
+            <div class="mpin" style="background:#C2185B;top:40%;left:70%" data-e="🎨"></div>
+            <div class="mlabel" style="top:30%;left:64%">アート展</div>
+            <div class="mpin" style="background:#00838F;top:67%;left:52%" data-e="💻"></div>
+            <div class="mlabel" style="top:57%;left:46%">Tech Talk</div>
           </div>
 
-          <!-- Phase E: Detail + fav -->
+          <!-- Phase E: 詳細 -->
           <div class="dphase" id="ph-e" style="padding:0;display:block">
-            <div class="dbar"><div class="dback">←</div><div class="dtitle">Event Detail</div></div>
+            <div class="dbar"><div class="dback">←</div><div class="dtitle">イベント詳細</div></div>
             <div class="dhero">🎵</div>
             <div class="dbody">
-              <div class="dname">Jazz Night at Blue Moon Bar</div>
-              <div class="dmeta"><svg width="14" height="14" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sat, Apr 19 · 8:00 PM – 11:00 PM</div>
-              <div class="dmeta"><svg width="14" height="14" fill="none" stroke="#6b4c41" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Blue Moon Bar, Shibuya, Tokyo</div>
-              <div style="font-size:12px;color:#3e302b;line-height:1.6">Live jazz by Kenji Trio. Free entry. All welcome.</div>
-              <button class="fav-btn" id="fav-btn">🤍 Add to Favorites</button>
+              <div class="dname">ジャズナイト at ブルームーンバー</div>
+              <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
+              <div class="dmeta">📍 渋谷区 ブルームーンバー</div>
+              <div style="font-size:12px;color:#3E302B;line-height:1.7">Kenji Trioによるライブジャズ。ドリンクあり。入場無料。</div>
+              <button class="favbtn">🤍 お気に入りに追加</button>
             </div>
           </div>
 
-          <!-- Phase F: Calendar added -->
+          <!-- Phase F: カレンダー追加済み -->
           <div class="dphase" id="ph-f" style="padding:0;display:block">
-            <div class="dbar"><div class="dback">←</div><div class="dtitle">Event Detail</div></div>
+            <div class="dbar"><div class="dback">←</div><div class="dtitle">イベント詳細</div></div>
             <div class="dhero">🎵</div>
             <div class="dbody">
-              <div class="dname">Jazz Night at Blue Moon Bar</div>
-              <div class="dmeta"><svg width="14" height="14" fill="none" stroke="#d84315" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Sat, Apr 19 · 8:00 PM – 11:00 PM</div>
-              <button class="fav-btn" style="background:#c2185b">❤️ Saved to Favorites</button>
+              <div class="dname">ジャズナイト at ブルームーンバー</div>
+              <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
+              <button class="favbtn" style="background:#C2185B">❤️ お気に入り済み</button>
               <div class="calcard">
                 <span style="font-size:22px">📅</span>
-                <div class="calcard-text">Added to Google Calendar<br><span style="font-weight:400;font-size:11px;color:#85736d">Sat, Apr 19 · Reminder: Day of, 9 AM</span></div>
+                <div class="calcard-text">Googleカレンダーに追加済み<br><span style="font-weight:400;font-size:11px;color:#85736D">4/19(土) · リマインダー: 当日 9:00</span></div>
               </div>
             </div>
           </div>
@@ -437,58 +493,50 @@ body{
   </div>
 </div>
 
-<!-- S5: FEATURES -->
+<!-- ══ S5: FEATURES ══ -->
 <div class="scene" id="s5">
   <div class="bg"></div><div class="glow"></div>
   <div class="wrap">
-    <div class="head">Everything you need</div>
+    <div class="head">これ<em>ひとつ</em>で全部できる</div>
     <div class="fgrid">
-      <div class="fcard fi" id="fc1"><div class="fi-ico">🤖</div><div class="fi-title">AI Auto-Collection</div><div class="fi-body">Searches the web daily and collects events in your areas</div></div>
-      <div class="fcard fi" id="fc2"><div class="fi-ico">🗺️</div><div class="fi-title">Map &amp; List Views</div><div class="fi-body">Browse events on Google Maps or a card list</div></div>
-      <div class="fcard fi" id="fc3"><div class="fi-ico">📅</div><div class="fi-title">Calendar Sync</div><div class="fi-body">Favorite → auto-added to Google Calendar with reminder</div></div>
-      <div class="fcard fi" id="fc4"><div class="fi-ico">🏷️</div><div class="fi-title">15 Categories</div><div class="fi-body">Music, Food, Sports, Art, Tech &amp; more. Free-only filter too</div></div>
-      <div class="fcard fi" id="fc5"><div class="fi-ico">🌐</div><div class="fi-title">11 Languages</div><div class="fi-body">Auto-switches to your device language</div></div>
-      <div class="fcard fi" id="fc6"><div class="fi-ico">🌙</div><div class="fi-title">Dark &amp; Light Mode</div><div class="fi-body">Follows your system or set manually</div></div>
+      <div class="fcard fi" id="fc1"><div class="fi-ico">🤖</div><div class="fi-title">AI自動収集</div><div class="fi-body">毎日自動更新。最大14日先のイベントを収集</div></div>
+      <div class="fcard fi" id="fc2"><div class="fi-ico">🗺️</div><div class="fi-title">マップ＆一覧表示</div><div class="fi-body">Google Mapsにピン表示、またはカード一覧で閲覧</div></div>
+      <div class="fcard fi" id="fc3"><div class="fi-ico">📅</div><div class="fi-title">カレンダー連携</div><div class="fi-body">お気に入りにするだけでGoogleカレンダーに自動登録</div></div>
+      <div class="fcard fi" id="fc4"><div class="fi-ico">🏷️</div><div class="fi-title">15カテゴリ</div><div class="fi-body">音楽・フード・スポーツ・アート・テック他。無料フィルターも</div></div>
+      <div class="fcard fi" id="fc5"><div class="fi-ico">🌐</div><div class="fi-title">11言語対応</div><div class="fi-body">デバイスの言語に自動切替。世界中で使える</div></div>
+      <div class="fcard fi" id="fc6"><div class="fi-ico">🌙</div><div class="fi-title">ダーク＆ライトモード</div><div class="fi-body">システム設定に合わせて自動切替、手動設定も可能</div></div>
     </div>
   </div>
 </div>
 
-<!-- S6: CTA -->
+<!-- ══ S6: CTA ══ -->
 <div class="scene" id="s6">
-  <div class="bg"></div><div class="glow"></div>
+  <div class="bg"></div><div class="glow"></div><div class="glow-top"></div>
   <div class="wrap">
     <div class="inner">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:44px">
-        <div class="head">Start discovering<br><span>local events</span> today.</div>
-        <div class="badge">Free · No sign-up needed · Android 8.0+</div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:48px">
+        <div class="head">地元のイベントを、<br><em>今日から見逃さない。</em></div>
+        <div class="badge">無料 · 登録不要 · Android 8.0以上</div>
         <button class="gpbtn">
           <svg viewBox="0 0 24 24" fill="white"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
           <div class="gptxt"><span class="gpget">GET IT ON</span><span class="gpname">Google Play</span></div>
         </button>
-        <div class="sub">Available on Android 8.0+</div>
+        <div class="sub">Android 8.0以上で無料ダウンロード</div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-var timers=[];
-function push(ms,fn){timers.push(setTimeout(fn,ms))}
+var T=[];
+function push(ms,fn){T.push(setTimeout(fn,ms))}
 function scene(id){document.querySelectorAll('.scene').forEach(function(s){s.classList.remove('active')});document.getElementById(id).classList.add('active')}
 function show(id){var e=document.getElementById(id);if(e)e.classList.add('show')}
 function callout(id){document.querySelectorAll('.co').forEach(function(c){c.classList.remove('show')});var e=document.getElementById(id);if(e)e.classList.add('show')}
 function phase(id){document.querySelectorAll('.dphase').forEach(function(p){p.classList.remove('active')});var e=document.getElementById(id);if(e)e.classList.add('active')}
 function openSheet(){var s=document.getElementById('bsheet');if(s)s.classList.add('open')}
 function closeSheet(){var s=document.getElementById('bsheet');if(s)s.classList.remove('open')}
-
-function resetAll(){
-  timers.forEach(function(t){clearTimeout(t)});timers=[];
-  document.querySelectorAll('.scene').forEach(function(s){s.classList.remove('active')});
-  document.querySelectorAll('.fi').forEach(function(e){e.classList.remove('show')});
-  document.querySelectorAll('.co').forEach(function(c){c.classList.remove('show')});
-  document.querySelectorAll('.dphase').forEach(function(p){p.classList.remove('active')});
-  closeSheet();
-}
+function resetAll(){T.forEach(function(t){clearTimeout(t)});T=[];document.querySelectorAll('.scene').forEach(function(s){s.classList.remove('active')});document.querySelectorAll('.fi').forEach(function(e){e.classList.remove('show')});document.querySelectorAll('.co').forEach(function(c){c.classList.remove('show')});document.querySelectorAll('.dphase').forEach(function(p){p.classList.remove('active')});closeSheet()}
 
 function buildTimeline(){
   var t=0;
@@ -497,37 +545,35 @@ function buildTimeline(){
   push(t,function(){scene('s1')});
   t+=3000;
 
-  // S2: Problem 3000–8000
+  // S2: Problem 3000–9000
   push(t,function(){scene('s2')});
-  push(t+400,function(){show('p1')});
-  push(t+900,function(){show('p2')});
-  push(t+1400,function(){show('p3')});
-  t+=5000;
+  push(t+300,function(){show('ph')});
+  push(t+700,function(){show('ps')});
+  push(t+1200,function(){show('p1')});
+  push(t+1800,function(){show('p2')});
+  push(t+2400,function(){show('p3')});
+  t+=6000;
 
-  // S3: Solution 8000–12500
+  // S3: Solution 9000–13500
   push(t,function(){scene('s3')});
-  push(t+400,function(){show('st1')});
-  push(t+700,function(){show('sa1')});
-  push(t+900,function(){show('st2')});
-  push(t+1200,function(){show('sa2')});
-  push(t+1400,function(){show('st3')});
+  push(t+300,function(){show('sh')});
+  push(t+800,function(){show('st1')});
+  push(t+1100,function(){show('sa1')});
+  push(t+1300,function(){show('st2')});
+  push(t+1600,function(){show('sa2')});
+  push(t+1800,function(){show('st3')});
   t+=4500;
 
-  // S4: Demo 12500–32500
+  // S4: Demo 13500–33500
   push(t,function(){scene('s4');phase('ph-a');callout('co-a')});
-  // Filter
-  push(t+3000,function(){phase('ph-b');callout('co-b');setTimeout(openSheet,500)});
-  // Filtered results
-  push(t+6500,function(){closeSheet();phase('ph-c');callout('co-c')});
-  // Map
-  push(t+9500,function(){phase('ph-d');callout('co-d')});
-  // Detail
-  push(t+13000,function(){phase('ph-e');callout('co-e')});
-  // Calendar added
-  push(t+16500,function(){phase('ph-f');callout('co-f')});
+  push(t+3500,function(){phase('ph-b');callout('co-b');setTimeout(openSheet,500)});
+  push(t+7000,function(){closeSheet();phase('ph-c');callout('co-c')});
+  push(t+10000,function(){phase('ph-d');callout('co-d')});
+  push(t+13500,function(){phase('ph-e');callout('co-e')});
+  push(t+17000,function(){phase('ph-f');callout('co-f')});
   t+=20000;
 
-  // S5: Features 32500–37000
+  // S5: Features 33500–38000
   push(t,function(){scene('s5')});
   push(t+300,function(){show('fc1')});
   push(t+450,function(){show('fc2')});
@@ -537,7 +583,7 @@ function buildTimeline(){
   push(t+1050,function(){show('fc6')});
   t+=4500;
 
-  // S6: CTA 37000–
+  // S6: CTA 38000–
   push(t,function(){scene('s6')});
 }
 
