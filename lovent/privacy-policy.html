@@ -69,7 +69,6 @@
     <h2>1. Data We Collect</h2>
     <p>Lovent is designed with a privacy-first approach. We collect and process the minimum data necessary for the app to function:</p>
     <ul>
-      <li><strong>Google Account:</strong> We use Google Sign-In for authentication. Your Google ID token is sent to our server to verify your identity and prevent abuse. We do not access your email content, contacts, or other Google account data beyond basic authentication.</li>
       <li><strong>Area names:</strong> The area names you register (e.g. "Shibuya", "Manhattan") are sent to the AI service (OpenAI) via our proxy server for event discovery. These area names are not stored on our servers.</li>
       <li><strong>Calendar data:</strong> If you enable Google Calendar sync, the app reads your calendar list to let you choose a target calendar, and writes event entries when you favorite events. Calendar access is used solely for this purpose.</li>
     </ul>
@@ -89,14 +88,8 @@
       <li>Browsing history</li>
     </ul>
 
-    <h2>2. Google Authentication</h2>
-    <p>Lovent requires Google Sign-In to authenticate API requests and prevent abuse. When you sign in:</p>
-    <ul>
-      <li>Your Google ID token is sent to our Cloudflare Worker server for verification</li>
-      <li>The server validates the token against Google's public keys</li>
-      <li>No personal information from your Google account is stored on our servers</li>
-      <li>The token is used solely for request authentication and rate limiting</li>
-    </ul>
+    <h2>2. API Rate Limiting</h2>
+    <p>To prevent abuse, our server applies rate limiting on event collection requests. No personal information is stored on our servers for this purpose. Requests are limited per IP address and reset daily (UTC).</p>
 
     <h2>3. Google Calendar Access</h2>
     <p>If you choose to enable Google Calendar sync, Lovent requests calendar read/write permission. This permission is used <strong>solely</strong> for:</p>
@@ -113,7 +106,6 @@
     <ul>
       <li><strong>OpenAI API</strong> (via Cloudflare Worker proxy): Used to search the web and discover events in your registered areas. Only area names and search parameters are sent. Please refer to <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI's Privacy Policy</a>.</li>
       <li><strong>Google Maps SDK:</strong> Used to display events on a map. Please refer to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
-      <li><strong>Firebase Authentication:</strong> Used for Google Sign-In. Please refer to <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy</a>.</li>
     </ul>
     <p>No advertising SDKs, analytics tools, or other tracking services are used.</p>
 
