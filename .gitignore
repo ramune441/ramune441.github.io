@@ -7,5 +7,3 @@ record-store.mjs
 record-*.mjs
 _frames/
 
-# 非標準フォーマット（promo.webm が正式）
-*.mp4
