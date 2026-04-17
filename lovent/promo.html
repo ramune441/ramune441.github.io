@@ -1,594 +1,536 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1920">
 <title>Lovent Promo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  width:1920px;height:1080px;overflow:hidden;
-  font-family:'Inter','Noto Sans JP',sans-serif;
-  background:#FFFBFF;
-}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
 
-/* ── Scene ── */
-.scene{position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;pointer-events:none}
-.scene.active{opacity:1;pointer-events:auto}
+/* ── backgrounds ── */
+.bg{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+.bg.show{opacity:1}
+.bg-warm{background:linear-gradient(145deg,#0D0604 0%,#1A0804 45%,#260E06 80%,#0D0604 100%)}
+.glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 1200px 800px at 50% 50%,rgba(216,67,21,.18) 0%,transparent 60%)}
 
-/* ── LP-matching warm background ── */
-.bg{
-  position:absolute;inset:0;
-  background:linear-gradient(155deg,#FFFBFF 0%,#FFF4EE 35%,#FFE8DC 70%,#FFFBFF 100%);
-}
-.glow{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 1200px 800px at 50% 50%,rgba(216,67,21,.12) 0%,transparent 65%);
-}
-.glow-top{
-  position:absolute;inset:0;
-  background:radial-gradient(ellipse 900px 500px at 50% 0%,rgba(216,67,21,.10) 0%,transparent 60%);
-}
-
-/* ── Utility ── */
-.fi{opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateY(24px)}
-.fi.show{opacity:1;transform:translateY(0)}
-
-/* ══════════════════════════════
-   S1: INTRO
-══════════════════════════════ */
-#s1 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
-#s1 .logo-row{display:flex;align-items:center;gap:24px}
-.logo-svg{width:92px;height:92px}
-#s1 .brand{font-size:112px;font-weight:900;color:#1C1612;letter-spacing:-4px;line-height:1}
-#s1 .tagline{font-size:52px;font-weight:700;color:#D84315;letter-spacing:-1px}
-#s1 .pills{display:flex;gap:16px}
-.pill{
-  background:rgba(216,67,21,.09);border:1px solid rgba(216,67,21,.25);
-  color:#D84315;font-size:26px;font-weight:700;padding:10px 32px;border-radius:100px;
-}
-#s1 .inner{opacity:0;transition:opacity .9s ease}
-#s1.active .inner{opacity:1}
-
-/* ══════════════════════════════
-   S2: PROBLEM
-══════════════════════════════ */
-#s2 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:72px;padding:0 140px}
-#s2 .head{font-size:72px;font-weight:900;color:#1C1612;text-align:center;line-height:1.15;max-width:1300px}
-#s2 .head em{color:#D84315;font-style:normal}
-#s2 .sub{font-size:34px;font-weight:500;color:#3E302B;text-align:center;margin-top:-32px}
-#s2 .cards{display:flex;gap:40px}
-.pain{
-  width:460px;
-  background:rgba(216,67,21,.07);
-  border:1.5px solid rgba(216,67,21,.18);
-  border-radius:28px;padding:48px 40px;
-  display:flex;flex-direction:column;align-items:flex-start;gap:20px;
-}
-.pain .ico{font-size:64px;line-height:1}
-.pain .ptitle{font-size:28px;font-weight:800;color:#1C1612;line-height:1.3}
-.pain .pdesc{font-size:20px;color:#3E302B;line-height:1.6}
-
-/* ══════════════════════════════
-   S3: SOLUTION
-══════════════════════════════ */
-#s3 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:80px}
-#s3 .head{font-size:78px;font-weight:900;color:#1C1612;text-align:center;line-height:1.15}
-#s3 .head em{color:#D84315;font-style:normal}
-#s3 .steps{display:flex;align-items:center}
-.sitem{display:flex;flex-direction:column;align-items:center;gap:22px;width:340px}
-.scircle{
-  width:90px;height:90px;border-radius:50%;
-  background:linear-gradient(135deg,#D84315,#FF6E40);
-  display:flex;align-items:center;justify-content:center;
-  font-size:40px;font-weight:900;color:#fff;
-  box-shadow:0 8px 32px rgba(216,67,21,.35);
-}
-.semoji{font-size:52px}
-.slabel{font-size:32px;font-weight:700;color:#1C1612;text-align:center;line-height:1.35}
-.slabel span{display:block;font-size:22px;font-weight:500;color:#3E302B;margin-top:6px}
-.sarrow{font-size:56px;color:rgba(216,67,21,.4);margin:0 8px;margin-bottom:100px}
-
-/* ══════════════════════════════
-   S4: DEMO
-══════════════════════════════ */
-#s4 .layout{position:absolute;inset:0;display:flex;background:linear-gradient(155deg,#FFFBFF 0%,#FFF4EE 40%,#FFE8DC 100%)}
-#s4 .co-area{width:820px;height:1080px;display:flex;align-items:center;justify-content:center;padding:80px}
-#s4 .ph-area{flex:1;height:1080px;display:flex;align-items:center;justify-content:center}
-
-/* Callout — dark on light bg */
-.co{
-  background:#1C1612;border:1px solid rgba(216,67,21,.5);border-radius:22px;
-  padding:44px 52px;
-  opacity:0;transition:opacity .5s ease,transform .5s ease;transform:translateX(-24px);
-  max-width:660px;position:absolute;
-}
-.co.show{opacity:1;transform:translateX(0)}
-.co-eyebrow{font-size:20px;font-weight:600;color:#FF8A65;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
-.co-title{font-size:48px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:14px}
-.co-desc{font-size:26px;color:rgba(255,255,255,.72);line-height:1.55}
-
-/* ── Phone mock ── */
+/* ── phone ── */
+.phone-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.phone-stage.show{opacity:1}
 .phone{
-  width:400px;height:800px;background:#FFFBFF;border-radius:40px;overflow:hidden;
-  box-shadow:0 48px 140px rgba(28,22,18,.25),0 0 0 1px rgba(216,67,21,.12);
-  position:relative;display:flex;flex-direction:column;
+  position:absolute;
+  width:450px;height:920px;
+  background:#0a0a0a;border-radius:52px;
+  border:8px solid #1c1c1c;
+  box-shadow:0 32px 100px rgba(0,0,0,.75),0 0 0 1px rgba(216,67,21,.15);
+  overflow:hidden;
+  transition:left .7s cubic-bezier(.16,1,.3,1),right .7s cubic-bezier(.16,1,.3,1);
+  top:80px;left:735px; /* default center */
 }
-.tab{background:#FFFBFF;border-bottom:1px solid #D8C2BA;padding:14px 14px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0}
-.tab-logo{display:flex;align-items:center;gap:8px;flex:1}
-.tab-name{font-size:19px;font-weight:700;color:#1C1612}
-.tab-icons{display:flex;gap:2px}
-.ticon{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
-.ticon svg{width:20px;height:20px;fill:none;stroke:#3E302B;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.area-row{padding:8px 10px 4px;display:flex;gap:8px;flex-shrink:0;background:#FFFBFF}
-.achip{background:#FFE8DC;color:#D84315;font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px;display:flex;align-items:center;gap:4px}
-.achip.sel{background:#D84315;color:#fff}
-.fbar{padding:6px 10px 8px;display:flex;gap:8px;align-items:center;flex-shrink:0;background:#FFFBFF;border-bottom:1px solid #F0E0D8}
-.fchip{display:flex;align-items:center;gap:5px;background:#FFE8DC;color:#D84315;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px}
-.fchip.main{background:#D84315;color:#fff}
-.pcontent{flex:1;overflow:hidden;position:relative;background:#F5DED6}
-.dphase{position:absolute;inset:0;opacity:0;transition:opacity .4s ease;overflow-y:auto;background:#F5DED6;padding:10px;display:flex;flex-direction:column;gap:10px}
-.dphase.active{opacity:1}
-.ecard{background:#FFFBFF;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(28,22,18,.1);flex-shrink:0}
-.ecard-hero{height:140px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
-.ecard-hero .gr{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.2))}
-.ecard-body{padding:12px 14px;display:flex;flex-direction:column;gap:7px}
-.ecard-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.ecard-title{font-size:14px;font-weight:600;color:#1C1612;line-height:1.35;flex:1}
-.eheart{font-size:18px;flex-shrink:0}
-.echips{display:flex;gap:6px}
-.cat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;color:#fff}
-.cm{background:#283593}.cf{background:#D84315}.cs{background:#00695C}
-.ca{background:#C2185B}.ct{background:#00838F}.cfr{background:#009688}
-.emeta{display:flex;align-items:center;gap:5px;font-size:12px;color:#3E302B}
-.bsheet{position:absolute;left:0;right:0;bottom:0;background:#FFFBFF;border-radius:24px 24px 0 0;
-  padding:12px 14px 20px;box-shadow:0 -4px 24px rgba(28,22,18,.15);z-index:20;
+.phone.left{left:180px}
+.phone.right{left:1290px}
+
+/* phone status bar */
+.sbar{height:30px;background:#0a0a0a;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:13px;font-weight:600;color:#fff;flex-shrink:0}
+
+/* phone screen content */
+.screen{position:absolute;top:30px;left:0;right:0;bottom:0;display:none;flex-direction:column}
+.screen.show{display:flex}
+
+/* app topbar */
+.atop{background:#fffbff;border-bottom:1px solid #d8c2ba;padding:12px 14px 9px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.atop-logo{display:flex;align-items:center;gap:8px;flex:1}
+.atop-name{font-size:18px;font-weight:700;color:#1c1612}
+.atop-icons{display:flex;gap:2px}
+.ai{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.ai svg{width:19px;height:19px;fill:none;stroke:#3e302b;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+
+/* area chips */
+.arow{padding:8px 10px 4px;display:flex;gap:8px;flex-shrink:0;background:#fffbff}
+.ac{background:#ffe8dc;color:#d84315;font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px}
+.ac.on{background:#d84315;color:#fff}
+
+/* filter bar */
+.fbar{padding:5px 10px 7px;display:flex;gap:7px;align-items:center;flex-shrink:0;background:#fffbff;border-bottom:1px solid #f0e0d8}
+.fc{display:flex;align-items:center;gap:4px;background:#ffe8dc;color:#d84315;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px}
+.fc.on{background:#d84315;color:#fff}
+
+/* event list */
+.elist{flex:1;overflow:hidden;background:#f5ded6;padding:10px;display:flex;flex-direction:column;gap:10px}
+.ec{background:#fffbff;border-radius:15px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.09);flex-shrink:0}
+.ec-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:50px;position:relative}
+.ec-img .gr{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.2))}
+.ec-body{padding:12px 13px;display:flex;flex-direction:column;gap:6px}
+.ec-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.ec-ttl{font-size:13px;font-weight:600;color:#1c1612;line-height:1.35;flex:1}
+.hrt{font-size:17px;flex-shrink:0}
+.chips{display:flex;gap:6px}
+.ct{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;color:#fff}
+.cm{background:#283593}.cf{background:#d84315}.cs{background:#00695c}.ca{background:#c2185b}.cfe{background:#009688}
+.emeta{display:flex;align-items:center;gap:5px;font-size:11px;color:#3e302b}
+
+/* bottom sheet */
+.bsheet{position:absolute;left:0;right:0;bottom:0;background:#fffbff;border-radius:22px 22px 0 0;
+  padding:11px 13px 18px;box-shadow:0 -4px 20px rgba(0,0,0,.16);z-index:20;
   transform:translateY(100%);transition:transform .4s ease}
 .bsheet.open{transform:translateY(0)}
-.bhandle{width:36px;height:4px;background:#D8C2BA;border-radius:2px;margin:0 auto 14px}
-.bsect{font-size:12px;font-weight:700;color:#3E302B;margin-bottom:8px;margin-top:10px}
+.bhandle{width:34px;height:4px;background:#d8c2ba;border-radius:2px;margin:0 auto 12px}
+.bs{font-size:11px;font-weight:700;color:#3e302b;margin-bottom:7px;margin-top:9px}
 .bcats{display:flex;gap:6px;flex-wrap:wrap}
-.bcat{font-size:11px;font-weight:600;padding:5px 10px;border-radius:7px;border:1.5px solid #D8C2BA;color:#3E302B;background:transparent}
-.bcat.on{background:#FFE8DC;border-color:#D84315;color:#D84315}
-.bdates{display:flex;gap:6px}
-.bdate{flex:1;text-align:center;font-size:11px;font-weight:600;padding:6px 4px;border-radius:7px;border:1.5px solid #D8C2BA;color:#3E302B;background:transparent}
-.bdate.on{background:#FFE8DC;border-color:#D84315;color:#D84315}
-.btoggle{display:flex;align-items:center;gap:8px;margin-top:10px}
-.btlabel{font-size:12px;font-weight:600;color:#1C1612;flex:1}
-.btsw{width:40px;height:22px;border-radius:11px;background:#D84315;position:relative;flex-shrink:0}
-.btsw::after{content:'';position:absolute;right:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#fff}
-.mapbg{position:absolute;inset:0;background:#E8F0E8}
-.mr-h{position:absolute;left:0;right:0;height:9px;background:rgba(255,255,255,.75)}
-.mr-v{position:absolute;top:0;bottom:0;width:9px;background:rgba(255,255,255,.75)}
-.mblock{position:absolute;background:rgba(200,220,200,.55);border-radius:5px}
-.mpin{position:absolute;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.mpin::after{content:attr(data-e);transform:rotate(45deg);font-size:17px;display:block}
-.mlabel{position:absolute;font-size:10px;font-weight:700;background:#fff;padding:2px 7px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.18);color:#1C1612}
-.dbar{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid #D8C2BA;flex-shrink:0;background:#FFFBFF}
-.dback{font-size:20px;color:#D84315;font-weight:700}
-.dtitle{font-size:15px;font-weight:700;color:#1C1612}
-.dhero{height:170px;display:flex;align-items:center;justify-content:center;font-size:68px;background:#F5DED6;flex-shrink:0}
-.dbody{padding:14px;display:flex;flex-direction:column;gap:10px;overflow:auto}
-.dname{font-size:17px;font-weight:700;color:#1C1612}
-.dmeta{font-size:12px;color:#3E302B;display:flex;align-items:center;gap:6px}
-.calcard{background:#F5DED6;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;margin-top:2px}
-.calcard-text{font-size:12px;font-weight:600;color:#3E302B;line-height:1.55}
-.favbtn{background:#D84315;color:#fff;font-size:13px;font-weight:700;padding:12px;
-  border-radius:12px;border:none;font-family:inherit;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:8px}
+.bcat{font-size:10px;font-weight:600;padding:4px 9px;border-radius:6px;border:1.5px solid #d8c2ba;color:#3e302b}
+.bcat.on{background:#ffe8dc;border-color:#d84315;color:#d84315}
+.bdates{display:flex;gap:5px}
+.bdt{flex:1;text-align:center;font-size:10px;font-weight:600;padding:5px 3px;border-radius:6px;border:1.5px solid #d8c2ba;color:#3e302b}
+.bdt.on{background:#ffe8dc;border-color:#d84315;color:#d84315}
+.btog{display:flex;align-items:center;gap:8px;margin-top:9px}
+.btl{font-size:11px;font-weight:600;color:#1c1612;flex:1}
+.btsw{width:38px;height:21px;border-radius:11px;background:#d84315;position:relative;flex-shrink:0}
+.btsw::after{content:'';position:absolute;right:2px;top:2px;width:17px;height:17px;border-radius:50%;background:#fff}
 
-/* ══════════════════════════════
-   S5: FEATURES
-══════════════════════════════ */
-#s5 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:52px;padding:60px 100px}
-#s5 .head{font-size:80px;font-weight:900;color:#1C1612}
-#s5 .head em{color:#D84315;font-style:normal}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;width:100%}
-.fcard{background:rgba(216,67,21,.06);border:1px solid rgba(216,67,21,.16);border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:14px}
-.fcard .fi-ico{font-size:48px}
-.fcard .fi-title{font-size:28px;font-weight:700;color:#1C1612}
-.fcard .fi-body{font-size:20px;color:#3E302B;line-height:1.55}
+/* map */
+.mapwrap{flex:1;position:relative;overflow:hidden}
+.mapbg{position:absolute;inset:0;background:#e8f0e8}
+.mr-h{position:absolute;left:0;right:0;height:8px;background:rgba(255,255,255,.75)}
+.mr-v{position:absolute;top:0;bottom:0;width:8px;background:rgba(255,255,255,.75)}
+.mb{position:absolute;background:rgba(200,220,200,.55);border-radius:4px}
+.mpin{position:absolute;width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.mpin::after{content:attr(data-e);transform:rotate(45deg);font-size:16px;display:block}
+.mlbl{position:absolute;font-size:9px;font-weight:700;background:#fff;padding:2px 6px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);color:#1c1612}
 
-/* ══════════════════════════════
-   S6: CTA
-══════════════════════════════ */
-#s6 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px}
-#s6 .head{font-size:96px;font-weight:900;color:#1C1612;text-align:center;line-height:1.1;max-width:1400px}
-#s6 .head em{color:#D84315;font-style:normal}
-#s6 .badge{background:rgba(216,67,21,.09);border:1px solid rgba(216,67,21,.25);color:#D84315;font-size:26px;font-weight:700;padding:10px 36px;border-radius:100px}
-.gpbtn{
-  display:flex;align-items:center;gap:18px;
-  background:#1C1612;border:none;border-radius:16px;
-  padding:16px 42px;min-width:360px;height:90px;cursor:pointer;
-  box-shadow:0 8px 40px rgba(216,67,21,.25);
-}
-.gpbtn svg{width:32px;height:32px;flex-shrink:0}
-.gptxt{display:flex;flex-direction:column;text-align:left}
-.gpget{font-size:14px;color:rgba(255,255,255,.6);line-height:1}
-.gpname{font-size:30px;font-weight:700;color:#fff;line-height:1.25}
-#s6 .sub{font-size:26px;color:#6B4C41}
-#s6 .inner{opacity:0;transform:scale(.93);transition:opacity .7s ease,transform .7s ease}
-#s6.active .inner{opacity:1;transform:scale(1)}
+/* detail screen */
+.dscr{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.dbar{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid #d8c2ba;flex-shrink:0;background:#fffbff}
+.dback{font-size:19px;color:#d84315;font-weight:700}
+.dttl{font-size:14px;font-weight:700;color:#1c1612}
+.dhero{height:160px;display:flex;align-items:center;justify-content:center;font-size:66px;background:#f5ded6;flex-shrink:0}
+.dbody{padding:13px;display:flex;flex-direction:column;gap:9px;overflow:auto}
+.dname{font-size:16px;font-weight:700;color:#1c1612}
+.dmeta{font-size:12px;color:#3e302b;display:flex;align-items:center;gap:5px}
+.fav-btn{background:#d84315;color:#fff;font-size:13px;font-weight:700;padding:12px;border-radius:11px;border:none;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}
+.calcard{background:#f5ded6;border-radius:11px;padding:9px 13px;display:flex;align-items:center;gap:9px}
+.calcard-txt{font-size:11px;font-weight:600;color:#3e302b;line-height:1.55}
+
+/* ── narration ── */
+.narr{position:absolute;width:840px;top:50%;transform:translateY(-40px);opacity:0;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.narr.show{opacity:1;transform:translateY(-50%)}
+.narr.left{left:100px}
+.narr.right{right:100px}
+.narr-scene{font-size:22px;font-weight:700;letter-spacing:.12em;color:#ff8a65;text-transform:uppercase;margin-bottom:16px}
+.narr-q{font-size:76px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:22px}
+.narr-q em{color:#ff6e40;font-style:normal}
+.narr-d{font-size:34px;font-weight:500;color:rgba(255,255,255,.65);line-height:1.65}
+
+/* ── scene strip ── */
+.strip{position:absolute;top:56px;background:rgba(216,67,21,.14);border:1.5px solid rgba(216,67,21,.4);border-radius:100px;padding:14px 36px;display:flex;align-items:center;gap:20px;opacity:0;transition:opacity .5s,transform .5s}
+.strip.show{opacity:1}
+.strip.left{left:100px;transform:translateX(-20px)}
+.strip.left.show{transform:translateX(0)}
+.strip.right{right:100px;transform:translateX(20px)}
+.strip.right.show{transform:translateX(0)}
+.strip-num{font-size:22px;font-weight:800;color:#ff8a65;letter-spacing:.1em}
+.strip-lbl{font-size:40px;font-weight:800;color:#fff}
+
+/* ── intro / features / cta scenes ── */
+.final{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .6s;z-index:10}
+.final.show{opacity:1}
+
+/* intro */
+.iburst{display:flex;align-items:center;gap:28px;opacity:0;transform:scale(.85);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.iburst.show{opacity:1;transform:scale(1)}
+.iburst-icon{width:110px;height:110px}
+.iburst-name{font-size:120px;font-weight:900;color:#fff;letter-spacing:-4px;line-height:1}
+.itagline{font-size:54px;font-weight:700;color:#ff8a65;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.itagline.show{opacity:1;transform:translateY(0)}
+.ipills{display:flex;gap:14px;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.ipills.show{opacity:1;transform:translateY(0)}
+.ipill{background:rgba(216,67,21,.14);border:1.5px solid rgba(216,67,21,.35);color:#ff8a65;font-size:26px;font-weight:700;padding:10px 30px;border-radius:100px}
+
+/* features */
+.fwrap{display:flex;flex-direction:column;align-items:center;gap:52px;width:92%;max-width:1700px}
+.fhead{text-align:center;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.fhead.show{opacity:1;transform:translateY(0)}
+.fhead-lbl{display:inline-block;font-size:24px;font-weight:800;color:#ff8a65;letter-spacing:.14em;margin-bottom:14px}
+.fhead h2{font-size:88px;font-weight:900;color:#fff;line-height:1.2}
+.fhead h2 em{color:#ff6e40;font-style:normal}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;width:100%}
+.fcard{background:rgba(255,255,255,.05);border:1px solid rgba(216,67,21,.2);border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:13px;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.fcard.show{opacity:1;transform:translateY(0)}
+.fcard-ico{font-size:46px}
+.fcard-ttl{font-size:28px;font-weight:700;color:#fff}
+.fcard-txt{font-size:20px;color:rgba(255,255,255,.6);line-height:1.6}
+
+/* cta */
+.cta-ttl{font-size:100px;font-weight:900;color:#fff;text-align:center;line-height:1.15;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.cta-ttl.show{opacity:1;transform:translateY(0)}
+.cta-ttl em{color:#ff6e40;font-style:normal}
+.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border:none;border-radius:18px;padding:20px 52px;box-shadow:0 10px 50px rgba(216,67,21,.35);opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s;cursor:pointer}
+.cta-btn.show{opacity:1;transform:translateY(0)}
+.cta-btn svg{width:32px;height:32px}
+.cta-btn-txt{display:flex;flex-direction:column;text-align:left}
+.cta-get{font-size:16px;color:#666;line-height:1}
+.cta-gp{font-size:32px;font-weight:700;color:#1c1612;line-height:1.25}
+.cta-note{font-size:28px;color:rgba(255,255,255,.45);opacity:0;transition:opacity .5s}
+.cta-note.show{opacity:1}
 </style>
 </head>
 <body>
 
-<!-- ══ S1: INTRO ══ -->
-<div class="scene" id="s1">
-  <div class="bg"></div><div class="glow"></div><div class="glow-top"></div>
-  <div class="wrap">
-    <div class="inner">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:36px">
-        <div class="logo-row">
-          <svg class="logo-svg" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
-          <span class="brand">Lovent</span>
+<!-- backgrounds -->
+<div class="bg bg-warm show" id="bgw"></div>
+<div class="glow"></div>
+
+<!-- phone stage -->
+<div class="phone-stage" id="ps">
+  <div class="phone" id="ph">
+    <div class="sbar"><span>12:34</span><span>📶🔋</span></div>
+
+    <!-- Screen A: event list -->
+    <div class="screen" id="sc-a">
+      <div class="atop">
+        <div class="atop-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+          <span class="atop-name">Lovent</span>
         </div>
-        <div class="tagline">Your area's events, found by AI.</div>
-        <div class="pills">
-          <span class="pill">Free</span>
-          <span class="pill">Android</span>
-          <span class="pill">11 Languages</span>
+        <div class="atop-icons">
+          <div class="ai"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <div class="ai"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
         </div>
       </div>
+      <div class="arow"><div class="ac on">渋谷</div><div class="ac">新宿</div><div class="ac">大阪</div></div>
+      <div class="fbar"><div class="fc on">≡ フィルター</div></div>
+      <div class="elist">
+        <div class="ec">
+          <div class="ec-img" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
+          <div class="ec-body">
+            <div class="ec-r1"><div class="ec-ttl">ジャズナイト at ブルームーンバー</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cm">音楽</span></div>
+            <div class="emeta">📅 4/19(土) 20:00〜 &nbsp; 📍 渋谷</div>
+          </div>
+        </div>
+        <div class="ec">
+          <div class="ec-img" style="background:linear-gradient(135deg,#BF360C,#E64A19)">🍜<div class="gr"></div></div>
+          <div class="ec-body">
+            <div class="ec-r1"><div class="ec-ttl">ラーメンフェス 2025 — 40店舗</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cf">フード</span><span class="ct cfe">無料</span></div>
+            <div class="emeta">📅 4/20(日) 11:00〜 &nbsp; 📍 代々木公園</div>
+          </div>
+        </div>
+        <div class="ec">
+          <div class="ec-img" style="background:linear-gradient(135deg,#004D40,#00796B)">🏃<div class="gr"></div></div>
+          <div class="ec-body">
+            <div class="ec-r1"><div class="ec-ttl">シティマラソン 5K ファンラン</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cs">スポーツ</span></div>
+            <div class="emeta">📅 4/20(日) 7:00〜 &nbsp; 📍 新宿中央公園</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen B: filter -->
+    <div class="screen" id="sc-b">
+      <div class="atop">
+        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg><span class="atop-name">Lovent</span></div>
+        <div class="atop-icons"><div class="ai"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+      </div>
+      <div class="arow"><div class="ac on">渋谷</div><div class="ac">新宿</div></div>
+      <div class="elist" style="position:relative">
+        <div class="ec" style="opacity:.35">
+          <div class="ec-img" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
+          <div class="ec-body"><div class="ec-r1"><div class="ec-ttl">ジャズナイト at ブルームーンバー</div></div></div>
+        </div>
+        <div class="bsheet" id="bsh">
+          <div class="bhandle"></div>
+          <div class="bs">カテゴリ</div>
+          <div class="bcats">
+            <span class="bcat on">✓ 音楽</span><span class="bcat">フード</span><span class="bcat">スポーツ</span>
+            <span class="bcat">アート</span><span class="bcat">テック</span><span class="bcat">フェス</span>
+          </div>
+          <div class="bs">日付</div>
+          <div class="bdates">
+            <div class="bdt">今日</div><div class="bdt">明日</div><div class="bdt on">✓ 週末</div><div class="bdt">すべて</div>
+          </div>
+          <div class="btog">
+            <span class="btl">無料のみ</span>
+            <div class="btsw"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen C: filtered results -->
+    <div class="screen" id="sc-c">
+      <div class="atop">
+        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg><span class="atop-name">Lovent</span></div>
+      </div>
+      <div class="fbar">
+        <div class="fc on">≡</div>
+        <div class="fc">音楽 ×</div><div class="fc">週末 ×</div><div class="fc">無料 ×</div>
+      </div>
+      <div class="elist">
+        <div class="ec">
+          <div class="ec-img" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
+          <div class="ec-body">
+            <div class="ec-r1"><div class="ec-ttl">フリーアコースティック — 原宿駅前</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cm">音楽</span><span class="ct cfe">無料</span></div>
+            <div class="emeta">📅 4/19(土) 18:00〜 &nbsp; 📍 原宿</div>
+          </div>
+        </div>
+        <div class="ec">
+          <div class="ec-img" style="background:linear-gradient(135deg,#1565C0,#283593)">🎸<div class="gr"></div></div>
+          <div class="ec-body">
+            <div class="ec-r1"><div class="ec-ttl">ストリートライブ — 下北沢南口</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cm">音楽</span><span class="ct cfe">無料</span></div>
+            <div class="emeta">📅 4/20(日) 15:00〜 &nbsp; 📍 下北沢</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen D: map view -->
+    <div class="screen" id="sc-d">
+      <div class="atop">
+        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg><span class="atop-name">Lovent</span></div>
+        <div class="atop-icons"><div class="ai"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div></div>
+      </div>
+      <div class="arow"><div class="ac on">渋谷</div><div class="ac">新宿</div></div>
+      <div class="mapwrap">
+        <div class="mapbg"></div>
+        <div class="mr-h" style="top:32%"></div><div class="mr-h" style="top:60%"></div>
+        <div class="mr-v" style="left:27%"></div><div class="mr-v" style="left:63%"></div>
+        <div class="mb" style="top:7%;left:4%;width:20%;height:22%"></div>
+        <div class="mb" style="top:7%;left:31%;width:29%;height:22%"></div>
+        <div class="mb" style="top:7%;left:68%;width:24%;height:22%"></div>
+        <div class="mb" style="top:36%;left:4%;width:20%;height:21%"></div>
+        <div class="mb" style="top:36%;left:31%;width:29%;height:21%"></div>
+        <div class="mb" style="top:36%;left:68%;width:24%;height:21%"></div>
+        <div class="mb" style="top:64%;left:4%;width:20%;height:28%"></div>
+        <div class="mb" style="top:64%;left:31%;width:29%;height:28%"></div>
+        <div class="mb" style="top:64%;left:68%;width:24%;height:28%"></div>
+        <div class="mpin" style="background:#283593;top:14%;left:10%" data-e="🎵"></div>
+        <div class="mlbl" style="top:4%;left:4%">ジャズナイト</div>
+        <div class="mpin" style="background:#d84315;top:14%;left:45%" data-e="🍜"></div>
+        <div class="mlbl" style="top:4%;left:39%">ラーメンフェス</div>
+        <div class="mpin" style="background:#00695c;top:38%;left:18%" data-e="🏃"></div>
+        <div class="mlbl" style="top:28%;left:12%">5K ラン</div>
+        <div class="mpin" style="background:#c2185b;top:38%;left:68%" data-e="🎨"></div>
+        <div class="mlbl" style="top:28%;left:62%">アート展</div>
+        <div class="mpin" style="background:#00838f;top:66%;left:50%" data-e="💻"></div>
+        <div class="mlbl" style="top:56%;left:44%">Tech Talk</div>
+      </div>
+    </div>
+
+    <!-- Screen E: event detail -->
+    <div class="screen" id="sc-e">
+      <div class="dscr">
+        <div class="dbar"><div class="dback">←</div><div class="dttl">イベント詳細</div></div>
+        <div class="dhero">🎵</div>
+        <div class="dbody">
+          <div class="dname">ジャズナイト at ブルームーンバー</div>
+          <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
+          <div class="dmeta">📍 渋谷区 ブルームーンバー</div>
+          <div style="font-size:12px;color:#3e302b;line-height:1.7">Kenji Trioによるライブジャズ。無料入場。</div>
+          <button class="fav-btn">🤍 お気に入りに追加</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen F: calendar added -->
+    <div class="screen" id="sc-f">
+      <div class="dscr">
+        <div class="dbar"><div class="dback">←</div><div class="dttl">イベント詳細</div></div>
+        <div class="dhero">🎵</div>
+        <div class="dbody">
+          <div class="dname">ジャズナイト at ブルームーンバー</div>
+          <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
+          <button class="fav-btn" style="background:#c2185b">❤️ お気に入り済み</button>
+          <div class="calcard">
+            <span style="font-size:21px">📅</span>
+            <div class="calcard-txt">Googleカレンダーに追加済み<br><span style="font-weight:400;font-size:10px;color:#85736d">4/19(土) · リマインダー: 当日朝9時</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /phone -->
+</div><!-- /phone-stage -->
+
+<!-- scene strip -->
+<div class="strip" id="strip"><span class="strip-num" id="snum">SCENE 01</span><span class="strip-lbl" id="slbl">週末の予定</span></div>
+
+<!-- narration -->
+<div class="narr" id="narr">
+  <div class="narr-scene" id="n-scene"></div>
+  <div class="narr-q" id="n-q"></div>
+  <div class="narr-d" id="n-d"></div>
+</div>
+
+<!-- intro -->
+<div class="final" id="intro">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:32px">
+    <div class="iburst" id="ib">
+      <svg class="iburst-icon" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+      <span class="iburst-name">Lovent</span>
+    </div>
+    <div class="itagline" id="it">AIが地元のイベントを自動で見つける</div>
+    <div class="ipills" id="ip">
+      <span class="ipill">無料</span><span class="ipill">Android</span><span class="ipill">11言語対応</span>
     </div>
   </div>
 </div>
 
-<!-- ══ S2: PROBLEM ══ -->
-<div class="scene" id="s2">
-  <div class="bg"></div><div class="glow"></div>
-  <div class="wrap">
-    <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
-      <div class="head fi" id="ph">地元のイベント、<em>見つけるのが大変</em>じゃない？</div>
-      <div class="sub fi" id="ps">情報はバラバラ、気づいたら終わってる…</div>
-    </div>
-    <div class="cards">
-      <div class="pain fi" id="p1">
-        <div class="ico">😩</div>
-        <div class="ptitle">情報がバラバラ</div>
-        <div class="pdesc">ポータルサイト、SNS、口コミ…毎回バラバラで探すのが面倒</div>
-      </div>
-      <div class="pain fi" id="p2">
-        <div class="ico">⏰</div>
-        <div class="ptitle">気づいたら終わってた</div>
-        <div class="pdesc">知ったときには既に終了。前もって把握できない</div>
-      </div>
-      <div class="pain fi" id="p3">
-        <div class="ico">🔍</div>
-        <div class="ptitle">自分好みが見つからない</div>
-        <div class="pdesc">音楽・フード・スポーツ… 興味に合うイベントが埋もれてしまう</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ S3: SOLUTION ══ -->
-<div class="scene" id="s3">
-  <div class="bg"></div><div class="glow"></div>
-  <div class="wrap">
-    <div class="head fi" id="sh">Loventなら、<em>エリア設定だけ。</em></div>
-    <div class="steps">
-      <div class="sitem fi" id="st1">
-        <div class="scircle">1</div>
-        <div class="semoji">📍</div>
-        <div class="slabel">エリアを設定<span>最大5か所まで登録</span></div>
-      </div>
-      <div class="sarrow fi" id="sa1">→</div>
-      <div class="sitem fi" id="st2">
-        <div class="scircle">2</div>
-        <div class="semoji">🤖</div>
-        <div class="slabel">AIが自動収集<span>最大14日先まで</span></div>
-      </div>
-      <div class="sarrow fi" id="sa2">→</div>
-      <div class="sitem fi" id="st3">
-        <div class="scircle">3</div>
-        <div class="semoji">🎉</div>
-        <div class="slabel">一覧・マップで確認<span>気になったらカレンダーに保存</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ S4: DEMO ══ -->
-<div class="scene" id="s4">
-  <div class="layout">
-
-    <!-- Callouts -->
-    <div class="co-area">
-      <div class="co" id="co-a">
-        <div class="co-eyebrow">自動収集</div>
-        <div class="co-title">📍 エリアのイベントが自動で届く</div>
-        <div class="co-desc">設定したエリアのイベントをAIが毎日自動収集。最大14日先まで対応。</div>
-      </div>
-      <div class="co" id="co-b">
-        <div class="co-eyebrow">スマートフィルター</div>
-        <div class="co-title">🔍 15カテゴリで絞り込める</div>
-        <div class="co-desc">音楽・フード・スポーツなど15カテゴリ、日付、無料イベントで絞り込み。</div>
-      </div>
-      <div class="co" id="co-c">
-        <div class="co-eyebrow">絞り込み結果</div>
-        <div class="co-title">✅ ぴったりのイベントだけ表示</div>
-        <div class="co-desc">音楽 × 無料 × 週末 — 条件に合うイベントだけが残る。</div>
-      </div>
-      <div class="co" id="co-d">
-        <div class="co-eyebrow">マップ表示</div>
-        <div class="co-title">🗺️ 地図でイベントの場所を確認</div>
-        <div class="co-desc">Google Maps上にピン表示。タップでプレビュー、そのままナビも可能。</div>
-      </div>
-      <div class="co" id="co-e">
-        <div class="co-eyebrow">お気に入り</div>
-        <div class="co-title">♥ タップするだけで保存</div>
-        <div class="co-desc">ハートをタップするとGoogleカレンダーに自動登録。もう見逃さない。</div>
-      </div>
-      <div class="co" id="co-f">
-        <div class="co-eyebrow">リマインダー</div>
-        <div class="co-title">⏰ 直前にお知らせ</div>
-        <div class="co-desc">イベント当日・前日・1時間前など、好きなタイミングで通知設定できる。</div>
-      </div>
-    </div>
-
-    <!-- Phone mock -->
-    <div class="ph-area">
-      <div class="phone">
-        <div class="tab">
-          <div class="tab-logo">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
-            <span class="tab-name">Lovent</span>
-          </div>
-          <div class="tab-icons">
-            <div class="ticon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-            <div class="ticon"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-            <div class="ticon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-          </div>
-        </div>
-        <div class="area-row">
-          <div class="achip sel">渋谷</div>
-          <div class="achip">新宿</div>
-          <div class="achip">大阪</div>
-        </div>
-        <div class="fbar">
-          <div class="fchip main">≡ フィルター</div>
-        </div>
-        <div class="pcontent">
-
-          <!-- Phase A: イベント一覧 -->
-          <div class="dphase" id="ph-a">
-            <div class="ecard">
-              <div class="ecard-hero" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
-              <div class="ecard-body">
-                <div class="ecard-r1"><div class="ecard-title">ジャズナイト at ブルームーンバー</div><div class="eheart">🤍</div></div>
-                <div class="echips"><span class="cat cm">音楽</span></div>
-                <div class="emeta">📅 4/19(土) 20:00〜</div>
-                <div class="emeta">📍 渋谷区 ブルームーンバー</div>
-              </div>
-            </div>
-            <div class="ecard">
-              <div class="ecard-hero" style="background:linear-gradient(135deg,#BF360C,#E64A19)">🍜<div class="gr"></div></div>
-              <div class="ecard-body">
-                <div class="ecard-r1"><div class="ecard-title">ラーメンフェスティバル 2025 — 40店舗</div><div class="eheart">🤍</div></div>
-                <div class="echips"><span class="cat cf">フード</span><span class="cat cfr">無料</span></div>
-                <div class="emeta">📅 4/20(日) 11:00〜</div>
-                <div class="emeta">📍 代々木公園</div>
-              </div>
-            </div>
-            <div class="ecard">
-              <div class="ecard-hero" style="background:linear-gradient(135deg,#004D40,#00796B)">🏃<div class="gr"></div></div>
-              <div class="ecard-body">
-                <div class="ecard-r1"><div class="ecard-title">シティマラソン 5Kファンラン</div><div class="eheart">🤍</div></div>
-                <div class="echips"><span class="cat cs">スポーツ</span></div>
-                <div class="emeta">📅 4/20(日) 7:00〜</div>
-                <div class="emeta">📍 新宿中央公園</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phase B: フィルターシート -->
-          <div class="dphase" id="ph-b">
-            <div class="ecard" style="opacity:.45">
-              <div class="ecard-hero" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
-              <div class="ecard-body"><div class="ecard-r1"><div class="ecard-title">ジャズナイト at ブルームーンバー</div></div></div>
-            </div>
-            <div class="bsheet" id="bsheet">
-              <div class="bhandle"></div>
-              <div class="bsect">カテゴリ</div>
-              <div class="bcats">
-                <span class="bcat on">✓ 音楽</span><span class="bcat">フード</span><span class="bcat">スポーツ</span>
-                <span class="bcat">アート</span><span class="bcat">テック</span><span class="bcat">フェス</span>
-              </div>
-              <div class="bsect">日付</div>
-              <div class="bdates">
-                <div class="bdate">今日</div><div class="bdate">明日</div><div class="bdate on">✓ 週末</div><div class="bdate">すべて</div>
-              </div>
-              <div class="btoggle">
-                <span class="btlabel">無料のみ</span>
-                <div class="btsw"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phase C: 絞り込み結果 -->
-          <div class="dphase" id="ph-c">
-            <div style="display:flex;gap:6px;flex-wrap:wrap;padding:2px 2px 6px">
-              <div class="fchip">音楽 ×</div><div class="fchip">週末 ×</div><div class="fchip">無料 ×</div>
-            </div>
-            <div class="ecard">
-              <div class="ecard-hero" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
-              <div class="ecard-body">
-                <div class="ecard-r1"><div class="ecard-title">フリーアコースティックセッション — 原宿</div><div class="eheart">🤍</div></div>
-                <div class="echips"><span class="cat cm">音楽</span><span class="cat cfr">無料</span></div>
-                <div class="emeta">📅 4/19(土) 18:00〜</div>
-                <div class="emeta">📍 原宿駅 西口</div>
-              </div>
-            </div>
-            <div class="ecard">
-              <div class="ecard-hero" style="background:linear-gradient(135deg,#1565C0,#283593)">🎸<div class="gr"></div></div>
-              <div class="ecard-body">
-                <div class="ecard-r1"><div class="ecard-title">ストリートライブ — 下北沢</div><div class="eheart">🤍</div></div>
-                <div class="echips"><span class="cat cm">音楽</span><span class="cat cfr">無料</span></div>
-                <div class="emeta">📅 4/20(日) 15:00〜</div>
-                <div class="emeta">📍 下北沢 南口</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Phase D: マップ -->
-          <div class="dphase" id="ph-d" style="padding:0;background:#E8F0E8">
-            <div class="mapbg"></div>
-            <div class="mr-h" style="top:33%"></div><div class="mr-h" style="top:61%"></div>
-            <div class="mr-v" style="left:28%"></div><div class="mr-v" style="left:65%"></div>
-            <div class="mblock" style="top:8%;left:5%;width:20%;height:22%"></div>
-            <div class="mblock" style="top:8%;left:33%;width:28%;height:22%"></div>
-            <div class="mblock" style="top:8%;left:70%;width:22%;height:22%"></div>
-            <div class="mblock" style="top:37%;left:5%;width:20%;height:21%"></div>
-            <div class="mblock" style="top:37%;left:33%;width:28%;height:21%"></div>
-            <div class="mblock" style="top:37%;left:70%;width:22%;height:21%"></div>
-            <div class="mblock" style="top:65%;left:5%;width:20%;height:28%"></div>
-            <div class="mblock" style="top:65%;left:33%;width:28%;height:28%"></div>
-            <div class="mblock" style="top:65%;left:70%;width:22%;height:28%"></div>
-            <div class="mpin" style="background:#283593;top:15%;left:11%" data-e="🎵"></div>
-            <div class="mlabel" style="top:5%;left:5%">ジャズナイト</div>
-            <div class="mpin" style="background:#D84315;top:15%;left:47%" data-e="🍜"></div>
-            <div class="mlabel" style="top:5%;left:41%">ラーメンフェス</div>
-            <div class="mpin" style="background:#00695C;top:40%;left:20%" data-e="🏃"></div>
-            <div class="mlabel" style="top:30%;left:14%">5K ラン</div>
-            <div class="mpin" style="background:#C2185B;top:40%;left:70%" data-e="🎨"></div>
-            <div class="mlabel" style="top:30%;left:64%">アート展</div>
-            <div class="mpin" style="background:#00838F;top:67%;left:52%" data-e="💻"></div>
-            <div class="mlabel" style="top:57%;left:46%">Tech Talk</div>
-          </div>
-
-          <!-- Phase E: 詳細 -->
-          <div class="dphase" id="ph-e" style="padding:0;display:block">
-            <div class="dbar"><div class="dback">←</div><div class="dtitle">イベント詳細</div></div>
-            <div class="dhero">🎵</div>
-            <div class="dbody">
-              <div class="dname">ジャズナイト at ブルームーンバー</div>
-              <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
-              <div class="dmeta">📍 渋谷区 ブルームーンバー</div>
-              <div style="font-size:12px;color:#3E302B;line-height:1.7">Kenji Trioによるライブジャズ。ドリンクあり。入場無料。</div>
-              <button class="favbtn">🤍 お気に入りに追加</button>
-            </div>
-          </div>
-
-          <!-- Phase F: カレンダー追加済み -->
-          <div class="dphase" id="ph-f" style="padding:0;display:block">
-            <div class="dbar"><div class="dback">←</div><div class="dtitle">イベント詳細</div></div>
-            <div class="dhero">🎵</div>
-            <div class="dbody">
-              <div class="dname">ジャズナイト at ブルームーンバー</div>
-              <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
-              <button class="favbtn" style="background:#C2185B">❤️ お気に入り済み</button>
-              <div class="calcard">
-                <span style="font-size:22px">📅</span>
-                <div class="calcard-text">Googleカレンダーに追加済み<br><span style="font-weight:400;font-size:11px;color:#85736D">4/19(土) · リマインダー: 当日 9:00</span></div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /pcontent -->
-      </div><!-- /phone -->
-    </div>
-  </div>
-</div>
-
-<!-- ══ S5: FEATURES ══ -->
-<div class="scene" id="s5">
-  <div class="bg"></div><div class="glow"></div>
-  <div class="wrap">
-    <div class="head">これ<em>ひとつ</em>で全部できる</div>
+<!-- features -->
+<div class="final" id="feat">
+  <div class="fwrap">
+    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>これ<em>ひとつ</em>で全部できる</h2></div>
     <div class="fgrid">
-      <div class="fcard fi" id="fc1"><div class="fi-ico">🤖</div><div class="fi-title">AI自動収集</div><div class="fi-body">毎日自動更新。最大14日先のイベントを収集</div></div>
-      <div class="fcard fi" id="fc2"><div class="fi-ico">🗺️</div><div class="fi-title">マップ＆一覧表示</div><div class="fi-body">Google Mapsにピン表示、またはカード一覧で閲覧</div></div>
-      <div class="fcard fi" id="fc3"><div class="fi-ico">📅</div><div class="fi-title">カレンダー連携</div><div class="fi-body">お気に入りにするだけでGoogleカレンダーに自動登録</div></div>
-      <div class="fcard fi" id="fc4"><div class="fi-ico">🏷️</div><div class="fi-title">15カテゴリ</div><div class="fi-body">音楽・フード・スポーツ・アート・テック他。無料フィルターも</div></div>
-      <div class="fcard fi" id="fc5"><div class="fi-ico">🌐</div><div class="fi-title">11言語対応</div><div class="fi-body">デバイスの言語に自動切替。世界中で使える</div></div>
-      <div class="fcard fi" id="fc6"><div class="fi-ico">🌙</div><div class="fi-title">ダーク＆ライトモード</div><div class="fi-body">システム設定に合わせて自動切替、手動設定も可能</div></div>
+      <div class="fcard" id="fc1"><div class="fcard-ico">🤖</div><div class="fcard-ttl">AI自動収集</div><div class="fcard-txt">設定したエリアのイベントを毎日自動取得。最大14日先まで</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">🗺️</div><div class="fcard-ttl">マップ＆一覧</div><div class="fcard-txt">Google Mapsにピン表示またはカード一覧で閲覧できる</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">📅</div><div class="fcard-ttl">カレンダー連携</div><div class="fcard-txt">ハートを押すだけでGoogleカレンダーに自動登録＋リマインダー</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico">🏷️</div><div class="fcard-ttl">15カテゴリ</div><div class="fcard-txt">音楽・フード・スポーツ・アート・テックほか。無料フィルターも</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">🌐</div><div class="fcard-ttl">11言語対応</div><div class="fcard-txt">デバイスの言語に自動切替。世界中で使える</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico">🌙</div><div class="fcard-ttl">ダーク＆ライト</div><div class="fcard-txt">システム設定に合わせて自動切替。手動設定も可能</div></div>
     </div>
   </div>
 </div>
 
-<!-- ══ S6: CTA ══ -->
-<div class="scene" id="s6">
-  <div class="bg"></div><div class="glow"></div><div class="glow-top"></div>
-  <div class="wrap">
-    <div class="inner">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:48px">
-        <div class="head">地元のイベントを、<br><em>今日から見逃さない。</em></div>
-        <div class="badge">無料 · 登録不要 · Android 8.0以上</div>
-        <button class="gpbtn">
-          <svg viewBox="0 0 24 24" fill="white"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
-          <div class="gptxt"><span class="gpget">GET IT ON</span><span class="gpname">Google Play</span></div>
-        </button>
-        <div class="sub">Android 8.0以上で無料ダウンロード</div>
-      </div>
-    </div>
+<!-- cta -->
+<div class="final" id="ctaf">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:44px">
+    <div class="cta-ttl" id="ct">地元のイベントを、<br><em>今日から見逃さない。</em></div>
+    <button class="cta-btn" id="cb">
+      <svg viewBox="0 0 24 24" fill="#1c1612"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+      <div class="cta-btn-txt"><span class="cta-get">GET IT ON</span><span class="cta-gp">Google Play</span></div>
+    </button>
+    <div class="cta-note" id="cn">無料 · 登録不要 · Android 8.0以上</div>
   </div>
 </div>
 
 <script>
-var T=[];
-function push(ms,fn){T.push(setTimeout(fn,ms))}
-function scene(id){document.querySelectorAll('.scene').forEach(function(s){s.classList.remove('active')});document.getElementById(id).classList.add('active')}
-function show(id){var e=document.getElementById(id);if(e)e.classList.add('show')}
-function callout(id){document.querySelectorAll('.co').forEach(function(c){c.classList.remove('show')});var e=document.getElementById(id);if(e)e.classList.add('show')}
-function phase(id){document.querySelectorAll('.dphase').forEach(function(p){p.classList.remove('active')});var e=document.getElementById(id);if(e)e.classList.add('active')}
-function openSheet(){var s=document.getElementById('bsheet');if(s)s.classList.add('open')}
-function closeSheet(){var s=document.getElementById('bsheet');if(s)s.classList.remove('open')}
-function resetAll(){T.forEach(function(t){clearTimeout(t)});T=[];document.querySelectorAll('.scene').forEach(function(s){s.classList.remove('active')});document.querySelectorAll('.fi').forEach(function(e){e.classList.remove('show')});document.querySelectorAll('.co').forEach(function(c){c.classList.remove('show')});document.querySelectorAll('.dphase').forEach(function(p){p.classList.remove('active')});closeSheet()}
+const $=id=>document.getElementById(id);
+let T=[],t0=0,idx=0,tmr=null;
+function at(ms,fn){T.push([ms,fn])}
 
-function buildTimeline(){
-  var t=0;
+function screen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));$(id).classList.add('show')}
+function phonePos(p){$('ph').classList.remove('left','right');if(p)$('ph').classList.add(p)}
+function showStrip(num,lbl,side){
+  const s=$('strip');s.classList.remove('left','right','show');
+  $('snum').textContent='SCENE '+num;$('slbl').textContent=lbl;
+  s.classList.add(side);void s.offsetHeight;s.classList.add('show');
+}
+function hideStrip(){$('strip').classList.remove('show')}
+function setNarr(scene,q,d,side){
+  const n=$('narr');n.classList.remove('left','right','show');
+  $('n-scene').textContent=scene;$('n-q').innerHTML=q;$('n-d').innerHTML=d;
+  n.classList.add(side);void n.offsetHeight;n.classList.add('show');
+}
+function hideNarr(){$('narr').classList.remove('show')}
+function openSheet(){$('bsh').classList.add('open')}
+function closeSheet(){$('bsh').classList.remove('open')}
 
-  // S1: Intro 0–3000
-  push(t,function(){scene('s1')});
-  t+=3000;
-
-  // S2: Problem 3000–9000
-  push(t,function(){scene('s2')});
-  push(t+300,function(){show('ph')});
-  push(t+700,function(){show('ps')});
-  push(t+1200,function(){show('p1')});
-  push(t+1800,function(){show('p2')});
-  push(t+2400,function(){show('p3')});
-  t+=6000;
-
-  // S3: Solution 9000–13500
-  push(t,function(){scene('s3')});
-  push(t+300,function(){show('sh')});
-  push(t+800,function(){show('st1')});
-  push(t+1100,function(){show('sa1')});
-  push(t+1300,function(){show('st2')});
-  push(t+1600,function(){show('sa2')});
-  push(t+1800,function(){show('st3')});
-  t+=4500;
-
-  // S4: Demo 13500–33500
-  push(t,function(){scene('s4');phase('ph-a');callout('co-a')});
-  push(t+3500,function(){phase('ph-b');callout('co-b');setTimeout(openSheet,500)});
-  push(t+7000,function(){closeSheet();phase('ph-c');callout('co-c')});
-  push(t+10000,function(){phase('ph-d');callout('co-d')});
-  push(t+13500,function(){phase('ph-e');callout('co-e')});
-  push(t+17000,function(){phase('ph-f');callout('co-f')});
-  t+=20000;
-
-  // S5: Features 33500–38000
-  push(t,function(){scene('s5')});
-  push(t+300,function(){show('fc1')});
-  push(t+450,function(){show('fc2')});
-  push(t+600,function(){show('fc3')});
-  push(t+750,function(){show('fc4')});
-  push(t+900,function(){show('fc5')});
-  push(t+1050,function(){show('fc6')});
-  t+=4500;
-
-  // S6: CTA 38000–
-  push(t,function(){scene('s6')});
+function reset(){
+  clearTimeout(tmr);T=[];idx=0;
+  $('ps').classList.remove('show');
+  ['intro','feat','ctaf'].forEach(id=>$(id).classList.remove('show'));
+  ['ib','it','ip','fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));
+  $('strip').classList.remove('show');$('narr').classList.remove('show');
+  closeSheet();
 }
 
-function start(){resetAll();buildTimeline()}
-window.addEventListener('load',function(){start()});
+function buildTimeline(){
+  let t=0;
+
+  // INTRO 0–3000
+  at(t,()=>{$('intro').classList.add('show')});
+  at(t+100,()=>$('ib').classList.add('show'));
+  at(t+600,()=>$('it').classList.add('show'));
+  at(t+1000,()=>$('ip').classList.add('show'));
+  at(t+2800,()=>$('intro').classList.remove('show'));
+  t+=3000;
+
+  // SCENE 1: 週末何しよう → イベント一覧 3000–8500
+  at(t,()=>{
+    $('ps').classList.add('show');
+    phonePos('right');
+    screen('sc-a');
+  });
+  at(t+200,()=>showStrip('01','週末の予定を探してた','left'));
+  at(t+500,()=>setNarr(
+    'SCENE 01',
+    '「週末、<em>何しよう…</em>」',
+    'エリアを設定するだけで\nAIが自動でイベントを集めてくれる',
+    'left'
+  ));
+  at(t+4800,()=>{hideStrip();hideNarr()});
+  t+=5500;
+
+  // SCENE 2: 無料イベントに絞りたい 8500–14000
+  at(t,()=>{phonePos('left');screen('sc-b');setTimeout(openSheet,500)});
+  at(t+200,()=>showStrip('02','無料で楽しみたい','right'));
+  at(t+500,()=>setNarr(
+    'SCENE 02',
+    '「お金かけずに\n<em>楽しみたい</em>」',
+    '15カテゴリ × 日付 × 無料フィルター\nで一瞬で絞り込める',
+    'right'
+  ));
+  at(t+2800,()=>{closeSheet();screen('sc-c')});
+  at(t+5000,()=>{hideStrip();hideNarr()});
+  t+=5500;
+
+  // SCENE 3: マップで近くを探したい 14000–18500
+  at(t,()=>{phonePos('right');screen('sc-d')});
+  at(t+200,()=>showStrip('03','場所から探したい','left'));
+  at(t+500,()=>setNarr(
+    'SCENE 03',
+    '「近くで\n<em>やってるイベント</em>は？」',
+    'マップ上にピン表示。\nタップでプレビュー、そのままナビも',
+    'left'
+  ));
+  at(t+4300,()=>{hideStrip();hideNarr()});
+  t+=4500;
+
+  // SCENE 4: 見つけたイベントをカレンダーへ 18500–24000
+  at(t,()=>{phonePos('left');screen('sc-e')});
+  at(t+200,()=>showStrip('04','見逃したくない','right'));
+  at(t+500,()=>setNarr(
+    'SCENE 04',
+    '「気になった！\n<em>絶対忘れたくない</em>」',
+    'ハートをタップするだけで\nGoogleカレンダーに自動登録＋リマインダー',
+    'right'
+  ));
+  at(t+2500,()=>screen('sc-f'));
+  at(t+5200,()=>{hideStrip();hideNarr();$('ps').classList.remove('show')});
+  t+=5500;
+
+  // FEATURES 24000–28000
+  at(t,()=>$('feat').classList.add('show'));
+  at(t+200,()=>$('fh').classList.add('show'));
+  at(t+400,()=>$('fc1').classList.add('show'));
+  at(t+520,()=>$('fc2').classList.add('show'));
+  at(t+640,()=>$('fc3').classList.add('show'));
+  at(t+760,()=>$('fc4').classList.add('show'));
+  at(t+880,()=>$('fc5').classList.add('show'));
+  at(t+1000,()=>$('fc6').classList.add('show'));
+  t+=4000;
+
+  // CTA 28000–
+  at(t,()=>{$('feat').classList.remove('show');$('ctaf').classList.add('show')});
+  at(t+200,()=>$('ct').classList.add('show'));
+  at(t+600,()=>$('cb').classList.add('show'));
+  at(t+1000,()=>$('cn').classList.add('show'));
+}
+
+function run(){
+  if(idx>=T.length)return;
+  const[delay,fn]=T[idx];
+  const wait=Math.max(0,delay-(Date.now()-t0));
+  tmr=setTimeout(()=>{fn();idx++;run()},wait);
+}
+
+function start(){reset();buildTimeline();idx=0;t0=Date.now();run()}
+window.addEventListener('load',()=>start());
 </script>
 </body>
 </html>
