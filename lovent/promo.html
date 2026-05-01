@@ -8,180 +8,266 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#FFFBFF;font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
 
-/* ── backgrounds ── */
-.bg{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
-.bg.show{opacity:1}
-.bg-warm{background:linear-gradient(145deg,#0D0604 0%,#1A0804 45%,#260E06 80%,#0D0604 100%)}
-.glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 1200px 800px at 50% 50%,rgba(216,67,21,.18) 0%,transparent 60%)}
+.bg-base{position:absolute;inset:0;background:linear-gradient(150deg,#FFFBFF 0%,#FFF4EE 40%,#FFE8DC 80%,#FFFBFF 100%)}
+.bg-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 1400px 900px at 50% 30%,rgba(216,67,21,.1) 0%,transparent 60%)}
 
-/* ── phone ── */
+/* ── scene base ── */
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.scene.show{opacity:1;pointer-events:auto}
+
+/* ── S1: INTRO ── */
+.intro-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.iburst{display:flex;align-items:center;gap:24px;opacity:0;transform:scale(.88);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.iburst.show{opacity:1;transform:scale(1)}
+.iburst-icon{width:120px;height:120px;border-radius:28px}
+.iburst-name{font-size:130px;font-weight:900;color:#1C1612;letter-spacing:-6px;line-height:1}
+.itagline{font-size:52px;font-weight:700;color:#D84315;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.itagline.show{opacity:1;transform:translateY(0)}
+.ipills{display:flex;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.ipills.show{opacity:1;transform:translateY(0)}
+.ipill{background:rgba(216,67,21,.1);border:1.5px solid rgba(216,67,21,.35);color:#D84315;font-size:28px;font-weight:700;padding:12px 32px;border-radius:100px}
+
+/* ── S2: PROBLEM ── */
+.prob-wrap{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;padding:0 140px}
+.prob-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.prob-head.show{opacity:1;transform:translateY(0)}
+.prob-eyebrow{font-size:20px;font-weight:700;letter-spacing:.14em;color:#D84315;margin-bottom:10px}
+.prob-h{font-size:72px;font-weight:900;color:#1C1612;line-height:1.15}
+.prob-h em{color:#D84315;font-style:normal}
+.prob-cards{display:flex;gap:28px;width:100%;max-width:1560px;opacity:0;transform:translateY(28px);transition:opacity .6s .15s,transform .6s .15s}
+.prob-cards.show{opacity:1;transform:translateY(0)}
+.prob-card{flex:1;border-radius:20px;padding:32px 40px;display:flex;flex-direction:column;gap:16px}
+.prob-card.bad{background:#f7f3f2;border:1.5px solid #D8C2BA}
+.prob-card.good{background:#FFF0E8;border:1.5px solid rgba(216,67,21,.38)}
+.pcard-title{font-size:26px;font-weight:800;color:#888;margin-bottom:2px}
+.pcard-title.good{color:#D84315}
+.pitem{display:flex;align-items:flex-start;gap:12px;font-size:24px;font-weight:500;color:#6B4C41;line-height:1.5}
+.pitem.good{color:#3E302B}
+.pitem-icon{font-size:26px;flex-shrink:0;margin-top:2px}
+
+/* ── S3: STEPS ── */
+.steps-wrap{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px}
+.steps-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.steps-head.show{opacity:1;transform:translateY(0)}
+.steps-eyebrow{font-size:20px;font-weight:700;letter-spacing:.14em;color:#D84315;margin-bottom:10px}
+.steps-h{font-size:80px;font-weight:900;color:#1C1612;line-height:1.1}
+.steps-h em{color:#D84315;font-style:normal}
+.steps-row{display:flex;gap:36px;max-width:1600px;width:100%;padding:0 160px}
+.step-card{flex:1;background:#FFFBFF;border:1.5px solid #D8C2BA;border-radius:20px;padding:36px 38px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 4px 24px rgba(216,67,21,.08)}
+.step-card.show{opacity:1;transform:translateY(0)}
+.step-num{font-size:18px;font-weight:800;color:#D84315;letter-spacing:.1em}
+.step-ico{font-size:52px;line-height:1}
+.step-ttl{font-size:32px;font-weight:800;color:#1C1612}
+.step-desc{font-size:20px;color:#3E302B;line-height:1.6}
+
+/* ── PHONE ── */
 .phone-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
 .phone-stage.show{opacity:1}
 .phone{
   position:absolute;
-  width:450px;height:920px;
+  width:460px;height:920px;
   background:#0a0a0a;border-radius:52px;
   border:8px solid #1c1c1c;
-  box-shadow:0 32px 100px rgba(0,0,0,.75),0 0 0 1px rgba(216,67,21,.15);
+  box-shadow:0 32px 90px rgba(0,0,0,.75),0 0 0 1px rgba(216,67,21,.12);
   overflow:hidden;
-  transition:left .7s cubic-bezier(.16,1,.3,1),right .7s cubic-bezier(.16,1,.3,1);
-  top:80px;left:735px; /* default center */
+  transition:left .7s cubic-bezier(.16,1,.3,1);
+  top:80px;left:730px;
 }
-.phone.left{left:180px}
+.phone.left{left:170px}
 .phone.right{left:1290px}
-
-/* phone status bar */
-.sbar{height:30px;background:#0a0a0a;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:13px;font-weight:600;color:#fff;flex-shrink:0}
-
-/* phone screen content */
-.screen{position:absolute;top:30px;left:0;right:0;bottom:0;display:none;flex-direction:column}
+.sbar{height:32px;background:#0a0a0a;display:flex;align-items:center;justify-content:space-between;padding:0 28px;font-size:13px;font-weight:600;color:#fff;flex-shrink:0}
+.screen{position:absolute;top:32px;left:0;right:0;bottom:0;display:none;flex-direction:column}
 .screen.show{display:flex}
-
-/* app topbar */
-.atop{background:#fffbff;border-bottom:1px solid #d8c2ba;padding:12px 14px 9px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.atop{background:#fffbff;border-bottom:1px solid #d8c2ba;padding:14px 16px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .atop-logo{display:flex;align-items:center;gap:8px;flex:1}
-.atop-name{font-size:18px;font-weight:700;color:#1c1612}
+.atop-name{font-size:19px;font-weight:700;color:#1c1612}
 .atop-icons{display:flex;gap:2px}
-.ai{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
-.ai svg{width:19px;height:19px;fill:none;stroke:#3e302b;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-
-/* area chips */
-.arow{padding:8px 10px 4px;display:flex;gap:8px;flex-shrink:0;background:#fffbff}
-.ac{background:#ffe8dc;color:#d84315;font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px}
+.ai{width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.ai svg{width:20px;height:20px;fill:none;stroke:#3e302b;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.arow{padding:9px 12px 5px;display:flex;gap:9px;flex-shrink:0;background:#fffbff}
+.ac{background:#ffe8dc;color:#d84315;font-size:14px;font-weight:600;padding:6px 16px;border-radius:100px}
 .ac.on{background:#d84315;color:#fff}
-
-/* filter bar */
-.fbar{padding:5px 10px 7px;display:flex;gap:7px;align-items:center;flex-shrink:0;background:#fffbff;border-bottom:1px solid #f0e0d8}
-.fc{display:flex;align-items:center;gap:4px;background:#ffe8dc;color:#d84315;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px}
+.fbar{padding:6px 12px 8px;display:flex;gap:8px;align-items:center;flex-shrink:0;background:#fffbff;border-bottom:1px solid #f0e0d8}
+.fc{display:flex;align-items:center;gap:4px;background:#ffe8dc;color:#d84315;font-size:13px;font-weight:600;padding:5px 12px;border-radius:100px}
 .fc.on{background:#d84315;color:#fff}
-
-/* event list */
-.elist{flex:1;overflow:hidden;background:#f5ded6;padding:10px;display:flex;flex-direction:column;gap:10px}
-.ec{background:#fffbff;border-radius:15px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.09);flex-shrink:0}
-.ec-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:50px;position:relative}
+.elist{flex:1;overflow:hidden;background:#f5ded6;padding:11px;display:flex;flex-direction:column;gap:11px}
+.ec{background:#fffbff;border-radius:16px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.09);flex-shrink:0}
+.ec-img{height:136px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
 .ec-img .gr{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.2))}
-.ec-body{padding:12px 13px;display:flex;flex-direction:column;gap:6px}
+.ec-body{padding:13px 14px;display:flex;flex-direction:column;gap:7px}
 .ec-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-.ec-ttl{font-size:13px;font-weight:600;color:#1c1612;line-height:1.35;flex:1}
-.hrt{font-size:17px;flex-shrink:0}
+.ec-ttl{font-size:14px;font-weight:600;color:#1c1612;line-height:1.35;flex:1}
+.hrt{font-size:18px;flex-shrink:0}
 .chips{display:flex;gap:6px}
-.ct{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;color:#fff}
+.ct{font-size:11px;font-weight:700;padding:3px 9px;border-radius:5px;color:#fff}
 .cm{background:#283593}.cf{background:#d84315}.cs{background:#00695c}.ca{background:#c2185b}.cfe{background:#009688}
-.emeta{display:flex;align-items:center;gap:5px;font-size:11px;color:#3e302b}
-
-/* bottom sheet */
-.bsheet{position:absolute;left:0;right:0;bottom:0;background:#fffbff;border-radius:22px 22px 0 0;
-  padding:11px 13px 18px;box-shadow:0 -4px 20px rgba(0,0,0,.16);z-index:20;
-  transform:translateY(100%);transition:transform .4s ease}
+.emeta{display:flex;align-items:center;gap:6px;font-size:12px;color:#3e302b}
+.bsheet{position:absolute;left:0;right:0;bottom:0;background:#fffbff;border-radius:24px 24px 0 0;padding:12px 14px 20px;box-shadow:0 -4px 20px rgba(0,0,0,.16);z-index:20;transform:translateY(100%);transition:transform .45s ease}
 .bsheet.open{transform:translateY(0)}
-.bhandle{width:34px;height:4px;background:#d8c2ba;border-radius:2px;margin:0 auto 12px}
-.bs{font-size:11px;font-weight:700;color:#3e302b;margin-bottom:7px;margin-top:9px}
-.bcats{display:flex;gap:6px;flex-wrap:wrap}
-.bcat{font-size:10px;font-weight:600;padding:4px 9px;border-radius:6px;border:1.5px solid #d8c2ba;color:#3e302b}
+.bhandle{width:36px;height:4px;background:#d8c2ba;border-radius:2px;margin:0 auto 14px}
+.bs{font-size:12px;font-weight:700;color:#3e302b;margin-bottom:8px;margin-top:10px}
+.bcats{display:flex;gap:7px;flex-wrap:wrap}
+.bcat{font-size:11px;font-weight:600;padding:5px 10px;border-radius:7px;border:1.5px solid #d8c2ba;color:#3e302b}
 .bcat.on{background:#ffe8dc;border-color:#d84315;color:#d84315}
-.bdates{display:flex;gap:5px}
-.bdt{flex:1;text-align:center;font-size:10px;font-weight:600;padding:5px 3px;border-radius:6px;border:1.5px solid #d8c2ba;color:#3e302b}
+.bdates{display:flex;gap:6px}
+.bdt{flex:1;text-align:center;font-size:11px;font-weight:600;padding:6px 3px;border-radius:7px;border:1.5px solid #d8c2ba;color:#3e302b}
 .bdt.on{background:#ffe8dc;border-color:#d84315;color:#d84315}
-.btog{display:flex;align-items:center;gap:8px;margin-top:9px}
-.btl{font-size:11px;font-weight:600;color:#1c1612;flex:1}
-.btsw{width:38px;height:21px;border-radius:11px;background:#d84315;position:relative;flex-shrink:0}
-.btsw::after{content:'';position:absolute;right:2px;top:2px;width:17px;height:17px;border-radius:50%;background:#fff}
-
-/* map */
+.btog{display:flex;align-items:center;gap:9px;margin-top:10px}
+.btl{font-size:12px;font-weight:600;color:#1c1612;flex:1}
+.btsw{width:40px;height:22px;border-radius:11px;background:#d84315;position:relative;flex-shrink:0}
+.btsw::after{content:'';position:absolute;right:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#fff}
 .mapwrap{flex:1;position:relative;overflow:hidden}
 .mapbg{position:absolute;inset:0;background:#e8f0e8}
 .mr-h{position:absolute;left:0;right:0;height:8px;background:rgba(255,255,255,.75)}
 .mr-v{position:absolute;top:0;bottom:0;width:8px;background:rgba(255,255,255,.75)}
 .mb{position:absolute;background:rgba(200,220,200,.55);border-radius:4px}
-.mpin{position:absolute;width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
-.mpin::after{content:attr(data-e);transform:rotate(45deg);font-size:16px;display:block}
-.mlbl{position:absolute;font-size:9px;font-weight:700;background:#fff;padding:2px 6px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);color:#1c1612}
-
-/* detail screen */
+.mpin{position:absolute;width:36px;height:36px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.mpin::after{content:attr(data-e);transform:rotate(45deg);font-size:17px;display:block}
+.mlbl{position:absolute;font-size:10px;font-weight:700;background:#fff;padding:2px 7px;border-radius:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.18);color:#1c1612}
 .dscr{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.dbar{display:flex;align-items:center;gap:9px;padding:9px 11px;border-bottom:1px solid #d8c2ba;flex-shrink:0;background:#fffbff}
-.dback{font-size:19px;color:#d84315;font-weight:700}
-.dttl{font-size:14px;font-weight:700;color:#1c1612}
-.dhero{height:160px;display:flex;align-items:center;justify-content:center;font-size:66px;background:#f5ded6;flex-shrink:0}
-.dbody{padding:13px;display:flex;flex-direction:column;gap:9px;overflow:auto}
-.dname{font-size:16px;font-weight:700;color:#1c1612}
-.dmeta{font-size:12px;color:#3e302b;display:flex;align-items:center;gap:5px}
-.fav-btn{background:#d84315;color:#fff;font-size:13px;font-weight:700;padding:12px;border-radius:11px;border:none;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}
-.calcard{background:#f5ded6;border-radius:11px;padding:9px 13px;display:flex;align-items:center;gap:9px}
-.calcard-txt{font-size:11px;font-weight:600;color:#3e302b;line-height:1.55}
+.dbar{display:flex;align-items:center;gap:9px;padding:10px 12px;border-bottom:1px solid #d8c2ba;flex-shrink:0;background:#fffbff}
+.dback{font-size:20px;color:#d84315;font-weight:700}
+.dttl{font-size:15px;font-weight:700;color:#1c1612}
+.dhero{height:170px;display:flex;align-items:center;justify-content:center;font-size:70px;background:#f5ded6;flex-shrink:0}
+.dbody{padding:14px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.dname{font-size:17px;font-weight:700;color:#1c1612}
+.dmeta{font-size:13px;color:#3e302b;display:flex;align-items:center;gap:5px}
+.fav-btn{background:#d84315;color:#fff;font-size:14px;font-weight:700;padding:13px;border-radius:12px;border:none;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer}
+.calcard{background:#f5ded6;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px}
+.calcard-txt{font-size:12px;font-weight:600;color:#3e302b;line-height:1.55}
 
-/* ── narration ── */
-.narr{position:absolute;width:840px;top:50%;transform:translateY(-40px);opacity:0;transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
-.narr.show{opacity:1;transform:translateY(-50%)}
-.narr.left{left:100px}
-.narr.right{right:100px}
-.narr-scene{font-size:22px;font-weight:700;letter-spacing:.12em;color:#ff8a65;text-transform:uppercase;margin-bottom:16px}
-.narr-q{font-size:76px;font-weight:900;color:#fff;line-height:1.2;margin-bottom:22px}
-.narr-q em{color:#ff6e40;font-style:normal}
-.narr-d{font-size:34px;font-weight:500;color:rgba(255,255,255,.65);line-height:1.65}
+/* ── CALLOUT ── */
+.callout{
+  position:absolute;top:50%;
+  background:#1e1b4b;border:1.5px solid rgba(99,102,241,.4);border-radius:20px;
+  padding:36px 44px;width:700px;
+  opacity:0;transition:opacity .5s,transform .5s;
+  pointer-events:none;
+}
+.callout.side-left{left:100px;transform:translateY(calc(-50% + 20px))}
+.callout.side-left.show{opacity:1;transform:translateY(-50%)}
+.callout.side-right{right:100px;transform:translateY(calc(-50% + 20px))}
+.callout.side-right.show{opacity:1;transform:translateY(-50%)}
+.callout-tag{display:inline-block;font-size:16px;font-weight:700;letter-spacing:.1em;color:#818cf8;margin-bottom:14px}
+.callout-ttl{font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.3}
+.callout-desc{font-size:20px;color:rgba(255,255,255,.7);line-height:1.65}
 
-/* ── scene strip ── */
-.strip{position:absolute;top:56px;background:rgba(216,67,21,.14);border:1.5px solid rgba(216,67,21,.4);border-radius:100px;padding:14px 36px;display:flex;align-items:center;gap:20px;opacity:0;transition:opacity .5s,transform .5s}
-.strip.show{opacity:1}
-.strip.left{left:100px;transform:translateX(-20px)}
-.strip.left.show{transform:translateX(0)}
-.strip.right{right:100px;transform:translateX(20px)}
-.strip.right.show{transform:translateX(0)}
-.strip-num{font-size:22px;font-weight:800;color:#ff8a65;letter-spacing:.1em}
-.strip-lbl{font-size:40px;font-weight:800;color:#fff}
-
-/* ── intro / features / cta scenes ── */
-.final{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .6s;z-index:10}
-.final.show{opacity:1}
-
-/* intro */
-.iburst{display:flex;align-items:center;gap:28px;opacity:0;transform:scale(.85);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.iburst.show{opacity:1;transform:scale(1)}
-.iburst-icon{width:110px;height:110px}
-.iburst-name{font-size:120px;font-weight:900;color:#fff;letter-spacing:-4px;line-height:1}
-.itagline{font-size:54px;font-weight:700;color:#ff8a65;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
-.itagline.show{opacity:1;transform:translateY(0)}
-.ipills{display:flex;gap:14px;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
-.ipills.show{opacity:1;transform:translateY(0)}
-.ipill{background:rgba(216,67,21,.14);border:1.5px solid rgba(216,67,21,.35);color:#ff8a65;font-size:26px;font-weight:700;padding:10px 30px;border-radius:100px}
-
-/* features */
-.fwrap{display:flex;flex-direction:column;align-items:center;gap:52px;width:92%;max-width:1700px}
+/* ── S5: FEATURES ── */
+.feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FFFBFF 0%,#FFF4EE 50%,#FFE8DC 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.feat-scene.show{opacity:1}
+.fwrap{display:flex;flex-direction:column;align-items:center;gap:36px;width:92%;max-width:1720px}
 .fhead{text-align:center;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
 .fhead.show{opacity:1;transform:translateY(0)}
-.fhead-lbl{display:inline-block;font-size:24px;font-weight:800;color:#ff8a65;letter-spacing:.14em;margin-bottom:14px}
-.fhead h2{font-size:88px;font-weight:900;color:#fff;line-height:1.2}
-.fhead h2 em{color:#ff6e40;font-style:normal}
-.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;width:100%}
-.fcard{background:rgba(255,255,255,.05);border:1px solid rgba(216,67,21,.2);border-radius:22px;padding:36px;display:flex;flex-direction:column;gap:13px;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.fhead-lbl{display:inline-block;font-size:20px;font-weight:800;color:#D84315;letter-spacing:.14em;margin-bottom:10px}
+.fhead h2{font-size:76px;font-weight:900;color:#1C1612;line-height:1.2}
+.fhead h2 em{color:#D84315;font-style:normal}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
+.fcard{background:#FFFBFF;border:1px solid #D8C2BA;border-radius:18px;padding:28px 30px;display:flex;flex-direction:column;gap:10px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .fcard.show{opacity:1;transform:translateY(0)}
-.fcard-ico{font-size:46px}
-.fcard-ttl{font-size:28px;font-weight:700;color:#fff}
-.fcard-txt{font-size:20px;color:rgba(255,255,255,.6);line-height:1.6}
+.fcard-ico{font-size:38px;line-height:1}
+.fcard-ttl{font-size:24px;font-weight:700;color:#1C1612}
+.fcard-txt{font-size:17px;color:#3E302B;line-height:1.55}
 
-/* cta */
-.cta-ttl{font-size:100px;font-weight:900;color:#fff;text-align:center;line-height:1.15;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+/* ── S6: CTA ── */
+.cta-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#BF360C 0%,#D84315 50%,#E64A19 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.cta-scene.show{opacity:1}
+.cta-inner{display:flex;flex-direction:column;align-items:center;gap:44px}
+.cta-ttl{font-size:96px;font-weight:900;color:#fff;text-align:center;line-height:1.15;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
 .cta-ttl.show{opacity:1;transform:translateY(0)}
-.cta-ttl em{color:#ff6e40;font-style:normal}
-.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border:none;border-radius:18px;padding:20px 52px;box-shadow:0 10px 50px rgba(216,67,21,.35);opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s;cursor:pointer}
+.cta-ttl em{color:#FFD0B5;font-style:normal}
+.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border:none;border-radius:18px;padding:20px 52px;box-shadow:0 10px 50px rgba(0,0,0,.25);opacity:0;transform:translateY(18px);transition:opacity .6s .2s,transform .6s .2s;cursor:pointer}
 .cta-btn.show{opacity:1;transform:translateY(0)}
 .cta-btn svg{width:32px;height:32px}
 .cta-btn-txt{display:flex;flex-direction:column;text-align:left}
 .cta-get{font-size:16px;color:#666;line-height:1}
 .cta-gp{font-size:32px;font-weight:700;color:#1c1612;line-height:1.25}
-.cta-note{font-size:28px;color:rgba(255,255,255,.45);opacity:0;transition:opacity .5s}
+.cta-note{font-size:28px;color:rgba(255,255,255,.7);opacity:0;transition:opacity .5s .4s}
 .cta-note.show{opacity:1}
 </style>
 </head>
 <body>
 
-<!-- backgrounds -->
-<div class="bg bg-warm show" id="bgw"></div>
-<div class="glow"></div>
+<div class="bg-base"></div>
+<div class="bg-glow"></div>
 
-<!-- phone stage -->
+<!-- S1: INTRO -->
+<div class="scene" id="s1">
+  <div class="intro-wrap">
+    <div class="iburst" id="ib">
+      <svg class="iburst-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="48" height="48" rx="12" fill="#D84315"/>
+        <path d="M16 8V34H20V8H16Z" fill="white"/>
+        <path d="M20 34H32V30H20V34Z" fill="white"/>
+        <circle cx="20" cy="38" r="3.5" fill="white"/>
+      </svg>
+      <span class="iburst-name">Lovent</span>
+    </div>
+    <div class="itagline" id="it">AI finds local events for you</div>
+    <div class="ipills" id="ip">
+      <span class="ipill">Free</span>
+      <span class="ipill">Android</span>
+      <span class="ipill">AI-Powered</span>
+    </div>
+  </div>
+</div>
+
+<!-- S2: PROBLEM -->
+<div class="scene" id="s2">
+  <div class="prob-wrap">
+    <div class="prob-head" id="ph2">
+      <div class="prob-eyebrow">THE PROBLEM</div>
+      <div class="prob-h">"What's <em>happening nearby</em>?"</div>
+    </div>
+    <div class="prob-cards" id="pc">
+      <div class="prob-card bad">
+        <div class="pcard-title">😩 Without Lovent</div>
+        <div class="pitem"><span class="pitem-icon">🔍</span>Scattered results across multiple apps &amp; sites</div>
+        <div class="pitem"><span class="pitem-icon">😞</span>Missing great events you would've loved</div>
+        <div class="pitem"><span class="pitem-icon">⏰</span>Wasting time searching every single week</div>
+      </div>
+      <div class="prob-card good">
+        <div class="pcard-title good">✨ With Lovent</div>
+        <div class="pitem good"><span class="pitem-icon">🤖</span>AI collects events in your area automatically</div>
+        <div class="pitem good"><span class="pitem-icon">🗺️</span>Browse everything in one list or on a map</div>
+        <div class="pitem good"><span class="pitem-icon">📅</span>One tap to save &amp; get a calendar reminder</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: STEPS -->
+<div class="scene" id="s3">
+  <div class="steps-wrap">
+    <div class="steps-head" id="sh3">
+      <div class="steps-eyebrow">HOW IT WORKS</div>
+      <div class="steps-h">Works in <em>3 steps</em></div>
+    </div>
+    <div class="steps-row">
+      <div class="step-card" id="st1">
+        <div class="step-num">STEP 01</div>
+        <div class="step-ico">📍</div>
+        <div class="step-ttl">Set your area</div>
+        <div class="step-desc">NYC, London, Tokyo —<br>up to 5 locations at once</div>
+      </div>
+      <div class="step-card" id="st2">
+        <div class="step-num">STEP 02</div>
+        <div class="step-ico">🤖</div>
+        <div class="step-ttl">AI discovers events</div>
+        <div class="step-desc">Searches the web &amp; surfaces<br>events for the next 14 days</div>
+      </div>
+      <div class="step-card" id="st3">
+        <div class="step-num">STEP 03</div>
+        <div class="step-ico">📅</div>
+        <div class="step-ttl">Never miss out</div>
+        <div class="step-desc">Heart it → auto-added to<br>Google Calendar with reminder</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHONE + CALLOUTS (S4 demo) -->
 <div class="phone-stage" id="ps">
   <div class="phone" id="ph">
     <div class="sbar"><span>12:34</span><span>📶🔋</span></div>
@@ -190,7 +276,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
     <div class="screen" id="sc-a">
       <div class="atop">
         <div class="atop-logo">
-          <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#D84315"/><path d="M16 10V34H20V10H16Z" fill="white"/><path d="M20 34H30V30H20V34Z" fill="white"/><circle cx="20" cy="38" r="3.5" fill="white"/></svg>
           <span class="atop-name">Lovent</span>
         </div>
         <div class="atop-icons">
@@ -198,61 +284,60 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
           <div class="ai"><svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
         </div>
       </div>
-      <div class="arow"><div class="ac on">渋谷</div><div class="ac">新宿</div><div class="ac">大阪</div></div>
-      <div class="fbar"><div class="fc on">≡ フィルター</div></div>
+      <div class="arow"><div class="ac on">NYC</div><div class="ac">Brooklyn</div><div class="ac">Austin</div></div>
+      <div class="fbar"><div class="fc on">≡ Filter</div></div>
       <div class="elist">
         <div class="ec">
           <div class="ec-img" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
           <div class="ec-body">
-            <div class="ec-r1"><div class="ec-ttl">ジャズナイト at ブルームーンバー</div><div class="hrt">🤍</div></div>
-            <div class="chips"><span class="ct cm">音楽</span></div>
-            <div class="emeta">📅 4/19(土) 20:00〜 &nbsp; 📍 渋谷</div>
+            <div class="ec-r1"><div class="ec-ttl">Jazz Night at Blue Moon Bar</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cm">Music</span></div>
+            <div class="emeta">📅 Apr 19 (Sat) 8PM &nbsp;📍 Manhattan</div>
           </div>
         </div>
         <div class="ec">
-          <div class="ec-img" style="background:linear-gradient(135deg,#BF360C,#E64A19)">🍜<div class="gr"></div></div>
+          <div class="ec-img" style="background:linear-gradient(135deg,#BF360C,#E64A19)">🍔<div class="gr"></div></div>
           <div class="ec-body">
-            <div class="ec-r1"><div class="ec-ttl">ラーメンフェス 2025 — 40店舗</div><div class="hrt">🤍</div></div>
-            <div class="chips"><span class="ct cf">フード</span><span class="ct cfe">無料</span></div>
-            <div class="emeta">📅 4/20(日) 11:00〜 &nbsp; 📍 代々木公園</div>
+            <div class="ec-r1"><div class="ec-ttl">Brooklyn Food Festival 2025</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cf">Food</span><span class="ct cfe">Free</span></div>
+            <div class="emeta">📅 Apr 20 (Sun) 11AM &nbsp;📍 Prospect Park</div>
           </div>
         </div>
         <div class="ec">
           <div class="ec-img" style="background:linear-gradient(135deg,#004D40,#00796B)">🏃<div class="gr"></div></div>
           <div class="ec-body">
-            <div class="ec-r1"><div class="ec-ttl">シティマラソン 5K ファンラン</div><div class="hrt">🤍</div></div>
-            <div class="chips"><span class="ct cs">スポーツ</span></div>
-            <div class="emeta">📅 4/20(日) 7:00〜 &nbsp; 📍 新宿中央公園</div>
+            <div class="ec-r1"><div class="ec-ttl">Central Park 5K Fun Run</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cs">Sports</span></div>
+            <div class="emeta">📅 Apr 20 (Sun) 7AM &nbsp;📍 Central Park</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Screen B: filter -->
+    <!-- Screen B: filter sheet -->
     <div class="screen" id="sc-b">
       <div class="atop">
-        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg><span class="atop-name">Lovent</span></div>
-        <div class="atop-icons"><div class="ai"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div></div>
+        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#D84315"/><path d="M16 10V34H20V10H16Z" fill="white"/><path d="M20 34H30V30H20V34Z" fill="white"/><circle cx="20" cy="38" r="3.5" fill="white"/></svg><span class="atop-name">Lovent</span></div>
       </div>
-      <div class="arow"><div class="ac on">渋谷</div><div class="ac">新宿</div></div>
+      <div class="arow"><div class="ac on">NYC</div><div class="ac">Brooklyn</div></div>
       <div class="elist" style="position:relative">
         <div class="ec" style="opacity:.35">
           <div class="ec-img" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
-          <div class="ec-body"><div class="ec-r1"><div class="ec-ttl">ジャズナイト at ブルームーンバー</div></div></div>
+          <div class="ec-body"><div class="ec-r1"><div class="ec-ttl">Jazz Night at Blue Moon Bar</div></div></div>
         </div>
         <div class="bsheet" id="bsh">
           <div class="bhandle"></div>
-          <div class="bs">カテゴリ</div>
+          <div class="bs">Category</div>
           <div class="bcats">
-            <span class="bcat on">✓ 音楽</span><span class="bcat">フード</span><span class="bcat">スポーツ</span>
-            <span class="bcat">アート</span><span class="bcat">テック</span><span class="bcat">フェス</span>
+            <span class="bcat on">✓ Music</span><span class="bcat">Food</span><span class="bcat">Sports</span>
+            <span class="bcat">Art</span><span class="bcat">Tech</span><span class="bcat">Festival</span>
           </div>
-          <div class="bs">日付</div>
+          <div class="bs">Date</div>
           <div class="bdates">
-            <div class="bdt">今日</div><div class="bdt">明日</div><div class="bdt on">✓ 週末</div><div class="bdt">すべて</div>
+            <div class="bdt">Today</div><div class="bdt">Tomorrow</div><div class="bdt on">✓ Weekend</div><div class="bdt">All</div>
           </div>
           <div class="btog">
-            <span class="btl">無料のみ</span>
+            <span class="btl">Free only</span>
             <div class="btsw"></div>
           </div>
         </div>
@@ -262,27 +347,27 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
     <!-- Screen C: filtered results -->
     <div class="screen" id="sc-c">
       <div class="atop">
-        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg><span class="atop-name">Lovent</span></div>
+        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#D84315"/><path d="M16 10V34H20V10H16Z" fill="white"/><path d="M20 34H30V30H20V34Z" fill="white"/><circle cx="20" cy="38" r="3.5" fill="white"/></svg><span class="atop-name">Lovent</span></div>
       </div>
       <div class="fbar">
         <div class="fc on">≡</div>
-        <div class="fc">音楽 ×</div><div class="fc">週末 ×</div><div class="fc">無料 ×</div>
+        <div class="fc">Music ×</div><div class="fc">Weekend ×</div><div class="fc">Free ×</div>
       </div>
       <div class="elist">
         <div class="ec">
           <div class="ec-img" style="background:linear-gradient(135deg,#3949AB,#1A237E)">🎵<div class="gr"></div></div>
           <div class="ec-body">
-            <div class="ec-r1"><div class="ec-ttl">フリーアコースティック — 原宿駅前</div><div class="hrt">🤍</div></div>
-            <div class="chips"><span class="ct cm">音楽</span><span class="ct cfe">無料</span></div>
-            <div class="emeta">📅 4/19(土) 18:00〜 &nbsp; 📍 原宿</div>
+            <div class="ec-r1"><div class="ec-ttl">Free Acoustic Set — Washington Square</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cm">Music</span><span class="ct cfe">Free</span></div>
+            <div class="emeta">📅 Apr 19 (Sat) 6PM &nbsp;📍 Greenwich Village</div>
           </div>
         </div>
         <div class="ec">
           <div class="ec-img" style="background:linear-gradient(135deg,#1565C0,#283593)">🎸<div class="gr"></div></div>
           <div class="ec-body">
-            <div class="ec-r1"><div class="ec-ttl">ストリートライブ — 下北沢南口</div><div class="hrt">🤍</div></div>
-            <div class="chips"><span class="ct cm">音楽</span><span class="ct cfe">無料</span></div>
-            <div class="emeta">📅 4/20(日) 15:00〜 &nbsp; 📍 下北沢</div>
+            <div class="ec-r1"><div class="ec-ttl">Street Concert — Bedford Ave</div><div class="hrt">🤍</div></div>
+            <div class="chips"><span class="ct cm">Music</span><span class="ct cfe">Free</span></div>
+            <div class="emeta">📅 Apr 20 (Sun) 3PM &nbsp;📍 Williamsburg</div>
           </div>
         </div>
       </div>
@@ -291,10 +376,10 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
     <!-- Screen D: map view -->
     <div class="screen" id="sc-d">
       <div class="atop">
-        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg><span class="atop-name">Lovent</span></div>
+        <div class="atop-logo"><svg width="22" height="22" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#D84315"/><path d="M16 10V34H20V10H16Z" fill="white"/><path d="M20 34H30V30H20V34Z" fill="white"/><circle cx="20" cy="38" r="3.5" fill="white"/></svg><span class="atop-name">Lovent</span></div>
         <div class="atop-icons"><div class="ai"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div></div>
       </div>
-      <div class="arow"><div class="ac on">渋谷</div><div class="ac">新宿</div></div>
+      <div class="arow"><div class="ac on">NYC</div><div class="ac">Brooklyn</div></div>
       <div class="mapwrap">
         <div class="mapbg"></div>
         <div class="mr-h" style="top:32%"></div><div class="mr-h" style="top:60%"></div>
@@ -309,13 +394,13 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
         <div class="mb" style="top:64%;left:31%;width:29%;height:28%"></div>
         <div class="mb" style="top:64%;left:68%;width:24%;height:28%"></div>
         <div class="mpin" style="background:#283593;top:14%;left:10%" data-e="🎵"></div>
-        <div class="mlbl" style="top:4%;left:4%">ジャズナイト</div>
-        <div class="mpin" style="background:#d84315;top:14%;left:45%" data-e="🍜"></div>
-        <div class="mlbl" style="top:4%;left:39%">ラーメンフェス</div>
+        <div class="mlbl" style="top:4%;left:4%">Jazz Night</div>
+        <div class="mpin" style="background:#d84315;top:14%;left:45%" data-e="🍔"></div>
+        <div class="mlbl" style="top:4%;left:39%">Food Fest</div>
         <div class="mpin" style="background:#00695c;top:38%;left:18%" data-e="🏃"></div>
-        <div class="mlbl" style="top:28%;left:12%">5K ラン</div>
+        <div class="mlbl" style="top:28%;left:12%">5K Run</div>
         <div class="mpin" style="background:#c2185b;top:38%;left:68%" data-e="🎨"></div>
-        <div class="mlbl" style="top:28%;left:62%">アート展</div>
+        <div class="mlbl" style="top:28%;left:62%">Art Show</div>
         <div class="mpin" style="background:#00838f;top:66%;left:50%" data-e="💻"></div>
         <div class="mlbl" style="top:56%;left:44%">Tech Talk</div>
       </div>
@@ -324,14 +409,14 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
     <!-- Screen E: event detail -->
     <div class="screen" id="sc-e">
       <div class="dscr">
-        <div class="dbar"><div class="dback">←</div><div class="dttl">イベント詳細</div></div>
+        <div class="dbar"><div class="dback">←</div><div class="dttl">Event Detail</div></div>
         <div class="dhero">🎵</div>
         <div class="dbody">
-          <div class="dname">ジャズナイト at ブルームーンバー</div>
-          <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
-          <div class="dmeta">📍 渋谷区 ブルームーンバー</div>
-          <div style="font-size:12px;color:#3e302b;line-height:1.7">Kenji Trioによるライブジャズ。無料入場。</div>
-          <button class="fav-btn">🤍 お気に入りに追加</button>
+          <div class="dname">Jazz Night at Blue Moon Bar</div>
+          <div class="dmeta">📅 Apr 19 (Sat) 8:00–11:00 PM</div>
+          <div class="dmeta">📍 Manhattan, Blue Moon Bar</div>
+          <div style="font-size:13px;color:#3e302b;line-height:1.7">Live jazz by the Kenji Trio. One drink minimum.</div>
+          <button class="fav-btn">🤍 Add to Favorites</button>
         </div>
       </div>
     </div>
@@ -339,71 +424,72 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0D0604;font-fam
     <!-- Screen F: calendar added -->
     <div class="screen" id="sc-f">
       <div class="dscr">
-        <div class="dbar"><div class="dback">←</div><div class="dttl">イベント詳細</div></div>
+        <div class="dbar"><div class="dback">←</div><div class="dttl">Event Detail</div></div>
         <div class="dhero">🎵</div>
         <div class="dbody">
-          <div class="dname">ジャズナイト at ブルームーンバー</div>
-          <div class="dmeta">📅 4/19(土) 20:00〜23:00</div>
-          <button class="fav-btn" style="background:#c2185b">❤️ お気に入り済み</button>
+          <div class="dname">Jazz Night at Blue Moon Bar</div>
+          <div class="dmeta">📅 Apr 19 (Sat) 8:00–11:00 PM</div>
+          <button class="fav-btn" style="background:#c2185b">❤️ Saved to Favorites</button>
           <div class="calcard">
-            <span style="font-size:21px">📅</span>
-            <div class="calcard-txt">Googleカレンダーに追加済み<br><span style="font-weight:400;font-size:10px;color:#85736d">4/19(土) · リマインダー: 当日朝9時</span></div>
+            <span style="font-size:22px">📅</span>
+            <div class="calcard-txt">Added to Google Calendar<br><span style="font-weight:400;font-size:11px;color:#85736d">Apr 19 · Reminder: 9AM that morning</span></div>
           </div>
         </div>
       </div>
     </div>
-
   </div><!-- /phone -->
+
+  <!-- Callouts -->
+  <!-- co1: Demo1 phone=right → callout on left -->
+  <div class="callout side-left" id="co1">
+    <div class="callout-tag">DEMO 01 — AI Discovery</div>
+    <div class="callout-ttl">AI collects events<br>automatically for you</div>
+    <div class="callout-desc">Just set your area. Updated daily with events up to 14 days ahead.</div>
+  </div>
+  <!-- co2: Demo2 phone=left → callout on right -->
+  <div class="callout side-right" id="co2">
+    <div class="callout-tag">DEMO 02 — Smart Filter</div>
+    <div class="callout-ttl">15 categories, date &amp;<br>free-only filter</div>
+    <div class="callout-desc">Open the filter sheet, tap your criteria — instantly see what you want.</div>
+  </div>
+  <!-- co3: Demo3 phone=right → callout on left -->
+  <div class="callout side-left" id="co3">
+    <div class="callout-tag">DEMO 03 — Map View</div>
+    <div class="callout-ttl">See events on a map.<br>Everything nearby at a glance</div>
+    <div class="callout-desc">Color-coded pins by category. Tap to preview, then navigate.</div>
+  </div>
+  <!-- co4: Demo4 phone=left → callout on right -->
+  <div class="callout side-right" id="co4">
+    <div class="callout-tag">DEMO 04 — Calendar Sync</div>
+    <div class="callout-ttl">One tap to save &amp;<br>set a reminder</div>
+    <div class="callout-desc">Heart an event → auto-added to Google Calendar with a custom reminder.</div>
+  </div>
 </div><!-- /phone-stage -->
 
-<!-- scene strip -->
-<div class="strip" id="strip"><span class="strip-num" id="snum">SCENE 01</span><span class="strip-lbl" id="slbl">週末の予定</span></div>
-
-<!-- narration -->
-<div class="narr" id="narr">
-  <div class="narr-scene" id="n-scene"></div>
-  <div class="narr-q" id="n-q"></div>
-  <div class="narr-d" id="n-d"></div>
-</div>
-
-<!-- intro -->
-<div class="final" id="intro">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:32px">
-    <div class="iburst" id="ib">
-      <svg class="iburst-icon" viewBox="0 0 24 24"><path fill="#D84315" d="M4,1 L10,1 L10,15 L21,15 L21,19 L10,19 L7,23 L4,19 Z"/></svg>
-      <span class="iburst-name">Lovent</span>
-    </div>
-    <div class="itagline" id="it">AIが地元のイベントを自動で見つける</div>
-    <div class="ipills" id="ip">
-      <span class="ipill">無料</span><span class="ipill">Android</span><span class="ipill">登録不要</span>
-    </div>
-  </div>
-</div>
-
-<!-- features -->
-<div class="final" id="feat">
+<!-- S5: FEATURES -->
+<div class="feat-scene" id="s5">
   <div class="fwrap">
-    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>これ<em>ひとつ</em>で全部できる</h2></div>
+    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>Everything in <em>one app</em></h2></div>
     <div class="fgrid">
-      <div class="fcard" id="fc1"><div class="fcard-ico">🤖</div><div class="fcard-ttl">AI自動収集</div><div class="fcard-txt">設定したエリアのイベントを毎日自動取得。最大14日先まで</div></div>
-      <div class="fcard" id="fc2"><div class="fcard-ico">🗺️</div><div class="fcard-ttl">マップ＆一覧</div><div class="fcard-txt">Google Mapsにピン表示またはカード一覧で閲覧できる</div></div>
-      <div class="fcard" id="fc3"><div class="fcard-ico">📅</div><div class="fcard-ttl">カレンダー連携</div><div class="fcard-txt">ハートを押すだけでGoogleカレンダーに自動登録＋リマインダー</div></div>
-      <div class="fcard" id="fc4"><div class="fcard-ico">🏷️</div><div class="fcard-ttl">15カテゴリ</div><div class="fcard-txt">音楽・フード・スポーツ・アート・テックほか。無料フィルターも</div></div>
-      <div class="fcard" id="fc5"><div class="fcard-ico">🔑</div><div class="fcard-ttl">登録不要</div><div class="fcard-txt">アカウント作成ゼロ。ダウンロードしてすぐ使える</div></div>
-      <div class="fcard" id="fc6"><div class="fcard-ico">📍</div><div class="fcard-ttl">最大5エリア</div><div class="fcard-txt">渋谷・横浜・大阪など複数エリアを同時に管理できる</div></div>
+      <div class="fcard" id="fc1"><div class="fcard-ico">🤖</div><div class="fcard-ttl">AI Discovery</div><div class="fcard-txt">Auto-updated daily. Events up to 14 days ahead</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">🗺️</div><div class="fcard-ttl">Map &amp; List View</div><div class="fcard-txt">Browse as a card list or interactive map</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">📅</div><div class="fcard-ttl">Calendar Sync</div><div class="fcard-txt">Heart → auto-added to Google Calendar</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico">🏷️</div><div class="fcard-ttl">15 Categories</div><div class="fcard-txt">Music, Food, Sports, Art, Tech &amp; more</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">🌍</div><div class="fcard-ttl">Works Worldwide</div><div class="fcard-txt">Set any city or neighborhood anywhere</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico">📍</div><div class="fcard-ttl">Up to 5 Areas</div><div class="fcard-txt">Track home, work &amp; more simultaneously</div></div>
     </div>
   </div>
 </div>
 
-<!-- cta -->
-<div class="final" id="ctaf">
-  <div style="display:flex;flex-direction:column;align-items:center;gap:44px">
-    <div class="cta-ttl" id="ct">地元のイベントを、<br><em>今日から見逃さない。</em></div>
+<!-- S6: CTA -->
+<div class="cta-scene" id="s6">
+  <div class="cta-inner">
+    <div class="cta-ttl" id="ct">Discover local events.<br><em>Starting today.</em></div>
     <button class="cta-btn" id="cb">
       <svg viewBox="0 0 24 24" fill="#1c1612"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
       <div class="cta-btn-txt"><span class="cta-get">GET IT ON</span><span class="cta-gp">Google Play</span></div>
     </button>
-    <div class="cta-note" id="cn">無料 · 登録不要 · Android 8.0以上</div>
+    <div class="cta-note" id="cn">Free · Android 8.0+ · AI-powered</div>
   </div>
 </div>
 
@@ -414,112 +500,94 @@ function at(ms,fn){T.push([ms,fn])}
 
 function screen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));$(id).classList.add('show')}
 function phonePos(p){$('ph').classList.remove('left','right');if(p)$('ph').classList.add(p)}
-function showStrip(num,lbl,side){
-  const s=$('strip');s.classList.remove('left','right','show');
-  $('snum').textContent='SCENE '+num;$('slbl').textContent=lbl;
-  s.classList.add(side);void s.offsetHeight;s.classList.add('show');
-}
-function hideStrip(){$('strip').classList.remove('show')}
-function setNarr(scene,q,d,side){
-  const n=$('narr');n.classList.remove('left','right','show');
-  $('n-scene').textContent=scene;$('n-q').innerHTML=q;$('n-d').innerHTML=d;
-  n.classList.add(side);void n.offsetHeight;n.classList.add('show');
-}
-function hideNarr(){$('narr').classList.remove('show')}
-function openSheet(){$('bsh').classList.add('open')}
-function closeSheet(){$('bsh').classList.remove('open')}
+function showCo(n){$('co'+n).classList.add('show')}
+function hideCos(){[1,2,3,4].forEach(n=>$('co'+n).classList.remove('show'))}
 
 function reset(){
   clearTimeout(tmr);T=[];idx=0;
   $('ps').classList.remove('show');
-  ['intro','feat','ctaf'].forEach(id=>$(id).classList.remove('show'));
-  ['ib','it','ip','fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
+  ['s1','s2','s3'].forEach(id=>$(id).classList.remove('show'));
+  $('s5').classList.remove('show');
+  $('s6').classList.remove('show');
+  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3'].forEach(id=>$(id).classList.remove('show'));
+  ['fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));
-  $('strip').classList.remove('show');$('narr').classList.remove('show');
-  closeSheet();
+  $('bsh').classList.remove('open');
+  hideCos();
 }
 
 function buildTimeline(){
   let t=0;
 
-  // INTRO 0–3000
-  at(t,()=>{$('intro').classList.add('show')});
+  // S1: INTRO 0–2000 (2s)
+  at(t,()=>$('s1').classList.add('show'));
   at(t+100,()=>$('ib').classList.add('show'));
-  at(t+600,()=>$('it').classList.add('show'));
-  at(t+1000,()=>$('ip').classList.add('show'));
-  at(t+2800,()=>$('intro').classList.remove('show'));
-  t+=3000;
+  at(t+500,()=>$('it').classList.add('show'));
+  at(t+900,()=>$('ip').classList.add('show'));
+  at(t+1800,()=>$('s1').classList.remove('show'));
+  t+=2000;
 
-  // SCENE 1: 週末何しよう → イベント一覧 3000–8500
-  at(t,()=>{
-    $('ps').classList.add('show');
-    phonePos('right');
-    screen('sc-a');
-  });
-  at(t+200,()=>showStrip('01','週末の予定を探してた','left'));
-  at(t+500,()=>setNarr(
-    'SCENE 01',
-    '「週末、<em>何しよう…</em>」',
-    'エリアを設定するだけで\nAIが自動でイベントを集めてくれる',
-    'left'
-  ));
-  at(t+4800,()=>{hideStrip();hideNarr()});
-  t+=5500;
-
-  // SCENE 2: 無料イベントに絞りたい 8500–14000
-  at(t,()=>{phonePos('left');screen('sc-b');setTimeout(openSheet,500)});
-  at(t+200,()=>showStrip('02','無料で楽しみたい','right'));
-  at(t+500,()=>setNarr(
-    'SCENE 02',
-    '「お金かけずに\n<em>楽しみたい</em>」',
-    '15カテゴリ × 日付 × 無料フィルター\nで一瞬で絞り込める',
-    'right'
-  ));
-  at(t+2800,()=>{closeSheet();screen('sc-c')});
-  at(t+5000,()=>{hideStrip();hideNarr()});
-  t+=5500;
-
-  // SCENE 3: マップで近くを探したい 14000–18500
-  at(t,()=>{phonePos('right');screen('sc-d')});
-  at(t+200,()=>showStrip('03','場所から探したい','left'));
-  at(t+500,()=>setNarr(
-    'SCENE 03',
-    '「近くで\n<em>やってるイベント</em>は？」',
-    'マップ上にピン表示。\nタップでプレビュー、そのままナビも',
-    'left'
-  ));
-  at(t+4300,()=>{hideStrip();hideNarr()});
+  // S2: PROBLEM 2000–6500 (4.5s)
+  at(t,()=>$('s2').classList.add('show'));
+  at(t+150,()=>$('ph2').classList.add('show'));
+  at(t+550,()=>$('pc').classList.add('show'));
+  at(t+4200,()=>$('s2').classList.remove('show'));
   t+=4500;
 
-  // SCENE 4: 見つけたイベントをカレンダーへ 18500–24000
-  at(t,()=>{phonePos('left');screen('sc-e')});
-  at(t+200,()=>showStrip('04','見逃したくない','right'));
-  at(t+500,()=>setNarr(
-    'SCENE 04',
-    '「気になった！\n<em>絶対忘れたくない</em>」',
-    'ハートをタップするだけで\nGoogleカレンダーに自動登録＋リマインダー',
-    'right'
-  ));
-  at(t+2500,()=>screen('sc-f'));
-  at(t+5200,()=>{hideStrip();hideNarr();$('ps').classList.remove('show')});
-  t+=5500;
+  // S3: STEPS 6500–9500 (3s)
+  at(t,()=>$('s3').classList.add('show'));
+  at(t+150,()=>$('sh3').classList.add('show'));
+  at(t+500,()=>$('st1').classList.add('show'));
+  at(t+850,()=>$('st2').classList.add('show'));
+  at(t+1200,()=>$('st3').classList.add('show'));
+  at(t+2800,()=>$('s3').classList.remove('show'));
+  t+=3000;
 
-  // FEATURES 24000–28000
-  at(t,()=>$('feat').classList.add('show'));
-  at(t+200,()=>$('fh').classList.add('show'));
-  at(t+400,()=>$('fc1').classList.add('show'));
-  at(t+520,()=>$('fc2').classList.add('show'));
-  at(t+640,()=>$('fc3').classList.add('show'));
-  at(t+760,()=>$('fc4').classList.add('show'));
-  at(t+880,()=>$('fc5').classList.add('show'));
-  at(t+1000,()=>$('fc6').classList.add('show'));
+  // S4 DEMO
+
+  // Demo 1: event list (9500–13000) 3.5s
+  at(t,()=>{$('ps').classList.add('show');phonePos('right');screen('sc-a')});
+  at(t+350,()=>showCo(1));
+  at(t+3200,()=>hideCos());
+  t+=3500;
+
+  // Demo 2: filter → filtered (13000–16500) 3.5s
+  at(t,()=>{phonePos('left');screen('sc-b')});
+  at(t+450,()=>$('bsh').classList.add('open'));
+  at(t+600,()=>showCo(2));
+  at(t+2100,()=>{$('bsh').classList.remove('open');screen('sc-c')});
+  at(t+3200,()=>hideCos());
+  t+=3500;
+
+  // Demo 3: map (16500–20000) 3.5s
+  at(t,()=>{phonePos('right');screen('sc-d')});
+  at(t+350,()=>showCo(3));
+  at(t+3200,()=>hideCos());
+  t+=3500;
+
+  // Demo 4: detail → calendar (20000–24000) 4s
+  at(t,()=>{phonePos('left');screen('sc-e')});
+  at(t+350,()=>showCo(4));
+  at(t+2000,()=>screen('sc-f'));
+  at(t+3700,()=>{hideCos();$('ps').classList.remove('show')});
   t+=4000;
 
-  // CTA 28000–
-  at(t,()=>{$('feat').classList.remove('show');$('ctaf').classList.add('show')});
+  // S5: FEATURES 24000–27000 (3s)
+  at(t,()=>$('s5').classList.add('show'));
+  at(t+200,()=>$('fh').classList.add('show'));
+  at(t+330,()=>$('fc1').classList.add('show'));
+  at(t+440,()=>$('fc2').classList.add('show'));
+  at(t+550,()=>$('fc3').classList.add('show'));
+  at(t+660,()=>$('fc4').classList.add('show'));
+  at(t+770,()=>$('fc5').classList.add('show'));
+  at(t+880,()=>$('fc6').classList.add('show'));
+  t+=3000;
+
+  // S6: CTA 27000–
+  at(t,()=>{$('s5').classList.remove('show');$('s6').classList.add('show')});
   at(t+200,()=>$('ct').classList.add('show'));
-  at(t+600,()=>$('cb').classList.add('show'));
-  at(t+1000,()=>$('cn').classList.add('show'));
+  at(t+550,()=>$('cb').classList.add('show'));
+  at(t+850,()=>$('cn').classList.add('show'));
 }
 
 function run(){
