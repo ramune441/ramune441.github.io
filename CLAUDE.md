@@ -19,6 +19,8 @@ ramune441.github.io/
 
 新しいプロダクトを追加したら、`sitemap.xml` と ルート `index.html` のカードを忘れず更新すること。
 
+**外部ドメインで運用するプロダクト（例: Charmly = `charm-ly.com`）** はこのリポジトリにディレクトリを持たない。`index.html` のポータルカードと JSON-LD `ItemList` のみ更新する（`sitemap.xml` は本リポジトリのドメイン外のため更新しない）。
+
 各プロダクトに含まれるファイル:
 - `index.html` — LP
 - `promo.html` — 動画用HTMLアニメーション（1920x1080固定）
