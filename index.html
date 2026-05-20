@@ -25,6 +25,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ramune441.github.io/">
   <meta property="og:image" content="https://ramune441.github.io/formpilot/store-image-1.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="Ramune Apps - Chrome拡張機能・Androidアプリ一覧">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="Ramune Apps">
 
@@ -42,7 +45,21 @@
     "name": "Ramune Apps",
     "url": "https://ramune441.github.io/",
     "inLanguage": "ja",
-    "author": { "@type": "Person", "name": "Ramune" }
+    "publisher": { "@id": "https://ramune441.github.io/#person" },
+    "author": { "@id": "https://ramune441.github.io/#person" }
+  }
+  </script>
+  <!-- JSON-LD: 作者プロフィール -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://ramune441.github.io/#person",
+    "name": "Ramune",
+    "url": "https://ramune441.github.io/",
+    "sameAs": [
+      "https://github.com/ramune441"
+    ]
   }
   </script>
   <!-- JSON-LD: 作者が開発したアプリのリスト -->
@@ -50,36 +67,68 @@
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
+    "name": "Ramune Apps 一覧",
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "numberOfItems": 5,
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
-        "url": "https://ramune441.github.io/formpilot/",
-        "name": "FormPilot"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "FormPilot",
+          "url": "https://ramune441.github.io/formpilot/",
+          "applicationCategory": "BrowserApplication",
+          "operatingSystem": "Chrome",
+          "description": "AIがWebフォームをワンクリックで自動入力する無料Chrome拡張機能。"
+        }
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "url": "https://ramune441.github.io/ashiato-maker/",
-        "name": "足あとメーカー"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "足あとメーカー",
+          "url": "https://ramune441.github.io/ashiato-maker/",
+          "applicationCategory": "BrowserApplication",
+          "operatingSystem": "Chrome",
+          "description": "Pairs・with・東カレデート・Tinderに対応した自動訪問Chrome拡張機能。"
+        }
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "url": "https://ramune441.github.io/lovent/",
-        "name": "Lovent"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Lovent",
+          "url": "https://ramune441.github.io/lovent/",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Android",
+          "description": "指定した地域の注目イベントをAIが自動収集するAndroidアプリ。"
+        }
       },
       {
         "@type": "ListItem",
         "position": 4,
-        "url": "https://ramune441.github.io/sendready/",
-        "name": "SendReady"
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "SendReady",
+          "url": "https://ramune441.github.io/sendready/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Android",
+          "description": "LINE・メール・SNSで文章をAIがワンタップ変換するAndroidアプリ。"
+        }
       },
       {
         "@type": "ListItem",
         "position": 5,
-        "url": "https://charm-ly.com/",
-        "name": "Charmly"
+        "item": {
+          "@type": "WebApplication",
+          "name": "Charmly",
+          "url": "https://charm-ly.com/",
+          "applicationCategory": "LifestyleApplication",
+          "description": "マッチングアプリ用プロフィール写真をAIで生成するWebサービス。"
+        }
       }
     ]
   }

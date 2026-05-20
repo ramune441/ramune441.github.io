@@ -8,6 +8,9 @@ Disallow: /ashiato-maker/promo.html
 Disallow: /lovent/promo.html
 Disallow: /sendready/promo.html
 
+# ストア画像生成用HTMLはインデックス対象外
+Disallow: /lovent/store-images.html
+
 # ビルド成果物
 Disallow: /formpilot/node_modules/
 
