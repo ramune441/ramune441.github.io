@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー｜Ripen</title>
+  <meta name="description" content="Androidアプリ「Ripen」のプライバシーポリシー。カメラによる在席判定はすべて端末内で行い、画像の保存・送信はしません。使用状況アクセス／アクセシビリティ権限の用途、データのローカル保存について記載しています。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/ripen/privacy-policy.html">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+  <style>
+    :root { --green: #34C759; --green-a: #69F0AE; --gold: #FFD60A;
+      --bg: #0A0A0A; --text: #F4F7F5; --text-sub: rgba(255,255,255,0.66); --border: rgba(255,255,255,0.10); }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.95; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--green-a); }
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,10,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 760px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; }
+    .nav-brand .nav-icon { width: 30px; height: 30px; border-radius: 8px; overflow:hidden; background: linear-gradient(180deg,#0A0A0A,#13271B); display: flex; align-items: center; justify-content: center; box-shadow:0 0 0 1px var(--border); }
+    .nav-brand .nav-icon svg { width: 23px; height: 23px; }
+    .nav-brand a { font-weight: 800; font-size: 16px; color: var(--text); text-decoration: none; }
+    .lang-select { background: #161616; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 13px; font-family: inherit; cursor: pointer; }
+    .lang-select:focus { outline: none; border-color: var(--green); }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: var(--text-sub); margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: var(--text); }
+    h2 .num { color: var(--green); margin-right: 8px; }
+    p, ul { font-size: 15px; color: var(--text-sub); margin-bottom: 16px; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    .callout { background: rgba(52,199,89,0.07); border: 1px solid rgba(52,199,89,0.22); border-radius: 14px; padding: 18px 22px; margin-bottom: 16px; }
+    .callout p { margin: 0; color: var(--text); }
+    footer { text-align: center; padding: 32px 24px; font-size: 13px; color: var(--text-sub); border-top: 1px solid var(--border); }
+    footer a { color: inherit; text-decoration: none; opacity: 0.8; }
+    [dir="rtl"] h2 .num { margin-right: 0; margin-left: 8px; }
+    [dir="rtl"] ul { padding-left: 0; padding-right: 24px; }
+    @media (max-width: 480px) { .container { padding: 32px 16px 64px; } h1 { font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-icon">
+          <svg viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg">
+            <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+            <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
+            <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
+            <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+          </svg>
+        </div>
+        <a href="./">Ripen</a>
+      </div>
+      <select id="langSelect" class="lang-select" aria-label="Language"></select>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 data-i18n="pp_title">プライバシーポリシー</h1>
+    <p class="updated" data-i18n="pp_updated">最終更新日: 2026年6月7日</p>
+
+    <p data-i18n="pp_intro">Ripen（以下「本アプリ」）は、Ramune が開発・提供する Android アプリです。集中・勉強などの良い習慣を積み重ねることで、SNS や動画アプリの自由時間を獲得できる「ごほうび式」の習慣化アプリです。本ポリシーは、本アプリがどのように情報を扱うかを説明します。</p>
+
+    <div class="callout">
+      <p data-i18n="pp_callout">要点：本アプリはプライバシーを最優先に設計されています。カメラによる在席判定はすべて端末内（オンデバイス）で行い、画像の保存・外部送信は一切しません。集中記録や設定を含むすべてのデータは、お使いの端末内にのみ保存されます。アカウント登録は不要です。</p>
+    </div>
+
+    <h2><span class="num">1.</span><span data-i18n="pp_h1">カメラと顔検出について</span></h2>
+    <p data-i18n="pp_s1_p">本アプリは、集中セッション中に「画面の前に人がいるか（在席）」だけを判定するために前面カメラを使用します。</p>
+    <ul>
+      <li data-i18n="pp_s1_li1">顔検出は Google ML Kit を用いて、すべて端末内で処理します。</li>
+      <li data-i18n="pp_s1_li2">カメラ映像や画像を保存することはありません。また、当社サーバーや第三者を含む外部へ送信することもありません。</li>
+      <li data-i18n="pp_s1_li3">判定するのは「顔があるかどうか」だけで、個人の識別・表情・年齢などの分析は行いません。</li>
+      <li data-i18n="pp_s1_li4">記録として残るのは「在席して集中した時間（秒数）」などの数値のみです。</li>
+      <li data-i18n="pp_s1_li5">カメラ権限を許可しない場合、集中タイマーの在席判定は機能しませんが、その他の機能はご利用いただけます。</li>
+    </ul>
+
+    <h2><span class="num">2.</span><span data-i18n="pp_h2">使用状況アクセス・アクセシビリティ権限</span></h2>
+    <p data-i18n="pp_s2_p">対象アプリの自動ロック機能を提供するため、本アプリは Android の特別な権限を使用します。</p>
+    <ul>
+      <li data-i18n="pp_s2_li1">使用状況アクセス（Usage Access）：アプリ別の利用時間を集計し、ダッシュボードや分析に表示するために使用します。</li>
+      <li data-i18n="pp_s2_li2">アクセシビリティ（Accessibility Service）：現在前面に表示されているアプリを判別し、使える時間がゼロのとき（または集中セッション中）に対象アプリをブロックするために使用します。</li>
+      <li data-i18n="pp_s2_li3">これらの権限で取得した情報は端末内の処理にのみ使用し、外部に送信しません。画面の内容を読み取ったり記録したりすることはありません。</li>
+      <li data-i18n="pp_s2_li4">いずれの権限も任意です。許可しない場合、自動ロックは働きませんが、集中タイマーや記録などは利用できます。</li>
+    </ul>
+
+    <h2><span class="num">3.</span><span data-i18n="pp_h3">本アプリが収集しない情報</span></h2>
+    <p data-i18n="pp_s3_p">本アプリは、以下の情報を収集しません。</p>
+    <ul>
+      <li data-i18n="pp_s3_li1">氏名・メールアドレス等の個人を特定できる情報</li>
+      <li data-i18n="pp_s3_li2">端末識別子・広告ID</li>
+      <li data-i18n="pp_s3_li3">位置情報（GPS）</li>
+      <li data-i18n="pp_s3_li4">連絡先・通話履歴・閲覧履歴</li>
+      <li data-i18n="pp_s3_li5">カメラ画像・映像・音声</li>
+    </ul>
+
+    <h2><span class="num">4.</span><span data-i18n="pp_h4">データの保存</span></h2>
+    <p data-i18n="pp_s4_p">集中セッションの記録、時間帯の設定、禁止アプリの選択、各種設定などのすべてのデータは、Android の SQLite データベースおよび設定ストレージ（SharedPreferences）を用いてお使いの端末内にのみ保存されます。当社が管理する外部サーバーにこれらのデータが保存されることはありません。</p>
+
+    <h2><span class="num">5.</span><span data-i18n="pp_h5">第三者サービス・広告</span></h2>
+    <p data-i18n="pp_s5_p">本アプリは、広告SDK・解析（アナリティクス）ツール・トラッキングサービスを一切使用していません。顔検出に使用する Google ML Kit はオンデバイスで動作し、データを外部送信しません。</p>
+
+    <h2><span class="num">6.</span><span data-i18n="pp_h6">データの削除</span></h2>
+    <p data-i18n="pp_s6_p">すべてのデータは端末内にのみ保存されるため、以下の方法で完全に削除できます。</p>
+    <ul>
+      <li data-i18n="pp_s6_li1">本アプリをアンインストールすると、保存されたすべてのデータが削除されます。</li>
+      <li data-i18n="pp_s6_li2">Android の「設定 &gt; アプリ &gt; Ripen &gt; ストレージ &gt; データを消去」からいつでもデータを消去できます。</li>
+    </ul>
+
+    <h2><span class="num">7.</span><span data-i18n="pp_h7">お子様のプライバシー</span></h2>
+    <p data-i18n="pp_s7_p">本アプリは13歳未満のお子様を対象としていません。お子様の個人情報を意図的に収集することはありません。</p>
+
+    <h2><span class="num">8.</span><span data-i18n="pp_h8">本ポリシーの変更</span></h2>
+    <p data-i18n="pp_s8_p">本プライバシーポリシーは、必要に応じて改定することがあります。変更があった場合は、本ページ上部の「最終更新日」を更新してお知らせします。</p>
+
+    <h2><span class="num">9.</span><span data-i18n="pp_h9">お問い合わせ</span></h2>
+    <p data-i18n-html="pp_s9_p">本プライバシーポリシーに関するご質問は、<a href="https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog" target="_blank" rel="noopener">お問い合わせフォーム</a>よりご連絡ください。</p>
+  </div>
+  <footer>
+    <a href="index.html" data-i18n="pp_home">Home</a> &nbsp;·&nbsp; &copy; 2026 Ripen by Ramune
+  </footer>
+
+  <script src="i18n-pp.js"></script>
+</body>
+</html>

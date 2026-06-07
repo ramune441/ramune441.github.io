@@ -22,6 +22,10 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/sendready/tutorial.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/sendready/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/sendready/promo.html` | 動画用 | noindex | no | 録画専用 |
+| `/ripen/` | LP | index | yes | Android（旧称 Focus First）。`i18n-lp.js` で12言語対応（ja/en/zh/ko/es/fr/de/it/pt/ru/ar/hi）＋言語セレクター |
+| `/ripen/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー。`i18n-pp.js` で同12言語対応＋言語セレクター |
+| `/ripen/store-images.html` | ストア画像生成 | noindex | no | スクショ撮影用 |
+| `/ripen/icon-512.html` | アイコン生成 | noindex | no | 512pxアイコン撮影用 |
 
 外部ドメイン運用のプロダクト（リポジトリにディレクトリを持たない）:
 
@@ -65,6 +69,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | ashiato-maker | G-NLL1M8ZFGH (+ Google広告 AW-17017238782) |
 | lovent | G-4YHTG3FQSX |
 | sendready | G-4YHTG3FQSX |
+| ripen | G-4YHTG3FQSX |
 
 ### Google Search Console 認証
 

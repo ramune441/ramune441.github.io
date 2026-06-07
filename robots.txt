@@ -10,6 +10,8 @@ Disallow: /sendready/promo.html
 
 # ストア画像生成用HTMLはインデックス対象外
 Disallow: /lovent/store-images.html
+Disallow: /ripen/store-images.html
+Disallow: /ripen/icon-512.html
 
 # ビルド成果物
 Disallow: /formpilot/node_modules/

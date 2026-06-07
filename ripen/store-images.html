@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Ripen Store Images</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
+
+/*
+  ── Ripen design tokens (night garden / theme.dart・colors.xml) ──
+  night bg          : #0A0A0A
+  soil              : #12241A
+  surface           : #161616   surface-2: #1E1E1E
+  leaf green        : #34C759   green-dark: #2E9E4F   greenAccent: #69F0AE
+  harvest gold      : #FFD60A   amber: #FFC107
+  bloom coral       : #FF9F8E   bloom lavender: #C9A7FF
+  accents           : tealAccent #64FFDA  lightBlueAccent #40C4FF  deepOrangeAccent #FF6E40
+  text              : #FFFFFF / 70% / 54% / 38%
+*/
+:root {
+  --night:#0A0A0A; --soil:#12241A; --sf:#161616; --sf2:#1E1E1E; --sf3:#252525;
+  --green:#34C759; --greenD:#2E9E4F; --greenA:#69F0AE;
+  --gold:#FFD60A; --amber:#FFC107;
+  --coral:#FF9F8E; --lav:#C9A7FF;
+  --teal:#64FFDA; --blue:#40C4FF; --orange:#FF6E40;
+  --t1:#FFFFFF; --t2:rgba(255,255,255,0.70); --t3:rgba(255,255,255,0.54); --t4:rgba(255,255,255,0.38);
+  --line:rgba(255,255,255,0.10);
+}
+
+/* ── Store image canvas ── */
+.si { width:1024px; height:500px; position:relative; overflow:hidden; margin:0 auto 40px; background:var(--night); }
+.bg { position:absolute; inset:0; background:
+  radial-gradient(120% 80% at 78% 8%, rgba(52,199,89,0.10) 0%, transparent 55%),
+  radial-gradient(90% 70% at 12% 105%, rgba(52,199,89,0.10) 0%, transparent 60%),
+  linear-gradient(165deg, #0A0A0A 0%, #0C140E 55%, #10221A 100%); }
+.soilcurve { position:absolute; left:-20px; right:-20px; bottom:-40px; height:180px;
+  background:radial-gradient(120% 100% at 50% 100%, rgba(22,49,31,0.9) 0%, rgba(16,34,26,0) 70%); }
+.star { position:absolute; background:#fff; border-radius:50%; }
+
+/* ── Left problem → solution panel ── */
+.panel { position:absolute; left:0; top:0; bottom:0; width:494px;
+  display:flex; flex-direction:column; justify-content:center; padding:0 54px; z-index:2; }
+.p-emoji { font-size:50px; line-height:1; margin-bottom:14px; }
+.p-title { font-size:35px; font-weight:900; color:var(--t1); line-height:1.18; letter-spacing:-0.5px; margin-bottom:12px; }
+.p-sub   { font-size:14px; color:var(--t3); line-height:1.7; margin-bottom:22px; }
+.dvr { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+.dvr-l { flex:1; height:1px; background:var(--line); }
+.dvr-p { display:inline-flex; align-items:center; gap:6px; background:rgba(52,199,89,0.14); color:var(--green);
+  font-size:11px; font-weight:800; padding:5px 14px; border-radius:20px; white-space:nowrap; letter-spacing:0.4px;
+  border:1px solid rgba(52,199,89,0.30); text-transform:uppercase; }
+.dvr-p .lf { width:13px; height:13px; }
+.s-title { font-size:27px; font-weight:800; color:var(--green); line-height:1.28; margin-bottom:8px; }
+.s-title .gold { color:var(--gold); }
+.s-sub   { font-size:13.5px; color:var(--t2); line-height:1.7; }
+
+/* ── Phone frame (dark) ── */
+.ph { position:absolute; background:var(--night); border-radius:34px; overflow:hidden;
+  box-shadow:0 24px 64px rgba(0,0,0,0.55), 0 0 0 1.5px rgba(255,255,255,0.08), inset 0 0 0 6px #000;
+  display:flex; flex-direction:column; }
+.ph-bg { position:absolute; inset:6px; border-radius:28px; background:
+  radial-gradient(90% 55% at 50% 0%, rgba(52,199,89,0.08), transparent 60%),
+  linear-gradient(180deg,#0C0C0C 0%, #0A0A0A 100%); }
+.scr { position:relative; z-index:1; flex:1; display:flex; flex-direction:column; min-height:0; }
+
+/* Top app bar */
+.tab { padding:14px 16px 10px; display:flex; align-items:center; gap:9px; flex-shrink:0; }
+.tab-logo { width:24px; height:24px; flex-shrink:0; }
+.tab-name { font-size:16px; font-weight:800; color:var(--t1); flex:1; letter-spacing:0.2px; }
+.tab-ico { width:20px; height:20px; flex-shrink:0; opacity:0.6; }
+.tab-ico path { fill:#fff; }
+
+/* status card mini tiles */
+.card { background:var(--sf); border-radius:20px; padding:13px 15px 15px; }
+.card-h { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--t2); margin-bottom:12px; }
+.card-h .lf { width:15px; height:15px; }
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; }
+.mini { display:flex; align-items:center; gap:9px; }
+.mini .mi { width:21px; height:21px; flex-shrink:0; }
+.mini .mt { min-width:0; }
+.mini .mv { font-size:17px; font-weight:800; color:var(--t1); line-height:1.1; white-space:nowrap; }
+.mini .ml { font-size:10.5px; color:var(--t3); margin-top:2px; white-space:nowrap; }
+
+/* chips / buttons */
+.btn { border-radius:16px; padding:13px; text-align:center; font-size:14px; font-weight:700; }
+.btn-fill { background:var(--green); color:#0A0A0A; }
+.chip { display:inline-flex; align-items:center; gap:6px; background:var(--sf2); border-radius:999px;
+  padding:6px 13px; font-size:12px; font-weight:700; color:var(--greenA); }
+.chip .lf { width:14px; height:14px; }
+
+.txt-link { text-align:center; font-size:12px; color:var(--t4); }
+</style>
+</head>
+<body>
+
+<!-- Reusable sprout symbol -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="sprout" viewBox="0 0 108 108">
+    <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+    <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
+    <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
+    <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+  </symbol>
+  <symbol id="leaf1" viewBox="0 0 24 24">
+    <path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C21 14.5 22 3 22 3S10.5 4 6.05 8.05z"/>
+  </symbol>
+</svg>
+
+
+<!-- ═══════════════════════════════════════════════════
+     FEATURE GRAPHIC 1024x500 — brand
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img-feature">
+  <div class="bg"></div>
+  <div class="soilcurve"></div>
+  <div class="star" style="left:80px;top:70px;width:3px;height:3px;opacity:.5"></div>
+  <div class="star" style="left:150px;top:130px;width:2px;height:2px;opacity:.35"></div>
+  <div class="star" style="left:60px;top:200px;width:2px;height:2px;opacity:.3"></div>
+  <div class="star" style="left:430px;top:60px;width:2px;height:2px;opacity:.3"></div>
+
+  <!-- LEFT brand -->
+  <div style="position:absolute;left:64px;top:0;bottom:0;width:560px;display:flex;flex-direction:column;justify-content:center;z-index:2;">
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
+      <div style="width:92px;height:92px;border-radius:24px;position:relative;overflow:hidden;
+        background:linear-gradient(180deg,#0A0A0A,#13271B);box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06);">
+        <div style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:74px;height:74px;
+          filter:drop-shadow(0 0 12px rgba(255,214,10,.35));">
+          <svg width="74" height="74"><use href="#sprout"/></svg>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:62px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;">Ripen</div>
+        <div style="font-size:20px;font-weight:700;color:var(--green);margin-top:6px;letter-spacing:0.5px;">Let your effort ripen.</div>
+      </div>
+    </div>
+    <div style="font-size:32px;font-weight:800;color:#fff;line-height:1.35;letter-spacing:-0.5px;">
+      Focus more,<br><span style="color:var(--gold);">harvest more free time.</span>
+    </div>
+    <div style="font-size:15px;color:var(--t2);line-height:1.8;margin-top:16px;max-width:440px;">
+      Willpower-only app blockers don't last. Ripen lets you "harvest" time on social
+      &amp; video apps by stacking focus — a reward loop that actually sticks.
+    </div>
+    <div style="display:flex;gap:10px;margin-top:22px;">
+      <span class="dvr-p">On-device face check</span>
+      <span class="dvr-p">Per-window rules</span>
+      <span class="dvr-p" style="color:var(--gold);border-color:rgba(255,214,10,.3);background:rgba(255,214,10,.12);">Free · Android</span>
+    </div>
+  </div>
+
+  <!-- RIGHT phone: focus ring -->
+  <div class="ph" style="width:300px;height:556px;right:62px;top:-28px;transform:rotate(4deg);">
+    <div class="ph-bg"></div>
+    <div class="scr">
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus</span>
+        <svg class="tab-ico" viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h-1.5c-.41-4.41-4.12-7.86-8.63-7.86h-.32l1.43 1.43-.71.71L9.45 2.49 12.2-.26l.71.71L11.48 2.2c4.99.16 9.01 4.15 9.27 9.14M2.05 11h-1.5C.91 6.78 4.4 3.36 8.55 3.04L7.12 1.61l.71-.71L10.55 3.51 7.83 6.23l-.71-.71L8.56 4.07C4.78 4.39 1.91 7.4 1.55 11h.5z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:6px 22px 18px;">
+        <div style="position:relative;width:200px;height:200px;margin:14px 0 4px;">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="378 541" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <div style="font-size:13px;color:var(--t3);">Left</div>
+            <div style="font-size:42px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:1px;">17:20</div>
+            <div style="font-size:11.5px;color:var(--t2);margin-top:4px;">Focused 8m / Goal 25m</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
+          <span style="width:9px;height:9px;border-radius:50%;background:var(--greenA);"></span>
+          <span style="font-size:12.5px;color:var(--greenA);">Present — counting</span>
+        </div>
+        <div class="chip" style="margin-top:14px;"><svg class="lf"><use href="#leaf1"/></svg>+5 min on finish</div>
+        <div style="flex:1"></div>
+        <div class="btn btn-fill" style="width:100%;">⏸ Pause</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 1  mindless scrolling → focus to harvest free time
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img1">
+  <div class="bg"></div><div class="soilcurve"></div>
+  <div class="star" style="left:70px;top:60px;width:3px;height:3px;opacity:.45"></div>
+  <div class="star" style="left:140px;top:120px;width:2px;height:2px;opacity:.3"></div>
+
+  <div class="panel">
+    <div class="p-emoji">🌀</div>
+    <div class="p-title">An hour gone,<br>mindlessly scrolling.</div>
+    <div class="p-sub">"Just a peek" turns into forever.<br>Willpower alone won't break the loop.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
+    <div class="s-title">Focus more,<br><span class="gold">harvest free time.</span></div>
+    <div class="s-sub">The front camera confirms you're present while the<br>timer counts down. Finish a session to harvest time.</div>
+  </div>
+
+  <!-- Phone: focus running -->
+  <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
+    <div class="ph-bg"></div>
+    <div class="scr">
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus</span>
+        <svg class="tab-ico" viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h-1.5c-.41-4.41-4.12-7.86-8.63-7.86h-.32l1.43 1.43-.71.71L9.45 2.49 12.2-.26l.71.71L11.48 2.2c4.99.16 9.01 4.15 9.27 9.14M2.05 11h-1.5C.91 6.78 4.4 3.36 8.55 3.04L7.12 1.61l.71-.71L10.55 3.51 7.83 6.23l-.71-.71L8.56 4.07C4.78 4.39 1.91 7.4 1.55 11h.5z"/></svg>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:4px 26px 20px;">
+        <!-- camera circle -->
+        <div style="width:84px;height:84px;border-radius:50%;border:3px solid var(--greenA);padding:3px;margin-top:6px;">
+          <div style="width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;
+            background:radial-gradient(60% 55% at 50% 38%, #3a3f4a 0%, #20242c 60%, #14171d 100%);">
+            <svg viewBox="0 0 24 24" width="100%" height="100%" style="opacity:.5"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:9px;">
+          <span style="width:9px;height:9px;border-radius:50%;background:var(--greenA);"></span>
+          <span style="font-size:12.5px;color:var(--greenA);">Present — counting</span>
+        </div>
+        <!-- progress ring -->
+        <div style="position:relative;width:210px;height:210px;margin:14px 0 8px;">
+          <svg width="210" height="210" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <div style="font-size:13px;color:var(--t3);">Left</div>
+            <div style="font-size:44px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:1px;">17:20</div>
+            <div style="font-size:12px;color:var(--t2);margin-top:4px;">Focused 8m / Goal 25m</div>
+          </div>
+        </div>
+        <div class="chip"><svg class="lf"><use href="#leaf1"/></svg>+5 min on finish</div>
+        <div style="flex:1"></div>
+        <div class="btn btn-fill" style="width:100%;">⏸ Pause</div>
+        <div class="txt-link" style="margin-top:11px;">Stop &amp; reset</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 2  hard blocks don't stick → rewards keep you going
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img2">
+  <div class="bg"></div><div class="soilcurve"></div>
+  <div class="star" style="left:90px;top:80px;width:2px;height:2px;opacity:.4"></div>
+
+  <div class="panel">
+    <div class="p-emoji">🚫</div>
+    <div class="p-title">Hard blocks<br>never stick.</div>
+    <div class="p-sub">Plain app bans backfire — stress makes you turn<br>them off. Pure willpower has its limits.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
+    <div class="s-title">Not willpower —<br><span class="gold">rewards.</span></div>
+    <div class="s-sub">See the free time you've earned at a glance.<br>That growing sense of progress keeps you going.</div>
+  </div>
+
+  <!-- Phone: dashboard -->
+  <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
+    <div class="ph-bg"></div>
+    <div class="scr">
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Dashboard</span></div>
+      <div style="flex:1;padding:4px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden;">
+        <!-- status card -->
+        <div class="card">
+          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Current status</div>
+          <div class="grid2">
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FFC107" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
+              <div class="mt"><div class="mv" style="color:var(--amber)">18 min</div><div class="ml">Usable time</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#34C759" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <div class="mt"><div class="mv">92 min</div><div class="ml">Focus today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#69F0AE"/></svg>
+              <div class="mt"><div class="mv" style="color:var(--greenA)">30 min</div><div class="ml">Earned today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#64FFDA" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
+              <div class="mt"><div class="mv">6</div><div class="ml">Done today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#40C4FF" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+              <div class="mt"><div class="mv" style="font-size:15px;">2/6 left</div><div class="ml">This window</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FF6E40" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+              <div class="mt"><div class="mv" style="color:var(--orange)">14 days</div><div class="ml">Streak</div></div></div>
+          </div>
+        </div>
+        <!-- weekly chart -->
+        <div class="card" style="flex:1;display:flex;flex-direction:column;">
+          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Focus this week</div>
+          <div style="flex:1;display:flex;align-items:flex-end;gap:9px;padding:4px 2px 0;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:48px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">M</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:70px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:38px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">W</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:84px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:62px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">F</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:96px;background:linear-gradient(180deg,#69F0AE,#34C759);border-radius:5px;box-shadow:0 0 12px rgba(105,240,174,.4);"></div><span style="font-size:9px;color:var(--greenA)">S</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:54px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">S</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 3  when to focus? → your rules, per time of day (24h dial)
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img3">
+  <div class="bg"></div><div class="soilcurve"></div>
+
+  <div class="panel">
+    <div class="p-emoji">🕒</div>
+    <div class="p-title">When should<br>I focus?</div>
+    <div class="p-sub">Mornings, noon, nights — your rhythm shifts.<br>One single setting never fits them all.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
+    <div class="s-title">Your rules,<br>per <span class="gold">time of day.</span></div>
+    <div class="s-sub">Just drag on the 24-hour dial. Set a focus goal,<br>usable minutes, rounds &amp; blocked apps per window.</div>
+  </div>
+
+  <!-- Phone: time block settings -->
+  <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
+    <div class="ph-bg"></div>
+    <div class="scr">
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus windows</span>
+        <svg class="tab-ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+      </div>
+      <div style="flex:1;padding:6px 18px 16px;display:flex;flex-direction:column;align-items:center;">
+        <!-- 24h dial -->
+        <div style="position:relative;width:230px;height:230px;margin-top:6px;">
+          <svg width="230" height="230" viewBox="0 0 220 220">
+            <!-- base ring -->
+            <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <!-- ticks -->
+            <g stroke="rgba(255,255,255,0.30)" stroke-width="1.6">
+              <line x1="110" y1="22" x2="110" y2="30"/>
+              <line x1="198" y1="110" x2="190" y2="110"/>
+              <line x1="110" y1="198" x2="110" y2="190"/>
+              <line x1="22" y1="110" x2="30" y2="110"/>
+              <line x1="154" y1="34.2" x2="150.8" y2="41.5" stroke-width="1.1"/>
+              <line x1="185.8" y1="66" x2="178.5" y2="69.2" stroke-width="1.1"/>
+              <line x1="185.8" y1="154" x2="178.5" y2="150.8" stroke-width="1.1"/>
+              <line x1="154" y1="185.8" x2="150.8" y2="178.5" stroke-width="1.1"/>
+              <line x1="66" y1="185.8" x2="69.2" y2="178.5" stroke-width="1.1"/>
+              <line x1="34.2" y1="154" x2="41.5" y2="150.8" stroke-width="1.1"/>
+              <line x1="34.2" y1="66" x2="41.5" y2="69.2" stroke-width="1.1"/>
+              <line x1="66" y1="34.2" x2="69.2" y2="41.5" stroke-width="1.1"/>
+            </g>
+            <text x="110" y="46" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">0</text>
+            <text x="176" y="114" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">6</text>
+            <text x="110" y="180" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">12</text>
+            <text x="44" y="114" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">18</text>
+            <!-- Morning 06:00-08:00 (amber, candidate w/ handles) -->
+            <path d="M 190 110 A 80 80 0 0 1 179.28 150" fill="none" stroke="#FFCA28" stroke-width="14" stroke-linecap="round"/>
+            <!-- Lunch 12:30-13:00 (green) -->
+            <path d="M 99.56 189.3 A 80 80 0 0 1 89.3 187.3" fill="none" stroke="#66BB6A" stroke-width="14" stroke-linecap="round"/>
+            <!-- Evening 21:00-23:30 (blue) -->
+            <path d="M 53.43 53.43 A 80 80 0 0 1 99.56 30.7" fill="none" stroke="#42A5F5" stroke-width="14" stroke-linecap="round"/>
+            <!-- handles on amber arc -->
+            <circle cx="190" cy="110" r="9" fill="#000"/><circle cx="190" cy="110" r="8" fill="#FFCA28"/><circle cx="190" cy="110" r="3.5" fill="#000"/>
+            <circle cx="179.28" cy="150" r="9" fill="#000"/><circle cx="179.28" cy="150" r="8" fill="#FFCA28"/><circle cx="179.28" cy="150" r="3.5" fill="#000"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;">
+            <div style="font-size:13px;color:var(--t3);">Editing</div>
+            <div style="font-size:15px;font-weight:800;color:#fff;">3 windows</div>
+          </div>
+        </div>
+        <!-- legend / block card -->
+        <div class="card" style="width:100%;margin-top:14px;padding:13px 15px;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <span style="width:11px;height:11px;border-radius:3px;background:#FFCA28;flex-shrink:0;"></span>
+            <div style="flex:1;">
+              <div style="font-size:14px;font-weight:700;color:#fff;">Morning Focus　06:00–08:00</div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Focus 25m → 5m · max 6 · 4 blocked</div>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="rgba(255,255,255,0.4)" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>
+          </div>
+          <div style="height:1px;background:var(--line);margin:11px 0;"></div>
+          <div style="display:flex;gap:18px;">
+            <div style="display:flex;align-items:center;gap:7px;"><span style="width:11px;height:11px;border-radius:3px;background:#66BB6A;"></span><span style="font-size:11.5px;color:var(--t2)">Lunch</span></div>
+            <div style="display:flex;align-items:center;gap:7px;"><span style="width:11px;height:11px;border-radius:3px;background:#42A5F5;"></span><span style="font-size:11.5px;color:var(--t2)">Evening Study</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 4  you open it without thinking → it locks gently at zero
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img4">
+  <div class="bg"></div><div class="soilcurve"></div>
+
+  <div class="panel">
+    <div class="p-emoji">📵</div>
+    <div class="p-title">You open it<br>without thinking.</div>
+    <div class="p-sub">Even at zero free time, your thumb taps the app.<br>If you can't stop there, nothing changes.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
+    <div class="s-title">At zero,<br>it <span class="gold">locks gently.</span></div>
+    <div class="s-sub">Spend your time in a window and target apps lock<br>automatically. Distractions lock during focus, too.</div>
+  </div>
+
+  <!-- Phone: block screen -->
+  <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
+    <div class="ph-bg"></div>
+    <div class="scr" style="background:linear-gradient(180deg,#0A0A0A 0%, #10221A 100%);">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 30px;text-align:center;">
+        <div style="width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+          background:radial-gradient(circle, rgba(52,199,89,0.12), transparent 70%);">
+          <div style="filter:drop-shadow(0 0 16px rgba(255,214,10,.3));"><svg width="92" height="92"><use href="#sprout"/></svg></div>
+        </div>
+        <div style="font-size:23px;font-weight:800;color:#fff;margin-top:20px;letter-spacing:0.3px;">Time to focus</div>
+        <div style="font-size:13.5px;color:var(--t2);line-height:1.7;margin-top:12px;">
+          <span style="color:#fff;font-weight:700;">"Instagram"</span> is locked right now.<br>Focus to ripen some usable time.
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;
+          background:rgba(255,214,10,0.12);border:1px solid rgba(255,214,10,0.3);border-radius:999px;padding:8px 18px;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#FFD60A" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
+          <span style="font-size:13px;font-weight:800;color:var(--gold);">Usable time 0 min</span>
+        </div>
+        <div style="flex:0"></div>
+        <div class="btn btn-fill" style="width:100%;margin-top:26px;">▶ Focus &amp; ripen</div>
+        <div class="txt-link" style="margin-top:12px;">Back to home</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════
+     IMG 5  camera = surveillance? → checks presence only, on-device
+════════════════════════════════════════════════════════ -->
+<div class="si" id="img5">
+  <div class="bg"></div><div class="soilcurve"></div>
+
+  <div class="panel">
+    <div class="p-emoji">🔒</div>
+    <div class="p-title">A camera —<br>am I being watched?</div>
+    <div class="p-sub">"Camera for focus detection" sounds unsettling.<br>Footage leaving your phone? Absolutely not.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
+    <div class="s-title">It only checks<br><span class="gold">"present or not."</span></div>
+    <div class="s-sub">Whether a face is there — judged entirely on-device.<br>No image is ever saved or sent to the cloud.</div>
+  </div>
+
+  <!-- Phone: focus + privacy callouts -->
+  <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
+    <div class="ph-bg"></div>
+    <div class="scr">
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 24px 18px;">
+        <div style="width:96px;height:96px;border-radius:50%;border:3px solid var(--greenA);padding:3px;margin-top:8px;">
+          <div style="width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;
+            background:radial-gradient(60% 55% at 50% 38%, #3a3f4a 0%, #20242c 60%, #14171d 100%);">
+            <svg viewBox="0 0 24 24" width="100%" height="100%" style="opacity:.5"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <!-- face-detect bracket -->
+            <div style="position:absolute;left:26%;top:18%;width:48%;height:52%;border:2px solid #69F0AE;border-radius:8px;box-shadow:0 0 10px rgba(105,240,174,.5);"></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;margin-top:10px;">
+          <span style="width:9px;height:9px;border-radius:50%;background:var(--greenA);"></span>
+          <span style="font-size:12.5px;color:var(--greenA);">Face detected — judged on-device</span>
+        </div>
+        <!-- privacy callouts -->
+        <div style="width:100%;display:flex;flex-direction:column;gap:11px;margin-top:22px;">
+          <div style="display:flex;align-items:center;gap:12px;background:var(--sf);border-radius:14px;padding:13px 15px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div style="font-size:13.5px;font-weight:700;color:#fff;">On-device processing</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Judged locally with Google ML Kit</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;background:var(--sf);border-radius:14px;padding:13px 15px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div style="font-size:13.5px;font-weight:700;color:#fff;">No image saved or sent</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Only "were you present" is logged</div></div>
+          </div>
+        </div>
+        <div style="flex:1"></div>
+        <div style="font-size:11px;color:var(--t4);text-align:center;">Camera is used only to confirm presence</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripen｜集中した分だけ自由時間が"実る" 習慣化Androidアプリ</title>
+  <meta name="description" content="努力を、実らせる。集中・勉強を積み重ねるほど、SNSや動画の自由時間を収穫できるごほうび式の習慣化アプリ。在席判定はすべて端末内。時間帯ごとの設定・自動ロックに対応した無料Androidアプリ。">
+  <meta name="keywords" content="集中, 習慣化, スクリーンタイム, アプリブロック, 勉強, 集中力, ポモドーロ, Android, Ripen, スマホ依存, SNS制限, 無料">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/ripen/">
+
+  <meta property="og:title" content="Ripen｜集中した分だけ自由時間が実る 習慣化アプリ">
+  <meta property="og:description" content="ガマンで縛るアプリブロックは続かない。集中を積み重ねるほど自由時間を収穫できる、ごほうび式の習慣化Androidアプリ。在席判定はすべて端末内。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/ripen/">
+  <meta property="og:image" content="https://ramune441.github.io/ripen/images/store-image-feature.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="Ripen">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ripen｜集中した分だけ自由時間が実る 習慣化アプリ">
+  <meta name="twitter:description" content="ガマンじゃなく、ごほうび。集中を積み重ねて自由時間を収穫する、習慣化Androidアプリ。">
+  <meta name="twitter:image" content="https://ramune441.github.io/ripen/images/store-image-feature.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Ripen",
+    "description": "集中・勉強を積み重ねるほど自由時間を収穫できる、ごほうび式の習慣化Androidアプリ。在席判定はすべて端末内。",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Android",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Ramune" },
+    "softwareVersion": "1.0"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "普通のアプリブロックと何が違うの？", "acceptedAnswer": { "@type": "Answer", "text": "Ripenはただ禁止するのではなく「ごほうび式」です。集中タイマーを完走すると、その分だけSNSや動画に使える自由時間を獲得できます。ガマンではなく報酬で行動を変えるので続きやすいのが特徴です。" } },
+      { "@type": "Question", "name": "カメラは何に使いますか？", "acceptedAnswer": { "@type": "Answer", "text": "画面の前に座っているか（在席）だけを判定するために使います。判定はすべて端末内（オンデバイスのML Kit）で行い、画像の保存もクラウド送信も一切しません。記録するのは「在席したか」だけです。" } },
+      { "@type": "Question", "name": "必要な権限はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "自動ロックのために「使用状況アクセス」と「アクセシビリティ」、在席判定のために「カメラ」を使います。いずれもAndroidの仕様上、手動で許可が必要です。許可しなくても集中の記録などは利用できます。" } },
+      { "@type": "Question", "name": "本当に無料ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、完全無料です。アカウント登録も不要で、ダウンロードしてすぐ使えます。" } },
+      { "@type": "Question", "name": "iPhoneでも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "現在はAndroid版のみ提供しています。Android 8.0以上の端末で利用できます。" } }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ramune Apps", "item": "https://ramune441.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Ripen", "item": "https://ramune441.github.io/ripen/" }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap">
+
+  <style>
+    :root {
+      /* Ripen 夜の庭 */
+      --green: #34C759;
+      --green-d: #2E9E4F;
+      --green-a: #69F0AE;
+      --gold: #FFD60A;
+      --coral: #FF9F8E;
+      --lav: #C9A7FF;
+      /* surfaces (dark) */
+      --bg: #0A0A0A;
+      --bg-alt: #0E1611;
+      --bg-card: #161616;
+      --bg-card2: #1C1C1C;
+      --border: rgba(255,255,255,0.10);
+      --border-light: rgba(255,255,255,0.18);
+      /* text */
+      --text: #F4F7F5;
+      --text-sub: rgba(255,255,255,0.70);
+      --text-light: rgba(255,255,255,0.45);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.8; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+
+    /* NAV */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,0.82); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-inner { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: var(--text); }
+    .nav-brand .nav-icon { width: 34px; height: 34px; border-radius: 9px; overflow: hidden; background: linear-gradient(180deg,#0A0A0A,#13271B); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 1px var(--border); }
+    .nav-brand .nav-icon svg { width: 26px; height: 26px; }
+    .nav-cta {
+      background: var(--green); color: #07120B; font-size: 13px; font-weight: 700;
+      padding: 9px 20px; border-radius: 9px; transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-a); transform: translateY(-1px); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-select { background: #161616; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px; font-family: inherit; cursor: pointer; }
+    .lang-select:focus { outline: none; border-color: var(--green); }
+    @media (max-width: 480px) { .nav-cta { display: none; } }
+
+    /* HERO */
+    .hero {
+      padding: 124px 24px 0;
+      background:
+        radial-gradient(80% 55% at 50% 0%, rgba(52,199,89,0.14) 0%, transparent 60%),
+        radial-gradient(60% 50% at 85% 30%, rgba(255,214,10,0.06) 0%, transparent 60%),
+        linear-gradient(180deg, #0A0A0A 0%, #0C140E 60%, #0A0A0A 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(52,199,89,0.10); color: var(--green); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 100px; border: 1px solid rgba(52,199,89,0.28); margin-bottom: 28px; }
+    .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-a); box-shadow: 0 0 8px var(--green-a); }
+    h1 { font-size: clamp(34px, 5.4vw, 60px); font-weight: 900; color: var(--text); line-height: 1.18; margin-bottom: 22px; letter-spacing: -0.5px; }
+    h1 .accent { color: var(--green); }
+    h1 .gold { color: var(--gold); }
+    .hero-desc { font-size: clamp(15px,2vw,18px); color: var(--text-sub); line-height: 1.85; margin-bottom: 36px; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: #07120B; font-size: 15px; font-weight: 800; padding: 15px 32px; border-radius: 12px; border: none; cursor: pointer; box-shadow: 0 8px 28px rgba(52,199,89,0.30); transition: all 0.2s; }
+    .btn-primary:hover { background: var(--green-a); transform: translateY(-2px); box-shadow: 0 10px 34px rgba(105,240,174,0.35); }
+    .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); font-size: 14px; font-weight: 600; padding: 14px 8px; transition: color 0.2s; }
+    .btn-ghost:hover { color: var(--text); }
+    .hero-note { margin-top: 18px; font-size: 13px; color: var(--text-light); margin-bottom: 52px; }
+
+    .hero-screenshot {
+      max-width: 940px; margin: 0 auto; border-radius: 18px 18px 0 0; overflow: hidden;
+      box-shadow: 0 -10px 70px rgba(52,199,89,0.14), 0 0 0 1px var(--border);
+    }
+    .hero-screenshot img { width: 100%; display: block; }
+
+    /* CONCEPT BANNER */
+    .concept-bar {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 44px 24px; text-align: center;
+    }
+    .concept-inner { max-width: 760px; margin: 0 auto; }
+    .concept-heading { font-size: clamp(20px,3vw,26px); font-weight: 800; color: var(--green); margin-bottom: 10px; line-height: 1.4; }
+    .concept-heading .gold { color: var(--gold); }
+    .concept-sub { font-size: 15px; color: var(--text-sub); line-height: 1.8; }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--green-a); margin-bottom: 12px; }
+    h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: var(--text); line-height: 1.35; margin-bottom: 16px; }
+    .section-lead { font-size: 16px; color: var(--text-sub); max-width: 640px; line-height: 1.85; margin-bottom: 56px; }
+    .section-center { text-align: center; }
+    .section-center .section-lead { margin-left: auto; margin-right: auto; }
+    .bg-alt { background: var(--bg-alt); }
+
+    /* PROBLEM BANNER */
+    .problem-banner {
+      background: linear-gradient(135deg, #0E1611, #102218, #0E1611);
+      color: #fff; padding: 80px 24px; text-align: center;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .problem-banner h2 { color: #fff; margin-bottom: 16px; }
+    .problem-banner p { color: var(--text-sub); font-size: 17px; max-width: 660px; margin: 0 auto; line-height: 1.9; }
+    .problem-banner .highlight { color: var(--green-a); font-weight: 700; }
+
+    /* FLOW */
+    .flow-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; max-width: 940px; margin: 0 auto; }
+    .flow-timeline::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 12px); right: calc(12.5% + 12px); height: 2px; background: linear-gradient(90deg, var(--border), var(--green), var(--gold)); border-radius: 2px; }
+    .flow-item { text-align: center; position: relative; z-index: 1; padding: 0 10px; }
+    .flow-num { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--green-d), var(--green)); color: #07120B; font-size: 20px; font-weight: 900; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(52,199,89,0.35); }
+    .flow-item h3 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .flow-item p { font-size: 13px; color: var(--text-sub); line-height: 1.65; }
+
+    /* SHOWCASE */
+    .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .showcase + .showcase { margin-top: 88px; }
+    .showcase.reverse { direction: rtl; }
+    .showcase.reverse > * { direction: ltr; }
+    .showcase-text h3 { font-size: clamp(22px,3vw,28px); font-weight: 800; color: var(--text); margin-bottom: 12px; line-height: 1.35; }
+    .showcase-text h3 .accent { color: var(--green); }
+    .showcase-text p { font-size: 16px; color: var(--text-sub); line-height: 1.85; margin-bottom: 20px; }
+    .feat-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text-sub); line-height: 1.6; }
+    .feat-list li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; margin-top: 9px; box-shadow: 0 0 6px rgba(52,199,89,0.6); }
+    .showcase-img { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px var(--border); }
+    .showcase-img img { width: 100%; display: block; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 26px; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+    .feat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.4); border-color: rgba(52,199,89,0.35); }
+    .feat-icon { width: 50px; height: 50px; border-radius: 13px; background: rgba(52,199,89,0.10); border: 1px solid rgba(52,199,89,0.22); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px; }
+    .feat-card h3 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--text-sub); line-height: 1.75; }
+
+    /* SAFETY */
+    .safety-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .safety-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 26px 24px; }
+    .safety-card h3 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .safety-card p { font-size: 14px; color: var(--text-sub); line-height: 1.75; }
+
+    /* NOTE */
+    .note-box { max-width: 820px; margin: 0 auto; background: rgba(255,214,10,0.05); border: 1px solid rgba(255,214,10,0.2); border-radius: 16px; padding: 24px 28px; }
+    .note-box h3 { font-size: 15px; font-weight: 700; color: var(--gold); margin-bottom: 10px; display:flex; align-items:center; gap:8px; }
+    .note-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .note-box li { font-size: 14px; color: var(--text-sub); line-height: 1.7; padding-left: 18px; position: relative; }
+    .note-box li::before { content: '・'; position: absolute; left: 0; color: var(--gold); }
+
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .faq-item:hover { border-color: var(--border-light); }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; padding: 20px 24px; font-size: 15px; font-weight: 600; color: var(--text); text-align: left; font-family: inherit; line-height: 1.5; }
+    .faq-q::after { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-left: 16px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2369F0AE' stroke-width='2.5'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/contain no-repeat; transition: transform 0.3s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-a { max-height: 420px; }
+    .faq-a-inner { padding: 4px 24px 20px; font-size: 14px; color: var(--text-sub); line-height: 1.85; }
+
+    /* CTA BOTTOM */
+    .cta-bottom {
+      background:
+        radial-gradient(70% 80% at 50% 0%, rgba(52,199,89,0.14) 0%, transparent 60%),
+        linear-gradient(180deg, #0A0A0A, #0E1611);
+      text-align: center; padding: 96px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .cta-bottom h2 { margin-bottom: 24px; }
+    .cta-bottom h2 .gold { color: var(--gold); }
+    .cta-checklist { max-width: 460px; margin: 0 auto 36px; text-align: left; display: flex; flex-direction: column; gap: 12px; }
+    .cta-check-item { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500; color: var(--text); }
+    .cta-check-icon { width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: #07120B; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; flex-shrink: 0; }
+    .cta-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
+
+    /* FOOTER */
+    footer { background: var(--bg); padding: 40px 24px; text-align: center; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; font-size: 13px; color: var(--text-light); }
+    .footer-inner a { color: var(--text-light); transition: color 0.2s; }
+    .footer-inner a:hover { color: var(--green-a); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 96px 20px 0; }
+      .hero-screenshot { max-width: 100%; border-radius: 12px 12px 0 0; }
+      .showcase { grid-template-columns: 1fr; gap: 32px; }
+      .showcase.reverse { direction: ltr; }
+      .showcase-img { order: -1; }
+      .features-grid { grid-template-columns: 1fr; }
+      .safety-grid { grid-template-columns: 1fr; }
+      .flow-timeline { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .flow-timeline::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 64px 16px; }
+      .flow-timeline { grid-template-columns: 1fr; gap: 24px; }
+      .nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- sprout symbol -->
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="sprout" viewBox="0 0 108 108">
+      <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+      <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
+      <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
+      <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand">
+        <span class="nav-icon"><svg><use href="#sprout"/></svg></span>
+        <span>Ripen</span>
+      </a>
+      <div class="nav-right">
+        <select id="langSelect" class="lang-select" aria-label="Language"></select>
+        <a href="https://play.google.com/store/apps/details?id=com.ripen.app" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav_cta">Google Playで入手</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">無料 &middot; Androidアプリ</span></div>
+      <h1 data-i18n-html="hero_h1">努力を、<span class="accent">実らせる。</span><br>集中した分だけ、<span class="gold">自由時間を収穫する。</span></h1>
+      <p class="hero-desc" data-i18n="hero_desc">ガマンで縛るアプリブロックは続かない。Ripen は、集中や勉強を積み重ねるほど SNS・動画の自由時間を"収穫"できる、ごほうび式の習慣化アプリ。在席判定はすべて端末内で行います。</p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.ripen.app" class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+          <span data-i18n="hero_cta">Google Playで入手（無料）</span>
+        </a>
+        <a href="#features" class="btn-ghost" data-i18n="hero_ghost">機能を見る ↓</a>
+      </div>
+      <p class="hero-note" data-i18n="hero_note">Android 8.0以上 &middot; 完全無料 &middot; アカウント登録不要</p>
+      <div class="hero-screenshot">
+        <img src="images/store-image-feature.png" alt="Ripen - 集中した分だけ、自由時間が実る。" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- CONCEPT BANNER -->
+  <div class="concept-bar">
+    <div class="concept-inner">
+      <p class="concept-heading" data-i18n-html="concept_h">ガマンでブロックしない。<span class="gold">ごほうび</span>で変える。</p>
+      <p class="concept-sub" data-i18n="concept_sub">「集中 25分 で 5分 使える」。完走するたびに自由時間が実る、無理なく続く報酬ループ。</p>
+    </div>
+  </div>
+
+  <!-- PROBLEM BANNER -->
+  <div class="problem-banner">
+    <h2 data-i18n="problem_h2">禁止アプリ、何度入れても結局アンインストール…</h2>
+    <p data-i18n-html="problem_p">「触らないぞ」と決めても、気づけばSNS。強制ブロックは我慢の連続で、続かない。<br>
+    Ripenは発想が逆。<span class="highlight">集中した分だけ、自由時間が"ごほうび"として実ります。</span></p>
+  </div>
+
+  <!-- FLOW -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="flow_tag">How it works</span>
+      <h2 data-i18n="flow_h2">集中して、収穫する。4ステップ。</h2>
+      <p class="section-lead" data-i18n="flow_lead">複雑な設定は不要。決めるのは「いつ・どれだけ集中したら・どれだけ使えるか」だけ。</p>
+      <div class="flow-timeline">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <h3 data-i18n="flow1_h3">時間帯を決める</h3>
+          <p data-i18n="flow1_p">朝・夜など、集中したい時間帯と目標を設定</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <h3 data-i18n="flow2_h3">集中する</h3>
+          <p data-i18n="flow2_p">前面カメラが「在席」を確認しながらカウントダウン</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <h3 data-i18n="flow3_h3">自由時間を収穫</h3>
+          <p data-i18n="flow3_p">完走するたびに、使える時間を獲得</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <h3 data-i18n="flow4_h3">使い切ると自動ロック</h3>
+          <p data-i18n="flow4_p">残り0分になると対象アプリをそっとブロック</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="show1_tag">Focus &amp; Earn</span>
+          <h3 data-i18n-html="show1_h3">集中した分だけ、<br><span class="accent">自由時間が"実る"。</span></h3>
+          <p data-i18n="show1_p">集中タイマーは「在席（顔がある）」の間だけ進みます。完走すると、設定した分だけSNSや動画に使える時間を獲得。ガマンではなく報酬で続きます。</p>
+          <ul class="feat-list">
+            <li data-i18n="show1_f1">在席している間だけ進むカウントダウン</li>
+            <li data-i18n="show1_f2">完走で「使える時間」を収穫（途中終了は獲得なし）</li>
+            <li data-i18n="show1_f3">1回の集中時間・もらえる分・回数を自由に設定</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="images/store-image-1.png" alt="集中セッション画面" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="show2_tag">Dashboard</span>
+          <h3 data-i18n-html="show2_h3">貯まる達成感が、<br><span class="accent">つづける力になる。</span></h3>
+          <p data-i18n="show2_p">「使える時間」「今日の集中」「連続日数」を一目で確認。週・月の推移グラフや、集中しやすい時間帯の分析も。数字が伸びるほど、もっと続けたくなります。</p>
+          <ul class="feat-list">
+            <li data-i18n="show2_f1">現在の状況をまとめたサマリーカード</li>
+            <li data-i18n="show2_f2">集中の推移グラフ・集中カレンダー</li>
+            <li data-i18n="show2_f3">「稼いだ vs 使った」で効果を実感</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="images/store-image-2.png" alt="ダッシュボード画面" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="show3_tag">Time Blocks</span>
+          <h3 data-i18n-html="show3_h3">時間帯ごとに、<br><span class="accent">自分のルール。</span></h3>
+          <p data-i18n="show3_p">24時間ダイヤルをなぞるだけで、集中したい時間帯を複数設定。時間帯ごとに集中目標・使える分・回数・禁止アプリを変えられます。時間帯の外では自由です。</p>
+          <ul class="feat-list">
+            <li data-i18n="show3_f1">ドラッグで直感的に時間帯を設定</li>
+            <li data-i18n="show3_f2">時間帯ごとに禁止アプリをカテゴリ別に選択</li>
+            <li data-i18n="show3_f3">先に使える「プレ余暇」枠も設定可能</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="images/store-image-3.png" alt="時間帯ブロック設定画面" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag" data-i18n="show4_tag">Gentle Lock</span>
+          <h3 data-i18n-html="show4_h3">残り0分で、<br><span class="accent">そっとロック。</span></h3>
+          <p data-i18n="show4_p">その時間帯で使える時間を使い切ると、対象アプリを自動でブロック。集中セッション中も、気が散るアプリをロックします。設定を緩めるのを防ぐ「設定ロック」も。</p>
+          <ul class="feat-list">
+            <li data-i18n="show4_f1">残高ゼロで対象アプリを自動ブロック</li>
+            <li data-i18n="show4_f2">集中中は散漫アプリをまとめてロック</li>
+            <li data-i18n="show4_f3">設定ロックで「あとで緩める」を防止</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="images/store-image-4.png" alt="ブロック画面" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="features_tag">Features</span>
+      <h2 data-i18n="features_h2">搭載機能</h2>
+      <p class="section-lead" data-i18n="features_lead">「やめたいのに、やめられない」を、報酬で変える。</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <div class="feat-icon">🌱</div>
+          <h3 data-i18n="feat1_h3">ごほうびループ</h3>
+          <p data-i18n="feat1_p">集中タイマーを完走するたびに、SNS・動画に使える自由時間を獲得。ガマンではなく報酬で行動が変わります。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">👁️</div>
+          <h3 data-i18n="feat2_h3">在席判定（オンデバイス）</h3>
+          <p data-i18n="feat2_p">前面カメラで「画面の前にいるか」だけを判定。すべて端末内で処理し、画像の保存・送信はしません。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">🕒</div>
+          <h3 data-i18n="feat3_h3">時間帯ブロック</h3>
+          <p data-i18n="feat3_p">朝・昼・夜など複数の時間帯を設定。時間帯ごとに集中目標・使える分・回数・禁止アプリを変えられます。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">🎁</div>
+          <h3 data-i18n="feat4_h3">プレ余暇</h3>
+          <p data-i18n="feat4_p">時間帯に入った瞬間から先に使える無料枠。集中ゼロでも少し使え、集中報酬に上乗せされます。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">🔒</div>
+          <h3 data-i18n="feat5_h3">設定ロック</h3>
+          <p data-i18n="feat5_p">設定をいじって余暇を盛るのを防ぐコミットメント機能。緩める変更には数日のクールダウンを課します。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">📊</div>
+          <h3 data-i18n="feat6_h3">分析ダッシュボード</h3>
+          <p data-i18n="feat6_p">集中の推移・集中カレンダー・完走率・最も集中できる時間帯・禁止アプリ利用の推移まで可視化。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="safety_tag">Privacy &amp; Safety</span>
+      <h2 data-i18n="safety_h2">カメラを使っても、安心。</h2>
+      <p class="section-lead" data-i18n="safety_lead">「集中判定にカメラ」と聞くと不安になるもの。Ripenはプライバシーを最優先に設計しています。</p>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h3 data-i18n="safe1_h3">🔒 すべて端末内で処理</h3>
+          <p data-i18n="safe1_p">顔の在席判定はオンデバイスのML Kitで完結。映像が外部サーバーに送られることはありません。</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe2_h3">🚫 画像の保存・送信なし</h3>
+          <p data-i18n="safe2_p">判定するのは「顔があるか」だけ。写真や映像を保存することも、クラウドへ送ることも一切ありません。</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe3_h3">📵 データはローカル保存</h3>
+          <p data-i18n="safe3_p">集中記録や設定はすべてデバイス内に保存。アンインストールすればデータも残りません。</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe4_h3">🔑 アカウント不要</h3>
+          <p data-i18n="safe4_p">登録・ログイン一切不要。ダウンロードしてすぐに使い始められます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTE -->
+  <section>
+    <div class="section-inner">
+      <div class="note-box">
+        <h3 data-i18n="note_h3">⚠️ ご利用前に</h3>
+        <ul>
+          <li data-i18n="note1">自動ロックには「使用状況アクセス」と「アクセシビリティ」、在席判定には「カメラ」の許可が必要です（Androidの仕様上、いずれも手動で許可します）。</li>
+          <li data-i18n="note2">権限を許可しなくても、集中タイマーや記録などの機能は利用できます（ブロックのみ働きません）。</li>
+          <li data-i18n="note3">強制的にアプリを使用不能にするものではなく、行動を変えるための"ソフトな"仕組みです。</li>
+          <li data-i18n="note4">顔検出には前面カメラを使うため、十分な明るさのある環境でのご利用を推奨します。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="faq_tag">FAQ</span>
+      <h2 data-i18n="faq_h2">よくある質問</h2>
+      <div class="faq-list" style="margin-top: 48px;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq1_q">普通のアプリブロックと何が違うの？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">Ripenはただ禁止するのではなく「ごほうび式」です。集中タイマーを完走すると、その分だけSNSや動画に使える自由時間を獲得できます。ガマンではなく報酬で行動を変えるので、無理なく続けられます。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq2_q">カメラは何に使いますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">画面の前に座っているか（在席）だけを判定するために使います。判定はすべて端末内（オンデバイスのML Kit）で行い、画像の保存もクラウド送信も一切しません。記録するのは「在席したか」だけです。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq3_q">必要な権限はありますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">自動ロックのために「使用状況アクセス」と「アクセシビリティ」、在席判定のために「カメラ」を使います。いずれもAndroidの仕様上、手動で許可が必要です。許可しなくても集中の記録などは利用できます。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq4_q">使える時間はずっと貯まりますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">いいえ。獲得した使える時間は、その時間帯（ウィンドウ）が終わるとリセットされます。貯め込むのではなく「その時間帯のごほうび」として使い切る設計です。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq5_q">本当に無料ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq5_a">はい、完全無料です。アカウント登録も不要で、ダウンロードしてすぐ使えます。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq6_q">iPhoneでも使えますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq6_a">現在はAndroid版のみ提供しています。Android 8.0以上の端末で利用できます。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <h2 data-i18n-html="cta_h2">今日から、努力を<span class="gold">実らせる。</span></h2>
+      <div class="cta-checklist">
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check1">集中した分だけ自由時間を収穫</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check2">在席判定はすべて端末内・画像保存なし</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check3">時間帯ごとに設定・残り0分で自動ロック</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check4">完全無料、登録不要ですぐ使える</span></div>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.ripen.app" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+        <span data-i18n="cta_btn">今すぐ無料でインストール</span>
+      </a>
+      <p class="cta-note" data-i18n="cta_note">Google Play からすぐにダウンロードできます</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Ripen</span>
+      <a href="../">Ramune Apps</a>
+      <a href="privacy-policy.html" data-i18n="footer_privacy">プライバシーポリシー</a>
+    </div>
+  </footer>
+
+  <script src="i18n-lp.js"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
