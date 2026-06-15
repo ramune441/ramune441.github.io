@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=1920">
+<title>SendReady Promo Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1920px; height:1080px; overflow:hidden; background:#eef2ff; }
+  body { font-family:'Noto Sans JP','Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+  :root{
+    --ind:#4361EE; --ind-deep:#3A0CA3; --ind-50:#eef2ff; --ind-100:#e0e7ff; --ind-200:#c7d2fe; --ind-700:#3A0CA3; --ind-800:#312e81;
+    --snip:#10B981; --text:#1e293b; --sub:#475569; --light:#94a3b8; --border:#e2e8f0;
+  }
+  .scene{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .5s ease; }
+  .scene.active{ opacity:1; pointer-events:auto; }
+  .ind{ color:var(--ind); }
+
+  /* shared window + popover */
+  .win{ background:#fff; border-radius:24px; box-shadow:0 50px 110px rgba(15,23,42,.26); overflow:hidden; border:1px solid #dbe0ea; }
+  .win-bar{ height:62px; background:#f1f3f7; display:flex; align-items:center; gap:11px; padding:0 24px; border-bottom:1px solid #e2e6ee; }
+  .dot{ width:17px; height:17px; border-radius:50%; }
+  .dr{ background:#ff5f57;} .dy{ background:#febc2e;} .dg{ background:#28c840;}
+  .url{ flex:1; height:40px; background:#fff; border:1px solid #e2e6ee; border-radius:11px; margin-left:18px; display:flex; align-items:center; padding:0 22px; font-size:20px; color:#94a3b8; }
+  .ext-ico{ width:34px; height:34px; margin-left:16px; }
+  .sel{ background:rgba(67,97,238,.22); border-radius:5px; padding:2px 4px; }
+
+  .sr-panel{ width:430px; background:#fff; color:#1a1a1a; border-radius:18px; padding:18px; border:1px solid rgba(127,127,127,.16); box-shadow:0 24px 70px rgba(0,0,0,.30); }
+  .sr-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .sr-tw{ display:flex; align-items:center; gap:9px; }
+  .sr-tw img{ width:26px; height:26px; }
+  .sr-title{ font-weight:700; font-size:21px; }
+  .sr-x{ font-size:21px; opacity:.45; }
+  .sr-item{ display:flex; align-items:center; gap:12px; padding:14px 14px; border-radius:12px; font-size:21px; transition:all .3s; }
+  .sr-tag{ font-size:15px; padding:3px 11px; border-radius:8px; font-weight:700; white-space:nowrap; }
+  .sr-tag-ai{ background:rgba(67,97,238,.16); color:var(--ind); }
+  .sr-it-title{ flex:1; }
+  .sr-it-trg{ font-family:ui-monospace,monospace; font-size:17px; color:#94a3b8; }
+  .sr-item.hi{ background:rgba(67,97,238,.15); outline:3px solid var(--ind); outline-offset:-3px; }
+  .sr-check{ display:flex; align-items:center; gap:11px; margin-top:14px; padding-top:15px; border-top:1px solid rgba(127,127,127,.16); font-size:20px; font-weight:600; }
+  .sr-cb{ width:22px; height:22px; border-radius:6px; border:2.5px solid var(--ind); display:inline-flex; align-items:center; justify-content:center; color:var(--ind); font-size:15px; }
+
+  .sr-launcher{ width:54px; height:54px; border-radius:50%; background:#fff; border:1px solid rgba(127,127,127,.18); box-shadow:0 6px 22px rgba(0,0,0,.28); display:flex; align-items:center; justify-content:center; padding:8px; }
+  .sr-launcher img{ width:100%; height:100%; object-fit:contain; }
+  .sr-spinner{ width:46px; height:46px; border-radius:50%; border:5px solid rgba(67,97,238,.25); border-top-color:var(--ind); animation:spin .8s linear infinite; }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
+  .sr-result-box{ border:1px solid var(--border); border-radius:12px; padding:16px 18px; font-size:23px; color:var(--text); line-height:1.6; background:#fcfcfd; }
+  .sr-actions{ display:flex; gap:11px; margin-top:15px; }
+  .sr-btn{ padding:12px 22px; border-radius:11px; font-size:19px; border:1px solid rgba(127,127,127,.3); color:#1a1a1a; }
+  .sr-btn-p{ background:var(--ind); color:#fff; border-color:var(--ind); font-weight:600; }
+
+  /* ===== S1 Intro ===== */
+  #s1{ background:linear-gradient(135deg,#eef2ff,#e0e7ff); flex-direction:column; gap:48px; }
+  #s1 .logo-row{ display:flex; align-items:center; gap:40px; opacity:0; transform:translateY(40px); }
+  #s1 .logo-icon{ width:150px; height:150px; border-radius:36px; box-shadow:0 0 90px rgba(67,97,238,.35); overflow:hidden; }
+  #s1 .logo-icon img{ width:100%; height:100%; object-fit:cover; }
+  #s1 .logo-text{ font-size:118px; font-weight:900; color:var(--ind-800); letter-spacing:-4px; }
+  #s1 .tagline{ font-size:50px; font-weight:600; color:var(--sub); opacity:0; transform:translateY(30px); text-align:center; line-height:1.4; }
+  #s1 .tagline .ind{ font-weight:800; }
+
+  /* ===== S2 Problem (copy-paste round trip) ===== */
+  #s2{ background:linear-gradient(135deg,#fff7ed,#fef2f2); flex-direction:column; gap:0; }
+  #s2 .s2-title{ font-size:62px; font-weight:800; color:var(--text); text-align:center; line-height:1.4; opacity:0; transform:translateY(40px); }
+  #s2 .s2-title .red{ color:#dc2626; }
+  #s2 .rt{ display:flex; align-items:center; justify-content:center; gap:50px; margin-top:70px; }
+  #s2 .rt-card{ width:440px; background:#fff; border-radius:22px; box-shadow:0 26px 70px rgba(0,0,0,.10); overflow:hidden; opacity:0; transform:translateY(30px); border:1px solid #eee; }
+  #s2 .rt-head{ height:54px; display:flex; align-items:center; padding:0 22px; font-size:21px; font-weight:700; gap:10px; }
+  #s2 .rt-head.app{ background:#f1f5f9; color:#475569; }
+  #s2 .rt-head.ai{ background:#ede9fe; color:#6d28d9; }
+  #s2 .rt-body{ padding:26px 24px; font-size:23px; color:var(--text); line-height:1.7; min-height:150px; }
+  #s2 .rt-arrow{ font-size:60px; color:#f97316; opacity:0; }
+  #s2 .rt-arrow.back{ transform:scaleX(-1); }
+  #s2 .s2-sigh{ font-size:40px; color:#dc2626; font-weight:700; margin-top:54px; opacity:0; transform:translateY(20px); }
+
+  /* ===== Demo scenes shared layout ===== */
+  .demo-wrap{ display:flex; align-items:center; gap:90px; padding:0 110px; width:100%; }
+  .demo-left{ flex:0 0 540px; }
+  .demo-badge{ display:inline-flex; align-items:center; gap:12px; background:var(--ind-100); border:1px solid var(--ind-200); padding:13px 30px; border-radius:100px; font-size:24px; color:var(--ind-deep); font-weight:700; opacity:0; }
+  .demo-h{ font-size:64px; font-weight:800; color:var(--text); line-height:1.3; margin-top:28px; opacity:0; transform:translateX(-40px); }
+  .demo-h .ind{ color:var(--ind); }
+  .demo-p{ font-size:28px; color:var(--sub); line-height:1.7; margin-top:24px; opacity:0; }
+  .demo-p code{ font-family:ui-monospace,monospace; background:#fff; border:1px solid var(--border); border-radius:8px; padding:2px 12px; color:var(--ind-deep); }
+  .demo-right{ flex:1; display:flex; justify-content:center; align-items:center; position:relative; }
+
+  #s3{ background:linear-gradient(135deg,#eef2ff,#f8fafc); }
+  #s4{ background:linear-gradient(135deg,#f8fafc,#e0e7ff); }
+  #s5{ background:linear-gradient(135deg,#ecfdf5,#e0e7ff); }
+
+  /* kbd */
+  .kbd{ display:inline-flex; align-items:center; font-family:ui-monospace,monospace; font-size:24px; background:#fff; border:1px solid #cbd5e1; border-bottom-width:4px; border-radius:10px; padding:8px 16px; color:var(--text); font-weight:700; }
+
+  /* ===== S6 Features ===== */
+  #s6{ background:linear-gradient(135deg,#f8fafc,#eef2ff); flex-direction:column; gap:60px; }
+  #s6 .feat-title{ font-size:66px; font-weight:800; color:var(--text); text-align:center; opacity:0; }
+  #s6 .feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; max-width:1620px; width:90%; }
+  .feat-item{ background:#fff; border:1px solid var(--border); border-radius:26px; padding:46px 38px; text-align:center; opacity:0; transform:translateY(40px); box-shadow:0 6px 28px rgba(0,0,0,.05); }
+  .feat-item .fe{ font-size:66px; margin-bottom:22px; display:block; }
+  .feat-item h4{ font-size:30px; font-weight:700; color:var(--text); margin-bottom:14px; }
+  .feat-item p{ font-size:21px; color:var(--sub); line-height:1.6; }
+
+  /* ===== S7 CTA ===== */
+  #s7{ background:linear-gradient(135deg,#eef2ff,#c7d2fe); flex-direction:column; gap:48px; }
+  #s7 .cta-title{ font-size:78px; font-weight:900; color:var(--ind-800); text-align:center; line-height:1.25; opacity:0; transform:translateY(40px); }
+  #s7 .cta-checks{ display:flex; flex-direction:column; gap:24px; opacity:0; }
+  .cta-check{ display:flex; align-items:center; gap:20px; font-size:34px; color:var(--text); font-weight:500; }
+  .cta-check .cc{ width:50px; height:50px; border-radius:50%; background:var(--ind); display:flex; align-items:center; justify-content:center; font-size:26px; color:#fff; font-weight:800; }
+  #s7 .cta-btn{ display:inline-flex; align-items:center; gap:18px; background:var(--ind); color:#fff; font-size:32px; font-weight:800; padding:30px 68px; border-radius:22px; box-shadow:0 10px 38px rgba(67,97,238,.34); opacity:0; transform:translateY(20px); }
+  #s7 .cta-note{ font-size:24px; color:var(--sub); opacity:0; }
+</style>
+</head>
+<body>
+
+<!-- S1 -->
+<div class="scene active" id="s1">
+  <div style="display:flex; flex-direction:column; align-items:center; gap:34px;">
+    <div class="logo-row" id="e1a"><div class="logo-icon"><img src="icons/icon128.png" alt="SendReady"></div><div class="logo-text">SendReady</div></div>
+    <div class="tagline" id="e1b">選択・入力中のテキストを<br><span class="ind">AIでワンタップ変換</span></div>
+  </div>
+</div>
+
+<!-- S2: copy-paste round trip pain -->
+<div class="scene" id="s2">
+  <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
+    <div class="s2-title" id="e2a">敬語に直す、英語に訳す、要約する…<br>そのたびに<span class="red">別タブのAIへコピペ往復</span>。</div>
+    <div class="rt">
+      <div class="rt-card" id="e2b1">
+        <div class="rt-head app">💬 チャット入力</div>
+        <div class="rt-body">明日の打ち合わせ10時で大丈夫です。よろしく。</div>
+      </div>
+      <div class="rt-arrow" id="e2arr1">→</div>
+      <div class="rt-card" id="e2b2">
+        <div class="rt-head ai">🤖 別のAIツール</div>
+        <div class="rt-body" style="color:var(--light);">「これを丁寧な敬語にして…」と貼り付けて指示</div>
+      </div>
+      <div class="rt-arrow back" id="e2arr2">→</div>
+    </div>
+    <div class="s2-sigh" id="e2sigh">😮‍💨 コピー → 指示 → 戻して貼り付け。毎回これ。</div>
+  </div>
+</div>
+
+<!-- S3: Demo A — selection toolbar + AI preset -->
+<div class="scene" id="s3">
+  <div class="demo-wrap">
+    <div class="demo-left">
+      <div class="demo-badge" id="e3a">🖱️ 選択ツールバー</div>
+      <div class="demo-h" id="e3b">選択するだけで、<br><span class="ind">変換メニュー</span>が出る。</div>
+      <div class="demo-p" id="e3c">文章を選ぶと現れるアイコンをタップ。<br>AIプリセットを選ぶだけで変換完了。</div>
+    </div>
+    <div class="demo-right">
+      <!-- stage: floating UI is a SIBLING of the window so overflow:hidden never clips it -->
+      <div style="position:relative; width:760px;">
+        <div class="win" id="e3win" style="width:760px; opacity:0; transform:translateX(50px);">
+          <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+          <div style="padding:40px 44px;">
+            <div style="font-size:21px; color:var(--sub); padding:14px 0; border-bottom:1px solid var(--border);">To: client@example.com</div>
+            <div style="font-size:24px; font-weight:600; padding:18px 0; border-bottom:1px solid var(--border);">打ち合わせの件</div>
+            <div style="font-size:25px; line-height:2; padding:28px 2px; min-height:150px;"><span id="e3sel">明日の打ち合わせ10時で大丈夫です。よろしく。</span><span id="e3applied" style="color:var(--ind); font-weight:600; display:none;">明日の打ち合わせは10時で問題ございません。何卒よろしくお願いいたします。</span></div>
+          </div>
+        </div>
+        <!-- launcher (floats over the window, near the selection) -->
+        <div class="sr-launcher" id="e3launch" style="position:absolute; left:300px; top:232px; opacity:0; transform:scale(.5); z-index:3;"><img src="icons/mark.png"></div>
+        <!-- popover menu -->
+        <div class="sr-panel" id="e3menu" style="position:absolute; left:300px; top:286px; opacity:0; transform:translateY(10px); z-index:4;">
+          <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
+          <div class="sr-item" id="e3p1"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">丁寧に 💝</span><span class="sr-it-trg">//p</span></div>
+          <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">英語に翻訳 🌏</span><span class="sr-it-trg">//en</span></div>
+          <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">要約 📝</span><span class="sr-it-trg">//sum</span></div>
+          <div class="sr-check"><span class="sr-cb">✓</span><span>↩ 返信を作成</span></div>
+        </div>
+        <!-- loading -->
+        <div id="e3load" style="position:absolute; left:300px; top:286px; width:430px; opacity:0; background:#fff; border-radius:18px; padding:42px; box-shadow:0 24px 70px rgba(0,0,0,.30); display:flex; flex-direction:column; align-items:center; gap:18px; z-index:5;"><div class="sr-spinner"></div><div style="font-size:20px; color:var(--sub);">変換中…</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Demo B — inline trigger -->
+<div class="scene" id="s4">
+  <div class="demo-wrap">
+    <div class="demo-left">
+      <div class="demo-badge" id="e4a">⌨️ インライントリガー</div>
+      <div class="demo-h" id="e4b">打って、<span class="ind">Enter</span>。<br>それだけ。</div>
+      <div class="demo-p" id="e4c"><code>//en 文章</code> のように前置トリガー＋文章を書いてEnter。AIが変換して、その場で置き換えます。</div>
+    </div>
+    <div class="demo-right">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:30px;">
+        <div class="win" id="e4win" style="width:680px; opacity:0; transform:translateY(30px);">
+          <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+          <div style="padding:40px;">
+            <div style="border:3px solid var(--ind); border-radius:16px; padding:24px 26px; font-size:28px; min-height:120px; line-height:1.6;">
+              <span id="e4typed" style="font-family:ui-monospace,monospace;"></span><span id="e4caret" style="display:inline-block; width:3px; height:34px; background:var(--ind); vertical-align:-6px;"></span>
+            </div>
+            <div style="margin-top:20px; display:flex; align-items:center; gap:14px; font-size:22px; color:var(--sub);"><span class="kbd" id="e4enter" style="opacity:.4;">Enter ⏎</span> で変換</div>
+          </div>
+        </div>
+        <div class="sr-panel" id="e4res" style="width:560px; opacity:0; transform:translateY(20px);">
+          <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
+          <div class="sr-result-box">I'll be there at 10 tomorrow.</div>
+          <div class="sr-actions"><span class="sr-btn sr-btn-p">適用</span><span class="sr-btn">コピー</span><span class="sr-btn">再生成</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: Demo C — reply -->
+<div class="scene" id="s5">
+  <div class="demo-wrap">
+    <div class="demo-left">
+      <div class="demo-badge" id="e5a" style="background:#d1fae5; border-color:#a7f3d0; color:#047857;">↩ 返信を作成</div>
+      <div class="demo-h" id="e5b">受け取った文を選んで、<br><span style="color:var(--snip);">返信を生成</span>。</div>
+      <div class="demo-p" id="e5c">文体を選んでひと言指示するだけ。<br>そのままコピーして返信欄へ貼れます。</div>
+    </div>
+    <div class="demo-right">
+      <div style="display:flex; align-items:flex-start; gap:40px;">
+        <div class="win" id="e5win" style="width:520px; opacity:0; transform:translateX(-40px);">
+          <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
+          <div style="padding:34px 36px;">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;"><div style="width:48px; height:48px; border-radius:50%; background:var(--ind-100); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--ind); font-size:22px;">田</div><div><div style="font-weight:700; font-size:21px;">田中さん</div><div style="font-size:16px; color:var(--light);">14:32</div></div></div>
+            <div style="font-size:22px; line-height:1.9;"><span class="sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span></div>
+          </div>
+        </div>
+        <div class="sr-panel" id="e5panel" style="width:440px; opacity:0; transform:translateX(40px);">
+          <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">↩ 返信を作成</span></div><span class="sr-x">✕</span></div>
+          <div style="font-size:17px; color:var(--sub); margin-bottom:10px;">文体を選択</div>
+          <div style="display:flex; gap:9px; margin-bottom:16px;" id="e5chips">
+            <span class="e5chip" style="font-size:19px; padding:8px 20px; border-radius:999px; border:1px solid var(--border); color:var(--text);">丁寧</span>
+            <span class="e5chip" style="font-size:19px; padding:8px 20px; border-radius:999px; border:1px solid var(--border); color:var(--text);">カジュアル</span>
+            <span class="e5chip" style="font-size:19px; padding:8px 20px; border-radius:999px; border:1px solid var(--border); color:var(--text);">簡潔</span>
+          </div>
+          <div id="e5gen" style="display:flex; align-items:center; justify-content:center; gap:14px; min-height:130px; color:var(--sub); font-size:20px; opacity:0;"><div class="sr-spinner" style="width:34px;height:34px;border-width:4px;"></div>生成中…</div>
+          <div id="e5out" style="display:none;">
+            <div class="sr-result-box" style="font-size:20px;">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に貴社へ伺います。よろしくお願いいたします。</div>
+            <div class="sr-actions"><span class="sr-btn sr-btn-p">コピー</span><span class="sr-btn">再生成</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: Features -->
+<div class="scene" id="s6">
+  <div style="display:flex; flex-direction:column; align-items:center; gap:56px;">
+    <div class="feat-title" id="e6a">2つのエンジンで、書く・直す・返すを速く</div>
+    <div class="feat-grid">
+      <div class="feat-item" id="f1"><span class="fe">🤖</span><h4>AI変換プリセット</h4><p>丁寧に・翻訳・要約・誤字修正<br>選択 or トリガーで即変換</p></div>
+      <div class="feat-item" id="f2"><span class="fe">⚡</span><h4>定型文スニペット</h4><p>トリガーで即展開<br>AI不要・回数無制限</p></div>
+      <div class="feat-item" id="f3"><span class="fe">↩️</span><h4>返信を作成</h4><p>受け取った文から<br>AIが返信文を生成</p></div>
+      <div class="feat-item" id="f4"><span class="fe">🎯</span><h4>3つの起動方法</h4><p>選択ツールバー・右クリック<br>ショートカット Alt+Shift+S</p></div>
+      <div class="feat-item" id="f5"><span class="fe">🌏</span><h4>11言語対応</h4><p>主要11言語＋AUTO<br>アラビア語RTL対応</p></div>
+      <div class="feat-item" id="f6"><span class="fe">🔒</span><h4>安全設計</h4><p>送るのは選んだ文だけ<br>広告・追跡なし</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: CTA -->
+<div class="scene" id="s7">
+  <div style="display:flex; flex-direction:column; align-items:center; gap:40px;">
+    <div class="cta-title" id="e7a">「送る前のひと手間」を、<br><span class="ind">AIにまかせよう。</span></div>
+    <div class="cta-checks" id="e7b">
+      <div class="cta-check"><div class="cc">✓</div> 完全無料・登録不要</div>
+      <div class="cta-check"><div class="cc">✓</div> 30秒でインストール完了</div>
+      <div class="cta-check"><div class="cc">✓</div> どんな入力欄でも使える</div>
+    </div>
+    <div class="cta-btn" id="e7c">⚡ Chromeに追加 — 無料</div>
+    <div class="cta-note" id="e7d">Chrome ウェブストアで公開予定</div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const scenes = ['s1','s2','s3','s4','s5','s6','s7'];
+let timeline = [], timelineIndex = 0, isPaused = false, timer = null;
+let startTime = Date.now();
+
+function showScene(id){ scenes.forEach(s => $(s).classList.remove('active')); $(id).classList.add('active'); }
+function anim(el, styles, dur=600){ if(typeof el==='string') el=$(el); if(!el) return; el.style.transition=`all ${dur}ms cubic-bezier(0.16,1,0.3,1)`; Object.assign(el.style, styles); }
+
+function buildTimeline(){
+  timeline = []; let t = 0;
+
+  // S1 Intro
+  timeline.push([t, () => {
+    showScene('s1');
+    setTimeout(() => anim('e1a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 650);
+  }]); t += 2800;
+
+  // S2 Problem
+  timeline.push([t, () => {
+    showScene('s2');
+    setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
+    setTimeout(() => anim('e2b1', {opacity:1, transform:'translateY(0)'}), 800);
+    setTimeout(() => anim('e2arr1', {opacity:1}), 1300);
+    setTimeout(() => anim('e2b2', {opacity:1, transform:'translateY(0)'}), 1700);
+    setTimeout(() => anim('e2arr2', {opacity:1}), 2300);
+    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 3000);
+  }]); t += 4800;
+
+  // S3 Demo A: selection toolbar
+  timeline.push([t, () => {
+    showScene('s3');
+    setTimeout(() => anim('e3a', {opacity:1}), 150);
+    setTimeout(() => anim('e3b', {opacity:1, transform:'translateX(0)'}), 350);
+    setTimeout(() => anim('e3c', {opacity:1}), 700);
+    setTimeout(() => anim('e3win', {opacity:1, transform:'translateX(0)'}, 600), 400);
+    // launcher appears near selection
+    setTimeout(() => anim('e3launch', {opacity:1, transform:'scale(1)'}, 350), 1600);
+    // open menu
+    setTimeout(() => { anim('e3launch', {opacity:0}, 200); anim('e3menu', {opacity:1, transform:'translateY(0)'}, 350); }, 2300);
+    // highlight "丁寧に"
+    setTimeout(() => $('e3p1').classList.add('hi'), 3100);
+    // click -> loading
+    setTimeout(() => { anim('e3menu', {opacity:0}, 250); setTimeout(() => anim('e3load', {opacity:1}, 250), 200); }, 3700);
+    // result applied
+    setTimeout(() => {
+      anim('e3load', {opacity:0}, 250);
+      $('e3sel').style.display='none'; $('e3applied').style.display='inline';
+      $('e3applied').style.background='rgba(67,97,238,.10)';
+    }, 5000);
+  }]); t += 6600;
+
+  // S4 Demo B: inline trigger
+  timeline.push([t, () => {
+    showScene('s4');
+    setTimeout(() => anim('e4a', {opacity:1}), 150);
+    setTimeout(() => anim('e4b', {opacity:1, transform:'translateX(0)'}), 350);
+    setTimeout(() => anim('e4c', {opacity:1}), 700);
+    setTimeout(() => anim('e4win', {opacity:1, transform:'translateY(0)'}, 600), 400);
+    // type
+    const full = '//en 明日10時に伺います';
+    let i = 0;
+    setTimeout(() => {
+      const iv = setInterval(() => {
+        i++; $('e4typed').textContent = full.slice(0, i);
+        if (i >= full.length) clearInterval(iv);
+      }, 75);
+    }, 1300);
+    // enter press
+    setTimeout(() => { $('e4enter').style.opacity='1'; $('e4enter').style.transform='translateY(2px)'; }, 3500);
+    // result
+    setTimeout(() => anim('e4res', {opacity:1, transform:'translateY(0)'}, 450), 3900);
+  }]); t += 5600;
+
+  // S5 Demo C: reply
+  timeline.push([t, () => {
+    showScene('s5');
+    setTimeout(() => anim('e5a', {opacity:1}), 150);
+    setTimeout(() => anim('e5b', {opacity:1, transform:'translateX(0)'}), 350);
+    setTimeout(() => anim('e5c', {opacity:1}), 700);
+    setTimeout(() => anim('e5win', {opacity:1, transform:'translateX(0)'}, 600), 450);
+    setTimeout(() => anim('e5panel', {opacity:1, transform:'translateX(0)'}, 600), 750);
+    // pick style chip "丁寧"
+    setTimeout(() => { const c=document.querySelectorAll('.e5chip')[0]; c.style.background='var(--snip)'; c.style.color='#fff'; c.style.borderColor='var(--snip)'; }, 2400);
+    // generating
+    setTimeout(() => { $('e5gen').style.opacity='1'; }, 2900);
+    // result
+    setTimeout(() => { $('e5gen').style.display='none'; $('e5out').style.display='block'; }, 4300);
+  }]); t += 6200;
+
+  // S6 Features
+  timeline.push([t, () => {
+    showScene('s6');
+    setTimeout(() => anim('e6a', {opacity:1}), 200);
+    ['f1','f2','f3','f4','f5','f6'].forEach((id, i) => setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i*150));
+  }]); t += 3600;
+
+  // S7 CTA
+  timeline.push([t, () => {
+    showScene('s7');
+    setTimeout(() => anim('e7a', {opacity:1, transform:'translateY(0)'}, 600), 200);
+    setTimeout(() => anim('e7b', {opacity:1}), 700);
+    setTimeout(() => anim('e7c', {opacity:1, transform:'translateY(0)'}), 1200);
+    setTimeout(() => anim('e7d', {opacity:1}), 1700);
+  }]); t += 3500;
+}
+
+function resetAll(){
+  clearTimeout(timer);
+  ['e1a','e1b','e2a','e2b1','e2b2','e2arr1','e2arr2','e2sigh',
+   'e3a','e3b','e3c','e4a','e4b','e4c','e5a','e5b','e5c','e6a','e7a','e7b','e7c','e7d'].forEach(id => {
+    const el=$(id); if(el){ el.style.transition='none'; el.style.opacity='0'; el.style.transform=''; }
+  });
+  [['e3win','translateX(50px)'],['e4win','translateY(30px)'],['e4res','translateY(20px)'],
+   ['e5win','translateX(-40px)'],['e5panel','translateX(40px)']].forEach(([id,tr])=>{ const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform=tr;} });
+  const lc=$('e3launch'); if(lc){lc.style.transition='none';lc.style.opacity='0';lc.style.transform='scale(.5)';}
+  const mn=$('e3menu'); if(mn){mn.style.transition='none';mn.style.opacity='0';mn.style.transform='translateY(10px)';}
+  const ld=$('e3load'); if(ld){ld.style.transition='none';ld.style.opacity='0';}
+  $('e3p1') && $('e3p1').classList.remove('hi');
+  $('e3sel') && ($('e3sel').style.display='inline');
+  $('e3applied') && ($('e3applied').style.display='none');
+  $('e4typed') && ($('e4typed').textContent='');
+  $('e4enter') && ($('e4enter').style.opacity='.4', $('e4enter').style.transform='');
+  document.querySelectorAll('.e5chip').forEach(c=>{ c.style.background=''; c.style.color='var(--text)'; c.style.borderColor='var(--border)'; });
+  $('e5gen') && ($('e5gen').style.opacity='0', $('e5gen').style.display='flex');
+  $('e5out') && ($('e5out').style.display='none');
+  ['f1','f2','f3','f4','f5','f6'].forEach(id=>{ const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';} });
+}
+
+function runTimeline(){
+  if (timelineIndex >= timeline.length) return;
+  const [delay, fn] = timeline[timelineIndex];
+  const wait = Math.max(0, delay - (Date.now() - startTime));
+  timer = setTimeout(() => { if(!isPaused){ fn(); timelineIndex++; runTimeline(); } }, wait);
+}
+
+function start(){
+  resetAll(); startTime = Date.now(); timelineIndex = 0; isPaused = false;
+  buildTimeline(); void document.body.offsetHeight; runTimeline();
+}
+
+start();
+</script>
+</body>
+</html>
