@@ -51,9 +51,8 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "本当に無料ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい、完全無料です。APIキーもアカウント登録も不要。AI変換は1日50回まで無料で利用でき、定型文の展開は回数無制限です。" } },
-      { "@type": "Question", "name": "どんなサイトで使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "入力欄（input・textarea・contenteditable）があるほぼすべてのサイトで使えます。Gmail、X、Slack、Notion、各種チャットや問い合わせフォームなど。読み取り専用テキストはクリップボードへコピーします。" } },
-      { "@type": "Question", "name": "個人情報は安全ですか？", "acceptedAnswer": { "@type": "Answer", "text": "プリセットや設定はブラウザ内に保存されます。AIに送られるのは変換対象として選んだテキストだけで、それ以外のページ内容は送信されません。" } },
-      { "@type": "Question", "name": "AI変換と定型文は何が違いますか？", "acceptedAnswer": { "@type": "Answer", "text": "AI変換は「//p 文章」のように前置トリガー＋文章をEnterで送ると、AIが丁寧語・翻訳・要約などに変換します。定型文はトリガー（例「;sig」）を打って区切りで確定すると、登録済みのテキストへ即展開します。" } }
+      { "@type": "Question", "name": "個人情報は安全ですか？", "acceptedAnswer": { "@type": "Answer", "text": "プリセットや設定はお使いのブラウザの中だけに保存されます。AIに送られるのは変換対象として選んだテキストだけで、それ以外のページ内容は送信されません。" } },
+      { "@type": "Question", "name": "AI変換と定型文は何が違いますか？", "acceptedAnswer": { "@type": "Answer", "text": "AI変換は文章をAIが丁寧語・翻訳・要約などに書き換える機能です。定型文は署名やあいさつなど決まった文章をそのまま出す機能で、AIを使わないので一瞬・何度でも無料です。" } }
     ]
   }
   </script>
@@ -367,88 +366,192 @@
         </div>
         <div class="flow-item">
           <div class="flow-num">4</div>
-          <h3>適用 / コピー</h3>
-          <p>ワンタップで入力欄へ反映。読み取り専用ならコピー</p>
+          <h3>反映する</h3>
+          <p>ワンタップで入力欄に反映。コピーだけの文章はコピー</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOWCASE 1: Selection toolbar -->
-  <section>
-    <div class="section-inner">
-      <div class="showcase">
-        <div class="showcase-text">
-          <span class="section-tag">Selection toolbar</span>
-          <h3>選択するだけで、<br>変換メニューが出る。</h3>
-          <p>文章を選ぶと、選択のすぐ近くに丸いアイコンが出現。タップすればAIプリセットのメニューが開き、選ぶだけで変換が始まります。</p>
-          <ul class="feat-list">
-            <li>選択付近に出る軽量ランチャー（暗幕なし）</li>
-            <li>丁寧に・翻訳・要約・誤字修正をワンタップ</li>
-            <li>スクロール・Esc・外側クリックでサッと消える</li>
-          </ul>
-        </div>
-        <div class="showcase-img"><img src="images/store-image-2.png" alt="選択ツールバーのデモ" loading="lazy"></div>
+  <!-- ANIMATED DEMO -->
+  <style>
+    .da-sec { background: var(--bg-alt); }
+    .da-tabs { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:34px; }
+    .da-tab { display:inline-flex; align-items:center; gap:8px; font-family:inherit; font-size:15px; font-weight:700; color:var(--text-sub); background:var(--bg-card); border:1px solid var(--border); border-radius:100px; padding:11px 24px; cursor:pointer; transition:all .2s; }
+    .da-tab .e { font-size:18px; }
+    .da-tab.active { background:var(--ind); color:#fff; border-color:var(--ind); box-shadow:0 6px 18px rgba(67,97,238,.32); }
+    .da-frame { max-width:720px; margin:0 auto; }
+    .da-win { background:#fff; border-radius:16px; overflow:hidden; border:1px solid var(--border); box-shadow:0 22px 64px rgba(20,22,58,.15); }
+    .da-bar { height:46px; background:#f1f3f9; display:flex; align-items:center; gap:7px; padding:0 16px; border-bottom:1px solid #e3e6f0; }
+    .da-d { width:11px; height:11px; border-radius:50%; } .da-d1{background:#ff5f57}.da-d2{background:#febc2e}.da-d3{background:#28c840}
+    .da-url { flex:1; height:27px; background:#fff; border:1px solid #e3e6f0; border-radius:7px; margin-left:12px; display:flex; align-items:center; padding:0 14px; font-size:13px; color:#9499b8; }
+    .da-body { position:relative; height:330px; text-align:left; overflow:hidden; }
+    .da-scene { position:absolute; inset:0; display:none; padding:26px 30px; }
+    .da-scene.on { display:block; }
+    .da-sel { background:rgba(67,97,238,.2); border-radius:3px; padding:1px 3px; }
+    .da-to { font-size:15px; color:var(--text-light); padding:8px 0; border-bottom:1px solid var(--border); }
+    .da-subj { font-size:17px; font-weight:600; padding:12px 0; border-bottom:1px solid var(--border); }
+    .da-text { font-size:18px; line-height:1.9; padding:18px 2px; }
+    .da-pop { position:absolute; width:262px; background:#fff; border-radius:13px; padding:11px; border:1px solid var(--border); box-shadow:0 16px 44px rgba(20,22,58,.22); }
+    .da-ph { display:flex; align-items:center; gap:7px; margin-bottom:8px; }
+    .da-ph img { width:17px; height:17px; } .da-ph b { font-size:13px; font-weight:700; } .da-ph .x { margin-left:auto; opacity:.4; font-size:13px; }
+    .da-pi { display:flex; align-items:center; gap:8px; padding:8px 9px; border-radius:8px; font-size:14px; }
+    .da-pi.hi { background:rgba(67,97,238,.13); outline:2px solid var(--ind); outline-offset:-2px; }
+    .da-tg { font-size:10px; font-weight:700; padding:2px 6px; border-radius:5px; background:rgba(67,97,238,.16); color:var(--ind); }
+    .da-pi .t { flex:1; } .da-pi .g { font-family:ui-monospace,monospace; font-size:11px; color:#9499b8; }
+    .da-load { display:flex; flex-direction:column; align-items:center; gap:12px; padding:30px; }
+    .da-spin { width:34px; height:34px; border-radius:50%; border:4px solid rgba(67,97,238,.25); border-top-color:var(--ind); animation:da-spin .8s linear infinite; }
+    @keyframes da-spin { to { transform:rotate(360deg); } }
+    .da-lab { font-size:12px; font-weight:700; margin-bottom:10px; }
+    .da-input { border:2px solid var(--ind); border-radius:11px; padding:15px 17px; font-size:20px; min-height:64px; display:flex; align-items:center; }
+    .da-mono { font-family:ui-monospace,monospace; }
+    .da-cur { display:inline-block; width:2px; height:24px; background:var(--ind); margin-left:2px; animation:da-blink .9s steps(1) infinite; }
+    @keyframes da-blink { 50% { opacity:0; } }
+    .da-hint { margin-top:14px; display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text-light); }
+    .da-kbd { font-family:ui-monospace,monospace; font-size:14px; background:#fff; border:1px solid #cbd2ee; border-bottom-width:3px; border-radius:7px; padding:4px 10px; font-weight:600; color:var(--text); }
+    .da-card { margin-top:18px; border:1px solid var(--border); border-radius:12px; padding:16px 18px; background:#fcfcff; font-size:16px; line-height:1.7; transition:opacity .4s, transform .4s; }
+    .da-rgrid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .da-bubble { background:var(--bg-alt); border-radius:12px; padding:16px; font-size:16px; line-height:1.7; }
+    .da-bub-name { display:flex; align-items:center; gap:9px; margin-bottom:10px; font-weight:700; font-size:14px; }
+    .da-av { width:34px; height:34px; border-radius:50%; background:#fff; color:var(--ind); display:flex; align-items:center; justify-content:center; font-weight:700; }
+    .da-chips { display:flex; gap:7px; margin:6px 0 12px; }
+    .da-chip { font-size:13px; padding:6px 15px; border-radius:999px; border:1px solid var(--border); }
+    .da-chip.on { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:600; }
+    .da-out { font-size:15px; line-height:1.7; border:1px solid var(--border); border-radius:10px; padding:13px 15px; background:#fcfcff; }
+    .da-acts { display:flex; gap:8px; margin-top:11px; }
+    .da-btn { font-size:13px; padding:8px 16px; border-radius:8px; border:1px solid var(--border); }
+    .da-btn.p { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:600; }
+    .da-cap { margin-top:22px; font-size:16px; color:var(--text-sub); min-height:26px; line-height:1.6; }
+    .da-cap b { color:var(--ind); }
+    @media (max-width:560px){ .da-body{height:380px} .da-rgrid{grid-template-columns:1fr} }
+  </style>
+  <section class="da-sec">
+    <div class="section-inner section-center">
+      <span class="section-tag">See it in action</span>
+      <h2>使い方は、見たほうが早い。</h2>
+      <p class="section-lead">3つの使い方を、実際の画面で。タブで切り替えられます。</p>
+      <div class="da-tabs">
+        <button class="da-tab active" data-i="0"><span class="e">🤖</span>AIで変換</button>
+        <button class="da-tab" data-i="1"><span class="e">⚡</span>定型文を出す</button>
+        <button class="da-tab" data-i="2"><span class="e">↩️</span>返信を作る</button>
       </div>
-    </div>
-  </section>
+      <div class="da-frame">
+        <div class="da-win">
+          <div class="da-bar"><span class="da-d da-d1"></span><span class="da-d da-d2"></span><span class="da-d da-d3"></span><div class="da-url" id="daurl">🔒 mail.google.com</div></div>
+          <div class="da-body">
 
-  <!-- SHOWCASE 2: Inline trigger -->
-  <section class="bg-alt">
-    <div class="section-inner">
-      <div class="showcase reverse">
-        <div class="showcase-text">
-          <span class="section-tag">Inline trigger</span>
-          <h3>入力欄で打って、Enter。<br>それだけ。</h3>
-          <p><code>//en 文章</code> のように前置トリガー＋文章を書いて<b>Enter</b>。AIが変換し、結果をオーバーレイで確認 → 「適用」でその場に置き換えます。手を止めずに変換できます。</p>
-          <ul class="feat-list">
-            <li>現在行からトリガーを検出して以降を変換</li>
-            <li>Enterは消費され、改行・送信されない</li>
-            <li>IME変換中（日本語入力の確定前）は誤発火しない</li>
-          </ul>
-        </div>
-        <div class="showcase-img"><img src="images/store-image-3.png" alt="インライントリガーのデモ" loading="lazy"></div>
-      </div>
-    </div>
-  </section>
+            <!-- Scene 0: AI変換 -->
+            <div class="da-scene on" id="da0">
+              <div class="da-to">宛先：取引先さん</div>
+              <div class="da-subj">打ち合わせの件</div>
+              <div class="da-text"><span id="da0src" class="da-sel">明日10時で大丈夫です。よろしく。</span><span id="da0out" style="display:none;color:var(--ind);font-weight:600;">明日10時で問題ございません。何卒よろしくお願いいたします。</span></div>
+              <div class="da-pop" id="da0pop" style="left:286px;top:96px;">
+                <div class="da-ph"><img src="icons/mark.png"><b>SendReady</b><span class="x">✕</span></div>
+                <div class="da-pi hi"><span class="da-tg">AI</span><span class="t">丁寧に 💝</span><span class="g">//p</span></div>
+                <div class="da-pi"><span class="da-tg">AI</span><span class="t">英語に翻訳 🌏</span><span class="g">//en</span></div>
+                <div class="da-pi"><span class="da-tg">AI</span><span class="t">要約 📝</span><span class="g">//sum</span></div>
+              </div>
+              <div class="da-pop da-load" id="da0load" style="left:286px;top:120px;width:240px;display:none;"><div class="da-spin"></div><div style="font-size:14px;color:var(--text-light);">変換中…</div></div>
+            </div>
 
-  <!-- SHOWCASE 3: Reply -->
-  <section>
-    <div class="section-inner">
-      <div class="showcase">
-        <div class="showcase-text">
-          <span class="section-tag">Reply</span>
-          <h3>受け取った文を選んで、<br>返信を生成。</h3>
-          <p>相手のメッセージを選択して「↩ 返信を作成」。選んだ文を「受け取ったメッセージ」とみなし、AIが返信文を作成します。文体を選び、必要なら一言指示するだけ。</p>
-          <ul class="feat-list">
-            <li>丁寧・カジュアルなど文体を選べる</li>
-            <li>結果はコピーして好きな返信欄へ</li>
-            <li>選択した相手の文は書き換えない</li>
-          </ul>
-        </div>
-        <div class="showcase-img"><img src="images/store-image-4.png" alt="返信を作成のデモ" loading="lazy"></div>
-      </div>
-    </div>
-  </section>
+            <!-- Scene 1: 定型文 -->
+            <div class="da-scene" id="da1">
+              <div class="da-lab" style="color:var(--snip);">入力欄に合言葉を打つだけ</div>
+              <div class="da-input" style="border-color:var(--snip);"><span id="da1typed" class="da-mono" style="color:var(--snip);font-weight:700;"></span><span class="da-cur" style="background:var(--snip);"></span></div>
+              <div class="da-hint"><span class="da-kbd">Space</span> で確定 → 登録した文章がパッと出る</div>
+              <div class="da-card" id="da1out" style="opacity:0;transform:translateY(8px);">━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com　📱 090-1234-5678</div>
+            </div>
 
-  <!-- SHOWCASE 4: Snippets -->
-  <section class="bg-alt">
-    <div class="section-inner">
-      <div class="showcase reverse">
-        <div class="showcase-text">
-          <span class="section-tag">Snippets</span>
-          <h3>よく使う文章は、<br>トリガーで一瞬。</h3>
-          <p>署名や定型あいさつを <code>;sig</code> のようなトリガーに登録。入力欄で打って<b>スペース／Tab／Enter</b>で確定すると、登録テキストへ即展開します。AIを呼ばないので回数無制限・即時です。</p>
-          <ul class="feat-list">
-            <li>AI呼び出しなしで瞬時に展開・回数無制限</li>
-            <li>確定キーが必要なので打鍵途中で誤爆しない</li>
-            <li>本文は1000文字まで、最大10件登録</li>
-          </ul>
+            <!-- Scene 2: 返信 -->
+            <div class="da-scene" id="da2">
+              <div class="da-rgrid">
+                <div class="da-bubble">
+                  <div class="da-bub-name"><span class="da-av">田</span>田中さん</div>
+                  <span class="da-sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span>
+                </div>
+                <div>
+                  <div class="da-ph"><img src="icons/mark.png"><b>↩ 返信を作成</b></div>
+                  <div style="font-size:12px;color:var(--text-light);margin-bottom:7px;">言い方を選ぶ</div>
+                  <div class="da-chips"><span class="da-chip on">丁寧</span><span class="da-chip">カジュアル</span><span class="da-chip">簡潔</span></div>
+                  <div id="da2gen" style="display:flex;align-items:center;justify-content:center;gap:11px;min-height:104px;color:var(--text-light);font-size:14px;"><div class="da-spin" style="width:26px;height:26px;border-width:3px;"></div>返信を作成中…</div>
+                  <div id="da2out" style="display:none;">
+                    <div class="da-out">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に伺います。よろしくお願いいたします。</div>
+                    <div class="da-acts"><span class="da-btn p">コピー</span><span class="da-btn">作り直す</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="showcase-img"><img src="images/store-image-5.png" alt="定型文スニペットのデモ" loading="lazy"></div>
+        <div class="da-cap" id="dacap"></div>
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var $=function(id){return document.getElementById(id)};
+    var tabs=[].slice.call(document.querySelectorAll('.da-tab'));
+    var scenes=['da0','da1','da2'];
+    var urls=['🔒 mail.google.com','🔒 chat.example.com','🔒 mail.google.com'];
+    var caps=[
+      '文章を<b>選んで「丁寧に」を選ぶ</b>だけ。AIが整えて、その場で置き換わります。',
+      '<b>「;sig」と打ってスペース</b>。登録しておいた署名やあいさつが一瞬で出ます。',
+      'もらった文を選んで<b>言い方を選ぶ</b>だけ。AIが返信文を作ってくれます。'
+    ];
+    var timers=[], autoT=null, cur=-1;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function clearT(){timers.forEach(clearTimeout);timers=[];}
+    function later(ms,fn){timers.push(setTimeout(fn,ms));}
+
+    function play0(){
+      $('da0pop').style.display='';$('da0load').style.display='none';
+      $('da0src').style.display='';$('da0out').style.display='none';
+      $('da0src').style.background='rgba(67,97,238,.2)';
+      if(reduce){$('da0pop').style.display='none';$('da0src').style.display='none';$('da0out').style.display='';return;}
+      later(1500,function(){$('da0pop').style.display='none';$('da0load').style.display='';});
+      later(2500,function(){$('da0load').style.display='none';$('da0src').style.display='none';$('da0out').style.display='';});
+    }
+    function play1(){
+      var el=$('da1typed');el.textContent='';$('da1out').style.opacity='0';$('da1out').style.transform='translateY(8px)';
+      if(reduce){el.textContent=';sig';$('da1out').style.opacity='1';$('da1out').style.transform='none';return;}
+      var s=';sig',i=0;
+      var iv=setInterval(function(){i++;el.textContent=s.slice(0,i);if(i>=s.length)clearInterval(iv);},170);
+      timers.push({});
+      later(1500,function(){$('da1out').style.opacity='1';$('da1out').style.transform='none';});
+    }
+    function play2(){
+      $('da2gen').style.display='';$('da2out').style.display='none';
+      if(reduce){$('da2gen').style.display='none';$('da2out').style.display='';return;}
+      later(1700,function(){$('da2gen').style.display='none';$('da2out').style.display='';});
+    }
+    var plays=[play0,play1,play2];
+    var durations=[4800,4200,4600];
+
+    function activate(i,manual){
+      if(i===cur&&!manual)return;
+      clearT();cur=i;
+      scenes.forEach(function(id,j){$(id).classList.toggle('on',j===i)});
+      tabs.forEach(function(t,j){t.classList.toggle('active',j===i)});
+      $('daurl').textContent=urls[i];
+      $('dacap').innerHTML=caps[i];
+      plays[i]();
+      if(autoT)clearTimeout(autoT);
+      if(!reduce)autoT=setTimeout(function(){activate((i+1)%3)},durations[i]);
+    }
+    tabs.forEach(function(t){t.addEventListener('click',function(){activate(+t.dataset.i,true)})});
+
+    // start when scrolled into view
+    var sec=document.querySelector('.da-sec'),started=false;
+    function maybeStart(){
+      if(started)return;var r=sec.getBoundingClientRect();
+      if(r.top<window.innerHeight*0.85&&r.bottom>0){started=true;activate(0,true);}
+    }
+    window.addEventListener('scroll',maybeStart,{passive:true});
+    window.addEventListener('load',maybeStart);
+    maybeStart();
+  })();
+  </script>
 
   <!-- FEATURES -->
   <section id="features">
@@ -479,63 +582,14 @@
         </article>
         <article class="feat-card">
           <div class="feat-icon">📝</div>
-          <h3>あらゆる入力欄に対応</h3>
-          <p><code>input</code>・<code>textarea</code>・<code>contenteditable</code> に対応し、結果はその場の入力欄へ直接反映。React製の入力欄でも正しく置換し、読み取り専用は自動でコピー。</p>
+          <h3>どんな入力欄でも</h3>
+          <p>メール・チャット・SNS・ドキュメントなど、文字を打てる欄ならどこでも。整えた文章はその場にそのまま反映します。コピーしかできない文章は自動でコピー。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon">🌏</div>
-          <h3>11言語対応・ダーク対応</h3>
-          <p>UIは主要11言語＋AUTOに対応。ブラウザ言語に自動追従し、アラビア語はRTL表示。テーマは自動・ライト・ダークから選べます。</p>
+          <h3>11言語・ダークモード対応</h3>
+          <p>表示は日本語・英語など11言語に対応し、ブラウザの言語に自動で合わせます。明るい/暗いテーマも選べます。</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- MECHANICS / SPEC -->
-  <section class="bg-alt">
-    <div class="section-inner section-center">
-      <span class="section-tag">How it works in detail</span>
-      <h2>使い方としくみ</h2>
-      <p class="section-lead">3つの機能それぞれの流れと、知っておくと便利な仕様をまとめました。</p>
-      <div class="mech-grid">
-        <div class="mech-card">
-          <div class="mech-head"><span class="mech-badge ai">AI変換</span><h3>整える・訳す・要約する</h3></div>
-          <ol class="mech-steps">
-            <li><span class="n">1</span><span>文章を<b>選択</b>してメニューから選ぶ、または入力欄で <code>//p 文章</code> のように<b>前置トリガー＋文章</b>を書く</span></li>
-            <li><span class="n">2</span><span><b>Enter</b>で発火。現在行からトリガーを検出し、それ以降を変換対象としてAIへ送信</span></li>
-            <li><span class="n">3</span><span>結果がオーバーレイ表示。<b>「適用」で入力欄を置換</b>、または「コピー」「再生成」</span></li>
-          </ol>
-        </div>
-        <div class="mech-card">
-          <div class="mech-head"><span class="mech-badge snip">定型文</span><h3>登録テキストを即展開</h3></div>
-          <ol class="mech-steps">
-            <li><span class="n">1</span><span>入力欄でトリガー（例 <code>;sig</code>）を打つ</span></li>
-            <li><span class="n">2</span><span><b>スペース／Tab／Enter</b>で確定すると登録テキストへ<b>即置換</b>（AI呼び出しなし）</span></li>
-            <li><span class="n">3</span><span>確定キーが必要なので、打鍵途中で<b>誤って展開されません</b></span></li>
-          </ol>
-        </div>
-        <div class="mech-card">
-          <div class="mech-head"><span class="mech-badge reply">返信</span><h3>もらった文に返事を作る</h3></div>
-          <ol class="mech-steps">
-            <li><span class="n">1</span><span>相手のメッセージを<b>選択</b> → 右クリック「↩ 返信を作成」かパレットの返信欄から起動</span></li>
-            <li><span class="n">2</span><span><b>文体を選び</b>、必要なら一言だけ指示（任意）</span></li>
-            <li><span class="n">3</span><span>返信文が生成され<b>コピー</b>。選択した相手の文は書き換えません</span></li>
-          </ol>
-        </div>
-      </div>
-      <div class="spec-wrap">
-        <table>
-          <tbody>
-            <tr><th>対応する入力欄</th><td><code>&lt;input&gt;</code> / <code>&lt;textarea&gt;</code> / <code>contenteditable</code>（読み取り専用テキストは結果をクリップボードへコピー）</td></tr>
-            <tr><th>AI変換プリセット</th><td>最大10件 / 1件の指示は200文字まで</td></tr>
-            <tr><th>定型文プリセット</th><td>最大10件 / 本文は1000文字まで / 展開は<b>回数無制限</b></td></tr>
-            <tr><th>トリガー</th><td>10文字まで・重複不可（AI既定 <code>//</code>、定型文既定 <code>;</code>、変更可）</td></tr>
-            <tr><th>AI利用回数</th><td>1日50回まで<b>無料</b>（登録不要・APIキー不要）</td></tr>
-            <tr><th>起動方法</th><td>選択ツールバー / 右クリック / ショートカット <code>Alt+Shift+S</code> / インライントリガー</td></tr>
-            <tr><th>言語・テーマ</th><td>UI 11言語＋AUTO（アラビア語はRTL）/ テーマは自動・ライト・ダーク</td></tr>
-            <tr><th>必要な権限</th><td><code>storage</code> / <code>contextMenus</code> / <code>clipboardWrite</code> / <code>activeTab</code> / <code>scripting</code>（カメラ・マイク・位置情報は不要）</td></tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </section>
@@ -549,7 +603,7 @@
       <div class="safety-grid">
         <div class="safety-card">
           <h3>🔒 設定はローカル保存</h3>
-          <p>プリセット・テーマ・言語などの設定はブラウザ内（chrome.storage）に保存。あなたのアカウントに紐づく形で外部に蓄積しません。</p>
+          <p>あなたが作ったプリセットや設定は、お使いのブラウザの中にだけ保存されます。外部のサーバーにためたりはしません。</p>
         </div>
         <div class="safety-card">
           <h3>🤖 AIに送るのは対象テキストだけ</h3>
@@ -578,12 +632,8 @@
           <div class="faq-a"><div class="faq-a-inner">はい、完全無料です。APIキーもアカウント登録も不要。AI変換は1日50回まで無料で利用でき、定型文の展開は回数無制限です。隠れたコストはありません。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>どんなサイトで使えますか？</span></button>
-          <div class="faq-a"><div class="faq-a-inner">入力欄（<code>input</code>・<code>textarea</code>・<code>contenteditable</code>）があるほぼすべてのサイトで使えます。Gmail、X（Twitter）、Slack、Notion、各種チャットや問い合わせフォームなど。読み取り専用のテキストを選択した場合は、変換結果をクリップボードへコピーします。</div></div>
-        </div>
-        <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>AI変換と定型文は何が違いますか？</span></button>
-          <div class="faq-a"><div class="faq-a-inner">AI変換は <code>//p 文章</code> のように前置トリガー＋文章をEnterで送ると、AIが丁寧語・翻訳・要約などに変換します。定型文はトリガー（例 <code>;sig</code>）を打ってスペース／Tab／Enterで確定すると、登録済みのテキストへ即展開します（AI呼び出しなし）。</div></div>
+          <div class="faq-a"><div class="faq-a-inner">AI変換は、文章をAIが丁寧語・翻訳・要約などに「書き換える」機能です。定型文は、署名やあいさつなど「決まった文章をそのまま出す」機能で、AIを使わないので一瞬・何度でも無料です。</div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>個人情報は安全ですか？</span></button>
