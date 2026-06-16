@@ -122,7 +122,7 @@
 
     /* HERO */
     .hero {
-      padding: 100px 24px 0;
+      padding: 100px 24px 96px;
       background: linear-gradient(160deg, #FBFBFF 0%, #F2F4FF 40%, #E6EAFF 100%);
       position: relative; overflow: hidden;
     }
@@ -145,7 +145,7 @@
     .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
     .btn-ghost { display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); font-size: 14px; font-weight: 500; padding: 14px 8px; transition: color 0.2s; }
     .btn-ghost:hover { color: var(--text); }
-    .hero-note { margin-top: 16px; font-size: 13px; color: var(--text-light); margin-bottom: 48px; }
+    .hero-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
     .hero-screenshot {
       max-width: 940px; margin: 0 auto; border-radius: 16px 16px 0 0; overflow: hidden;
       box-shadow: 0 -8px 60px rgba(67,97,238,0.18), 0 0 0 1px var(--border);
@@ -263,8 +263,7 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero { padding: 90px 20px 0; }
-      .hero-screenshot { max-width: 100%; border-radius: 12px 12px 0 0; }
+      .hero { padding: 90px 20px 64px; }
       .showcase { grid-template-columns: 1fr; gap: 32px; }
       .showcase.reverse { direction: ltr; }
       .showcase-img { order: -1; }
@@ -314,9 +313,6 @@
         <a href="#features" class="btn-ghost" data-i18n="hero_ghost">機能を見る ↓</a>
       </div>
       <p class="hero-note" data-i18n="hero_note">30秒でインストール完了 · 登録不要 · AI変換は1日50回まで無料</p>
-      <div class="hero-screenshot">
-        <img src="images/store-image-1.png" alt="SendReady — 選択・入力中のテキストをAIでワンタップ変換" loading="eager">
-      </div>
     </div>
   </header>
 
