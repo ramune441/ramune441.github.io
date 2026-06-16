@@ -24,8 +24,12 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/sendready/promo.html` | 動画用 | noindex | no | 録画専用 |
 | `/ripen/` | LP | index | yes | Android（旧称 Focus First）。`i18n-lp.js` で12言語対応（ja/en/zh/ko/es/fr/de/it/pt/ru/ar/hi）＋言語セレクター |
 | `/ripen/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー。`i18n-pp.js` で同12言語対応＋言語セレクター |
+| `/ripen/promo.html` | 動画用 | noindex | no | 録画専用（英語）。Lovent と同じ6シーン構成 |
+| `/ripen/promo.mp4` | 動画 | - | no | Play/ストア紹介用（H.264 High/1080p/30fps/約2.6MB/35.9秒） |
 | `/ripen/store-images.html` | ストア画像生成 | noindex | no | スクショ撮影用 |
 | `/ripen/icon-512.html` | アイコン生成 | noindex | no | 512pxアイコン撮影用 |
+| `/ripen/fgs-demo/fgs-demo.html` | 動画用 | noindex | no | FOREGROUND_SERVICE_SPECIAL_USE 権限説明動画の録画ソース |
+| `/ripen/fgs-demo/fgs-demo.mp4` | 動画 | - | no | Play Console 提出用（H.264/1080p）。`fgs-demo.webm` も同梱 |
 
 外部ドメイン運用のプロダクト（リポジトリにディレクトリを持たない）:
 

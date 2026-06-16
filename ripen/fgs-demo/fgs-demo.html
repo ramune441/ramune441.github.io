@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Ripen — FOREGROUND_SERVICE_SPECIAL_USE demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --night:#0A0A0A; --soil:#12241A; --sf:#161616; --sf2:#1E1E1E;
+  --green:#34C759; --greenD:#2E9E4F; --greenA:#69F0AE; --gold:#FFD60A; --orange:#FF6E40; --blue:#40C4FF;
+  --t1:#FFFFFF; --t2:rgba(255,255,255,.72); --t3:rgba(255,255,255,.5); --t4:rgba(255,255,255,.34);
+  --line:rgba(255,255,255,.10);
+}
+html,body{ width:1920px; height:1080px; overflow:hidden; background:#000; }
+body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
+
+/* ── stage backdrop (night garden) ── */
+.stage{ position:absolute; inset:0; background:
+  radial-gradient(120% 80% at 80% 0%, rgba(52,199,89,.10) 0%, transparent 55%),
+  radial-gradient(90% 70% at 8% 108%, rgba(52,199,89,.10) 0%, transparent 60%),
+  linear-gradient(165deg,#0A0A0A 0%, #0C140E 55%, #10221A 100%); }
+.soil{ position:absolute; left:0; right:0; bottom:-60px; height:280px;
+  background:radial-gradient(120% 100% at 50% 100%, rgba(22,49,31,.85) 0%, rgba(16,34,26,0) 70%); }
+.star{ position:absolute; background:#fff; border-radius:50%; }
+
+/* ── persistent top bar ── */
+.topbar{ position:absolute; top:0; left:0; right:0; height:96px; display:flex; align-items:center;
+  justify-content:space-between; padding:0 56px; z-index:50; border-bottom:1px solid var(--line);
+  background:rgba(10,10,10,.35); backdrop-filter:blur(6px); }
+.brand{ display:flex; align-items:center; gap:16px; }
+.brand .mk{ width:52px; height:52px; border-radius:13px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); box-shadow:0 0 0 1px var(--line); display:flex; align-items:center; justify-content:center; }
+.brand .mk svg{ width:40px; height:40px; }
+.brand .nm{ font-size:30px; font-weight:900; color:#fff; letter-spacing:.3px; }
+.perm{ font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:var(--greenA);
+  background:rgba(52,199,89,.10); border:1px solid rgba(52,199,89,.3); border-radius:10px; padding:9px 18px; }
+
+/* ── scenes ── */
+.scene{ position:absolute; inset:0; opacity:0; transition:opacity .55s ease; pointer-events:none; z-index:10; }
+.scene.on{ opacity:1; z-index:20; }
+
+.row{ position:absolute; top:96px; left:0; right:0; bottom:0; display:flex; align-items:center; }
+.cap{ width:880px; padding:0 56px 0 72px; }
+.step{ display:inline-flex; align-items:center; gap:12px; font-size:22px; font-weight:800; letter-spacing:1px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:26px; }
+.step .dot{ width:34px; height:34px; border-radius:50%; background:var(--gold); color:#1a1400; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:900; }
+.cap h2{ font-size:58px; line-height:1.22; font-weight:900; color:#fff; letter-spacing:-.5px; margin-bottom:22px; }
+.cap h2 .g{ color:var(--green); } .cap h2 .y{ color:var(--gold); }
+.cap p{ font-size:27px; line-height:1.6; color:var(--t2); }
+.cap p.en{ font-size:23px; color:var(--t3); margin-top:14px; }
+
+/* ── phone ── */
+.phwrap{ flex:1; display:flex; align-items:center; justify-content:center; }
+.ph{ position:relative; width:430px; height:880px; border-radius:54px; background:#000;
+  box-shadow:0 40px 100px rgba(0,0,0,.6), 0 0 0 2px rgba(255,255,255,.08), inset 0 0 0 9px #000; overflow:hidden; }
+.scr{ position:absolute; inset:9px; border-radius:46px; overflow:hidden; background:linear-gradient(180deg,#0C0C0C,#0A0A0A); display:flex; flex-direction:column; }
+/* status bar */
+.sb{ height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 22px; font-size:15px; color:#fff; flex-shrink:0; }
+.sb .right{ display:flex; align-items:center; gap:8px; }
+.sb .nicon{ width:17px; height:17px; opacity:.95; }
+.appbar{ display:flex; align-items:center; gap:12px; padding:14px 22px 12px; flex-shrink:0; }
+.appbar .lg{ width:30px; height:30px; }
+.appbar .tt{ font-size:22px; font-weight:800; color:#fff; flex:1; }
+
+/* big focus ring */
+.ring-wrap{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; padding:0 30px; }
+.cam{ width:96px; height:96px; border-radius:50%; border:3px solid var(--greenA); padding:4px; }
+.cam .in{ width:100%; height:100%; border-radius:50%; background:radial-gradient(60% 55% at 50% 38%,#3a3f4a,#20242c 60%,#14171d); display:flex; align-items:center; justify-content:center; }
+.cam .in svg{ width:64%; height:64%; opacity:.55; }
+.pres{ display:flex; align-items:center; gap:8px; font-size:16px; color:var(--greenA); }
+.pres .d{ width:11px; height:11px; border-radius:50%; background:var(--greenA); }
+.ring{ position:relative; width:248px; height:248px; }
+.ring .lab{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.ring .lab .s{ font-size:16px; color:var(--t3); }
+.ring .lab .big{ font-size:52px; font-weight:800; color:#fff; letter-spacing:1px; }
+.ring .lab .sub{ font-size:15px; color:var(--t2); margin-top:4px; }
+.chip{ display:inline-flex; align-items:center; gap:8px; background:var(--sf2); border-radius:999px; padding:9px 18px; font-size:16px; font-weight:700; color:var(--greenA); }
+
+/* notification shade */
+.shade{ position:absolute; left:0; right:0; top:0; bottom:0; background:rgba(4,8,6,.55); backdrop-filter:blur(2px);
+  transform:translateY(-100%); transition:transform .7s cubic-bezier(.2,.8,.2,1); padding:54px 16px 0; }
+.scene.on .shade.drop{ transform:translateY(0); }
+.notif{ background:#1c1d1f; border-radius:24px; padding:16px 18px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
+.notif .nh{ display:flex; align-items:center; gap:9px; font-size:14px; color:var(--t3); margin-bottom:9px; }
+.notif .nh .ic{ width:20px; height:20px; border-radius:5px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; }
+.notif .nh .ic svg{ width:15px; height:15px; }
+.notif .nh .ong{ display:inline-flex; align-items:center; gap:5px; }
+.notif .nh .ong svg{ width:12px; height:12px; fill:var(--t3); }
+.notif .ntitle{ font-size:21px; font-weight:800; color:#fff; margin-bottom:7px; }
+.notif .nline{ font-size:16px; color:var(--t2); line-height:1.55; }
+.notif .nline b{ color:var(--greenA); font-weight:700; }
+.fgs-tag{ margin-top:14px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--gold);
+  background:rgba(255,214,10,.08); border:1px solid rgba(255,214,10,.25); border-radius:9px; padding:8px 11px; }
+
+/* home screen (background) */
+.home{ flex:1; position:relative; background:linear-gradient(180deg,#0e1a14,#0a0a0a); }
+.home .grid{ position:absolute; inset:0; padding:64px 34px; display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:96px; gap:30px 18px; align-content:start; }
+.home .ic{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+.home .ic .sq{ width:62px; height:62px; border-radius:16px; }
+.home .ic .nm{ font-size:12px; color:rgba(255,255,255,.8); }
+.callout{ position:absolute; left:18px; right:18px; bottom:24px; background:rgba(22,22,22,.95); border:1px solid var(--line);
+  border-radius:18px; padding:16px 18px; display:flex; align-items:center; gap:14px; }
+.callout .pulse{ width:14px; height:14px; border-radius:50%; background:var(--greenA); box-shadow:0 0 0 0 rgba(105,240,174,.6); animation:pulse 1.8s infinite; }
+@keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(105,240,174,.55);} 70%{box-shadow:0 0 0 16px rgba(105,240,174,0);} 100%{box-shadow:0 0 0 0 rgba(105,240,174,0);} }
+.callout .tx{ font-size:16px; color:#fff; font-weight:600; }
+.callout .tx small{ display:block; font-size:13px; color:var(--t3); font-weight:400; margin-top:2px; }
+
+/* accessibility toggle screen */
+.setbar{ padding:18px 22px; font-size:20px; font-weight:800; color:#fff; display:flex; align-items:center; gap:12px; }
+.setrow{ margin:8px 16px; background:var(--sf); border-radius:18px; padding:18px 18px; display:flex; align-items:center; gap:14px; }
+.setrow .ai{ width:46px; height:46px; border-radius:12px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; }
+.setrow .ai svg{ width:34px; height:34px; }
+.setrow .nm{ flex:1; } .setrow .nm b{ font-size:18px; color:#fff; } .setrow .nm small{ display:block; font-size:13px; color:var(--t3); margin-top:3px; }
+.tg{ width:62px; height:34px; border-radius:18px; background:#3a3a3a; position:relative; transition:background .4s; }
+.tg .kn{ position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%; background:#fff; transition:left .4s; }
+.scene.on .tg.onpos{ background:var(--green); }
+.scene.on .tg.onpos .kn{ left:31px; }
+
+/* block screen */
+.block{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center; padding:40px 34px; background:linear-gradient(180deg,#0A0A0A,#10221A); }
+.block .mk{ filter:drop-shadow(0 0 18px rgba(255,214,10,.3)); }
+.block h3{ font-size:26px; font-weight:800; color:#fff; }
+.block p{ font-size:16px; color:var(--t2); line-height:1.6; }
+.block p b{ color:#fff; }
+.block .pill{ display:inline-flex; align-items:center; gap:8px; background:rgba(255,214,10,.12); border:1px solid rgba(255,214,10,.3); border-radius:999px; padding:9px 18px; font-size:16px; font-weight:800; color:var(--gold); }
+.appflash{ position:absolute; inset:9px; border-radius:46px; background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); display:flex; align-items:center; justify-content:center; font-size:60px; opacity:0; }
+.scene.on .appflash.flash{ animation:flash 1.4s ease forwards; }
+@keyframes flash{ 0%{opacity:0;} 18%{opacity:1;} 60%{opacity:1;} 100%{opacity:0;} }
+
+/* code end card */
+.codecard{ width:1180px; background:#0d0f0e; border:1px solid var(--line); border-radius:22px; padding:34px 40px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+.codecard .ct{ font-size:20px; color:var(--t3); margin-bottom:18px; font-weight:700; }
+.codecard pre{ font-family:'JetBrains Mono',monospace; font-size:23px; line-height:1.65; color:#cfe; white-space:pre-wrap; }
+.codecard .k{ color:var(--blue); } .codecard .a{ color:var(--gold); } .codecard .s{ color:var(--greenA); } .codecard .c{ color:var(--t4); }
+.endwrap{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; }
+.endhead{ display:flex; align-items:center; gap:20px; }
+.endhead .mk{ width:78px; height:78px; border-radius:20px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 1px var(--line); }
+.endhead .mk svg{ width:62px; height:62px; }
+.endhead .tx{ font-size:40px; font-weight:900; color:#fff; }
+.endhead .tx small{ display:block; font-size:20px; font-weight:600; color:var(--greenA); margin-top:4px; }
+
+/* intro overlay */
+.introcard{ width:980px; text-align:center; }
+.introcard .mk{ width:150px; height:150px; border-radius:38px; margin:0 auto 30px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px var(--line); }
+.introcard .mk svg{ width:118px; height:118px; filter:drop-shadow(0 0 16px rgba(255,214,10,.35)); }
+.introcard h1{ font-size:74px; font-weight:900; color:#fff; letter-spacing:-1px; }
+.introcard .perm2{ font-family:'JetBrains Mono',monospace; font-size:30px; color:var(--greenA); margin-top:18px; }
+.introcard .sub{ font-size:26px; color:var(--t2); margin-top:22px; line-height:1.6; }
+.introcard .sub small{ display:block; font-size:21px; color:var(--t3); margin-top:8px; }
+.center{ justify-content:center; }
+</style>
+</head>
+<body>
+<div class="stage"></div>
+<div class="soil"></div>
+<div class="star" style="left:240px;top:150px;width:4px;height:4px;opacity:.5"></div>
+<div class="star" style="left:520px;top:230px;width:3px;height:3px;opacity:.35"></div>
+<div class="star" style="left:1480px;top:170px;width:4px;height:4px;opacity:.4"></div>
+<div class="star" style="left:1700px;top:300px;width:3px;height:3px;opacity:.3"></div>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="sprout" viewBox="0 0 108 108">
+    <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+    <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
+    <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
+    <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+  </symbol>
+  <symbol id="person" viewBox="0 0 24 24"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></symbol>
+  <symbol id="lock" viewBox="0 0 24 24"><path fill="#69F0AE" d="M12 17a2 2 0 002-2 2 2 0 00-2-2 2 2 0 00-2 2 2 2 0 002 2m6-9a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V10a2 2 0 012-2h1V6a5 5 0 015-5 5 5 0 015 5v2h1m-6-5a3 3 0 00-3 3v2h6V6a3 3 0 00-3-3z"/></symbol>
+</svg>
+
+<!-- top bar -->
+<div class="topbar">
+  <div class="brand"><span class="mk"><svg><use href="#sprout"/></svg></span><span class="nm">Ripen</span></div>
+  <span class="perm">android.permission.FOREGROUND_SERVICE_SPECIAL_USE</span>
+</div>
+
+<!-- ══ S1 INTRO ══ -->
+<section class="scene" id="s1">
+  <div class="row center">
+    <div class="introcard">
+      <div class="mk"><svg><use href="#sprout"/></svg></div>
+      <h1>Ripen</h1>
+      <div class="perm2">FOREGROUND_SERVICE_SPECIAL_USE</div>
+      <div class="sub">特別用途のフォアグラウンドサービスの使用デモ
+        <small>How this app uses the special-use foreground service</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S2 WHY ══ -->
+<section class="scene" id="s2">
+  <div class="row">
+    <div class="cap">
+      <div class="step"><span class="dot">1</span>用途 / Purpose</div>
+      <h2>集中の<span class="g">見守りプロセス</span>を維持し、<span class="y">常駐の状況通知</span>を表示するために使用します。</h2>
+      <p>「使える時間」を稼ぐ集中タイマーとアプリブロックを、端末がスリープ・最適化されても止めないために、専用のフォアグラウンドサービスを実行します。</p>
+      <p class="en">Used to keep the focus-monitoring process alive under battery optimization and to show an ongoing status notification — so the focus timer and app-blocking keep working in the background.</p>
+    </div>
+    <div class="phwrap">
+      <div class="ph"><div class="scr">
+        <div class="sb"><span>9:41</span><div class="right"><span>5G</span><span>100%</span></div></div>
+        <div class="appbar"><svg class="lg"><use href="#sprout"/></svg><span class="tt">集中 / Focus</span></div>
+        <div class="ring-wrap">
+          <div class="cam"><div class="in"><svg><use href="#person"/></svg></div></div>
+          <div class="pres"><span class="d"></span>在席中 — カウント中</div>
+          <div class="ring">
+            <svg width="248" height="248" viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="14"/>
+              <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round" stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
+            </svg>
+            <div class="lab"><span class="s">残り</span><span class="big">17:20</span><span class="sub">集中 8分 / 目標 25分</span></div>
+          </div>
+          <div class="chip">🌱 完走で +5分</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S3 ENABLE (accessibility starts the service) ══ -->
+<section class="scene" id="s3">
+  <div class="row">
+    <div class="cap">
+      <div class="step"><span class="dot">2</span>開始トリガー / Trigger</div>
+      <h2>アプリブロック（<span class="g">アクセシビリティ</span>）を有効にすると、見守りサービスが<span class="y">開始</span>します。</h2>
+      <p>サービスはユーザーがこの機能を有効にしたときだけ起動し、無効にすると停止します。常時バックグラウンド実行ではありません。</p>
+      <p class="en">The foreground service is started only when the user enables Ripen's app-blocking accessibility service, and stops when it is turned off.</p>
+    </div>
+    <div class="phwrap">
+      <div class="ph"><div class="scr">
+        <div class="sb"><span>9:41</span><div class="right"><span>5G</span><span>100%</span></div></div>
+        <div class="setbar">⚙️ ダウンロード済みアプリ</div>
+        <div class="setrow">
+          <span class="ai"><svg><use href="#sprout"/></svg></span>
+          <span class="nm"><b>Ripen</b><small>使用中 — アプリのブロックに使用</small></span>
+          <span class="tg onpos"><span class="kn"></span></span>
+        </div>
+        <div style="padding:14px 26px;font-size:14px;color:var(--t3);line-height:1.7">
+          Ripen が前面アプリを確認し、使える時間がゼロのとき対象アプリをブロックできるようにします。
+        </div>
+        <div style="margin:14px 16px;background:rgba(52,199,89,.08);border:1px solid rgba(52,199,89,.25);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:12px">
+          <svg width="22" height="22"><use href="#lock"/></svg>
+          <div style="font-size:15px;color:var(--greenA);font-weight:700">見守りサービスを開始しました<br><span style="font-weight:400;color:var(--t3);font-size:13px">FocusForegroundService started</span></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S4 ONGOING NOTIFICATION ══ -->
+<section class="scene" id="s4">
+  <div class="row">
+    <div class="cap">
+      <div class="step"><span class="dot">3</span>常駐通知 / Ongoing notification</div>
+      <h2>サービスが<span class="g">「本日の状況」</span>の<span class="y">常駐通知</span>を表示します。</h2>
+      <p>アプリを開かなくても、使える時間・今日の集中/達成・時間帯の残り回数がわかります。1分ごとに更新される進行中（消せない）通知です。</p>
+      <p class="en">The service posts an ongoing "Today's status" notification — usable time, today's focus/achievements and remaining rounds — refreshed every minute.</p>
+    </div>
+    <div class="phwrap">
+      <div class="ph"><div class="scr">
+        <div class="sb"><span>9:41</span><div class="right"><svg class="nicon"><use href="#lock"/></svg><span>5G</span><span>100%</span></div></div>
+        <div class="home"><div class="grid">
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#4a8cff,#2b5fd0)"></div><div class="nm">電話</div></div>
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#34c759,#1f9d45)"></div><div class="nm">メッセージ</div></div>
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#ff6b6b,#d63a3a)"></div><div class="nm">カメラ</div></div>
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#0A0A0A,#13271B);box-shadow:0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center"><svg width="40" height="40"><use href="#sprout"/></svg></div><div class="nm">Ripen</div></div>
+        </div></div>
+        <div class="shade drop">
+          <div class="notif">
+            <div class="nh">
+              <span class="ic"><svg><use href="#sprout"/></svg></span>
+              <span>Ripen</span>
+              <span class="ong">· <svg viewBox="0 0 24 24"><use href="#lock"/></svg> 進行中 / Ongoing</span>
+            </div>
+            <div class="ntitle">本日の状況 — 使える時間 18m</div>
+            <div class="nline">
+              朝の集中 ・ <b>残り 2/6 回</b><br>
+              今日: 集中 1h 32m ・ 達成 6 回<br>
+              終了 08:00
+            </div>
+            <div class="fgs-tag">▲ foregroundServiceType = "specialUse" が表示するアプリ内通知</div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S5 BACKGROUND ══ -->
+<section class="scene" id="s5">
+  <div class="row">
+    <div class="cap">
+      <div class="step"><span class="dot">4</span>バックグラウンド継続 / Keeps running</div>
+      <h2>画面を離れても、<span class="g">計測とブロック</span>を<span class="y">継続</span>します。</h2>
+      <p>このサービスがプロセスを生かし続けるため、ホームに戻っても・画面を消しても、集中の計測と「使える時間」の消費・対象アプリのブロック判定が止まりません。</p>
+      <p class="en">Because the service keeps the process alive, focus tracking, usable-time accounting and block enforcement continue even when the app is in the background or the screen is off.</p>
+    </div>
+    <div class="phwrap">
+      <div class="ph"><div class="scr">
+        <div class="sb"><span>9:42</span><div class="right"><svg class="nicon"><use href="#lock"/></svg><span>5G</span><span>99%</span></div></div>
+        <div class="home"><div class="grid">
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#4a8cff,#2b5fd0)"></div><div class="nm">電話</div></div>
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#34c759,#1f9d45)"></div><div class="nm">メッセージ</div></div>
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#ff6b6b,#d63a3a)"></div><div class="nm">カメラ</div></div>
+          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#e1306c,#c13584)"></div><div class="nm">Instagram</div></div>
+        </div>
+        <div class="callout">
+          <span class="pulse"></span>
+          <div class="tx">バックグラウンドで計測・ブロックを継続中
+            <small>Focus tracking &amp; blocking keep running in the background</small>
+          </div>
+        </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S6 BLOCK ENFORCEMENT ══ -->
+<section class="scene" id="s6">
+  <div class="row">
+    <div class="cap">
+      <div class="step"><span class="dot">5</span>ブロック実行 / Enforcement</div>
+      <h2>残り0分で対象アプリを開くと、<span class="y">ブロック画面</span>を表示します。</h2>
+      <p>使える時間がゼロのとき、生かし続けられたプロセスが前面アプリを検知し、対象アプリをそっとロックします。これがこのサービスの中心的な目的です。</p>
+      <p class="en">When usable time is zero, the kept-alive process detects the foreground app and gently locks it — the core purpose of this service.</p>
+    </div>
+    <div class="phwrap">
+      <div class="ph"><div class="scr">
+        <div class="sb"><span>9:43</span><div class="right"><svg class="nicon"><use href="#lock"/></svg><span>5G</span><span>99%</span></div></div>
+        <div class="block">
+          <div class="mk"><svg width="118" height="118"><use href="#sprout"/></svg></div>
+          <h3>そろそろ集中しよう</h3>
+          <p>いまは <b>「Instagram」</b> をロック中。<br>集中して、使える時間を実らせましょう。</p>
+          <div class="pill">⏳ 使える時間 0分</div>
+        </div>
+        <div class="appflash flash">📷</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S7 STOP ══ -->
+<section class="scene" id="s7">
+  <div class="row">
+    <div class="cap">
+      <div class="step"><span class="dot">6</span>停止 / Stops</div>
+      <h2>機能を無効にすると、サービスも<span class="g">停止</span>し、通知も消えます。</h2>
+      <p>ユーザーがアクセシビリティを切れば、フォアグラウンドサービスは即座に停止します。ユーザーの制御下にあります。</p>
+      <p class="en">Turning the accessibility feature off immediately stops the foreground service and removes the notification — fully under user control.</p>
+    </div>
+    <div class="phwrap">
+      <div class="ph"><div class="scr">
+        <div class="sb"><span>9:44</span><div class="right"><span>5G</span><span>98%</span></div></div>
+        <div class="setbar">⚙️ ダウンロード済みアプリ</div>
+        <div class="setrow">
+          <span class="ai"><svg><use href="#sprout"/></svg></span>
+          <span class="nm"><b>Ripen</b><small>OFF — ブロックを停止</small></span>
+          <span class="tg"><span class="kn"></span></span>
+        </div>
+        <div style="margin:14px 16px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:12px">
+          <span style="font-size:20px">🔕</span>
+          <div style="font-size:15px;color:var(--t2);font-weight:600">見守りサービスを停止しました<br><span style="font-weight:400;color:var(--t4);font-size:13px">FocusForegroundService stopped · notification removed</span></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S8 MANIFEST DECLARATION ══ -->
+<section class="scene" id="s8">
+  <div class="row center">
+    <div class="endwrap">
+      <div class="endhead">
+        <span class="mk"><svg><use href="#sprout"/></svg></span>
+        <span class="tx">Ripen<small>FOREGROUND_SERVICE_SPECIAL_USE</small></span>
+      </div>
+      <div class="codecard">
+        <div class="ct">AndroidManifest.xml — 宣言と用途サブタイプ / declaration &amp; subtype</div>
+<pre>&lt;<span class="k">service</span>
+    <span class="a">android:name</span>=<span class="s">".FocusForegroundService"</span>
+    <span class="a">android:foregroundServiceType</span>=<span class="s">"specialUse"</span>&gt;
+  &lt;<span class="k">property</span>
+      <span class="a">android:name</span>=<span class="s">"android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"</span>
+      <span class="a">android:value</span>=<span class="s">"Keeps the focus-monitoring process
+                    alive and shows an ongoing
+                    status notification."</span> /&gt;
+&lt;/<span class="k">service</span>&gt;</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // タイムライン（ms）。各シーンを順にクロスフェード表示。
+  const TIMELINE = [
+    ['s1', 3200],
+    ['s2', 5200],
+    ['s3', 5600],
+    ['s4', 7200],
+    ['s5', 5600],
+    ['s6', 5600],
+    ['s7', 4600],
+    ['s8', 5200],
+  ];
+  let timers = [];
+  function resetAll(){
+    timers.forEach(t => clearTimeout(t));
+    timers = [];
+    document.querySelectorAll('.scene').forEach(s => s.classList.remove('on'));
+  }
+  function show(id){
+    document.querySelectorAll('.scene').forEach(s => s.classList.remove('on'));
+    document.getElementById(id).classList.add('on');
+  }
+  function start(){
+    resetAll();
+    let t = 0;
+    for (const [id, dur] of TIMELINE){
+      timers.push(setTimeout(() => show(id), t));
+      t += dur;
+    }
+  }
+  // 合計時間（録画スクリプトの DURATION の目安）: TIMELINE 合計 ≈ 42200ms。
+  window.__TOTAL_MS__ = TIMELINE.reduce((a, [,d]) => a + d, 0);
+  start();
+</script>
+</body>
+</html>

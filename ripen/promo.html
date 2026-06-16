@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<meta name="robots" content="noindex, nofollow">
+<title>Ripen Promo Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0A0A;font-family:'Inter','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+
+:root{
+  --night:#0A0A0A;--soil:#12241A;--sf:#161616;--sf2:#1E1E1E;--sf3:#252525;
+  --green:#34C759;--greenD:#2E9E4F;--greenA:#69F0AE;
+  --gold:#FFD60A;--amber:#FFC107;
+  --coral:#FF9F8E;--lav:#C9A7FF;--teal:#64FFDA;--blue:#40C4FF;--orange:#FF6E40;
+  --t1:#FFFFFF;--t2:rgba(255,255,255,0.70);--t3:rgba(255,255,255,0.54);--t4:rgba(255,255,255,0.38);
+  --line:rgba(255,255,255,0.10);
+}
+
+/* forces a compositor repaint every frame so page.screencast() emits a steady, uniform frame rate (recording aid; visually invisible) */
+.repaint-forcer{position:fixed;top:0;left:0;width:2px;height:2px;opacity:.01;pointer-events:none;z-index:9999;animation:rpf 1s linear infinite}
+@keyframes rpf{from{transform:translateX(0)}to{transform:translateX(1px)}}
+
+.bg-base{position:absolute;inset:0;background:linear-gradient(165deg,#0A0A0A 0%,#0C140E 55%,#10221A 100%)}
+.bg-glow{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse 1500px 900px at 50% 22%,rgba(52,199,89,.12) 0%,transparent 60%),
+  radial-gradient(ellipse 900px 700px at 88% 88%,rgba(255,214,10,.05) 0%,transparent 60%)}
+.bg-soil{position:absolute;left:-40px;right:-40px;bottom:-80px;height:360px;pointer-events:none;
+  background:radial-gradient(120% 100% at 50% 100%,rgba(22,49,31,.85) 0%,rgba(16,34,26,0) 70%)}
+.star{position:absolute;background:#fff;border-radius:50%;pointer-events:none}
+
+/* ── scene base ── */
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.scene.show{opacity:1;pointer-events:auto}
+
+/* ── S1: INTRO ── */
+.intro-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.iburst{display:flex;align-items:center;gap:30px;opacity:0;transform:scale(.88);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.iburst.show{opacity:1;transform:scale(1)}
+.iburst-icon{width:132px;height:132px;border-radius:30px;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#0A0A0A,#13271B);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
+.iburst-icon svg{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:104px;height:104px;filter:drop-shadow(0 0 16px rgba(255,214,10,.4))}
+.iburst-name{font-size:130px;font-weight:900;color:#fff;letter-spacing:-5px;line-height:1}
+.itagline{font-size:52px;font-weight:800;color:var(--green);opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.itagline.show{opacity:1;transform:translateY(0)}
+.ipills{display:flex;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.ipills.show{opacity:1;transform:translateY(0)}
+.ipill{background:rgba(52,199,89,.10);border:1.5px solid rgba(52,199,89,.34);color:var(--green);font-size:28px;font-weight:700;padding:12px 32px;border-radius:100px}
+.ipill.gold{background:rgba(255,214,10,.10);border-color:rgba(255,214,10,.34);color:var(--gold)}
+
+/* ── S2: PROBLEM ── */
+.prob-wrap{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:38px;padding:0 140px}
+.prob-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.prob-head.show{opacity:1;transform:translateY(0)}
+.prob-eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--greenA);margin-bottom:10px}
+.prob-h{font-size:72px;font-weight:900;color:#fff;line-height:1.15}
+.prob-h em{color:var(--green);font-style:normal}
+.prob-cards{display:flex;gap:28px;width:100%;max-width:1560px;opacity:0;transform:translateY(28px);transition:opacity .6s .15s,transform .6s .15s}
+.prob-cards.show{opacity:1;transform:translateY(0)}
+.prob-card{flex:1;border-radius:22px;padding:34px 42px;display:flex;flex-direction:column;gap:16px}
+.prob-card.bad{background:var(--sf);border:1.5px solid var(--line)}
+.prob-card.good{background:linear-gradient(160deg,#10221A,#0E1611);border:1.5px solid rgba(52,199,89,.4)}
+.pcard-title{font-size:26px;font-weight:800;color:var(--t3);margin-bottom:2px}
+.pcard-title.good{color:var(--green)}
+.pitem{display:flex;align-items:flex-start;gap:12px;font-size:24px;font-weight:500;color:var(--t2);line-height:1.5}
+.pitem.good{color:#EAF4ED}
+.pitem-icon{font-size:26px;flex-shrink:0;margin-top:2px}
+
+/* ── S3: STEPS ── */
+.steps-wrap{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:46px}
+.steps-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.steps-head.show{opacity:1;transform:translateY(0)}
+.steps-eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--greenA);margin-bottom:10px}
+.steps-h{font-size:78px;font-weight:900;color:#fff;line-height:1.1}
+.steps-h em{color:var(--green);font-style:normal}
+.steps-row{display:flex;gap:26px;max-width:1720px;width:100%;padding:0 120px}
+.step-card{flex:1;background:var(--sf);border:1.5px solid var(--line);border-radius:22px;padding:34px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 6px 30px rgba(0,0,0,.35)}
+.step-card.show{opacity:1;transform:translateY(0)}
+.step-num{font-size:18px;font-weight:800;color:var(--green);letter-spacing:.1em}
+.step-ico{font-size:50px;line-height:1}
+.step-ttl{font-size:30px;font-weight:800;color:#fff}
+.step-desc{font-size:19px;color:var(--t2);line-height:1.6}
+
+/* ── PHONE ── */
+.phone-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.phone-stage.show{opacity:1}
+.phone{
+  position:absolute;
+  width:466px;height:930px;
+  background:#000;border-radius:54px;
+  border:9px solid #000;
+  box-shadow:0 32px 90px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08),0 0 70px rgba(52,199,89,.10);
+  overflow:hidden;
+  transition:left .7s cubic-bezier(.16,1,.3,1);
+  top:74px;left:727px;
+}
+.phone.left{left:168px}
+.phone.right{left:1286px}
+.phone-bg{position:absolute;inset:0;background:radial-gradient(90% 50% at 50% 0%,rgba(52,199,89,.08),transparent 60%),linear-gradient(180deg,#0C0C0C,#0A0A0A)}
+.sbar{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;font-size:14px;font-weight:600;color:#fff;flex-shrink:0;position:relative;z-index:2}
+.screen{position:absolute;top:36px;left:0;right:0;bottom:0;display:none;flex-direction:column;z-index:2}
+.screen.show{display:flex}
+
+/* app bar */
+.atop{padding:18px 22px 12px;display:flex;align-items:center;gap:11px;flex-shrink:0}
+.atop-logo{width:30px;height:30px;flex-shrink:0}
+.atop-name{font-size:22px;font-weight:800;color:#fff;flex:1;letter-spacing:.2px}
+.atop-ico{width:24px;height:24px;flex-shrink:0;opacity:.55}
+.atop-ico path{fill:#fff}
+
+/* focus screen */
+.fwrap2{flex:1;display:flex;flex-direction:column;align-items:center;padding:6px 34px 26px}
+.cam{width:108px;height:108px;border-radius:50%;border:4px solid var(--greenA);padding:4px;margin-top:10px}
+.cam-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;background:radial-gradient(60% 55% at 50% 38%,#3a3f4a 0%,#20242c 60%,#14171d 100%)}
+.cam-inner>svg{width:100%;height:100%;opacity:.5}
+.cam-bracket{position:absolute;left:26%;top:18%;width:48%;height:52%;border:2.5px solid #69F0AE;border-radius:10px;box-shadow:0 0 12px rgba(105,240,174,.5)}
+.present{display:flex;align-items:center;gap:8px;margin-top:13px}
+.present .dot{width:11px;height:11px;border-radius:50%;background:var(--greenA);box-shadow:0 0 10px var(--greenA)}
+.present span{font-size:17px;color:var(--greenA);font-weight:600}
+.ring-wrap{position:relative;width:268px;height:268px;margin:18px 0 8px}
+.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring-left{font-size:16px;color:var(--t3)}
+.ring-time{font-size:60px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:1px}
+.ring-goal{font-size:16px;color:var(--t2);margin-top:6px}
+.ring-done{font-size:42px;font-weight:900;color:var(--greenA);line-height:1.1}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--sf2);border-radius:999px;padding:9px 18px;font-size:17px;font-weight:700;color:var(--greenA)}
+.chip svg{width:19px;height:19px}
+.harvest-toast{display:flex;align-items:center;gap:13px;background:linear-gradient(135deg,rgba(105,240,174,.16),rgba(52,199,89,.08));border:1.5px solid rgba(105,240,174,.45);border-radius:18px;padding:16px 20px;width:100%;margin-top:4px}
+.harvest-toast .ht-ico{width:42px;height:42px;border-radius:12px;background:rgba(105,240,174,.18);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.harvest-toast .ht-t1{font-size:19px;font-weight:800;color:#fff}
+.harvest-toast .ht-t2{font-size:14px;color:var(--t2);margin-top:2px}
+.btn-fill{background:var(--green);color:#06120B;border-radius:18px;padding:17px;text-align:center;font-size:19px;font-weight:800;width:100%}
+.txt-link{text-align:center;font-size:15px;color:var(--t4);margin-top:13px}
+.spacer{flex:1}
+
+/* dashboard */
+.dwrap{flex:1;padding:6px 18px 18px;display:flex;flex-direction:column;gap:15px;overflow:hidden}
+.card{background:var(--sf);border-radius:22px;padding:17px 19px 19px}
+.card-h{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--t2);margin-bottom:15px}
+.card-h svg{width:18px;height:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:17px 14px}
+.mini{display:flex;align-items:center;gap:11px}
+.mini .mi{width:26px;height:26px;flex-shrink:0}
+.mini .mv{font-size:21px;font-weight:800;color:#fff;line-height:1.1;white-space:nowrap}
+.mini .ml{font-size:12.5px;color:var(--t3);margin-top:2px;white-space:nowrap}
+.wk{flex:1;display:flex;align-items:flex-end;gap:11px;padding:6px 2px 0}
+.wk-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.wk-bar{width:100%;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:6px}
+.wk-bar.hi{background:linear-gradient(180deg,#69F0AE,#34C759);box-shadow:0 0 14px rgba(105,240,174,.45)}
+.wk-col span{font-size:11px;color:var(--t4)}
+
+/* dial */
+.dialwrap{flex:1;padding:8px 22px 18px;display:flex;flex-direction:column;align-items:center}
+.dial{position:relative;width:286px;height:286px;margin-top:8px}
+.dial-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.dial-c1{font-size:16px;color:var(--t3)}
+.dial-c2{font-size:20px;font-weight:800;color:#fff}
+.blockcard{background:var(--sf);border-radius:20px;padding:16px 18px;width:100%;margin-top:16px}
+.bc-row{display:flex;align-items:center;gap:11px}
+.bc-sw{width:13px;height:13px;border-radius:4px;flex-shrink:0}
+.bc-t1{font-size:17px;font-weight:700;color:#fff}
+.bc-t2{font-size:13.5px;color:var(--t3);margin-top:3px}
+.bc-edit{width:22px;height:22px}
+.bc-dvr{height:1px;background:var(--line);margin:13px 0}
+.bc-legend{display:flex;gap:22px}
+.bc-leg{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--t2)}
+
+/* lock screen */
+.lockwrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px;text-align:center;background:linear-gradient(180deg,#0A0A0A 0%,#10221A 100%)}
+.lock-orb{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(52,199,89,.14),transparent 70%)}
+.lock-orb svg{width:118px;height:118px;filter:drop-shadow(0 0 20px rgba(255,214,10,.32))}
+.lock-h{font-size:30px;font-weight:800;color:#fff;margin-top:24px;letter-spacing:.3px}
+.lock-p{font-size:18px;color:var(--t2);line-height:1.7;margin-top:14px}
+.lock-p b{color:#fff;font-weight:700}
+.lock-badge{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:rgba(255,214,10,.12);border:1.5px solid rgba(255,214,10,.32);border-radius:999px;padding:11px 22px}
+.lock-badge svg{width:20px;height:20px}
+.lock-badge span{font-size:17px;font-weight:800;color:var(--gold)}
+
+/* privacy */
+.privcards{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:26px}
+.privcard{display:flex;align-items:center;gap:15px;background:var(--sf);border-radius:18px;padding:17px 19px}
+.privcard svg{width:30px;height:30px;flex-shrink:0}
+.privcard .pc1{font-size:18px;font-weight:700;color:#fff}
+.privcard .pc2{font-size:14px;color:var(--t3);margin-top:2px}
+
+/* ── CALLOUT ── */
+.callout{
+  position:absolute;top:50%;
+  background:linear-gradient(160deg,#12241A,#0C140E);border:1.5px solid rgba(52,199,89,.4);border-radius:22px;
+  padding:38px 46px;width:700px;
+  box-shadow:0 24px 70px rgba(0,0,0,.5);
+  opacity:0;transition:opacity .5s,transform .5s;pointer-events:none;
+}
+.callout.side-left{left:100px;transform:translateY(calc(-50% + 20px))}
+.callout.side-left.show{opacity:1;transform:translateY(-50%)}
+.callout.side-right{right:100px;transform:translateY(calc(-50% + 20px))}
+.callout.side-right.show{opacity:1;transform:translateY(-50%)}
+.callout-tag{display:inline-block;font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--greenA);margin-bottom:14px}
+.callout-ttl{font-size:34px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.3}
+.callout-ttl em{color:var(--gold);font-style:normal}
+.callout-desc{font-size:20px;color:var(--t2);line-height:1.65}
+
+/* ── S5: FEATURES ── */
+.feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0A0A0A 0%,#0C140E 55%,#10221A 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.feat-scene.show{opacity:1}
+.fwrap{display:flex;flex-direction:column;align-items:center;gap:38px;width:92%;max-width:1720px}
+.fhead{text-align:center;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.fhead.show{opacity:1;transform:translateY(0)}
+.fhead-lbl{display:inline-block;font-size:20px;font-weight:800;color:var(--greenA);letter-spacing:.16em;margin-bottom:10px}
+.fhead h2{font-size:76px;font-weight:900;color:#fff;line-height:1.2}
+.fhead h2 em{color:var(--green);font-style:normal}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
+.fcard{background:var(--sf);border:1px solid var(--line);border-radius:20px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.fcard.show{opacity:1;transform:translateY(0)}
+.fcard-ico{width:62px;height:62px;border-radius:16px;background:rgba(52,199,89,.1);border:1px solid rgba(52,199,89,.22);display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
+.fcard-ttl{font-size:26px;font-weight:800;color:#fff}
+.fcard-txt{font-size:18px;color:var(--t2);line-height:1.55}
+
+/* ── S6: CTA ── */
+.cta-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0E3D22 0%,#2E9E4F 55%,#34C759 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.cta-scene.show{opacity:1}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 1200px 800px at 50% 30%,rgba(255,214,10,.14),transparent 60%)}
+.cta-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:44px}
+.cta-ttl{font-size:96px;font-weight:900;color:#fff;text-align:center;line-height:1.15;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.cta-ttl.show{opacity:1;transform:translateY(0)}
+.cta-ttl em{color:var(--gold);font-style:normal}
+.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border:none;border-radius:18px;padding:20px 52px;box-shadow:0 14px 50px rgba(0,0,0,.3);opacity:0;transform:translateY(18px);transition:opacity .6s .2s,transform .6s .2s}
+.cta-btn.show{opacity:1;transform:translateY(0)}
+.cta-btn svg{width:34px;height:34px}
+.cta-btn-txt{display:flex;flex-direction:column;text-align:left}
+.cta-get{font-size:16px;color:#666;line-height:1}
+.cta-gp{font-size:32px;font-weight:700;color:#0A0A0A;line-height:1.25}
+.cta-note{font-size:28px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .5s .4s}
+.cta-note.show{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- Reusable SVG symbols -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="sprout" viewBox="0 0 108 108">
+    <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+    <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
+    <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
+    <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+  </symbol>
+  <symbol id="leaf1" viewBox="0 0 24 24">
+    <path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C21 14.5 22 3 22 3S10.5 4 6.05 8.05z"/>
+  </symbol>
+</svg>
+
+<div class="repaint-forcer"></div>
+<div class="bg-base"></div>
+<div class="bg-glow"></div>
+<div class="bg-soil"></div>
+<div class="star" style="left:120px;top:90px;width:3px;height:3px;opacity:.5"></div>
+<div class="star" style="left:240px;top:200px;width:2px;height:2px;opacity:.35"></div>
+<div class="star" style="left:90px;top:320px;width:2px;height:2px;opacity:.3"></div>
+<div class="star" style="left:1760px;top:120px;width:3px;height:3px;opacity:.4"></div>
+<div class="star" style="left:1640px;top:260px;width:2px;height:2px;opacity:.3"></div>
+
+<!-- S1: INTRO -->
+<div class="scene" id="s1">
+  <div class="intro-wrap">
+    <div class="iburst" id="ib">
+      <span class="iburst-icon"><svg><use href="#sprout"/></svg></span>
+      <span class="iburst-name">Ripen</span>
+    </div>
+    <div class="itagline" id="it">Let your effort ripen.</div>
+    <div class="ipills" id="ip">
+      <span class="ipill gold">Free</span>
+      <span class="ipill">Android</span>
+      <span class="ipill">On-device</span>
+    </div>
+  </div>
+</div>
+
+<!-- S2: PROBLEM -->
+<div class="scene" id="s2">
+  <div class="prob-wrap">
+    <div class="prob-head" id="ph2">
+      <div class="prob-eyebrow">THE PROBLEM</div>
+      <div class="prob-h">"Just a peek" turns into <em>an hour gone</em></div>
+    </div>
+    <div class="prob-cards" id="pc">
+      <div class="prob-card bad">
+        <div class="pcard-title">😩 Willpower alone</div>
+        <div class="pitem"><span class="pitem-icon">🚫</span>Hard app bans backfire — you just turn them off</div>
+        <div class="pitem"><span class="pitem-icon">🌀</span>"One quick scroll" eats a whole hour</div>
+        <div class="pitem"><span class="pitem-icon">🔁</span>Reinstall the blocker, uninstall it again</div>
+      </div>
+      <div class="prob-card good">
+        <div class="pcard-title good">🌱 With Ripen</div>
+        <div class="pitem good"><span class="pitem-icon">⏱️</span>Focus to <b>harvest</b> usable free time</div>
+        <div class="pitem good"><span class="pitem-icon">🎁</span>Rewards, not willpower — so it sticks</div>
+        <div class="pitem good"><span class="pitem-icon">📈</span>Watch your progress grow every day</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S3: STEPS -->
+<div class="scene" id="s3">
+  <div class="steps-wrap">
+    <div class="steps-head" id="sh3">
+      <div class="steps-eyebrow">HOW IT WORKS</div>
+      <div class="steps-h">Focus, then <em>harvest</em></div>
+    </div>
+    <div class="steps-row">
+      <div class="step-card" id="st1">
+        <div class="step-num">STEP 01</div>
+        <div class="step-ico">🕒</div>
+        <div class="step-ttl">Set your windows</div>
+        <div class="step-desc">Pick when to focus &amp; how<br>much time you'll earn</div>
+      </div>
+      <div class="step-card" id="st2">
+        <div class="step-num">STEP 02</div>
+        <div class="step-ico">👁️</div>
+        <div class="step-ttl">Focus, present</div>
+        <div class="step-desc">Front camera confirms you're<br>there — the timer counts down</div>
+      </div>
+      <div class="step-card" id="st3">
+        <div class="step-num">STEP 03</div>
+        <div class="step-ico">🌱</div>
+        <div class="step-ttl">Harvest free time</div>
+        <div class="step-desc">Finish a session → earn<br>minutes for SNS &amp; video</div>
+      </div>
+      <div class="step-card" id="st4">
+        <div class="step-num">STEP 04</div>
+        <div class="step-ico">🔒</div>
+        <div class="step-ttl">Lock at zero</div>
+        <div class="step-desc">Run out and target apps<br>lock gently on their own</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHONE + CALLOUTS (S4 demo) -->
+<div class="phone-stage" id="ps">
+  <div class="phone" id="ph">
+    <div class="phone-bg"></div>
+    <div class="sbar"><span>9:41</span><span>📶 🔋</span></div>
+
+    <!-- Screen A: focus running -->
+    <div class="screen" id="sc-a">
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus</span>
+        <svg class="atop-ico" viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h-1.5c-.41-4.41-4.12-7.86-8.63-7.86h-.32l1.43 1.43-.71.71L9.45 2.49 12.2-.26l.71.71L11.48 2.2c4.99.16 9.01 4.15 9.27 9.14M2.05 11h-1.5C.91 6.78 4.4 3.36 8.55 3.04L7.12 1.61l.71-.71L10.55 3.51 7.83 6.23l-.71-.71L8.56 4.07C4.78 4.39 1.91 7.4 1.55 11h.5z"/></svg>
+      </div>
+      <div class="fwrap2">
+        <div class="cam"><div class="cam-inner"><svg viewBox="0 0 24 24"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div></div>
+        <div class="present"><span class="dot"></span><span>Present — counting</span></div>
+        <div class="ring-wrap">
+          <svg width="268" height="268" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round" stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-left">Left</div>
+            <div class="ring-time">17:20</div>
+            <div class="ring-goal">Focused 8m / Goal 25m</div>
+          </div>
+        </div>
+        <div class="chip"><svg><use href="#leaf1" fill="#69F0AE"/></svg>+5 min on finish</div>
+        <div class="spacer"></div>
+        <div class="btn-fill">⏸ Pause</div>
+        <div class="txt-link">Stop &amp; reset</div>
+      </div>
+    </div>
+
+    <!-- Screen B: focus finished / harvested -->
+    <div class="screen" id="sc-b">
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus</span></div>
+      <div class="fwrap2">
+        <div class="cam" style="border-color:var(--gold)"><div class="cam-inner" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(255,214,10,.18),transparent 70%)"><svg width="70" height="70"><use href="#sprout"/></svg></div></div>
+        <div class="present"><span class="dot" style="background:var(--gold);box-shadow:0 0 10px var(--gold)"></span><span style="color:var(--gold)">Session complete!</span></div>
+        <div class="ring-wrap">
+          <svg width="268" height="268" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round" stroke-dasharray="541 541" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-done">✓ 25m</div>
+            <div class="ring-goal" style="margin-top:8px">Focus done</div>
+          </div>
+        </div>
+        <div class="harvest-toast">
+          <div class="ht-ico">🌱</div>
+          <div><div class="ht-t1">+5 min harvested</div><div class="ht-t2">Usable time&nbsp; 18 → 23 min</div></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="btn-fill">▶ Start next session</div>
+      </div>
+    </div>
+
+    <!-- Screen C: dashboard -->
+    <div class="screen" id="sc-c">
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Dashboard</span></div>
+      <div class="dwrap">
+        <div class="card">
+          <div class="card-h"><svg viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Current status</div>
+          <div class="grid2">
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FFC107" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg><div><div class="mv" style="color:var(--amber)">23 min</div><div class="ml">Usable time</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#34C759" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><div><div class="mv">92 min</div><div class="ml">Focus today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#69F0AE"/></svg><div><div class="mv" style="color:var(--greenA)">35 min</div><div class="ml">Earned today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#64FFDA" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg><div><div class="mv">7</div><div class="ml">Done today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#40C4FF" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><div><div class="mv" style="font-size:18px">3/6 left</div><div class="ml">This window</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FF6E40" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg><div><div class="mv" style="color:var(--orange)">14 days</div><div class="ml">Streak</div></div></div>
+          </div>
+        </div>
+        <div class="card" style="flex:1;display:flex;flex-direction:column">
+          <div class="card-h"><svg viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Focus this week</div>
+          <div class="wk">
+            <div class="wk-col"><div class="wk-bar" style="height:54px"></div><span>M</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:82px"></div><span>T</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:44px"></div><span>W</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:98px"></div><span>T</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:70px"></div><span>F</span></div>
+            <div class="wk-col"><div class="wk-bar hi" style="height:118px"></div><span style="color:var(--greenA)">S</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:62px"></div><span>S</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen D: focus windows (24h dial) -->
+    <div class="screen" id="sc-d">
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus windows</span>
+        <svg class="atop-ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+      </div>
+      <div class="dialwrap">
+        <div class="dial">
+          <svg width="286" height="286" viewBox="0 0 220 220">
+            <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <g stroke="rgba(255,255,255,0.28)" stroke-width="1.6">
+              <line x1="110" y1="22" x2="110" y2="30"/><line x1="198" y1="110" x2="190" y2="110"/>
+              <line x1="110" y1="198" x2="110" y2="190"/><line x1="22" y1="110" x2="30" y2="110"/>
+            </g>
+            <text x="110" y="46" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">0</text>
+            <text x="176" y="114" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">6</text>
+            <text x="110" y="180" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">12</text>
+            <text x="44" y="114" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">18</text>
+            <path d="M 190 110 A 80 80 0 0 1 179.28 150" fill="none" stroke="#FFCA28" stroke-width="14" stroke-linecap="round"/>
+            <path d="M 99.56 189.3 A 80 80 0 0 1 89.3 187.3" fill="none" stroke="#66BB6A" stroke-width="14" stroke-linecap="round"/>
+            <path d="M 53.43 53.43 A 80 80 0 0 1 99.56 30.7" fill="none" stroke="#42A5F5" stroke-width="14" stroke-linecap="round"/>
+            <circle cx="190" cy="110" r="9" fill="#000"/><circle cx="190" cy="110" r="8" fill="#FFCA28"/><circle cx="190" cy="110" r="3.5" fill="#000"/>
+            <circle cx="179.28" cy="150" r="9" fill="#000"/><circle cx="179.28" cy="150" r="8" fill="#FFCA28"/><circle cx="179.28" cy="150" r="3.5" fill="#000"/>
+          </svg>
+          <div class="dial-center"><div class="dial-c1">Editing</div><div class="dial-c2">3 windows</div></div>
+        </div>
+        <div class="blockcard">
+          <div class="bc-row">
+            <span class="bc-sw" style="background:#FFCA28"></span>
+            <div style="flex:1"><div class="bc-t1">Morning Focus　06:00–08:00</div><div class="bc-t2">Focus 25m → 5m · max 6 · 4 blocked</div></div>
+            <svg class="bc-edit" viewBox="0 0 24 24"><path fill="rgba(255,255,255,0.4)" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>
+          </div>
+          <div class="bc-dvr"></div>
+          <div class="bc-legend">
+            <div class="bc-leg"><span class="bc-sw" style="background:#66BB6A"></span>Lunch</div>
+            <div class="bc-leg"><span class="bc-sw" style="background:#42A5F5"></span>Evening Study</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen E: gentle lock -->
+    <div class="screen" id="sc-e">
+      <div class="lockwrap">
+        <div class="lock-orb"><svg><use href="#sprout"/></svg></div>
+        <div class="lock-h">Time to focus</div>
+        <div class="lock-p"><b>"Instagram"</b> is locked right now.<br>Focus to ripen some usable time.</div>
+        <div class="lock-badge"><svg viewBox="0 0 24 24"><path fill="#FFD60A" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg><span>Usable time 0 min</span></div>
+        <div class="spacer" style="flex:0"></div>
+        <div class="btn-fill" style="margin-top:30px">▶ Focus &amp; ripen</div>
+        <div class="txt-link">Back to home</div>
+      </div>
+    </div>
+
+    <!-- Screen F: privacy / on-device -->
+    <div class="screen" id="sc-f">
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus</span></div>
+      <div class="fwrap2">
+        <div class="cam"><div class="cam-inner"><svg viewBox="0 0 24 24"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="cam-bracket"></div></div></div>
+        <div class="present"><span class="dot"></span><span>Face detected — judged on-device</span></div>
+        <div class="privcards">
+          <div class="privcard">
+            <svg viewBox="0 0 24 24"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div class="pc1">On-device processing</div><div class="pc2">Judged locally with Google ML Kit</div></div>
+          </div>
+          <div class="privcard">
+            <svg viewBox="0 0 24 24"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div class="pc1">No image saved or sent</div><div class="pc2">Only "were you present" is logged</div></div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="txt-link">Camera is used only to confirm presence</div>
+      </div>
+    </div>
+  </div><!-- /phone -->
+
+  <!-- Callouts -->
+  <!-- co1: Demo1 phone=right → callout left -->
+  <div class="callout side-left" id="co1">
+    <div class="callout-tag">DEMO 01 — Reward Loop</div>
+    <div class="callout-ttl">Focus to <em>harvest</em><br>your free time</div>
+    <div class="callout-desc">The timer runs only while you're present. Finish a session → earn minutes for SNS &amp; video.</div>
+  </div>
+  <!-- co2: Demo2 phone=left → callout right -->
+  <div class="callout side-right" id="co2">
+    <div class="callout-tag">DEMO 02 — Dashboard</div>
+    <div class="callout-ttl">Progress that<br>keeps you going</div>
+    <div class="callout-desc">Usable time, focus today, streak &amp; weekly trends — all at a glance. Earned vs. spent, made visible.</div>
+  </div>
+  <!-- co3: Demo3 phone=right → callout left -->
+  <div class="callout side-left" id="co3">
+    <div class="callout-tag">DEMO 03 — Time Windows</div>
+    <div class="callout-ttl">Your rules,<br>per <em>time of day</em></div>
+    <div class="callout-desc">Drag on the 24-hour dial. Set a focus goal, usable minutes, rounds &amp; blocked apps per window.</div>
+  </div>
+  <!-- co4: Demo4 phone=left → callout right -->
+  <div class="callout side-right" id="co4">
+    <div class="callout-tag">DEMO 04 — Gentle Lock</div>
+    <div class="callout-ttl">At zero, it<br><em>locks gently</em></div>
+    <div class="callout-desc">Spend a window's time and target apps lock automatically. Distractions lock during focus, too.</div>
+  </div>
+  <!-- co5: Demo5 phone=right → callout left -->
+  <div class="callout side-left" id="co5">
+    <div class="callout-tag">DEMO 05 — Privacy First</div>
+    <div class="callout-ttl">On-device.<br>Nothing leaves your phone</div>
+    <div class="callout-desc">The camera only checks "present or not." No image is ever saved or sent to the cloud.</div>
+  </div>
+</div><!-- /phone-stage -->
+
+<!-- S5: FEATURES -->
+<div class="feat-scene" id="s5">
+  <div class="fwrap">
+    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>Everything to make it <em>stick</em></h2></div>
+    <div class="fgrid">
+      <div class="fcard" id="fc1"><div class="fcard-ico">🌱</div><div class="fcard-ttl">Reward Loop</div><div class="fcard-txt">Finish focus → harvest usable time for SNS &amp; video</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">👁️</div><div class="fcard-ttl">On-device Presence</div><div class="fcard-txt">Front camera checks presence — nothing saved or sent</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">🕒</div><div class="fcard-ttl">Time Windows</div><div class="fcard-txt">Different goals, rewards &amp; blocked apps per time of day</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico">🎁</div><div class="fcard-ttl">Pre-leisure</div><div class="fcard-txt">Free minutes the moment a window starts</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">🔒</div><div class="fcard-ttl">Setting Lock</div><div class="fcard-txt">A cooldown stops you from loosening your own rules</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico">📊</div><div class="fcard-ttl">Analytics</div><div class="fcard-txt">Trends, focus calendar &amp; your best hours to focus</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: CTA -->
+<div class="cta-scene" id="s6">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-ttl" id="ct">Let your effort ripen.<br><em>Starting today.</em></div>
+    <button class="cta-btn" id="cb">
+      <svg viewBox="0 0 24 24" fill="#0A0A0A"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+      <div class="cta-btn-txt"><span class="cta-get">GET IT ON</span><span class="cta-gp">Google Play</span></div>
+    </button>
+    <div class="cta-note" id="cn">Free · Android 8.0+ · On-device · No account</div>
+  </div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+let T=[],t0=0,idx=0,tmr=null;
+function at(ms,fn){T.push([ms,fn])}
+
+function screen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));$(id).classList.add('show')}
+function phonePos(p){$('ph').classList.remove('left','right');if(p)$('ph').classList.add(p)}
+function showCo(n){$('co'+n).classList.add('show')}
+function hideCos(){[1,2,3,4,5].forEach(n=>$('co'+n).classList.remove('show'))}
+
+function reset(){
+  clearTimeout(tmr);T=[];idx=0;
+  $('ps').classList.remove('show');
+  ['s1','s2','s3'].forEach(id=>$(id).classList.remove('show'));
+  $('s5').classList.remove('show');
+  $('s6').classList.remove('show');
+  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3','st4'].forEach(id=>$(id).classList.remove('show'));
+  ['fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));
+  hideCos();
+}
+
+function buildTimeline(){
+  let t=0;
+
+  // S1: INTRO 0–2000 (2s)
+  at(t,()=>$('s1').classList.add('show'));
+  at(t+100,()=>$('ib').classList.add('show'));
+  at(t+500,()=>$('it').classList.add('show'));
+  at(t+900,()=>$('ip').classList.add('show'));
+  at(t+1800,()=>$('s1').classList.remove('show'));
+  t+=2000;
+
+  // S2: PROBLEM 2000–6500 (4.5s)
+  at(t,()=>$('s2').classList.add('show'));
+  at(t+150,()=>$('ph2').classList.add('show'));
+  at(t+550,()=>$('pc').classList.add('show'));
+  at(t+4200,()=>$('s2').classList.remove('show'));
+  t+=4500;
+
+  // S3: STEPS 6500–9500 (3s)
+  at(t,()=>$('s3').classList.add('show'));
+  at(t+150,()=>$('sh3').classList.add('show'));
+  at(t+450,()=>$('st1').classList.add('show'));
+  at(t+700,()=>$('st2').classList.add('show'));
+  at(t+950,()=>$('st3').classList.add('show'));
+  at(t+1200,()=>$('st4').classList.add('show'));
+  at(t+2800,()=>$('s3').classList.remove('show'));
+  t+=3000;
+
+  // S4 DEMO
+
+  // Demo 1: focus running → harvested (4.5s)
+  at(t,()=>{$('ps').classList.add('show');phonePos('right');screen('sc-a')});
+  at(t+350,()=>showCo(1));
+  at(t+2300,()=>screen('sc-b'));
+  at(t+4200,()=>hideCos());
+  t+=4500;
+
+  // Demo 2: dashboard (3.5s)
+  at(t,()=>{phonePos('left');screen('sc-c')});
+  at(t+350,()=>showCo(2));
+  at(t+3200,()=>hideCos());
+  t+=3500;
+
+  // Demo 3: time windows (3.5s)
+  at(t,()=>{phonePos('right');screen('sc-d')});
+  at(t+350,()=>showCo(3));
+  at(t+3200,()=>hideCos());
+  t+=3500;
+
+  // Demo 4: gentle lock (3.5s)
+  at(t,()=>{phonePos('left');screen('sc-e')});
+  at(t+350,()=>showCo(4));
+  at(t+3200,()=>hideCos());
+  t+=3500;
+
+  // Demo 5: privacy (3.5s)
+  at(t,()=>{phonePos('right');screen('sc-f')});
+  at(t+350,()=>showCo(5));
+  at(t+3200,()=>{hideCos();$('ps').classList.remove('show')});
+  t+=3500;
+
+  // S5: FEATURES 28000–31000 (3s)
+  at(t,()=>$('s5').classList.add('show'));
+  at(t+200,()=>$('fh').classList.add('show'));
+  at(t+330,()=>$('fc1').classList.add('show'));
+  at(t+440,()=>$('fc2').classList.add('show'));
+  at(t+550,()=>$('fc3').classList.add('show'));
+  at(t+660,()=>$('fc4').classList.add('show'));
+  at(t+770,()=>$('fc5').classList.add('show'));
+  at(t+880,()=>$('fc6').classList.add('show'));
+  t+=3000;
+
+  // S6: CTA 31000–
+  at(t,()=>{$('s5').classList.remove('show');$('s6').classList.add('show')});
+  at(t+200,()=>$('ct').classList.add('show'));
+  at(t+550,()=>$('cb').classList.add('show'));
+  at(t+850,()=>$('cn').classList.add('show'));
+}
+
+function run(){
+  if(idx>=T.length)return;
+  const[delay,fn]=T[idx];
+  const wait=Math.max(0,delay-(Date.now()-t0));
+  tmr=setTimeout(()=>{fn();idx++;run()},wait);
+}
+
+function start(){reset();buildTimeline();idx=0;t0=Date.now();run()}
+window.addEventListener('load',()=>start());
+</script>
+</body>
+</html>

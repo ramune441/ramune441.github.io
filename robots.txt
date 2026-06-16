@@ -8,11 +8,15 @@ Disallow: /ashiato-maker/promo.html
 Disallow: /lovent/promo.html
 Disallow: /sendready/promo.html
 Disallow: /sendready-chrome/promo.html
+Disallow: /ripen/promo.html
 
 # ストア画像生成用HTMLはインデックス対象外
 Disallow: /lovent/store-images.html
 Disallow: /ripen/store-images.html
 Disallow: /ripen/icon-512.html
+
+# 権限説明動画（Play Console 提出用）の生成HTMLはインデックス対象外
+Disallow: /ripen/fgs-demo/fgs-demo.html
 
 # ビルド成果物
 Disallow: /formpilot/node_modules/
