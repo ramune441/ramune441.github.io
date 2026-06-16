@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>SendReady Store Images</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#C8CCE0; font-family:'Inter','Noto Sans JP',sans-serif; }
+:root{
+  --ind:#4361EE; --ind-light:#5A78F0; --ind-pale:#818CF8; --ind-deep:#3A0CA3; --snip:#10B981;
+  --bg:#FBFBFF; --bg-alt:#EEF1FF; --card:#FFFFFF;
+  --t1:#14163A; --t2:#3C4068; --t3:#6E739B; --dv:#D9DEF5;
+}
+
+/* ── Store image canvas (Chrome Web Store 1280x800) ── */
+.si { width:1280px; height:800px; position:relative; overflow:hidden; margin:0 auto 60px; background:var(--bg); }
+
+/* LEFT panel */
+.panel { position:absolute; left:0; top:0; bottom:0; width:520px; display:flex; flex-direction:column; justify-content:center; padding:0 72px; z-index:2; }
+.p-emoji { font-size:64px; line-height:1; margin-bottom:20px; }
+.p-title { font-size:48px; font-weight:900; color:var(--t1); line-height:1.18; letter-spacing:-1.5px; margin-bottom:14px; }
+.p-title .ind { color:var(--ind); }
+.p-sub { font-size:19px; color:var(--t2); line-height:1.7; margin-bottom:28px; font-weight:500; }
+.dvr { display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+.dvr-l { flex:1; height:1px; background:var(--dv); }
+.dvr-p { background:var(--ind); color:#fff; font-size:13px; font-weight:700; padding:5px 18px; border-radius:20px; white-space:nowrap; letter-spacing:.3px; }
+.s-title { font-size:30px; font-weight:800; color:var(--ind-deep); line-height:1.3; margin-bottom:10px; }
+.s-sub { font-size:17px; color:var(--t2); line-height:1.6; }
+.p-feats { display:flex; flex-direction:column; gap:14px; margin-top:8px; }
+.p-feat { display:flex; align-items:flex-start; gap:12px; font-size:18px; color:var(--t2); font-weight:500; line-height:1.5; }
+.p-feat .pf-ic { width:30px; height:30px; border-radius:9px; background:rgba(67,97,238,.1); color:var(--ind); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0; }
+
+/* deco */
+.glow { position:absolute; border-radius:50%; pointer-events:none; }
+
+/* ── Browser window + SendReady UI replica (from content.js) ── */
+.win{ background:#fff; border-radius:18px; box-shadow:0 30px 80px rgba(20,22,58,.22); overflow:hidden; border:1px solid #d8dcea; }
+.win-bar{ height:48px; background:#f1f3f9; display:flex; align-items:center; gap:8px; padding:0 18px; border-bottom:1px solid #e3e6f0; }
+.dot{ width:12px; height:12px; border-radius:50%; }
+.dr{ background:#ff5f57;} .dy{ background:#febc2e;} .dg{ background:#28c840;}
+.url{ flex:1; height:28px; background:#fff; border:1px solid #e3e6f0; border-radius:8px; margin-left:12px; display:flex; align-items:center; padding:0 14px; font-size:14px; color:#9499b8; }
+.ext-ico{ width:24px; height:24px; margin-left:10px; }
+.sel{ background:rgba(67,97,238,.22); border-radius:3px; padding:1px 3px; }
+
+.sr-panel{ width:300px; background:#fff; color:#1a1a1a; border-radius:12px; padding:12px; border:1px solid rgba(127,127,127,.16); box-shadow:0 14px 44px rgba(20,22,58,.26); font-family:-apple-system,'Segoe UI','Hiragino Sans',Meiryo,sans-serif; }
+.sr-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.sr-tw{ display:flex; align-items:center; gap:6px; }
+.sr-tw img{ width:18px; height:18px; }
+.sr-title{ font-weight:700; font-size:14px; }
+.sr-x{ font-size:15px; color:#1a1a1a; opacity:.45; }
+.sr-item{ display:flex; align-items:center; gap:8px; padding:9px 10px; border-radius:8px; font-size:14px; }
+.sr-item.hi{ background:rgba(67,97,238,.14); outline:2px solid var(--ind); outline-offset:-2px; }
+.sr-tag{ font-size:11px; padding:2px 7px; border-radius:6px; font-weight:600; white-space:nowrap; }
+.sr-tag-ai{ background:rgba(67,97,238,.16); color:var(--ind); }
+.sr-it-title{ flex:1; }
+.sr-it-trg{ font-family:ui-monospace,monospace; font-size:12px; color:#9499b8; }
+.sr-check{ display:flex; align-items:center; gap:8px; margin-top:10px; padding-top:11px; border-top:1px solid rgba(127,127,127,.14); font-size:14px; font-weight:600; }
+.sr-cb{ width:16px; height:16px; border-radius:4px; border:2px solid var(--ind); display:inline-flex; align-items:center; justify-content:center; color:var(--ind); font-size:11px; }
+.sr-help{ margin-left:auto; width:17px; height:17px; border-radius:50%; border:1px solid #9499b8; color:#9499b8; font-size:11px; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+.sr-launcher{ width:36px; height:36px; border-radius:50%; background:#fff; border:1px solid rgba(127,127,127,.16); box-shadow:0 4px 16px rgba(20,22,58,.22); display:flex; align-items:center; justify-content:center; padding:5px; }
+.sr-launcher img{ width:100%; height:100%; object-fit:contain; }
+.sr-result-box{ border:1px solid var(--dv); border-radius:8px; padding:11px 12px; font-size:15px; color:var(--t1); line-height:1.6; background:#fcfcff; }
+.sr-actions{ display:flex; gap:8px; margin-top:11px; }
+.sr-btn{ padding:8px 15px; border-radius:8px; font-size:13px; border:1px solid rgba(127,127,127,.28); color:#1a1a1a; }
+.sr-btn-p{ background:var(--ind); color:#fff; border-color:var(--ind); font-weight:600; }
+.chip{ font-size:13px; padding:6px 15px; border-radius:999px; border:1px solid var(--dv); color:var(--t1); }
+.chip.on{ background:var(--ind); color:#fff; border-color:var(--ind); font-weight:600; }
+.kbd{ display:inline-flex; align-items:center; font-family:ui-monospace,monospace; font-size:15px; background:#fff; border:1px solid #cbd2ee; border-bottom-width:3px; border-radius:8px; padding:5px 11px; color:var(--t1); font-weight:600; }
+
+/* popup replica */
+.popup{ width:360px; background:#fff; border-radius:16px; box-shadow:0 30px 80px rgba(20,22,58,.26); overflow:hidden; font-family:-apple-system,'Segoe UI','Hiragino Sans',Meiryo,sans-serif; border:1px solid #e3e6f0; }
+.pu-hd{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--dv); }
+.pu-title{ display:flex; align-items:center; gap:7px; font-weight:700; font-size:16px; color:var(--t1); }
+.pu-title img{ width:22px; height:22px; }
+.pu-usage{ font-size:12px; color:var(--t3); }
+.pu-help{ font-size:12px; color:var(--t3); border:1px solid var(--dv); border-radius:999px; padding:3px 10px; }
+.pu-main{ padding:14px 16px 18px; }
+.pu-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.pu-row h3{ font-size:14px; font-weight:700; color:var(--t1); }
+.pu-addbtns{ display:flex; gap:7px; }
+.pu-add{ font-size:12px; padding:6px 11px; border:1px solid var(--dv); border-radius:8px; color:var(--t1); }
+.pu-sec{ font-size:12px; font-weight:700; margin:12px 0 6px; }
+.pu-sec.ai{ color:var(--ind); } .pu-sec.snip{ color:var(--snip); }
+.pu-preset{ display:flex; align-items:center; gap:9px; padding:10px 12px; border:1px solid var(--dv); border-radius:10px; margin-bottom:7px; }
+.pu-ptag{ font-size:11px; padding:3px 7px; border-radius:6px; font-weight:600; }
+.pu-ptag.ai{ background:rgba(67,97,238,.16); color:var(--ind); }
+.pu-ptag.snip{ background:rgba(16,185,129,.16); color:var(--snip); }
+.pu-pmain{ flex:1; min-width:0; }
+.pu-ptitle{ font-weight:600; font-size:14px; color:var(--t1); }
+.pu-psub{ font-size:12px; color:var(--t3); }
+.pu-ptrg{ font-family:ui-monospace,monospace; font-size:12px; color:var(--t3); }
+
+/* ── Feature graphic (Chrome Web Store marquee 1400x560) ── */
+.feat-banner{ width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 60px; background:linear-gradient(135deg,#3A0CA3 0%,#4361EE 55%,#4895EF 100%); display:flex; align-items:center; }
+.fb-left{ flex:1; padding:0 80px; color:#fff; z-index:2; }
+.fb-badge{ display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3); color:#fff; font-size:18px; font-weight:700; padding:9px 22px; border-radius:100px; margin-bottom:26px; }
+.fb-title{ font-size:64px; font-weight:900; line-height:1.18; letter-spacing:-2px; margin-bottom:22px; }
+.fb-sub{ font-size:26px; color:rgba(255,255,255,.82); line-height:1.6; font-weight:500; }
+.fb-pills{ display:flex; gap:14px; margin-top:30px; }
+.fb-pill{ background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); color:#fff; font-size:19px; font-weight:600; padding:11px 26px; border-radius:100px; }
+.fb-right{ width:560px; display:flex; align-items:center; justify-content:center; position:relative; }
+</style>
+</head>
+<body>
+
+<!-- ════ IMG 1: HERO / problem→solution ════ -->
+<div class="si" id="img1">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FBFBFF 0%,#EEF1FF 60%,#FBFBFF 100%);"></div>
+  <div class="glow" style="right:-80px;top:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(67,97,238,.1) 0%,transparent 60%);"></div>
+  <div class="panel">
+    <div class="p-emoji">✍️</div>
+    <div class="p-title">送る前に、<br><span class="ind">AIがひと手間</span>。</div>
+    <div class="p-sub">敬語に直す、英語に訳す、要約する。<br>そのたびに別タブのAIへコピペ往復…</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p">SendReady</div><div class="dvr-l"></div></div>
+    <div class="s-title">選択 or トリガーで<br>その場でワンタップ変換</div>
+    <div class="s-sub">いま開いている入力欄のまま、AIが整えます。<br>登録不要・1日50回まで無料。</div>
+  </div>
+  <div class="win" style="width:680px;height:470px;right:48px;top:165px;position:absolute;">
+    <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+    <div style="padding:30px 34px;">
+      <div style="font-size:16px;color:var(--t3);padding:12px 0;border-bottom:1px solid var(--dv);">To: client@example.com</div>
+      <div style="font-size:18px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--dv);">打ち合わせの件について</div>
+      <div style="font-size:18px;line-height:2;padding:22px 2px;color:var(--t1);"><span class="sel">明日の打ち合わせ、10時で大丈夫です。よろしく。</span></div>
+    </div>
+    <div class="sr-panel" style="position:absolute;right:40px;top:225px;">
+      <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
+      <div class="sr-item hi"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">丁寧に 💝</span><span class="sr-it-trg">//p</span></div>
+      <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">英語に翻訳 🌏</span><span class="sr-it-trg">//en</span></div>
+      <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">要約 📝</span><span class="sr-it-trg">//sum</span></div>
+      <div class="sr-check"><span class="sr-cb">✓</span><span>↩ 返信を作成</span><span class="sr-help">?</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMG 2: Selection toolbar ════ -->
+<div class="si" id="img2">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#EEF1FF 0%,#E6EAFF 100%);"></div>
+  <div class="panel">
+    <div class="p-emoji">🖱️</div>
+    <div class="p-title">選択するだけで、<br><span class="ind">メニューが出る</span>。</div>
+    <div class="p-sub">文章を選ぶと現れる丸いアイコンをタップ。</div>
+    <div class="p-feats">
+      <div class="p-feat"><span class="pf-ic">💝</span>丁寧に・翻訳・要約・誤字修正をワンタップ</div>
+      <div class="p-feat"><span class="pf-ic">🪶</span>暗幕なしの軽量ポップオーバー</div>
+      <div class="p-feat"><span class="pf-ic">⎋</span>Esc・スクロールでサッと消える</div>
+    </div>
+  </div>
+  <div class="win" style="width:700px;height:430px;right:48px;top:185px;position:absolute;">
+    <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 app.slack.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+    <div style="padding:32px 36px;">
+      <div style="font-size:13px;color:var(--t3);font-weight:600;margin-bottom:10px;"># general</div>
+      <div style="font-size:18px;color:var(--t1);line-height:2;">了解です。<span class="sel">明日までに資料まとめて共有しときます！</span></div>
+    </div>
+    <div class="sr-launcher" style="position:absolute;left:330px;top:135px;"><img src="icons/mark.png"></div>
+    <div class="sr-panel" style="position:absolute;left:330px;top:185px;">
+      <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
+      <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">丁寧に 💝</span><span class="sr-it-trg">//p</span></div>
+      <div class="sr-item hi"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">英語に翻訳 🌏</span><span class="sr-it-trg">//en</span></div>
+      <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">要約 📝</span><span class="sr-it-trg">//sum</span></div>
+      <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">誤字脱字を修正 ✅</span><span class="sr-it-trg">//fix</span></div>
+      <div class="sr-check"><span class="sr-cb">✓</span><span>↩ 返信を作成</span><span class="sr-help">?</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMG 3: Inline trigger ════ -->
+<div class="si" id="img3">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FBFBFF 0%,#EEF1FF 100%);"></div>
+  <div class="panel">
+    <div class="p-emoji">⌨️</div>
+    <div class="p-title">打って、<span class="ind">Enter</span>。<br>それだけ。</div>
+    <div class="p-sub">前置トリガー＋文章 → AIが変換して、<br>その場で置き換え。</div>
+    <div class="p-feats">
+      <div class="p-feat"><span class="pf-ic">⚡</span>手を止めずに入力欄でそのまま変換</div>
+      <div class="p-feat"><span class="pf-ic">↵</span>Enterは消費され、改行・送信しない</div>
+    </div>
+  </div>
+  <div style="position:absolute;right:48px;top:200px;display:flex;align-items:center;gap:22px;">
+    <div class="win" style="width:440px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div></div>
+      <div style="padding:28px;">
+        <div style="font-size:12px;color:var(--ind);font-weight:700;margin-bottom:10px;">INPUT</div>
+        <div style="border:2px solid var(--ind);border-radius:12px;padding:16px 18px;font-size:19px;color:var(--t1);min-height:110px;line-height:1.6;"><span style="font-family:ui-monospace,monospace;color:var(--ind);font-weight:700;">//en</span> 明日10時に伺います<span style="display:inline-block;width:2px;height:23px;background:var(--ind);vertical-align:-4px;margin-left:2px;"></span></div>
+        <div style="margin-top:16px;display:flex;align-items:center;gap:10px;color:var(--t3);font-size:15px;"><span class="kbd">Enter ⏎</span> で変換</div>
+      </div>
+    </div>
+    <div style="font-size:40px;color:var(--ind);font-weight:300;">→</div>
+    <div class="sr-panel" style="width:330px;">
+      <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
+      <div class="sr-result-box">I'll be there at 10 tomorrow.</div>
+      <div class="sr-actions"><span class="sr-btn sr-btn-p">適用</span><span class="sr-btn">コピー</span><span class="sr-btn">再生成</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMG 4: Reply ════ -->
+<div class="si" id="img4">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#EEF1FF 0%,#E9FBF4 100%);"></div>
+  <div class="panel">
+    <div class="p-emoji">↩️</div>
+    <div class="p-title">選んで、<br><span class="ind">返信を生成</span>。</div>
+    <div class="p-sub">受け取った文を選択して「返信を作成」。<br>文体を選んでひと言指示するだけ。</div>
+    <div class="p-feats">
+      <div class="p-feat"><span class="pf-ic">🎚️</span>丁寧・カジュアルなど文体を選べる</div>
+      <div class="p-feat"><span class="pf-ic">📋</span>結果はコピーして返信欄へ</div>
+    </div>
+  </div>
+  <div style="position:absolute;right:48px;top:175px;display:flex;align-items:flex-start;gap:26px;">
+    <div class="win" style="width:400px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
+      <div style="padding:26px 28px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;"><div style="width:38px;height:38px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ind);">田</div><div><div style="font-weight:700;font-size:15px;color:var(--t1);">田中さん</div><div style="font-size:12px;color:var(--t3);">14:32</div></div></div>
+        <div style="font-size:16px;color:var(--t1);line-height:1.9;"><span class="sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？場所は弊社オフィスを予定しています。</span></div>
+      </div>
+    </div>
+    <div class="sr-panel" style="width:330px;">
+      <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">↩ 返信を作成</span></div><span class="sr-x">✕</span></div>
+      <div style="font-size:12px;color:var(--t3);margin-bottom:8px;">文体を選択</div>
+      <div style="display:flex;gap:7px;margin-bottom:12px;"><span class="chip on">丁寧</span><span class="chip">カジュアル</span><span class="chip">簡潔</span></div>
+      <div class="sr-result-box" style="font-size:14px;">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に貴社オフィスへ伺います。よろしくお願いいたします。</div>
+      <div class="sr-actions"><span class="sr-btn sr-btn-p">コピー</span><span class="sr-btn">再生成</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMG 5: Snippets ════ -->
+<div class="si" id="img5">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#FBFBFF 0%,#EEF1FF 100%);"></div>
+  <div class="panel">
+    <div class="p-emoji">⚡</div>
+    <div class="p-title">定型文は、<br><span class="ind">トリガーで一瞬</span>。</div>
+    <div class="p-sub">署名やあいさつをトリガーに登録。<br>打って区切りキーで即展開。</div>
+    <div class="p-feats">
+      <div class="p-feat"><span class="pf-ic">∞</span>AI不要・回数無制限・即時</div>
+      <div class="p-feat"><span class="pf-ic">🛡️</span>確定キーが要るので誤爆しない</div>
+    </div>
+  </div>
+  <div style="position:absolute;right:48px;top:205px;display:flex;align-items:center;gap:22px;">
+    <div class="win" style="width:430px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
+      <div style="padding:26px 28px;">
+        <div style="font-size:12px;color:var(--snip);font-weight:700;margin-bottom:10px;">TYPE</div>
+        <div style="border:2px solid var(--snip);border-radius:12px;padding:16px 18px;font-size:20px;min-height:90px;color:var(--t1);"><span style="font-family:ui-monospace,monospace;color:var(--snip);font-weight:700;">;sig</span><span style="display:inline-block;width:2px;height:23px;background:var(--snip);vertical-align:-4px;margin-left:2px;"></span></div>
+        <div style="margin-top:14px;display:flex;align-items:center;gap:10px;color:var(--t3);font-size:15px;"><span class="kbd">Space</span> で確定</div>
+      </div>
+    </div>
+    <div style="font-size:40px;color:var(--snip);font-weight:300;">→</div>
+    <div class="win" style="width:330px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒</div></div>
+      <div style="padding:22px;">
+        <div style="border:1px solid var(--dv);border-radius:12px;padding:16px;font-size:15px;color:var(--t1);line-height:1.7;background:#fcfcff;">━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com<br>📱 090-1234-5678</div>
+        <div style="margin-top:10px;font-size:13px;color:var(--snip);font-weight:600;text-align:center;">✓ 署名を展開</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMG 6: Popup / presets ════ -->
+<div class="si" id="img6">
+  <div style="position:absolute;inset:0;background:linear-gradient(150deg,#EEF1FF 0%,#E6EAFF 100%);"></div>
+  <div class="panel">
+    <div class="p-emoji">🛠️</div>
+    <div class="p-title">自分専用に、<br><span class="ind">育てられる</span>。</div>
+    <div class="p-sub">AI変換と定型文を、それぞれ最大10件。<br>よく使う指示や挨拶を自分のトリガーで。</div>
+    <div class="p-feats">
+      <div class="p-feat"><span class="pf-ic">🎨</span>テーマ・11言語の切替に対応</div>
+      <div class="p-feat"><span class="pf-ic">📊</span>1日の使用量がひと目でわかる</div>
+    </div>
+  </div>
+  <div style="position:absolute;right:130px;top:120px;">
+    <div class="popup">
+      <div class="pu-hd"><div class="pu-title"><img src="icons/mark.png">SendReady</div><div style="display:flex;align-items:center;gap:9px;"><span class="pu-usage">今日 12 / 50</span><span class="pu-help">使い方</span></div></div>
+      <div class="pu-main">
+        <div class="pu-row"><h3>プリセット</h3><div class="pu-addbtns"><span class="pu-add">+ AI変換</span><span class="pu-add">+ 定型文</span></div></div>
+        <div class="pu-sec ai">AI変換</div>
+        <div class="pu-preset"><span class="pu-ptag ai">AI</span><div class="pu-pmain"><div class="pu-ptitle">丁寧に 💝</div><div class="pu-psub">より丁寧で敬意のある文体に</div></div><span class="pu-ptrg">//p</span></div>
+        <div class="pu-preset"><span class="pu-ptag ai">AI</span><div class="pu-pmain"><div class="pu-ptitle">英語に翻訳 🌏</div><div class="pu-psub">自然な英語に翻訳</div></div><span class="pu-ptrg">//en</span></div>
+        <div class="pu-preset"><span class="pu-ptag ai">AI</span><div class="pu-pmain"><div class="pu-ptitle">要約 📝</div><div class="pu-psub">簡潔に要約</div></div><span class="pu-ptrg">//sum</span></div>
+        <div class="pu-sec snip">定型文</div>
+        <div class="pu-preset"><span class="pu-ptag snip">定型文</span><div class="pu-pmain"><div class="pu-ptitle">署名 🖊️</div><div class="pu-psub">署名テンプレート</div></div><span class="pu-ptrg">;sig</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ FEATURE GRAPHIC (marquee 1400x560) ════ -->
+<div class="feat-banner" id="feature">
+  <div class="glow" style="left:-100px;bottom:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.14) 0%,transparent 60%);"></div>
+  <div class="fb-left">
+    <div class="fb-badge">⚡ 完全無料 · Chrome拡張</div>
+    <div class="fb-title">選択・入力中のテキストを<br>AIでワンタップ変換</div>
+    <div class="fb-sub">丁寧語・翻訳・要約・返信。どんな入力欄でも、<br>その場でAIが整える。定型文も一瞬で展開。</div>
+    <div class="fb-pills"><span class="fb-pill">🤖 AI変換</span><span class="fb-pill">⚡ 定型文</span><span class="fb-pill">↩ AI返信</span></div>
+  </div>
+  <div class="fb-right">
+    <div class="win" style="width:440px;box-shadow:0 40px 90px rgba(0,0,0,.4);">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+      <div style="padding:22px 24px;">
+        <div style="font-size:15px;line-height:1.9;color:var(--t1);"><span class="sel">明日の打ち合わせ、10時で大丈夫です。</span></div>
+      </div>
+      <div class="sr-panel" style="margin:4px 18px 18px;width:auto;">
+        <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
+        <div class="sr-item hi"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">丁寧に 💝</span><span class="sr-it-trg">//p</span></div>
+        <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">英語に翻訳 🌏</span><span class="sr-it-trg">//en</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

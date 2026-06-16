@@ -2,419 +2,384 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=1920">
+<meta name="robots" content="noindex, nofollow">
 <title>SendReady Promo Video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-  html, body { width:1920px; height:1080px; overflow:hidden; background:#eef2ff; }
-  body { font-family:'Noto Sans JP','Inter',sans-serif; -webkit-font-smoothing:antialiased; }
-  :root{
-    --ind:#4361EE; --ind-deep:#3A0CA3; --ind-50:#eef2ff; --ind-100:#e0e7ff; --ind-200:#c7d2fe; --ind-700:#3A0CA3; --ind-800:#312e81;
-    --snip:#10B981; --text:#1e293b; --sub:#475569; --light:#94a3b8; --border:#e2e8f0;
-  }
-  .scene{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .5s ease; }
-  .scene.active{ opacity:1; pointer-events:auto; }
-  .ind{ color:var(--ind); }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+:root{
+  --ind:#4361EE; --ind-light:#5A78F0; --ind-pale:#818CF8; --ind-deep:#3A0CA3; --snip:#10B981;
+  --bg:#FBFBFF; --bg-alt:#EEF1FF; --t1:#14163A; --t2:#3C4068; --t3:#6E739B; --dv:#D9DEF5;
+}
+.bg-base{position:absolute;inset:0;background:linear-gradient(150deg,#FBFBFF 0%,#F2F4FF 40%,#E6EAFF 80%,#FBFBFF 100%)}
+.bg-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 1400px 900px at 50% 28%,rgba(67,97,238,.1) 0%,transparent 60%)}
 
-  /* shared window + popover */
-  .win{ background:#fff; border-radius:24px; box-shadow:0 50px 110px rgba(15,23,42,.26); overflow:hidden; border:1px solid #dbe0ea; }
-  .win-bar{ height:62px; background:#f1f3f7; display:flex; align-items:center; gap:11px; padding:0 24px; border-bottom:1px solid #e2e6ee; }
-  .dot{ width:17px; height:17px; border-radius:50%; }
-  .dr{ background:#ff5f57;} .dy{ background:#febc2e;} .dg{ background:#28c840;}
-  .url{ flex:1; height:40px; background:#fff; border:1px solid #e2e6ee; border-radius:11px; margin-left:18px; display:flex; align-items:center; padding:0 22px; font-size:20px; color:#94a3b8; }
-  .ext-ico{ width:34px; height:34px; margin-left:16px; }
-  .sel{ background:rgba(67,97,238,.22); border-radius:5px; padding:2px 4px; }
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.scene.show{opacity:1;pointer-events:auto}
 
-  .sr-panel{ width:430px; background:#fff; color:#1a1a1a; border-radius:18px; padding:18px; border:1px solid rgba(127,127,127,.16); box-shadow:0 24px 70px rgba(0,0,0,.30); }
-  .sr-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
-  .sr-tw{ display:flex; align-items:center; gap:9px; }
-  .sr-tw img{ width:26px; height:26px; }
-  .sr-title{ font-weight:700; font-size:21px; }
-  .sr-x{ font-size:21px; opacity:.45; }
-  .sr-item{ display:flex; align-items:center; gap:12px; padding:14px 14px; border-radius:12px; font-size:21px; transition:all .3s; }
-  .sr-tag{ font-size:15px; padding:3px 11px; border-radius:8px; font-weight:700; white-space:nowrap; }
-  .sr-tag-ai{ background:rgba(67,97,238,.16); color:var(--ind); }
-  .sr-it-title{ flex:1; }
-  .sr-it-trg{ font-family:ui-monospace,monospace; font-size:17px; color:#94a3b8; }
-  .sr-item.hi{ background:rgba(67,97,238,.15); outline:3px solid var(--ind); outline-offset:-3px; }
-  .sr-check{ display:flex; align-items:center; gap:11px; margin-top:14px; padding-top:15px; border-top:1px solid rgba(127,127,127,.16); font-size:20px; font-weight:600; }
-  .sr-cb{ width:22px; height:22px; border-radius:6px; border:2.5px solid var(--ind); display:inline-flex; align-items:center; justify-content:center; color:var(--ind); font-size:15px; }
+/* S1 INTRO */
+.intro-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:38px}
+.iburst{display:flex;align-items:center;gap:28px;opacity:0;transform:scale(.88);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.iburst.show{opacity:1;transform:scale(1)}
+.iburst-icon{width:124px;height:124px;border-radius:28px;box-shadow:0 16px 50px rgba(67,97,238,.4)}
+.iburst-name{font-size:128px;font-weight:900;color:var(--ind-deep);letter-spacing:-5px;line-height:1}
+.itagline{font-size:50px;font-weight:700;color:var(--ind);opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;text-align:center;line-height:1.3}
+.itagline.show{opacity:1;transform:translateY(0)}
+.ipills{display:flex;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.ipills.show{opacity:1;transform:translateY(0)}
+.ipill{background:rgba(67,97,238,.1);border:1.5px solid rgba(67,97,238,.35);color:var(--ind);font-size:28px;font-weight:700;padding:12px 34px;border-radius:100px}
 
-  .sr-launcher{ width:54px; height:54px; border-radius:50%; background:#fff; border:1px solid rgba(127,127,127,.18); box-shadow:0 6px 22px rgba(0,0,0,.28); display:flex; align-items:center; justify-content:center; padding:8px; }
-  .sr-launcher img{ width:100%; height:100%; object-fit:contain; }
-  .sr-spinner{ width:46px; height:46px; border-radius:50%; border:5px solid rgba(67,97,238,.25); border-top-color:var(--ind); animation:spin .8s linear infinite; }
-  @keyframes spin{ to{ transform:rotate(360deg);} }
-  .sr-result-box{ border:1px solid var(--border); border-radius:12px; padding:16px 18px; font-size:23px; color:var(--text); line-height:1.6; background:#fcfcfd; }
-  .sr-actions{ display:flex; gap:11px; margin-top:15px; }
-  .sr-btn{ padding:12px 22px; border-radius:11px; font-size:19px; border:1px solid rgba(127,127,127,.3); color:#1a1a1a; }
-  .sr-btn-p{ background:var(--ind); color:#fff; border-color:var(--ind); font-weight:600; }
+/* S2 PROBLEM */
+.prob-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;padding:0 150px}
+.prob-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.prob-head.show{opacity:1;transform:translateY(0)}
+.prob-eyebrow{font-size:20px;font-weight:700;letter-spacing:.14em;color:var(--ind);margin-bottom:10px}
+.prob-h{font-size:68px;font-weight:900;color:var(--t1);line-height:1.2}
+.prob-h em{color:var(--ind);font-style:normal}
+.prob-cards{display:flex;gap:30px;width:100%;max-width:1500px;opacity:0;transform:translateY(28px);transition:opacity .6s .15s,transform .6s .15s}
+.prob-cards.show{opacity:1;transform:translateY(0)}
+.prob-card{flex:1;border-radius:22px;padding:36px 44px;display:flex;flex-direction:column;gap:18px}
+.prob-card.bad{background:#f4f5fa;border:1.5px solid #DcdfEC}
+.prob-card.good{background:#EEF1FF;border:1.5px solid rgba(67,97,238,.4)}
+.pcard-title{font-size:28px;font-weight:800;color:#9499b8;margin-bottom:2px}
+.pcard-title.good{color:var(--ind)}
+.pitem{display:flex;align-items:flex-start;gap:14px;font-size:25px;font-weight:500;color:var(--t3);line-height:1.5}
+.pitem.good{color:var(--t2)}
+.pitem-icon{font-size:27px;flex-shrink:0;margin-top:1px}
 
-  /* ===== S1 Intro ===== */
-  #s1{ background:linear-gradient(135deg,#eef2ff,#e0e7ff); flex-direction:column; gap:48px; }
-  #s1 .logo-row{ display:flex; align-items:center; gap:40px; opacity:0; transform:translateY(40px); }
-  #s1 .logo-icon{ width:150px; height:150px; border-radius:36px; box-shadow:0 0 90px rgba(67,97,238,.35); overflow:hidden; }
-  #s1 .logo-icon img{ width:100%; height:100%; object-fit:cover; }
-  #s1 .logo-text{ font-size:118px; font-weight:900; color:var(--ind-800); letter-spacing:-4px; }
-  #s1 .tagline{ font-size:50px; font-weight:600; color:var(--sub); opacity:0; transform:translateY(30px); text-align:center; line-height:1.4; }
-  #s1 .tagline .ind{ font-weight:800; }
+/* S3 STEPS */
+.steps-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px}
+.steps-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.steps-head.show{opacity:1;transform:translateY(0)}
+.steps-eyebrow{font-size:20px;font-weight:700;letter-spacing:.14em;color:var(--ind);margin-bottom:10px}
+.steps-h{font-size:76px;font-weight:900;color:var(--t1);line-height:1.1}
+.steps-h em{color:var(--ind);font-style:normal}
+.steps-row{display:flex;gap:36px;max-width:1560px;width:100%;padding:0 160px}
+.step-card{flex:1;background:#fff;border:1.5px solid var(--dv);border-radius:22px;padding:38px 40px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 4px 24px rgba(67,97,238,.08)}
+.step-card.show{opacity:1;transform:translateY(0)}
+.step-num{font-size:18px;font-weight:800;color:var(--ind);letter-spacing:.1em}
+.step-ico{font-size:54px;line-height:1}
+.step-ttl{font-size:32px;font-weight:800;color:var(--t1)}
+.step-desc{font-size:21px;color:var(--t2);line-height:1.55}
 
-  /* ===== S2 Problem (copy-paste round trip) ===== */
-  #s2{ background:linear-gradient(135deg,#fff7ed,#fef2f2); flex-direction:column; gap:0; }
-  #s2 .s2-title{ font-size:62px; font-weight:800; color:var(--text); text-align:center; line-height:1.4; opacity:0; transform:translateY(40px); }
-  #s2 .s2-title .red{ color:#dc2626; }
-  #s2 .rt{ display:flex; align-items:center; justify-content:center; gap:50px; margin-top:70px; }
-  #s2 .rt-card{ width:440px; background:#fff; border-radius:22px; box-shadow:0 26px 70px rgba(0,0,0,.10); overflow:hidden; opacity:0; transform:translateY(30px); border:1px solid #eee; }
-  #s2 .rt-head{ height:54px; display:flex; align-items:center; padding:0 22px; font-size:21px; font-weight:700; gap:10px; }
-  #s2 .rt-head.app{ background:#f1f5f9; color:#475569; }
-  #s2 .rt-head.ai{ background:#ede9fe; color:#6d28d9; }
-  #s2 .rt-body{ padding:26px 24px; font-size:23px; color:var(--text); line-height:1.7; min-height:150px; }
-  #s2 .rt-arrow{ font-size:60px; color:#f97316; opacity:0; }
-  #s2 .rt-arrow.back{ transform:scaleX(-1); }
-  #s2 .s2-sigh{ font-size:40px; color:#dc2626; font-weight:700; margin-top:54px; opacity:0; transform:translateY(20px); }
+/* DEMO stage: browser window slides L/R */
+.demo-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.demo-stage.show{opacity:1}
+.win{background:#fff;border-radius:20px;box-shadow:0 36px 100px rgba(20,22,58,.3),0 0 0 1px rgba(67,97,238,.1);overflow:hidden}
+.device{position:absolute;width:880px;height:600px;top:240px;left:520px;transition:left .7s cubic-bezier(.16,1,.3,1)}
+.device.left{left:120px}.device.right{left:920px}
+.win-bar{height:56px;background:#f1f3f9;display:flex;align-items:center;gap:9px;padding:0 22px;border-bottom:1px solid #e3e6f0;flex-shrink:0}
+.dot{width:15px;height:15px;border-radius:50%}.dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
+.url{flex:1;height:36px;background:#fff;border:1px solid #e3e6f0;border-radius:10px;margin-left:16px;display:flex;align-items:center;padding:0 20px;font-size:18px;color:#9499b8}
+.ext-ico{width:30px;height:30px;margin-left:14px}
+.win-body{position:relative;height:544px}
+.screen{position:absolute;inset:0;display:none}
+.screen.show{display:block}
+.sel{background:rgba(67,97,238,.22);border-radius:4px;padding:2px 4px}
 
-  /* ===== Demo scenes shared layout ===== */
-  .demo-wrap{ display:flex; align-items:center; gap:90px; padding:0 110px; width:100%; }
-  .demo-left{ flex:0 0 540px; }
-  .demo-badge{ display:inline-flex; align-items:center; gap:12px; background:var(--ind-100); border:1px solid var(--ind-200); padding:13px 30px; border-radius:100px; font-size:24px; color:var(--ind-deep); font-weight:700; opacity:0; }
-  .demo-h{ font-size:64px; font-weight:800; color:var(--text); line-height:1.3; margin-top:28px; opacity:0; transform:translateX(-40px); }
-  .demo-h .ind{ color:var(--ind); }
-  .demo-p{ font-size:28px; color:var(--sub); line-height:1.7; margin-top:24px; opacity:0; }
-  .demo-p code{ font-family:ui-monospace,monospace; background:#fff; border:1px solid var(--border); border-radius:8px; padding:2px 12px; color:var(--ind-deep); }
-  .demo-right{ flex:1; display:flex; justify-content:center; align-items:center; position:relative; }
+/* extension popover (within window) */
+.srp{width:380px;background:#fff;border-radius:16px;padding:16px;border:1px solid rgba(127,127,127,.14);box-shadow:0 20px 60px rgba(20,22,58,.3)}
+.srh{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.srtw{display:flex;align-items:center;gap:8px}.srtw img{width:24px;height:24px}
+.srt{font-weight:700;font-size:19px;color:#1a1a1a}.srx{font-size:18px;opacity:.45}
+.sri{display:flex;align-items:center;gap:11px;padding:12px 12px;border-radius:11px;font-size:19px;color:#1a1a1a;transition:all .3s}
+.sri.hi{background:rgba(67,97,238,.15);outline:3px solid var(--ind);outline-offset:-3px}
+.srtag{font-size:14px;padding:3px 10px;border-radius:7px;font-weight:700;background:rgba(67,97,238,.16);color:var(--ind)}
+.srtt{flex:1}.srtg{font-family:ui-monospace,monospace;font-size:15px;color:#9499b8}
+.srchk{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:13px;border-top:1px solid rgba(127,127,127,.14);font-size:18px;font-weight:600;color:#1a1a1a}
+.srcb{width:20px;height:20px;border-radius:5px;border:2.5px solid var(--ind);display:inline-flex;align-items:center;justify-content:center;color:var(--ind);font-size:13px}
+.srl{width:50px;height:50px;border-radius:50%;background:#fff;border:1px solid rgba(127,127,127,.16);box-shadow:0 6px 22px rgba(20,22,58,.26);display:flex;align-items:center;justify-content:center;padding:7px}
+.srl img{width:100%;height:100%;object-fit:contain}
+.spin{width:42px;height:42px;border-radius:50%;border:5px solid rgba(67,97,238,.25);border-top-color:var(--ind);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.srbox{border:1px solid var(--dv);border-radius:12px;padding:15px 17px;font-size:22px;color:var(--t1);line-height:1.6;background:#fcfcff}
+.sracts{display:flex;gap:11px;margin-top:14px}
+.srbtn{padding:11px 22px;border-radius:11px;font-size:18px;border:1px solid rgba(127,127,127,.28);color:#1a1a1a}
+.srbtn.p{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
+.chip{font-size:18px;padding:9px 22px;border-radius:999px;border:1px solid var(--dv);color:var(--t1)}
+.chip.on{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
+.kbd{display:inline-flex;align-items:center;font-family:ui-monospace,monospace;font-size:22px;background:#fff;border:1px solid #cbd2ee;border-bottom-width:4px;border-radius:10px;padding:7px 15px;color:var(--t1);font-weight:700}
 
-  #s3{ background:linear-gradient(135deg,#eef2ff,#f8fafc); }
-  #s4{ background:linear-gradient(135deg,#f8fafc,#e0e7ff); }
-  #s5{ background:linear-gradient(135deg,#ecfdf5,#e0e7ff); }
+/* CALLOUT (dark) */
+.callout{position:absolute;top:50%;background:#1e1b4b;border:1.5px solid rgba(99,102,241,.4);border-radius:20px;padding:38px 46px;width:640px;opacity:0;transition:opacity .5s,transform .5s;pointer-events:none}
+.callout.side-left{left:90px;transform:translateY(calc(-50% + 20px))}
+.callout.side-left.show{opacity:1;transform:translateY(-50%)}
+.callout.side-right{right:90px;transform:translateY(calc(-50% + 20px))}
+.callout.side-right.show{opacity:1;transform:translateY(-50%)}
+.co-tag{display:inline-block;font-size:17px;font-weight:700;letter-spacing:.1em;color:var(--ind-pale);margin-bottom:14px}
+.co-ttl{font-size:36px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.25}
+.co-desc{font-size:21px;color:rgba(255,255,255,.72);line-height:1.6}
 
-  /* kbd */
-  .kbd{ display:inline-flex; align-items:center; font-family:ui-monospace,monospace; font-size:24px; background:#fff; border:1px solid #cbd5e1; border-bottom-width:4px; border-radius:10px; padding:8px 16px; color:var(--text); font-weight:700; }
+/* S5 FEATURES */
+.feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FBFBFF 0%,#F2F4FF 50%,#E6EAFF 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.feat-scene.show{opacity:1}
+.fwrap{display:flex;flex-direction:column;align-items:center;gap:40px;width:92%;max-width:1700px}
+.fhead{text-align:center;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.fhead.show{opacity:1;transform:translateY(0)}
+.fhead-lbl{display:inline-block;font-size:20px;font-weight:800;color:var(--ind);letter-spacing:.14em;margin-bottom:10px}
+.fhead h2{font-size:72px;font-weight:900;color:var(--t1);line-height:1.2}
+.fhead h2 em{color:var(--ind);font-style:normal}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%}
+.fcard{background:#fff;border:1px solid var(--dv);border-radius:18px;padding:30px 32px;display:flex;flex-direction:column;gap:10px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s;box-shadow:0 2px 14px rgba(20,22,58,.06)}
+.fcard.show{opacity:1;transform:translateY(0)}
+.fcard-ico{font-size:40px;line-height:1}
+.fcard-ttl{font-size:25px;font-weight:700;color:var(--t1)}
+.fcard-txt{font-size:18px;color:var(--t2);line-height:1.5}
 
-  /* ===== S6 Features ===== */
-  #s6{ background:linear-gradient(135deg,#f8fafc,#eef2ff); flex-direction:column; gap:60px; }
-  #s6 .feat-title{ font-size:66px; font-weight:800; color:var(--text); text-align:center; opacity:0; }
-  #s6 .feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px; max-width:1620px; width:90%; }
-  .feat-item{ background:#fff; border:1px solid var(--border); border-radius:26px; padding:46px 38px; text-align:center; opacity:0; transform:translateY(40px); box-shadow:0 6px 28px rgba(0,0,0,.05); }
-  .feat-item .fe{ font-size:66px; margin-bottom:22px; display:block; }
-  .feat-item h4{ font-size:30px; font-weight:700; color:var(--text); margin-bottom:14px; }
-  .feat-item p{ font-size:21px; color:var(--sub); line-height:1.6; }
-
-  /* ===== S7 CTA ===== */
-  #s7{ background:linear-gradient(135deg,#eef2ff,#c7d2fe); flex-direction:column; gap:48px; }
-  #s7 .cta-title{ font-size:78px; font-weight:900; color:var(--ind-800); text-align:center; line-height:1.25; opacity:0; transform:translateY(40px); }
-  #s7 .cta-checks{ display:flex; flex-direction:column; gap:24px; opacity:0; }
-  .cta-check{ display:flex; align-items:center; gap:20px; font-size:34px; color:var(--text); font-weight:500; }
-  .cta-check .cc{ width:50px; height:50px; border-radius:50%; background:var(--ind); display:flex; align-items:center; justify-content:center; font-size:26px; color:#fff; font-weight:800; }
-  #s7 .cta-btn{ display:inline-flex; align-items:center; gap:18px; background:var(--ind); color:#fff; font-size:32px; font-weight:800; padding:30px 68px; border-radius:22px; box-shadow:0 10px 38px rgba(67,97,238,.34); opacity:0; transform:translateY(20px); }
-  #s7 .cta-note{ font-size:24px; color:var(--sub); opacity:0; }
+/* S6 CTA */
+.cta-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#3A0CA3 0%,#4361EE 55%,#4895EF 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.cta-scene.show{opacity:1}
+.cta-inner{display:flex;flex-direction:column;align-items:center;gap:46px}
+.cta-ttl{font-size:88px;font-weight:900;color:#fff;text-align:center;line-height:1.18;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.cta-ttl.show{opacity:1;transform:translateY(0)}
+.cta-ttl em{color:#C7D2FE;font-style:normal}
+.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border:none;border-radius:18px;padding:24px 56px;box-shadow:0 10px 50px rgba(0,0,0,.28);opacity:0;transform:translateY(18px);transition:opacity .6s .2s,transform .6s .2s}
+.cta-btn.show{opacity:1;transform:translateY(0)}
+.cta-btn svg{width:36px;height:36px;fill:var(--ind)}
+.cta-btn-txt{font-size:34px;font-weight:800;color:var(--ind-deep)}
+.cta-note{font-size:28px;color:rgba(255,255,255,.78);opacity:0;transition:opacity .5s .4s}
+.cta-note.show{opacity:1}
 </style>
 </head>
 <body>
+<div class="bg-base"></div>
+<div class="bg-glow"></div>
 
-<!-- S1 -->
-<div class="scene active" id="s1">
-  <div style="display:flex; flex-direction:column; align-items:center; gap:34px;">
-    <div class="logo-row" id="e1a"><div class="logo-icon"><img src="icons/icon128.png" alt="SendReady"></div><div class="logo-text">SendReady</div></div>
-    <div class="tagline" id="e1b">選択・入力中のテキストを<br><span class="ind">AIでワンタップ変換</span></div>
+<!-- S1 INTRO -->
+<div class="scene" id="s1">
+  <div class="intro-wrap">
+    <div class="iburst" id="ib"><img class="iburst-icon" src="icons/icon128.png" alt="SendReady"><span class="iburst-name">SendReady</span></div>
+    <div class="itagline" id="it">選択・入力中のテキストを、AIでワンタップ変換</div>
+    <div class="ipills" id="ip"><span class="ipill">完全無料</span><span class="ipill">Chrome拡張</span><span class="ipill">AI-Powered</span></div>
   </div>
 </div>
 
-<!-- S2: copy-paste round trip pain -->
+<!-- S2 PROBLEM -->
 <div class="scene" id="s2">
-  <div style="display:flex; flex-direction:column; align-items:center; width:100%;">
-    <div class="s2-title" id="e2a">敬語に直す、英語に訳す、要約する…<br>そのたびに<span class="red">別タブのAIへコピペ往復</span>。</div>
-    <div class="rt">
-      <div class="rt-card" id="e2b1">
-        <div class="rt-head app">💬 チャット入力</div>
-        <div class="rt-body">明日の打ち合わせ10時で大丈夫です。よろしく。</div>
-      </div>
-      <div class="rt-arrow" id="e2arr1">→</div>
-      <div class="rt-card" id="e2b2">
-        <div class="rt-head ai">🤖 別のAIツール</div>
-        <div class="rt-body" style="color:var(--light);">「これを丁寧な敬語にして…」と貼り付けて指示</div>
-      </div>
-      <div class="rt-arrow back" id="e2arr2">→</div>
+  <div class="prob-wrap">
+    <div class="prob-head" id="ph2">
+      <div class="prob-eyebrow">THE PROBLEM</div>
+      <div class="prob-h">「この言い方で<em>大丈夫かな</em>…」</div>
     </div>
-    <div class="s2-sigh" id="e2sigh">😮‍💨 コピー → 指示 → 戻して貼り付け。毎回これ。</div>
+    <div class="prob-cards" id="pc">
+      <div class="prob-card bad">
+        <div class="pcard-title">😮‍💨 SendReady なし</div>
+        <div class="pitem"><span class="pitem-icon">📋</span>別タブのAIへコピペして指示して、また戻す</div>
+        <div class="pitem"><span class="pitem-icon">⏰</span>敬語・翻訳・要約のたびに往復で時間のムダ</div>
+        <div class="pitem"><span class="pitem-icon">😵</span>貼り間違い・消し忘れのミスも起きる</div>
+      </div>
+      <div class="prob-card good">
+        <div class="pcard-title good">✨ SendReady あり</div>
+        <div class="pitem good"><span class="pitem-icon">🖱️</span>選択 or トリガーでその場のままワンタップ</div>
+        <div class="pitem good"><span class="pitem-icon">🤖</span>丁寧語・翻訳・要約・返信をAIが即変換</div>
+        <div class="pitem good"><span class="pitem-icon">⚡</span>定型文はトリガーで一瞬・回数無制限</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- S3: Demo A — selection toolbar + AI preset -->
+<!-- S3 STEPS -->
 <div class="scene" id="s3">
-  <div class="demo-wrap">
-    <div class="demo-left">
-      <div class="demo-badge" id="e3a">🖱️ 選択ツールバー</div>
-      <div class="demo-h" id="e3b">選択するだけで、<br><span class="ind">変換メニュー</span>が出る。</div>
-      <div class="demo-p" id="e3c">文章を選ぶと現れるアイコンをタップ。<br>AIプリセットを選ぶだけで変換完了。</div>
-    </div>
-    <div class="demo-right">
-      <!-- stage: floating UI is a SIBLING of the window so overflow:hidden never clips it -->
-      <div style="position:relative; width:760px;">
-        <div class="win" id="e3win" style="width:760px; opacity:0; transform:translateX(50px);">
-          <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
-          <div style="padding:40px 44px;">
-            <div style="font-size:21px; color:var(--sub); padding:14px 0; border-bottom:1px solid var(--border);">To: client@example.com</div>
-            <div style="font-size:24px; font-weight:600; padding:18px 0; border-bottom:1px solid var(--border);">打ち合わせの件</div>
-            <div style="font-size:25px; line-height:2; padding:28px 2px; min-height:150px;"><span id="e3sel">明日の打ち合わせ10時で大丈夫です。よろしく。</span><span id="e3applied" style="color:var(--ind); font-weight:600; display:none;">明日の打ち合わせは10時で問題ございません。何卒よろしくお願いいたします。</span></div>
-          </div>
-        </div>
-        <!-- launcher (floats over the window, near the selection) -->
-        <div class="sr-launcher" id="e3launch" style="position:absolute; left:300px; top:232px; opacity:0; transform:scale(.5); z-index:3;"><img src="icons/mark.png"></div>
-        <!-- popover menu -->
-        <div class="sr-panel" id="e3menu" style="position:absolute; left:300px; top:286px; opacity:0; transform:translateY(10px); z-index:4;">
-          <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
-          <div class="sr-item" id="e3p1"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">丁寧に 💝</span><span class="sr-it-trg">//p</span></div>
-          <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">英語に翻訳 🌏</span><span class="sr-it-trg">//en</span></div>
-          <div class="sr-item"><span class="sr-tag sr-tag-ai">AI</span><span class="sr-it-title">要約 📝</span><span class="sr-it-trg">//sum</span></div>
-          <div class="sr-check"><span class="sr-cb">✓</span><span>↩ 返信を作成</span></div>
-        </div>
-        <!-- loading -->
-        <div id="e3load" style="position:absolute; left:300px; top:286px; width:430px; opacity:0; background:#fff; border-radius:18px; padding:42px; box-shadow:0 24px 70px rgba(0,0,0,.30); display:flex; flex-direction:column; align-items:center; gap:18px; z-index:5;"><div class="sr-spinner"></div><div style="font-size:20px; color:var(--sub);">変換中…</div></div>
-      </div>
+  <div class="steps-wrap">
+    <div class="steps-head" id="sh3"><div class="steps-eyebrow">HOW IT WORKS</div><div class="steps-h"><em>3ステップ</em>で完了</div></div>
+    <div class="steps-row">
+      <div class="step-card" id="st1"><div class="step-num">STEP 01</div><div class="step-ico">🖱️</div><div class="step-ttl">選択 or 入力</div><div class="step-desc">文章を選ぶか、入力欄で<br>トリガーを打つ</div></div>
+      <div class="step-card" id="st2"><div class="step-num">STEP 02</div><div class="step-ico">🤖</div><div class="step-ttl">AIが変換</div><div class="step-desc">丁寧語・翻訳・要約・返信<br>定型文はその場で展開</div></div>
+      <div class="step-card" id="st3"><div class="step-num">STEP 03</div><div class="step-ico">✅</div><div class="step-ttl">適用 / コピー</div><div class="step-desc">ワンタップで入力欄へ反映<br>読み取り専用ならコピー</div></div>
     </div>
   </div>
 </div>
 
-<!-- S4: Demo B — inline trigger -->
-<div class="scene" id="s4">
-  <div class="demo-wrap">
-    <div class="demo-left">
-      <div class="demo-badge" id="e4a">⌨️ インライントリガー</div>
-      <div class="demo-h" id="e4b">打って、<span class="ind">Enter</span>。<br>それだけ。</div>
-      <div class="demo-p" id="e4c"><code>//en 文章</code> のように前置トリガー＋文章を書いてEnter。AIが変換して、その場で置き換えます。</div>
-    </div>
-    <div class="demo-right">
-      <div style="display:flex; flex-direction:column; align-items:center; gap:30px;">
-        <div class="win" id="e4win" style="width:680px; opacity:0; transform:translateY(30px);">
-          <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div><img src="icons/icon48.png" class="ext-ico"></div>
-          <div style="padding:40px;">
-            <div style="border:3px solid var(--ind); border-radius:16px; padding:24px 26px; font-size:28px; min-height:120px; line-height:1.6;">
-              <span id="e4typed" style="font-family:ui-monospace,monospace;"></span><span id="e4caret" style="display:inline-block; width:3px; height:34px; background:var(--ind); vertical-align:-6px;"></span>
+<!-- DEMO -->
+<div class="demo-stage" id="ds">
+  <div class="win device" id="dev">
+    <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url" id="durl">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+    <div class="win-body">
+
+      <!-- Screen A: selection toolbar -->
+      <div class="screen" id="scA">
+        <div style="padding:34px 40px;">
+          <div style="font-size:19px;color:var(--t3);padding:12px 0;border-bottom:1px solid var(--dv);">To: client@example.com</div>
+          <div style="font-size:22px;font-weight:600;padding:16px 0;border-bottom:1px solid var(--dv);">打ち合わせの件</div>
+          <div style="font-size:23px;line-height:1.9;padding:24px 2px;"><span id="aSel">明日の打ち合わせ10時で大丈夫です。よろしく。</span><span id="aApplied" style="color:var(--ind);font-weight:600;display:none;">明日の打ち合わせは10時で問題ございません。何卒よろしくお願いいたします。</span></div>
+        </div>
+        <div class="srl" id="aLaunch" style="position:absolute;left:300px;top:218px;opacity:0;transform:scale(.5);transition:opacity .35s,transform .35s;"><img src="icons/mark.png"></div>
+        <div class="srp" id="aMenu" style="position:absolute;left:300px;top:272px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;">
+          <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">SendReady</span></div><span class="srx">✕</span></div>
+          <div class="sri" id="aP1"><span class="srtag">AI</span><span class="srtt">丁寧に 💝</span><span class="srtg">//p</span></div>
+          <div class="sri"><span class="srtag">AI</span><span class="srtt">英語に翻訳 🌏</span><span class="srtg">//en</span></div>
+          <div class="sri"><span class="srtag">AI</span><span class="srtt">要約 📝</span><span class="srtg">//sum</span></div>
+          <div class="srchk"><span class="srcb">✓</span><span>↩ 返信を作成</span></div>
+        </div>
+        <div id="aLoad" style="position:absolute;left:300px;top:272px;width:380px;opacity:0;transition:opacity .3s;background:#fff;border-radius:16px;padding:44px;box-shadow:0 20px 60px rgba(20,22,58,.3);display:flex;flex-direction:column;align-items:center;gap:18px;"><div class="spin"></div><div style="font-size:19px;color:var(--t3);">変換中…</div></div>
+      </div>
+
+      <!-- Screen B: inline trigger -->
+      <div class="screen" id="scB">
+        <div style="padding:40px 44px;display:flex;flex-direction:column;gap:24px;">
+          <div>
+            <div style="font-size:14px;color:var(--ind);font-weight:700;margin-bottom:10px;">INPUT</div>
+            <div style="border:3px solid var(--ind);border-radius:14px;padding:20px 22px;font-size:26px;min-height:104px;line-height:1.5;"><span id="bTyped" style="font-family:ui-monospace,monospace;"></span><span id="bCaret" style="display:inline-block;width:3px;height:30px;background:var(--ind);vertical-align:-5px;"></span></div>
+            <div style="margin-top:16px;display:flex;align-items:center;gap:13px;font-size:19px;color:var(--t3);"><span class="kbd" id="bEnter" style="opacity:.4;">Enter ⏎</span> で変換</div>
+          </div>
+          <div class="srp" id="bRes" style="opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s;">
+            <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">SendReady</span></div><span class="srx">✕</span></div>
+            <div class="srbox">I'll be there at 10 tomorrow.</div>
+            <div class="sracts"><span class="srbtn p">適用</span><span class="srbtn">コピー</span><span class="srbtn">再生成</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen C: reply -->
+      <div class="screen" id="scC">
+        <div style="padding:30px 36px;display:flex;gap:26px;">
+          <div style="flex:0 0 360px;">
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px;"><div style="width:46px;height:46px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ind);font-size:20px;">田</div><div><div style="font-weight:700;font-size:19px;">田中さん</div><div style="font-size:15px;color:var(--t3);">14:32</div></div></div>
+            <div style="font-size:20px;line-height:1.8;"><span class="sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span></div>
+          </div>
+          <div class="srp" id="cPanel" style="flex:1;">
+            <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">↩ 返信を作成</span></div><span class="srx">✕</span></div>
+            <div style="font-size:16px;color:var(--t3);margin-bottom:10px;">文体を選択</div>
+            <div style="display:flex;gap:9px;margin-bottom:16px;"><span class="chip on" id="cChip">丁寧</span><span class="chip">カジュアル</span><span class="chip">簡潔</span></div>
+            <div id="cGen" style="display:flex;align-items:center;justify-content:center;gap:14px;min-height:120px;color:var(--t3);font-size:19px;opacity:0;transition:opacity .3s;"><div class="spin" style="width:32px;height:32px;border-width:4px;"></div>生成中…</div>
+            <div id="cOut" style="display:none;">
+              <div class="srbox" style="font-size:18px;">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に貴社へ伺います。よろしくお願いいたします。</div>
+              <div class="sracts"><span class="srbtn p">コピー</span><span class="srbtn">再生成</span></div>
             </div>
-            <div style="margin-top:20px; display:flex; align-items:center; gap:14px; font-size:22px; color:var(--sub);"><span class="kbd" id="e4enter" style="opacity:.4;">Enter ⏎</span> で変換</div>
-          </div>
-        </div>
-        <div class="sr-panel" id="e4res" style="width:560px; opacity:0; transform:translateY(20px);">
-          <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">SendReady</span></div><span class="sr-x">✕</span></div>
-          <div class="sr-result-box">I'll be there at 10 tomorrow.</div>
-          <div class="sr-actions"><span class="sr-btn sr-btn-p">適用</span><span class="sr-btn">コピー</span><span class="sr-btn">再生成</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- S5: Demo C — reply -->
-<div class="scene" id="s5">
-  <div class="demo-wrap">
-    <div class="demo-left">
-      <div class="demo-badge" id="e5a" style="background:#d1fae5; border-color:#a7f3d0; color:#047857;">↩ 返信を作成</div>
-      <div class="demo-h" id="e5b">受け取った文を選んで、<br><span style="color:var(--snip);">返信を生成</span>。</div>
-      <div class="demo-p" id="e5c">文体を選んでひと言指示するだけ。<br>そのままコピーして返信欄へ貼れます。</div>
-    </div>
-    <div class="demo-right">
-      <div style="display:flex; align-items:flex-start; gap:40px;">
-        <div class="win" id="e5win" style="width:520px; opacity:0; transform:translateX(-40px);">
-          <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
-          <div style="padding:34px 36px;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;"><div style="width:48px; height:48px; border-radius:50%; background:var(--ind-100); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--ind); font-size:22px;">田</div><div><div style="font-weight:700; font-size:21px;">田中さん</div><div style="font-size:16px; color:var(--light);">14:32</div></div></div>
-            <div style="font-size:22px; line-height:1.9;"><span class="sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span></div>
-          </div>
-        </div>
-        <div class="sr-panel" id="e5panel" style="width:440px; opacity:0; transform:translateX(40px);">
-          <div class="sr-header"><div class="sr-tw"><img src="icons/mark.png"><span class="sr-title">↩ 返信を作成</span></div><span class="sr-x">✕</span></div>
-          <div style="font-size:17px; color:var(--sub); margin-bottom:10px;">文体を選択</div>
-          <div style="display:flex; gap:9px; margin-bottom:16px;" id="e5chips">
-            <span class="e5chip" style="font-size:19px; padding:8px 20px; border-radius:999px; border:1px solid var(--border); color:var(--text);">丁寧</span>
-            <span class="e5chip" style="font-size:19px; padding:8px 20px; border-radius:999px; border:1px solid var(--border); color:var(--text);">カジュアル</span>
-            <span class="e5chip" style="font-size:19px; padding:8px 20px; border-radius:999px; border:1px solid var(--border); color:var(--text);">簡潔</span>
-          </div>
-          <div id="e5gen" style="display:flex; align-items:center; justify-content:center; gap:14px; min-height:130px; color:var(--sub); font-size:20px; opacity:0;"><div class="sr-spinner" style="width:34px;height:34px;border-width:4px;"></div>生成中…</div>
-          <div id="e5out" style="display:none;">
-            <div class="sr-result-box" style="font-size:20px;">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に貴社へ伺います。よろしくお願いいたします。</div>
-            <div class="sr-actions"><span class="sr-btn sr-btn-p">コピー</span><span class="sr-btn">再生成</span></div>
           </div>
         </div>
       </div>
+
+      <!-- Screen D: snippet -->
+      <div class="screen" id="scD">
+        <div style="padding:40px 44px;display:flex;flex-direction:column;gap:22px;">
+          <div>
+            <div style="font-size:14px;color:var(--snip);font-weight:700;margin-bottom:10px;">定型文トリガー</div>
+            <div style="border:3px solid var(--snip);border-radius:14px;padding:20px 22px;font-size:26px;min-height:80px;"><span id="dTyped" style="font-family:ui-monospace,monospace;color:var(--snip);font-weight:700;"></span><span id="dCaret" style="display:inline-block;width:3px;height:30px;background:var(--snip);vertical-align:-5px;"></span></div>
+            <div style="margin-top:14px;display:flex;align-items:center;gap:13px;font-size:19px;color:var(--t3);"><span class="kbd" id="dSpace" style="opacity:.4;">Space</span> で確定 → 即展開</div>
+          </div>
+          <div id="dOut" style="opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;border:1px solid var(--dv);border-radius:14px;padding:22px;background:#fcfcff;font-size:21px;line-height:1.7;color:var(--t1);">━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com 　📱 090-1234-5678</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="callout side-left" id="co1"><div class="co-tag">DEMO 01 — 選択ツールバー</div><div class="co-ttl">選択するだけで<br>変換メニューが出る</div><div class="co-desc">文章を選ぶと現れるアイコンをタップ。AIプリセットを選ぶだけ。</div></div>
+  <div class="callout side-right" id="co2"><div class="co-tag">DEMO 02 — インライントリガー</div><div class="co-ttl">打って、Enter。<br>その場で置き換え</div><div class="co-desc">//en のように前置トリガー＋文章を書いてEnter。AIが即変換。</div></div>
+  <div class="callout side-left" id="co3"><div class="co-tag">DEMO 03 — 返信を作成</div><div class="co-ttl">受け取った文から<br>返信を生成</div><div class="co-desc">文体を選んでひと言指示するだけ。結果はコピーして返信欄へ。</div></div>
+  <div class="callout side-right" id="co4"><div class="co-tag">DEMO 04 — 定型文スニペット</div><div class="co-ttl">トリガーで<br>一瞬に展開</div><div class="co-desc">;sig を打って区切りキーで確定。AI不要・回数無制限。</div></div>
+</div>
+
+<!-- S5 FEATURES -->
+<div class="feat-scene" id="s5">
+  <div class="fwrap">
+    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>2つのエンジンで、<em>速く</em></h2></div>
+    <div class="fgrid">
+      <div class="fcard" id="fc1"><div class="fcard-ico">🤖</div><div class="fcard-ttl">AI変換プリセット</div><div class="fcard-txt">丁寧に・翻訳・要約・誤字修正</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">⚡</div><div class="fcard-ttl">定型文スニペット</div><div class="fcard-txt">トリガーで即展開・回数無制限</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">↩️</div><div class="fcard-ttl">返信を作成</div><div class="fcard-txt">受け取った文からAIが返信</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico">🎯</div><div class="fcard-ttl">3つの起動方法</div><div class="fcard-txt">ツールバー・右クリック・⌨️</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">🌏</div><div class="fcard-ttl">11言語対応</div><div class="fcard-txt">AUTO追従・アラビア語RTL</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico">🔒</div><div class="fcard-ttl">安全設計</div><div class="fcard-txt">送るのは選んだ文だけ・広告なし</div></div>
     </div>
   </div>
 </div>
 
-<!-- S6: Features -->
-<div class="scene" id="s6">
-  <div style="display:flex; flex-direction:column; align-items:center; gap:56px;">
-    <div class="feat-title" id="e6a">2つのエンジンで、書く・直す・返すを速く</div>
-    <div class="feat-grid">
-      <div class="feat-item" id="f1"><span class="fe">🤖</span><h4>AI変換プリセット</h4><p>丁寧に・翻訳・要約・誤字修正<br>選択 or トリガーで即変換</p></div>
-      <div class="feat-item" id="f2"><span class="fe">⚡</span><h4>定型文スニペット</h4><p>トリガーで即展開<br>AI不要・回数無制限</p></div>
-      <div class="feat-item" id="f3"><span class="fe">↩️</span><h4>返信を作成</h4><p>受け取った文から<br>AIが返信文を生成</p></div>
-      <div class="feat-item" id="f4"><span class="fe">🎯</span><h4>3つの起動方法</h4><p>選択ツールバー・右クリック<br>ショートカット Alt+Shift+S</p></div>
-      <div class="feat-item" id="f5"><span class="fe">🌏</span><h4>11言語対応</h4><p>主要11言語＋AUTO<br>アラビア語RTL対応</p></div>
-      <div class="feat-item" id="f6"><span class="fe">🔒</span><h4>安全設計</h4><p>送るのは選んだ文だけ<br>広告・追跡なし</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- S7: CTA -->
-<div class="scene" id="s7">
-  <div style="display:flex; flex-direction:column; align-items:center; gap:40px;">
-    <div class="cta-title" id="e7a">「送る前のひと手間」を、<br><span class="ind">AIにまかせよう。</span></div>
-    <div class="cta-checks" id="e7b">
-      <div class="cta-check"><div class="cc">✓</div> 完全無料・登録不要</div>
-      <div class="cta-check"><div class="cc">✓</div> 30秒でインストール完了</div>
-      <div class="cta-check"><div class="cc">✓</div> どんな入力欄でも使える</div>
-    </div>
-    <div class="cta-btn" id="e7c">⚡ Chromeに追加 — 無料</div>
-    <div class="cta-note" id="e7d">Chrome ウェブストアで公開予定</div>
+<!-- S6 CTA -->
+<div class="cta-scene" id="s6">
+  <div class="cta-inner">
+    <div class="cta-ttl" id="ct">「送る前のひと手間」を、<br><em>AIにまかせよう。</em></div>
+    <button class="cta-btn" id="cb">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <span class="cta-btn-txt">Chromeに追加 — 無料</span>
+    </button>
+    <div class="cta-note" id="cn">完全無料 · 登録不要 · どんな入力欄でも</div>
   </div>
 </div>
 
 <script>
-const $ = id => document.getElementById(id);
-const scenes = ['s1','s2','s3','s4','s5','s6','s7'];
-let timeline = [], timelineIndex = 0, isPaused = false, timer = null;
-let startTime = Date.now();
+const $=id=>document.getElementById(id);
+let T=[],t0=0,idx=0,tmr=null;
+function at(ms,fn){T.push([ms,fn])}
+function show(id,v){$(id).classList[v===false?'remove':'add']('show')}
+function screen(id){['scA','scB','scC','scD'].forEach(s=>$(s).classList.remove('show'));if(id)$(id).classList.add('show')}
+function devPos(p){$('dev').classList.remove('left','right');if(p)$('dev').classList.add(p)}
+function co(n,v){$('co'+n).classList[v===false?'remove':'add']('show')}
+function hideCos(){[1,2,3,4].forEach(n=>co(n,false))}
 
-function showScene(id){ scenes.forEach(s => $(s).classList.remove('active')); $(id).classList.add('active'); }
-function anim(el, styles, dur=600){ if(typeof el==='string') el=$(el); if(!el) return; el.style.transition=`all ${dur}ms cubic-bezier(0.16,1,0.3,1)`; Object.assign(el.style, styles); }
+function reset(){
+  clearTimeout(tmr);T=[];idx=0;
+  ['s1','s2','s3','s5','s6','ds'].forEach(id=>$(id).classList.remove('show'));
+  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3','fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
+  screen(null);hideCos();devPos(null);
+  // demo internal resets
+  ['aLaunch','aMenu','aLoad'].forEach(id=>$(id).style.opacity='0');
+  $('aLaunch').style.transform='scale(.5)';$('aMenu').style.transform='translateY(10px)';
+  $('aP1').classList.remove('hi');$('aSel').style.display='inline';$('aApplied').style.display='none';
+  $('bTyped').textContent='';$('bEnter').style.opacity='.4';$('bRes').style.opacity='0';$('bRes').style.transform='translateY(16px)';
+  $('cChip').classList.add('on');$('cGen').style.opacity='0';$('cGen').style.display='flex';$('cOut').style.display='none';
+  $('dTyped').textContent='';$('dSpace').style.opacity='.4';$('dOut').style.opacity='0';$('dOut').style.transform='translateY(14px)';
+}
 
 function buildTimeline(){
-  timeline = []; let t = 0;
+  let t=0;
+  // S1 INTRO (2.5s)
+  at(t,()=>show('s1'));at(t+100,()=>show('ib'));at(t+500,()=>show('it'));at(t+900,()=>show('ip'));
+  at(t+2300,()=>show('s1',false));t+=2500;
+  // S2 PROBLEM (4.5s)
+  at(t,()=>show('s2'));at(t+150,()=>show('ph2'));at(t+550,()=>show('pc'));at(t+4200,()=>show('s2',false));t+=4500;
+  // S3 STEPS (3s)
+  at(t,()=>show('s3'));at(t+150,()=>show('sh3'));at(t+500,()=>show('st1'));at(t+800,()=>show('st2'));at(t+1100,()=>show('st3'));
+  at(t+2750,()=>show('s3',false));t+=3000;
 
-  // S1 Intro
-  timeline.push([t, () => {
-    showScene('s1');
-    setTimeout(() => anim('e1a', {opacity:1, transform:'translateY(0)'}), 200);
-    setTimeout(() => anim('e1b', {opacity:1, transform:'translateY(0)'}), 650);
-  }]); t += 2800;
+  // DEMO 1: selection toolbar (4s) — window right, callout left
+  at(t,()=>{show('ds');devPos('right');$('durl').textContent='🔒 mail.google.com';screen('scA')});
+  at(t+300,()=>co(1));
+  at(t+700,()=>{$('aLaunch').style.opacity='1';$('aLaunch').style.transform='scale(1)'});
+  at(t+1300,()=>{$('aLaunch').style.opacity='0';$('aMenu').style.opacity='1';$('aMenu').style.transform='translateY(0)'});
+  at(t+2000,()=>$('aP1').classList.add('hi'));
+  at(t+2500,()=>{$('aMenu').style.opacity='0';setTimeout(()=>$('aLoad').style.opacity='1',180)});
+  at(t+3300,()=>{$('aLoad').style.opacity='0';$('aSel').style.display='none';$('aApplied').style.display='inline'});
+  at(t+3850,()=>co(1,false));t+=4000;
 
-  // S2 Problem
-  timeline.push([t, () => {
-    showScene('s2');
-    setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
-    setTimeout(() => anim('e2b1', {opacity:1, transform:'translateY(0)'}), 800);
-    setTimeout(() => anim('e2arr1', {opacity:1}), 1300);
-    setTimeout(() => anim('e2b2', {opacity:1, transform:'translateY(0)'}), 1700);
-    setTimeout(() => anim('e2arr2', {opacity:1}), 2300);
-    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 3000);
-  }]); t += 4800;
+  // DEMO 2: inline trigger (4s) — window left, callout right
+  at(t,()=>{devPos('left');$('durl').textContent='🔒 x.com';screen('scB')});
+  at(t+300,()=>co(2));
+  at(t+700,()=>{const f='//en 明日10時に伺います';let i=0;const iv=setInterval(()=>{i++;$('bTyped').textContent=f.slice(0,i);if(i>=f.length)clearInterval(iv)},70)});
+  at(t+2500,()=>{$('bEnter').style.opacity='1'});
+  at(t+2900,()=>{$('bRes').style.opacity='1';$('bRes').style.transform='translateY(0)'});
+  at(t+3850,()=>co(2,false));t+=4000;
 
-  // S3 Demo A: selection toolbar
-  timeline.push([t, () => {
-    showScene('s3');
-    setTimeout(() => anim('e3a', {opacity:1}), 150);
-    setTimeout(() => anim('e3b', {opacity:1, transform:'translateX(0)'}), 350);
-    setTimeout(() => anim('e3c', {opacity:1}), 700);
-    setTimeout(() => anim('e3win', {opacity:1, transform:'translateX(0)'}, 600), 400);
-    // launcher appears near selection
-    setTimeout(() => anim('e3launch', {opacity:1, transform:'scale(1)'}, 350), 1600);
-    // open menu
-    setTimeout(() => { anim('e3launch', {opacity:0}, 200); anim('e3menu', {opacity:1, transform:'translateY(0)'}, 350); }, 2300);
-    // highlight "丁寧に"
-    setTimeout(() => $('e3p1').classList.add('hi'), 3100);
-    // click -> loading
-    setTimeout(() => { anim('e3menu', {opacity:0}, 250); setTimeout(() => anim('e3load', {opacity:1}, 250), 200); }, 3700);
-    // result applied
-    setTimeout(() => {
-      anim('e3load', {opacity:0}, 250);
-      $('e3sel').style.display='none'; $('e3applied').style.display='inline';
-      $('e3applied').style.background='rgba(67,97,238,.10)';
-    }, 5000);
-  }]); t += 6600;
+  // DEMO 3: reply (4.5s) — window right, callout left
+  at(t,()=>{devPos('right');$('durl').textContent='🔒 mail.google.com';screen('scC')});
+  at(t+300,()=>co(3));
+  at(t+1600,()=>$('cGen').style.opacity='1');
+  at(t+3000,()=>{$('cGen').style.display='none';$('cOut').style.display='block'});
+  at(t+4300,()=>co(3,false));t+=4500;
 
-  // S4 Demo B: inline trigger
-  timeline.push([t, () => {
-    showScene('s4');
-    setTimeout(() => anim('e4a', {opacity:1}), 150);
-    setTimeout(() => anim('e4b', {opacity:1, transform:'translateX(0)'}), 350);
-    setTimeout(() => anim('e4c', {opacity:1}), 700);
-    setTimeout(() => anim('e4win', {opacity:1, transform:'translateY(0)'}, 600), 400);
-    // type
-    const full = '//en 明日10時に伺います';
-    let i = 0;
-    setTimeout(() => {
-      const iv = setInterval(() => {
-        i++; $('e4typed').textContent = full.slice(0, i);
-        if (i >= full.length) clearInterval(iv);
-      }, 75);
-    }, 1300);
-    // enter press
-    setTimeout(() => { $('e4enter').style.opacity='1'; $('e4enter').style.transform='translateY(2px)'; }, 3500);
-    // result
-    setTimeout(() => anim('e4res', {opacity:1, transform:'translateY(0)'}, 450), 3900);
-  }]); t += 5600;
+  // DEMO 4: snippet (3.5s) — window left, callout right
+  at(t,()=>{devPos('left');$('durl').textContent='🔒 mail.google.com';screen('scD')});
+  at(t+300,()=>co(4));
+  at(t+700,()=>{const f=';sig';let i=0;const iv=setInterval(()=>{i++;$('dTyped').textContent=f.slice(0,i);if(i>=f.length)clearInterval(iv)},150)});
+  at(t+1700,()=>$('dSpace').style.opacity='1');
+  at(t+2100,()=>{$('dOut').style.opacity='1';$('dOut').style.transform='translateY(0)'});
+  at(t+3200,()=>{co(4,false);show('ds',false)});t+=3500;
 
-  // S5 Demo C: reply
-  timeline.push([t, () => {
-    showScene('s5');
-    setTimeout(() => anim('e5a', {opacity:1}), 150);
-    setTimeout(() => anim('e5b', {opacity:1, transform:'translateX(0)'}), 350);
-    setTimeout(() => anim('e5c', {opacity:1}), 700);
-    setTimeout(() => anim('e5win', {opacity:1, transform:'translateX(0)'}, 600), 450);
-    setTimeout(() => anim('e5panel', {opacity:1, transform:'translateX(0)'}, 600), 750);
-    // pick style chip "丁寧"
-    setTimeout(() => { const c=document.querySelectorAll('.e5chip')[0]; c.style.background='var(--snip)'; c.style.color='#fff'; c.style.borderColor='var(--snip)'; }, 2400);
-    // generating
-    setTimeout(() => { $('e5gen').style.opacity='1'; }, 2900);
-    // result
-    setTimeout(() => { $('e5gen').style.display='none'; $('e5out').style.display='block'; }, 4300);
-  }]); t += 6200;
-
-  // S6 Features
-  timeline.push([t, () => {
-    showScene('s6');
-    setTimeout(() => anim('e6a', {opacity:1}), 200);
-    ['f1','f2','f3','f4','f5','f6'].forEach((id, i) => setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i*150));
-  }]); t += 3600;
-
-  // S7 CTA
-  timeline.push([t, () => {
-    showScene('s7');
-    setTimeout(() => anim('e7a', {opacity:1, transform:'translateY(0)'}, 600), 200);
-    setTimeout(() => anim('e7b', {opacity:1}), 700);
-    setTimeout(() => anim('e7c', {opacity:1, transform:'translateY(0)'}), 1200);
-    setTimeout(() => anim('e7d', {opacity:1}), 1700);
-  }]); t += 3500;
+  // S5 FEATURES (3s)
+  at(t,()=>show('s5'));at(t+200,()=>show('fh'));
+  ['fc1','fc2','fc3','fc4','fc5','fc6'].forEach((id,i)=>at(t+330+i*110,()=>show(id)));
+  t+=3000;
+  // S6 CTA (3.5s)
+  at(t,()=>{show('s5',false);show('s6')});at(t+200,()=>show('ct'));at(t+550,()=>show('cb'));at(t+850,()=>show('cn'));
 }
 
-function resetAll(){
-  clearTimeout(timer);
-  ['e1a','e1b','e2a','e2b1','e2b2','e2arr1','e2arr2','e2sigh',
-   'e3a','e3b','e3c','e4a','e4b','e4c','e5a','e5b','e5c','e6a','e7a','e7b','e7c','e7d'].forEach(id => {
-    const el=$(id); if(el){ el.style.transition='none'; el.style.opacity='0'; el.style.transform=''; }
-  });
-  [['e3win','translateX(50px)'],['e4win','translateY(30px)'],['e4res','translateY(20px)'],
-   ['e5win','translateX(-40px)'],['e5panel','translateX(40px)']].forEach(([id,tr])=>{ const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform=tr;} });
-  const lc=$('e3launch'); if(lc){lc.style.transition='none';lc.style.opacity='0';lc.style.transform='scale(.5)';}
-  const mn=$('e3menu'); if(mn){mn.style.transition='none';mn.style.opacity='0';mn.style.transform='translateY(10px)';}
-  const ld=$('e3load'); if(ld){ld.style.transition='none';ld.style.opacity='0';}
-  $('e3p1') && $('e3p1').classList.remove('hi');
-  $('e3sel') && ($('e3sel').style.display='inline');
-  $('e3applied') && ($('e3applied').style.display='none');
-  $('e4typed') && ($('e4typed').textContent='');
-  $('e4enter') && ($('e4enter').style.opacity='.4', $('e4enter').style.transform='');
-  document.querySelectorAll('.e5chip').forEach(c=>{ c.style.background=''; c.style.color='var(--text)'; c.style.borderColor='var(--border)'; });
-  $('e5gen') && ($('e5gen').style.opacity='0', $('e5gen').style.display='flex');
-  $('e5out') && ($('e5out').style.display='none');
-  ['f1','f2','f3','f4','f5','f6'].forEach(id=>{ const el=$(id); if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';} });
-}
-
-function runTimeline(){
-  if (timelineIndex >= timeline.length) return;
-  const [delay, fn] = timeline[timelineIndex];
-  const wait = Math.max(0, delay - (Date.now() - startTime));
-  timer = setTimeout(() => { if(!isPaused){ fn(); timelineIndex++; runTimeline(); } }, wait);
-}
-
-function start(){
-  resetAll(); startTime = Date.now(); timelineIndex = 0; isPaused = false;
-  buildTimeline(); void document.body.offsetHeight; runTimeline();
-}
-
-start();
+function run(){if(idx>=T.length)return;const[d,fn]=T[idx];const w=Math.max(0,d-(Date.now()-t0));tmr=setTimeout(()=>{fn();idx++;run()},w)}
+function start(){reset();buildTimeline();idx=0;t0=Date.now();run()}
+window.addEventListener('load',()=>start());
 </script>
 </body>
 </html>
