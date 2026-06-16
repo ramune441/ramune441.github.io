@@ -291,7 +291,10 @@
         <img src="icons/icon48.png" alt="" width="32" height="32">
         <span>SendReady</span>
       </div>
-      <a href="https://chromewebstore.google.com/" class="nav-cta" target="_blank" rel="noopener">Chromeに追加</a>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <select id="lang-select" aria-label="Language" style="font-family:inherit;font-size:13px;color:var(--text-sub);background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:7px 10px;cursor:pointer;"></select>
+        <a href="https://chromewebstore.google.com/" class="nav-cta" target="_blank" rel="noopener" data-i18n="nav_cta">Chromeに追加</a>
+      </div>
     </div>
   </nav>
 
@@ -300,17 +303,17 @@
     <div class="hero-deco"></div>
     <div class="hero-deco2"></div>
     <div class="hero-inner">
-      <div class="hero-badge"><span class="hero-badge-dot"></span><span>完全無料 · Chrome拡張</span></div>
-      <h1>その一文、送る前に。<br><span class="accent">AIがワンタップで整える。</span></h1>
-      <p class="hero-desc">メール・チャット・SNS。どんな入力欄でも、選択した文章や入力中のテキストをAIが丁寧語・翻訳・要約・返信に変換。よく使う定型文もトリガーで一瞬で展開します。</p>
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">完全無料 · Chrome拡張</span></div>
+      <h1 data-i18n-html="hero_h1">その一文、送る前に。<br><span class="accent">AIがワンタップで整える。</span></h1>
+      <p class="hero-desc" data-i18n="hero_desc">メール・チャット・SNS。どんな入力欄でも、選択した文章や入力中のテキストをAIが丁寧語・翻訳・要約・返信に変換。よく使う定型文もトリガーで一瞬で展開します。</p>
       <div class="hero-actions">
         <a href="https://chromewebstore.google.com/" class="btn-primary" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-          <span>Chromeに追加する（無料）</span>
+          <span data-i18n="hero_cta">Chromeに追加する（無料）</span>
         </a>
-        <a href="#features" class="btn-ghost">機能を見る ↓</a>
+        <a href="#features" class="btn-ghost" data-i18n="hero_ghost">機能を見る ↓</a>
       </div>
-      <p class="hero-note">30秒でインストール完了 · 登録不要 · AI変換は1日50回まで無料</p>
+      <p class="hero-note" data-i18n="hero_note">30秒でインストール完了 · 登録不要 · AI変換は1日50回まで無料</p>
       <div class="hero-screenshot">
         <img src="images/store-image-1.png" alt="SendReady — 選択・入力中のテキストをAIでワンタップ変換" loading="eager">
       </div>
@@ -321,7 +324,7 @@
   <section style="background: var(--bg);">
     <div class="section-inner section-center">
       <span class="section-tag">Video</span>
-      <h2>30秒でわかるSendReady</h2>
+      <h2 data-i18n="video_h2">30秒でわかるSendReady</h2>
       <div style="position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(20,22,58,0.1);border:1px solid var(--border);background:#000;">
         <video src="promo.webm" poster="images/store-image-1.png" controls preload="none" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;"></video>
       </div>
@@ -331,43 +334,43 @@
   <!-- ANY-INPUT BANNER -->
   <div class="anyapp-bar">
     <div class="anyapp-inner">
-      <p class="anyapp-heading">どの入力欄でも。どんな文章でも。</p>
-      <p class="anyapp-sub">メール、チャット、SNS、ドキュメント、問い合わせフォーム ── テキスト入力があるすべてのサイトでSendReadyが使えます。</p>
+      <p class="anyapp-heading" data-i18n="anyapp_h">どの入力欄でも。どんな文章でも。</p>
+      <p class="anyapp-sub" data-i18n="anyapp_sub">メール、チャット、SNS、ドキュメント、問い合わせフォーム ── テキスト入力があるすべてのサイトでSendReadyが使えます。</p>
     </div>
   </div>
 
   <!-- PROBLEM BANNER -->
   <div class="problem-banner">
-    <h2>「この言い方で大丈夫かな…」と、送信前に手が止まる。</h2>
-    <p>敬語に直す、英語に訳す、長文を要約する、返信を考える ──<br>そのたびに別タブのAIへコピペして、指示して、戻して貼り付け。<br>SendReadyなら、<span class="highlight">いま開いている入力欄のまま、選択かトリガーひとつでAIが整えます</span>。</p>
+    <h2 data-i18n="problem_h2">「この言い方で大丈夫かな…」と、送信前に手が止まる。</h2>
+    <p data-i18n-html="problem_p">敬語に直す、英語に訳す、長文を要約する、返信を考える ──<br>そのたびに別タブのAIへコピペして、指示して、戻して貼り付け。<br>SendReadyなら、<span class="highlight">いま開いている入力欄のまま、選択かトリガーひとつでAIが整えます</span>。</p>
   </div>
 
   <!-- FLOW -->
   <section class="bg-alt">
     <div class="section-inner section-center">
       <span class="section-tag">How it works</span>
-      <h2>コピペ往復は、もう不要。4ステップで完了</h2>
-      <p class="section-lead">別タブのAIに貼り付ける手間ゼロ。いまの入力欄の上で完結します。</p>
+      <h2 data-i18n="flow_h2">コピペ往復は、もう不要。4ステップで完了</h2>
+      <p class="section-lead" data-i18n="flow_lead">別タブのAIに貼り付ける手間ゼロ。いまの入力欄の上で完結します。</p>
       <div class="flow-timeline">
         <div class="flow-item">
           <div class="flow-num">1</div>
-          <h3>テキストを選択 / 入力</h3>
-          <p>変換したい文章を選択、または入力欄でトリガーを打つ</p>
+          <h3 data-i18n="flow1_h3">テキストを選択 / 入力</h3>
+          <p data-i18n="flow1_p">変換したい文章を選択、または入力欄でトリガーを打つ</p>
         </div>
         <div class="flow-item">
           <div class="flow-num">2</div>
-          <h3>起動する</h3>
-          <p>選択ツールバー・右クリック・ショートカットのいずれかで</p>
+          <h3 data-i18n="flow2_h3">起動する</h3>
+          <p data-i18n="flow2_p">選択ツールバー・右クリック・ショートカットのいずれかで</p>
         </div>
         <div class="flow-item">
           <div class="flow-num">3</div>
-          <h3>AIが変換 / 展開</h3>
-          <p>丁寧語・翻訳・要約・返信に変換。定型文はその場で展開</p>
+          <h3 data-i18n="flow3_h3">AIが変換 / 展開</h3>
+          <p data-i18n="flow3_p">丁寧語・翻訳・要約・返信に変換。定型文はその場で展開</p>
         </div>
         <div class="flow-item">
           <div class="flow-num">4</div>
-          <h3>反映する</h3>
-          <p>ワンタップで入力欄に反映。コピーだけの文章はコピー</p>
+          <h3 data-i18n="flow4_h3">反映する</h3>
+          <p data-i18n="flow4_p">ワンタップで入力欄に反映。コピーだけの文章はコピー</p>
         </div>
       </div>
     </div>
@@ -428,12 +431,16 @@
   <section class="da-sec">
     <div class="section-inner section-center">
       <span class="section-tag">See it in action</span>
-      <h2>使い方は、見たほうが早い。</h2>
-      <p class="section-lead">3つの使い方を、実際の画面で。タブで切り替えられます。</p>
+      <h2 data-i18n="demo_h2">使い方は、見たほうが早い。</h2>
+      <p class="section-lead" data-i18n="demo_lead">3つの使い方を、実際の画面で。タブで切り替えられます。</p>
+      <!-- hidden translatable strings for the JS-driven demo (captions) -->
+      <span id="cap0src" data-i18n-html="demo_cap0" hidden>文章を<b>選んで「丁寧に」を選ぶ</b>だけ。AIが整えて、その場で置き換わります。</span>
+      <span id="cap1src" data-i18n-html="demo_cap1" hidden><b>「;sig」と打ってスペース</b>。登録しておいた署名やあいさつが一瞬で出ます。</span>
+      <span id="cap2src" data-i18n-html="demo_cap2" hidden>もらった文を選んで<b>言い方を選ぶ</b>だけ。AIが返信文を作ってくれます。</span>
       <div class="da-tabs">
-        <button class="da-tab active" data-i="0"><span class="e">🤖</span>AIで変換</button>
-        <button class="da-tab" data-i="1"><span class="e">⚡</span>定型文を出す</button>
-        <button class="da-tab" data-i="2"><span class="e">↩️</span>返信を作る</button>
+        <button class="da-tab active" data-i="0"><span class="e">🤖</span><span data-i18n="demo_tab0">AIで変換</span></button>
+        <button class="da-tab" data-i="1"><span class="e">⚡</span><span data-i18n="demo_tab1">定型文を出す</span></button>
+        <button class="da-tab" data-i="2"><span class="e">↩️</span><span data-i18n="demo_tab2">返信を作る</span></button>
       </div>
       <div class="da-frame">
         <div class="da-win">
@@ -442,41 +449,41 @@
 
             <!-- Scene 0: AI変換 -->
             <div class="da-scene on" id="da0">
-              <div class="da-to">宛先：取引先さん</div>
-              <div class="da-subj">打ち合わせの件</div>
-              <div class="da-text"><span id="da0src" class="da-sel">明日10時で大丈夫です。よろしく。</span><span id="da0out" style="display:none;color:var(--ind);font-weight:600;">明日10時で問題ございません。何卒よろしくお願いいたします。</span></div>
+              <div class="da-to" data-i18n="demo_to">宛先：取引先さん</div>
+              <div class="da-subj" data-i18n="demo_subj">打ち合わせの件</div>
+              <div class="da-text"><span id="da0src" class="da-sel" data-i18n="demo_src">明日10時で大丈夫です。よろしく。</span><span id="da0out" style="display:none;color:var(--ind);font-weight:600;" data-i18n="demo_applied">明日10時で問題ございません。何卒よろしくお願いいたします。</span></div>
               <div class="da-pop" id="da0pop" style="left:286px;top:96px;">
                 <div class="da-ph"><img src="icons/mark.png"><b>SendReady</b><span class="x">✕</span></div>
-                <div class="da-pi hi"><span class="da-tg">AI</span><span class="t">丁寧に 💝</span><span class="g">//p</span></div>
-                <div class="da-pi"><span class="da-tg">AI</span><span class="t">英語に翻訳 🌏</span><span class="g">//en</span></div>
-                <div class="da-pi"><span class="da-tg">AI</span><span class="t">要約 📝</span><span class="g">//sum</span></div>
+                <div class="da-pi hi"><span class="da-tg">AI</span><span class="t" data-i18n="demo_p1">丁寧に 💝</span><span class="g">//p</span></div>
+                <div class="da-pi"><span class="da-tg">AI</span><span class="t" data-i18n="demo_p2">英語に翻訳 🌏</span><span class="g">//en</span></div>
+                <div class="da-pi"><span class="da-tg">AI</span><span class="t" data-i18n="demo_p3">要約 📝</span><span class="g">//sum</span></div>
               </div>
-              <div class="da-pop da-load" id="da0load" style="left:286px;top:120px;width:240px;display:none;"><div class="da-spin"></div><div style="font-size:14px;color:var(--text-light);">変換中…</div></div>
+              <div class="da-pop da-load" id="da0load" style="left:286px;top:120px;width:240px;display:none;"><div class="da-spin"></div><div style="font-size:14px;color:var(--text-light);" data-i18n="demo_loading">変換中…</div></div>
             </div>
 
             <!-- Scene 1: 定型文 -->
             <div class="da-scene" id="da1">
-              <div class="da-lab" style="color:var(--snip);">入力欄に合言葉を打つだけ</div>
+              <div class="da-lab" style="color:var(--snip);" data-i18n="demo_snip_lab">入力欄に合言葉を打つだけ</div>
               <div class="da-input" style="border-color:var(--snip);"><span id="da1typed" class="da-mono" style="color:var(--snip);font-weight:700;"></span><span class="da-cur" style="background:var(--snip);"></span></div>
-              <div class="da-hint"><span class="da-kbd">Space</span> で確定 → 登録した文章がパッと出る</div>
-              <div class="da-card" id="da1out" style="opacity:0;transform:translateY(8px);">━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com　📱 090-1234-5678</div>
+              <div class="da-hint"><span class="da-kbd">Space</span><span data-i18n="demo_snip_hint"> で確定 → 登録した文章がパッと出る</span></div>
+              <div class="da-card" id="da1out" style="opacity:0;transform:translateY(8px);" data-i18n-html="demo_sig">━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com　📱 090-1234-5678</div>
             </div>
 
             <!-- Scene 2: 返信 -->
             <div class="da-scene" id="da2">
               <div class="da-rgrid">
                 <div class="da-bubble">
-                  <div class="da-bub-name"><span class="da-av">田</span>田中さん</div>
-                  <span class="da-sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span>
+                  <div class="da-bub-name"><span class="da-av">田</span><span data-i18n="demo_recv_name">田中さん</span></div>
+                  <span class="da-sel" data-i18n="demo_recv">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span>
                 </div>
                 <div>
-                  <div class="da-ph"><img src="icons/mark.png"><b>↩ 返信を作成</b></div>
-                  <div style="font-size:12px;color:var(--text-light);margin-bottom:7px;">言い方を選ぶ</div>
-                  <div class="da-chips"><span class="da-chip on">丁寧</span><span class="da-chip">カジュアル</span><span class="da-chip">簡潔</span></div>
-                  <div id="da2gen" style="display:flex;align-items:center;justify-content:center;gap:11px;min-height:104px;color:var(--text-light);font-size:14px;"><div class="da-spin" style="width:26px;height:26px;border-width:3px;"></div>返信を作成中…</div>
+                  <div class="da-ph"><img src="icons/mark.png"><b data-i18n="demo_reply_title">↩ 返信を作成</b></div>
+                  <div style="font-size:12px;color:var(--text-light);margin-bottom:7px;" data-i18n="demo_reply_pick">言い方を選ぶ</div>
+                  <div class="da-chips"><span class="da-chip on" data-i18n="demo_chip0">丁寧</span><span class="da-chip" data-i18n="demo_chip1">カジュアル</span><span class="da-chip" data-i18n="demo_chip2">簡潔</span></div>
+                  <div id="da2gen" style="display:flex;align-items:center;justify-content:center;gap:11px;min-height:104px;color:var(--text-light);font-size:14px;"><div class="da-spin" style="width:26px;height:26px;border-width:3px;"></div><span data-i18n="demo_reply_gen">返信を作成中…</span></div>
                   <div id="da2out" style="display:none;">
-                    <div class="da-out">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に伺います。よろしくお願いいたします。</div>
-                    <div class="da-acts"><span class="da-btn p">コピー</span><span class="da-btn">作り直す</span></div>
+                    <div class="da-out" data-i18n="demo_reply_out">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に伺います。よろしくお願いいたします。</div>
+                    <div class="da-acts"><span class="da-btn p" data-i18n="demo_copy">コピー</span><span class="da-btn" data-i18n="demo_redo">作り直す</span></div>
                   </div>
                 </div>
               </div>
@@ -494,11 +501,8 @@
     var tabs=[].slice.call(document.querySelectorAll('.da-tab'));
     var scenes=['da0','da1','da2'];
     var urls=['🔒 mail.google.com','🔒 chat.example.com','🔒 mail.google.com'];
-    var caps=[
-      '文章を<b>選んで「丁寧に」を選ぶ</b>だけ。AIが整えて、その場で置き換わります。',
-      '<b>「;sig」と打ってスペース</b>。登録しておいた署名やあいさつが一瞬で出ます。',
-      'もらった文を選んで<b>言い方を選ぶ</b>だけ。AIが返信文を作ってくれます。'
-    ];
+    // captions read from hidden spans so i18n-lp.js can translate them
+    function caps(i){ var el=$('cap'+i+'src'); return el?el.innerHTML:''; }
     var timers=[], autoT=null, cur=-1;
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     function clearT(){timers.forEach(clearTimeout);timers=[];}
@@ -534,7 +538,7 @@
       scenes.forEach(function(id,j){$(id).classList.toggle('on',j===i)});
       tabs.forEach(function(t,j){t.classList.toggle('active',j===i)});
       $('daurl').textContent=urls[i];
-      $('dacap').innerHTML=caps[i];
+      $('dacap').innerHTML=caps(i);
       plays[i]();
       if(autoT)clearTimeout(autoT);
       if(!reduce)autoT=setTimeout(function(){activate((i+1)%3)},durations[i]);
@@ -557,38 +561,38 @@
   <section id="features">
     <div class="section-inner section-center">
       <span class="section-tag">Features</span>
-      <h2>搭載機能</h2>
-      <p class="section-lead">AI変換と定型文。2つのエンジンで、書く・直す・返すを速くします。</p>
+      <h2 data-i18n="features_h2">搭載機能</h2>
+      <p class="section-lead" data-i18n="features_lead">AI変換と定型文。2つのエンジンで、書く・直す・返すを速くします。</p>
       <div class="features-grid">
         <article class="feat-card">
           <div class="feat-icon">🤖</div>
-          <h3>AI変換プリセット</h3>
-          <p>「丁寧に」「英語に翻訳」「要約」「誤字脱字を修正」を最初から搭載。選択して選ぶか <code>//p</code> などのトリガー＋Enterで即変換。最大10件まで自分用に追加でき、指示は200文字まで。</p>
+          <h3 data-i18n="feat1_h3">AI変換プリセット</h3>
+          <p data-i18n-html="feat1_p">「丁寧に」「英語に翻訳」「要約」「誤字脱字を修正」を最初から搭載。選択して選ぶか <code>//p</code> などのトリガー＋Enterで即変換。最大10件まで自分用に追加でき、指示は200文字まで。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon snip">⚡</div>
-          <h3>定型文スニペット</h3>
-          <p><code>;sig</code> のようなトリガーを打って区切りで確定すると登録テキストへ即展開。AI呼び出しなしで回数無制限。本文1000文字・最大10件。</p>
+          <h3 data-i18n="feat2_h3">定型文スニペット</h3>
+          <p data-i18n-html="feat2_p"><code>;sig</code> のようなトリガーを打って区切りで確定すると登録テキストへ即展開。AI呼び出しなしで回数無制限。本文1000文字・最大10件。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon">↩️</div>
-          <h3>返信を作成</h3>
-          <p>受け取った文章を選ぶとAIが返信文を生成。文体を選んでひと言指示するだけ。結果はコピーして好きな欄へ貼れます。</p>
+          <h3 data-i18n="feat3_h3">返信を作成</h3>
+          <p data-i18n="feat3_p">受け取った文章を選ぶとAIが返信文を生成。文体を選んでひと言指示するだけ。結果はコピーして好きな欄へ貼れます。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon">🎯</div>
-          <h3>3つの起動方法</h3>
-          <p>選択ツールバー・右クリックメニュー・ショートカット（<code>Alt+Shift+S</code>）。入力欄ではトリガーだけでも起動。手を止めません。</p>
+          <h3 data-i18n="feat4_h3">3つの起動方法</h3>
+          <p data-i18n-html="feat4_p">選択ツールバー・右クリックメニュー・ショートカット（<code>Alt+Shift+S</code>）。入力欄ではトリガーだけでも起動。手を止めません。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon">📝</div>
-          <h3>どんな入力欄でも</h3>
-          <p>メール・チャット・SNS・ドキュメントなど、文字を打てる欄ならどこでも。整えた文章はその場にそのまま反映します。コピーしかできない文章は自動でコピー。</p>
+          <h3 data-i18n="feat5_h3">どんな入力欄でも</h3>
+          <p data-i18n="feat5_p">メール・チャット・SNS・ドキュメントなど、文字を打てる欄ならどこでも。整えた文章はその場にそのまま反映します。コピーしかできない文章は自動でコピー。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon">🌏</div>
-          <h3>11言語・ダークモード対応</h3>
-          <p>表示は日本語・英語など11言語に対応し、ブラウザの言語に自動で合わせます。明るい/暗いテーマも選べます。</p>
+          <h3 data-i18n="feat6_h3">11言語・ダークモード対応</h3>
+          <p data-i18n="feat6_p">表示は日本語・英語など11言語に対応し、ブラウザの言語に自動で合わせます。明るい/暗いテーマも選べます。</p>
         </article>
       </div>
     </div>
@@ -598,24 +602,24 @@
   <section class="safety-section">
     <div class="section-inner section-center">
       <span class="section-tag">Privacy & Safety</span>
-      <h2>送るのは、あなたが選んだ一文だけ。</h2>
-      <p class="section-lead">プライバシーファーストで設計しています。ページ全体を読み取ったりはしません。</p>
+      <h2 data-i18n="safety_h2">送るのは、あなたが選んだ一文だけ。</h2>
+      <p class="section-lead" data-i18n="safety_lead">プライバシーファーストで設計しています。ページ全体を読み取ったりはしません。</p>
       <div class="safety-grid">
         <div class="safety-card">
-          <h3>🔒 設定はローカル保存</h3>
-          <p>あなたが作ったプリセットや設定は、お使いのブラウザの中にだけ保存されます。外部のサーバーにためたりはしません。</p>
+          <h3 data-i18n="safe1_h3">🔒 設定はローカル保存</h3>
+          <p data-i18n="safe1_p">あなたが作ったプリセットや設定は、お使いのブラウザの中にだけ保存されます。外部のサーバーにためたりはしません。</p>
         </div>
         <div class="safety-card">
-          <h3>🤖 AIに送るのは対象テキストだけ</h3>
-          <p>変換のためにAIへ送られるのは、あなたが選択・入力した対象テキストのみ。ページの他の内容や閲覧履歴は送信しません。</p>
+          <h3 data-i18n="safe2_h3">🤖 AIに送るのは対象テキストだけ</h3>
+          <p data-i18n="safe2_p">変換のためにAIへ送られるのは、あなたが選択・入力した対象テキストのみ。ページの他の内容や閲覧履歴は送信しません。</p>
         </div>
         <div class="safety-card">
-          <h3>🛡️ 必要最低限の権限</h3>
-          <p>テキストの読み書きとAIプロキシへの通信に必要な権限のみ。カメラ・マイク・位置情報などは一切要求しません。</p>
+          <h3 data-i18n="safe3_h3">🛡️ 必要最低限の権限</h3>
+          <p data-i18n="safe3_p">テキストの読み書きとAIプロキシへの通信に必要な権限のみ。カメラ・マイク・位置情報などは一切要求しません。</p>
         </div>
         <div class="safety-card">
-          <h3>🎉 登録不要・無料</h3>
-          <p>アカウント登録もAPIキーも不要。AI変換は1日50回まで無料、定型文の展開は回数無制限で使えます。</p>
+          <h3 data-i18n="safe4_h3">🎉 登録不要・無料</h3>
+          <p data-i18n="safe4_p">アカウント登録もAPIキーも不要。AI変換は1日50回まで無料、定型文の展開は回数無制限で使えます。</p>
         </div>
       </div>
     </div>
@@ -625,23 +629,23 @@
   <section id="faq">
     <div class="section-inner section-center">
       <span class="section-tag">FAQ</span>
-      <h2>よくある質問</h2>
+      <h2 data-i18n="faq_h2">よくある質問</h2>
       <div class="faq-list" style="margin-top: 48px;">
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>本当に無料ですか？</span></button>
-          <div class="faq-a"><div class="faq-a-inner">はい、完全無料です。APIキーもアカウント登録も不要。AI変換は1日50回まで無料で利用でき、定型文の展開は回数無制限です。隠れたコストはありません。</div></div>
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq1_q">本当に無料ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">はい、完全無料です。APIキーもアカウント登録も不要。AI変換は1日50回まで無料で利用でき、定型文の展開は回数無制限です。隠れたコストはありません。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>AI変換と定型文は何が違いますか？</span></button>
-          <div class="faq-a"><div class="faq-a-inner">AI変換は、文章をAIが丁寧語・翻訳・要約などに「書き換える」機能です。定型文は、署名やあいさつなど「決まった文章をそのまま出す」機能で、AIを使わないので一瞬・何度でも無料です。</div></div>
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq2_q">AI変換と定型文は何が違いますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">AI変換は、文章をAIが丁寧語・翻訳・要約などに「書き換える」機能です。定型文は、署名やあいさつなど「決まった文章をそのまま出す」機能で、AIを使わないので一瞬・何度でも無料です。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>個人情報は安全ですか？</span></button>
-          <div class="faq-a"><div class="faq-a-inner">プリセットや設定はブラウザ内に保存されます。AIに送られるのは変換対象として選んだテキストだけで、ページの他の内容や閲覧履歴は送信されません。アンインストールすれば保存データも削除されます。</div></div>
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq3_q">個人情報は安全ですか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">プリセットや設定はブラウザ内に保存されます。AIに送られるのは変換対象として選んだテキストだけで、ページの他の内容や閲覧履歴は送信されません。アンインストールすれば保存データも削除されます。</div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>スマホでも使えますか？</span></button>
-          <div class="faq-a"><div class="faq-a-inner">Chrome拡張機能のため、PC版のGoogle Chromeが必要です。スマホのChromeでは利用できません。Android向けには別途「SendReady」アプリを提供しています。</div></div>
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq4_q">スマホでも使えますか？</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">Chrome拡張機能のため、PC版のGoogle Chromeが必要です。スマホのChromeでは利用できません。Android向けには別途「SendReady」アプリを提供しています。</div></div>
         </div>
       </div>
     </div>
@@ -650,18 +654,18 @@
   <!-- CTA BOTTOM -->
   <section class="cta-bottom">
     <div class="section-inner">
-      <h2>「送る前のひと手間」を、AIにまかせよう。</h2>
+      <h2 data-i18n="cta_h2">「送る前のひと手間」を、AIにまかせよう。</h2>
       <div class="cta-checklist">
-        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span>選択 or トリガーでAIがワンタップ変換</span></div>
-        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span>定型文はトリガーで即展開・回数無制限</span></div>
-        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span>完全無料・登録不要</span></div>
-        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span>送るのは選んだテキストだけ、安全設計</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check1">選択 or トリガーでAIがワンタップ変換</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check2">定型文はトリガーで即展開・回数無制限</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check3">完全無料・登録不要</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check4">送るのは選んだテキストだけ、安全設計</span></div>
       </div>
       <a href="https://chromewebstore.google.com/" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-        <span>今すぐ無料でインストール</span>
+        <span data-i18n="cta_btn">今すぐ無料でインストール</span>
       </a>
-      <p class="cta-note">Chrome ウェブストアからすぐに追加できます</p>
+      <p class="cta-note" data-i18n="cta_note">Chrome ウェブストアからすぐに追加できます</p>
     </div>
   </section>
 
@@ -669,8 +673,8 @@
   <footer>
     <div class="footer-inner">
       <span>&copy; 2025 SendReady</span>
-      <a href="privacy-policy.html" target="_blank">プライバシーポリシー</a>
-      <a href="https://ramune441.github.io/">ほかのプロダクト</a>
+      <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">プライバシーポリシー</a>
+      <a href="https://ramune441.github.io/" data-i18n="footer_other">ほかのプロダクト</a>
     </div>
   </footer>
 
@@ -687,6 +691,8 @@
       });
     });
   </script>
+
+  <script src="i18n-lp.js"></script>
 
 </body>
 </html>
