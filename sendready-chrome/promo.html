@@ -69,49 +69,49 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 .demo-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
 .demo-stage.show{opacity:1}
 .win{background:#fff;border-radius:20px;box-shadow:0 36px 100px rgba(20,22,58,.3),0 0 0 1px rgba(67,97,238,.1);overflow:hidden}
-.device{position:absolute;width:880px;height:600px;top:240px;left:520px;transition:left .7s cubic-bezier(.16,1,.3,1)}
-.device.left{left:120px}.device.right{left:920px}
-.win-bar{height:56px;background:#f1f3f9;display:flex;align-items:center;gap:9px;padding:0 22px;border-bottom:1px solid #e3e6f0;flex-shrink:0}
-.dot{width:15px;height:15px;border-radius:50%}.dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
-.url{flex:1;height:36px;background:#fff;border:1px solid #e3e6f0;border-radius:10px;margin-left:16px;display:flex;align-items:center;padding:0 20px;font-size:18px;color:#9499b8}
-.ext-ico{width:30px;height:30px;margin-left:14px}
-.win-body{position:relative;height:544px}
+.device{position:absolute;width:1120px;height:680px;top:200px;left:400px;transition:left .7s cubic-bezier(.16,1,.3,1)}
+.device.left{left:90px}.device.right{left:710px}
+.win-bar{height:64px;background:#f1f3f9;display:flex;align-items:center;gap:10px;padding:0 26px;border-bottom:1px solid #e3e6f0;flex-shrink:0}
+.dot{width:18px;height:18px;border-radius:50%}.dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
+.url{flex:1;height:44px;background:#fff;border:1px solid #e3e6f0;border-radius:11px;margin-left:18px;display:flex;align-items:center;padding:0 24px;font-size:23px;color:#9499b8}
+.ext-ico{width:36px;height:36px;margin-left:16px}
+.win-body{position:relative;height:616px}
 .screen{position:absolute;inset:0;display:none}
 .screen.show{display:block}
 .sel{background:rgba(67,97,238,.22);border-radius:4px;padding:2px 4px}
 
 /* extension popover (within window) */
-.srp{width:380px;background:#fff;border-radius:16px;padding:16px;border:1px solid rgba(127,127,127,.14);box-shadow:0 20px 60px rgba(20,22,58,.3)}
-.srh{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-.srtw{display:flex;align-items:center;gap:8px}.srtw img{width:24px;height:24px}
-.srt{font-weight:700;font-size:19px;color:#1a1a1a}.srx{font-size:18px;opacity:.45}
-.sri{display:flex;align-items:center;gap:11px;padding:12px 12px;border-radius:11px;font-size:19px;color:#1a1a1a;transition:all .3s}
+.srp{width:500px;background:#fff;border-radius:20px;padding:22px;border:1px solid rgba(127,127,127,.14);box-shadow:0 22px 64px rgba(20,22,58,.32)}
+.srh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.srtw{display:flex;align-items:center;gap:10px}.srtw img{width:30px;height:30px}
+.srt{font-weight:700;font-size:26px;color:#1a1a1a}.srx{font-size:24px;opacity:.45}
+.sri{display:flex;align-items:center;gap:13px;padding:15px 14px;border-radius:13px;font-size:27px;color:#1a1a1a;transition:all .3s}
 .sri.hi{background:rgba(67,97,238,.15);outline:3px solid var(--ind);outline-offset:-3px}
-.srtag{font-size:14px;padding:3px 10px;border-radius:7px;font-weight:700;background:rgba(67,97,238,.16);color:var(--ind)}
-.srtt{flex:1}.srtg{font-family:ui-monospace,monospace;font-size:15px;color:#9499b8}
-.srchk{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:13px;border-top:1px solid rgba(127,127,127,.14);font-size:18px;font-weight:600;color:#1a1a1a}
-.srcb{width:20px;height:20px;border-radius:5px;border:2.5px solid var(--ind);display:inline-flex;align-items:center;justify-content:center;color:var(--ind);font-size:13px}
-.srl{width:50px;height:50px;border-radius:50%;background:#fff;border:1px solid rgba(127,127,127,.16);box-shadow:0 6px 22px rgba(20,22,58,.26);display:flex;align-items:center;justify-content:center;padding:7px}
+.srtag{font-size:18px;padding:4px 12px;border-radius:8px;font-weight:700;background:rgba(67,97,238,.16);color:var(--ind)}
+.srtt{flex:1}.srtg{font-family:ui-monospace,monospace;font-size:20px;color:#9499b8}
+.srchk{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(127,127,127,.14);font-size:24px;font-weight:600;color:#1a1a1a}
+.srcb{width:27px;height:27px;border-radius:6px;border:2.5px solid var(--ind);display:inline-flex;align-items:center;justify-content:center;color:var(--ind);font-size:17px}
+.srl{width:66px;height:66px;border-radius:50%;background:#fff;border:1px solid rgba(127,127,127,.16);box-shadow:0 8px 26px rgba(20,22,58,.28);display:flex;align-items:center;justify-content:center;padding:9px}
 .srl img{width:100%;height:100%;object-fit:contain}
-.spin{width:42px;height:42px;border-radius:50%;border:5px solid rgba(67,97,238,.25);border-top-color:var(--ind);animation:spin .8s linear infinite}
+.spin{width:56px;height:56px;border-radius:50%;border:6px solid rgba(67,97,238,.25);border-top-color:var(--ind);animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.srbox{border:1px solid var(--dv);border-radius:12px;padding:15px 17px;font-size:22px;color:var(--t1);line-height:1.6;background:#fcfcff}
-.sracts{display:flex;gap:11px;margin-top:14px}
-.srbtn{padding:11px 22px;border-radius:11px;font-size:18px;border:1px solid rgba(127,127,127,.28);color:#1a1a1a}
+.srbox{border:1px solid var(--dv);border-radius:14px;padding:19px 22px;font-size:30px;color:var(--t1);line-height:1.55;background:#fcfcff}
+.sracts{display:flex;gap:13px;margin-top:18px}
+.srbtn{padding:14px 28px;border-radius:13px;font-size:24px;border:1px solid rgba(127,127,127,.28);color:#1a1a1a}
 .srbtn.p{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
-.chip{font-size:18px;padding:9px 22px;border-radius:999px;border:1px solid var(--dv);color:var(--t1)}
+.chip{font-size:24px;padding:12px 28px;border-radius:999px;border:1px solid var(--dv);color:var(--t1)}
 .chip.on{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
-.kbd{display:inline-flex;align-items:center;font-family:ui-monospace,monospace;font-size:22px;background:#fff;border:1px solid #cbd2ee;border-bottom-width:4px;border-radius:10px;padding:7px 15px;color:var(--t1);font-weight:700}
+.kbd{display:inline-flex;align-items:center;font-family:ui-monospace,monospace;font-size:28px;background:#fff;border:1px solid #cbd2ee;border-bottom-width:4px;border-radius:11px;padding:9px 19px;color:var(--t1);font-weight:700}
 
 /* CALLOUT (dark) */
-.callout{position:absolute;top:50%;background:#1e1b4b;border:1.5px solid rgba(99,102,241,.4);border-radius:20px;padding:38px 46px;width:640px;opacity:0;transition:opacity .5s,transform .5s;pointer-events:none}
-.callout.side-left{left:90px;transform:translateY(calc(-50% + 20px))}
+.callout{position:absolute;top:50%;background:#1e1b4b;border:1.5px solid rgba(99,102,241,.4);border-radius:22px;padding:44px 50px;width:560px;opacity:0;transition:opacity .5s,transform .5s;pointer-events:none}
+.callout.side-left{left:60px;transform:translateY(calc(-50% + 20px))}
 .callout.side-left.show{opacity:1;transform:translateY(-50%)}
-.callout.side-right{right:90px;transform:translateY(calc(-50% + 20px))}
+.callout.side-right{right:60px;transform:translateY(calc(-50% + 20px))}
 .callout.side-right.show{opacity:1;transform:translateY(-50%)}
-.co-tag{display:inline-block;font-size:17px;font-weight:700;letter-spacing:.1em;color:var(--ind-pale);margin-bottom:14px}
-.co-ttl{font-size:36px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.25}
-.co-desc{font-size:21px;color:rgba(255,255,255,.72);line-height:1.6}
+.co-tag{display:inline-block;font-size:21px;font-weight:700;letter-spacing:.08em;color:var(--ind-pale);margin-bottom:16px}
+.co-ttl{font-size:46px;font-weight:800;color:#fff;margin-bottom:16px;line-height:1.22}
+.co-desc{font-size:27px;color:rgba(255,255,255,.74);line-height:1.55}
 
 /* S5 FEATURES */
 .feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FBFBFF 0%,#F2F4FF 50%,#E6EAFF 100%);opacity:0;transition:opacity .6s;pointer-events:none}
@@ -201,29 +201,29 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 
       <!-- Screen A: selection toolbar -->
       <div class="screen" id="scA">
-        <div style="padding:34px 40px;">
-          <div style="font-size:19px;color:var(--t3);padding:12px 0;border-bottom:1px solid var(--dv);">To: client@example.com</div>
-          <div style="font-size:22px;font-weight:600;padding:16px 0;border-bottom:1px solid var(--dv);">打ち合わせの件</div>
-          <div style="font-size:23px;line-height:1.9;padding:24px 2px;"><span id="aSel">明日の打ち合わせ10時で大丈夫です。よろしく。</span><span id="aApplied" style="color:var(--ind);font-weight:600;display:none;">明日の打ち合わせは10時で問題ございません。何卒よろしくお願いいたします。</span></div>
+        <div style="padding:42px 48px;">
+          <div style="font-size:26px;color:var(--t3);padding:14px 0;border-bottom:1px solid var(--dv);">宛先：取引先さん</div>
+          <div style="font-size:30px;font-weight:600;padding:18px 0;border-bottom:1px solid var(--dv);">打ち合わせの件</div>
+          <div style="font-size:33px;line-height:1.9;padding:28px 2px;"><span id="aSel">明日10時で大丈夫です。よろしく。</span><span id="aApplied" style="color:var(--ind);font-weight:600;display:none;">明日10時で問題ございません。何卒よろしくお願いいたします。</span></div>
         </div>
-        <div class="srl" id="aLaunch" style="position:absolute;left:300px;top:218px;opacity:0;transform:scale(.5);transition:opacity .35s,transform .35s;"><img src="icons/mark.png"></div>
-        <div class="srp" id="aMenu" style="position:absolute;left:300px;top:272px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;">
+        <div class="srl" id="aLaunch" style="position:absolute;left:470px;top:212px;opacity:0;transform:scale(.5);transition:opacity .35s,transform .35s;"><img src="icons/mark.png"></div>
+        <div class="srp" id="aMenu" style="position:absolute;left:470px;top:280px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;">
           <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">SendReady</span></div><span class="srx">✕</span></div>
           <div class="sri" id="aP1"><span class="srtag">AI</span><span class="srtt">丁寧に 💝</span><span class="srtg">//p</span></div>
           <div class="sri"><span class="srtag">AI</span><span class="srtt">英語に翻訳 🌏</span><span class="srtg">//en</span></div>
           <div class="sri"><span class="srtag">AI</span><span class="srtt">要約 📝</span><span class="srtg">//sum</span></div>
           <div class="srchk"><span class="srcb">✓</span><span>↩ 返信を作成</span></div>
         </div>
-        <div id="aLoad" style="position:absolute;left:300px;top:272px;width:380px;opacity:0;transition:opacity .3s;background:#fff;border-radius:16px;padding:44px;box-shadow:0 20px 60px rgba(20,22,58,.3);display:flex;flex-direction:column;align-items:center;gap:18px;"><div class="spin"></div><div style="font-size:19px;color:var(--t3);">変換中…</div></div>
+        <div id="aLoad" style="position:absolute;left:470px;top:280px;width:500px;opacity:0;transition:opacity .3s;background:#fff;border-radius:20px;padding:54px;box-shadow:0 22px 64px rgba(20,22,58,.32);display:flex;flex-direction:column;align-items:center;gap:20px;"><div class="spin"></div><div style="font-size:26px;color:var(--t3);">変換中…</div></div>
       </div>
 
       <!-- Screen B: inline trigger -->
       <div class="screen" id="scB">
-        <div style="padding:40px 44px;display:flex;flex-direction:column;gap:24px;">
+        <div style="padding:48px 52px;display:flex;flex-direction:column;gap:28px;">
           <div>
-            <div style="font-size:14px;color:var(--ind);font-weight:700;margin-bottom:10px;">INPUT</div>
-            <div style="border:3px solid var(--ind);border-radius:14px;padding:20px 22px;font-size:26px;min-height:104px;line-height:1.5;"><span id="bTyped" style="font-family:ui-monospace,monospace;"></span><span id="bCaret" style="display:inline-block;width:3px;height:30px;background:var(--ind);vertical-align:-5px;"></span></div>
-            <div style="margin-top:16px;display:flex;align-items:center;gap:13px;font-size:19px;color:var(--t3);"><span class="kbd" id="bEnter" style="opacity:.4;">Enter ⏎</span> で変換</div>
+            <div style="font-size:20px;color:var(--ind);font-weight:700;margin-bottom:12px;letter-spacing:.05em;">入力欄</div>
+            <div style="border:3px solid var(--ind);border-radius:16px;padding:26px 28px;font-size:38px;min-height:120px;line-height:1.45;"><span id="bTyped" style="font-family:ui-monospace,monospace;"></span><span id="bCaret" style="display:inline-block;width:4px;height:44px;background:var(--ind);vertical-align:-7px;"></span></div>
+            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;font-size:26px;color:var(--t3);"><span class="kbd" id="bEnter" style="opacity:.4;">Enter ⏎</span> で変換</div>
           </div>
           <div class="srp" id="bRes" style="opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s;">
             <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">SendReady</span></div><span class="srx">✕</span></div>
@@ -235,19 +235,19 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 
       <!-- Screen C: reply -->
       <div class="screen" id="scC">
-        <div style="padding:30px 36px;display:flex;gap:26px;">
-          <div style="flex:0 0 360px;">
-            <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px;"><div style="width:46px;height:46px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ind);font-size:20px;">田</div><div><div style="font-weight:700;font-size:19px;">田中さん</div><div style="font-size:15px;color:var(--t3);">14:32</div></div></div>
-            <div style="font-size:20px;line-height:1.8;"><span class="sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span></div>
+        <div style="padding:38px 44px;display:flex;gap:32px;">
+          <div style="flex:0 0 440px;">
+            <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px;"><div style="width:60px;height:60px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ind);font-size:26px;">田</div><div><div style="font-weight:700;font-size:26px;">田中さん</div><div style="font-size:20px;color:var(--t3);">14:32</div></div></div>
+            <div style="font-size:28px;line-height:1.75;"><span class="sel">来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？</span></div>
           </div>
           <div class="srp" id="cPanel" style="flex:1;">
             <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">↩ 返信を作成</span></div><span class="srx">✕</span></div>
-            <div style="font-size:16px;color:var(--t3);margin-bottom:10px;">文体を選択</div>
-            <div style="display:flex;gap:9px;margin-bottom:16px;"><span class="chip on" id="cChip">丁寧</span><span class="chip">カジュアル</span><span class="chip">簡潔</span></div>
-            <div id="cGen" style="display:flex;align-items:center;justify-content:center;gap:14px;min-height:120px;color:var(--t3);font-size:19px;opacity:0;transition:opacity .3s;"><div class="spin" style="width:32px;height:32px;border-width:4px;"></div>生成中…</div>
+            <div style="font-size:22px;color:var(--t3);margin-bottom:12px;">言い方を選ぶ</div>
+            <div style="display:flex;gap:11px;margin-bottom:18px;"><span class="chip on" id="cChip">丁寧</span><span class="chip">カジュアル</span><span class="chip">簡潔</span></div>
+            <div id="cGen" style="display:flex;align-items:center;justify-content:center;gap:16px;min-height:150px;color:var(--t3);font-size:26px;opacity:0;transition:opacity .3s;"><div class="spin" style="width:40px;height:40px;border-width:5px;"></div>返信を作成中…</div>
             <div id="cOut" style="display:none;">
-              <div class="srbox" style="font-size:18px;">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に貴社へ伺います。よろしくお願いいたします。</div>
-              <div class="sracts"><span class="srbtn p">コピー</span><span class="srbtn">再生成</span></div>
+              <div class="srbox" style="font-size:25px;">ご連絡ありがとうございます。水曜の午後で問題ございません。14時に伺います。よろしくお願いいたします。</div>
+              <div class="sracts"><span class="srbtn p">コピー</span><span class="srbtn">作り直す</span></div>
             </div>
           </div>
         </div>
@@ -255,13 +255,13 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 
       <!-- Screen D: snippet -->
       <div class="screen" id="scD">
-        <div style="padding:40px 44px;display:flex;flex-direction:column;gap:22px;">
+        <div style="padding:48px 52px;display:flex;flex-direction:column;gap:26px;">
           <div>
-            <div style="font-size:14px;color:var(--snip);font-weight:700;margin-bottom:10px;">定型文トリガー</div>
-            <div style="border:3px solid var(--snip);border-radius:14px;padding:20px 22px;font-size:26px;min-height:80px;"><span id="dTyped" style="font-family:ui-monospace,monospace;color:var(--snip);font-weight:700;"></span><span id="dCaret" style="display:inline-block;width:3px;height:30px;background:var(--snip);vertical-align:-5px;"></span></div>
-            <div style="margin-top:14px;display:flex;align-items:center;gap:13px;font-size:19px;color:var(--t3);"><span class="kbd" id="dSpace" style="opacity:.4;">Space</span> で確定 → 即展開</div>
+            <div style="font-size:20px;color:var(--snip);font-weight:700;margin-bottom:12px;">合言葉を打つだけ</div>
+            <div style="border:3px solid var(--snip);border-radius:16px;padding:26px 28px;font-size:38px;min-height:104px;"><span id="dTyped" style="font-family:ui-monospace,monospace;color:var(--snip);font-weight:700;"></span><span id="dCaret" style="display:inline-block;width:4px;height:44px;background:var(--snip);vertical-align:-7px;"></span></div>
+            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;font-size:26px;color:var(--t3);"><span class="kbd" id="dSpace" style="opacity:.4;">Space</span> で確定 → 即展開</div>
           </div>
-          <div id="dOut" style="opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;border:1px solid var(--dv);border-radius:14px;padding:22px;background:#fcfcff;font-size:21px;line-height:1.7;color:var(--t1);">━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com 　📱 090-1234-5678</div>
+          <div id="dOut" style="opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;border:1px solid var(--dv);border-radius:16px;padding:28px;background:#fcfcff;font-size:28px;line-height:1.7;color:var(--t1);">━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com 　📱 090-1234-5678</div>
         </div>
       </div>
 
