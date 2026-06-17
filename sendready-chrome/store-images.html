@@ -10,9 +10,10 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
 :root{
-  --ind:#4361EE; --ind-deep:#3A0CA3; --ind-pale:#818CF8; --snip:#10B981;
-  --bg:#FBFBFF; --bg-alt:#EEF1FF; --card:#FFFFFF;
-  --t1:#14163A; --t2:#475089; --t3:#8A90B8; --dv:#E2E6F5;
+  /* SendReady theme: white + blue + yellow (from app icon) */
+  --ind:#0F77F2; --ind-deep:#0B5ED6; --ind-pale:#5AA0FF; --snip:#C99400; --yellow:#FECE04;
+  --bg:#FFFFFF; --bg-alt:#EAF3FF; --card:#FFFFFF;
+  --t1:#0F2A4D; --t2:#3E5A82; --t3:#8AA2C2; --dv:#DBE8FA;
 }
 
 /* ── canvas (1280x800) ── */
@@ -23,7 +24,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 .cap h1 .ind { color:var(--ind); }
 .cap p { font-size:26px; color:var(--t2); margin-top:18px; font-weight:500; }
 .brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
-.brand img { width:46px; height:46px; border-radius:12px; box-shadow:0 8px 20px rgba(67,97,238,.32); }
+.brand img { width:46px; height:46px; border-radius:12px; box-shadow:0 8px 20px rgba(15,119,242,.32); }
 .brand span { font-size:27px; font-weight:900; color:var(--ind-deep); letter-spacing:-.5px; }
 .glow { position:absolute; border-radius:50%; pointer-events:none; }
 .p-head img { border-radius:6px; }
@@ -39,13 +40,13 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 .p-head { display:flex; align-items:center; gap:9px; margin-bottom:14px; }
 .p-head img { width:26px; height:26px; } .p-head b { font-size:21px; font-weight:700; color:var(--t1); } .p-head .x { margin-left:auto; color:var(--t3); font-size:19px; }
 .p-item { display:flex; align-items:center; gap:13px; padding:14px 14px; border-radius:12px; font-size:23px; color:var(--t1); }
-.p-item.hi { background:rgba(67,97,238,.12); outline:2.5px solid var(--ind); outline-offset:-2.5px; }
-.p-tag { font-size:15px; font-weight:700; padding:4px 11px; border-radius:8px; background:rgba(67,97,238,.14); color:var(--ind); }
-.p-tag.s { background:rgba(16,185,129,.14); color:var(--snip); }
+.p-item.hi { background:rgba(15,119,242,.12); outline:2.5px solid var(--ind); outline-offset:-2.5px; }
+.p-tag { font-size:15px; font-weight:700; padding:4px 11px; border-radius:8px; background:rgba(15,119,242,.14); color:var(--ind); }
+.p-tag.s { background:rgba(254,206,4,.14); color:var(--snip); }
 .p-item .t { flex:1; } .p-item .g { font-family:'Inter',monospace; font-size:18px; color:var(--t3); font-weight:600; }
 
 /* selected-text pill */
-.seltext { font-size:25px; color:var(--t1); background:rgba(67,97,238,.12); border:1.5px dashed rgba(67,97,238,.45); border-radius:14px; padding:18px 26px; max-width:640px; line-height:1.5; text-align:center; }
+.seltext { font-size:25px; color:var(--t1); background:rgba(15,119,242,.12); border:1.5px dashed rgba(15,119,242,.45); border-radius:14px; padding:18px 26px; max-width:640px; line-height:1.5; text-align:center; }
 
 /* before/after */
 .ba { display:flex; flex-direction:column; align-items:center; gap:22px; }
@@ -54,7 +55,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 .ba-card .x { font-size:30px; line-height:1.45; }
 .ba-card.gray { background:#F1F3FA; border:1.5px solid var(--dv); }
 .ba-card.gray .l { color:var(--t3); } .ba-card.gray .x { color:var(--t2); }
-.ba-card.blue { background:rgba(67,97,238,.07); border:2px solid rgba(67,97,238,.4); }
+.ba-card.blue { background:rgba(15,119,242,.07); border:2px solid rgba(15,119,242,.4); }
 .ba-card.blue .l { color:var(--ind); } .ba-card.blue .x { color:var(--t1); font-weight:600; }
 .ba-mid { display:flex; align-items:center; gap:12px; }
 .ba-pill { background:var(--ind); color:#fff; border-radius:999px; padding:9px 24px; font-size:21px; font-weight:700; }
@@ -90,12 +91,12 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 .pu-sec.a { color:var(--ind); } .pu-sec.s { color:var(--snip); }
 .pu-row { display:flex; align-items:center; gap:12px; padding:14px 15px; border:1px solid var(--dv); border-radius:13px; margin-bottom:9px; }
 .pu-rt { font-size:14px; font-weight:700; padding:4px 9px; border-radius:7px; }
-.pu-rt.a { background:rgba(67,97,238,.14); color:var(--ind); } .pu-rt.s { background:rgba(16,185,129,.14); color:var(--snip); }
+.pu-rt.a { background:rgba(15,119,242,.14); color:var(--ind); } .pu-rt.s { background:rgba(254,206,4,.14); color:var(--snip); }
 .pu-rm { flex:1; } .pu-rm .t { font-weight:700; font-size:19px; color:var(--t1); } .pu-rm .d { font-size:15px; color:var(--t3); }
 .pu-rg { font-family:'Inter',monospace; font-size:17px; color:var(--t3); font-weight:600; }
 
 /* feature marquee 1400x560 */
-.feat-banner { width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 56px; background:linear-gradient(135deg,#3A0CA3 0%,#4361EE 55%,#4895EF 100%); display:flex; align-items:center; padding:0 90px; gap:60px; }
+.feat-banner { width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 56px; background:linear-gradient(135deg,#0B5ED6 0%,#0F77F2 55%,#4DA3FF 100%); display:flex; align-items:center; padding:0 90px; gap:60px; }
 .fb-left { flex:1; color:#fff; z-index:2; }
 .fb-brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
 .fb-brand img { width:48px; height:48px; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.3); }
@@ -111,8 +112,8 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 <body>
 
 <!-- ════ IMG 1: Polish (before → after) ════ -->
-<div class="si" id="img1" style="background:linear-gradient(155deg,#EAEFFF,#D3DDFF);">
-  <div class="glow" style="right:-120px;top:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(67,97,238,.1),transparent 60%);"></div>
+<div class="si" id="img1" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
+  <div class="glow" style="right:-120px;top:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(15,119,242,.1),transparent 60%);"></div>
   <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Polish your words <span class="ind">with AI</span></h1><p>From a quick draft to ready-to-send — in one tap</p></div>
   <div class="ba">
     <div class="ba-card gray"><div class="l">YOU TYPED</div><div class="x">tmrw 10 works, thx</div></div>
@@ -122,7 +123,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 2: Select → menu ════ -->
-<div class="si" id="img2" style="background:linear-gradient(155deg,#E1E8FF,#C7D5FF);">
+<div class="si" id="img2" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
   <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Select text, <span class="ind">pick a preset</span></h1><p>Polish · Translate · Summarize · Fix typos</p></div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:26px;">
     <div class="seltext">"Could you send me the report by Friday?"</div>
@@ -137,7 +138,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 3: Inline trigger ════ -->
-<div class="si" id="img3" style="background:linear-gradient(155deg,#EAEFFF,#D3DDFF);">
+<div class="si" id="img3" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
   <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Type a trigger, <span class="ind">hit Enter</span></h1><p>Write //p before your text — AI transforms it in place</p></div>
   <div class="io">
     <div class="win" style="width:470px;">
@@ -158,7 +159,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 4: Reply ════ -->
-<div class="si" id="img4" style="background:linear-gradient(155deg,#E1E8FF,#C7D5FF);">
+<div class="si" id="img4" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
   <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Turn a message <span class="ind">into a reply</span></h1><p>Pick a tone — AI writes the reply for you</p></div>
   <div class="io" style="align-items:stretch;">
     <div class="win msg" style="width:460px;">
@@ -179,7 +180,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 5: Snippets ════ -->
-<div class="si" id="img5" style="background:linear-gradient(155deg,#EAEFFF,#D3DDFF);">
+<div class="si" id="img5" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
   <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Instant <span class="ind" style="color:var(--snip);">text snippets</span></h1><p>Type ;sig and your signature pops in — no AI needed</p></div>
   <div class="io">
     <div class="win" style="width:430px;">
@@ -202,7 +203,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 6: Your presets ════ -->
-<div class="si" id="img6" style="background:linear-gradient(155deg,#E1E8FF,#C7D5FF);">
+<div class="si" id="img6" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
   <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Make it <span class="ind">your own</span></h1><p>Up to 10 AI presets and 10 snippets — your triggers</p></div>
   <div class="popup">
     <div class="pu-hd"><div class="pu-ttl"><img src="icons/icon128.png">SendReady</div><span class="pu-use">Today 12 / 50</span></div>
