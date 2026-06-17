@@ -22,7 +22,11 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 .cap h1 { font-size:60px; font-weight:900; color:var(--t1); letter-spacing:-2px; line-height:1.15; }
 .cap h1 .ind { color:var(--ind); }
 .cap p { font-size:26px; color:var(--t2); margin-top:18px; font-weight:500; }
+.brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
+.brand img { width:46px; height:46px; border-radius:12px; box-shadow:0 8px 20px rgba(67,97,238,.32); }
+.brand span { font-size:27px; font-weight:900; color:var(--ind-deep); letter-spacing:-.5px; }
 .glow { position:absolute; border-radius:50%; pointer-events:none; }
+.p-head img { border-radius:6px; }
 
 /* ── browser window ── */
 .win { background:#fff; border-radius:18px; box-shadow:0 30px 70px rgba(20,22,58,.16); border:1px solid #dde1f0; overflow:hidden; }
@@ -93,6 +97,9 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 /* feature marquee 1400x560 */
 .feat-banner { width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 56px; background:linear-gradient(135deg,#3A0CA3 0%,#4361EE 55%,#4895EF 100%); display:flex; align-items:center; padding:0 90px; gap:60px; }
 .fb-left { flex:1; color:#fff; z-index:2; }
+.fb-brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
+.fb-brand img { width:48px; height:48px; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.3); }
+.fb-brand span { font-size:28px; font-weight:900; color:#fff; letter-spacing:-.5px; }
 .fb-badge { display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.32); color:#fff; font-size:19px; font-weight:700; padding:10px 24px; border-radius:100px; margin-bottom:28px; }
 .fb-title { font-size:62px; font-weight:900; line-height:1.15; letter-spacing:-2px; margin-bottom:22px; }
 .fb-sub { font-size:25px; color:rgba(255,255,255,.85); line-height:1.55; font-weight:500; }
@@ -104,9 +111,9 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 <body>
 
 <!-- ════ IMG 1: Polish (before → after) ════ -->
-<div class="si" id="img1" style="background:linear-gradient(160deg,#FBFBFF,#EEF1FF);">
+<div class="si" id="img1" style="background:linear-gradient(155deg,#EAEFFF,#D3DDFF);">
   <div class="glow" style="right:-120px;top:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(67,97,238,.1),transparent 60%);"></div>
-  <div class="cap"><h1>Polish your words <span class="ind">with AI</span></h1><p>From a quick draft to ready-to-send — in one tap</p></div>
+  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Polish your words <span class="ind">with AI</span></h1><p>From a quick draft to ready-to-send — in one tap</p></div>
   <div class="ba">
     <div class="ba-card gray"><div class="l">YOU TYPED</div><div class="x">tmrw 10 works, thx</div></div>
     <div class="ba-mid"><span class="ba-pill">💝 Polish</span></div>
@@ -115,12 +122,12 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 2: Select → menu ════ -->
-<div class="si" id="img2" style="background:linear-gradient(160deg,#EEF1FF,#E6EAFF);">
-  <div class="cap"><h1>Select text, <span class="ind">pick a preset</span></h1><p>Polish · Translate · Summarize · Fix typos</p></div>
+<div class="si" id="img2" style="background:linear-gradient(155deg,#E1E8FF,#C7D5FF);">
+  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Select text, <span class="ind">pick a preset</span></h1><p>Polish · Translate · Summarize · Fix typos</p></div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:26px;">
     <div class="seltext">"Could you send me the report by Friday?"</div>
     <div class="panel" style="width:460px;">
-      <div class="p-head"><img src="icons/mark.png"><b>SendReady</b><span class="x">✕</span></div>
+      <div class="p-head"><img src="icons/icon128.png"><b>SendReady</b><span class="x">✕</span></div>
       <div class="p-item hi"><span class="p-tag">AI</span><span class="t">Polish 💝</span><span class="g">//p</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Translate 🌏</span><span class="g">//tr</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Summarize 📝</span><span class="g">//sum</span></div>
@@ -130,8 +137,8 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 3: Inline trigger ════ -->
-<div class="si" id="img3" style="background:linear-gradient(160deg,#FBFBFF,#EEF1FF);">
-  <div class="cap"><h1>Type a trigger, <span class="ind">hit Enter</span></h1><p>Write //p before your text — AI transforms it in place</p></div>
+<div class="si" id="img3" style="background:linear-gradient(155deg,#EAEFFF,#D3DDFF);">
+  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Type a trigger, <span class="ind">hit Enter</span></h1><p>Write //p before your text — AI transforms it in place</p></div>
   <div class="io">
     <div class="win" style="width:470px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div></div>
@@ -143,7 +150,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
     </div>
     <div class="io-arrow" style="color:var(--ind);">→</div>
     <div class="panel" style="width:380px;">
-      <div class="p-head"><img src="icons/mark.png"><b>SendReady</b><span class="x">✕</span></div>
+      <div class="p-head"><img src="icons/icon128.png"><b>SendReady</b><span class="x">✕</span></div>
       <div class="resbox">I'll be there at 10 tomorrow.</div>
       <div class="acts"><span class="btn p">Apply</span><span class="btn">Copy</span><span class="btn">Redo</span></div>
     </div>
@@ -151,8 +158,8 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 4: Reply ════ -->
-<div class="si" id="img4" style="background:linear-gradient(160deg,#EEF1FF,#E9FBF4);">
-  <div class="cap"><h1>Turn a message <span class="ind">into a reply</span></h1><p>Pick a tone — AI writes the reply for you</p></div>
+<div class="si" id="img4" style="background:linear-gradient(155deg,#E1E8FF,#C7D5FF);">
+  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Turn a message <span class="ind">into a reply</span></h1><p>Pick a tone — AI writes the reply for you</p></div>
   <div class="io" style="align-items:stretch;">
     <div class="win msg" style="width:460px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
@@ -162,7 +169,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
       </div>
     </div>
     <div class="panel" style="width:430px;">
-      <div class="p-head"><img src="icons/mark.png"><b>↩ Write a reply</b></div>
+      <div class="p-head"><img src="icons/icon128.png"><b>↩ Write a reply</b></div>
       <div style="font-size:16px;color:var(--t3);margin-bottom:12px;">PICK A TONE</div>
       <div style="display:flex;gap:9px;margin-bottom:18px;"><span class="chip on">Polite</span><span class="chip">Casual</span><span class="chip">Short</span></div>
       <div class="resbox" style="font-size:21px;">Thanks! Wednesday afternoon works — I'll be there at 2 PM. Looking forward to it.</div>
@@ -172,8 +179,8 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 5: Snippets ════ -->
-<div class="si" id="img5" style="background:linear-gradient(160deg,#FBFBFF,#EEF1FF);">
-  <div class="cap"><h1>Instant <span class="ind" style="color:var(--snip);">text snippets</span></h1><p>Type ;sig and your signature pops in — no AI needed</p></div>
+<div class="si" id="img5" style="background:linear-gradient(155deg,#EAEFFF,#D3DDFF);">
+  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Instant <span class="ind" style="color:var(--snip);">text snippets</span></h1><p>Type ;sig and your signature pops in — no AI needed</p></div>
   <div class="io">
     <div class="win" style="width:430px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
@@ -195,10 +202,10 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 </div>
 
 <!-- ════ IMG 6: Your presets ════ -->
-<div class="si" id="img6" style="background:linear-gradient(160deg,#EEF1FF,#E6EAFF);">
-  <div class="cap"><h1>Make it <span class="ind">your own</span></h1><p>Up to 10 AI presets and 10 snippets — your triggers</p></div>
+<div class="si" id="img6" style="background:linear-gradient(155deg,#E1E8FF,#C7D5FF);">
+  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Make it <span class="ind">your own</span></h1><p>Up to 10 AI presets and 10 snippets — your triggers</p></div>
   <div class="popup">
-    <div class="pu-hd"><div class="pu-ttl"><img src="icons/mark.png">SendReady</div><span class="pu-use">Today 12 / 50</span></div>
+    <div class="pu-hd"><div class="pu-ttl"><img src="icons/icon128.png">SendReady</div><span class="pu-use">Today 12 / 50</span></div>
     <div class="pu-body">
       <div class="pu-sec a">AI PRESETS</div>
       <div class="pu-row"><span class="pu-rt a">AI</span><div class="pu-rm"><div class="t">Polish 💝</div><div class="d">More polite and respectful</div></div><span class="pu-rg">//p</span></div>
@@ -213,6 +220,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 <div class="feat-banner" id="feature">
   <div class="glow" style="left:-100px;bottom:-150px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 60%);"></div>
   <div class="fb-left">
+    <div class="fb-brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div>
     <div class="fb-badge">⚡ 100% Free · Chrome Extension</div>
     <div class="fb-title">Transform any text<br>with AI, in one tap</div>
     <div class="fb-sub">Polish, translate, summarize &amp; reply —<br>in any text field. Snippets expand instantly, too.</div>
@@ -220,7 +228,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
   </div>
   <div class="fb-right">
     <div class="panel" style="width:400px;box-shadow:0 40px 90px rgba(0,0,0,.38);">
-      <div class="p-head"><img src="icons/mark.png"><b>SendReady</b><span class="x">✕</span></div>
+      <div class="p-head"><img src="icons/icon128.png"><b>SendReady</b><span class="x">✕</span></div>
       <div class="p-item hi"><span class="p-tag">AI</span><span class="t">Polish 💝</span><span class="g">//p</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Translate 🌏</span><span class="g">//tr</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Summarize 📝</span><span class="g">//sum</span></div>
