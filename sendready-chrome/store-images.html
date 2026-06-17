@@ -18,11 +18,11 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 
 /* ── canvas (1280x800) ── */
 .si { width:1280px; height:800px; position:relative; overflow:hidden; margin:0 auto 56px;
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:54px; padding:70px; }
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:44px; padding:48px; }
 .cap { text-align:center; z-index:2; max-width:1040px; }
-.cap h1 { font-size:60px; font-weight:900; color:var(--t1); letter-spacing:-2px; line-height:1.15; }
+.cap h1 { font-size:68px; font-weight:900; color:var(--t1); letter-spacing:-2px; line-height:1.15; }
 .cap h1 .ind { color:var(--ind); }
-.cap p { font-size:26px; color:var(--t2); margin-top:18px; font-weight:500; }
+.cap p { font-size:29px; color:var(--t2); margin-top:18px; font-weight:500; }
 .brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
 .brand img { width:46px; height:46px; border-radius:12px; box-shadow:0 8px 20px rgba(15,119,242,.32); }
 .brand span { font-size:27px; font-weight:900; color:var(--ind-deep); letter-spacing:-.5px; }
@@ -38,62 +38,62 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 /* ── SendReady popover (clean, standalone) ── */
 .panel { background:#fff; border-radius:18px; padding:18px; border:1px solid var(--dv); box-shadow:0 26px 70px rgba(20,22,58,.22); }
 .p-head { display:flex; align-items:center; gap:9px; margin-bottom:14px; }
-.p-head img { width:26px; height:26px; } .p-head b { font-size:21px; font-weight:700; color:var(--t1); } .p-head .x { margin-left:auto; color:var(--t3); font-size:19px; }
-.p-item { display:flex; align-items:center; gap:13px; padding:14px 14px; border-radius:12px; font-size:23px; color:var(--t1); }
+.p-head img { width:34px; height:34px; } .p-head b { font-size:21px; font-weight:700; color:var(--t1); } .p-head .x { margin-left:auto; color:var(--t3); font-size:19px; }
+.p-item { display:flex; align-items:center; gap:14px; padding:17px 16px; border-radius:13px; font-size:28px; color:var(--t1); }
 .p-item.hi { background:rgba(15,119,242,.12); outline:2.5px solid var(--ind); outline-offset:-2.5px; }
-.p-tag { font-size:15px; font-weight:700; padding:4px 11px; border-radius:8px; background:rgba(15,119,242,.14); color:var(--ind); }
+.p-tag { font-size:18px; font-weight:700; padding:5px 13px; border-radius:8px; background:rgba(15,119,242,.14); color:var(--ind); }
 .p-tag.s { background:rgba(254,206,4,.14); color:var(--snip); }
-.p-item .t { flex:1; } .p-item .g { font-family:'Inter',monospace; font-size:18px; color:var(--t3); font-weight:600; }
+.p-item .t { flex:1; } .p-item .g { font-family:'Inter',monospace; font-size:21px; color:var(--t3); font-weight:600; }
 
 /* selected-text pill */
-.seltext { font-size:25px; color:var(--t1); background:rgba(15,119,242,.12); border:1.5px dashed rgba(15,119,242,.45); border-radius:14px; padding:18px 26px; max-width:640px; line-height:1.5; text-align:center; }
+.seltext { font-size:31px; color:var(--t1); background:rgba(15,119,242,.12); border:1.5px dashed rgba(15,119,242,.45); border-radius:14px; padding:22px 32px; max-width:840px; line-height:1.5; text-align:center; }
 
 /* before/after */
 .ba { display:flex; flex-direction:column; align-items:center; gap:22px; }
-.ba-card { width:760px; border-radius:18px; padding:28px 34px; }
-.ba-card .l { font-size:16px; font-weight:800; letter-spacing:.12em; margin-bottom:10px; }
-.ba-card .x { font-size:30px; line-height:1.45; }
+.ba-card { width:980px; border-radius:18px; padding:34px 44px; }
+.ba-card .l { font-size:18px; font-weight:800; letter-spacing:.12em; margin-bottom:10px; }
+.ba-card .x { font-size:37px; line-height:1.45; }
 .ba-card.gray { background:#F1F3FA; border:1.5px solid var(--dv); }
 .ba-card.gray .l { color:var(--t3); } .ba-card.gray .x { color:var(--t2); }
 .ba-card.blue { background:rgba(15,119,242,.07); border:2px solid rgba(15,119,242,.4); }
 .ba-card.blue .l { color:var(--ind); } .ba-card.blue .x { color:var(--t1); font-weight:600; }
 .ba-mid { display:flex; align-items:center; gap:12px; }
-.ba-pill { background:var(--ind); color:#fff; border-radius:999px; padding:9px 24px; font-size:21px; font-weight:700; }
+.ba-pill { background:var(--ind); color:#fff; border-radius:999px; padding:12px 30px; font-size:26px; font-weight:700; }
 
 /* input + result row */
-.io { display:flex; align-items:center; gap:30px; }
+.io { display:flex; align-items:center; gap:42px; }
 .io .lab { font-size:17px; font-weight:800; letter-spacing:.1em; margin-bottom:12px; }
-.io-box { border-radius:16px; padding:22px 26px; font-size:30px; min-height:104px; display:flex; align-items:center; }
+.io-box { border-radius:16px; padding:26px 30px; font-size:37px; min-height:132px; display:flex; align-items:center; }
 .mono { font-family:'Inter',monospace; font-weight:700; }
 .cur { display:inline-block; width:3px; height:34px; vertical-align:-6px; margin-left:3px; }
-.io-arrow { font-size:46px; font-weight:300; }
-.resbox { border:1px solid var(--dv); border-radius:14px; padding:18px 22px; font-size:26px; color:var(--t1); line-height:1.5; background:#fcfcff; }
+.io-arrow { font-size:56px; font-weight:300; }
+.resbox { border:1px solid var(--dv); border-radius:14px; padding:20px 24px; font-size:31px; color:var(--t1); line-height:1.5; background:#fcfcff; }
 .acts { display:flex; gap:12px; margin-top:16px; }
-.btn { font-size:20px; padding:11px 24px; border-radius:11px; border:1px solid var(--dv); color:var(--t1); }
+.btn { font-size:24px; padding:13px 28px; border-radius:11px; border:1px solid var(--dv); color:var(--t1); }
 .btn.p { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:700; }
-.chip { font-size:21px; padding:10px 24px; border-radius:999px; border:1px solid var(--dv); color:var(--t1); }
+.chip { font-size:26px; padding:12px 28px; border-radius:999px; border:1px solid var(--dv); color:var(--t1); }
 .chip.on { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:700; }
-.kbd { font-family:'Inter',monospace; font-size:20px; background:#fff; border:1px solid #cbd2ee; border-bottom-width:3px; border-radius:9px; padding:7px 15px; font-weight:700; color:var(--t1); }
+.kbd { font-family:'Inter',monospace; font-size:24px; background:#fff; border:1px solid #cbd2ee; border-bottom-width:3px; border-radius:9px; padding:7px 15px; font-weight:700; color:var(--t1); }
 
 /* received message card */
 .msg .who { display:flex; align-items:center; gap:13px; margin-bottom:18px; }
-.msg .av { width:56px; height:56px; border-radius:50%; background:var(--bg-alt); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--ind); font-size:24px; }
-.msg .nm { font-weight:800; font-size:23px; color:var(--t1); } .msg .tm { font-size:18px; color:var(--t3); }
-.msg .body { font-size:26px; color:var(--t1); line-height:1.6; }
+.msg .av { width:66px; height:66px; border-radius:50%; background:var(--bg-alt); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--ind); font-size:24px; }
+.msg .nm { font-weight:800; font-size:27px; color:var(--t1); } .msg .tm { font-size:18px; color:var(--t3); }
+.msg .body { font-size:33px; color:var(--t1); line-height:1.6; }
 
 /* popup */
-.popup { width:440px; background:#fff; border-radius:20px; box-shadow:0 30px 70px rgba(20,22,58,.2); border:1px solid #e6e9f5; overflow:hidden; }
+.popup { width:560px; background:#fff; border-radius:20px; box-shadow:0 30px 70px rgba(20,22,58,.2); border:1px solid #e6e9f5; overflow:hidden; }
 .pu-hd { display:flex; align-items:center; justify-content:space-between; padding:18px 20px; border-bottom:1px solid var(--dv); }
-.pu-ttl { display:flex; align-items:center; gap:9px; font-weight:800; font-size:22px; color:var(--t1); } .pu-ttl img { width:26px; height:26px; }
-.pu-use { font-size:16px; color:var(--t3); }
+.pu-ttl { display:flex; align-items:center; gap:11px; font-weight:800; font-size:27px; color:var(--t1); } .pu-ttl img { width:34px; height:34px; }
+.pu-use { font-size:19px; color:var(--t3); }
 .pu-body { padding:18px 20px 22px; }
-.pu-sec { font-size:16px; font-weight:800; margin:14px 0 9px; letter-spacing:.04em; }
+.pu-sec { font-size:19px; font-weight:800; margin:14px 0 9px; letter-spacing:.04em; }
 .pu-sec.a { color:var(--ind); } .pu-sec.s { color:var(--snip); }
-.pu-row { display:flex; align-items:center; gap:12px; padding:14px 15px; border:1px solid var(--dv); border-radius:13px; margin-bottom:9px; }
-.pu-rt { font-size:14px; font-weight:700; padding:4px 9px; border-radius:7px; }
+.pu-row { display:flex; align-items:center; gap:13px; padding:17px 18px; border:1px solid var(--dv); border-radius:13px; margin-bottom:9px; }
+.pu-rt { font-size:16px; font-weight:700; padding:5px 11px; border-radius:7px; }
 .pu-rt.a { background:rgba(15,119,242,.14); color:var(--ind); } .pu-rt.s { background:rgba(254,206,4,.14); color:var(--snip); }
-.pu-rm { flex:1; } .pu-rm .t { font-weight:700; font-size:19px; color:var(--t1); } .pu-rm .d { font-size:15px; color:var(--t3); }
-.pu-rg { font-family:'Inter',monospace; font-size:17px; color:var(--t3); font-weight:600; }
+.pu-rm { flex:1; } .pu-rm .t { font-weight:700; font-size:23px; color:var(--t1); } .pu-rm .d { font-size:18px; color:var(--t3); }
+.pu-rg { font-family:'Inter',monospace; font-size:20px; color:var(--t3); font-weight:600; }
 
 /* feature marquee 1400x560 */
 .feat-banner { width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 56px; background:linear-gradient(135deg,#0B5ED6 0%,#0F77F2 55%,#4DA3FF 100%); display:flex; align-items:center; padding:0 90px; gap:60px; }
@@ -102,8 +102,8 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 .fb-brand img { width:48px; height:48px; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.3); }
 .fb-brand span { font-size:28px; font-weight:900; color:#fff; letter-spacing:-.5px; }
 .fb-badge { display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.32); color:#fff; font-size:19px; font-weight:700; padding:10px 24px; border-radius:100px; margin-bottom:28px; }
-.fb-title { font-size:62px; font-weight:900; line-height:1.15; letter-spacing:-2px; margin-bottom:22px; }
-.fb-sub { font-size:25px; color:rgba(255,255,255,.85); line-height:1.55; font-weight:500; }
+.fb-title { font-size:74px; font-weight:900; line-height:1.15; letter-spacing:-2px; margin-bottom:22px; }
+.fb-sub { font-size:29px; color:rgba(255,255,255,.85); line-height:1.55; font-weight:500; }
 .fb-pills { display:flex; gap:13px; margin-top:32px; }
 .fb-pill { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); color:#fff; font-size:20px; font-weight:700; padding:11px 26px; border-radius:100px; }
 .fb-right { width:430px; display:flex; justify-content:center; }
@@ -114,7 +114,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 <!-- ════ IMG 1: Polish (before → after) ════ -->
 <div class="si" id="img1" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
   <div class="glow" style="right:-120px;top:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(15,119,242,.1),transparent 60%);"></div>
-  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Polish your words <span class="ind">with AI</span></h1><p>From a quick draft to ready-to-send — in one tap</p></div>
+  <div class="cap"><h1>Polish your words <span class="ind">with AI</span></h1><p>From a quick draft to ready-to-send — in one tap</p></div>
   <div class="ba">
     <div class="ba-card gray"><div class="l">YOU TYPED</div><div class="x">tmrw 10 works, thx</div></div>
     <div class="ba-mid"><span class="ba-pill">💝 Polish</span></div>
@@ -124,11 +124,11 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 
 <!-- ════ IMG 2: Select → menu ════ -->
 <div class="si" id="img2" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
-  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Select text, <span class="ind">pick a preset</span></h1><p>Polish · Translate · Summarize · Fix typos</p></div>
+  <div class="cap"><h1>Select text, <span class="ind">pick a preset</span></h1><p>Polish · Translate · Summarize · Fix typos</p></div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:26px;">
     <div class="seltext">"Could you send me the report by Friday?"</div>
-    <div class="panel" style="width:460px;">
-      <div class="p-head"><img src="icons/icon128.png"><b>SendReady</b><span class="x">✕</span></div>
+    <div class="panel" style="width:560px;">
+      <div class="p-head"><img src="icons/icon128.png"><span class="x">✕</span></div>
       <div class="p-item hi"><span class="p-tag">AI</span><span class="t">Polish 💝</span><span class="g">//p</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Translate 🌏</span><span class="g">//tr</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Summarize 📝</span><span class="g">//sum</span></div>
@@ -139,9 +139,9 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 
 <!-- ════ IMG 3: Inline trigger ════ -->
 <div class="si" id="img3" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
-  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Type a trigger, <span class="ind">hit Enter</span></h1><p>Write //p before your text — AI transforms it in place</p></div>
+  <div class="cap"><h1>Type a trigger, <span class="ind">hit Enter</span></h1><p>Write //p before your text — AI transforms it in place</p></div>
   <div class="io">
-    <div class="win" style="width:470px;">
+    <div class="win" style="width:560px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div></div>
       <div style="padding:26px;">
         <div class="lab" style="color:var(--ind);">TYPE</div>
@@ -150,8 +150,8 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
       </div>
     </div>
     <div class="io-arrow" style="color:var(--ind);">→</div>
-    <div class="panel" style="width:380px;">
-      <div class="p-head"><img src="icons/icon128.png"><b>SendReady</b><span class="x">✕</span></div>
+    <div class="panel" style="width:470px;">
+      <div class="p-head"><img src="icons/icon128.png"><span class="x">✕</span></div>
       <div class="resbox">I'll be there at 10 tomorrow.</div>
       <div class="acts"><span class="btn p">Apply</span><span class="btn">Copy</span><span class="btn">Redo</span></div>
     </div>
@@ -160,16 +160,16 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 
 <!-- ════ IMG 4: Reply ════ -->
 <div class="si" id="img4" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
-  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Turn a message <span class="ind">into a reply</span></h1><p>Pick a tone — AI writes the reply for you</p></div>
+  <div class="cap"><h1>Turn a message <span class="ind">into a reply</span></h1><p>Pick a tone — AI writes the reply for you</p></div>
   <div class="io" style="align-items:stretch;">
-    <div class="win msg" style="width:460px;">
+    <div class="win msg" style="width:560px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
       <div style="padding:28px 30px;">
         <div class="who"><div class="av">A</div><div><div class="nm">Alex</div><div class="tm">2:32 PM</div></div></div>
         <div class="body">Are you free Wednesday afternoon for our meeting?</div>
       </div>
     </div>
-    <div class="panel" style="width:430px;">
+    <div class="panel" style="width:520px;">
       <div class="p-head"><img src="icons/icon128.png"><b>↩ Write a reply</b></div>
       <div style="font-size:16px;color:var(--t3);margin-bottom:12px;">PICK A TONE</div>
       <div style="display:flex;gap:9px;margin-bottom:18px;"><span class="chip on">Polite</span><span class="chip">Casual</span><span class="chip">Short</span></div>
@@ -181,9 +181,9 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 
 <!-- ════ IMG 5: Snippets ════ -->
 <div class="si" id="img5" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
-  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Instant <span class="ind" style="color:var(--snip);">text snippets</span></h1><p>Type ;sig and your signature pops in — no AI needed</p></div>
+  <div class="cap"><h1>Instant <span class="ind" style="color:var(--snip);">text snippets</span></h1><p>Type ;sig and your signature pops in — no AI needed</p></div>
   <div class="io">
-    <div class="win" style="width:430px;">
+    <div class="win" style="width:520px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
       <div style="padding:26px;">
         <div class="lab" style="color:var(--snip);">TYPE</div>
@@ -192,7 +192,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
       </div>
     </div>
     <div class="io-arrow" style="color:var(--snip);">→</div>
-    <div class="win" style="width:380px;">
+    <div class="win" style="width:470px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒</div></div>
       <div style="padding:24px;">
         <div style="border:1px solid var(--dv);border-radius:14px;padding:20px;font-size:20px;color:var(--t1);line-height:1.7;background:#fcfcff;">———————<br>Alex Carter<br>📧 alex@example.com<br>📱 (555) 123-4567</div>
@@ -204,9 +204,9 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 
 <!-- ════ IMG 6: Your presets ════ -->
 <div class="si" id="img6" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
-  <div class="cap"><div class="brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div><h1>Make it <span class="ind">your own</span></h1><p>Up to 10 AI presets and 10 snippets — your triggers</p></div>
+  <div class="cap"><h1>Make it <span class="ind">your own</span></h1><p>Up to 10 AI presets and 10 snippets — your triggers</p></div>
   <div class="popup">
-    <div class="pu-hd"><div class="pu-ttl"><img src="icons/icon128.png">SendReady</div><span class="pu-use">Today 12 / 50</span></div>
+    <div class="pu-hd"><div class="pu-ttl"><img src="icons/icon128.png"></div><span class="pu-use">Today 12 / 50</span></div>
     <div class="pu-body">
       <div class="pu-sec a">AI PRESETS</div>
       <div class="pu-row"><span class="pu-rt a">AI</span><div class="pu-rm"><div class="t">Polish 💝</div><div class="d">More polite and respectful</div></div><span class="pu-rg">//p</span></div>
@@ -221,7 +221,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
 <div class="feat-banner" id="feature">
   <div class="glow" style="left:-100px;bottom:-150px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 60%);"></div>
   <div class="fb-left">
-    <div class="fb-brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div>
+    <div class="fb-brand"><img src="icons/icon128.png" alt=""></div>
     <div class="fb-badge">⚡ 100% Free · Chrome Extension</div>
     <div class="fb-title">Transform any text<br>with AI, in one tap</div>
     <div class="fb-sub">Polish, translate, summarize &amp; reply —<br>in any text field. Snippets expand instantly, too.</div>
@@ -229,7 +229,7 @@ body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothin
   </div>
   <div class="fb-right">
     <div class="panel" style="width:400px;box-shadow:0 40px 90px rgba(0,0,0,.38);">
-      <div class="p-head"><img src="icons/icon128.png"><b>SendReady</b><span class="x">✕</span></div>
+      <div class="p-head"><img src="icons/icon128.png"><span class="x">✕</span></div>
       <div class="p-item hi"><span class="p-tag">AI</span><span class="t">Polish 💝</span><span class="g">//p</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Translate 🌏</span><span class="g">//tr</span></div>
       <div class="p-item"><span class="p-tag">AI</span><span class="t">Summarize 📝</span><span class="g">//sum</span></div>
