@@ -36,8 +36,8 @@
     .vids { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
     .vid { width: 330px; max-width: 100%; text-align: center; }
     .vid-h { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
-    .crop { width: 100%; height: 440px; overflow: hidden; position: relative; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(20,22,58,0.10); background: #f1f1f3; }
-    .crop img { position: absolute; left: -8px; top: -8px; width: 1568px; height: 744px; max-width: none; }
+    .crop { width: 100%; aspect-ratio: 880 / 560; overflow: hidden; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(20,22,58,0.10); background: #eef0f4; }
+    .crop video { width: 100%; height: 100%; display: block; object-fit: cover; }
     .vid p { font-size: 13.5px; color: var(--text-sub); margin: 12px 4px 0; }
 
     footer { text-align: center; padding: 26px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); }
@@ -69,17 +69,17 @@
     <div class="vids">
       <figure class="vid">
         <div class="vid-h"><span>🤖</span><span data-i18n="demo_tab0">Transform with AI</span></div>
-        <div class="crop"><img src="videos/sr-transform.gif" alt="Transform with AI" /></div>
+        <div class="crop"><video src="videos/sr-transform.webm" autoplay loop muted playsinline></video></div>
         <p data-i18n-html="demo_cap0">Just <b>select your text and pick a style</b>. AI rewrites it and swaps it in place.</p>
       </figure>
       <figure class="vid">
         <div class="vid-h"><span>⚡</span><span data-i18n="demo_tab1">Insert a snippet</span></div>
-        <div class="crop"><img src="videos/sr-snippet.gif" alt="Insert a snippet" /></div>
+        <div class="crop"><video src="videos/sr-snippet.webm" autoplay loop muted playsinline></video></div>
         <p data-i18n-html="demo_cap1"><b>Type ";sig" and press space</b>. Your saved signature or greeting appears instantly.</p>
       </figure>
       <figure class="vid">
         <div class="vid-h"><span>↩️</span><span data-i18n="demo_tab2">Write a reply</span></div>
-        <div class="crop"><img src="videos/sr-reply.gif" alt="Write a reply" /></div>
+        <div class="crop"><video src="videos/sr-reply.webm" autoplay loop muted playsinline></video></div>
         <p data-i18n-html="demo_cap2">Select the message you got and <b>pick a tone</b>. AI writes the reply for you.</p>
       </figure>
     </div>
