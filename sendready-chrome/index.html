@@ -327,6 +327,40 @@
     </div>
   </section>
 
+  <!-- HOW TO USE — real screen recordings (labels/captions use existing per-language i18n keys) -->
+  <section style="background: var(--bg);">
+    <style>
+      .howto-vids { display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin-top:28px; }
+      .hv { width:360px; max-width:100%; margin:0; text-align:center; }
+      .hv-tab { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:800; color:var(--ind-deep); background:var(--bg-alt); border:1px solid var(--border); border-radius:100px; padding:8px 18px; margin-bottom:14px; }
+      .hv-crop { width:100%; height:470px; overflow:hidden; position:relative; border-radius:14px; border:1px solid var(--border); box-shadow:0 12px 40px rgba(20,22,58,0.10); background:#f1f1f3; }
+      .hv-crop img { position:absolute; left:-8px; top:-8px; width:1568px; height:744px; max-width:none; }
+      .hv figcaption { margin-top:14px; font-size:14px; color:var(--text-sub); line-height:1.6; }
+    </style>
+    <div class="section-inner section-center">
+      <span class="section-tag">How to use</span>
+      <h2 data-i18n="demo_h2">It's faster to just watch.</h2>
+      <p class="section-lead" data-i18n="demo_lead">Three ways to use it, shown on real screens.</p>
+      <div class="howto-vids">
+        <figure class="hv">
+          <div class="hv-tab"><span>🤖</span><span data-i18n="demo_tab0">Transform with AI</span></div>
+          <div class="hv-crop"><img src="videos/sr-transform.gif" alt="Transform with AI" loading="lazy" /></div>
+          <figcaption data-i18n-html="demo_cap0">Just <b>select your text and pick "Polish"</b>. AI rewrites it and swaps it in place.</figcaption>
+        </figure>
+        <figure class="hv">
+          <div class="hv-tab"><span>⚡</span><span data-i18n="demo_tab1">Insert a snippet</span></div>
+          <div class="hv-crop"><img src="videos/sr-snippet.gif" alt="Insert a snippet" loading="lazy" /></div>
+          <figcaption data-i18n-html="demo_cap1"><b>Click the icon in a field</b> and pick a snippet. Your saved signature or greeting appears instantly.</figcaption>
+        </figure>
+        <figure class="hv">
+          <div class="hv-tab"><span>↩️</span><span data-i18n="demo_tab2">Write a reply</span></div>
+          <div class="hv-crop"><img src="videos/sr-reply.gif" alt="Write a reply" loading="lazy" /></div>
+          <figcaption data-i18n-html="demo_cap2">Select the message you got and <b>pick a tone</b>. AI writes the reply for you.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ANY-INPUT BANNER -->
   <div class="anyapp-bar">
     <div class="anyapp-inner">
