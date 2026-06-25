@@ -9,28 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0A0A;font-family:'Inter','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-family:'Inter','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
 
 :root{
+  /* phone-interior tokens = unchanged（端末モックはダーク固定のまま） */
   --night:#0A0A0A;--soil:#12241A;--sf:#161616;--sf2:#1E1E1E;--sf3:#252525;
   --green:#34C759;--greenD:#2E9E4F;--greenA:#69F0AE;
   --gold:#FFD60A;--amber:#FFC107;
   --coral:#FF9F8E;--lav:#C9A7FF;--teal:#64FFDA;--blue:#40C4FF;--orange:#FF6E40;
   --t1:#FFFFFF;--t2:rgba(255,255,255,0.70);--t3:rgba(255,255,255,0.54);--t4:rgba(255,255,255,0.38);
   --line:rgba(255,255,255,0.10);
+  /* light scene-chrome tokens */
+  --green-ink:#0C7A35;--gold-ink:#B26B00;
+  --ink:#13241A;--ink2:rgba(19,36,26,0.66);--ink3:rgba(19,36,26,0.45);
+  --cline:rgba(20,45,28,0.12);--csf:#FFFFFF;--csf-soft:#F1F6EE;
 }
 
 /* forces a compositor repaint every frame so page.screencast() emits a steady, uniform frame rate (recording aid; visually invisible) */
 .repaint-forcer{position:fixed;top:0;left:0;width:2px;height:2px;opacity:.01;pointer-events:none;z-index:9999;animation:rpf 1s linear infinite}
 @keyframes rpf{from{transform:translateX(0)}to{transform:translateX(1px)}}
 
-.bg-base{position:absolute;inset:0;background:linear-gradient(165deg,#0A0A0A 0%,#0C140E 55%,#10221A 100%)}
+.bg-base{position:absolute;inset:0;background:linear-gradient(165deg,#FBFCF9 0%,#F1F6EE 55%,#E9F3E4 100%)}
 .bg-glow{position:absolute;inset:0;pointer-events:none;background:
-  radial-gradient(ellipse 1500px 900px at 50% 22%,rgba(52,199,89,.12) 0%,transparent 60%),
-  radial-gradient(ellipse 900px 700px at 88% 88%,rgba(255,214,10,.05) 0%,transparent 60%)}
+  radial-gradient(ellipse 1500px 900px at 50% 22%,rgba(22,163,74,.10) 0%,transparent 60%),
+  radial-gradient(ellipse 900px 700px at 88% 88%,rgba(255,196,0,.10) 0%,transparent 60%)}
 .bg-soil{position:absolute;left:-40px;right:-40px;bottom:-80px;height:360px;pointer-events:none;
-  background:radial-gradient(120% 100% at 50% 100%,rgba(22,49,31,.85) 0%,rgba(16,34,26,0) 70%)}
-.star{position:absolute;background:#fff;border-radius:50%;pointer-events:none}
+  background:radial-gradient(120% 100% at 50% 100%,rgba(22,163,74,.10) 0%,rgba(22,163,74,0) 70%)}
+.star{display:none}
 
 /* ── scene base ── */
 .scene{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
@@ -43,46 +48,46 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0A0A;font-fam
 .iburst-icon{width:132px;height:132px;border-radius:30px;position:relative;overflow:hidden;
   background:linear-gradient(180deg,#0A0A0A,#13271B);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
 .iburst-icon svg{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:104px;height:104px;filter:drop-shadow(0 0 16px rgba(255,214,10,.4))}
-.iburst-name{font-size:130px;font-weight:900;color:#fff;letter-spacing:-5px;line-height:1}
-.itagline{font-size:52px;font-weight:800;color:var(--green);opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.iburst-name{font-size:130px;font-weight:900;color:var(--ink);letter-spacing:-5px;line-height:1}
+.itagline{font-size:52px;font-weight:800;color:var(--green-ink);opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .itagline.show{opacity:1;transform:translateY(0)}
 .ipills{display:flex;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .ipills.show{opacity:1;transform:translateY(0)}
-.ipill{background:rgba(52,199,89,.10);border:1.5px solid rgba(52,199,89,.34);color:var(--green);font-size:28px;font-weight:700;padding:12px 32px;border-radius:100px}
-.ipill.gold{background:rgba(255,214,10,.10);border-color:rgba(255,214,10,.34);color:var(--gold)}
+.ipill{background:rgba(22,163,74,.10);border:1.5px solid rgba(22,163,74,.32);color:var(--green-ink);font-size:28px;font-weight:700;padding:12px 32px;border-radius:100px}
+.ipill.gold{background:rgba(255,196,0,.12);border-color:rgba(178,107,0,.32);color:var(--gold-ink)}
 
 /* ── S2: PROBLEM ── */
 .prob-wrap{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:38px;padding:0 140px}
 .prob-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .prob-head.show{opacity:1;transform:translateY(0)}
-.prob-eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--greenA);margin-bottom:10px}
-.prob-h{font-size:72px;font-weight:900;color:#fff;line-height:1.15}
-.prob-h em{color:var(--green);font-style:normal}
+.prob-eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--green-ink);margin-bottom:10px}
+.prob-h{font-size:72px;font-weight:900;color:var(--ink);line-height:1.15}
+.prob-h em{color:var(--green-ink);font-style:normal}
 .prob-cards{display:flex;gap:28px;width:100%;max-width:1560px;opacity:0;transform:translateY(28px);transition:opacity .6s .15s,transform .6s .15s}
 .prob-cards.show{opacity:1;transform:translateY(0)}
 .prob-card{flex:1;border-radius:22px;padding:34px 42px;display:flex;flex-direction:column;gap:16px}
-.prob-card.bad{background:var(--sf);border:1.5px solid var(--line)}
-.prob-card.good{background:linear-gradient(160deg,#10221A,#0E1611);border:1.5px solid rgba(52,199,89,.4)}
-.pcard-title{font-size:26px;font-weight:800;color:var(--t3);margin-bottom:2px}
-.pcard-title.good{color:var(--green)}
-.pitem{display:flex;align-items:flex-start;gap:12px;font-size:24px;font-weight:500;color:var(--t2);line-height:1.5}
-.pitem.good{color:#EAF4ED}
+.prob-card.bad{background:var(--csf);border:1.5px solid var(--cline);box-shadow:0 10px 40px rgba(20,50,30,.08)}
+.prob-card.good{background:linear-gradient(160deg,#EAF6E6,#F1F6EE);border:1.5px solid rgba(22,163,74,.4);box-shadow:0 10px 40px rgba(22,163,74,.12)}
+.pcard-title{font-size:26px;font-weight:800;color:var(--ink3);margin-bottom:2px}
+.pcard-title.good{color:var(--green-ink)}
+.pitem{display:flex;align-items:flex-start;gap:12px;font-size:24px;font-weight:500;color:var(--ink2);line-height:1.5}
+.pitem.good{color:var(--ink)}
 .pitem-icon{font-size:26px;flex-shrink:0;margin-top:2px}
 
 /* ── S3: STEPS ── */
 .steps-wrap{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:46px}
 .steps-head{text-align:center;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .steps-head.show{opacity:1;transform:translateY(0)}
-.steps-eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--greenA);margin-bottom:10px}
-.steps-h{font-size:78px;font-weight:900;color:#fff;line-height:1.1}
-.steps-h em{color:var(--green);font-style:normal}
+.steps-eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;color:var(--green-ink);margin-bottom:10px}
+.steps-h{font-size:78px;font-weight:900;color:var(--ink);line-height:1.1}
+.steps-h em{color:var(--green-ink);font-style:normal}
 .steps-row{display:flex;gap:26px;max-width:1720px;width:100%;padding:0 120px}
-.step-card{flex:1;background:var(--sf);border:1.5px solid var(--line);border-radius:22px;padding:34px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 6px 30px rgba(0,0,0,.35)}
+.step-card{flex:1;background:var(--csf);border:1.5px solid var(--cline);border-radius:22px;padding:34px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 10px 36px rgba(20,50,30,.10)}
 .step-card.show{opacity:1;transform:translateY(0)}
-.step-num{font-size:18px;font-weight:800;color:var(--green);letter-spacing:.1em}
+.step-num{font-size:18px;font-weight:800;color:var(--green-ink);letter-spacing:.1em}
 .step-ico{font-size:50px;line-height:1}
-.step-ttl{font-size:30px;font-weight:800;color:#fff}
-.step-desc{font-size:19px;color:var(--t2);line-height:1.6}
+.step-ttl{font-size:30px;font-weight:800;color:var(--ink)}
+.step-desc{font-size:19px;color:var(--ink2);line-height:1.6}
 
 /* ── PHONE ── */
 .phone-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
@@ -186,38 +191,57 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0A0A;font-fam
 .privcard .pc1{font-size:18px;font-weight:700;color:#fff}
 .privcard .pc2{font-size:14px;color:var(--t3);margin-top:2px}
 
+/* app picker (blocked apps) */
+.applist{flex:1;padding:4px 18px 18px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.ap-search{display:flex;align-items:center;gap:11px;background:var(--sf2);border:1px solid var(--line);border-radius:14px;padding:13px 16px;color:var(--t4);font-size:16px;flex-shrink:0}
+.ap-search svg{width:20px;height:20px;fill:var(--t4)}
+.cat{background:var(--sf);border-radius:18px;padding:4px 2px 8px}
+.cat-h{display:flex;align-items:center;gap:10px;padding:12px 16px 8px}
+.cat-h .cat-n{flex:1;font-size:16px;font-weight:800;color:#fff;letter-spacing:.2px}
+.cat-h .cat-meta{font-size:13px;font-weight:800;color:var(--greenA)}
+.cat-h .cat-cv{width:18px;height:18px;fill:var(--t4);flex-shrink:0}
+.approw{display:flex;align-items:center;gap:13px;padding:8px 16px}
+.appico{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;color:#fff}
+.appmeta{flex:1;min-width:0}
+.appname{font-size:17px;font-weight:600;color:#fff}
+.appuse{font-size:13px;color:var(--t3);margin-top:1px}
+.sw{width:50px;height:30px;border-radius:999px;background:#3a3a3a;position:relative;flex-shrink:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.sw.on{background:var(--green)}
+.sw.on::after{left:23px}
+
 /* ── CALLOUT ── */
 .callout{
   position:absolute;top:50%;
-  background:linear-gradient(160deg,#12241A,#0C140E);border:1.5px solid rgba(52,199,89,.4);border-radius:22px;
+  background:linear-gradient(160deg,#FFFFFF,#F1F6EE);border:1.5px solid rgba(22,163,74,.34);border-radius:22px;
   padding:38px 46px;width:700px;
-  box-shadow:0 24px 70px rgba(0,0,0,.5);
+  box-shadow:0 24px 60px rgba(20,50,30,.16);
   opacity:0;transition:opacity .5s,transform .5s;pointer-events:none;
 }
 .callout.side-left{left:100px;transform:translateY(calc(-50% + 20px))}
 .callout.side-left.show{opacity:1;transform:translateY(-50%)}
 .callout.side-right{right:100px;transform:translateY(calc(-50% + 20px))}
 .callout.side-right.show{opacity:1;transform:translateY(-50%)}
-.callout-tag{display:inline-block;font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--greenA);margin-bottom:14px}
-.callout-ttl{font-size:34px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.3}
-.callout-ttl em{color:var(--gold);font-style:normal}
-.callout-desc{font-size:20px;color:var(--t2);line-height:1.65}
+.callout-tag{display:inline-block;font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--green-ink);margin-bottom:14px}
+.callout-ttl{font-size:34px;font-weight:800;color:var(--ink);margin-bottom:12px;line-height:1.3}
+.callout-ttl em{color:var(--gold-ink);font-style:normal}
+.callout-desc{font-size:20px;color:var(--ink2);line-height:1.65}
 
 /* ── S5: FEATURES ── */
-.feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#0A0A0A 0%,#0C140E 55%,#10221A 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FBFCF9 0%,#F1F6EE 55%,#E9F3E4 100%);opacity:0;transition:opacity .6s;pointer-events:none}
 .feat-scene.show{opacity:1}
 .fwrap{display:flex;flex-direction:column;align-items:center;gap:38px;width:92%;max-width:1720px}
 .fhead{text-align:center;opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
 .fhead.show{opacity:1;transform:translateY(0)}
-.fhead-lbl{display:inline-block;font-size:20px;font-weight:800;color:var(--greenA);letter-spacing:.16em;margin-bottom:10px}
-.fhead h2{font-size:76px;font-weight:900;color:#fff;line-height:1.2}
-.fhead h2 em{color:var(--green);font-style:normal}
+.fhead-lbl{display:inline-block;font-size:20px;font-weight:800;color:var(--green-ink);letter-spacing:.16em;margin-bottom:10px}
+.fhead h2{font-size:76px;font-weight:900;color:var(--ink);line-height:1.2}
+.fhead h2 em{color:var(--green-ink);font-style:normal}
 .fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
-.fcard{background:var(--sf);border:1px solid var(--line);border-radius:20px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s;box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.fcard{background:var(--csf);border:1px solid var(--cline);border-radius:20px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s;box-shadow:0 10px 30px rgba(20,50,30,.10)}
 .fcard.show{opacity:1;transform:translateY(0)}
-.fcard-ico{width:62px;height:62px;border-radius:16px;background:rgba(52,199,89,.1);border:1px solid rgba(52,199,89,.22);display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
-.fcard-ttl{font-size:26px;font-weight:800;color:#fff}
-.fcard-txt{font-size:18px;color:var(--t2);line-height:1.55}
+.fcard-ico{width:62px;height:62px;border-radius:16px;background:rgba(22,163,74,.1);border:1px solid rgba(22,163,74,.22);display:flex;align-items:center;justify-content:center;font-size:32px;line-height:1}
+.fcard-ttl{font-size:26px;font-weight:800;color:var(--ink)}
+.fcard-txt{font-size:18px;color:var(--ink2);line-height:1.55}
 
 /* ── S6: CTA ── */
 .cta-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0E3D22 0%,#2E9E4F 55%,#34C759 100%);opacity:0;transition:opacity .6s;pointer-events:none}
@@ -465,6 +489,31 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0A0A;font-fam
       </div>
     </div>
 
+    <!-- Screen G: choose blocked apps -->
+    <div class="screen" id="sc-g">
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Blocked apps</span>
+        <svg class="atop-ico" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14z"/></svg>
+      </div>
+      <div class="applist">
+        <div class="ap-search"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14z"/></svg>Search apps</div>
+        <div class="cat">
+          <div class="cat-h"><span class="cat-n">Social</span><span class="cat-meta">3 selected</span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="approw"><span class="appico" style="background:linear-gradient(135deg,#f9a02c,#dd2a7b 55%,#8134af)">📷</span><div class="appmeta"><div class="appname">Instagram</div><div class="appuse">Today 52m</div></div><span class="sw on"></span></div>
+          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c">𝕏</span><div class="appmeta"><div class="appname">X</div><div class="appuse">Today 34m</div></div><span class="sw on"></span></div>
+          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c">🎵</span><div class="appmeta"><div class="appname">TikTok</div><div class="appuse">Today 1h 8m</div></div><span class="sw on"></span></div>
+        </div>
+        <div class="cat">
+          <div class="cat-h"><span class="cat-n">Video</span><span class="cat-meta">2 selected</span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="approw"><span class="appico" style="background:#FF0000">▶</span><div class="appmeta"><div class="appname">YouTube</div><div class="appuse">Today 41m</div></div><span class="sw on"></span></div>
+          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c;color:#E50914">N</span><div class="appmeta"><div class="appname">Netflix</div><div class="appuse">Today 22m</div></div><span class="sw on"></span></div>
+        </div>
+        <div class="cat">
+          <div class="cat-h"><span class="cat-n">Games</span><span class="cat-meta">0 selected</span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="approw"><span class="appico" style="background:#5b3df5">🎮</span><div class="appmeta"><div class="appname">Puzzle Quest</div><div class="appuse">Today 9m</div></div><span class="sw"></span></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Screen E: gentle lock -->
     <div class="screen" id="sc-e">
       <div class="lockwrap">
@@ -519,15 +568,21 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0A0A;font-fam
     <div class="callout-ttl">Your rules,<br>per <em>time of day</em></div>
     <div class="callout-desc">Drag on the 24-hour dial. Set a focus goal, usable minutes, rounds &amp; blocked apps per window.</div>
   </div>
-  <!-- co4: Demo4 phone=left → callout right -->
-  <div class="callout side-right" id="co4">
-    <div class="callout-tag">DEMO 04 — Gentle Lock</div>
-    <div class="callout-ttl">At zero, it<br><em>locks gently</em></div>
-    <div class="callout-desc">Spend a window's time and target apps lock automatically. Distractions lock during focus, too.</div>
+  <!-- co6: Demo4 phone=left → callout right -->
+  <div class="callout side-right" id="co6">
+    <div class="callout-tag">DEMO 04 — Blocked Apps</div>
+    <div class="callout-ttl">Pick the apps<br>to <em>put on hold</em></div>
+    <div class="callout-desc">Choose which SNS, video &amp; game apps to restrict — by category, per window. Everything else stays free.</div>
   </div>
-  <!-- co5: Demo5 phone=right → callout left -->
-  <div class="callout side-left" id="co5">
-    <div class="callout-tag">DEMO 05 — Privacy First</div>
+  <!-- co4: Demo5 phone=right → callout left -->
+  <div class="callout side-left" id="co4">
+    <div class="callout-tag">DEMO 05 — Gentle Lock</div>
+    <div class="callout-ttl">At zero, it<br><em>locks gently</em></div>
+    <div class="callout-desc">Spend a window's time and the apps you chose lock automatically. Distractions lock during focus, too.</div>
+  </div>
+  <!-- co5: Demo6 phone=left → callout right -->
+  <div class="callout side-right" id="co5">
+    <div class="callout-tag">DEMO 06 — Privacy First</div>
     <div class="callout-ttl">On-device.<br>Nothing leaves your phone</div>
     <div class="callout-desc">The camera only checks "present or not." No image is ever saved or sent to the cloud.</div>
   </div>
@@ -569,7 +624,7 @@ function at(ms,fn){T.push([ms,fn])}
 function screen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));$(id).classList.add('show')}
 function phonePos(p){$('ph').classList.remove('left','right');if(p)$('ph').classList.add(p)}
 function showCo(n){$('co'+n).classList.add('show')}
-function hideCos(){[1,2,3,4,5].forEach(n=>$('co'+n).classList.remove('show'))}
+function hideCos(){[1,2,3,4,5,6].forEach(n=>$('co'+n).classList.remove('show'))}
 
 function reset(){
   clearTimeout(tmr);T=[];idx=0;
@@ -632,14 +687,20 @@ function buildTimeline(){
   at(t+3200,()=>hideCos());
   t+=3500;
 
-  // Demo 4: gentle lock (3.5s)
-  at(t,()=>{phonePos('left');screen('sc-e')});
+  // Demo 4: choose blocked apps (4s)
+  at(t,()=>{phonePos('left');screen('sc-g')});
+  at(t+350,()=>showCo(6));
+  at(t+3700,()=>hideCos());
+  t+=4000;
+
+  // Demo 5: gentle lock (3.5s)
+  at(t,()=>{phonePos('right');screen('sc-e')});
   at(t+350,()=>showCo(4));
   at(t+3200,()=>hideCos());
   t+=3500;
 
-  // Demo 5: privacy (3.5s)
-  at(t,()=>{phonePos('right');screen('sc-f')});
+  // Demo 6: privacy (3.5s)
+  at(t,()=>{phonePos('left');screen('sc-f')});
   at(t+350,()=>showCo(5));
   at(t+3200,()=>{hideCos();$('ps').classList.remove('show')});
   t+=3500;

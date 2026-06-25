@@ -22,6 +22,7 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
   text              : #FFFFFF / 70% / 54% / 38%
 */
 :root {
+  /* phone-interior tokens = unchanged (実アプリはダーク固定なので端末モックはダークのまま) */
   --night:#0A0A0A; --soil:#12241A; --sf:#161616; --sf2:#1E1E1E; --sf3:#252525;
   --green:#34C759; --greenD:#2E9E4F; --greenA:#69F0AE;
   --gold:#FFD60A; --amber:#FFC107;
@@ -29,33 +30,40 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
   --teal:#64FFDA; --blue:#40C4FF; --orange:#FF6E40;
   --t1:#FFFFFF; --t2:rgba(255,255,255,0.70); --t3:rgba(255,255,255,0.54); --t4:rgba(255,255,255,0.38);
   --line:rgba(255,255,255,0.10);
+  /* light canvas / panel tokens（背景・左パネルのライト化用） */
+  --green-ink:#0C7A35;        /* 白地で可読な濃いグリーン */
+  --gold-ink:#B26B00;         /* 白地で可読な濃いゴールド */
+  --ink:#13241A;              /* 見出し（濃い緑黒） */
+  --ink2:rgba(19,36,26,0.66); /* 本文 */
+  --ink3:rgba(19,36,26,0.45); /* 補足 */
+  --cline:rgba(20,45,28,0.14);/* ライト背景の罫線 */
 }
 
 /* ── Store image canvas ── */
-.si { width:1024px; height:500px; position:relative; overflow:hidden; margin:0 auto 40px; background:var(--night); }
+.si { width:1024px; height:500px; position:relative; overflow:hidden; margin:0 auto 40px; background:#FBFCF9; }
 .bg { position:absolute; inset:0; background:
-  radial-gradient(120% 80% at 78% 8%, rgba(52,199,89,0.10) 0%, transparent 55%),
-  radial-gradient(90% 70% at 12% 105%, rgba(52,199,89,0.10) 0%, transparent 60%),
-  linear-gradient(165deg, #0A0A0A 0%, #0C140E 55%, #10221A 100%); }
+  radial-gradient(120% 80% at 78% 8%, rgba(255,196,0,0.14) 0%, transparent 55%),
+  radial-gradient(90% 70% at 12% 105%, rgba(22,163,74,0.12) 0%, transparent 60%),
+  linear-gradient(165deg, #FBFCF9 0%, #F1F6EE 55%, #E9F3E4 100%); }
 .soilcurve { position:absolute; left:-20px; right:-20px; bottom:-40px; height:180px;
-  background:radial-gradient(120% 100% at 50% 100%, rgba(22,49,31,0.9) 0%, rgba(16,34,26,0) 70%); }
-.star { position:absolute; background:#fff; border-radius:50%; }
+  background:radial-gradient(120% 100% at 50% 100%, rgba(22,163,74,0.12) 0%, rgba(22,163,74,0) 70%); }
+.star { display:none; }
 
 /* ── Left problem → solution panel ── */
 .panel { position:absolute; left:0; top:0; bottom:0; width:494px;
   display:flex; flex-direction:column; justify-content:center; padding:0 54px; z-index:2; }
 .p-emoji { font-size:50px; line-height:1; margin-bottom:14px; }
-.p-title { font-size:35px; font-weight:900; color:var(--t1); line-height:1.18; letter-spacing:-0.5px; margin-bottom:12px; }
-.p-sub   { font-size:14px; color:var(--t3); line-height:1.7; margin-bottom:22px; }
+.p-title { font-size:35px; font-weight:900; color:var(--ink); line-height:1.18; letter-spacing:-0.5px; margin-bottom:12px; }
+.p-sub   { font-size:14px; color:var(--ink3); line-height:1.7; margin-bottom:22px; }
 .dvr { display:flex; align-items:center; gap:10px; margin-bottom:20px; }
-.dvr-l { flex:1; height:1px; background:var(--line); }
-.dvr-p { display:inline-flex; align-items:center; gap:6px; background:rgba(52,199,89,0.14); color:var(--green);
+.dvr-l { flex:1; height:1px; background:var(--cline); }
+.dvr-p { display:inline-flex; align-items:center; gap:6px; background:rgba(22,163,74,0.12); color:var(--green-ink);
   font-size:11px; font-weight:800; padding:5px 14px; border-radius:20px; white-space:nowrap; letter-spacing:0.4px;
-  border:1px solid rgba(52,199,89,0.30); text-transform:uppercase; }
+  border:1px solid rgba(22,163,74,0.30); text-transform:uppercase; }
 .dvr-p .lf { width:13px; height:13px; }
-.s-title { font-size:27px; font-weight:800; color:var(--green); line-height:1.28; margin-bottom:8px; }
-.s-title .gold { color:var(--gold); }
-.s-sub   { font-size:13.5px; color:var(--t2); line-height:1.7; }
+.s-title { font-size:27px; font-weight:800; color:var(--green-ink); line-height:1.28; margin-bottom:8px; }
+.s-title .gold { color:var(--gold-ink); }
+.s-sub   { font-size:13.5px; color:var(--ink2); line-height:1.7; }
 
 /* ── Phone frame (dark) ── */
 .ph { position:absolute; background:var(--night); border-radius:34px; overflow:hidden;
@@ -132,21 +140,21 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
         </div>
       </div>
       <div>
-        <div style="font-size:62px;font-weight:900;color:#fff;letter-spacing:-1px;line-height:1;">Ripen</div>
-        <div style="font-size:20px;font-weight:700;color:var(--green);margin-top:6px;letter-spacing:0.5px;">Let your effort ripen.</div>
+        <div style="font-size:62px;font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1;">Ripen</div>
+        <div style="font-size:20px;font-weight:700;color:var(--green-ink);margin-top:6px;letter-spacing:0.5px;">Let your effort ripen.</div>
       </div>
     </div>
-    <div style="font-size:32px;font-weight:800;color:#fff;line-height:1.35;letter-spacing:-0.5px;">
-      Focus more,<br><span style="color:var(--gold);">harvest more free time.</span>
+    <div style="font-size:32px;font-weight:800;color:var(--ink);line-height:1.35;letter-spacing:-0.5px;">
+      Focus more,<br><span style="color:var(--gold-ink);">harvest more free time.</span>
     </div>
-    <div style="font-size:15px;color:var(--t2);line-height:1.8;margin-top:16px;max-width:440px;">
+    <div style="font-size:15px;color:var(--ink2);line-height:1.8;margin-top:16px;max-width:440px;">
       Willpower-only app blockers don't last. Ripen lets you "harvest" time on social
       &amp; video apps by stacking focus — a reward loop that actually sticks.
     </div>
     <div style="display:flex;gap:10px;margin-top:22px;">
       <span class="dvr-p">On-device face check</span>
       <span class="dvr-p">Per-window rules</span>
-      <span class="dvr-p" style="color:var(--gold);border-color:rgba(255,214,10,.3);background:rgba(255,214,10,.12);">Free · Android</span>
+      <span class="dvr-p" style="color:var(--gold-ink);border-color:rgba(178,107,0,.32);background:rgba(255,196,0,.14);">Free · Android</span>
     </div>
   </div>
 
