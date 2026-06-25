@@ -1091,6 +1091,9 @@ const LP_LANG_NAMES = {
 // ── Detect Locale ───────────────────────────────────────────────────
 function detectLPLocale() {
   const supported = Object.keys(LP_MESSAGES);
+  // URL の ?lang=xx を最優先(拡張機能がアプリの言語を引き継いで開くため)
+  const q = (function(){ try { return (new URLSearchParams(location.search).get("lang") || "").toLowerCase(); } catch (e) { return ""; } })();
+  if (q && supported.includes(q)) return q;
   const saved = (function(){ try { return localStorage.getItem("lp_lang"); } catch (e) { return null; } })();
   if (saved && supported.includes(saved)) return saved;
   const nav = (navigator.language || navigator.userLanguage || "en").toLowerCase();
