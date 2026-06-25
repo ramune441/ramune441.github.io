@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SendReady プライバシーポリシー</title>
-  <meta name="description" content="Chrome拡張機能「SendReady」のプライバシーポリシー。設定のローカル保存、AIへ送信されるテキストの範囲、第三者提供・権限・データ削除の取り扱いを記載しています。">
+  <title>SendReady Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Chrome extension SendReady. Covers local storage of settings, the scope of text sent to AI, third-party sharing, permissions, and data deletion.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,63 +66,63 @@
   </header>
 
   <div class="container">
-    <a href="index.html" class="back">&larr; SendReady トップに戻る</a>
-    <h1>SendReady プライバシーポリシー</h1>
-    <p class="updated">最終更新: 2025年6月</p>
+    <a href="index.html" class="back">&larr; Back to SendReady</a>
+    <h1>SendReady Privacy Policy</h1>
+    <p class="updated">Last updated: June 2025</p>
 
-    <p>本プライバシーポリシーは、開発者 Ramune（以下「当開発者」）が提供する Chrome 拡張機能「SendReady」（以下「本拡張機能」）における、利用者情報の取扱いについて定めるものです。本拡張機能は、ユーザーが選択・入力したテキストを AI で変換するためのツールです。</p>
+    <p>This Privacy Policy describes how the developer Ramune (the "Developer") handles user information in the Chrome extension "SendReady" (the "Extension"). The Extension is a tool that uses AI to transform text that the user selects or types.</p>
 
-    <h2>1. 収集する情報について</h2>
-    <p>本拡張機能は、プライバシーを最優先に設計されており、機能の提供に必要な最小限の情報のみを取り扱います。</p>
+    <h2>1. Information We Collect</h2>
+    <p>The Extension is designed with privacy first, and handles only the minimum information necessary to provide its features.</p>
 
-    <h3>(1) ローカルに保存される設定情報</h3>
+    <h3>(1) Settings stored locally</h3>
     <ul>
-      <li>プリセット（変換ルール）の内容</li>
-      <li>テーマ、言語などのアプリ設定</li>
+      <li>The contents of your presets (transformation rules)</li>
+      <li>App settings such as theme and language</li>
     </ul>
-    <p>これらの情報は、Chrome の Storage API（<code>chrome.storage.sync</code> / <code>chrome.storage.local</code>）を利用して、ユーザーの端末内にのみ保存されます。</p>
+    <p>This information is stored only on the user's device using the Chrome Storage API (<code>chrome.storage.sync</code> / <code>chrome.storage.local</code>).</p>
 
-    <h3>(2) デバイス識別子（deviceId）</h3>
+    <h3>(2) Device identifier (deviceId)</h3>
     <ul>
-      <li>本拡張機能は、初回利用時に <code>"chrome:" + ランダムな UUID</code> 形式の <strong>deviceId</strong> を生成し、<code>chrome.storage.local</code> に保存します。</li>
-      <li>この deviceId は、AI 利用回数の管理（1日あたりの利用上限）にのみ使用され、氏名・メールアドレス等の個人情報とは紐付きません。</li>
-    </ul>
-
-    <h2>2. AI に送信される情報について</h2>
-    <p>本拡張機能は、ユーザーが<strong>変換対象として選択または入力したテキストのみ</strong>を、当開発者が運用する Cloudflare Worker（<code>https://sendready-1-22.warload57.workers.dev</code>）を経由して AI（Google Gemini）に送信し、変換結果を取得します。</p>
-    <p><strong>重要：ページのその他の内容、閲覧履歴、個人情報が送信されることはありません。</strong>送信されるのは、ユーザーが明示的に変換対象とした文字列のみです。</p>
-    <p>利用回数制限（1日あたり50回）の管理および不正利用の防止のため、上記通信の際に <strong>deviceId</strong> と <strong>IP アドレス</strong>が利用されます。</p>
-
-    <h2>3. 第三者への提供について</h2>
-    <p>当開発者は、上記の AI 処理を実現するための委託先（Cloudflare および Google Gemini）以外に、ユーザーの個人データを販売・提供することは一切ありません。</p>
-    <p>本拡張機能は、<strong>広告・トラッキング・アナリティクスを一切利用しません。</strong></p>
-    <p>Google Gemini におけるデータの取扱いについては、<a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API 利用規約</a>および <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google プライバシーポリシー</a>をご参照ください。</p>
-
-    <h2>4. 権限について</h2>
-    <p>本拡張機能は、以下の Chrome 権限を使用します。いずれも機能の実現に必要最小限のものです。</p>
-    <ul>
-      <li><strong>storage</strong>: プリセット・設定・deviceId の保存</li>
-      <li><strong>contextMenus</strong>: 右クリックメニューからの変換実行</li>
-      <li><strong>clipboardWrite</strong>: 変換結果のクリップボードへのコピー</li>
-      <li><strong>activeTab</strong>: 現在のタブで選択中のテキストの取得</li>
-      <li><strong>scripting</strong>: 変換結果のページへの挿入・反映</li>
-      <li><strong>host_permissions（AI プロキシ）</strong>: 上記 Cloudflare Worker への通信</li>
-    </ul>
-    <p>本拡張機能は、<strong>カメラ・マイク・位置情報</strong>を要求しません。</p>
-
-    <h2>5. データの保存・削除について</h2>
-    <p>本拡張機能が保存するデータ（設定・プリセット・deviceId）は、すべてユーザーの端末内（Chrome のストレージ領域）に限定されます。当開発者がこれらのデータを独自に収集・保存することはありません。</p>
-    <p>ユーザーは、本拡張機能を<strong>アンインストールする</strong>ことで、保存されたすべてのデータを削除できます。</p>
-
-    <h2>6. お問い合わせ先</h2>
-    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
-    <ul>
-      <li>開発者: <strong>Ramune</strong></li>
-      <li>メール: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a></li>
+      <li>On first use, the Extension generates a <strong>deviceId</strong> in the form <code>"chrome:" + a random UUID</code> and stores it in <code>chrome.storage.local</code>.</li>
+      <li>This deviceId is used solely to manage AI usage counts (the daily usage limit), and is not linked to any personal information such as your name or email address.</li>
     </ul>
 
-    <h2>7. プライバシーポリシーの変更</h2>
-    <p>本ポリシーは、法令の変更やサービス内容の変更に応じて、必要に応じて改定されることがあります。変更後のプライバシーポリシーは、本ページにて速やかに公開します。</p>
+    <h2>2. Information Sent to AI</h2>
+    <p>The Extension sends <strong>only the text you select or type as the transformation target</strong> to the AI (Google Gemini), via a Cloudflare Worker operated by the Developer (<code>https://sendready-1-22.warload57.workers.dev</code>), and retrieves the transformed result.</p>
+    <p><strong>Important: No other page content, browsing history, or personal information is sent.</strong> Only the text you explicitly designate for transformation is transmitted.</p>
+    <p>To manage the usage limit (50 times per day) and to prevent abuse, the <strong>deviceId</strong> and <strong>IP address</strong> are used during the above communication.</p>
+
+    <h2>3. Third-Party Sharing</h2>
+    <p>The Developer never sells or provides your personal data to anyone other than the service providers required to perform the AI processing described above (Cloudflare and Google Gemini).</p>
+    <p>The Extension <strong>uses no advertising, tracking, or analytics whatsoever.</strong></p>
+    <p>For how data is handled by Google Gemini, please see the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+
+    <h2>4. Permissions</h2>
+    <p>The Extension uses the following Chrome permissions. Each is the minimum required to provide its features.</p>
+    <ul>
+      <li><strong>storage</strong>: Storing presets, settings, and the deviceId</li>
+      <li><strong>contextMenus</strong>: Running transformations from the right-click menu</li>
+      <li><strong>clipboardWrite</strong>: Copying transformation results to the clipboard</li>
+      <li><strong>activeTab</strong>: Reading the text currently selected in the active tab</li>
+      <li><strong>scripting</strong>: Inserting and applying transformation results into the page</li>
+      <li><strong>host_permissions (AI proxy)</strong>: Communicating with the Cloudflare Worker above</li>
+    </ul>
+    <p>The Extension does <strong>not</strong> request access to your <strong>camera, microphone, or location</strong>.</p>
+
+    <h2>5. Data Storage and Deletion</h2>
+    <p>All data the Extension stores (settings, presets, and the deviceId) is kept solely on the user's device (in Chrome's storage area). The Developer does not independently collect or store this data.</p>
+    <p>You can delete all stored data by <strong>uninstalling</strong> the Extension.</p>
+
+    <h2>6. Contact</h2>
+    <p>For questions about this policy, please contact us at:</p>
+    <ul>
+      <li>Developer: <strong>Ramune</strong></li>
+      <li>Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a></li>
+    </ul>
+
+    <h2>7. Changes to This Privacy Policy</h2>
+    <p>This policy may be revised as needed in response to changes in laws or to the service. The updated Privacy Policy will be published promptly on this page.</p>
   </div>
 
   <footer>
