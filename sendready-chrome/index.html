@@ -322,7 +322,7 @@
   <!-- VIDEO -->
   <section style="background: var(--bg);">
     <div class="section-inner section-center">
-      <span class="section-tag">Video</span>
+      <span class="section-tag" data-i18n="lp_tag_video">Video</span>
       <h2 data-i18n="video_h2">SendReady in 30 seconds</h2>
       <div style="position:relative;width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(20,22,58,0.1);border:1px solid var(--border);background:#000;">
         <iframe src="https://www.youtube.com/embed/Zo4yP8zmSVY" title="SendReady" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
@@ -347,7 +347,7 @@
   <!-- FLOW -->
   <section class="bg-alt">
     <div class="section-inner section-center">
-      <span class="section-tag">How it works</span>
+      <span class="section-tag" data-i18n="lp_tag_how">How it works</span>
       <h2 data-i18n="flow_h2">No more copy-paste round-trips. Done in 4 steps.</h2>
       <p class="section-lead" data-i18n="flow_lead">No pasting into another AI tab — it all happens right in your field.</p>
       <div class="flow-timeline">
@@ -429,12 +429,12 @@
   </style>
   <section class="da-sec">
     <div class="section-inner section-center">
-      <span class="section-tag">See it in action</span>
+      <span class="section-tag" data-i18n="lp_tag_demo">See it in action</span>
       <h2 data-i18n="demo_h2">It's faster to just watch.</h2>
       <p class="section-lead" data-i18n="demo_lead">Three ways to use it, shown on real screens. Switch with the tabs.</p>
       <!-- hidden translatable strings for the JS-driven demo (captions) -->
       <span id="cap0src" data-i18n-html="demo_cap0" hidden>Just <b>select your text and pick "Polish"</b>. AI rewrites it and swaps it in place.</span>
-      <span id="cap1src" data-i18n-html="demo_cap1" hidden><b>Type ";sig" and press space</b>. Your saved signature or greeting appears instantly.</span>
+      <span id="cap1src" data-i18n-html="demo_cap1" hidden><b>Type ";sig" and press Tab</b>. Your saved signature or greeting appears instantly.</span>
       <span id="cap2src" data-i18n-html="demo_cap2" hidden>Select the message you got and <b>pick a tone</b>. AI writes the reply for you.</span>
       <div class="da-tabs">
         <button class="da-tab active" data-i="0"><span class="e">🤖</span><span data-i18n="demo_tab0">Transform with AI</span></button>
@@ -464,7 +464,7 @@
             <div class="da-scene" id="da1">
               <div class="da-lab" style="color:var(--snip);" data-i18n="demo_snip_lab">Just type your shortcut</div>
               <div class="da-input" style="border-color:var(--snip);"><span id="da1typed" class="da-mono" style="color:var(--snip);font-weight:700;"></span><span class="da-cur" style="background:var(--snip);"></span></div>
-              <div class="da-hint"><span class="da-kbd">Space</span><span data-i18n="demo_snip_hint"> to confirm → your saved text pops in</span></div>
+              <div class="da-hint"><span class="da-kbd">Tab</span><span data-i18n="demo_snip_hint"> to confirm → your saved text pops in</span></div>
               <div class="da-card" id="da1out" style="opacity:0;transform:translateY(8px);" data-i18n-html="demo_sig">━━━━━━━━━━<br>Alex Carter<br>📧 alex@example.com　📱 (555) 123-4567</div>
             </div>
 
@@ -559,7 +559,7 @@
   <!-- FEATURES -->
   <section id="features">
     <div class="section-inner section-center">
-      <span class="section-tag">Features</span>
+      <span class="section-tag" data-i18n="lp_tag_features">Features</span>
       <h2 data-i18n="features_h2">Features</h2>
       <p class="section-lead" data-i18n="features_lead">AI transforms and snippets — two engines to write, fix, and reply faster.</p>
       <div class="features-grid">
@@ -600,7 +600,7 @@
   <!-- SAFETY -->
   <section class="safety-section">
     <div class="section-inner section-center">
-      <span class="section-tag">Privacy & Safety</span>
+      <span class="section-tag" data-i18n="lp_tag_privacy">Privacy &amp; Safety</span>
       <h2 data-i18n="safety_h2">Only the text you pick ever leaves your browser.</h2>
       <p class="section-lead" data-i18n="safety_lead">Built privacy-first. It never reads your whole page.</p>
       <div class="safety-grid">
@@ -627,7 +627,7 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="section-inner section-center">
-      <span class="section-tag">FAQ</span>
+      <span class="section-tag" data-i18n="lp_tag_faq">FAQ</span>
       <h2 data-i18n="faq_h2">FAQ</h2>
       <div class="faq-list" style="margin-top: 48px;">
         <div class="faq-item">
@@ -692,7 +692,7 @@
     });
   </script>
 
-  <script src="i18n-lp.js?v=5"></script>
+  <script src="i18n-lp.js?v=6"></script>
   <script>
     // 使い方ページのリンクに現在の言語を引き継ぐ
     (function () {
