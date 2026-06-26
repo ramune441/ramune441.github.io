@@ -33,13 +33,24 @@
     .step:not(:last-child)::after { content: "›"; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--ind-light); font-weight: 700; z-index: 1; }
     @media (max-width: 760px) { .steps { grid-template-columns: repeat(2, 1fr); } .step:not(:last-child)::after { display: none; } }
 
-    .vids { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
-    .vid { width: 330px; max-width: 100%; text-align: center; }
-    .vid-h { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 16px; margin-bottom: 12px; }
-    .crop { width: 100%; aspect-ratio: 820 / 460; overflow: hidden; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(20,22,58,0.10); background: #eef0f4; }
+    .demos { margin-top: 36px; display: flex; flex-direction: column; gap: 40px; }
+    .demo-row { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
+    .demo-row:nth-child(even) { flex-direction: row-reverse; }
+    .demo-media { flex: 1 1 520px; min-width: 280px; }
+    .demo-text { flex: 1 1 300px; min-width: 240px; }
+    .demo-text h3 { display: flex; align-items: center; gap: 8px; font-size: 21px; font-weight: 800; margin: 0 0 14px; }
+    .demo-text .steps { font-size: 15px; color: var(--text-sub); line-height: 2; }
+    .demo-text .steps b { color: var(--text); }
+    .demo-text .steps code { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 13px; }
+    .crop { width: 100%; aspect-ratio: 820 / 460; overflow: hidden; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(20,22,58,0.12); background: #eef0f4; }
     .crop video { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .vid p { font-size: 13.5px; color: var(--text-sub); margin: 12px 4px 0; }
+    @media (max-width: 760px) { .demo-row, .demo-row:nth-child(even) { flex-direction: column; } }
 
+    .info { max-width: 780px; margin: 22px auto 0; }
+    .info .il { font-size: 15px; color: var(--text-sub); line-height: 2.1; }
+    .info .il b { color: var(--text); }
+    .info .il code { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 13px; }
+    .sec { margin-top: 52px; }
     footer { text-align: center; padding: 26px; color: var(--text-light); font-size: 12px; border-top: 1px solid var(--border); }
     footer a { color: var(--text-light); }
   </style>
@@ -65,23 +76,47 @@
       <div class="step"><span class="num">4</span><div class="emoji">✅</div><h3 data-i18n="flow4_h3">Apply it</h3><p data-i18n="flow4_p">One tap drops it into the field — read-only text is copied</p></div>
     </div>
 
-    <!-- DEMO VIDEOS -->
-    <div class="vids">
-      <figure class="vid">
-        <div class="vid-h"><span>🤖</span><span data-i18n="demo_tab0">Transform with AI</span></div>
-        <div class="crop"><video src="videos/sr-transform.mp4" autoplay loop muted playsinline></video></div>
-        <p data-i18n-html="demo_cap0">Just <b>select your text and pick a style</b>. AI rewrites it and swaps it in place.</p>
-      </figure>
-      <figure class="vid">
-        <div class="vid-h"><span>⚡</span><span data-i18n="demo_tab1">Insert a snippet</span></div>
-        <div class="crop"><video src="videos/sr-snippet.mp4" autoplay loop muted playsinline></video></div>
-        <p data-i18n-html="demo_cap1"><b>Type ";sig" and press space</b>. Your saved signature or greeting appears instantly.</p>
-      </figure>
-      <figure class="vid">
-        <div class="vid-h"><span>↩️</span><span data-i18n="demo_tab2">Write a reply</span></div>
-        <div class="crop"><video src="videos/sr-reply.mp4" autoplay loop muted playsinline></video></div>
-        <p data-i18n-html="demo_cap2">Select the message you got and <b>pick a tone</b>. AI writes the reply for you.</p>
-      </figure>
+    <!-- DEMO VIDEOS + text steps -->
+    <div class="demos">
+      <div class="demo-row">
+        <div class="demo-media"><div class="crop"><video src="videos/sr-transform.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="demo-text">
+          <h3><span>🤖</span><span data-i18n="demo_tab0">Transform with AI</span></h3>
+          <div class="steps" data-i18n-html="howv_t">1. <b>Select</b> the text<br>2. Click the <b>✦ icon</b> that appears<br>3. <b>Pick a style</b> (or type your own)<br>4. Press <b>Transform</b><br>5. <b>Apply</b> to swap it in</div>
+        </div>
+      </div>
+      <div class="demo-row">
+        <div class="demo-media"><div class="crop"><video src="videos/sr-snippet.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="demo-text">
+          <h3><span>⚡</span><span data-i18n="demo_tab1">Insert a snippet</span></h3>
+          <div class="steps" data-i18n-html="howv_s">1. In a field, type a snippet trigger (e.g. <code>;sig</code>)<br>2. Press <b>space</b><br>3. It instantly expands to your saved text</div>
+        </div>
+      </div>
+      <div class="demo-row">
+        <div class="demo-media"><div class="crop"><video src="videos/sr-reply.mp4" autoplay loop muted playsinline></video></div></div>
+        <div class="demo-text">
+          <h3><span>↩️</span><span data-i18n="demo_tab2">Write a reply</span></h3>
+          <div class="steps" data-i18n-html="howv_r">1. <b>Select</b> the received message → click <b>✦</b><br>2. Check <b>↩ Draft a reply</b><br>3. Pick a tone, type what you want to say<br>4. <b>Generate reply</b> → Copy</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAUNCH METHODS -->
+    <div class="sec center">
+      <span class="tag">Launch</span>
+      <h1 data-i18n="launch_h" style="font-size:24px">Several ways to launch</h1>
+    </div>
+    <div class="info">
+      <div class="il" data-i18n-html="launch_list">✦ <b>Selection toolbar</b> — select text and click the icon that appears.<br>🖱️ <b>Right-click menu</b> — right-click your selection → SendReady → a preset.<br>⌨️ <b>Shortcut</b> — press <code>Alt+Shift+S</code> to open the palette.<br>✦ <b>In a field</b> — click a text field to show the icon and insert a snippet.</div>
+    </div>
+
+    <!-- KEYBOARD TRIGGERS (style via trigger) -->
+    <div class="sec center">
+      <span class="tag">Triggers</span>
+      <h1 data-i18n="trig_h" style="font-size:24px">Keyboard triggers (set a style, too)</h1>
+    </div>
+    <div class="info">
+      <div class="il" data-i18n-html="trig_list">🪄 <b>AI trigger</b> — in a field, type a trigger then your text, e.g. <code>//p your text</code>, and press <b>Enter</b>. The trigger picks the style (<code>//p</code> = polite, <code>//en</code> = translate, <code>//sum</code> = summarize…), so you transform right where you type — no menu needed.<br>⚡ <b>Snippet trigger</b> — type <code>;sig</code> and press <b>space</b> to expand a saved snippet.</div>
     </div>
   </main>
 

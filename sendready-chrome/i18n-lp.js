@@ -5,6 +5,13 @@ const LP_MESSAGES = {
 
 // ── English ─────────────────────────────────────────────────────────
 en: {
+howv_t: "1. <b>Select</b> the text<br>2. Click the <b>✦ icon</b> that appears<br>3. <b>Pick a style</b> (or type your own)<br>4. Press <b>Transform</b><br>5. <b>Apply</b> to swap it in",
+howv_s: "1. In a field, type a snippet trigger (e.g. <code>;sig</code>)<br>2. Press <b>space</b><br>3. It instantly expands to your saved text",
+howv_r: "1. <b>Select</b> the received message → click <b>✦</b><br>2. Check <b>↩ Draft a reply</b><br>3. Pick a tone, type what you want to say<br>4. <b>Generate reply</b> → Copy",
+launch_h: "Several ways to launch",
+launch_list: "✦ <b>Selection toolbar</b> — select text and click the icon that appears.<br>🖱️ <b>Right-click menu</b> — right-click your selection → SendReady → a preset.<br>⌨️ <b>Shortcut</b> — press <code>Alt+Shift+S</code> to open the palette.<br>✦ <b>In a field</b> — click a text field to show the icon and insert a snippet.",
+trig_h: "Keyboard triggers (set a style, too)",
+trig_list: "🪄 <b>AI trigger</b> — in a field, type a trigger then your text, e.g. <code>//p your text</code>, and press <b>Enter</b>. The trigger picks the style (<code>//p</code> = polite, <code>//en</code> = translate, <code>//sum</code> = summarize…), so you transform right where you type — no menu needed.<br>⚡ <b>Snippet trigger</b> — type <code>;sig</code> and press <b>space</b> to expand a saved snippet.",
 nav_cta: "Add to Chrome",
 hero_badge: "100% Free · Chrome Extension",
 hero_h1: "Before you hit send,<br><span class='accent'>let AI polish it in one tap.</span>",
@@ -103,6 +110,13 @@ footer_other: "Other products",
 
 // ── 日本語 ──────────────────────────────────────────────────────────
 ja: {
+howv_t: "① 変換したい文章を<b>選択</b><br>② 近くに出る <b>✦ アイコン</b>をクリック<br>③ <b>文体を選ぶ</b>(自分で入力もOK)<br>④ <b>変換</b>を押す<br>⑤ <b>適用</b>でその場に置き換え",
+howv_s: "① 入力欄で定型文トリガー(例 <code>;sig</code>)を打つ<br>② <b>スペース</b>を押す<br>③ 登録した定型文に即展開",
+howv_r: "① 受け取った文章を<b>選択</b> → <b>✦</b> をクリック<br>② <b>↩ 返信を作成</b>にチェック<br>③ 文体を選び、返したい内容を書く<br>④ <b>返信を生成</b> → コピー",
+launch_h: "起動方法はいくつかあります",
+launch_list: "✦ <b>選択ツールバー</b> — 文章を選ぶと出るアイコンをクリック。<br>🖱️ <b>右クリックメニュー</b> — 選択して右クリック → SendReady → プリセット。<br>⌨️ <b>ショートカット</b> — <code>Alt+Shift+S</code> でパレットを開く。<br>✦ <b>入力欄のアイコン</b> — 入力欄をクリックして出るアイコンから定型文を挿入。",
+trig_h: "キーボードのトリガー(文体も指定できる)",
+trig_list: "🪄 <b>AIトリガー</b> — 入力欄でトリガー+文章、例 <code>//p 文章</code> と書いて <b>Enter</b>。トリガーが文体を指定します(<code>//p</code>=丁寧、<code>//en</code>=翻訳、<code>//sum</code>=要約 …)。メニューを開かずその場で変換。<br>⚡ <b>定型文トリガー</b> — <code>;sig</code> を打って <b>スペース</b>で定型文を展開。",
 nav_cta: "Chromeに追加",
 hero_badge: "完全無料 · Chrome拡張",
 hero_h1: "その一文、送る前に。<br><span class='accent'>AIがワンタップで整える。</span>",
@@ -201,6 +215,13 @@ footer_other: "ほかのプロダクト",
 
 // ── 中文 ────────────────────────────────────────────────────────────
 zh: {
+howv_t: "1. <b>选中</b>文本<br>2. 点击出现的 <b>✦ 图标</b><br>3. <b>选择文体</b>(也可自己输入)<br>4. 点「<b>转换</b>」<br>5. 点「<b>应用</b>」就地替换",
+howv_s: "1. 在输入框输入短语触发(例 <code>;sig</code>)<br>2. 按<b>空格</b><br>3. 立即展开为已保存的文本",
+howv_r: "1. <b>选中</b>收到的消息 → 点 <b>✦</b><br>2. 勾选「<b>↩ 写回复</b>」<br>3. 选择语气,输入要点<br>4. 「<b>生成回复</b>」→ 复制",
+launch_h: "多种启动方式",
+launch_list: "✦ <b>选择工具栏</b> — 选中文本后点击出现的图标。<br>🖱️ <b>右键菜单</b> — 右键选区 → SendReady → 预设。<br>⌨️ <b>快捷键</b> — 按 <code>Alt+Shift+S</code> 打开面板。<br>✦ <b>输入框图标</b> — 点击输入框显示图标并插入短语。",
+trig_h: "键盘触发(也能指定文体)",
+trig_list: "🪄 <b>AI 触发</b> — 在输入框输入触发词加文本,例 <code>//p 文本</code>,按 <b>回车</b>。触发词决定文体(<code>//p</code>=礼貌、<code>//en</code>=翻译、<code>//sum</code>=摘要…),无需菜单当场转换。<br>⚡ <b>短语触发</b> — 输入 <code>;sig</code> 后按<b>空格</b>展开短语。",
 nav_cta: "添加到 Chrome",
 hero_badge: "100% 免费 · Chrome 扩展",
 hero_h1: "点击发送前，<br><span class='accent'>让 AI 一键润色。</span>",
@@ -299,6 +320,13 @@ footer_other: "其他产品",
 
 // ── 한국어 ──────────────────────────────────────────────────────────
 ko: {
+howv_t: "1. 문장을 <b>선택</b><br>2. 나타나는 <b>✦ 아이콘</b> 클릭<br>3. <b>문체 선택</b>(직접 입력도 가능)<br>4. <b>변환</b> 누르기<br>5. <b>적용</b>으로 그 자리에 교체",
+howv_s: "1. 입력란에서 스니펫 트리거 입력(예 <code>;sig</code>)<br>2. <b>스페이스</b> 누르기<br>3. 저장한 텍스트로 즉시 펼쳐짐",
+howv_r: "1. 받은 메시지 <b>선택</b> → <b>✦</b> 클릭<br>2. <b>↩ 답장 작성</b> 체크<br>3. 문체 고르고 요점 입력<br>4. <b>답장 생성</b> → 복사",
+launch_h: "여는 방법은 여러 가지",
+launch_list: "✦ <b>선택 툴바</b> — 텍스트를 선택하면 나오는 아이콘 클릭.<br>🖱️ <b>우클릭 메뉴</b> — 선택 영역 우클릭 → SendReady → 프리셋.<br>⌨️ <b>단축키</b> — <code>Alt+Shift+S</code>로 팔레트 열기.<br>✦ <b>입력란 아이콘</b> — 입력란을 클릭해 아이콘을 띄우고 스니펫 삽입.",
+trig_h: "키보드 트리거(문체도 지정)",
+trig_list: "🪄 <b>AI 트리거</b> — 입력란에서 트리거+문장, 예 <code>//p 문장</code> 입력 후 <b>Enter</b>. 트리거가 문체를 지정해요(<code>//p</code>=정중, <code>//en</code>=번역, <code>//sum</code>=요약…). 메뉴 없이 그 자리에서 변환.<br>⚡ <b>스니펫 트리거</b> — <code>;sig</code> 입력 후 <b>스페이스</b>로 펼치기.",
 nav_cta: "Chrome에 추가",
 hero_badge: "100% 무료 · Chrome 확장 프로그램",
 hero_h1: "보내기 전에,<br><span class='accent'>AI가 한 번에 다듬어 드립니다.</span>",
@@ -397,6 +425,13 @@ footer_other: "다른 제품",
 
 // ── Español ─────────────────────────────────────────────────────────
 es: {
+howv_t: "1. <b>Selecciona</b> el texto<br>2. Haz clic en el <b>icono ✦</b> que aparece<br>3. <b>Elige un estilo</b> (o escribe el tuyo)<br>4. Pulsa <b>Transformar</b><br>5. <b>Aplicar</b> para sustituirlo",
+howv_s: "1. En un campo, escribe un disparador (p. ej. <code>;sig</code>)<br>2. Pulsa <b>espacio</b><br>3. Se expande al instante a tu texto guardado",
+howv_r: "1. <b>Selecciona</b> el mensaje recibido → clic en <b>✦</b><br>2. Marca <b>↩ Redactar respuesta</b><br>3. Elige un tono y escribe tu idea<br>4. <b>Generar respuesta</b> → Copiar",
+launch_h: "Varias formas de abrirlo",
+launch_list: "✦ <b>Barra de selección</b> — selecciona texto y haz clic en el icono.<br>🖱️ <b>Menú contextual</b> — clic derecho en la selección → SendReady → un ajuste.<br>⌨️ <b>Atajo</b> — pulsa <code>Alt+Shift+S</code> para abrir el panel.<br>✦ <b>En un campo</b> — haz clic en un campo para mostrar el icono e insertar un fragmento.",
+trig_h: "Disparadores de teclado (también fijan el estilo)",
+trig_list: "🪄 <b>Disparador IA</b> — en un campo, escribe un disparador y tu texto, p. ej. <code>//p tu texto</code>, y pulsa <b>Enter</b>. El disparador elige el estilo (<code>//p</code>=cortés, <code>//en</code>=traducir, <code>//sum</code>=resumir…), así transformas donde escribes, sin menú.<br>⚡ <b>Disparador de fragmento</b> — escribe <code>;sig</code> y pulsa <b>espacio</b> para expandir.",
 nav_cta: "Añadir a Chrome",
 hero_badge: "100% gratis · Extensión de Chrome",
 hero_h1: "Antes de pulsar enviar,<br><span class='accent'>deja que la IA lo pula en un toque.</span>",
@@ -495,6 +530,13 @@ footer_other: "Otros productos",
 
 // ── Français ────────────────────────────────────────────────────────
 fr: {
+howv_t: "1. <b>Sélectionnez</b> le texte<br>2. Cliquez sur l'<b>icône ✦</b> qui apparaît<br>3. <b>Choisissez un style</b> (ou saisissez le vôtre)<br>4. Appuyez sur <b>Transformer</b><br>5. <b>Appliquer</b> pour le remplacer",
+howv_s: "1. Dans un champ, tapez un déclencheur (ex. <code>;sig</code>)<br>2. Appuyez sur <b>espace</b><br>3. Il se développe aussitôt en votre texte enregistré",
+howv_r: "1. <b>Sélectionnez</b> le message reçu → cliquez sur <b>✦</b><br>2. Cochez <b>↩ Rédiger une réponse</b><br>3. Choisissez un ton, saisissez l'idée<br>4. <b>Générer la réponse</b> → Copier",
+launch_h: "Plusieurs façons de lancer",
+launch_list: "✦ <b>Barre de sélection</b> — sélectionnez du texte et cliquez sur l'icône.<br>🖱️ <b>Menu clic droit</b> — clic droit sur la sélection → SendReady → un préréglage.<br>⌨️ <b>Raccourci</b> — appuyez sur <code>Alt+Shift+S</code> pour ouvrir le panneau.<br>✦ <b>Dans un champ</b> — cliquez dans un champ pour afficher l'icône et insérer un extrait.",
+trig_h: "Déclencheurs clavier (et le style aussi)",
+trig_list: "🪄 <b>Déclencheur IA</b> — dans un champ, tapez un déclencheur puis votre texte, ex. <code>//p votre texte</code>, et appuyez sur <b>Entrée</b>. Le déclencheur choisit le style (<code>//p</code>=poli, <code>//en</code>=traduire, <code>//sum</code>=résumer…), pour transformer là où vous écrivez, sans menu.<br>⚡ <b>Déclencheur d'extrait</b> — tapez <code>;sig</code> et appuyez sur <b>espace</b> pour développer.",
 nav_cta: "Ajouter à Chrome",
 hero_badge: "100 % gratuit · Extension Chrome",
 hero_h1: "Avant d'envoyer,<br><span class='accent'>laissez l'IA peaufiner en un clic.</span>",
@@ -593,6 +635,13 @@ footer_other: "Autres produits",
 
 // ── Deutsch ─────────────────────────────────────────────────────────
 de: {
+howv_t: "1. Text <b>markieren</b><br>2. Auf das <b>✦ Symbol</b> klicken<br>3. <b>Stil wählen</b> (oder selbst eingeben)<br>4. <b>Umwandeln</b> drücken<br>5. <b>Anwenden</b> zum Ersetzen",
+howv_s: "1. In einem Feld einen Trigger tippen (z. B. <code>;sig</code>)<br>2. <b>Leertaste</b> drücken<br>3. Wird sofort zu deinem gespeicherten Text",
+howv_r: "1. Empfangene Nachricht <b>markieren</b> → <b>✦</b> klicken<br>2. <b>↩ Antwort verfassen</b> ankreuzen<br>3. Ton wählen, Kerninhalt eingeben<br>4. <b>Antwort erzeugen</b> → Kopieren",
+launch_h: "Mehrere Wege zum Starten",
+launch_list: "✦ <b>Auswahlleiste</b> — Text markieren und auf das Symbol klicken.<br>🖱️ <b>Rechtsklick-Menü</b> — Rechtsklick auf die Auswahl → SendReady → Vorlage.<br>⌨️ <b>Tastenkürzel</b> — <code>Alt+Shift+S</code> öffnet das Panel.<br>✦ <b>Im Feld</b> — in ein Feld klicken, um das Symbol zu zeigen und einen Baustein einzufügen.",
+trig_h: "Tastatur-Trigger (auch mit Stil)",
+trig_list: "🪄 <b>KI-Trigger</b> — im Feld einen Trigger und Text tippen, z. B. <code>//p dein Text</code>, und <b>Enter</b>. Der Trigger wählt den Stil (<code>//p</code>=höflich, <code>//en</code>=übersetzen, <code>//sum</code>=zusammenfassen…) – umwandeln direkt beim Tippen, ohne Menü.<br>⚡ <b>Baustein-Trigger</b> — <code>;sig</code> tippen und <b>Leertaste</b> drücken.",
 nav_cta: "Zu Chrome hinzufügen",
 hero_badge: "100 % kostenlos · Chrome-Erweiterung",
 hero_h1: "Bevor du auf Senden klickst,<br><span class='accent'>lass die KI es mit einem Tippen perfektionieren.</span>",
@@ -691,6 +740,13 @@ footer_other: "Weitere Produkte",
 
 // ── Português ───────────────────────────────────────────────────────
 pt: {
+howv_t: "1. <b>Selecione</b> o texto<br>2. Clique no <b>ícone ✦</b> que aparece<br>3. <b>Escolha um estilo</b> (ou digite o seu)<br>4. Toque em <b>Transformar</b><br>5. <b>Aplicar</b> para substituir",
+howv_s: "1. Num campo, digite um gatilho (ex. <code>;sig</code>)<br>2. Pressione <b>espaço</b><br>3. Expande na hora para seu texto salvo",
+howv_r: "1. <b>Selecione</b> a mensagem recebida → clique em <b>✦</b><br>2. Marque <b>↩ Redigir resposta</b><br>3. Escolha um tom e escreva a ideia<br>4. <b>Gerar resposta</b> → Copiar",
+launch_h: "Várias formas de abrir",
+launch_list: "✦ <b>Barra de seleção</b> — selecione texto e clique no ícone.<br>🖱️ <b>Menu de clique direito</b> — clique com o direito na seleção → SendReady → predefinição.<br>⌨️ <b>Atalho</b> — pressione <code>Alt+Shift+S</code> para abrir o painel.<br>✦ <b>Num campo</b> — clique num campo para mostrar o ícone e inserir um trecho.",
+trig_h: "Gatilhos de teclado (também definem o estilo)",
+trig_list: "🪄 <b>Gatilho de IA</b> — num campo, digite um gatilho e seu texto, ex. <code>//p seu texto</code>, e <b>Enter</b>. O gatilho define o estilo (<code>//p</code>=educado, <code>//en</code>=traduzir, <code>//sum</code>=resumir…), transformando onde você digita, sem menu.<br>⚡ <b>Gatilho de trecho</b> — digite <code>;sig</code> e <b>espaço</b> para expandir.",
 nav_cta: "Adicionar ao Chrome",
 hero_badge: "100% Grátis · Extensão do Chrome",
 hero_h1: "Antes de enviar,<br><span class='accent'>deixe a IA dar o acabamento com um toque.</span>",
@@ -789,6 +845,13 @@ footer_other: "Outros produtos",
 
 // ── हिन्दी ──────────────────────────────────────────────────────────
 hi: {
+howv_t: "1. टेक्स्ट <b>चुनें</b><br>2. दिखने वाले <b>✦ आइकन</b> पर क्लिक करें<br>3. <b>शैली चुनें</b> (या खुद लिखें)<br>4. <b>बदलें</b> दबाएँ<br>5. <b>लागू करें</b> से वहीं बदल जाएगा",
+howv_s: "1. फ़ील्ड में स्निपेट ट्रिगर लिखें (उदा. <code>;sig</code>)<br>2. <b>स्पेस</b> दबाएँ<br>3. आपके सहेजे टेक्स्ट में तुरंत बदल जाता है",
+howv_r: "1. प्राप्त संदेश <b>चुनें</b> → <b>✦</b> क्लिक करें<br>2. <b>↩ उत्तर लिखें</b> पर टिक करें<br>3. शैली चुनें, मुख्य बात लिखें<br>4. <b>उत्तर बनाएँ</b> → कॉपी",
+launch_h: "खोलने के कई तरीके",
+launch_list: "✦ <b>चयन टूलबार</b> — टेक्स्ट चुनें और दिखने वाले आइकन पर क्लिक करें।<br>🖱️ <b>राइट-क्लिक मेनू</b> — चयन पर राइट-क्लिक → SendReady → प्रीसेट।<br>⌨️ <b>शॉर्टकट</b> — <code>Alt+Shift+S</code> से पैनल खोलें।<br>✦ <b>फ़ील्ड में</b> — फ़ील्ड पर क्लिक कर आइकन दिखाएँ और स्निपेट डालें।",
+trig_h: "कीबोर्ड ट्रिगर (शैली भी तय)",
+trig_list: "🪄 <b>AI ट्रिगर</b> — फ़ील्ड में ट्रिगर और टेक्स्ट लिखें, उदा. <code>//p आपका टेक्स्ट</code>, फिर <b>Enter</b>। ट्रिगर शैली तय करता है (<code>//p</code>=विनम्र, <code>//en</code>=अनुवाद, <code>//sum</code>=सारांश…), मेनू बिना वहीं बदलें।<br>⚡ <b>स्निपेट ट्रिगर</b> — <code>;sig</code> लिखकर <b>स्पेस</b> दबाएँ।",
 nav_cta: "Chrome में जोड़ें",
 hero_badge: "100% मुफ़्त · Chrome एक्सटेंशन",
 hero_h1: "भेजने से पहले,<br><span class='accent'>AI से एक टैप में सुधारें।</span>",
@@ -887,6 +950,13 @@ footer_other: "अन्य प्रोडक्ट",
 
 // ── Indonesia ───────────────────────────────────────────────────────
 id: {
+howv_t: "1. <b>Pilih</b> teksnya<br>2. Klik <b>ikon ✦</b> yang muncul<br>3. <b>Pilih gaya</b> (atau ketik sendiri)<br>4. Tekan <b>Ubah</b><br>5. <b>Terapkan</b> untuk mengganti",
+howv_s: "1. Di kolom, ketik pemicu cuplikan (mis. <code>;sig</code>)<br>2. Tekan <b>spasi</b><br>3. Langsung mengembang jadi teks tersimpan",
+howv_r: "1. <b>Pilih</b> pesan masuk → klik <b>✦</b><br>2. Centang <b>↩ Buat balasan</b><br>3. Pilih nada, ketik intinya<br>4. <b>Buat balasan</b> → Salin",
+launch_h: "Beberapa cara membuka",
+launch_list: "✦ <b>Bilah seleksi</b> — pilih teks lalu klik ikon yang muncul.<br>🖱️ <b>Menu klik kanan</b> — klik kanan seleksi → SendReady → preset.<br>⌨️ <b>Pintasan</b> — tekan <code>Alt+Shift+S</code> untuk membuka panel.<br>✦ <b>Di kolom</b> — klik kolom untuk menampilkan ikon dan menyisipkan cuplikan.",
+trig_h: "Pemicu keyboard (sekaligus atur gaya)",
+trig_list: "🪄 <b>Pemicu AI</b> — di kolom, ketik pemicu lalu teks, mis. <code>//p teks anda</code>, lalu <b>Enter</b>. Pemicu menentukan gaya (<code>//p</code>=sopan, <code>//en</code>=terjemah, <code>//sum</code>=ringkas…), mengubah langsung tanpa menu.<br>⚡ <b>Pemicu cuplikan</b> — ketik <code>;sig</code> lalu <b>spasi</b> untuk mengembangkan.",
 nav_cta: "Tambahkan ke Chrome",
 hero_badge: "100% Gratis · Ekstensi Chrome",
 hero_h1: "Sebelum menekan kirim,<br><span class='accent'>biarkan AI menyempurnakannya dalam satu ketukan.</span>",
@@ -985,6 +1055,13 @@ footer_other: "Produk lainnya",
 
 // ── العربية (RTL) ───────────────────────────────────────────────────
 ar: {
+howv_t: "1. <b>حدّد</b> النص<br>2. انقر <b>أيقونة ✦</b> الظاهرة<br>3. <b>اختر أسلوبًا</b> (أو اكتبه)<br>4. اضغط <b>تحويل</b><br>5. <b>تطبيق</b> للاستبدال في مكانه",
+howv_s: "1. في حقل، اكتب مُشغّل مقطع (مثل <code>;sig</code>)<br>2. اضغط <b>مسافة</b><br>3. يتوسّع فورًا إلى نصك المحفوظ",
+howv_r: "1. <b>حدّد</b> الرسالة الواردة ← انقر <b>✦</b><br>2. فعّل <b>↩ كتابة رد</b><br>3. اختر نبرة واكتب الفكرة<br>4. <b>إنشاء الرد</b> ← نسخ",
+launch_h: "عدة طرق للفتح",
+launch_list: "✦ <b>شريط التحديد</b> — حدّد نصًا وانقر الأيقونة الظاهرة.<br>🖱️ <b>قائمة النقر الأيمن</b> — انقر باليمين على التحديد ← SendReady ← إعداد مسبق.<br>⌨️ <b>اختصار</b> — اضغط <code>Alt+Shift+S</code> لفتح اللوحة.<br>✦ <b>داخل حقل</b> — انقر حقلاً لإظهار الأيقونة وإدراج مقطع.",
+trig_h: "مُشغّلات لوحة المفاتيح (وتحدّد الأسلوب أيضًا)",
+trig_list: "🪄 <b>مُشغّل الذكاء الاصطناعي</b> — في حقل، اكتب مُشغّلاً ثم نصك، مثل <code>//p نصك</code>، واضغط <b>Enter</b>. يحدّد المُشغّل الأسلوب (<code>//p</code>=مهذّب، <code>//en</code>=ترجمة، <code>//sum</code>=تلخيص…) فتحوّل في مكان الكتابة دون قائمة.<br>⚡ <b>مُشغّل المقطع</b> — اكتب <code>;sig</code> ثم <b>مسافة</b> للتوسيع.",
 nav_cta: "أضِف إلى Chrome",
 hero_badge: "مجاني 100% · إضافة Chrome",
 hero_h1: "قبل أن تضغط إرسال،<br><span class='accent'>دع الذكاء الاصطناعي يصقله بنقرة واحدة.</span>",
