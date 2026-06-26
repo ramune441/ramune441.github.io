@@ -5,6 +5,7 @@ const LP_MESSAGES = {
 
 // ── English ─────────────────────────────────────────────────────────
 en: {
+nav_howto: "How to use",
 howv_trig: "<b>AI trigger</b>: type <code>//p your text</code> then <b>Tab</b> → transforms in that style|<b>Snippet trigger</b>: type <code>;sig</code> then <b>Tab</b> → expands your snippet",
 howv_field: "Click a text field|Click the <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady icon that appears|Pick a snippet from the list|It's inserted into the field",
 fld_h: "Insert a snippet from a field",
@@ -113,6 +114,7 @@ footer_other: "Other products",
 
 // ── 日本語 ──────────────────────────────────────────────────────────
 ja: {
+nav_howto: "使い方",
 howv_trig: "<b>AIトリガー</b>: <code>//p 文章</code> と書いて <b>Tab</b> → その文体で変換|<b>定型文トリガー</b>: <code>;sig</code> を打って <b>Tab</b> → 定型文を展開",
 howv_field: "入力欄をクリック|出てきた <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady アイコンをクリック|一覧から定型文を選ぶ|本文に挿入される",
 fld_h: "入力欄から定型文を挿入",
@@ -221,6 +223,7 @@ footer_other: "ほかのプロダクト",
 
 // ── 中文 ────────────────────────────────────────────────────────────
 zh: {
+nav_howto: "使用方法",
 howv_trig: "<b>AI 触发</b>: 输入 <code>//p 文本</code> 后按 <b>Tab</b> → 按该文体转换|<b>短语触发</b>: 输入 <code>;sig</code> 后按 <b>Tab</b> → 展开短语",
 howv_field: "点击输入框|点击出现的 <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady 图标|从列表选择短语|插入到输入框",
 fld_h: "从输入框插入短语",
@@ -329,6 +332,7 @@ footer_other: "其他产品",
 
 // ── 한국어 ──────────────────────────────────────────────────────────
 ko: {
+nav_howto: "사용법",
 howv_trig: "<b>AI 트리거</b>: <code>//p 문장</code> 입력 후 <b>Tab</b> → 그 문체로 변환|<b>스니펫 트리거</b>: <code>;sig</code> 입력 후 <b>Tab</b> → 스니펫 펼치기",
 howv_field: "입력란 클릭|나타난 <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady 아이콘 클릭|목록에서 스니펫 선택|입력란에 삽입됨",
 fld_h: "입력란에서 스니펫 삽입",
@@ -437,6 +441,7 @@ footer_other: "다른 제품",
 
 // ── Español ─────────────────────────────────────────────────────────
 es: {
+nav_howto: "Cómo usar",
 howv_trig: "<b>Disparador IA</b>: escribe <code>//p tu texto</code> y <b>Tab</b> → transforma en ese estilo|<b>Disparador de fragmento</b>: escribe <code>;sig</code> y <b>Tab</b> → expande tu fragmento",
 howv_field: "Haz clic en un campo|Clic en el icono <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady que aparece|Elige un fragmento de la lista|Se inserta en el campo",
 fld_h: "Inserta un fragmento desde un campo",
@@ -545,6 +550,7 @@ footer_other: "Otros productos",
 
 // ── Français ────────────────────────────────────────────────────────
 fr: {
+nav_howto: "Utilisation",
 howv_trig: "<b>Déclencheur IA</b>: tapez <code>//p votre texte</code> puis <b>Tab</b> → transforme dans ce style|<b>Déclencheur d'extrait</b>: tapez <code>;sig</code> puis <b>Tab</b> → développe l'extrait",
 howv_field: "Cliquez dans un champ|Cliquez sur l'icône <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady qui apparaît|Choisissez un extrait dans la liste|Il s'insère dans le champ",
 fld_h: "Insérer un extrait depuis un champ",
@@ -653,6 +659,7 @@ footer_other: "Autres produits",
 
 // ── Deutsch ─────────────────────────────────────────────────────────
 de: {
+nav_howto: "Anleitung",
 howv_trig: "<b>KI-Trigger</b>: <code>//p dein Text</code> tippen, dann <b>Tab</b> → wandelt in dem Stil um|<b>Baustein-Trigger</b>: <code>;sig</code> tippen, dann <b>Tab</b> → Baustein einfügen",
 howv_field: "In ein Feld klicken|Auf das erscheinende <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady-Symbol klicken|Baustein aus der Liste wählen|Wird ins Feld eingefügt",
 fld_h: "Baustein aus einem Feld einfügen",
@@ -761,6 +768,7 @@ footer_other: "Weitere Produkte",
 
 // ── Português ───────────────────────────────────────────────────────
 pt: {
+nav_howto: "Como usar",
 howv_trig: "<b>Gatilho de IA</b>: digite <code>//p seu texto</code> e <b>Tab</b> → transforma nesse estilo|<b>Gatilho de trecho</b>: digite <code>;sig</code> e <b>Tab</b> → expande o trecho",
 howv_field: "Clique num campo|Clique no ícone <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady que aparece|Escolha um trecho da lista|É inserido no campo",
 fld_h: "Inserir um trecho a partir de um campo",
@@ -869,6 +877,7 @@ footer_other: "Outros produtos",
 
 // ── हिन्दी ──────────────────────────────────────────────────────────
 hi: {
+nav_howto: "उपयोग कैसे करें",
 howv_trig: "<b>AI ट्रिगर</b>: <code>//p आपका टेक्स्ट</code> लिखकर <b>Tab</b> → उसी शैली में बदलें|<b>स्निपेट ट्रिगर</b>: <code>;sig</code> लिखकर <b>Tab</b> → स्निपेट खुलेगा",
 howv_field: "इनपुट फ़ील्ड पर क्लिक करें|दिखने वाले <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady आइकन पर क्लिक करें|सूची से स्निपेट चुनें|फ़ील्ड में जुड़ जाता है",
 fld_h: "फ़ील्ड से स्निपेट डालें",
@@ -977,6 +986,7 @@ footer_other: "अन्य प्रोडक्ट",
 
 // ── Indonesia ───────────────────────────────────────────────────────
 id: {
+nav_howto: "Cara pakai",
 howv_trig: "<b>Pemicu AI</b>: ketik <code>//p teks anda</code> lalu <b>Tab</b> → diubah dengan gaya itu|<b>Pemicu cuplikan</b>: ketik <code>;sig</code> lalu <b>Tab</b> → cuplikan mengembang",
 howv_field: "Klik kolom teks|Klik ikon <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady yang muncul|Pilih cuplikan dari daftar|Tersisip ke kolom",
 fld_h: "Sisipkan cuplikan dari kolom",
@@ -1085,6 +1095,7 @@ footer_other: "Produk lainnya",
 
 // ── العربية (RTL) ───────────────────────────────────────────────────
 ar: {
+nav_howto: "طريقة الاستخدام",
 howv_trig: "<b>مُشغّل الذكاء الاصطناعي</b>: اكتب <code>//p نصك</code> ثم <b>Tab</b> ← يحوّل بهذا الأسلوب|<b>مُشغّل المقطع</b>: اكتب <code>;sig</code> ثم <b>Tab</b> ← يوسّع المقطع",
 howv_field: "انقر داخل حقل نصي|انقر أيقونة <img src='icons/mark.png' class='ic' alt='SendReady'> SendReady الظاهرة|اختر مقطعًا من القائمة|يُدرَج في الحقل",
 fld_h: "إدراج مقطع من حقل",
