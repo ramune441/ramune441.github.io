@@ -33,18 +33,20 @@
     .step:not(:last-child)::after { content: "›"; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); font-size: 24px; color: var(--ind-light); font-weight: 700; z-index: 1; }
     @media (max-width: 760px) { .steps { grid-template-columns: repeat(2, 1fr); } .step:not(:last-child)::after { display: none; } }
 
-    .demos { margin-top: 36px; display: flex; flex-direction: column; gap: 40px; }
-    .demo-row { display: flex; gap: 36px; align-items: center; flex-wrap: wrap; }
-    .demo-row:nth-child(even) { flex-direction: row-reverse; }
-    .demo-media { flex: 1 1 520px; min-width: 280px; }
-    .demo-text { flex: 1 1 300px; min-width: 240px; }
-    .demo-text h3 { display: flex; align-items: center; gap: 8px; font-size: 21px; font-weight: 800; margin: 0 0 14px; }
-    .demo-text .steps { display: block; margin-top: 0; font-size: 15px; color: var(--text-sub); line-height: 2; }
-    .demo-text .steps b { color: var(--text); }
-    .demo-text .steps code { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 13px; }
+    .demos { margin-top: 40px; }
+    .demo { max-width: 780px; margin: 0 auto; }
+    .demo:not(:first-child) { margin-top: 56px; }
+    .demo h3 { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 21px; font-weight: 800; margin: 0 0 16px; }
     .crop { width: 100%; aspect-ratio: 820 / 460; overflow: hidden; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 16px 48px rgba(20,22,58,0.12); background: #eef0f4; }
     .crop video { width: 100%; height: 100%; display: block; object-fit: cover; }
-    @media (max-width: 760px) { .demo-row, .demo-row:nth-child(even) { flex-direction: column; } }
+    ol.vsteps { list-style: none; counter-reset: s; margin: 20px auto 0; padding: 0; max-width: 680px; }
+    ol.vsteps li { counter-increment: s; position: relative; padding: 9px 12px 9px 46px; font-size: 15px; color: var(--text-sub); border-radius: 10px; transition: background .25s, color .25s; }
+    ol.vsteps li::before { content: counter(s); position: absolute; left: 8px; top: 8px; width: 27px; height: 27px; border-radius: 50%; background: var(--bg-alt); color: var(--ind); font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); transition: transform .25s, background .25s, color .25s, box-shadow .25s; }
+    ol.vsteps li.active { background: var(--bg-alt); color: var(--text); }
+    ol.vsteps li.active::before { background: var(--ind); color: #fff; border-color: var(--ind); transform: scale(1.14); box-shadow: 0 4px 13px rgba(15,119,242,.42); }
+    ol.vsteps li b { color: var(--text); }
+    ol.vsteps li code { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; font-size: 13px; }
+    .ic { width: 17px; height: 17px; vertical-align: -4px; }
 
     .info { max-width: 780px; margin: 22px auto 0; }
     .info .il { font-size: 15px; color: var(--text-sub); line-height: 2.1; }
@@ -71,40 +73,32 @@
     <!-- 4 STEPS -->
     <div class="steps">
       <div class="step"><span class="num">1</span><div class="emoji">✏️</div><h3 data-i18n="flow1_h3">Select or type</h3><p data-i18n="flow1_p">Highlight the text, or type a trigger in the field</p></div>
-      <div class="step"><span class="num">2</span><div class="emoji">✦</div><h3 data-i18n="flow2_h3">Launch it</h3><p data-i18n="flow2_p">Via the selection toolbar, right-click, or a shortcut</p></div>
+      <div class="step"><span class="num">2</span><div class="emoji"><img src="icons/mark.png" alt="SendReady" style="width:30px;height:30px;vertical-align:middle"></div><h3 data-i18n="flow2_h3">Launch it</h3><p data-i18n="flow2_p">Via the selection toolbar, right-click, or a shortcut</p></div>
       <div class="step"><span class="num">3</span><div class="emoji">🎚️</div><h3 data-i18n="flow3_h3">AI transforms or expands</h3><p data-i18n="flow3_p">Polish, translate, summarize, reply — or expand a snippet</p></div>
       <div class="step"><span class="num">4</span><div class="emoji">✅</div><h3 data-i18n="flow4_h3">Apply it</h3><p data-i18n="flow4_p">One tap drops it into the field — read-only text is copied</p></div>
     </div>
 
-    <!-- DEMO VIDEOS + text steps -->
+    <!-- DEMO VIDEOS + synced numbered steps -->
     <div class="demos">
-      <div class="demo-row">
-        <div class="demo-media"><div class="crop"><video src="videos/sr-transform.mp4" autoplay loop muted playsinline></video></div></div>
-        <div class="demo-text">
-          <h3><span>🤖</span><span data-i18n="demo_tab0">Transform with AI</span></h3>
-          <div class="steps" data-i18n-html="howv_t">1. <b>Select</b> the text<br>2. Click the <b>✦ icon</b> that appears<br>3. <b>Pick a style</b> (or type your own)<br>4. Press <b>Transform</b><br>5. <b>Apply</b> to swap it in</div>
-        </div>
+      <div class="demo">
+        <h3><span>🤖</span><span data-i18n="demo_tab0">Transform with AI</span></h3>
+        <div class="crop"><video src="videos/sr-transform.mp4" autoplay loop muted playsinline></video></div>
+        <ol class="vsteps" data-key="howv_t" data-ranges="0,.18,.34,.52,.68,1"></ol>
       </div>
-      <div class="demo-row">
-        <div class="demo-media"><div class="crop"><video src="videos/sr-snippet.mp4" autoplay loop muted playsinline></video></div></div>
-        <div class="demo-text">
-          <h3><span>⚡</span><span data-i18n="demo_tab1">Insert a snippet</span></h3>
-          <div class="steps" data-i18n-html="howv_s">1. In a field, type a snippet trigger (e.g. <code>;sig</code>)<br>2. Press <b>space</b><br>3. It instantly expands to your saved text</div>
-        </div>
+      <div class="demo">
+        <h3><span>↩️</span><span data-i18n="demo_tab2">Write a reply</span></h3>
+        <div class="crop"><video src="videos/sr-reply.mp4" autoplay loop muted playsinline></video></div>
+        <ol class="vsteps" data-key="howv_r" data-ranges="0,.30,.42,.70,1"></ol>
       </div>
-      <div class="demo-row">
-        <div class="demo-media"><div class="crop"><video src="videos/sr-reply.mp4" autoplay loop muted playsinline></video></div></div>
-        <div class="demo-text">
-          <h3><span>↩️</span><span data-i18n="demo_tab2">Write a reply</span></h3>
-          <div class="steps" data-i18n-html="howv_r">1. <b>Select</b> the received message → click <b>✦</b><br>2. Check <b>↩ Draft a reply</b><br>3. Pick a tone, type what you want to say<br>4. <b>Generate reply</b> → Copy</div>
-        </div>
+      <div class="demo">
+        <h3><span>🪄</span><span data-i18n="trig_h">Keyboard triggers (set a style, too)</span></h3>
+        <div class="crop"><video src="videos/sr-trigger.mp4" autoplay loop muted playsinline></video></div>
+        <ol class="vsteps" data-key="howv_trig" data-ranges="0,.5,1"></ol>
       </div>
-      <div class="demo-row">
-        <div class="demo-media"><div class="crop"><video src="videos/sr-trigger.mp4" autoplay loop muted playsinline></video></div></div>
-        <div class="demo-text">
-          <h3><span>🪄</span><span data-i18n="trig_h">Keyboard triggers (set a style, too)</span></h3>
-          <div class="steps" data-i18n-html="trig_list">🪄 <b>AI trigger</b> — in a field, type a trigger then your text, e.g. <code>//p your text</code>, and press <b>Enter</b>. The trigger picks the style (<code>//p</code> = polite, <code>//en</code> = translate, <code>//sum</code> = summarize…), so you transform right where you type — no menu needed.<br>⚡ <b>Snippet trigger</b> — type <code>;sig</code> and press <b>space</b> to expand a saved snippet.</div>
-        </div>
+      <div class="demo">
+        <h3><span>⚡</span><span data-i18n="fld_h">Insert a snippet from a field</span></h3>
+        <div class="crop"><video src="videos/sr-field.mp4" autoplay loop muted playsinline></video></div>
+        <ol class="vsteps" data-key="howv_field" data-ranges="0,.20,.42,.66,1"></ol>
       </div>
     </div>
 
@@ -122,6 +116,50 @@
     <a href="index.html">SendReady</a> · <a href="privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
   </footer>
 
-  <script src="i18n-lp.js?v=2"></script>
+  <script src="i18n-lp.js?v=3"></script>
+  <script>
+  // 番号付きステップを i18n のパイプ区切り文字列から生成し、動画の再生位置に合わせて点灯
+  (function () {
+    function loc() { return document.documentElement.lang || "en"; }
+    function msg(key) {
+      try { var m = LP_MESSAGES[loc()] || LP_MESSAGES.en; return m[key] || ""; }
+      catch (e) { return ""; }
+    }
+    function build() {
+      document.querySelectorAll("ol.vsteps").forEach(function (ol) {
+        var key = ol.getAttribute("data-key");
+        var r = ol.getAttribute("data-ranges").split(",").map(parseFloat);
+        var parts = msg(key).split("|");
+        ol.innerHTML = parts.map(function (p, i) {
+          return '<li data-from="' + r[i] + '" data-to="' + r[i + 1] + '">' + p + "</li>";
+        }).join("");
+      });
+    }
+    function sync(video, ol) {
+      function upd() {
+        if (!video.duration) return;
+        var f = (video.currentTime % video.duration) / video.duration;
+        ol.querySelectorAll("li").forEach(function (li) {
+          var on = f >= parseFloat(li.dataset.from) && f < parseFloat(li.dataset.to);
+          li.classList.toggle("active", on);
+        });
+      }
+      video.addEventListener("timeupdate", upd);
+      video.addEventListener("loadedmetadata", upd);
+      upd();
+    }
+    function init() {
+      build();
+      document.querySelectorAll(".demo").forEach(function (d) {
+        var v = d.querySelector("video"), ol = d.querySelector("ol.vsteps");
+        if (v && ol) { sync(v, ol); v.play().catch(function () {}); }
+      });
+      var sel = document.getElementById("lang-select");
+      if (sel) sel.addEventListener("change", function () { setTimeout(build, 0); });
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+  })();
+  </script>
 </body>
 </html>
