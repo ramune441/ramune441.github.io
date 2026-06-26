@@ -703,9 +703,13 @@
           if (a) a.href = "how-to.html?lang=" + encodeURIComponent(lang);
         });
       }
-      syncHowto();
-      var sel = document.getElementById("lang-select");
-      if (sel) sel.addEventListener("change", function () { setTimeout(syncHowto, 0); });
+      function start() {
+        syncHowto(); // initLP(言語適用)後に実行されるよう DOMContentLoaded 経由
+        var sel = document.getElementById("lang-select");
+        if (sel) sel.addEventListener("change", function () { setTimeout(syncHowto, 0); });
+      }
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+      else start();
     })();
   </script>
 
