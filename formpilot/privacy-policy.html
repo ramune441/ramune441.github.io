@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QPZE2JTLP"></script>
@@ -11,18 +11,18 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>プライバシーポリシー｜FormPilot</title>
-  <meta name="description" content="Chrome拡張機能「FormPilot」のプライバシーポリシー。プロフィールデータの保存場所、AIへの送信範囲、外部送信に関する取り扱いを記載しています。">
+  <title>Privacy Policy｜FormPilot</title>
+  <meta name="description" content="Privacy policy for the FormPilot Chrome extension. Explains where profile data is stored, what is sent to the AI service, and how external transmission is handled.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ramune441.github.io/formpilot/privacy-policy.html">
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: #f8fafc; color: #1e293b; line-height: 1.8;
       -webkit-font-smoothing: antialiased;
     }
@@ -34,7 +34,8 @@
       color: #64748b; text-decoration: none; transition: color 0.2s;
     }
     .back:hover { color: #059669; }
-    h1 { font-size: 28px; font-weight: 800; color: #1e293b; margin-bottom: 40px; }
+    h1 { font-size: 28px; font-weight: 800; color: #1e293b; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
     h2 { font-size: 20px; font-weight: 700; color: #1e293b; margin-top: 40px; margin-bottom: 16px; }
     h3 { font-size: 16px; font-weight: 700; color: #1e293b; margin-top: 24px; margin-bottom: 8px; }
     p, li { font-size: 15px; color: #475569; margin-bottom: 12px; }
@@ -53,82 +54,87 @@
 </head>
 <body>
   <div class="container">
-    <a href="./" class="back">&larr; FormPilot トップに戻る</a>
-    <h1>プライバシーポリシー</h1>
+    <a href="./" class="back">&larr; Back to FormPilot</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 27, 2026</p>
 
-    <h2>1. はじめに</h2>
-    <p>本プライバシーポリシーは、開発者 Ramune（以下「当開発者」）が提供する Chrome 拡張機能「FormPilot」（以下「本拡張機能」）における、利用者情報の取扱いについて定めるものです。</p>
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy describes how the Chrome extension "FormPilot" (the "Extension"), provided by the developer Ramune (the "Developer"), handles user information.</p>
 
-    <h2>2. 取得する情報について</h2>
-    <p>本拡張機能では、機能提供のため、以下の情報を取得・利用する場合があります。</p>
+    <h2>2. Information We Handle</h2>
+    <p>To provide its features, the Extension may collect and use the following information.</p>
 
-    <h3>(1) ユーザーが入力するプロフィール情報</h3>
+    <h3>(1) Profile information you enter</h3>
     <ul>
-      <li>氏名、メールアドレス、電話番号、住所などの個人情報</li>
-      <li>ユーザーが任意で追加するカスタムフィールドの情報</li>
+      <li>Personal information such as your name, email address, phone number, and address</li>
+      <li>Any custom fields you choose to add</li>
     </ul>
-    <p>これらの情報は、Webフォームへの自動入力機能を提供するために使用されます。</p>
+    <p>This information is used solely to auto-fill web forms.</p>
 
-    <h3>(2) ウェブサイト上のフォーム情報</h3>
+    <h3>(2) Form information on websites</h3>
     <ul>
-      <li>閲覧中のページ上のフォーム要素（input、select、textarea）の構造情報（ラベル、属性、フィールドタイプ）</li>
-      <li>ユーザーが「Save Current Form」機能を使用した際のフォーム入力値</li>
+      <li>The structure of form elements on the page you are viewing (input, select, textarea) — labels, attributes, and field types</li>
+      <li>Form values you capture when you use the "Save Current Form" feature</li>
     </ul>
-    <p>フォーム構造情報は、AI自動入力機能の実行時に、フィールドの種類を判別するためにのみ使用されます。</p>
+    <p>Form structure information is used only to determine field types when the AI auto-fill feature runs.</p>
 
-    <h3>(3) ローカルに保存される情報</h3>
+    <h3>(3) Information stored locally</h3>
     <ul>
-      <li>ユーザーが登録したプロフィール情報</li>
-      <li>サイトごとに保存されたフォームデータ</li>
-      <li>各種設定値（言語、テーマ、APIキー）</li>
+      <li>Profile information you have registered</li>
+      <li>Form data saved per website</li>
+      <li>Settings (language, theme)</li>
+      <li>A randomly generated device identifier used for usage limiting and abuse prevention</li>
     </ul>
-    <p>これらの情報は、Chrome の Storage API（<code>chrome.storage.local</code>）を利用して、ユーザーの端末内にのみ保存されます。</p>
+    <p>This information is stored only on your device using the Chrome Storage API (<code>chrome.storage.local</code>).</p>
 
-    <h2>3. 情報の利用目的</h2>
-    <p>取得した情報は、以下の目的のためにのみ利用します。</p>
+    <h2>3. Purpose of Use</h2>
+    <p>We use the information collected only for the following purposes.</p>
     <ul>
-      <li>Webフォームへの自動入力機能の提供</li>
-      <li>保存されたフォームデータの復元</li>
-      <li>AI によるフォームフィールドの自動判別</li>
-      <li>ユーザー設定の保存・復元</li>
-    </ul>
-
-    <h2>4. 外部への情報送信について</h2>
-    <p>本拡張機能は、AI自動入力機能の利用時に、フォームの構造情報（ラベル、属性、フィールドタイプ等のHTML メタデータ）を Anthropic API（api.anthropic.com）に送信します。</p>
-    <p><strong>重要：ユーザーの個人情報（氏名、メールアドレス、住所等）は外部に送信されません。</strong>送信されるのは空のフォームの構造情報のみです。</p>
-    <p>上記以外のデータが外部サーバーに送信されることはありません。</p>
-
-    <h2>5. 第三者への提供について</h2>
-    <p>取得した情報は、以下の場合を除き、第三者に提供することはありません。</p>
-    <ul>
-      <li>法令に基づく場合</li>
-      <li>ユーザーの明示的な同意がある場合</li>
+      <li>Providing the web form auto-fill feature</li>
+      <li>Restoring saved form data</li>
+      <li>Automatic detection of form field types using AI</li>
+      <li>Saving and restoring user settings</li>
+      <li>Preventing abuse and enforcing daily usage limits</li>
     </ul>
 
-    <h2>6. 第三者サービスについて</h2>
-    <p>本拡張機能が利用する外部サービスは <strong>Anthropic API</strong>（api.anthropic.com）のみであり、フォームフィールドの種類判別に使用されます。その他の第三者サービスにデータが送信されることはありません。</p>
+    <h2>4. Transmission to External Services</h2>
+    <p>When you use the AI auto-fill feature, the Extension sends the form's structure information (HTML metadata such as labels, attributes, and field types) to the Developer's proxy server, hosted on Cloudflare Workers, which forwards it to the Google Gemini API for analysis.</p>
+    <p><strong>Important: Your personal information (name, email address, address, etc.) is NOT sent externally.</strong> Only the structure of the empty form is transmitted.</p>
+    <p>A randomly generated device identifier is also sent with each request to enforce usage limits and prevent abuse. This identifier is not linked to your personal identity.</p>
+    <p>No data other than the above is sent to any external server.</p>
 
-    <h2>7. 権限について</h2>
-    <p>本拡張機能は、以下の Chrome 権限を使用します。</p>
+    <h2>5. Disclosure to Third Parties</h2>
+    <p>We will not disclose the information collected to third parties except in the following cases.</p>
     <ul>
-      <li><strong>storage</strong>: ユーザーのプロフィール情報、サイトごとのフォームデータ、設定の保存</li>
-      <li><strong>activeTab</strong>: 現在のタブ上のフォームフィールドの検出および自動入力の実行</li>
+      <li>When required by law</li>
+      <li>When you have given your explicit consent</li>
     </ul>
-    <p>これらの権限は、本拡張機能の機能を実現するために必要最小限のものです。</p>
 
-    <h2>8. データの保存について</h2>
-    <p>本拡張機能が保存するデータは、すべてユーザーの端末内（Chrome のストレージ領域）に限定されます。当開発者がユーザーのデータを独自に収集・保存することはありません。ユーザーは拡張機能のアンインストールにより、保存されたすべてのデータを削除できます。</p>
+    <h2>6. Third-Party Services</h2>
+    <p>The Extension uses the <strong>Google Gemini API</strong> (accessed via the Developer's Cloudflare Workers proxy) for form field type detection. No data is sent to any other third-party service.</p>
 
-    <h2>9. お問い合わせ先</h2>
-    <p>本ポリシーに関するお問い合わせは、以下までご連絡ください。</p>
-    <p>お問い合わせフォーム：<a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener">こちら</a></p>
+    <h2>7. Permissions</h2>
+    <p>The Extension uses the following Chrome permissions.</p>
+    <ul>
+      <li><strong>storage</strong>: To save your profile information, per-site form data, and settings</li>
+      <li><strong>activeTab</strong>: To detect form fields on the current tab and perform auto-fill</li>
+      <li><strong>scripting</strong>: To run the form detection and fill logic on the current page</li>
+    </ul>
+    <p>These permissions are the minimum necessary to provide the Extension's features.</p>
 
-    <h2>10. プライバシーポリシーの変更</h2>
-    <p>本ポリシーは、法令の変更やサービス内容の変更に応じて、必要に応じて改定されることがあります。変更後のプライバシーポリシーは、本ページにて速やかに公開します。</p>
+    <h2>8. Data Storage</h2>
+    <p>All data saved by the Extension is limited to your device (the Chrome storage area). The Developer does not independently collect or store your data. You can delete all stored data by uninstalling the Extension.</p>
+
+    <h2>9. Contact</h2>
+    <p>For inquiries regarding this policy, please contact us using the form below.</p>
+    <p>Contact form: <a href="https://docs.google.com/forms/d/e/1FAIpQLSeLiJyulpweVCItGpre8vMef3ijw6NrCHMK0UsaY1SByuAbkA/viewform" target="_blank" rel="noopener">here</a></p>
+
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>This policy may be revised as needed in response to changes in laws or the service. Any updated policy will be published promptly on this page.</p>
   </div>
 
   <footer>
-    &copy; 2025 FormPilot
+    &copy; 2026 FormPilot
   </footer>
 </body>
 </html>
