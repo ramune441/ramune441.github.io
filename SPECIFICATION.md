@@ -12,9 +12,10 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用 |
 | `/formpilot/images/<lang>/` | ストア画像(翻訳版) | - | no | `store-image-{1..5}.png`(1280x800) + `store-tile-marquee.png`(1400x560) × 10言語。生成元は拡張リポジトリ FormPilot の `store-image-*.html` + `store-i18n.js`(`?lang=` 指定・ar はRTL)。en は `/formpilot/` 直下 |
-| `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは実アプリ画面（Pairs/Tinder）を再現したHTMLライブモック（写真はcanvasモザイク生成・名前はぼかし） |
+| `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは**実際のPairs画面のキャプチャ**(`pairs-real.png`)＋日本語パネルレプリカ重ね。写真は実会員のため拡張機能でcanvasモザイクに差し替え・名前ぼかしの上で撮影 |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
-| `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用。実画面再現デモ（Pairs足あと＋Tinder自動LIKE、モザイク処理）の7シーン構成・設計長約43秒 |
+| `/ashiato-maker/pairs-real.png` | 画像 | - | no | 実際のPairs検索画面キャプチャ(2400x1500)。会員写真はモザイク処理。LP・promo両方の背景に使用 |
+| `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用。実Pairs画面(`pairs-real.png`)をブラウザ枠に配置し、日本語パネル・コールアウト・訪問スイープをHTMLで重ねてアニメ化。6シーン構成・約35秒 |
 | `/lovent/` | LP | index | yes | Android |
 | `/lovent/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/lovent/promo.html` | 動画用 | noindex | no | 録画専用 |
