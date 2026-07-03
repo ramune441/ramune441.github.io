@@ -20,6 +20,11 @@
   }
   .scene.active { opacity: 1; pointer-events: auto; }
 
+  /* モザイク写真（canvasを拡大してピクセル化） */
+  canvas.mosaic { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+  .blurred { filter: blur(6px); }
+  .blurred-s { filter: blur(4px); }
+
   /* ===== S1: Intro ===== */
   #s1 {
     background: linear-gradient(160deg, #faf5ff 0%, #ede9fe 50%, #ddd6fe 100%);
@@ -48,7 +53,7 @@
   #s1 .apps-row { display: flex; gap: 20px; opacity: 0; position: relative; z-index: 1; }
   .app-chip { display: inline-flex; align-items: center; gap: 10px; background: #ffffff; border: 1px solid rgba(30,27,75,0.12); border-radius: 14px; padding: 14px 28px; box-shadow: 0 2px 12px rgba(102,126,234,0.10); }
   .app-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
-  .app-dot.pairs { background: #e040fb; box-shadow: 0 0 8px rgba(224,64,251,0.5); }
+  .app-dot.pairs { background: #ec3f5f; box-shadow: 0 0 8px rgba(236,63,95,0.5); }
   .app-dot.with { background: #29b6f6; box-shadow: 0 0 8px rgba(41,182,246,0.5); }
   .app-dot.toukare { background: #ffc107; box-shadow: 0 0 8px rgba(255,193,7,0.5); }
   .app-dot.tinder { background: #ff5722; box-shadow: 0 0 8px rgba(255,87,34,0.5); }
@@ -91,36 +96,73 @@
   .flow-step-large .flow-desc { font-size: 22px; color: #64748b; line-height: 1.6; }
   .flow-arrow-large { font-size: 56px; color: rgba(102,126,234,0.5); opacity: 0; flex-shrink: 0; }
 
-  /* ===== S4: Demo ===== */
-  #s4 { background: #f5f0eb; position: relative; overflow: hidden; }
-  #s4 .demo-wrapper { display: flex; width: 100%; height: 100%; position: relative; }
+  /* ===== ブラウザ枠（実画面感の演出） ===== */
+  .browser { display: flex; flex-direction: column; width: 100%; height: 100%; }
+  .browser-top { background: #dee1e6; padding: 10px 12px 0; flex-shrink: 0; }
+  .browser-tab {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; border-radius: 10px 10px 0 0; padding: 9px 20px; min-width: 300px;
+    font-size: 15px; color: #333;
+  }
+  .browser-tab .tab-fav { width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0; }
+  .browser-tab .tab-close { margin-left: auto; color: #999; font-size: 14px; }
+  .browser-addr { display: flex; align-items: center; gap: 14px; background: #fff; padding: 8px 16px; border-bottom: 1px solid #dadce0; flex-shrink: 0; }
+  .browser-addr .nav-ic { font-size: 18px; color: #5f6368; }
+  .addr-box {
+    flex: 1; display: flex; align-items: center; gap: 10px;
+    background: #f1f3f4; border-radius: 20px; padding: 8px 18px;
+    font-size: 15px; color: #202124;
+  }
+  .addr-box .lock { font-size: 13px; color: #5f6368; }
+  .addr-box .domain { color: #202124; }
+  .addr-box .path { color: #5f6368; }
+  .browser-addr .ext-icon { width: 26px; height: 26px; border-radius: 6px; }
+  .browser-addr .ext-icon.pinned { outline: 2px solid rgba(102,126,234,0.6); outline-offset: 2px; }
+  .browser-body { flex: 1; position: relative; overflow: hidden; background: #fff; }
 
-  .pairs-mock { flex: 1; display: flex; flex-direction: column; background: #fff; height: 1080px; overflow: hidden; }
-  .pairs-nav { display: flex; align-items: center; height: 64px; background: #fff; border-bottom: 1px solid #eee; padding: 0 40px; flex-shrink: 0; }
-  .pairs-nav .nav-logo { font-size: 28px; font-weight: 800; color: #e040fb; }
-  .pairs-nav .nav-items { display: flex; gap: 40px; margin-left: 56px; }
-  .pairs-nav .nav-item { font-size: 18px; color: #888; font-weight: 500; padding: 18px 0; border-bottom: 3px solid transparent; }
-  .pairs-nav .nav-item.active { color: #e040fb; border-bottom-color: #e040fb; }
-  .pairs-body { flex: 1; display: flex; overflow: hidden; }
-  .pairs-sidebar { width: 280px; background: #faf8f6; border-right: 1px solid #eee; padding: 28px; flex-shrink: 0; }
-  .sidebar-section { margin-bottom: 24px; }
-  .sidebar-label { font-size: 14px; color: #999; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px; }
-  .sidebar-value { font-size: 16px; color: #333; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px 14px; }
-  .pairs-grid-area { flex: 1; padding: 28px 40px; overflow: hidden; }
-  .pairs-grid-header { font-size: 18px; color: #888; margin-bottom: 20px; }
-  .pairs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-content: start; }
+  /* ===== S4: Pairs実画面デモ ===== */
+  #s4 { background: #e8eaed; }
+  #s4 .demo-wrapper { width: 100%; height: 100%; position: relative; }
+
+  .pairs-page { display: flex; flex-direction: column; height: 100%; background: #fff; }
+  .pairs-nav { display: flex; align-items: center; height: 66px; background: #fff; border-bottom: 1px solid #ececec; padding: 0 44px; flex-shrink: 0; }
+  .pairs-nav .nav-logo { font-size: 32px; font-weight: 800; color: #ec3f5f; letter-spacing: -1px; font-style: italic; }
+  .pairs-nav .nav-items { display: flex; gap: 44px; margin-left: 64px; height: 100%; }
+  .pairs-nav .nav-item { display: flex; align-items: center; gap: 8px; font-size: 18px; color: #8a8f98; font-weight: 600; border-bottom: 3px solid transparent; }
+  .pairs-nav .nav-item.active { color: #ec3f5f; border-bottom-color: #ec3f5f; }
+  .pairs-nav .nav-right { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+  .pairs-nav .nav-bell { font-size: 22px; color: #8a8f98; position: relative; }
+  .pairs-nav .nav-bell::after { content: ''; position: absolute; top: -2px; right: -4px; width: 10px; height: 10px; border-radius: 50%; background: #ec3f5f; }
+  .pairs-nav .nav-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid #eee; }
+
+  .pairs-body { flex: 1; display: flex; overflow: hidden; background: #f7f5f3; }
+  .pairs-sidebar { width: 300px; background: #fff; border-right: 1px solid #ececec; padding: 26px 24px; flex-shrink: 0; }
+  .sb-title { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+  .sb-title .sb-clear { font-size: 13px; color: #ec3f5f; font-weight: 600; }
+  .sidebar-section { margin-bottom: 18px; }
+  .sidebar-label { font-size: 13px; color: #9aa0a6; font-weight: 600; margin-bottom: 6px; }
+  .sidebar-value { font-size: 16px; color: #333; background: #fafafa; border: 1px solid #e8e8e8; border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
+  .sidebar-value .chev { color: #bbb; font-size: 13px; }
+  .sb-search-btn { width: 100%; margin-top: 10px; background: #ec3f5f; color: #fff; border: none; border-radius: 24px; padding: 12px 0; font-size: 16px; font-weight: 700; }
+
+  .pairs-grid-area { flex: 1; padding: 24px 36px; overflow: hidden; }
+  .pairs-grid-header { display: flex; align-items: baseline; gap: 18px; margin-bottom: 18px; }
+  .pairs-grid-header .result-count { font-size: 19px; color: #333; font-weight: 700; }
+  .pairs-grid-header .sort { margin-left: auto; font-size: 15px; color: #8a8f98; }
+  .pairs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; align-content: start; }
 
   .p-card {
-    background: #fff; border-radius: 14px; overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 3px solid transparent;
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08); border: 3px solid transparent;
     transition: all 0.4s cubic-bezier(0.16,1,0.3,1); position: relative;
   }
-  .p-card .p-photo { width: 100%; height: 0; padding-bottom: 110%; position: relative; }
-  .p-card .p-photo > span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; font-size: 72px; }
-  .p-card .p-photo-bg { position: absolute; inset: 0; }
-  .p-card .p-info { padding: 12px 14px; }
-  .p-card .p-name { font-size: 18px; font-weight: 700; color: #333; }
-  .p-card .p-detail { font-size: 14px; color: #999; margin-top: 3px; }
+  .p-card .p-photo { width: 100%; height: 0; padding-bottom: 108%; position: relative; overflow: hidden; }
+  .p-card .p-photo canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .p-card .p-info { padding: 10px 14px 12px; }
+  .p-card .p-meta { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 700; color: #333; }
+  .p-card .p-meta .online { width: 10px; height: 10px; border-radius: 50%; background: #4cd964; box-shadow: 0 0 4px rgba(76,217,100,0.7); flex-shrink: 0; }
+  .p-card .p-bio { font-size: 13px; color: #9aa0a6; margin-top: 4px; white-space: nowrap; overflow: hidden; }
+  .p-card .p-today { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.55); color: #fff; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 10px; z-index: 2; }
 
   @keyframes ashiato-pulse-demo {
     0%, 100% { box-shadow: 0 0 12px 4px rgba(102,126,234,0.5); }
@@ -146,30 +188,36 @@
   .p-card.visited::after {
     content: '✓ 訪問済み'; position: absolute; bottom: 0; left: 0; right: 0;
     background: rgba(102,126,234,0.85); color: #fff; font-size: 14px; font-weight: 700;
-    text-align: center; padding: 5px 0; letter-spacing: 1px;
+    text-align: center; padding: 5px 0; letter-spacing: 1px; z-index: 3;
   }
 
-  /* Profile modal overlay */
+  /* Pairs プロフィールモーダル */
   .modal-overlay {
-    position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+    position: absolute; inset: 0; background: rgba(0,0,0,0.55);
     z-index: 15; display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none; transition: opacity 0.3s;
   }
   .modal-overlay.show { opacity: 1; pointer-events: auto; }
   .modal-card {
-    width: 680px; background: #fff; border-radius: 24px; overflow: hidden;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.25); transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    width: 700px; background: #fff; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3); transform: scale(0.92); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
   }
   .modal-overlay.show .modal-card { transform: scale(1); }
-  .modal-photo { height: 400px; position: relative; display: flex; align-items: center; justify-content: center; font-size: 140px; }
-  .modal-photo-bg { position: absolute; inset: 0; }
-  .modal-photo > span { position: relative; z-index: 1; }
-  .modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.4); color: #fff; border: none; font-size: 22px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; }
-  .modal-body { padding: 32px; }
-  .modal-name { font-size: 32px; font-weight: 800; color: #333; margin-bottom: 6px; }
-  .modal-detail { font-size: 18px; color: #888; margin-bottom: 20px; }
-  .modal-tags { display: flex; gap: 10px; flex-wrap: wrap; }
-  .modal-tag { background: #f3f4f6; border-radius: 10px; padding: 8px 18px; font-size: 16px; color: #555; }
+  .modal-photo { height: 410px; position: relative; overflow: hidden; }
+  .modal-photo canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .modal-dots { position: absolute; top: 14px; left: 0; right: 0; display: flex; gap: 6px; padding: 0 16px; z-index: 2; }
+  .modal-dots span { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.45); }
+  .modal-dots span:first-child { background: #fff; }
+  .modal-close { position: absolute; top: 18px; right: 16px; width: 42px; height: 42px; border-radius: 50%; background: rgba(0,0,0,0.45); color: #fff; border: none; font-size: 20px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; }
+  .modal-body { padding: 26px 32px 30px; position: relative; }
+  .modal-name-row { display: flex; align-items: center; gap: 14px; margin-bottom: 6px; }
+  .modal-name { font-size: 30px; font-weight: 800; color: #333; }
+  .verified { background: #e8f0fe; color: #1a73e8; font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 12px; }
+  .modal-detail { display: flex; align-items: center; gap: 10px; font-size: 18px; color: #666; margin-bottom: 18px; }
+  .modal-detail .online { width: 10px; height: 10px; border-radius: 50%; background: #4cd964; }
+  .modal-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+  .modal-tag { background: #f5f5f7; border-radius: 14px; padding: 8px 18px; font-size: 15px; color: #555; }
+  .modal-like-btn { width: 100%; background: #ec3f5f; color: #fff; border: none; border-radius: 28px; padding: 14px 0; font-size: 19px; font-weight: 800; letter-spacing: 1px; box-shadow: 0 4px 16px rgba(236,63,95,0.35); }
   .modal-ashiato-done {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     background: linear-gradient(135deg, #667eea, #764ba2); color: #fff;
@@ -179,14 +227,14 @@
   }
   .modal-ashiato-done.show { opacity: 1; }
 
-  /* Reload flash */
+  /* リロードフラッシュ */
   .reload-flash {
     position: absolute; inset: 0; background: #fff; z-index: 25;
     opacity: 0; pointer-events: none; transition: opacity 0.15s;
   }
   .reload-flash.show { opacity: 1; }
 
-  /* Floating panel */
+  /* ===== フローティングパネル（実UI再現） ===== */
   .panel-replica {
     position: absolute; bottom: 28px; right: 28px; width: 340px;
     background: #fff; border-radius: 14px;
@@ -222,7 +270,7 @@
   .panel-reset { background: none; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; padding: 5px 0; color: #888; width: 100%; }
   .panel-contact { display: block; text-align: center; margin-top: 8px; font-size: 13px; color: #999; text-decoration: none; }
 
-  /* Notification toast */
+  /* 通知トースト */
   .notif-toast {
     position: absolute; top: 24px; right: 24px; background: #4CAF50; color: #fff;
     padding: 16px 28px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -231,7 +279,7 @@
   }
   .notif-toast .notif-icon { width: 28px; height: 28px; border-radius: 5px; }
 
-  /* Feature callouts */
+  /* 機能コールアウト */
   .callout {
     position: absolute; z-index: 30;
     background: #1e1b4b; border: 3px solid rgba(102,126,234,0.6);
@@ -255,13 +303,69 @@
   }
   .panel-replica.highlight-ring { animation: panel-ring-pulse 1.5s ease-in-out infinite; }
 
-  /* Highlight flash on panel elements */
   @keyframes setting-highlight {
     0% { box-shadow: 0 0 0 0 rgba(102,126,234,0); }
     30% { box-shadow: 0 0 0 4px rgba(102,126,234,0.5); }
     100% { box-shadow: 0 0 0 0 rgba(102,126,234,0); }
   }
   .panel-setting-flash { animation: setting-highlight 1.2s ease-out; }
+
+  /* ===== S4B: Tinder実画面デモ ===== */
+  #s4b { background: #e8eaed; }
+  #s4b .demo-wrapper { width: 100%; height: 100%; position: relative; }
+  .tinder-page { display: flex; height: 100%; background: #111418; }
+  .t-sidebar { width: 340px; background: #111418; border-right: 1px solid #303339; display: flex; flex-direction: column; flex-shrink: 0; }
+  .t-sb-header { background: linear-gradient(100deg, #fd267a, #ff6036); padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  .t-sb-avatar { width: 42px; height: 42px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(255,255,255,0.8); }
+  .t-sb-name { color: #fff; font-size: 18px; font-weight: 700; }
+  .t-sb-header .t-sb-ic { margin-left: auto; display: flex; gap: 10px; }
+  .t-sb-ic span { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; color: #fff; }
+  .t-tabs { display: flex; gap: 28px; padding: 16px 20px 0; }
+  .t-tab { color: #fff; font-size: 16px; font-weight: 700; padding-bottom: 10px; border-bottom: 3px solid transparent; }
+  .t-tab.active { border-bottom-color: #ff4458; }
+  .t-tab.inactive { color: #7c8591; }
+  .t-matches { padding: 18px 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .t-match { border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 3/4; }
+  .t-match .t-match-name { position: absolute; bottom: 4px; left: 6px; color: #fff; font-size: 12px; font-weight: 700; text-shadow: 0 1px 3px rgba(0,0,0,0.8); z-index: 2; }
+  .t-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; background: #111418; }
+  .t-card-stack { position: relative; width: 480px; height: 690px; }
+  .t-card {
+    position: absolute; inset: 0; border-radius: 14px; overflow: hidden;
+    background: #000; box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+    transition: transform 0.55s cubic-bezier(0.5, 0, 0.75, 0.4), opacity 0.55s;
+    z-index: 0; /* 子のz-indexを閉じ込め、下のカードの文字が透けないように */
+  }
+  .t-card canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .t-card .t-grad { position: absolute; left: 0; right: 0; bottom: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); }
+  .t-card .t-info { position: absolute; left: 24px; right: 24px; bottom: 22px; color: #fff; z-index: 2; }
+  .t-card .t-name-row { display: flex; align-items: baseline; gap: 12px; }
+  .t-card .t-name { font-size: 36px; font-weight: 800; }
+  .t-card .t-age { font-size: 30px; font-weight: 500; }
+  .t-card .t-dist { font-size: 17px; color: rgba(255,255,255,0.85); margin-top: 6px; display: flex; align-items: center; gap: 6px; }
+  .t-card .t-dots { position: absolute; top: 10px; left: 0; right: 0; display: flex; gap: 5px; padding: 0 12px; z-index: 2; }
+  .t-card .t-dots span { flex: 1; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.35); }
+  .t-card .t-dots span:first-child { background: #fff; }
+  .t-card.fly { transform: translateX(130%) rotate(22deg); opacity: 0; }
+  .t-card .t-stamp {
+    position: absolute; top: 44px; left: 28px; z-index: 3;
+    border: 5px solid #1be4a1; color: #1be4a1; border-radius: 10px;
+    font-size: 52px; font-weight: 900; letter-spacing: 4px; padding: 4px 20px;
+    transform: rotate(-18deg) scale(1.4); opacity: 0;
+    transition: transform 0.18s ease-out, opacity 0.18s ease-out;
+  }
+  .t-card .t-stamp.show { opacity: 1; transform: rotate(-18deg) scale(1); }
+  .t-gamepad { display: flex; gap: 26px; margin-top: 30px; align-items: center; }
+  .gp-btn {
+    width: 64px; height: 64px; border-radius: 50%; background: #111418;
+    border: 2px solid; display: flex; align-items: center; justify-content: center;
+    font-size: 26px; transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .gp-btn.gp-rewind { border-color: #f7b500; color: #f7b500; width: 54px; height: 54px; font-size: 22px; }
+  .gp-btn.gp-nope { border-color: #fd5068; color: #fd5068; }
+  .gp-btn.gp-super { border-color: #1786ff; color: #1786ff; width: 54px; height: 54px; font-size: 22px; }
+  .gp-btn.gp-like { border-color: #1be4a1; color: #1be4a1; }
+  .gp-btn.gp-boost { border-color: #a742df; color: #a742df; width: 54px; height: 54px; font-size: 22px; }
+  .gp-btn.pressed { transform: scale(0.82); box-shadow: 0 0 24px 6px rgba(27,228,161,0.55); background: rgba(27,228,161,0.15); }
 
   /* ===== S5: Features ===== */
   #s5 { background: linear-gradient(160deg, #faf5ff, #f5f3ff); flex-direction: column; gap: 56px; }
@@ -373,68 +477,78 @@
   </div>
 </div>
 
-<!-- S4: Demo -->
+<!-- S4: Pairs実画面デモ -->
 <div class="scene" id="s4">
   <div class="demo-wrapper">
-    <div class="pairs-mock">
-      <div class="pairs-nav">
-        <div class="nav-logo">Pairs</div>
-        <div class="nav-items">
-          <div class="nav-item active">さがす</div>
-          <div class="nav-item">コミュニティ</div>
-          <div class="nav-item">メッセージ</div>
-          <div class="nav-item">その他</div>
-        </div>
+    <div class="browser">
+      <div class="browser-top">
+        <div class="browser-tab"><span class="tab-fav" style="background:#ec3f5f;border-radius:50%;"></span>Pairs(ペアーズ) - 恋活・婚活マッチングアプリ<span class="tab-close">&#10005;</span></div>
       </div>
-      <div class="pairs-body">
-        <div class="pairs-sidebar">
-          <div class="sidebar-section"><div class="sidebar-label">年齢</div><div class="sidebar-value">20 〜 30歳</div></div>
-          <div class="sidebar-section"><div class="sidebar-label">居住地</div><div class="sidebar-value">東京都</div></div>
-          <div class="sidebar-section"><div class="sidebar-label">身長</div><div class="sidebar-value">指定なし</div></div>
-          <div class="sidebar-section"><div class="sidebar-label">職業</div><div class="sidebar-value">指定なし</div></div>
-        </div>
-        <div class="pairs-grid-area">
-          <div class="pairs-grid-header">検索結果: 2,483人</div>
-          <div class="pairs-grid">
-            <div class="p-card" id="pc1"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"></div><span>&#128105;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">あいさん</div><div class="p-detail">25歳 東京都</div></div></div>
-            <div class="p-card" id="pc2"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9);"></div><span>&#128105;&#8205;&#127806;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">みくさん</div><div class="p-detail">23歳 大阪府</div></div></div>
-            <div class="p-card" id="pc3"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e0f2f1,#b2dfdb);"></div><span>&#128113;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ゆいさん</div><div class="p-detail">27歳 福岡県</div></div></div>
-            <div class="p-card" id="pc4"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"></div><span>&#129489;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">はなさん</div><div class="p-detail">24歳 愛知県</div></div></div>
-            <div class="p-card" id="pc5"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7);"></div><span>&#128103;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">りんさん</div><div class="p-detail">26歳 札幌市</div></div></div>
-            <div class="p-card" id="pc6"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"></div><span>&#128105;&#8205;&#128187;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">さくらさん</div><div class="p-detail">22歳 横浜市</div></div></div>
-            <div class="p-card" id="pc7"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);"></div><span>&#128131;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">ももさん</div><div class="p-detail">28歳 京都府</div></div></div>
-            <div class="p-card" id="pc8"><div class="p-photo"><div class="p-photo-bg" style="background:linear-gradient(135deg,#e3f2fd,#90caf9);"></div><span>&#128587;&#8205;&#9792;&#65039;</span><div class="visit-badge">&#128065; 訪問中…</div></div><div class="p-info"><div class="p-name">まいさん</div><div class="p-detail">21歳 神奈川県</div></div></div>
+      <div class="browser-addr">
+        <span class="nav-ic">&#8592;</span><span class="nav-ic">&#8594;</span><span class="nav-ic">&#8635;</span>
+        <div class="addr-box"><span class="lock">&#128274;</span><span class="domain">pairs.lv</span><span class="path">/search/all</span></div>
+        <img class="ext-icon pinned" src="icons/icon128.png" alt="">
+      </div>
+      <div class="browser-body">
+        <div class="pairs-page">
+          <div class="pairs-nav">
+            <div class="nav-logo">Pairs</div>
+            <div class="nav-items">
+              <div class="nav-item active">&#128269; さがす</div>
+              <div class="nav-item">&#128101; コミュニティ</div>
+              <div class="nav-item">&#128140; メッセージ</div>
+              <div class="nav-item">&#10084;&#65039; お相手から</div>
+            </div>
+            <div class="nav-right">
+              <div class="nav-bell">&#128276;</div>
+              <div class="nav-avatar"><canvas class="mosaic" width="7" height="7" data-seed="99"></canvas></div>
+            </div>
+          </div>
+          <div class="pairs-body">
+            <div class="pairs-sidebar">
+              <div class="sb-title">絞り込み <span class="sb-clear">クリア</span></div>
+              <div class="sidebar-section"><div class="sidebar-label">年齢</div><div class="sidebar-value">20歳 〜 32歳 <span class="chev">&#9660;</span></div></div>
+              <div class="sidebar-section"><div class="sidebar-label">居住地</div><div class="sidebar-value">東京都 <span class="chev">&#9660;</span></div></div>
+              <div class="sidebar-section"><div class="sidebar-label">身長</div><div class="sidebar-value">指定なし <span class="chev">&#9660;</span></div></div>
+              <div class="sidebar-section"><div class="sidebar-label">職業</div><div class="sidebar-value">指定なし <span class="chev">&#9660;</span></div></div>
+              <div class="sidebar-section"><div class="sidebar-label">最終ログイン</div><div class="sidebar-value">24時間以内 <span class="chev">&#9660;</span></div></div>
+              <button class="sb-search-btn">この条件で検索</button>
+            </div>
+            <div class="pairs-grid-area">
+              <div class="pairs-grid-header"><span class="result-count">検索結果 2,483人</span><span class="sort">並び替え: ログイン順 &#9660;</span></div>
+              <div class="pairs-grid" id="pairs-grid"></div>
+            </div>
           </div>
         </div>
+
+        <!-- プロフィールモーダル -->
+        <div class="modal-overlay" id="modal">
+          <div class="modal-card">
+            <div class="modal-photo">
+              <canvas class="mosaic" id="modal-canvas" width="26" height="15"></canvas>
+              <div class="modal-dots"><span></span><span></span><span></span><span></span></div>
+              <button class="modal-close">&#10005;</button>
+              <div class="modal-ashiato-done" id="modal-done">&#128099; 足あとを残しました</div>
+            </div>
+            <div class="modal-body">
+              <div class="modal-name-row"><div class="modal-name blurred" id="modal-name"></div><span class="verified">本人確認済み</span></div>
+              <div class="modal-detail"><span class="online"></span><span id="modal-detail"></span></div>
+              <div class="modal-tags">
+                <div class="modal-tag">&#127863; お酒はほどほど</div>
+                <div class="modal-tag">&#127925; 音楽好き</div>
+                <div class="modal-tag">&#9992;&#65039; 旅行好き</div>
+                <div class="modal-tag">&#128021; 犬派</div>
+              </div>
+              <button class="modal-like-btn">&#10084;&#65039; いいね！を送る</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="reload-flash" id="reload-flash"></div>
       </div>
     </div>
 
-    <!-- Profile modal -->
-    <div class="modal-overlay" id="modal">
-      <div class="modal-card">
-        <div class="modal-photo" id="modal-photo">
-          <div class="modal-photo-bg" id="modal-photo-bg"></div>
-          <span id="modal-emoji"></span>
-          <button class="modal-close">&#10005;</button>
-          <div class="modal-ashiato-done" id="modal-done">&#128065; 足あと済み !</div>
-        </div>
-        <div class="modal-body">
-          <div class="modal-name" id="modal-name"></div>
-          <div class="modal-detail" id="modal-detail"></div>
-          <div class="modal-tags">
-            <div class="modal-tag">&#128205; 東京都</div>
-            <div class="modal-tag">&#128188; 会社員</div>
-            <div class="modal-tag">&#127863; お酒好き</div>
-            <div class="modal-tag">&#127932; 音楽鑑賞</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Reload flash -->
-    <div class="reload-flash" id="reload-flash"></div>
-
-    <!-- Floating panel -->
+    <!-- フローティングパネル（Pairs） -->
     <div class="panel-replica" id="e4panel">
       <div class="panel-header">
         <img class="panel-icon" src="icons/icon128.png" alt="">
@@ -445,13 +559,13 @@
       <div class="panel-body">
         <div class="panel-check" id="panel-reload-row"><input type="checkbox" checked><span class="p-inline-num" id="panel-reload-num">30</span><span>人ごとにリロード</span></div>
         <div class="panel-row">
-          <div class="panel-setting" id="ps-max"><label>最大訪問数</label><input type="number" value="100"></div>
-          <div class="panel-setting" id="ps-delay"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨2〜4</span></label><input type="number" value="3.0"></div>
+          <div class="panel-setting" id="ps-max"><label>最大訪問数</label><input type="number" value="999" readonly></div>
+          <div class="panel-setting" id="ps-delay"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨2〜4</span></label><input type="number" value="3.0" readonly></div>
         </div>
         <button class="panel-btn panel-btn-start" id="panel-start">開始</button>
         <button class="panel-btn panel-btn-stop" id="panel-stop">停止</button>
         <div class="panel-stats">
-          <div class="panel-stat"><span class="panel-stat-label">進捗</span><span class="panel-stat-value" id="panel-progress">0 / 100</span></div>
+          <div class="panel-stat"><span class="panel-stat-label">進捗</span><span class="panel-stat-value" id="panel-progress">0 / 999</span></div>
           <div class="panel-stat"><span class="panel-stat-label">リロードまで</span><span class="panel-stat-value" id="panel-reload">30人</span></div>
           <div class="panel-stat"><span class="panel-stat-label">リロード数</span><span class="panel-stat-value" id="panel-reload-times">0回</span></div>
           <button class="panel-reset">↺</button>
@@ -460,17 +574,17 @@
       </div>
     </div>
 
-    <!-- Notification toast -->
+    <!-- 通知トースト -->
     <div class="notif-toast" id="e4notif">
       <img class="notif-icon" src="icons/icon128.png" alt="">
       <span id="notif-text">自動訪問を開始しました</span>
     </div>
 
-    <!-- Feature callouts -->
+    <!-- コールアウト -->
     <div class="callout" id="co1" style="bottom:220px;right:395px;">
       <div class="callout-icon">&#128065;</div>
       <div class="callout-title">対応アプリを自動検出</div>
-      <div class="callout-desc">Pairs / with / 東カレ / Tinder<br>ページを開くだけでパネルが表示されます</div>
+      <div class="callout-desc">Pairsを開くだけで<br>操作パネルが自動で表示されます</div>
       <div class="callout-arrow arrow-right"></div>
     </div>
     <div class="callout" id="co2" style="bottom:140px;right:395px;">
@@ -479,13 +593,13 @@
       <div class="callout-desc">開始ボタンを押すだけで<br>自動訪問がスタートします</div>
       <div class="callout-arrow arrow-right"></div>
     </div>
-    <div class="callout" id="co3" style="top:70px;left:50%;transform:translateX(-50%);">
-      <div class="callout-icon">&#10024;</div>
-      <div class="callout-title">プロフィールを自動訪問</div>
-      <div class="callout-desc">モーダルを開いて足あとを残し、自動で閉じて次へ進みます</div>
+    <div class="callout" id="co3" style="top:100px;left:50%;transform:translateX(-50%);">
+      <div class="callout-icon">&#128099;</div>
+      <div class="callout-title">実際の画面で自動訪問</div>
+      <div class="callout-desc">プロフィールを1人ずつ開いて足あとを残し、自動で次へ進みます</div>
       <div class="callout-arrow arrow-down"></div>
     </div>
-    <div class="callout" id="co4" style="top:70px;left:50%;transform:translateX(-50%);">
+    <div class="callout" id="co4" style="top:100px;left:50%;transform:translateX(-50%);">
       <div class="callout-icon">&#128203;</div>
       <div class="callout-title">訪問済みは自動スキップ</div>
       <div class="callout-desc">一度訪問したプロフィールは記録され、同じ人に重複訪問しません</div>
@@ -494,19 +608,89 @@
     <div class="callout" id="co5" style="bottom:80px;right:395px;">
       <div class="callout-icon">&#128260;</div>
       <div class="callout-title">無限ループモード</div>
-      <div class="callout-desc">指定人数ごとに自動リロードして<br>新しいプロフィールを訪問し続けます</div>
+      <div class="callout-desc">指定人数ごとに自動リロードして<br>新しいお相手を訪問し続けます</div>
       <div class="callout-arrow arrow-right"></div>
     </div>
-    <div class="callout" id="co6" style="bottom:160px;right:395px;">
-      <div class="callout-icon">&#9200;</div>
-      <div class="callout-title">訪問間隔を自由に設定</div>
-      <div class="callout-desc">待機秒数を調整して自然なペースで訪問<br>検知リスクを低減できます</div>
-      <div class="callout-arrow arrow-right"></div>
-    </div>
-    <div class="callout" id="co7" style="top:70px;left:50%;transform:translateX(-50%);">
+    <div class="callout" id="co7" style="top:100px;left:50%;transform:translateX(-50%);">
       <div class="callout-icon">&#128274;</div>
       <div class="callout-title">完全ローカル保存</div>
       <div class="callout-desc">すべてのデータはブラウザ内に保存。外部サーバーへの送信は一切なし</div>
+    </div>
+  </div>
+</div>
+
+<!-- S4B: Tinder実画面デモ -->
+<div class="scene" id="s4b">
+  <div class="demo-wrapper">
+    <div class="browser">
+      <div class="browser-top">
+        <div class="browser-tab"><span class="tab-fav" style="background:linear-gradient(135deg,#fd267a,#ff6036);border-radius:50%;"></span>Tinder | マッチング アプリ<span class="tab-close">&#10005;</span></div>
+      </div>
+      <div class="browser-addr">
+        <span class="nav-ic">&#8592;</span><span class="nav-ic">&#8594;</span><span class="nav-ic">&#8635;</span>
+        <div class="addr-box"><span class="lock">&#128274;</span><span class="domain">tinder.com</span><span class="path">/app/recs</span></div>
+        <img class="ext-icon pinned" src="icons/icon128.png" alt="">
+      </div>
+      <div class="browser-body">
+        <div class="tinder-page">
+          <div class="t-sidebar">
+            <div class="t-sb-header">
+              <div class="t-sb-avatar"><canvas class="mosaic" width="7" height="7" data-seed="99"></canvas></div>
+              <div class="t-sb-name blurred-s">たろう</div>
+              <div class="t-sb-ic"><span>&#9881;</span></div>
+            </div>
+            <div class="t-tabs"><div class="t-tab active">マッチ</div><div class="t-tab inactive">メッセージ</div></div>
+            <div class="t-matches" id="t-matches"></div>
+          </div>
+          <div class="t-main">
+            <div class="t-card-stack" id="t-stack"></div>
+            <div class="t-gamepad">
+              <div class="gp-btn gp-rewind">&#8634;</div>
+              <div class="gp-btn gp-nope">&#10005;</div>
+              <div class="gp-btn gp-super">&#9733;</div>
+              <div class="gp-btn gp-like" id="gp-like">&#9829;</div>
+              <div class="gp-btn gp-boost">&#9889;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- フローティングパネル（Tinder・スワイプモード） -->
+    <div class="panel-replica" id="e4bpanel">
+      <div class="panel-header">
+        <img class="panel-icon" src="icons/icon128.png" alt="">
+        <span class="panel-title">足あとメーカー</span>
+        <span class="panel-app-badge">Tinder</span>
+        <button class="panel-toggle">−</button>
+      </div>
+      <div class="panel-body">
+        <div class="panel-row">
+          <div class="panel-setting"><label>最大訪問数</label><input type="number" value="999" readonly></div>
+          <div class="panel-setting"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨0.5〜2</span></label><input type="number" value="1.0" readonly></div>
+        </div>
+        <button class="panel-btn panel-btn-start" style="display:none;">開始</button>
+        <button class="panel-btn panel-btn-stop" style="display:block;">停止</button>
+        <div class="panel-stats">
+          <div class="panel-stat"><span class="panel-stat-label">進捗</span><span class="panel-stat-value" id="panel2-progress">0 / 999</span></div>
+          <button class="panel-reset">↺</button>
+        </div>
+        <a class="panel-contact" href="#">不具合報告・お問い合わせ</a>
+      </div>
+    </div>
+
+    <!-- コールアウト -->
+    <div class="callout" id="co8" style="bottom:150px;right:395px;">
+      <div class="callout-icon">&#128293;</div>
+      <div class="callout-title">Tinderは自動スワイプ</div>
+      <div class="callout-desc">自動でLIKEを送り続けて<br>マッチのチャンスを最大化</div>
+      <div class="callout-arrow arrow-right"></div>
+    </div>
+    <div class="callout" id="co9" style="top:100px;left:44%;transform:translateX(-50%);">
+      <div class="callout-icon">&#9203;</div>
+      <div class="callout-title">放置するだけ</div>
+      <div class="callout-desc">1時間に数百人へアプローチできます</div>
+      <div class="callout-arrow arrow-down"></div>
     </div>
   </div>
 </div>
@@ -516,9 +700,9 @@
   <div style="display:flex;flex-direction:column;align-items:center;gap:56px;">
     <div class="feat-title" id="e5a">主な機能</div>
     <div class="feat-grid">
-      <div class="feat-item" id="f1"><span class="feat-emoji">&#128065;</span><h4>プロフィール自動訪問</h4><p>ボタンひとつで自動訪問を開始<br>足あとを自動で残します</p></div>
+      <div class="feat-item" id="f1"><span class="feat-emoji">&#128099;</span><h4>プロフィール自動訪問</h4><p>ボタンひとつで自動訪問を開始<br>足あとを自動で残します</p></div>
       <div class="feat-item" id="f2"><span class="feat-emoji">&#128260;</span><h4>無限ループモード</h4><p>ページを自動リロードして<br>新しいプロフィールを訪問し続けます</p></div>
-      <div class="feat-item" id="f3"><span class="feat-emoji">&#128077;</span><h4>自動いいね</h4><p>東カレデート・Tinderでは<br>訪問と同時にいいねも自動送信</p></div>
+      <div class="feat-item" id="f3"><span class="feat-emoji">&#128293;</span><h4>自動スワイプ・自動いいね</h4><p>TinderはLIKEを自動送信<br>東カレデートは訪問と同時にいいね</p></div>
       <div class="feat-item" id="f4"><span class="feat-emoji">&#9200;</span><h4>訪問間隔の調整</h4><p>自然なペースで訪問できるよう<br>待機時間を自由に設定可能</p></div>
       <div class="feat-item" id="f5"><span class="feat-emoji">&#128203;</span><h4>訪問履歴の管理</h4><p>訪問済みプロフィールを記録<br>重複訪問を自動でスキップ</p></div>
       <div class="feat-item" id="f6"><span class="feat-emoji">&#128274;</span><h4>完全ローカル保存</h4><p>すべてのデータはブラウザ内に保存<br>外部サーバーへの送信は一切なし</p></div>
@@ -548,7 +732,7 @@
 
 <script>
 const $ = id => document.getElementById(id);
-const scenes = ['s1','s2','s3','s4','s5','s6'];
+const scenes = ['s1','s2','s3','s4','s4b','s5','s6'];
 let timeline = [], timelineIndex = 0, timer = null, startTime = Date.now();
 
 function showScene(id) { scenes.forEach(s => $(s).classList.remove('active')); $(id).classList.add('active'); }
@@ -560,23 +744,131 @@ function anim(el, styles, dur = 600) {
   Object.assign(el.style, styles);
 }
 
-const allCallouts = ['co1','co2','co3','co4','co5','co6','co7'];
+const allCallouts = ['co1','co2','co3','co4','co5','co7','co8','co9'];
 function hideAllCallouts() { allCallouts.forEach(id => $(id).classList.remove('show')); }
 
-const profileData = [
-  { emoji: '&#128105;', bg: 'linear-gradient(135deg,#fce4ec,#f8bbd0)', name: 'あいさん', detail: '25歳 東京都 / 会社員' },
-  { emoji: '&#128105;&#8205;&#127806;', bg: 'linear-gradient(135deg,#e8eaf6,#c5cae9)', name: 'みくさん', detail: '23歳 大阪府 / 看護師' },
-  { emoji: '&#128113;&#8205;&#9792;&#65039;', bg: 'linear-gradient(135deg,#e0f2f1,#b2dfdb)', name: 'ゆいさん', detail: '27歳 福岡県 / デザイナー' },
-  { emoji: '&#129489;', bg: 'linear-gradient(135deg,#fff3e0,#ffe0b2)', name: 'はなさん', detail: '24歳 愛知県 / 学生' },
-  { emoji: '&#128103;', bg: 'linear-gradient(135deg,#f3e5f5,#e1bee7)', name: 'りんさん', detail: '26歳 札幌市 / 美容師' },
+// === モザイクポートレート生成（プライバシー配慮のピクセル化写真） ===
+function mulberry32(a) {
+  return function() {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+function drawMosaic(canvas, seed) {
+  const C = canvas.width, R = canvas.height;
+  const rnd = mulberry32(seed * 7919 + 13);
+  const ctx = canvas.getContext('2d');
+  const bgHues = [205, 215, 35, 95, 340, 265, 180];
+  const bgH = bgHues[Math.floor(rnd() * bgHues.length)];
+  const bgS = 22 + rnd() * 30, bgL = 58 + rnd() * 24;
+  const skinH = 22 + rnd() * 10, skinS = 42 + rnd() * 16, skinL = 72 + rnd() * 10;
+  const hairH = 18 + rnd() * 16, hairS = 24 + rnd() * 22, hairL = 12 + rnd() * 20;
+  const clH = rnd() * 360, clS = 28 + rnd() * 42, clL = 32 + rnd() * 40;
+  const cx = C / 2 + (rnd() - 0.5) * C * 0.12;
+  const cy = R * 0.36, frx = C * 0.20, fry = R * 0.165;
+  for (let y = 0; y < R; y++) {
+    for (let x = 0; x < C; x++) {
+      let h, s, l;
+      const fx = (x + 0.5 - cx) / frx, fy = (y + 0.5 - cy) / fry;
+      const hx = (x + 0.5 - cx) / (frx * 1.6), hy = (y + 0.5 - (cy - R * 0.055)) / (fry * 1.55);
+      if (fx * fx + fy * fy <= 1) { h = skinH; s = skinS; l = skinL; }
+      else if (hx * hx + hy * hy <= 1) { h = hairH; s = hairS; l = hairL; }
+      else if (y > R * 0.62 && Math.abs(x + 0.5 - C / 2) < (y - R * 0.62) * 1.15 + C * 0.17) { h = clH; s = clS; l = clL; }
+      else { h = bgH; s = bgS; l = bgL; }
+      l += (rnd() - 0.5) * 15; h += (rnd() - 0.5) * 12;
+      ctx.fillStyle = `hsl(${h}, ${s}%, ${l}%)`;
+      ctx.fillRect(x, y, 1, 1);
+    }
+  }
+}
+
+// === Pairs検索グリッド生成 ===
+const pairsProfiles = [
+  { seed: 1, name: 'みほ',   meta: '26歳 東京都', bio: 'カフェ巡りが好きです&#9749; 気軽に...' },
+  { seed: 2, name: 'ゆうな', meta: '24歳 東京都', bio: 'はじめまして！旅行と写真が...' },
+  { seed: 3, name: 'あかり', meta: '28歳 神奈川県', bio: '休日はヨガとお菓子作り&#127856;' },
+  { seed: 4, name: 'さき',   meta: '23歳 東京都', bio: '看護師してます。マイペースな...' },
+  { seed: 5, name: 'まな',   meta: '27歳 千葉県', bio: '映画とドライブが好きです&#127909;' },
+  { seed: 6, name: 'りこ',   meta: '25歳 東京都', bio: 'よろしくお願いします！お酒よ...' },
+  { seed: 7, name: 'えみ',   meta: '29歳 埼玉県', bio: 'アウトドア派です&#9968; キャンプ...' },
+  { seed: 8, name: 'ちか',   meta: '22歳 東京都', bio: '大学生です。音楽フェスによく...' },
+  { seed: 9, name: 'ほのか', meta: '26歳 神奈川県', bio: '食べ歩きとカメラが趣味です&#128247;' },
+  { seed: 10, name: 'なつみ', meta: '24歳 東京都', bio: 'ゆるく続けてます。猫飼ってま...' },
 ];
 
+function buildPairsGrid() {
+  const grid = $('pairs-grid');
+  grid.innerHTML = '';
+  pairsProfiles.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'p-card';
+    card.id = 'pc' + (i + 1);
+    card.innerHTML = `
+      <div class="p-photo">
+        <canvas class="mosaic" width="13" height="15" data-seed="${p.seed}"></canvas>
+        ${i < 3 ? '<div class="p-today">今日 &#128337;</div>' : ''}
+        <div class="visit-badge">&#128065; 訪問中…</div>
+      </div>
+      <div class="p-info">
+        <div class="p-meta"><span class="online"></span>${p.meta}</div>
+        <div class="p-bio blurred-s">${p.bio}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+// === Tinderカードスタック・マッチ一覧生成 ===
+const tinderProfiles = [
+  { seed: 21, name: 'Rina',  age: 23, dist: '3 km先' },
+  { seed: 22, name: 'Aoi',   age: 26, dist: '7 km先' },
+  { seed: 23, name: 'Karen', age: 24, dist: '5 km先' },
+  { seed: 24, name: 'Mio',   age: 27, dist: '11 km先' },
+  { seed: 25, name: 'Yuka',  age: 25, dist: '2 km先' },
+];
+
+function buildTinderStack() {
+  const stack = $('t-stack');
+  stack.innerHTML = '';
+  // 後ろのカードが下に来るよう逆順で追加
+  [...tinderProfiles].reverse().forEach((p, ri) => {
+    const i = tinderProfiles.length - 1 - ri;
+    const card = document.createElement('div');
+    card.className = 't-card';
+    card.id = 'tc' + i;
+    card.innerHTML = `
+      <canvas class="mosaic" width="15" height="21" data-seed="${p.seed}"></canvas>
+      <div class="t-dots"><span></span><span></span><span></span></div>
+      <div class="t-grad"></div>
+      <div class="t-info">
+        <div class="t-name-row"><span class="t-name blurred">${p.name}</span><span class="t-age">${p.age}</span></div>
+        <div class="t-dist">&#128205; ${p.dist}</div>
+      </div>
+      <div class="t-stamp">LIKE</div>`;
+    stack.appendChild(card);
+  });
+  const matches = $('t-matches');
+  matches.innerHTML = '';
+  for (let i = 0; i < 6; i++) {
+    const m = document.createElement('div');
+    m.className = 't-match';
+    m.innerHTML = `<canvas class="mosaic" width="8" height="10" data-seed="${40 + i}"></canvas><span class="t-match-name blurred-s">${['Saki','Emi','Nao','Yui','Riko','Hina'][i]}</span>`;
+    matches.appendChild(m);
+  }
+}
+
+function paintAllMosaics() {
+  document.querySelectorAll('canvas.mosaic[data-seed]').forEach(c => drawMosaic(c, +c.dataset.seed));
+}
+
+// === Pairsモーダル ===
 function openModal(i) {
-  const d = profileData[i];
-  $('modal-photo-bg').style.background = d.bg;
-  $('modal-emoji').innerHTML = d.emoji;
-  $('modal-name').textContent = d.name;
-  $('modal-detail').textContent = d.detail;
+  const p = pairsProfiles[i];
+  drawMosaic($('modal-canvas'), p.seed * 31 + 5);
+  $('modal-name').textContent = p.name;
+  $('modal-detail').textContent = 'オンライン ・ ' + p.meta;
   $('modal-done').classList.remove('show');
   $('modal').classList.add('show');
 }
@@ -587,6 +879,19 @@ function flashReload() {
   const f = $('reload-flash');
   f.classList.add('show');
   setTimeout(() => f.classList.remove('show'), 300);
+}
+
+// === Tinder自動LIKE演出 ===
+function tinderLike(i, progress) {
+  const card = $('tc' + i);
+  const btn = $('gp-like');
+  btn.classList.add('pressed');
+  setTimeout(() => btn.classList.remove('pressed'), 350);
+  setTimeout(() => card.querySelector('.t-stamp').classList.add('show'), 120);
+  setTimeout(() => {
+    card.classList.add('fly');
+    $('panel2-progress').textContent = `${progress} / 999`;
+  }, 520);
 }
 
 function buildTimeline() {
@@ -603,20 +908,20 @@ function buildTimeline() {
   }]);
   t += 3000;
 
-  // S2: Problem (3-9s)
+  // S2: Problem (3-8.5s)
   timeline.push([t, () => {
     showScene('s2');
     setTimeout(() => anim('e2a', {opacity:1, transform:'translateY(0)'}), 200);
     setTimeout(() => anim('e2compare', {opacity:1, transform:'translateY(0)'}), 600);
-    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 2800);
+    setTimeout(() => anim('e2sigh', {opacity:1, transform:'translateY(0)'}), 2400);
     setTimeout(() => {
       anim('e2sigh', {opacity:0});
       setTimeout(() => anim('e2c', {opacity:1, transform:'translateY(0)'}), 300);
-    }, 4200);
+    }, 3800);
   }]);
-  t += 6000;
+  t += 5500;
 
-  // S3: 3 Steps (9-13s)
+  // S3: 3 Steps (8.5-12.5s)
   timeline.push([t, () => {
     showScene('s3');
     setTimeout(() => anim('fs1', {opacity:1, transform:'translateY(0)'}), 200);
@@ -627,11 +932,11 @@ function buildTimeline() {
   }]);
   t += 4000;
 
-  // S4: Demo — feature showcase
+  // S4: Pairs実画面デモ (12.5-28s)
   timeline.push([t, () => {
     showScene('s4');
 
-    // Phase 1: Panel appears + auto-detect (0-2.5s)
+    // Phase 1: パネル出現＋自動検出 (0-2.2s)
     setTimeout(() => {
       anim('e4panel', {opacity:1, transform:'translateY(0)'});
       $('e4panel').classList.add('highlight-ring');
@@ -639,77 +944,79 @@ function buildTimeline() {
     setTimeout(() => $('co1').classList.add('show'), 600);
     setTimeout(() => hideAllCallouts(), 2200);
 
-    // Phase 2: Click start (2.5-4s)
+    // Phase 2: 開始クリック (2.4-3.5s)
     setTimeout(() => $('co2').classList.add('show'), 2400);
     setTimeout(() => {
       hideAllCallouts();
       $('panel-start').style.display = 'none';
       $('panel-stop').style.display = 'block';
       $('e4panel').classList.remove('highlight-ring');
-    }, 3600);
+    }, 3500);
 
-    // Notification
-    setTimeout(() => anim('e4notif', {opacity:1, transform:'translateY(0)'}), 3800);
-    setTimeout(() => anim('e4notif', {opacity:0}), 5200);
+    // 通知トースト
+    setTimeout(() => anim('e4notif', {opacity:1, transform:'translateY(0)'}), 3700);
+    setTimeout(() => anim('e4notif', {opacity:0}), 5000);
 
-    // Phase 3: Auto-visit with modal — 3 profiles (4-9s)
+    // Phase 3: 自動訪問（モーダル開閉×3人） (4-9.1s)
     setTimeout(() => $('co3').classList.add('show'), 4000);
-
-    const cards = ['pc1','pc2','pc3'];
-    const interval = 1600;
-    cards.forEach((id, i) => {
-      const base = 4500 + i * interval;
+    const interval = 1700;
+    for (let i = 0; i < 3; i++) {
+      const base = 4400 + i * interval;
       setTimeout(() => {
-        cards.forEach(c => $(c).classList.remove('visiting'));
-        $(id).classList.add('visiting');
-        $('panel-progress').textContent = `${i} / 100`;
+        for (let j = 1; j <= 3; j++) $('pc' + j).classList.remove('visiting');
+        $('pc' + (i + 1)).classList.add('visiting');
+        $('panel-progress').textContent = `${i} / 999`;
         $('panel-reload').textContent = `${30 - i}人`;
       }, base);
       setTimeout(() => openModal(i), base + 300);
-      setTimeout(() => showModalDone(), base + 700);
+      setTimeout(() => showModalDone(), base + 800);
       setTimeout(() => {
         closeModal();
-        $(id).classList.remove('visiting');
-        $(id).classList.add('visited');
-        $('panel-progress').textContent = `${i + 1} / 100`;
-      }, base + 1200);
-    });
+        $('pc' + (i + 1)).classList.remove('visiting');
+        $('pc' + (i + 1)).classList.add('visited');
+        $('panel-progress').textContent = `${i + 1} / 999`;
+      }, base + 1300);
+    }
 
-    // Phase 4: Skip visited (9.5-11.5s)
-    setTimeout(() => { hideAllCallouts(); $('co4').classList.add('show'); }, 9500);
-    setTimeout(() => hideAllCallouts(), 11200);
+    // Phase 4: 訪問済みスキップ (9.4-11s)
+    setTimeout(() => { hideAllCallouts(); $('co4').classList.add('show'); }, 9400);
+    setTimeout(() => hideAllCallouts(), 11000);
 
-    // Phase 5: Delay setting (11.5-13.5s)
-    setTimeout(() => {
-      $('co6').classList.add('show');
-      $('ps-delay').classList.add('panel-setting-flash');
-    }, 11500);
-    setTimeout(() => {
-      hideAllCallouts();
-      $('ps-delay').classList.remove('panel-setting-flash');
-    }, 13200);
-
-    // Phase 6: Infinite loop + reload (13.5-16s)
+    // Phase 5: 無限ループ＋リロード (11.2-13.4s)
     setTimeout(() => {
       $('co5').classList.add('show');
       $('panel-reload-row').classList.add('panel-setting-flash');
-    }, 13500);
+    }, 11200);
     setTimeout(() => {
       flashReload();
       $('panel-reload-times').textContent = '1回';
-      for (let i = 1; i <= 8; i++) $('pc' + i).classList.remove('visited');
+      for (let i = 1; i <= 10; i++) $('pc' + i).classList.remove('visited');
       $('panel-reload').textContent = '30人';
       $('panel-reload-row').classList.remove('panel-setting-flash');
-    }, 15200);
-    setTimeout(() => hideAllCallouts(), 16000);
+    }, 12600);
+    setTimeout(() => hideAllCallouts(), 13400);
 
-    // Phase 7: Privacy (16-18s)
-    setTimeout(() => $('co7').classList.add('show'), 16300);
-    setTimeout(() => hideAllCallouts(), 18200);
+    // Phase 6: ローカル保存 (13.6-15.2s)
+    setTimeout(() => $('co7').classList.add('show'), 13600);
+    setTimeout(() => hideAllCallouts(), 15200);
   }]);
-  t += 19000;
+  t += 15500;
 
-  // S5: Features (4s)
+  // S4B: Tinder実画面デモ (28-35.5s)
+  timeline.push([t, () => {
+    showScene('s4b');
+    setTimeout(() => anim('e4bpanel', {opacity:1, transform:'translateY(0)'}), 300);
+    setTimeout(() => $('co8').classList.add('show'), 500);
+    setTimeout(() => hideAllCallouts(), 2400);
+    for (let i = 0; i < 4; i++) {
+      setTimeout(() => tinderLike(i, i + 1), 2500 + i * 1100);
+    }
+    setTimeout(() => $('co9').classList.add('show'), 4700);
+    setTimeout(() => hideAllCallouts(), 7100);
+  }]);
+  t += 7500;
+
+  // S5: Features (35.5-40s)
   timeline.push([t, () => {
     showScene('s5');
     setTimeout(() => anim('e5a', {opacity:1}), 200);
@@ -717,9 +1024,9 @@ function buildTimeline() {
       setTimeout(() => anim(id, {opacity:1, transform:'translateY(0)'}), 400 + i * 150);
     });
   }]);
-  t += 4000;
+  t += 4500;
 
-  // S6: CTA (4s)
+  // S6: CTA (40s-)
   timeline.push([t, () => {
     showScene('s6');
     setTimeout(() => anim('e6a', {opacity:1, transform:'translateY(0)'}, 500), 200);
@@ -738,17 +1045,21 @@ function resetAll() {
   });
   ['fs1','fs2','fs3'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
   ['fa1','fa2'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';}});
-  $('e4panel')&&Object.assign($('e4panel').style,{transition:'none',opacity:'0',transform:'translateY(20px)'});
-  $('e4panel')&&$('e4panel').classList.remove('highlight-ring');
+  ['e4panel','e4bpanel'].forEach(id=>{
+    const el=$(id); if(el){Object.assign(el.style,{transition:'none',opacity:'0',transform:'translateY(20px)'});el.classList.remove('highlight-ring');}
+  });
   $('e4notif')&&Object.assign($('e4notif').style,{transition:'none',opacity:'0',transform:'translateY(-10px)'});
-  allCallouts.forEach(id=>{$(id).classList.remove('show');});
+  hideAllCallouts();
   closeModal();
   $('reload-flash').classList.remove('show');
   $('panel-start').style.display='block'; $('panel-stop').style.display='none';
-  $('panel-progress').textContent='0 / 100';
+  $('panel-progress').textContent='0 / 999';
   $('panel-reload').textContent='30人';
   $('panel-reload-times').textContent='0回';
-  for(let i=1;i<=8;i++){const el=$('pc'+i);if(el){el.classList.remove('visiting','visited');}}
+  $('panel2-progress').textContent='0 / 999';
+  buildPairsGrid();
+  buildTinderStack();
+  paintAllMosaics();
   ['ps-delay','ps-max','panel-reload-row'].forEach(id=>{$(id)&&$(id).classList.remove('panel-setting-flash');});
   ['f1','f2','f3','f4','f5','f6'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(40px)';}});
 }
