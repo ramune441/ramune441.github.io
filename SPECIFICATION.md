@@ -11,6 +11,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/guide.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用 |
+| `/formpilot/images/<lang>/` | ストア画像(翻訳版) | - | no | `store-image-{1..5}.png`(1280x800) + `store-tile-marquee.png`(1400x560) × 10言語。生成元は拡張リポジトリ FormPilot の `store-image-*.html` + `store-i18n.js`(`?lang=` 指定・ar はRTL)。en は `/formpilot/` 直下 |
 | `/ashiato-maker/` | LP | index | yes | Chrome拡張 |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用 |
