@@ -15,7 +15,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは**実際のPairs画面のキャプチャ**(`pairs-real.png`)＋日本語パネルレプリカ重ね。写真は実会員のため拡張機能でcanvasモザイクに差し替え・名前ぼかしの上で撮影 |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/ashiato-maker/pairs-real.png` | 画像 | - | no | 実際のPairs検索画面キャプチャ(2400x1500)。会員写真はモザイク処理。LP・promo両方の背景に使用 |
-| `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用。実Pairs画面(`pairs-real.png`)をブラウザ枠に配置し、日本語パネル・コールアウト・訪問スイープをHTMLで重ねてアニメ化。6シーン構成・約35秒 |
+| `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用。感情訴求型の6シーン構成（フック「気づかれていないだけ」→足あとの仕組み→実Pairs画面デモ(高速スイープ+「1時間に100人以上」)→足あと返し/いいね通知→「何もしなくていい」→CTA「気づかれる側へ」）・約38秒。実Pairs画面は`pairs-real.png` |
 | `/lovent/` | LP | index | yes | Android |
 | `/lovent/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/lovent/promo.html` | 動画用 | noindex | no | 録画専用 |
