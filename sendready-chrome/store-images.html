@@ -5,10 +5,16 @@
 <meta name="robots" content="noindex, nofollow">
 <title>SendReady Store Images</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-font-smoothing:antialiased; padding:40px 0; }
+body { background:#B9C0D6; -webkit-font-smoothing:antialiased; padding:40px 0;
+  font-family:'Inter','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans Devanagari','Noto Sans Arabic','Segoe UI',sans-serif; }
+/* CJK / Devanagari / Arabic: no negative tracking */
+body.nolat .cap h1 { letter-spacing:0; }
+body.nolat .fb-title { letter-spacing:0; }
+[dir="rtl"] .io-arrow { transform:scaleX(-1); }
+[dir="rtl"] .win-bar { direction:ltr; }
 :root{
   /* SendReady brand (synced with LP / promo.html): white + blue + yellow */
   --ind:#0F77F2; --ind-deep:#0B5ED6; --ind-pale:#5AA0FF;
@@ -91,7 +97,7 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   line-height:1.55; background:#fcfcff; }
 .p-acts { display:flex; gap:10px; margin-top:16px; }
 .p-btn { flex:1; text-align:center; padding:13px 0; border-radius:11px; font-size:21px; font-weight:500;
-  border:1px solid rgba(127,127,127,.28); color:#1a1a1a; }
+  border:1px solid rgba(127,127,127,.28); color:#1a1a1a; white-space:nowrap; overflow:hidden; }
 .p-btn.p { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:700; }
 .p-input { border:2px solid var(--dv); border-radius:12px; padding:13px 16px; font-size:21px; color:#1a1a1a;
   line-height:1.4; background:#fff; margin-bottom:14px; }
@@ -171,14 +177,14 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   <span class="tok" style="right:64px;top:88px;transform:rotate(7deg);">//sum</span>
   <span class="tok y" style="left:52px;bottom:56px;transform:rotate(6deg);">;sig</span>
   <div class="cap">
-    <div class="eyebrow">✨ AI · ANYWHERE YOU TYPE</div>
-    <h1>Make every message <span class="ind">send-ready</span></h1>
-    <p>From a rough draft to a polished message — in one tap</p>
+    <div class="eyebrow" data-i="e1">✨ AI · ANYWHERE YOU TYPE</div>
+    <h1 data-i="h1">Make every message <span class="ind">send-ready</span></h1>
+    <p data-i="s1">From a rough draft to a polished message — in one tap</p>
   </div>
   <div class="ba">
-    <div class="ba-card gray"><div class="l">YOU TYPED</div><div class="x">tmrw 10 works, thx</div></div>
-    <div class="ba-mid"><span class="ba-pill"><img src="icons/mark.png" alt="">Transform</span></div>
-    <div class="ba-card blue"><div class="l">SENDREADY</div><div class="x">Tomorrow at 10 works for me. Thank you!</div></div>
+    <div class="ba-card gray"><div class="l" data-i="lab_typed">YOU TYPED</div><div class="x" data-i="ba1">tmrw 10 works, thx</div></div>
+    <div class="ba-mid"><span class="ba-pill"><img src="icons/mark.png" alt=""><span data-i="go">Transform</span></span></div>
+    <div class="ba-card blue"><div class="l">SENDREADY</div><div class="x" data-i="ba2">Tomorrow at 10 works for me. Thank you!</div></div>
   </div>
 </div>
 
@@ -187,18 +193,18 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   <div class="dots"></div>
   <div class="glow" style="left:-140px;top:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
   <div class="cap">
-    <div class="eyebrow">🎯 SELECTION TOOLBAR</div>
-    <h1>Select text, <span class="ind">pick a style</span></h1>
-    <p>A tiny launcher appears by your selection — choose a style, hit Transform</p>
+    <div class="eyebrow" data-i="e2">🎯 SELECTION TOOLBAR</div>
+    <h1 data-i="h2">Select text, <span class="ind">pick a style</span></h1>
+    <p data-i="s2">A tiny launcher appears by your selection — choose a style, hit Transform</p>
   </div>
   <div class="flow">
     <div style="position:relative;">
       <div class="win" style="width:600px;">
         <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
         <div style="padding:30px 34px;">
-          <div style="font-size:19px;color:var(--t3);padding:10px 0;border-bottom:1px solid var(--dv);">To: Client</div>
-          <div style="font-size:22px;font-weight:600;color:var(--t1);padding:13px 0;border-bottom:1px solid var(--dv);">Re: our meeting</div>
-          <div style="font-size:25px;line-height:1.85;color:var(--t1);padding:20px 2px 12px;"><span class="sel">Tomorrow at 10 works for me. Thanks.</span></div>
+          <div style="font-size:19px;color:var(--t3);padding:10px 0;border-bottom:1px solid var(--dv);" data-i="to">To: Client</div>
+          <div style="font-size:22px;font-weight:600;color:var(--t1);padding:13px 0;border-bottom:1px solid var(--dv);" data-i="subj">Re: our meeting</div>
+          <div style="font-size:25px;line-height:1.85;color:var(--t1);padding:20px 2px 12px;"><span class="sel" data-i="body">Tomorrow at 10 works for me. Thanks.</span></div>
         </div>
       </div>
       <div class="launcher" style="position:absolute;right:-24px;bottom:52px;"><img src="icons/mark.png" alt=""></div>
@@ -206,17 +212,17 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
     <div class="io-arrow">→</div>
     <div class="panel" style="width:480px;">
       <div class="p-head"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="sp"></span><span class="hx">🕘</span><span class="hx">✕</span></div>
-      <div class="p-prev">Tomorrow at 10 works for me. Thanks.</div>
-      <div class="p-check"><span class="p-cb"></span>↩ Draft a reply<span class="p-q">?</span></div>
-      <div class="p-lbl">STYLE</div>
+      <div class="p-prev" data-i="body">Tomorrow at 10 works for me. Thanks.</div>
+      <div class="p-check"><span class="p-cb"></span><span data-i="reply_t">↩ Draft a reply</span><span class="p-q">?</span></div>
+      <div class="p-lbl" data-i="style_l">STYLE</div>
       <div class="chips">
-        <span class="chip on">Polish 💝 <code>//p</code></span>
-        <span class="chip">Translate 🌏</span>
-        <span class="chip">Summarize 📝</span>
-        <span class="chip">Fix typos ✅</span>
+        <span class="chip on" data-i="chip_p">Polish 💝 <code>//p</code></span>
+        <span class="chip" data-i="chip_tr">Translate 🌏</span>
+        <span class="chip" data-i="chip_sum">Summarize 📝</span>
+        <span class="chip" data-i="chip_fix">Fix typos ✅</span>
       </div>
-      <div class="p-more">+ Custom style</div>
-      <div class="p-go">Transform</div>
+      <div class="p-more" data-i="more">+ Custom style</div>
+      <div class="p-go" data-i="go">Transform</div>
     </div>
   </div>
 </div>
@@ -227,24 +233,24 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   <div class="glow" style="right:-160px;bottom:-180px;width:600px;height:600px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
   <span class="tok" style="right:96px;top:130px;transform:rotate(8deg);">//fix</span>
   <div class="cap">
-    <div class="eyebrow">⌨️ INLINE AI TRIGGER</div>
-    <h1>Type <code class="ind">//p</code>, hit <span class="ind">Tab</span></h1>
-    <p>AI rewrites it right where you're typing — no window switch</p>
+    <div class="eyebrow" data-i="e3">⌨️ INLINE AI TRIGGER</div>
+    <h1 data-i="h3">Type <code class="ind">//p</code>, hit <span class="ind">Tab</span></h1>
+    <p data-i="s3">AI rewrites it right where you're typing — no window switch</p>
   </div>
   <div class="flow">
     <div class="win" style="width:580px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div><img src="icons/icon48.png" class="ext-ico"></div>
       <div style="padding:28px 30px;">
-        <div style="font-size:16px;font-weight:800;letter-spacing:.08em;color:var(--ind);margin-bottom:11px;">TYPE HERE</div>
-        <div style="border:2.5px solid var(--ind);border-radius:14px;padding:20px 22px;font-size:29px;min-height:104px;line-height:1.5;color:var(--t1);"><span class="mono" style="color:var(--ind);font-weight:700;">//p</span> be there at 10 tmrw<span style="display:inline-block;width:3px;height:32px;background:var(--ind);vertical-align:-5px;margin-left:3px;"></span></div>
-        <div style="margin-top:15px;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:20px;">Press <span class="kbd">Tab</span></div>
+        <div style="font-size:16px;font-weight:800;letter-spacing:.08em;color:var(--ind);margin-bottom:11px;" data-i="type_l">TYPE HERE</div>
+        <div style="border:2.5px solid var(--ind);border-radius:14px;padding:20px 22px;font-size:29px;min-height:104px;line-height:1.5;color:var(--t1);"><span data-i="trig"><span class="mono" style="color:var(--ind);font-weight:700;">//p</span> be there at 10 tmrw</span><span style="display:inline-block;width:3px;height:32px;background:var(--ind);vertical-align:-5px;margin-left:3px;"></span></div>
+        <div style="margin-top:15px;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:20px;"><span data-i="press3">Press <span class="kbd">Tab</span></span></div>
       </div>
     </div>
     <div class="io-arrow">→</div>
     <div class="panel" style="width:450px;">
       <div class="p-head"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="sp"></span><span class="hx">🕘</span><span class="hx">✕</span></div>
-      <div class="p-box">I'll be there at 10 tomorrow.</div>
-      <div class="p-acts"><span class="p-btn p">Apply</span><span class="p-btn">Copy</span><span class="p-btn">Retry</span></div>
+      <div class="p-box" data-i="res3">I'll be there at 10 tomorrow.</div>
+      <div class="p-acts"><span class="p-btn p" data-i="apply">Apply</span><span class="p-btn" data-i="copy">Copy</span><span class="p-btn" data-i="retry">Retry</span></div>
     </div>
   </div>
 </div>
@@ -254,30 +260,30 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   <div class="dots"></div>
   <div class="glow" style="left:-160px;bottom:-180px;width:600px;height:600px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
   <div class="cap">
-    <div class="eyebrow">↩️ DRAFT A REPLY</div>
-    <h1>Turn a message <span class="ind">into a reply</span></h1>
-    <p>Pick a style, say the gist — AI writes the reply for you</p>
+    <div class="eyebrow" data-i="e4">↩️ DRAFT A REPLY</div>
+    <h1 data-i="h4">Turn a message <span class="ind">into a reply</span></h1>
+    <p data-i="s4">Pick a style, say the gist — AI writes the reply for you</p>
   </div>
   <div class="flow" style="align-items:stretch;">
     <div class="win" style="width:540px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
       <div style="padding:26px 30px;">
         <div style="display:flex;align-items:center;gap:13px;margin-bottom:16px;">
-          <div style="width:56px;height:56px;border-radius:50%;background:#EAF3FF;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ind);font-size:23px;">A</div>
-          <div><div style="font-weight:700;font-size:23px;color:var(--t1);">Alex</div><div style="font-size:17px;color:var(--t3);">2:32 PM</div></div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#EAF3FF;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ind);font-size:23px;" data-i="avatar">A</div>
+          <div><div style="font-weight:700;font-size:23px;color:var(--t1);" data-i="name">Alex</div><div style="font-size:17px;color:var(--t3);" data-i="time">2:32 PM</div></div>
         </div>
-        <div style="font-size:25px;line-height:1.7;color:var(--t1);"><span class="sel">Are you free Wednesday afternoon for our meeting next week?</span></div>
+        <div style="font-size:25px;line-height:1.7;color:var(--t1);"><span class="sel" data-i="msg">Are you free Wednesday afternoon for our meeting next week?</span></div>
       </div>
     </div>
     <div class="panel" style="width:530px;">
-      <div class="p-head"><img src="icons/mark.png" alt=""><b>↩ Draft a reply</b><span class="sp"></span><span class="hx">✕</span></div>
-      <div class="p-lbl">STYLE</div>
-      <div class="chips"><span class="chip on">Polish 💝</span><span class="chip">Casual 😊</span><span class="chip">Summarize 📝</span></div>
-      <div class="p-lbl">WHAT TO SAY</div>
-      <div class="p-input">works for me, suggest 2pm</div>
-      <div class="p-count">25 / 1000</div>
-      <div class="p-box" style="font-size:21px;">Thanks for reaching out! Wednesday afternoon works for me — how about 2 PM?</div>
-      <div class="p-acts"><span class="p-btn p">Copy</span><span class="p-btn">Retry</span></div>
+      <div class="p-head"><img src="icons/mark.png" alt=""><b data-i="reply_t">↩ Draft a reply</b><span class="sp"></span><span class="hx">✕</span></div>
+      <div class="p-lbl" data-i="style_l">STYLE</div>
+      <div class="chips"><span class="chip on" data-i="chip_pp">Polish 💝</span><span class="chip" data-i="chip_cas">Casual 😊</span><span class="chip" data-i="chip_sum">Summarize 📝</span></div>
+      <div class="p-lbl" data-i="say_l">WHAT TO SAY</div>
+      <div class="p-input" data-i="gist">works for me, suggest 2pm</div>
+      <div class="p-count" id="count4">25 / 1000</div>
+      <div class="p-box" style="font-size:21px;" data-i="out">Thanks for reaching out! Wednesday afternoon works for me — how about 2 PM?</div>
+      <div class="p-acts"><span class="p-btn p" data-i="copy">Copy</span><span class="p-btn" data-i="retry">Retry</span></div>
     </div>
   </div>
 </div>
@@ -289,29 +295,29 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   <div class="glow" style="right:-160px;bottom:-180px;width:600px;height:600px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
   <span class="tok y" style="left:80px;bottom:150px;transform:rotate(-7deg);">;hi</span>
   <div class="cap">
-    <div class="eyebrow y">⚡ SNIPPETS · YOUR PRESETS</div>
-    <h1>Your triggers, <span class="snp">your text</span></h1>
-    <p>Type <code>;sig</code> + <kbd>Tab</kbd> for instant boilerplate — build up to 10 AI presets &amp; 10 snippets</p>
+    <div class="eyebrow y" data-i="e5">⚡ SNIPPETS · YOUR PRESETS</div>
+    <h1 data-i="h5">Your triggers, <span class="snp">your text</span></h1>
+    <p data-i="s5">Type <code>;sig</code> + <kbd>Tab</kbd> for instant boilerplate — build up to 10 AI presets &amp; 10 snippets</p>
   </div>
   <div class="flow">
     <div class="win" style="width:540px;">
       <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
       <div style="padding:26px 30px;">
         <div style="border:2.5px solid var(--snip);border-radius:14px;padding:18px 22px;font-size:29px;min-height:80px;"><span class="mono" style="color:var(--snip);font-weight:700;">;sig</span><span style="display:inline-block;width:3px;height:32px;background:var(--snip);vertical-align:-5px;margin-left:3px;"></span></div>
-        <div style="margin:14px 0;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:20px;">Press <span class="kbd">Tab</span> → instant, no AI</div>
-        <div style="border:1px solid var(--dv);border-radius:13px;padding:18px 22px;background:#fcfcff;font-size:20px;line-height:1.65;color:var(--t1);">━━━━━━━━━━<br>Alex Carter<br>📧 alex@example.com 　📱 (555) 123-4567</div>
+        <div style="margin:14px 0;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:20px;"><span data-i="press5">Press <span class="kbd">Tab</span> → instant, no AI</span></div>
+        <div style="border:1px solid var(--dv);border-radius:13px;padding:18px 22px;background:#fcfcff;font-size:20px;line-height:1.65;color:var(--t1);" data-i="sig">━━━━━━━━━━<br>Alex Carter<br>📧 alex@example.com 　📱 (555) 123-4567</div>
       </div>
     </div>
     <div class="popup">
       <div class="pu-hd"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="pu-pill">12 / 50</span><span class="pu-ico">🕘</span><span class="pu-help">?</span></div>
       <div class="pu-body">
-        <div class="pu-sec a">AI PRESETS</div>
-        <div class="pu-row a"><span class="t">Polish 💝</span><span class="g">//p</span><span class="e">✎</span></div>
-        <div class="pu-row a"><span class="t">Translate 🌏</span><span class="g">//en</span><span class="e">✎</span></div>
-        <div class="pu-sec s">SNIPPETS</div>
-        <div class="pu-row s"><span class="t">Greeting ✉️</span><span class="g">;hi</span><span class="e">✎</span></div>
-        <div class="pu-row s"><span class="t">Signature 🖊️</span><span class="g">;sig</span><span class="e">✎</span></div>
-        <div class="pu-add">＋ Add preset</div>
+        <div class="pu-sec a" data-i="pu_ai">AI PRESETS</div>
+        <div class="pu-row a"><span class="t" data-i="chip_pp">Polish 💝</span><span class="g">//p</span><span class="e">✎</span></div>
+        <div class="pu-row a"><span class="t" data-i="chip_tr">Translate 🌏</span><span class="g">//en</span><span class="e">✎</span></div>
+        <div class="pu-sec s" data-i="pu_sn">SNIPPETS</div>
+        <div class="pu-row s"><span class="t" data-i="row_hi_t">Greeting ✉️</span><span class="g" data-i="row_hi_g">;hi</span><span class="e">✎</span></div>
+        <div class="pu-row s"><span class="t" data-i="row_sig_t">Signature 🖊️</span><span class="g">;sig</span><span class="e">✎</span></div>
+        <div class="pu-add" data-i="add">＋ Add preset</div>
       </div>
     </div>
   </div>
@@ -323,25 +329,255 @@ body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-fo
   <div class="glow" style="left:-120px;bottom:-170px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.15),transparent 60%);"></div>
   <div class="fb-left">
     <div class="fb-brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div>
-    <div class="fb-badge">⚡ 100% Free · No sign-up</div>
-    <div class="fb-title">Make every message<br><em>send-ready</em></div>
-    <div class="fb-sub">AI rewrite, replies &amp; instant snippets —<br>anywhere you type in Chrome.</div>
-    <div class="fb-pills"><span class="fb-pill">🤖 AI presets</span><span class="fb-pill">↩ Draft a reply</span><span class="fb-pill">⚡ Snippets</span><span class="fb-pill">🌏 11 languages</span></div>
+    <div class="fb-badge" data-i="fb_badge">⚡ 100% Free · No sign-up</div>
+    <div class="fb-title" data-i="fb_title">Make every message<br><em>send-ready</em></div>
+    <div class="fb-sub" data-i="fb_sub">AI rewrite, replies &amp; instant snippets —<br>anywhere you type in Chrome.</div>
+    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">🤖 AI presets</span><span class="fb-pill" data-i="fbp2">↩ Draft a reply</span><span class="fb-pill" data-i="fbp3">⚡ Snippets</span><span class="fb-pill" data-i="fbp4">🌏 11 languages</span></div>
   </div>
   <div class="fb-right">
     <div class="panel" style="width:420px;box-shadow:0 44px 100px rgba(0,0,0,.4);">
       <div class="p-head"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="sp"></span><span class="hx">🕘</span><span class="hx">✕</span></div>
-      <div class="p-prev">Tomorrow at 10 works for me. Thanks.</div>
-      <div class="p-lbl">STYLE</div>
+      <div class="p-prev" data-i="body">Tomorrow at 10 works for me. Thanks.</div>
+      <div class="p-lbl" data-i="style_l">STYLE</div>
       <div class="chips">
-        <span class="chip on">Polish 💝 <code>//p</code></span>
-        <span class="chip">Translate 🌏</span>
-        <span class="chip">Fix typos ✅</span>
+        <span class="chip on" data-i="chip_p">Polish 💝 <code>//p</code></span>
+        <span class="chip" data-i="chip_tr">Translate 🌏</span>
+        <span class="chip" data-i="chip_fix">Fix typos ✅</span>
       </div>
-      <div class="p-go">Transform</div>
+      <div class="p-go" data-i="go">Transform</div>
     </div>
   </div>
 </div>
+
+<script>
+// ?lang=xx で全テキストを差し替える。en は DOM のデフォルト。
+// UI文言は拡張実装 lib/i18n.js、サンプル文は LP の i18n-lp.js、プリセット名は lib/presets.js と同期。
+const I18N = {
+ja: {
+  e1:"✨ 入力欄ならどこでもAI", h1:"どんな文章も<span class='ind'>送れる仕上がり</span>に", s1:"走り書きから、洗練された文章へ — ワンタップで",
+  lab_typed:"入力した下書き", ba1:"明日10時おk、よろ", ba2:"明日10時で問題ございません。何卒よろしくお願いいたします。",
+  go:"変換", apply:"適用", copy:"コピー", retry:"リトライ",
+  e2:"🎯 選択ツールバー", h2:"テキストを選択して、<span class='ind'>文体を選ぶだけ</span>", s2:"選択のそばに小さなアイコンが出現 — 文体を選んで「変換」を押すだけ",
+  to:"宛先：取引先さん", subj:"打ち合わせの件", body:"明日10時で大丈夫です。よろしく。",
+  reply_t:"↩ 返信を作成", style_l:"文体", chip_p:"丁寧に 💝 <code>//p</code>", chip_pp:"丁寧に 💝", chip_tr:"英語に翻訳 🌏", chip_sum:"要約 📝", chip_fix:"誤字脱字を修正 ✅", chip_cas:"カジュアル 😊", more:"+ スタイル・文体を指定",
+  e3:"⌨️ インラインAIトリガー", h3:"<code class='ind'>//p</code> と書いて <span class='ind'>Tab</span> を押すだけ", s3:"入力中のその場でAIが書き換え — 画面の切り替え不要",
+  type_l:"ここに入力", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> 明日10時行く", press3:"<span class='kbd'>Tab</span> を押す", res3:"明日10時に伺います。",
+  e4:"↩️ 返信を作成", h4:"受信メッセージから<span class='ind'>返信を自動作成</span>", s4:"文体を選んで要点を伝えるだけ — 返信文はAIにおまかせ",
+  avatar:"田", name:"田中さん", time:"14:32", msg:"来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？",
+  say_l:"伝えたいこと", gist:"OK、14時を提案", out:"ご連絡ありがとうございます。水曜の午後で問題ございません。14時に伺います。よろしくお願いいたします。",
+  e5:"⚡ 定型文 · マイプリセット", h5:"自分の合言葉で、<span class='snp'>自分の定型文</span>を", s5:"<code>;sig</code> + <kbd>Tab</kbd> で定型文を即挿入 — AIプリセットと定型文を各10件まで登録可能",
+  press5:"<span class='kbd'>Tab</span> を押す → AIなしで即挿入", sig:"━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com　📱 090-1234-5678",
+  pu_ai:"AIプリセット", pu_sn:"定型文", row_hi_t:"お世話になっております ✉️", row_hi_g:";ose", row_sig_t:"署名 🖊️", add:"＋ プリセットを追加",
+  fb_badge:"⚡ 完全無料 · 登録不要", fb_title:"どんな文章も<br><em>送れる仕上がりに</em>", fb_sub:"AIでの書き換え・返信・定型文の即挿入 —<br>Chromeの入力欄ならどこでも。",
+  fbp1:"🤖 AIプリセット", fbp2:"↩ 返信を作成", fbp3:"⚡ 定型文", fbp4:"🌏 11言語"
+},
+es: {
+  e1:"✨ IA · DONDEQUIERA QUE ESCRIBAS", h1:"Cada mensaje, <span class='ind'>listo para enviar</span>", s1:"De un borrador rápido a un mensaje pulido — con un solo toque",
+  lab_typed:"ESCRIBISTE", ba1:"mñn a las 10 va, grx", ba2:"Mañana a las 10 me viene perfecto. Lo espero con interés.",
+  go:"Transformar", apply:"Aplicar", copy:"Copiar", retry:"Reintentar",
+  e2:"🎯 BARRA DE SELECCIÓN", h2:"Selecciona el texto y <span class='ind'>elige un estilo</span>", s2:"Un pequeño botón aparece junto a tu selección: elige un estilo y pulsa Transformar",
+  to:"Para: Cliente", subj:"Re: nuestra reunión", body:"Mañana a las 10 me viene bien. Gracias.",
+  reply_t:"↩ Redactar una respuesta", style_l:"ESTILO", chip_p:"Pulir 💝 <code>//p</code>", chip_pp:"Pulir 💝", chip_tr:"Traducir 🌏", chip_sum:"Resumir 📝", chip_fix:"Corregir erratas ✅", chip_cas:"Informal 😊", more:"+ Define un estilo / tono",
+  e3:"⌨️ DISPARADOR DE IA EN LÍNEA", h3:"Escribe <code class='ind'>//p</code> y pulsa <span class='ind'>Tab</span>", s3:"La IA lo reescribe justo donde escribes, sin cambiar de ventana",
+  type_l:"ESCRIBE AQUÍ", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> mñn llego a las 10", press3:"Pulsa <span class='kbd'>Tab</span>", res3:"Estaré allí mañana a las 10.",
+  e4:"↩️ REDACTA UNA RESPUESTA", h4:"Convierte un mensaje <span class='ind'>en una respuesta</span>", s4:"Elige un estilo, di la idea — la IA escribe la respuesta por ti",
+  avatar:"J", name:"Javier", time:"14:32", msg:"¿Tienes libre el miércoles por la tarde para nuestra reunión de la próxima semana?",
+  say_l:"QUÉ DECIR", gist:"me va bien, propongo las 2", out:"¡Gracias por escribir! El miércoles por la tarde me viene bien: estaré ahí a las 2 PM. Lo espero con ganas.",
+  e5:"⚡ PLANTILLAS · TUS AJUSTES", h5:"Tus atajos, <span class='snp'>tu texto</span>", s5:"Escribe <code>;sig</code> + <kbd>Tab</kbd> y tu texto aparece al instante — hasta 10 ajustes de IA y 10 plantillas",
+  press5:"Pulsa <span class='kbd'>Tab</span> → al instante, sin IA", sig:"━━━━━━━━━━<br>Javier Morales<br>📧 javier@example.com　📱 (555) 123-4567",
+  pu_ai:"AJUSTES DE IA", pu_sn:"PLANTILLAS", row_hi_t:"Saludo ✉️", row_hi_g:";hi", row_sig_t:"Firma 🖊️", add:"＋ Añadir ajuste",
+  fb_badge:"⚡ 100% gratis · Sin registro", fb_title:"Cada mensaje,<br><em>listo para enviar</em>", fb_sub:"Reescritura con IA, respuestas y plantillas al instante,<br>dondequiera que escribas en Chrome.",
+  fbp1:"🤖 Ajustes de IA", fbp2:"↩ Redactar respuestas", fbp3:"⚡ Plantillas", fbp4:"🌏 11 idiomas"
+},
+fr: {
+  e1:"✨ IA · PARTOUT OÙ VOUS ÉCRIVEZ", h1:"Chaque message <span class='ind'>prêt à envoyer</span>", s1:"D'un brouillon rapide à un message soigné — en un geste",
+  lab_typed:"VOTRE TEXTE", ba1:"dem 10h ça marche mci", ba2:"Demain à 10 h me convient parfaitement. Je m'en réjouis d'avance.",
+  go:"Transformer", apply:"Appliquer", copy:"Copier", retry:"Réessayer",
+  e2:"🎯 BARRE DE SÉLECTION", h2:"Sélectionnez le texte, <span class='ind'>choisissez un style</span>", s2:"Un petit bouton apparaît près de la sélection — choisissez un style puis Transformer",
+  to:"À : Client", subj:"Re : notre réunion", body:"Demain à 10 h me convient. Merci.",
+  reply_t:"↩ Rédiger une réponse", style_l:"STYLE", chip_p:"Peaufiner 💝 <code>//p</code>", chip_pp:"Peaufiner 💝", chip_tr:"Traduire 🌏", chip_sum:"Résumer 📝", chip_fix:"Corriger les fautes ✅", chip_cas:"Décontracté 😊", more:"+ Définir un style / ton",
+  e3:"⌨️ DÉCLENCHEUR IA EN LIGNE", h3:"Tapez <code class='ind'>//p</code>, appuyez sur <span class='ind'>Tab</span>", s3:"L'IA réécrit sur place, sans changer de fenêtre",
+  type_l:"TAPEZ ICI", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> j'arrive dem 10h", press3:"Appuyez sur <span class='kbd'>Tab</span>", res3:"Je serai là demain à 10 h.",
+  e4:"↩️ RÉDIGER UNE RÉPONSE", h4:"D'un message reçu <span class='ind'>à une réponse prête</span>", s4:"Choisissez un style, donnez l'essentiel — l'IA rédige la réponse",
+  avatar:"L", name:"Lucas", time:"14 h 32", msg:"Êtes-vous disponible mercredi après-midi pour notre réunion de la semaine prochaine ?",
+  say_l:"QUOI DIRE", gist:"ok, je propose 14 h", out:"Merci de votre message ! Mercredi après-midi me convient — je serai là à 14 h. J'ai hâte d'y être.",
+  e5:"⚡ MODÈLES · VOS PRÉRÉGLAGES", h5:"Vos raccourcis, <span class='snp'>vos textes</span>", s5:"Tapez <code>;sig</code> + <kbd>Tab</kbd> pour insérer vos modèles — jusqu'à 10 préréglages IA et 10 modèles",
+  press5:"Appuyez sur <span class='kbd'>Tab</span> → instantané, sans IA", sig:"━━━━━━━━━━<br>Lucas Martin<br>📧 lucas@example.com　📱 (555) 123-4567",
+  pu_ai:"PRÉRÉGLAGES IA", pu_sn:"MODÈLES", row_hi_t:"Salutation ✉️", row_hi_g:";hi", row_sig_t:"Signature 🖊️", add:"＋ Ajouter un préréglage",
+  fb_badge:"⚡ 100 % gratuit · Sans inscription", fb_title:"Chaque message<br><em>prêt à envoyer</em>", fb_sub:"Réécriture IA, réponses et modèles instantanés —<br>partout où vous écrivez dans Chrome.",
+  fbp1:"🤖 Préréglages IA", fbp2:"↩ Rédiger une réponse", fbp3:"⚡ Modèles", fbp4:"🌏 11 langues"
+},
+de: {
+  e1:"✨ KI · ÜBERALL WO DU TIPPST", h1:"Jede Nachricht <span class='ind'>bereit zum Senden</span>", s1:"Vom groben Entwurf zur ausgefeilten Nachricht – mit einem Tipp",
+  lab_typed:"DU TIPPST", ba1:"morgen 10 passt thx", ba2:"Morgen um 10 Uhr passt mir bestens. Ich freue mich darauf.",
+  go:"Umwandeln", apply:"Übernehmen", copy:"Kopieren", retry:"Erneut versuchen",
+  e2:"🎯 AUSWAHLLEISTE", h2:"Text markieren, <span class='ind'>Stil wählen</span>", s2:"Neben der Auswahl erscheint ein kleiner Button – Stil wählen und Umwandeln drücken",
+  to:"An: Kunde", subj:"Re: unser Meeting", body:"Morgen um 10 passt mir. Danke.",
+  reply_t:"↩ Antwort verfassen", style_l:"STIL", chip_p:"Perfektionieren 💝 <code>//p</code>", chip_pp:"Perfektionieren 💝", chip_tr:"Übersetzen 🌏", chip_sum:"Zusammenfassen 📝", chip_fix:"Tippfehler korrigieren ✅", chip_cas:"Locker 😊", more:"+ Stil / Ton festlegen",
+  e3:"⌨️ INLINE-KI-AUSLÖSER", h3:"<code class='ind'>//p</code> tippen, <span class='ind'>Tab</span> drücken", s3:"Die KI schreibt direkt dort um, wo du tippst – ohne Fensterwechsel",
+  type_l:"HIER TIPPEN", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> bin morgen 10 da", press3:"<span class='kbd'>Tab</span> drücken", res3:"Ich bin morgen um 10 Uhr da.",
+  e4:"↩️ ANTWORT VERFASSEN", h4:"Aus einer Nachricht <span class='ind'>wird eine Antwort</span>", s4:"Stil wählen, Kernaussage angeben – die KI schreibt die Antwort",
+  avatar:"L", name:"Lukas", time:"14:32", msg:"Hast du nächste Woche am Mittwochnachmittag Zeit für unser Meeting?",
+  say_l:"WAS SAGEN", gist:"passt, schlage 14 Uhr vor", out:"Danke für deine Nachricht! Mittwochnachmittag passt – ich bin um 14 Uhr da. Ich freue mich darauf.",
+  e5:"⚡ TEXTBAUSTEINE · DEINE VORLAGEN", h5:"Deine Kürzel, <span class='snp'>dein Text</span>", s5:"<code>;sig</code> + <kbd>Tab</kbd> fügt Bausteine sofort ein – bis zu 10 KI-Vorlagen &amp; 10 Textbausteine",
+  press5:"<span class='kbd'>Tab</span> drücken → sofort, ohne KI", sig:"━━━━━━━━━━<br>Lukas Becker<br>📧 lukas@example.com　📱 (555) 123-4567",
+  pu_ai:"KI-VORLAGEN", pu_sn:"TEXTBAUSTEINE", row_hi_t:"Begrüßung ✉️", row_hi_g:";hi", row_sig_t:"Signatur 🖊️", add:"＋ Vorlage hinzufügen",
+  fb_badge:"⚡ 100 % kostenlos · Ohne Anmeldung", fb_title:"Jede Nachricht<br><em>bereit zum Senden</em>", fb_sub:"KI-Umschreiben, Antworten &amp; Textbausteine –<br>überall, wo du in Chrome tippst.",
+  fbp1:"🤖 KI-Vorlagen", fbp2:"↩ Antwort verfassen", fbp3:"⚡ Textbausteine", fbp4:"🌏 11 Sprachen"
+},
+zh: {
+  e1:"✨ 任何输入框都能用 AI", h1:"让每条消息<span class='ind'>一键可发</span>", s1:"从随手草稿到得体文字 —— 一键完成",
+  lab_typed:"你输入的", ba1:"明天10点行 谢了", ba2:"明天 10 点对我来说非常合适，期待与您会面。",
+  go:"转换", apply:"应用", copy:"复制", retry:"重试",
+  e2:"🎯 选区工具栏", h2:"选中文本，<span class='ind'>挑个风格</span>", s2:"选区旁会出现一个小图标 —— 选好风格，点「转换」即可",
+  to:"收件人：客户", subj:"回复：关于我们的会议", body:"明天 10 点我可以，谢谢。",
+  reply_t:"↩ 起草回复", style_l:"风格", chip_p:"润色 💝 <code>//p</code>", chip_pp:"润色 💝", chip_tr:"翻译成英文 🌏", chip_sum:"总结 📝", chip_fix:"修正错别字 ✅", chip_cas:"随意 😊", more:"+ 设置风格 / 语气",
+  e3:"⌨️ 行内 AI 触发", h3:"输入 <code class='ind'>//p</code>，按下 <span class='ind'>Tab</span>", s3:"AI 就地改写，无需切换窗口",
+  type_l:"在这里输入", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> 明天10点到", press3:"按下 <span class='kbd'>Tab</span>", res3:"我明天上午 10 点准时到。",
+  e4:"↩️ 起草回复", h4:"把收到的消息<span class='ind'>变成回复</span>", s4:"选个风格，说个大意 —— 回复由 AI 代笔",
+  avatar:"李", name:"李伟", time:"14:32", msg:"下周的会议，周三下午你有空吗？",
+  say_l:"想说的内容", gist:"可以，建议下午2点", out:"感谢联系！周三下午可以——我下午 2 点到。期待见面。",
+  e5:"⚡ 短语 · 我的预设", h5:"你的快捷词，<span class='snp'>你的文本</span>", s5:"输入 <code>;sig</code> + <kbd>Tab</kbd> 即刻展开 —— 最多可建 10 个 AI 预设和 10 个短语",
+  press5:"按下 <span class='kbd'>Tab</span> → 即刻展开，无需 AI", sig:"━━━━━━━━━━<br>李伟<br>📧 alex@example.com　📱 (555) 123-4567",
+  pu_ai:"AI 预设", pu_sn:"短语", row_hi_t:"问候语 ✉️", row_hi_g:";hi", row_sig_t:"签名 🖊️", add:"＋ 添加预设",
+  fb_badge:"⚡ 100% 免费 · 无需注册", fb_title:"让每条消息<br><em>一键可发</em>", fb_sub:"AI 改写、回复与即时短语 ——<br>Chrome 里任何输入框都能用。",
+  fbp1:"🤖 AI 预设", fbp2:"↩ 起草回复", fbp3:"⚡ 短语", fbp4:"🌏 11 种语言"
+},
+ko: {
+  e1:"✨ 입력하는 모든 곳에 AI", h1:"모든 메시지를 <span class='ind'>보낼 준비 완료</span>로", s1:"대충 쓴 초안도 다듬어진 문장으로 — 한 번의 탭으로",
+  lab_typed:"입력한 문장", ba1:"내일 10시 ㅇㅋ ㄱㅅ", ba2:"내일 10시 전혀 문제없습니다. 잘 부탁드립니다.",
+  go:"변환", apply:"적용", copy:"복사", retry:"다시 시도",
+  e2:"🎯 선택 도구 모음", h2:"텍스트를 선택하고 <span class='ind'>스타일만 고르세요</span>", s2:"선택 옆에 작은 런처가 나타나요 — 스타일을 고르고 '변환'을 누르세요",
+  to:"받는 사람: 거래처", subj:"Re: 회의 건", body:"내일 10시 괜찮습니다. 감사합니다.",
+  reply_t:"↩ 답장 작성", style_l:"스타일", chip_p:"다듬기 💝 <code>//p</code>", chip_pp:"다듬기 💝", chip_tr:"영어로 번역 🌏", chip_sum:"요약 📝", chip_fix:"오타 수정 ✅", chip_cas:"캐주얼 😊", more:"+ 스타일 / 톤 설정",
+  e3:"⌨️ 인라인 AI 트리거", h3:"<code class='ind'>//p</code> 입력 후 <span class='ind'>Tab</span>", s3:"입력하던 자리에서 바로 AI가 다시 써줘요 — 창 전환 없이",
+  type_l:"여기에 입력", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> 내일 10시 감", press3:"<span class='kbd'>Tab</span> 누르기", res3:"내일 10시에 가겠습니다.",
+  e4:"↩️ 답장 작성", h4:"받은 메시지를 <span class='ind'>답장으로</span>", s4:"스타일을 고르고 요점만 적으면 — 답장은 AI가 써줘요",
+  avatar:"김", name:"민준", time:"오후 2:32", msg:"다음 주 회의, 수요일 오후에 시간 괜찮으세요?",
+  say_l:"전달할 내용", gist:"좋아요, 2시 제안", out:"연락 주셔서 감사합니다! 수요일 오후 괜찮습니다 — 오후 2시에 가겠습니다. 기대하겠습니다.",
+  e5:"⚡ 스니펫 · 나만의 프리셋", h5:"나만의 트리거, <span class='snp'>나만의 문구</span>", s5:"<code>;sig</code> + <kbd>Tab</kbd>로 상용구를 즉시 입력 — AI 프리셋과 스니펫을 각각 10개까지",
+  press5:"<span class='kbd'>Tab</span> 누르기 → 즉시, AI 없이", sig:"━━━━━━━━━━<br>김민준 / Minjun Kim<br>📧 minjun@example.com　📱 010-1234-5678",
+  pu_ai:"AI 프리셋", pu_sn:"스니펫", row_hi_t:"인사말 ✉️", row_hi_g:";hi", row_sig_t:"서명 🖊️", add:"＋ 프리셋 추가",
+  fb_badge:"⚡ 100% 무료 · 가입 불필요", fb_title:"모든 메시지를<br><em>보낼 준비 완료로</em>", fb_sub:"AI 다듬기·답장·상용구 즉시 입력 —<br>Chrome에서 입력하는 모든 곳에서.",
+  fbp1:"🤖 AI 프리셋", fbp2:"↩ 답장 작성", fbp3:"⚡ 스니펫", fbp4:"🌏 11개 언어"
+},
+pt: {
+  e1:"✨ IA · ONDE VOCÊ DIGITAR", h1:"Cada mensagem <span class='ind'>pronta para enviar</span>", s1:"De um rascunho rápido a uma mensagem polida — em um toque",
+  lab_typed:"VOCÊ DIGITOU", ba1:"amanhã 10h blz, vlw", ba2:"Amanhã às 10 horas é perfeito para mim. Fico no aguardo.",
+  go:"Transformar", apply:"Aplicar", copy:"Copiar", retry:"Tentar novamente",
+  e2:"🎯 BARRA DE SELEÇÃO", h2:"Selecione o texto e <span class='ind'>escolha um estilo</span>", s2:"Um pequeno botão aparece ao lado da seleção — escolha um estilo e toque em Transformar",
+  to:"Para: Cliente", subj:"Re: nossa reunião", body:"Amanhã às 10 funciona pra mim. Obrigado.",
+  reply_t:"↩ Rascunhar uma resposta", style_l:"ESTILO", chip_p:"Polir 💝 <code>//p</code>", chip_pp:"Polir 💝", chip_tr:"Traduzir 🌏", chip_sum:"Resumir 📝", chip_fix:"Corrigir erros ✅", chip_cas:"Informal 😊", more:"+ Definir um estilo / tom",
+  e3:"⌨️ GATILHO DE IA EM LINHA", h3:"Digite <code class='ind'>//p</code> e aperte <span class='ind'>Tab</span>", s3:"A IA reescreve ali mesmo onde você digita — sem trocar de janela",
+  type_l:"DIGITE AQUI", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> chego amanhã 10h", press3:"Aperte <span class='kbd'>Tab</span>", res3:"Estarei aí amanhã às 10h.",
+  e4:"↩️ RASCUNHE UMA RESPOSTA", h4:"Transforme uma mensagem <span class='ind'>em uma resposta</span>", s4:"Escolha um estilo, diga a ideia — a IA escreve a resposta",
+  avatar:"L", name:"Lucas", time:"14:32", msg:"Você tem disponibilidade na quarta à tarde para nossa reunião na semana que vem?",
+  say_l:"O QUE DIZER", gist:"pode ser, sugiro 14h", out:"Obrigado pelo contato! Quarta à tarde funciona — estarei aí às 14h. Fico no aguardo.",
+  e5:"⚡ TRECHOS · SUAS PREDEFINIÇÕES", h5:"Seus atalhos, <span class='snp'>seu texto</span>", s5:"Digite <code>;sig</code> + <kbd>Tab</kbd> para inserir na hora — até 10 predefinições de IA e 10 trechos",
+  press5:"Aperte <span class='kbd'>Tab</span> → na hora, sem IA", sig:"━━━━━━━━━━<br>Lucas Oliveira<br>📧 lucas@example.com　📱 (11) 91234-5678",
+  pu_ai:"PREDEFINIÇÕES DE IA", pu_sn:"TRECHOS", row_hi_t:"Saudação ✉️", row_hi_g:";hi", row_sig_t:"Assinatura 🖊️", add:"＋ Adicionar predefinição",
+  fb_badge:"⚡ 100% grátis · Sem cadastro", fb_title:"Cada mensagem<br><em>pronta para enviar</em>", fb_sub:"Reescrita com IA, respostas e trechos instantâneos —<br>onde você digitar no Chrome.",
+  fbp1:"🤖 Predefinições de IA", fbp2:"↩ Rascunhar respostas", fbp3:"⚡ Trechos", fbp4:"🌏 11 idiomas"
+},
+hi: {
+  e1:"✨ AI · जहाँ भी टाइप करें", h1:"हर संदेश <span class='ind'>भेजने के लिए तैयार</span>", s1:"कच्चे ड्राफ़्ट से पॉलिश किए संदेश तक — एक टैप में",
+  lab_typed:"आपने लिखा", ba1:"कल 10 बजे ok थैंक्स", ba2:"कल सुबह 10 बजे मेरे लिए बिल्कुल सही है। मुझे इसका इंतज़ार रहेगा।",
+  go:"बदलें", apply:"लागू करें", copy:"कॉपी करें", retry:"पुनः प्रयास",
+  e2:"🎯 सिलेक्शन टूलबार", h2:"टेक्स्ट चुनें, <span class='ind'>स्टाइल चुनें</span>", s2:"चयन के पास एक छोटा लॉन्चर दिखता है — स्टाइल चुनें और 'बदलें' दबाएँ",
+  to:"प्रति: क्लाइंट", subj:"Re: हमारी मीटिंग", body:"कल सुबह 10 बजे मेरे लिए ठीक है। धन्यवाद।",
+  reply_t:"↩ उत्तर का मसौदा बनाएँ", style_l:"स्टाइल", chip_p:"पॉलिश करें 💝 <code>//p</code>", chip_pp:"पॉलिश करें 💝", chip_tr:"अनुवाद करें 🌏", chip_sum:"सारांश बनाएँ 📝", chip_fix:"टाइपो ठीक करें ✅", chip_cas:"कैज़ुअल 😊", more:"+ स्टाइल / टोन सेट करें",
+  e3:"⌨️ इनलाइन AI ट्रिगर", h3:"<code class='ind'>//p</code> लिखें, <span class='ind'>Tab</span> दबाएँ", s3:"AI वहीं फिर से लिख देता है जहाँ आप टाइप कर रहे हैं — बिना विंडो बदले",
+  type_l:"यहाँ टाइप करें", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> कल 10 बजे आऊँगा", press3:"<span class='kbd'>Tab</span> दबाएँ", res3:"मैं कल 10 बजे वहाँ पहुँच जाऊँगा।",
+  e4:"↩️ उत्तर का मसौदा", h4:"संदेश को <span class='ind'>जवाब में बदलें</span>", s4:"स्टाइल चुनें, बात बताएँ — जवाब AI लिख देगा",
+  avatar:"अ", name:"अर्जुन", time:"दोपहर 2:32", msg:"क्या अगले हफ़्ते हमारी मीटिंग के लिए आप बुधवार दोपहर को खाली हैं?",
+  say_l:"क्या कहना है", gist:"ठीक है, 2 बजे रखें", out:"संपर्क करने के लिए धन्यवाद! बुधवार दोपहर ठीक रहेगा — मैं दोपहर 2 बजे वहाँ रहूँगा। इंतज़ार रहेगा।",
+  e5:"⚡ स्निपेट · आपके प्रीसेट", h5:"आपके ट्रिगर, <span class='snp'>आपका टेक्स्ट</span>", s5:"<code>;sig</code> + <kbd>Tab</kbd> से बॉयलरप्लेट तुरंत — 10 AI प्रीसेट और 10 स्निपेट तक बनाएँ",
+  press5:"<span class='kbd'>Tab</span> दबाएँ → तुरंत, बिना AI", sig:"━━━━━━━━━━<br>अर्जुन शर्मा<br>📧 arjun@example.com　📱 (555) 123-4567",
+  pu_ai:"AI प्रीसेट", pu_sn:"स्निपेट", row_hi_t:"अभिवादन ✉️", row_hi_g:";hi", row_sig_t:"हस्ताक्षर 🖊️", add:"＋ प्रीसेट जोड़ें",
+  fb_badge:"⚡ 100% मुफ़्त · बिना साइन-अप", fb_title:"हर संदेश<br><em>भेजने के लिए तैयार</em>", fb_sub:"AI से री-राइट, जवाब और झटपट स्निपेट —<br>Chrome में जहाँ भी टाइप करें।",
+  fbp1:"🤖 AI प्रीसेट", fbp2:"↩ जवाब का मसौदा", fbp3:"⚡ स्निपेट", fbp4:"🌏 11 भाषाएँ"
+},
+id: {
+  e1:"✨ AI · DI MANA PUN KAMU MENGETIK", h1:"Setiap pesan <span class='ind'>siap kirim</span>", s1:"Dari draf kasar menjadi pesan rapi — sekali ketuk",
+  lab_typed:"KAMU MENGETIK", ba1:"bsk jam 10 ok mksh", ba2:"Besok pukul 10 sangat cocok bagi saya. Saya menantikannya.",
+  go:"Ubah", apply:"Terapkan", copy:"Salin", retry:"Coba lagi",
+  e2:"🎯 BILAH SELEKSI", h2:"Pilih teks, <span class='ind'>pilih gaya</span>", s2:"Peluncur kecil muncul di dekat seleksi — pilih gaya, tekan Ubah",
+  to:"Kepada: Klien", subj:"Re: rapat kita", body:"Besok jam 10 cocok buat saya. Terima kasih.",
+  reply_t:"↩ Buat draf balasan", style_l:"GAYA", chip_p:"Perhalus 💝 <code>//p</code>", chip_pp:"Perhalus 💝", chip_tr:"Terjemahkan 🌏", chip_sum:"Ringkas 📝", chip_fix:"Perbaiki Salah Ketik ✅", chip_cas:"Santai 😊", more:"+ Atur gaya / nada",
+  e3:"⌨️ PEMICU AI SEBARIS", h3:"Ketik <code class='ind'>//p</code>, tekan <span class='ind'>Tab</span>", s3:"AI menulis ulang tepat di tempatmu mengetik — tanpa pindah jendela",
+  type_l:"KETIK DI SINI", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> bsk dtg jam 10", press3:"Tekan <span class='kbd'>Tab</span>", res3:"Saya akan hadir besok pukul 10.",
+  e4:"↩️ BUAT DRAF BALASAN", h4:"Ubah pesan masuk <span class='ind'>menjadi balasan</span>", s4:"Pilih gaya, tulis intinya — balasan ditulis AI",
+  avatar:"B", name:"Budi", time:"14.32", msg:"Apa kamu ada waktu Rabu siang untuk rapat kita minggu depan?",
+  say_l:"ISI BALASAN", gist:"bisa, usul jam 2", out:"Terima kasih sudah menghubungi! Rabu siang cocok — saya akan datang jam 2 siang. Saya menantikannya.",
+  e5:"⚡ CUPLIKAN · PRESET KAMU", h5:"Pemicu kamu, <span class='snp'>teks kamu</span>", s5:"Ketik <code>;sig</code> + <kbd>Tab</kbd> untuk teks instan — buat hingga 10 preset AI &amp; 10 cuplikan",
+  press5:"Tekan <span class='kbd'>Tab</span> → instan, tanpa AI", sig:"━━━━━━━━━━<br>Budi Santoso<br>📧 budi@example.com　📱 (021) 123-4567",
+  pu_ai:"PRESET AI", pu_sn:"CUPLIKAN", row_hi_t:"Salam ✉️", row_hi_g:";hi", row_sig_t:"Tanda Tangan 🖊️", add:"＋ Tambah preset",
+  fb_badge:"⚡ 100% Gratis · Tanpa daftar", fb_title:"Setiap pesan<br><em>siap kirim</em>", fb_sub:"Tulis ulang AI, balasan &amp; cuplikan instan —<br>di mana pun kamu mengetik di Chrome.",
+  fbp1:"🤖 Preset AI", fbp2:"↩ Draf balasan", fbp3:"⚡ Cuplikan", fbp4:"🌏 11 bahasa"
+},
+ar: {
+  e1:"✨ الذكاء الاصطناعي أينما تكتب", h1:"كل رسالة <span class='ind'>جاهزة للإرسال</span>", s1:"من مسودة سريعة إلى رسالة متقنة — بلمسة واحدة",
+  lab_typed:"ما كتبته", ba1:"بكرة 10 تمام شكرا", ba2:"غدًا في العاشرة يناسبني تمامًا. أتطلّع إلى ذلك.",
+  go:"تحويل", apply:"تطبيق", copy:"نسخ", retry:"إعادة المحاولة",
+  e2:"🎯 شريط التحديد", h2:"حدّد النص و<span class='ind'>اختر أسلوبًا</span>", s2:"يظهر زر صغير بجوار تحديدك — اختر أسلوبًا واضغط «تحويل»",
+  to:"إلى: العميل", subj:"بخصوص: اجتماعنا", body:"غدًا في العاشرة يناسبني. شكرًا.",
+  reply_t:"↩ صياغة رد", style_l:"الأسلوب", chip_p:"صقل 💝 <code>//p</code>", chip_pp:"صقل 💝", chip_tr:"ترجمة 🌏", chip_sum:"تلخيص 📝", chip_fix:"تصحيح الأخطاء ✅", chip_cas:"ودّي 😊", more:"+ اضبط الأسلوب / النبرة",
+  e3:"⌨️ مُحفّز ذكاء اصطناعي ضمن السطر", h3:"اكتب <code class='ind'>//p</code> ثم اضغط <span class='ind'>Tab</span>", s3:"يعيد الذكاء الاصطناعي الكتابة في مكانك — دون تبديل النوافذ",
+  type_l:"اكتب هنا", trig:"<span class='mono' style='color:var(--ind);font-weight:700;'>//p</span> جاي بكرة الساعة 10", press3:"اضغط <span class='kbd'>Tab</span>", res3:"سأكون هناك غدًا في العاشرة.",
+  e4:"↩️ صياغة رد", h4:"حوّل الرسالة <span class='ind'>إلى ردّ جاهز</span>", s4:"اختر أسلوبًا واذكر الفكرة — والذكاء الاصطناعي يكتب الرد",
+  avatar:"أ", name:"أليكس", time:"2:32 م", msg:"هل أنت متفرّغ بعد ظهر الأربعاء لاجتماعنا الأسبوع القادم؟",
+  say_l:"ما تريد قوله", gist:"مناسب، أقترح الثانية", out:"شكرًا لتواصلك! بعد ظهر الأربعاء يناسبني — سأكون هناك في الثانية ظهرًا. أتطلّع إلى ذلك.",
+  e5:"⚡ مقاطع · إعداداتك", h5:"اختصاراتك، <span class='snp'>نصوصك</span>", s5:"اكتب <code>;sig</code> + <kbd>Tab</kbd> لإدراج نصوصك فورًا — حتى 10 إعدادات ذكاء اصطناعي و10 مقاطع",
+  press5:"اضغط <span class='kbd'>Tab</span> → فوري، دون ذكاء اصطناعي", sig:"━━━━━━━━━━<br>أليكس كارتر<br>📧 alex@example.com　📱 (555) 123-4567",
+  pu_ai:"إعدادات الذكاء الاصطناعي", pu_sn:"المقاطع", row_hi_t:"تحية ✉️", row_hi_g:";hi", row_sig_t:"التوقيع 🖊️", add:"＋ إضافة إعداد",
+  fb_badge:"⚡ مجاني 100% · بلا تسجيل", fb_title:"كل رسالة<br><em>جاهزة للإرسال</em>", fb_sub:"إعادة صياغة بالذكاء الاصطناعي وردود ومقاطع فورية —<br>أينما تكتب في Chrome.",
+  fbp1:"🤖 إعدادات ذكية", fbp2:"↩ صياغة رد", fbp3:"⚡ مقاطع", fbp4:"🌏 11 لغة"
+}
+};
+
+const lang = new URLSearchParams(location.search).get("lang") || "en";
+const dict = I18N[lang];
+if (dict) {
+  document.querySelectorAll("[data-i]").forEach((el) => {
+    const v = dict[el.dataset.i];
+    if (v != null) el.innerHTML = v;
+  });
+}
+if (lang === "ar") document.documentElement.dir = "rtl";
+if (["ja", "zh", "ko", "hi", "ar"].includes(lang)) document.body.classList.add("nolat");
+
+// 返信内容の文字数カウンタは実テキスト長を反映
+const gistEl = document.querySelector('.p-input[data-i="gist"]');
+const cntEl = document.getElementById("count4");
+if (gistEl && cntEl) cntEl.textContent = gistEl.textContent.length + " / 1000";
+
+// 翻訳で文章が伸びてもキャンバス(固定サイズ)からあふれないよう自動縮小
+function fit() {
+  document.querySelectorAll(".si").forEach((si) => {
+    const h = si.querySelector("h1");
+    let size = 66;
+    while (si.scrollHeight > si.clientHeight && size > 40) {
+      size -= 2;
+      h.style.fontSize = size + "px";
+    }
+  });
+  const fb = document.querySelector(".feat-banner");
+  const ft = fb.querySelector(".fb-title");
+  let fs = 58;
+  while (fb.scrollHeight > fb.clientHeight && fs > 38) {
+    fs -= 2;
+    ft.style.fontSize = fs + "px";
+  }
+  document.querySelectorAll(".p-btn, .p-go").forEach((b) => {
+    let s = parseFloat(getComputedStyle(b).fontSize);
+    while (b.scrollWidth > b.clientWidth && s > 14) {
+      s -= 1;
+      b.style.fontSize = s + "px";
+    }
+  });
+}
+document.fonts.ready.then(() => requestAnimationFrame(fit));
+</script>
 
 </body>
 </html>
