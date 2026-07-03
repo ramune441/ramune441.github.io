@@ -8,231 +8,337 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:#C8CCE0; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+body { background:#B9C0D6; font-family:'Inter','Segoe UI',sans-serif; -webkit-font-smoothing:antialiased; padding:40px 0; }
 :root{
-  /* SendReady theme: white + blue + yellow (from app icon) */
-  --ind:#0F77F2; --ind-deep:#0B5ED6; --ind-pale:#5AA0FF; --snip:#C99400; --yellow:#FECE04;
-  --bg:#FFFFFF; --bg-alt:#EAF3FF; --card:#FFFFFF;
+  /* SendReady brand (synced with LP / promo.html): white + blue + yellow */
+  --ind:#0F77F2; --ind-deep:#0B5ED6; --ind-pale:#5AA0FF;
+  --snip:#C99400; --yellow:#FECE04;
   --t1:#0F2A4D; --t2:#3E5A82; --t3:#8AA2C2; --dv:#DBE8FA;
 }
+.mono { font-family:ui-monospace,'Cascadia Code',Consolas,monospace; }
 
-/* ── canvas (1280x800) ── */
+/* ════ canvas (1280x800) ════ */
 .si { width:1280px; height:800px; position:relative; overflow:hidden; margin:0 auto 56px;
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:44px; padding:48px; }
-.cap { text-align:center; z-index:2; max-width:1040px; }
-.cap h1 { font-size:68px; font-weight:900; color:var(--t1); letter-spacing:-2px; line-height:1.15; }
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:42px; padding:56px 60px; }
+.dots { position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(15,42,77,.055) 1.5px, transparent 1.5px); background-size:28px 28px; }
+.glow { position:absolute; border-radius:50%; pointer-events:none; filter:blur(2px); }
+.tok { position:absolute; font-family:ui-monospace,Consolas,monospace; font-weight:700; pointer-events:none;
+  border:1.5px solid rgba(15,119,242,.22); color:rgba(15,119,242,.4); background:rgba(255,255,255,.5);
+  border-radius:12px; padding:9px 18px; font-size:22px; }
+.tok.y { border-color:rgba(201,148,0,.25); color:rgba(201,148,0,.45); }
+
+/* caption */
+.cap { text-align:center; z-index:2; max-width:1100px; position:relative; }
+.eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:17px; font-weight:800; letter-spacing:.16em;
+  color:var(--ind); background:rgba(15,119,242,.09); border:1px solid rgba(15,119,242,.22);
+  border-radius:100px; padding:9px 24px; margin-bottom:20px; }
+.eyebrow.y { color:var(--snip); background:rgba(254,206,4,.13); border-color:rgba(201,148,0,.28); }
+.cap h1 { font-size:66px; font-weight:900; color:var(--t1); letter-spacing:-2px; line-height:1.12; }
 .cap h1 .ind { color:var(--ind); }
-.cap p { font-size:29px; color:var(--t2); margin-top:18px; font-weight:500; }
-.brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
-.brand img { width:46px; height:46px; border-radius:12px; box-shadow:0 8px 20px rgba(15,119,242,.32); }
-.brand span { font-size:27px; font-weight:900; color:var(--ind-deep); letter-spacing:-.5px; }
-.glow { position:absolute; border-radius:50%; pointer-events:none; }
-.p-head img { border-radius:6px; }
+.cap h1 .snp { color:var(--snip); }
+.cap h1 code { font-family:ui-monospace,Consolas,monospace; font-weight:800; letter-spacing:-1px; }
+.cap p { font-size:28px; color:var(--t2); margin-top:16px; font-weight:500; }
+.cap p kbd, .cap p code { font-family:ui-monospace,Consolas,monospace; font-size:24px; background:#fff;
+  border:1px solid #c7d4ee; border-bottom-width:3px; border-radius:8px; padding:2px 12px; color:var(--t1); font-weight:700; }
 
-/* ── browser window ── */
-.win { background:#fff; border-radius:18px; box-shadow:0 30px 70px rgba(20,22,58,.16); border:1px solid #dde1f0; overflow:hidden; }
-.win-bar { height:50px; background:#f3f4fb; display:flex; align-items:center; gap:9px; padding:0 20px; border-bottom:1px solid #e6e9f5; }
+/* z-lift for content rows */
+.flow { display:flex; align-items:center; gap:40px; z-index:2; position:relative; }
+.io-arrow { font-size:60px; font-weight:300; color:var(--ind); }
+
+/* ════ browser window ════ */
+.win { background:#fff; border-radius:18px; overflow:hidden;
+  box-shadow:0 34px 80px rgba(15,42,77,.20), 0 0 0 1px rgba(15,119,242,.08); }
+.win-bar { height:52px; background:#f2f4fb; display:flex; align-items:center; gap:9px; padding:0 20px; border-bottom:1px solid #e5e9f5; }
 .dot { width:13px; height:13px; border-radius:50%; } .dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
-.url { flex:1; height:30px; background:#fff; border:1px solid #e6e9f5; border-radius:8px; margin-left:14px; display:flex; align-items:center; padding:0 16px; font-size:15px; color:#9aa0c4; }
+.url { flex:1; height:31px; background:#fff; border:1px solid #e5e9f5; border-radius:9px; margin-left:14px;
+  display:flex; align-items:center; padding:0 16px; font-size:16px; color:#9aa0c4; }
+.ext-ico { width:24px; height:24px; margin-left:10px; }
+.sel { background:rgba(15,119,242,.20); border-radius:4px; padding:2px 4px; }
+.kbd { display:inline-flex; align-items:center; font-family:ui-monospace,Consolas,monospace; font-size:22px;
+  background:#fff; border:1px solid #c7d4ee; border-bottom-width:4px; border-radius:10px; padding:7px 16px;
+  color:var(--t1); font-weight:700; }
 
-/* ── SendReady popover (clean, standalone) ── */
-.panel { background:#fff; border-radius:18px; padding:18px; border:1px solid var(--dv); box-shadow:0 26px 70px rgba(20,22,58,.22); }
-.p-head { display:flex; align-items:center; gap:9px; margin-bottom:14px; }
-.p-head img { width:34px; height:34px; } .p-head b { font-size:21px; font-weight:700; color:var(--t1); } .p-head .x { margin-left:auto; color:var(--t3); font-size:19px; }
-.p-item { display:flex; align-items:center; gap:14px; padding:17px 16px; border-radius:13px; font-size:28px; color:var(--t1); }
-.p-item.hi { background:rgba(15,119,242,.12); outline:2.5px solid var(--ind); outline-offset:-2.5px; }
-.p-tag { font-size:18px; font-weight:700; padding:5px 13px; border-radius:8px; background:rgba(15,119,242,.14); color:var(--ind); }
-.p-tag.s { background:rgba(254,206,4,.14); color:var(--snip); }
-.p-item .t { flex:1; } .p-item .g { font-family:'Inter',monospace; font-size:21px; color:var(--t3); font-weight:600; }
+/* ════ SendReady popover (mirrors content.js sr-panel, ~1.6x) ════ */
+.panel { background:#fff; border-radius:20px; padding:22px; border:1px solid rgba(127,127,127,.13);
+  box-shadow:0 34px 90px rgba(15,42,77,.26); position:relative; z-index:2; }
+.p-head { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+.p-head img { width:30px; height:30px; }
+.p-head b { font-size:24px; font-weight:700; color:#1a1a1a; letter-spacing:-.3px; }
+.p-head .sp { flex:1; }
+.p-head .hx { font-size:21px; color:#1a1a1a; opacity:.45; margin-left:8px; }
+.p-prev { font-size:21px; color:#5a6b85; background:rgba(127,127,127,.09); border-radius:12px;
+  padding:12px 15px; line-height:1.45; margin-bottom:14px; }
+.p-check { display:flex; align-items:center; gap:12px; padding:14px 4px 0; margin-top:2px;
+  border-top:1px solid rgba(127,127,127,.14); font-size:22px; font-weight:600; color:#1a1a1a; margin-bottom:14px; }
+.p-cb { width:25px; height:25px; border-radius:6px; border:2.5px solid var(--ind); flex:none;
+  display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:15px; font-weight:800; }
+.p-cb.on { background:var(--ind); }
+.p-q { margin-left:auto; width:24px; height:24px; border-radius:50%; border:1.5px solid #9aa4bd; color:#9aa4bd;
+  font-size:14px; font-weight:800; display:inline-flex; align-items:center; justify-content:center; }
+.p-lbl { font-size:16px; font-weight:700; color:#9aa4bd; letter-spacing:.07em; margin:4px 0 10px; }
+.chips { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+.chip { display:inline-flex; align-items:center; gap:8px; font-size:20px; font-weight:600; color:#1a1a1a;
+  border:1.5px solid rgba(127,127,127,.30); border-radius:999px; padding:9px 18px; background:#fff; }
+.chip code { font-family:ui-monospace,Consolas,monospace; font-size:16px; opacity:.55; font-weight:600; }
+.chip.on { background:var(--ind); border-color:var(--ind); color:#fff; box-shadow:0 6px 18px rgba(15,119,242,.35); }
+.chip.on code { opacity:.85; }
+.p-more { font-size:18px; color:var(--ind); font-weight:600; margin-bottom:16px; }
+.p-go { display:flex; align-items:center; justify-content:center; width:100%; padding:16px; border-radius:13px;
+  font-size:24px; font-weight:700; background:var(--ind); color:#fff; box-shadow:0 10px 26px rgba(15,119,242,.38); }
+.p-go.off { background:#e7eaf4; color:#9aa0c0; box-shadow:none; }
+.p-box { border:1px solid var(--dv); border-radius:13px; padding:17px 19px; font-size:24px; color:var(--t1);
+  line-height:1.55; background:#fcfcff; }
+.p-acts { display:flex; gap:10px; margin-top:16px; }
+.p-btn { flex:1; text-align:center; padding:13px 0; border-radius:11px; font-size:21px; font-weight:500;
+  border:1px solid rgba(127,127,127,.28); color:#1a1a1a; }
+.p-btn.p { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:700; }
+.p-input { border:2px solid var(--dv); border-radius:12px; padding:13px 16px; font-size:21px; color:#1a1a1a;
+  line-height:1.4; background:#fff; margin-bottom:14px; }
+.p-count { font-size:15px; color:#9aa4bd; text-align:right; margin:-8px 2px 12px; }
 
-/* selected-text pill */
-.seltext { font-size:31px; color:var(--t1); background:rgba(15,119,242,.12); border:1.5px dashed rgba(15,119,242,.45); border-radius:14px; padding:22px 32px; max-width:840px; line-height:1.5; text-align:center; }
+/* launcher (compact one-icon button) */
+.launcher { width:56px; height:56px; border-radius:50%; background:#fff; border:1px solid rgba(127,127,127,.16);
+  box-shadow:0 8px 26px rgba(15,42,77,.30); display:flex; align-items:center; justify-content:center; padding:8px; z-index:3; }
+.launcher img { width:100%; height:100%; object-fit:contain; }
 
-/* before/after */
-.ba { display:flex; flex-direction:column; align-items:center; gap:22px; }
-.ba-card { width:980px; border-radius:18px; padding:34px 44px; }
-.ba-card .l { font-size:18px; font-weight:800; letter-spacing:.12em; margin-bottom:10px; }
-.ba-card .x { font-size:37px; line-height:1.45; }
-.ba-card.gray { background:#F1F3FA; border:1.5px solid var(--dv); }
+/* before/after cards (IMG 1) */
+.ba { display:flex; flex-direction:column; align-items:center; gap:20px; z-index:2; }
+.ba-card { width:940px; border-radius:20px; padding:30px 42px; position:relative; }
+.ba-card .l { font-size:17px; font-weight:800; letter-spacing:.14em; margin-bottom:8px; }
+.ba-card .x { font-size:36px; line-height:1.45; }
+.ba-card.gray { background:#F2F4FA; border:1.5px dashed #c3cde2; }
 .ba-card.gray .l { color:var(--t3); } .ba-card.gray .x { color:var(--t2); }
-.ba-card.blue { background:rgba(15,119,242,.07); border:2px solid rgba(15,119,242,.4); }
+.ba-card.blue { background:linear-gradient(135deg,#F3F9FF,#E5F1FF); border:2px solid rgba(15,119,242,.45);
+  box-shadow:0 20px 50px rgba(15,119,242,.16); }
 .ba-card.blue .l { color:var(--ind); } .ba-card.blue .x { color:var(--t1); font-weight:600; }
-.ba-mid { display:flex; align-items:center; gap:12px; }
-.ba-pill { background:var(--ind); color:#fff; border-radius:999px; padding:12px 30px; font-size:26px; font-weight:700; }
+.ba-mid { display:flex; align-items:center; gap:14px; }
+.ba-pill { display:inline-flex; align-items:center; gap:10px; background:var(--ind); color:#fff; border-radius:999px;
+  padding:13px 32px; font-size:25px; font-weight:700; box-shadow:0 12px 30px rgba(15,119,242,.4); }
+.ba-pill img { width:28px; height:28px; }
 
-/* input + result row */
-.io { display:flex; align-items:center; gap:42px; }
-.io .lab { font-size:17px; font-weight:800; letter-spacing:.1em; margin-bottom:12px; }
-.io-box { border-radius:16px; padding:26px 30px; font-size:37px; min-height:132px; display:flex; align-items:center; }
-.mono { font-family:'Inter',monospace; font-weight:700; }
-.cur { display:inline-block; width:3px; height:34px; vertical-align:-6px; margin-left:3px; }
-.io-arrow { font-size:56px; font-weight:300; }
-.resbox { border:1px solid var(--dv); border-radius:14px; padding:20px 24px; font-size:31px; color:var(--t1); line-height:1.5; background:#fcfcff; }
-.acts { display:flex; gap:12px; margin-top:16px; }
-.btn { font-size:24px; padding:13px 28px; border-radius:11px; border:1px solid var(--dv); color:var(--t1); }
-.btn.p { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:700; }
-.chip { font-size:26px; padding:12px 28px; border-radius:999px; border:1px solid var(--dv); color:var(--t1); }
-.chip.on { background:var(--ind); color:#fff; border-color:var(--ind); font-weight:700; }
-.kbd { font-family:'Inter',monospace; font-size:24px; background:#fff; border:1px solid #cbd2ee; border-bottom-width:3px; border-radius:9px; padding:7px 15px; font-weight:700; color:var(--t1); }
-
-/* received message card */
-.msg .who { display:flex; align-items:center; gap:13px; margin-bottom:18px; }
-.msg .av { width:66px; height:66px; border-radius:50%; background:var(--bg-alt); display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--ind); font-size:24px; }
-.msg .nm { font-weight:800; font-size:27px; color:var(--t1); } .msg .tm { font-size:18px; color:var(--t3); }
-.msg .body { font-size:33px; color:var(--t1); line-height:1.6; }
-
-/* popup */
-.popup { width:560px; background:#fff; border-radius:20px; box-shadow:0 30px 70px rgba(20,22,58,.2); border:1px solid #e6e9f5; overflow:hidden; }
-.pu-hd { display:flex; align-items:center; justify-content:space-between; padding:18px 20px; border-bottom:1px solid var(--dv); }
-.pu-ttl { display:flex; align-items:center; gap:11px; font-weight:800; font-size:27px; color:var(--t1); } .pu-ttl img { width:34px; height:34px; }
-.pu-use { font-size:19px; color:var(--t3); }
-.pu-body { padding:18px 20px 22px; }
-.pu-sec { font-size:19px; font-weight:800; margin:14px 0 9px; letter-spacing:.04em; }
+/* popup mock (IMG 5) */
+.popup { width:470px; background:#fff; border-radius:18px; overflow:hidden; position:relative; z-index:2;
+  box-shadow:0 34px 90px rgba(15,42,77,.26); border:1px solid rgba(127,127,127,.13); }
+.pu-hd { display:flex; align-items:center; gap:10px; padding:16px 18px; border-bottom:1px solid var(--dv); }
+.pu-hd img { width:27px; height:27px; }
+.pu-hd b { font-size:21px; color:#1a1a1a; }
+.pu-pill { margin-left:auto; font-size:16px; font-weight:600; color:var(--ind); background:rgba(15,119,242,.10);
+  border-radius:999px; padding:4px 13px; font-variant-numeric:tabular-nums; }
+.pu-ico { font-size:18px; opacity:.55; }
+.pu-help { font-size:14px; border:1px solid rgba(127,127,127,.3); border-radius:999px; padding:3px 10px; color:#6b6b6b; }
+.pu-body { padding:14px 18px 18px; }
+.pu-sec { font-size:15px; font-weight:800; letter-spacing:.06em; margin:10px 0 8px; }
 .pu-sec.a { color:var(--ind); } .pu-sec.s { color:var(--snip); }
-.pu-row { display:flex; align-items:center; gap:13px; padding:17px 18px; border:1px solid var(--dv); border-radius:13px; margin-bottom:9px; }
-.pu-rt { font-size:16px; font-weight:700; padding:5px 11px; border-radius:7px; }
-.pu-rt.a { background:rgba(15,119,242,.14); color:var(--ind); } .pu-rt.s { background:rgba(254,206,4,.14); color:var(--snip); }
-.pu-rm { flex:1; } .pu-rm .t { font-weight:700; font-size:23px; color:var(--t1); } .pu-rm .d { font-size:18px; color:var(--t3); }
-.pu-rg { font-family:'Inter',monospace; font-size:20px; color:var(--t3); font-weight:600; }
+.pu-row { display:flex; align-items:center; gap:12px; padding:13px 15px; border:1px solid var(--dv);
+  border-radius:11px; margin-bottom:8px; border-left-width:4px; }
+.pu-row.a { border-left-color:var(--ind); } .pu-row.s { border-left-color:var(--yellow); }
+.pu-row .t { flex:1; font-size:19px; font-weight:600; color:#1a1a1a; }
+.pu-row .g { font-family:ui-monospace,Consolas,monospace; font-size:16px; color:#9aa4bd; font-weight:600; }
+.pu-row .e { font-size:15px; opacity:.4; }
+.pu-add { font-size:17px; font-weight:600; color:var(--ind); padding:4px 2px 0; }
 
-/* feature marquee 1400x560 */
-.feat-banner { width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 56px; background:linear-gradient(135deg,#0B5ED6 0%,#0F77F2 55%,#4DA3FF 100%); display:flex; align-items:center; padding:0 90px; gap:60px; }
+/* ════ feature marquee (1400x560) ════ */
+.feat-banner { width:1400px; height:560px; position:relative; overflow:hidden; margin:0 auto 56px;
+  background:linear-gradient(135deg,#0B5ED6 0%,#0F77F2 55%,#4DA3FF 100%);
+  display:flex; align-items:center; padding:0 90px; gap:64px; }
+.fb-dots { position:absolute; inset:0; pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.10) 1.5px, transparent 1.5px); background-size:30px 30px; }
 .fb-left { flex:1; color:#fff; z-index:2; }
-.fb-brand { display:inline-flex; align-items:center; gap:12px; margin-bottom:26px; }
-.fb-brand img { width:48px; height:48px; border-radius:12px; box-shadow:0 8px 22px rgba(0,0,0,.3); }
-.fb-brand span { font-size:28px; font-weight:900; color:#fff; letter-spacing:-.5px; }
-.fb-badge { display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.32); color:#fff; font-size:19px; font-weight:700; padding:10px 24px; border-radius:100px; margin-bottom:28px; }
-.fb-title { font-size:74px; font-weight:900; line-height:1.15; letter-spacing:-2px; margin-bottom:22px; }
-.fb-sub { font-size:29px; color:rgba(255,255,255,.85); line-height:1.55; font-weight:500; }
-.fb-pills { display:flex; gap:13px; margin-top:32px; }
-.fb-pill { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); color:#fff; font-size:20px; font-weight:700; padding:11px 26px; border-radius:100px; }
-.fb-right { width:430px; display:flex; justify-content:center; }
+.fb-brand { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.fb-brand img { width:40px; height:40px; border-radius:10px; box-shadow:0 8px 22px rgba(0,0,0,.3); }
+.fb-brand span { font-size:25px; font-weight:900; letter-spacing:-.5px; }
+.fb-badge { display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.32); font-size:17px; font-weight:700; padding:7px 20px;
+  border-radius:100px; margin-bottom:18px; }
+.fb-title { font-size:58px; font-weight:900; line-height:1.1; letter-spacing:-1.5px; margin-bottom:14px; }
+.fb-title em { font-style:normal; color:var(--yellow); }
+.fb-sub { font-size:24px; color:rgba(255,255,255,.86); line-height:1.5; font-weight:500; }
+.fb-pills { display:flex; gap:11px; margin-top:22px; flex-wrap:wrap; }
+.fb-pill { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); font-size:18px;
+  font-weight:700; padding:9px 20px; border-radius:100px; }
+.fb-right { width:440px; display:flex; justify-content:center; z-index:2; }
 </style>
 </head>
 <body>
 
-<!-- ════ IMG 1: Polish (before → after) ════ -->
-<div class="si" id="img1" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
-  <div class="glow" style="right:-120px;top:-120px;width:560px;height:560px;background:radial-gradient(circle,rgba(15,119,242,.1),transparent 60%);"></div>
-  <div class="cap"><h1>Polish your words <span class="ind">with AI</span></h1><p>From a quick draft to ready-to-send — in one tap</p></div>
+<!-- ════ IMG 1 · Hook: before → after ════ -->
+<div class="si" id="img1" style="background:linear-gradient(160deg,#FDFEFF 0%,#EFF6FF 52%,#DCEBFF 100%);">
+  <div class="dots"></div>
+  <div class="glow" style="right:-140px;top:-160px;width:620px;height:620px;background:radial-gradient(circle,rgba(15,119,242,.13),transparent 62%);"></div>
+  <div class="glow" style="left:-160px;bottom:-200px;width:560px;height:560px;background:radial-gradient(circle,rgba(254,206,4,.14),transparent 62%);"></div>
+  <span class="tok" style="left:74px;top:120px;transform:rotate(-9deg);">//p</span>
+  <span class="tok" style="right:64px;top:88px;transform:rotate(7deg);">//sum</span>
+  <span class="tok y" style="left:52px;bottom:56px;transform:rotate(6deg);">;sig</span>
+  <div class="cap">
+    <div class="eyebrow">✨ AI · ANYWHERE YOU TYPE</div>
+    <h1>Make every message <span class="ind">send-ready</span></h1>
+    <p>From a rough draft to a polished message — in one tap</p>
+  </div>
   <div class="ba">
     <div class="ba-card gray"><div class="l">YOU TYPED</div><div class="x">tmrw 10 works, thx</div></div>
-    <div class="ba-mid"><span class="ba-pill">💝 Polish</span></div>
+    <div class="ba-mid"><span class="ba-pill"><img src="icons/mark.png" alt="">Transform</span></div>
     <div class="ba-card blue"><div class="l">SENDREADY</div><div class="x">Tomorrow at 10 works for me. Thank you!</div></div>
   </div>
 </div>
 
-<!-- ════ IMG 2: Select → menu ════ -->
-<div class="si" id="img2" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
-  <div class="cap"><h1>Select text, <span class="ind">pick a preset</span></h1><p>Polish · Translate · Summarize · Fix typos</p></div>
-  <div style="display:flex;flex-direction:column;align-items:center;gap:26px;">
-    <div class="seltext">"Could you send me the report by Friday?"</div>
-    <div class="panel" style="width:560px;">
-      <div class="p-head"><img src="icons/icon128.png"><span class="x">✕</span></div>
-      <div class="p-item hi"><span class="p-tag">AI</span><span class="t">Polish 💝</span><span class="g">//p</span></div>
-      <div class="p-item"><span class="p-tag">AI</span><span class="t">Translate 🌏</span><span class="g">//tr</span></div>
-      <div class="p-item"><span class="p-tag">AI</span><span class="t">Summarize 📝</span><span class="g">//sum</span></div>
-      <div class="p-item"><span class="p-tag">AI</span><span class="t">Fix typos ✅</span><span class="g">//fix</span></div>
-    </div>
+<!-- ════ IMG 2 · Selection → palette → Transform ════ -->
+<div class="si" id="img2" style="background:linear-gradient(160deg,#EDF5FF 0%,#DFEEFF 55%,#CBE3FF 100%);">
+  <div class="dots"></div>
+  <div class="glow" style="left:-140px;top:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
+  <div class="cap">
+    <div class="eyebrow">🎯 SELECTION TOOLBAR</div>
+    <h1>Select text, <span class="ind">pick a style</span></h1>
+    <p>A tiny launcher appears by your selection — choose a style, hit Transform</p>
   </div>
-</div>
-
-<!-- ════ IMG 3: Inline trigger ════ -->
-<div class="si" id="img3" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
-  <div class="cap"><h1>Type a trigger, <span class="ind">hit Enter</span></h1><p>Write //p before your text — AI transforms it in place</p></div>
-  <div class="io">
-    <div class="win" style="width:560px;">
-      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div></div>
-      <div style="padding:26px;">
-        <div class="lab" style="color:var(--ind);">TYPE</div>
-        <div class="io-box" style="border:2.5px solid var(--ind);"><span class="mono" style="color:var(--ind);">//p</span>&nbsp;be there at 10 tmrw<span class="cur" style="background:var(--ind);"></span></div>
-        <div style="margin-top:16px;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:18px;">Press <span class="kbd">Enter ⏎</span></div>
+  <div class="flow">
+    <div style="position:relative;">
+      <div class="win" style="width:600px;">
+        <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+        <div style="padding:30px 34px;">
+          <div style="font-size:19px;color:var(--t3);padding:10px 0;border-bottom:1px solid var(--dv);">To: Client</div>
+          <div style="font-size:22px;font-weight:600;color:var(--t1);padding:13px 0;border-bottom:1px solid var(--dv);">Re: our meeting</div>
+          <div style="font-size:25px;line-height:1.85;color:var(--t1);padding:20px 2px 12px;"><span class="sel">Tomorrow at 10 works for me. Thanks.</span></div>
+        </div>
       </div>
+      <div class="launcher" style="position:absolute;right:-24px;bottom:52px;"><img src="icons/mark.png" alt=""></div>
     </div>
-    <div class="io-arrow" style="color:var(--ind);">→</div>
-    <div class="panel" style="width:470px;">
-      <div class="p-head"><img src="icons/icon128.png"><span class="x">✕</span></div>
-      <div class="resbox">I'll be there at 10 tomorrow.</div>
-      <div class="acts"><span class="btn p">Apply</span><span class="btn">Copy</span><span class="btn">Redo</span></div>
+    <div class="io-arrow">→</div>
+    <div class="panel" style="width:480px;">
+      <div class="p-head"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="sp"></span><span class="hx">🕘</span><span class="hx">✕</span></div>
+      <div class="p-prev">Tomorrow at 10 works for me. Thanks.</div>
+      <div class="p-check"><span class="p-cb"></span>↩ Draft a reply<span class="p-q">?</span></div>
+      <div class="p-lbl">STYLE</div>
+      <div class="chips">
+        <span class="chip on">Polish 💝 <code>//p</code></span>
+        <span class="chip">Translate 🌏</span>
+        <span class="chip">Summarize 📝</span>
+        <span class="chip">Fix typos ✅</span>
+      </div>
+      <div class="p-more">+ Custom style</div>
+      <div class="p-go">Transform</div>
     </div>
   </div>
 </div>
 
-<!-- ════ IMG 4: Reply ════ -->
-<div class="si" id="img4" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
-  <div class="cap"><h1>Turn a message <span class="ind">into a reply</span></h1><p>Pick a tone — AI writes the reply for you</p></div>
-  <div class="io" style="align-items:stretch;">
-    <div class="win msg" style="width:560px;">
-      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
+<!-- ════ IMG 3 · Inline trigger + Tab → result ════ -->
+<div class="si" id="img3" style="background:linear-gradient(160deg,#FDFEFF 0%,#EFF6FF 52%,#DCEBFF 100%);">
+  <div class="dots"></div>
+  <div class="glow" style="right:-160px;bottom:-180px;width:600px;height:600px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
+  <span class="tok" style="right:96px;top:130px;transform:rotate(8deg);">//fix</span>
+  <div class="cap">
+    <div class="eyebrow">⌨️ INLINE AI TRIGGER</div>
+    <h1>Type <code class="ind">//p</code>, hit <span class="ind">Tab</span></h1>
+    <p>AI rewrites it right where you're typing — no window switch</p>
+  </div>
+  <div class="flow">
+    <div class="win" style="width:580px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 x.com</div><img src="icons/icon48.png" class="ext-ico"></div>
       <div style="padding:28px 30px;">
-        <div class="who"><div class="av">A</div><div><div class="nm">Alex</div><div class="tm">2:32 PM</div></div></div>
-        <div class="body">Are you free Wednesday afternoon for our meeting?</div>
+        <div style="font-size:16px;font-weight:800;letter-spacing:.08em;color:var(--ind);margin-bottom:11px;">TYPE HERE</div>
+        <div style="border:2.5px solid var(--ind);border-radius:14px;padding:20px 22px;font-size:29px;min-height:104px;line-height:1.5;color:var(--t1);"><span class="mono" style="color:var(--ind);font-weight:700;">//p</span> be there at 10 tmrw<span style="display:inline-block;width:3px;height:32px;background:var(--ind);vertical-align:-5px;margin-left:3px;"></span></div>
+        <div style="margin-top:15px;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:20px;">Press <span class="kbd">Tab</span></div>
       </div>
     </div>
-    <div class="panel" style="width:520px;">
-      <div class="p-head"><img src="icons/icon128.png"><b>↩ Write a reply</b></div>
-      <div style="font-size:16px;color:var(--t3);margin-bottom:12px;">PICK A TONE</div>
-      <div style="display:flex;gap:9px;margin-bottom:18px;"><span class="chip on">Polite</span><span class="chip">Casual</span><span class="chip">Short</span></div>
-      <div class="resbox" style="font-size:21px;">Thanks! Wednesday afternoon works — I'll be there at 2 PM. Looking forward to it.</div>
-      <div class="acts"><span class="btn p">Copy</span><span class="btn">Redo</span></div>
+    <div class="io-arrow">→</div>
+    <div class="panel" style="width:450px;">
+      <div class="p-head"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="sp"></span><span class="hx">🕘</span><span class="hx">✕</span></div>
+      <div class="p-box">I'll be there at 10 tomorrow.</div>
+      <div class="p-acts"><span class="p-btn p">Apply</span><span class="p-btn">Copy</span><span class="p-btn">Retry</span></div>
     </div>
   </div>
 </div>
 
-<!-- ════ IMG 5: Snippets ════ -->
-<div class="si" id="img5" style="background:linear-gradient(155deg,#FFFFFF,#DCEEFF);">
-  <div class="cap"><h1>Instant <span class="ind" style="color:var(--snip);">text snippets</span></h1><p>Type ;sig and your signature pops in — no AI needed</p></div>
-  <div class="io">
-    <div class="win" style="width:520px;">
-      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div></div>
-      <div style="padding:26px;">
-        <div class="lab" style="color:var(--snip);">TYPE</div>
-        <div class="io-box" style="border:2.5px solid var(--snip);min-height:96px;"><span class="mono" style="color:var(--snip);">;sig</span><span class="cur" style="background:var(--snip);"></span></div>
-        <div style="margin-top:16px;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:18px;">Press <span class="kbd">Space</span></div>
+<!-- ════ IMG 4 · Draft a reply ════ -->
+<div class="si" id="img4" style="background:linear-gradient(160deg,#EDF5FF 0%,#DFEEFF 55%,#CBE3FF 100%);">
+  <div class="dots"></div>
+  <div class="glow" style="left:-160px;bottom:-180px;width:600px;height:600px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
+  <div class="cap">
+    <div class="eyebrow">↩️ DRAFT A REPLY</div>
+    <h1>Turn a message <span class="ind">into a reply</span></h1>
+    <p>Pick a style, say the gist — AI writes the reply for you</p>
+  </div>
+  <div class="flow" style="align-items:stretch;">
+    <div class="win" style="width:540px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+      <div style="padding:26px 30px;">
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:16px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:#EAF3FF;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--ind);font-size:23px;">A</div>
+          <div><div style="font-weight:700;font-size:23px;color:var(--t1);">Alex</div><div style="font-size:17px;color:var(--t3);">2:32 PM</div></div>
+        </div>
+        <div style="font-size:25px;line-height:1.7;color:var(--t1);"><span class="sel">Are you free Wednesday afternoon for our meeting next week?</span></div>
       </div>
     </div>
-    <div class="io-arrow" style="color:var(--snip);">→</div>
-    <div class="win" style="width:470px;">
-      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒</div></div>
-      <div style="padding:24px;">
-        <div style="border:1px solid var(--dv);border-radius:14px;padding:20px;font-size:20px;color:var(--t1);line-height:1.7;background:#fcfcff;">———————<br>Alex Carter<br>📧 alex@example.com<br>📱 (555) 123-4567</div>
-        <div style="margin-top:12px;font-size:17px;color:var(--snip);font-weight:700;text-align:center;">✓ Signature expanded</div>
-      </div>
+    <div class="panel" style="width:530px;">
+      <div class="p-head"><img src="icons/mark.png" alt=""><b>↩ Draft a reply</b><span class="sp"></span><span class="hx">✕</span></div>
+      <div class="p-lbl">STYLE</div>
+      <div class="chips"><span class="chip on">Polish 💝</span><span class="chip">Casual 😊</span><span class="chip">Summarize 📝</span></div>
+      <div class="p-lbl">WHAT TO SAY</div>
+      <div class="p-input">works for me, suggest 2pm</div>
+      <div class="p-count">25 / 1000</div>
+      <div class="p-box" style="font-size:21px;">Thanks for reaching out! Wednesday afternoon works for me — how about 2 PM?</div>
+      <div class="p-acts"><span class="p-btn p">Copy</span><span class="p-btn">Retry</span></div>
     </div>
   </div>
 </div>
 
-<!-- ════ IMG 6: Your presets ════ -->
-<div class="si" id="img6" style="background:linear-gradient(155deg,#EAF4FF,#CCE6FF);">
-  <div class="cap"><h1>Make it <span class="ind">your own</span></h1><p>Up to 10 AI presets and 10 snippets — your triggers</p></div>
-  <div class="popup">
-    <div class="pu-hd"><div class="pu-ttl"><img src="icons/icon128.png"></div><span class="pu-use">Today 12 / 50</span></div>
-    <div class="pu-body">
-      <div class="pu-sec a">AI PRESETS</div>
-      <div class="pu-row"><span class="pu-rt a">AI</span><div class="pu-rm"><div class="t">Polish 💝</div><div class="d">More polite and respectful</div></div><span class="pu-rg">//p</span></div>
-      <div class="pu-row"><span class="pu-rt a">AI</span><div class="pu-rm"><div class="t">Translate 🌏</div><div class="d">Into natural English</div></div><span class="pu-rg">//tr</span></div>
-      <div class="pu-sec s">SNIPPETS</div>
-      <div class="pu-row"><span class="pu-rt s">Snippet</span><div class="pu-rm"><div class="t">Signature 🖊️</div><div class="d">Signature template</div></div><span class="pu-rg">;sig</span></div>
+<!-- ════ IMG 5 · Snippets + your own presets ════ -->
+<div class="si" id="img5" style="background:linear-gradient(160deg,#FFFDF6 0%,#F3F7FF 45%,#DCEBFF 100%);">
+  <div class="dots"></div>
+  <div class="glow" style="left:-140px;top:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(254,206,4,.18),transparent 62%);"></div>
+  <div class="glow" style="right:-160px;bottom:-180px;width:600px;height:600px;background:radial-gradient(circle,rgba(15,119,242,.12),transparent 62%);"></div>
+  <span class="tok y" style="left:80px;bottom:150px;transform:rotate(-7deg);">;hi</span>
+  <div class="cap">
+    <div class="eyebrow y">⚡ SNIPPETS · YOUR PRESETS</div>
+    <h1>Your triggers, <span class="snp">your text</span></h1>
+    <p>Type <code>;sig</code> + <kbd>Tab</kbd> for instant boilerplate — build up to 10 AI presets &amp; 10 snippets</p>
+  </div>
+  <div class="flow">
+    <div class="win" style="width:540px;">
+      <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
+      <div style="padding:26px 30px;">
+        <div style="border:2.5px solid var(--snip);border-radius:14px;padding:18px 22px;font-size:29px;min-height:80px;"><span class="mono" style="color:var(--snip);font-weight:700;">;sig</span><span style="display:inline-block;width:3px;height:32px;background:var(--snip);vertical-align:-5px;margin-left:3px;"></span></div>
+        <div style="margin:14px 0;display:flex;align-items:center;gap:11px;color:var(--t3);font-size:20px;">Press <span class="kbd">Tab</span> → instant, no AI</div>
+        <div style="border:1px solid var(--dv);border-radius:13px;padding:18px 22px;background:#fcfcff;font-size:20px;line-height:1.65;color:var(--t1);">━━━━━━━━━━<br>Alex Carter<br>📧 alex@example.com 　📱 (555) 123-4567</div>
+      </div>
+    </div>
+    <div class="popup">
+      <div class="pu-hd"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="pu-pill">12 / 50</span><span class="pu-ico">🕘</span><span class="pu-help">?</span></div>
+      <div class="pu-body">
+        <div class="pu-sec a">AI PRESETS</div>
+        <div class="pu-row a"><span class="t">Polish 💝</span><span class="g">//p</span><span class="e">✎</span></div>
+        <div class="pu-row a"><span class="t">Translate 🌏</span><span class="g">//en</span><span class="e">✎</span></div>
+        <div class="pu-sec s">SNIPPETS</div>
+        <div class="pu-row s"><span class="t">Greeting ✉️</span><span class="g">;hi</span><span class="e">✎</span></div>
+        <div class="pu-row s"><span class="t">Signature 🖊️</span><span class="g">;sig</span><span class="e">✎</span></div>
+        <div class="pu-add">＋ Add preset</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ════ FEATURE GRAPHIC (1400x560) ════ -->
 <div class="feat-banner" id="feature">
-  <div class="glow" style="left:-100px;bottom:-150px;width:480px;height:480px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 60%);"></div>
+  <div class="fb-dots"></div>
+  <div class="glow" style="left:-120px;bottom:-170px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.15),transparent 60%);"></div>
   <div class="fb-left">
-    <div class="fb-brand"><img src="icons/icon128.png" alt=""></div>
-    <div class="fb-badge">⚡ 100% Free · Chrome Extension</div>
-    <div class="fb-title">Transform any text<br>with AI, in one tap</div>
-    <div class="fb-sub">Polish, translate, summarize &amp; reply —<br>in any text field. Snippets expand instantly, too.</div>
-    <div class="fb-pills"><span class="fb-pill">🤖 AI presets</span><span class="fb-pill">⚡ Snippets</span><span class="fb-pill">↩ AI replies</span></div>
+    <div class="fb-brand"><img src="icons/icon128.png" alt=""><span>SendReady</span></div>
+    <div class="fb-badge">⚡ 100% Free · No sign-up</div>
+    <div class="fb-title">Make every message<br><em>send-ready</em></div>
+    <div class="fb-sub">AI rewrite, replies &amp; instant snippets —<br>anywhere you type in Chrome.</div>
+    <div class="fb-pills"><span class="fb-pill">🤖 AI presets</span><span class="fb-pill">↩ Draft a reply</span><span class="fb-pill">⚡ Snippets</span><span class="fb-pill">🌏 11 languages</span></div>
   </div>
   <div class="fb-right">
-    <div class="panel" style="width:400px;box-shadow:0 40px 90px rgba(0,0,0,.38);">
-      <div class="p-head"><img src="icons/icon128.png"><span class="x">✕</span></div>
-      <div class="p-item hi"><span class="p-tag">AI</span><span class="t">Polish 💝</span><span class="g">//p</span></div>
-      <div class="p-item"><span class="p-tag">AI</span><span class="t">Translate 🌏</span><span class="g">//tr</span></div>
-      <div class="p-item"><span class="p-tag">AI</span><span class="t">Summarize 📝</span><span class="g">//sum</span></div>
+    <div class="panel" style="width:420px;box-shadow:0 44px 100px rgba(0,0,0,.4);">
+      <div class="p-head"><img src="icons/mark.png" alt=""><b>SendReady</b><span class="sp"></span><span class="hx">🕘</span><span class="hx">✕</span></div>
+      <div class="p-prev">Tomorrow at 10 works for me. Thanks.</div>
+      <div class="p-lbl">STYLE</div>
+      <div class="chips">
+        <span class="chip on">Polish 💝 <code>//p</code></span>
+        <span class="chip">Translate 🌏</span>
+        <span class="chip">Fix typos ✅</span>
+      </div>
+      <div class="p-go">Transform</div>
     </div>
   </div>
 </div>
