@@ -104,6 +104,7 @@
   .callout .callout-desc { font-size: 19px; font-weight: 500; color: rgba(255,255,255,0.85); line-height: 1.6; margin-top: 8px; }
   .callout .callout-arrow { position: absolute; width: 0; height: 0; border: 14px solid transparent; }
   .callout .callout-arrow.arrow-right { right: -28px; top: 50%; transform: translateY(-50%); border-left-color: rgba(102,126,234,0.6); }
+  .callout .callout-arrow.arrow-down { bottom: -28px; left: 50%; transform: translateX(-50%); border-top-color: rgba(102,126,234,0.6); }
 
   /* 放置ピル */
   .zen-pill { position: absolute; top: 120px; left: 50%; transform: translateX(-50%) translateY(-16px); background: #1e1b4b; color: #fff; font-size: 40px; font-weight: 900; padding: 22px 56px; border-radius: 60px; border: 3px solid rgba(102,126,234,0.6); box-shadow: 0 12px 40px rgba(0,0,0,0.45); z-index: 36; opacity: 0; transition: opacity 0.4s, transform 0.4s cubic-bezier(0.16,1,0.3,1); letter-spacing: 2px; }
@@ -204,15 +205,14 @@
       <div class="browser-body">
         <!-- 実際に拡張機能を動かしているPairs画面（写真はぼかし処理） -->
         <img class="real-shot" id="shotB" src="live-b.png" alt="Pairs 実画面（自動訪問中）">
-        <img class="real-shot" id="shotC" src="live-c.png" alt="Pairs 実画面（訪問済）" style="opacity:0; transition:opacity 0.6s ease; z-index:2;">
+        <img class="real-shot" id="shotV" src="live-visit.png" alt="プロフィールを開いて足あとを残す" style="opacity:0; transition:opacity 0.5s ease; z-index:2;">
+        <img class="real-shot" id="shotC" src="live-c.png" alt="Pairs 実画面（訪問済）" style="opacity:0; transition:opacity 0.5s ease; z-index:3;">
 
-        <div class="scan-ring" id="scanring"></div>
         <div class="reload-flash" id="reload-flash"></div>
 
-        <div class="callout" id="co1" style="bottom:250px;right:430px;"><div class="callout-title">&#128065; Pairsを開くだけ</div><div class="callout-desc">操作パネルが自動で表示されます</div><div class="callout-arrow arrow-right"></div></div>
-        <div class="callout" id="co2" style="bottom:150px;right:430px;"><div class="callout-title">&#9654;&#65039; ワンクリックで自動訪問</div><div class="callout-desc">あとは本物の画面上で勝手に進みます</div><div class="callout-arrow arrow-right"></div></div>
-
-        <div class="zen-pill" id="zenpill">あとは、放置するだけ。</div>
+        <div class="callout" id="co1" style="bottom:250px;right:430px;"><div class="callout-title">&#9654;&#65039; 「開始」を押すだけ</div><div class="callout-desc">登録も面倒な設定もいりません</div><div class="callout-arrow arrow-right"></div></div>
+        <div class="callout" id="co2" style="top:120px;left:700px;"><div class="callout-title">&#128099; プロフィールを自動で開いて<br>足あとを残す</div><div class="callout-desc">本物の画面で1件ずつ確実に</div><div class="callout-arrow arrow-down"></div></div>
+        <div class="callout" id="co3" style="bottom:250px;right:430px;"><div class="callout-title">&#128260; 訪問済みは自動スキップ</div><div class="callout-desc">無限リロードで新しいお相手を回り続ける</div><div class="callout-arrow arrow-right"></div></div>
 
         <div class="mega-overlay" id="mega">
           <div class="mega-card">
@@ -282,11 +282,6 @@ let timeline = [], timelineIndex = 0, timer = null, startTime = Date.now();
 function showScene(id){ scenes.forEach(s=>$(s).classList.remove('active')); $(id).classList.add('active'); }
 function anim(el, styles, dur=600){ if(typeof el==='string')el=$(el); if(!el)return; el.style.transition=`all ${dur}ms cubic-bezier(0.16,1,0.3,1)`; Object.assign(el.style,styles); }
 
-// 実画面上のカードスロット（pairs-real.png 実寸に合わせて調整済み）
-const CX = [692, 897, 1102, 1307, 1512];
-const R1 = 268, R2 = 585;
-function placeRing(cx, top){ $('scanring').style.left=(cx-107)+'px'; $('scanring').style.top=top+'px'; }
-
 function buildTimeline(){
   timeline=[]; let t=0;
 
@@ -305,34 +300,28 @@ function buildTimeline(){
     setTimeout(()=>anim('m9',{opacity:1,transform:'translateY(0)'},500),3700);
   }]); t+=6000;
 
-  // S3: Real demo — 実際に拡張が動いているPairs画面 (14.4s)
+  // S3: Real demo — 実際に拡張が動き、プロフィールを開いて足あとを残す (15s)
   timeline.push([t,()=>{ showScene('s3');
-    // 稼働中の実パネルを指すコールアウト
+    // ① 開始を押すだけ（稼働中グリッド live-b）
     setTimeout(()=>$('co1').classList.add('show'),700);
-    setTimeout(()=>$('co1').classList.remove('show'),2700);
-    setTimeout(()=>$('co2').classList.add('show'),2900);
-    setTimeout(()=>$('co2').classList.remove('show'),4800);
+    setTimeout(()=>$('co1').classList.remove('show'),3100);
 
-    // 実画面上を訪問リングがゆっくり移動（実速度感）
-    placeRing(CX[1],R2);
-    setTimeout(()=>{ $('scanring').style.opacity='1'; },3400);
-    const slow=[[CX[1],R2],[CX[2],R2],[CX[3],R2],[CX[4],R2]];
-    slow.forEach((h,i)=>setTimeout(()=>placeRing(h[0],h[1]),3600+i*950));
+    // ② プロフィールを自動で開いて足あとを残す（実オーバーレイ live-visit へ）
+    setTimeout(()=>{ $('shotV').style.opacity='1'; },3300);
+    setTimeout(()=>$('co2').classList.add('show'),4000);
+    setTimeout(()=>$('co2').classList.remove('show'),7100);
+    setTimeout(()=>{ $('shotV').style.opacity='0'; },7300); // 閉じる → 次へ
 
-    // 「あとは、放置。」→ 高速スイープ
-    setTimeout(()=>{ $('zenpill').classList.add('show'); $('scanring').classList.add('fast'); },7300);
-    const hops=[[CX[0],R1],[CX[1],R1],[CX[2],R1],[CX[3],R1],[CX[4],R1],[CX[4],R2],[CX[3],R2],[CX[0],R2],[CX[2],R1],[CX[1],R2]];
-    hops.forEach((h,j)=>setTimeout(()=>placeRing(h[0],h[1]),7550+j*250));
-
-    // 訪問済み状態へ実際に切り替え（自動リロード演出）
-    setTimeout(()=>{ $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),280); },9250);
-    setTimeout(()=>{ $('shotC').style.opacity='1'; },9330);
+    // ③ 訪問済みは自動スキップ＋自動リロード（live-c へ）
+    setTimeout(()=>{ $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),260); },7900);
+    setTimeout(()=>{ $('shotC').style.opacity='1'; },7980);
+    setTimeout(()=>$('co3').classList.add('show'),8500);
+    setTimeout(()=>$('co3').classList.remove('show'),11300);
 
     // ドカンと数字
-    setTimeout(()=>{ $('zenpill').classList.remove('show'); },10750);
-    setTimeout(()=>{ $('scanring').style.opacity='0'; $('mega').classList.add('show'); },10950);
-    setTimeout(()=>{ $('mega').classList.remove('show'); },13900);
-  }]); t+=14400;
+    setTimeout(()=>{ $('mega').classList.add('show'); },11600);
+    setTimeout(()=>{ $('mega').classList.remove('show'); },14600);
+  }]); t+=15000;
 
   // S4: Rewards (5.6s)
   timeline.push([t,()=>{ showScene('s4');
@@ -369,11 +358,10 @@ function resetAll(){
   $('m9').style.transform='translateY(20px)';
   ['ms1','ms2','ms3','ms4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(36px) scale(0.92)';});
   ['ma1','ma2','ma3'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';});
-  ['co1','co2'].forEach(id=>$(id).classList.remove('show'));
-  $('zenpill').classList.remove('show');
+  ['co1','co2','co3'].forEach(id=>$(id)&&$(id).classList.remove('show'));
   $('mega').classList.remove('show');
-  $('scanring').style.opacity='0'; $('scanring').classList.remove('fast');
   $('reload-flash').classList.remove('show');
+  $('shotV')&&($('shotV').style.opacity='0');
   $('shotC')&&($('shotC').style.opacity='0');
   ['rn1','rn2','rn3','rn4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(26px) scale(0.94)';});
   $('r0').style.transform='translateY(30px)';
