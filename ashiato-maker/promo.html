@@ -134,19 +134,22 @@
   .fl-heart { position: absolute; font-size: 44px; opacity: 0; z-index: 1; animation: floatUp 3.2s ease-in infinite; }
   @keyframes floatUp { 0% { transform: translateY(60px) scale(0.8); opacity: 0; } 18% { opacity: 0.55; } 80% { opacity: 0.25; } 100% { transform: translateY(-320px) scale(1.15); opacity: 0; } }
 
-  /* ===== S5: Effortless ===== */
-  #s5 { background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%); flex-direction: column; gap: 64px; }
+  /* ===== S5: Feature showcase ===== */
+  #s5 { background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%); flex-direction: column; gap: 56px; }
   #s5::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0); background-size: 48px 48px; }
-  #s5 .zen-title { font-size: 92px; font-weight: 900; color: #fff; text-align: center; opacity: 0; transform: translateY(30px); position: relative; z-index: 1; letter-spacing: 1px; }
-  #s5 .zen-cards { display: flex; gap: 36px; position: relative; z-index: 1; }
-  .zen-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 26px; padding: 44px 56px; text-align: center; opacity: 0; transform: translateY(30px); width: 380px; }
-  .zen-card .zi { font-size: 80px; display: block; margin-bottom: 18px; }
-  .zen-card .zl { font-size: 34px; font-weight: 800; color: #fff; }
-  .zen-card .zs { font-size: 20px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+  #s5 .feat-head { text-align: center; opacity: 0; transform: translateY(30px); position: relative; z-index: 1; }
+  #s5 .feat-title { font-size: 78px; font-weight: 900; color: #fff; letter-spacing: 1px; }
+  #s5 .feat-sub { font-size: 44px; font-weight: 800; color: rgba(255,255,255,0.85); margin-top: 10px; }
+  #s5 .feat-grid { display: grid; grid-template-columns: repeat(3, 400px); gap: 30px; position: relative; z-index: 1; }
+  .feat-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 24px; padding: 38px 34px; text-align: left; opacity: 0; transform: translateY(34px) scale(0.95); box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+  .feat-card .fi { font-size: 60px; display: block; margin-bottom: 16px; }
+  .feat-card .ft { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+  .feat-card .fd { font-size: 21px; font-weight: 500; color: rgba(255,255,255,0.7); line-height: 1.6; }
 
   /* ===== S6: CTA ===== */
   #s6 { background: linear-gradient(160deg, #faf5ff 0%, #ede9fe 50%, #ddd6fe 100%); flex-direction: column; }
   #s6::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(30,27,75,0.06) 1px, transparent 0); background-size: 48px 48px; }
+  #s6 .cta-kicker { font-size: 46px; font-weight: 700; color: #64748b; text-align: center; opacity: 0; transform: translateY(24px); position: relative; z-index: 1; margin-bottom: 22px; }
   #s6 .cta-title { font-size: 96px; font-weight: 900; color: #1e1b4b; text-align: center; opacity: 0; transform: translateY(40px); line-height: 1.45; position: relative; z-index: 1; }
   #s6 .cta-btn { display: inline-flex; align-items: center; gap: 18px; background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; font-size: 40px; font-weight: 800; padding: 34px 80px; border-radius: 60px; border: none; box-shadow: 0 12px 44px rgba(102,126,234,0.45); opacity: 0; transform: translateY(20px); position: relative; z-index: 1; margin-top: 56px; }
   #s6 .cta-note { font-size: 30px; color: #475569; font-weight: 600; opacity: 0; position: relative; z-index: 1; margin-top: 32px; }
@@ -199,41 +202,17 @@
         <img class="ext-icon" src="icons/icon128.png" alt="">
       </div>
       <div class="browser-body">
-        <img class="real-shot" src="pairs-real.png" alt="Pairs 実画面">
+        <!-- 実際に拡張機能を動かしているPairs画面（写真はぼかし処理） -->
+        <img class="real-shot" id="shotB" src="live-b.png" alt="Pairs 実画面（自動訪問中）">
+        <img class="real-shot" id="shotC" src="live-c.png" alt="Pairs 実画面（訪問済）" style="opacity:0; transition:opacity 0.6s ease; z-index:2;">
 
         <div class="scan-ring" id="scanring"></div>
-        <div class="vbadge" id="vb1">&#128099; 足あと</div>
-        <div class="vbadge" id="vb2">&#128099; 足あと</div>
-        <div class="vbadge" id="vb3">&#128099; 足あと</div>
-
         <div class="reload-flash" id="reload-flash"></div>
 
-        <div class="panel-replica" id="e3panel">
-          <div class="panel-header"><img class="panel-icon" src="icons/icon128.png" alt=""><span class="panel-title">足あとメーカー</span><span class="panel-app-badge">Pairs</span><button class="panel-toggle">−</button></div>
-          <div class="panel-body">
-            <div class="panel-check"><input type="checkbox" checked><span class="p-inline-num">30</span><span>人ごとにリロード</span></div>
-            <div class="panel-row">
-              <div class="panel-setting"><label>最大訪問数</label><input type="text" value="999" readonly></div>
-              <div class="panel-setting"><label>待機秒数 <span style="color:#999;font-weight:400;">推奨2〜4</span></label><input type="text" value="2.5" readonly></div>
-            </div>
-            <button class="panel-btn panel-btn-start" id="panel-start">開始</button>
-            <button class="panel-btn panel-btn-stop" id="panel-stop">停止</button>
-            <div class="panel-stats">
-              <div class="panel-stat"><span class="panel-stat-label">進捗</span><span class="panel-stat-value" id="panel-progress">0 / 999</span></div>
-              <div class="panel-stat"><span class="panel-stat-label">リロードまで</span><span class="panel-stat-value" id="panel-reload">30人</span></div>
-              <div class="panel-stat"><span class="panel-stat-label">リロード数</span><span class="panel-stat-value" id="panel-reload-times">0回</span></div>
-              <button class="panel-reset">↺</button>
-            </div>
-            <a class="panel-contact" href="#">不具合報告・お問い合わせ</a>
-          </div>
-        </div>
+        <div class="callout" id="co1" style="bottom:250px;right:430px;"><div class="callout-title">&#128065; Pairsを開くだけ</div><div class="callout-desc">操作パネルが自動で表示されます</div><div class="callout-arrow arrow-right"></div></div>
+        <div class="callout" id="co2" style="bottom:150px;right:430px;"><div class="callout-title">&#9654;&#65039; ワンクリックで自動訪問</div><div class="callout-desc">あとは本物の画面上で勝手に進みます</div><div class="callout-arrow arrow-right"></div></div>
 
-        <div class="notif-toast" id="e3notif"><img class="notif-icon" src="icons/icon128.png" alt=""><span>自動訪問を開始しました</span></div>
-
-        <div class="callout" id="co1" style="bottom:230px;right:410px;"><div class="callout-title">&#128065; Pairsを開くとパネルが自動表示</div><div class="callout-desc">面倒な設定は不要です</div><div class="callout-arrow arrow-right"></div></div>
-        <div class="callout" id="co2" style="bottom:150px;right:410px;"><div class="callout-title">&#9654;&#65039; 押すのは、このボタンだけ。</div><div class="callout-arrow arrow-right"></div></div>
-
-        <div class="zen-pill" id="zenpill">あとは、放置。</div>
+        <div class="zen-pill" id="zenpill">あとは、放置するだけ。</div>
 
         <div class="mega-overlay" id="mega">
           <div class="mega-card">
@@ -255,7 +234,7 @@
   <span class="fl-heart" style="left:88%; top:82%; animation-delay:1.6s;">&#128156;</span>
   <span class="fl-heart" style="left:8%; top:40%; animation-delay:2.2s;">&#128156;</span>
   <span class="fl-heart" style="left:90%; top:45%; animation-delay:2.7s;">&#128149;</span>
-  <div class="rw-title" id="r0">足あとに気づいた相手が、<br><span class="accent-grad-dark">あなたに会いに来る。</span></div>
+  <div class="rw-title" id="r0">足あとを残した分だけ、<br><span class="accent-grad-dark">&#8221;いいね&#8221;は返ってくる。</span></div>
   <div class="notif-stack">
     <div class="rw-notif" id="rn1"><div class="rw-ic foot">&#128099;</div><div class="rw-tx"><div class="rw-t1">あなたに足あとがつきました</div><div class="rw-t2">たった今</div></div><div class="rw-app">Pairs</div></div>
     <div class="rw-notif" id="rn2"><div class="rw-ic heart">&#128149;</div><div class="rw-tx"><div class="rw-t1">いいね！が届きました</div><div class="rw-t2">1分前</div></div><div class="rw-app">Pairs</div></div>
@@ -264,19 +243,26 @@
   </div>
 </div>
 
-<!-- S5: Effortless -->
+<!-- S5: Feature showcase -->
 <div class="scene" id="s5">
-  <div class="zen-title" id="z0">あなたは、何もしなくていい。</div>
-  <div class="zen-cards">
-    <div class="zen-card" id="zc1"><span class="zi">&#9654;&#65039;</span><span class="zl">ボタン1つで開始</span><div class="zs">登録・ログイン不要</div></div>
-    <div class="zen-card" id="zc2"><span class="zi">&#9749;</span><span class="zl">放置でOK</span><div class="zs">自動で訪問し続けます</div></div>
-    <div class="zen-card" id="zc3"><span class="zi">&#127873;</span><span class="zl">完全無料</span><div class="zs">課金要素はありません</div></div>
+  <div class="feat-head" id="fh">
+    <div class="feat-title">機能は、ぜんぶ入り。</div>
+    <div class="feat-sub">しかも、ずっと<span class="accent-grad">無料</span>。</div>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card" id="fc1"><span class="fi">&#128260;</span><div class="ft">無限ループモード</div><div class="fd">指定人数ごとに自動リロードして、新しいお相手を訪問し続ける</div></div>
+    <div class="feat-card" id="fc2"><span class="fi">&#128293;</span><div class="ft">自動いいね・自動スワイプ</div><div class="fd">TinderはLIKEを自動送信。東カレは訪問と同時にいいねも</div></div>
+    <div class="feat-card" id="fc3"><span class="fi">&#9201;&#65039;</span><div class="ft">訪問ペースを調整</div><div class="fd">待機秒数を変えて自然な動作に。検知リスクを抑える</div></div>
+    <div class="feat-card" id="fc4"><span class="fi">&#128203;</span><div class="ft">重複を自動スキップ</div><div class="fd">訪問済みは記録され、同じ人に二度足あとを付けない</div></div>
+    <div class="feat-card" id="fc5"><span class="fi">&#128274;</span><div class="ft">完全ローカル保存</div><div class="fd">データは端末内だけ。外部サーバーへの送信はゼロ</div></div>
+    <div class="feat-card" id="fc6"><span class="fi">&#129513;</span><div class="ft">4アプリ対応＋カスタム</div><div class="fd">Pairs / with / 東カレ / Tinder。他サイトも設定で対応</div></div>
   </div>
 </div>
 
 <!-- S6: CTA -->
 <div class="scene" id="s6">
   <div style="display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;">
+    <div class="cta-kicker" id="ck">あなたは、ボタンを押すだけ。</div>
     <div class="cta-title" id="c0">今日から、<br><span class="accent-grad-dark">&#8221;気づかれる側&#8221;</span> へ。</div>
     <div class="cta-btn" id="c1"><svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Chromeに追加 &#8212; 無料</div>
     <div class="cta-apps" id="c2">
@@ -301,16 +287,6 @@ const CX = [692, 897, 1102, 1307, 1512];
 const R1 = 268, R2 = 585;
 function placeRing(cx, top){ $('scanring').style.left=(cx-107)+'px'; $('scanring').style.top=top+'px'; }
 
-let prog = 0, reloadLeft = 30;
-function setProg(p){
-  prog = p;
-  const el = $('panel-progress');
-  el.textContent = prog + ' / 999';
-  el.classList.remove('pulse'); void el.offsetWidth; el.classList.add('pulse');
-  reloadLeft = 30 - (prog % 30);
-  $('panel-reload').textContent = (reloadLeft===30&&prog>0?30:reloadLeft) + '人';
-}
-
 function buildTimeline(){
   timeline=[]; let t=0;
 
@@ -329,98 +305,81 @@ function buildTimeline(){
     setTimeout(()=>anim('m9',{opacity:1,transform:'translateY(0)'},500),3700);
   }]); t+=6000;
 
-  // S3: Real demo (14.4s)
+  // S3: Real demo — 実際に拡張が動いているPairs画面 (14.4s)
   timeline.push([t,()=>{ showScene('s3');
-    setTimeout(()=>{ anim('e3panel',{opacity:1,transform:'translateY(0)'}); $('e3panel').classList.add('highlight-ring'); },300);
-    setTimeout(()=>$('co1').classList.add('show'),650);
-    setTimeout(()=>$('co1').classList.remove('show'),2100);
-    setTimeout(()=>$('co2').classList.add('show'),2200);
-    setTimeout(()=>{ $('co2').classList.remove('show');
-      $('panel-start').style.display='none'; $('panel-stop').style.display='block';
-      $('e3panel').classList.remove('highlight-ring');
-    },3200);
-    setTimeout(()=>anim('e3notif',{opacity:1,transform:'translateY(0)'}),3350);
-    setTimeout(()=>anim('e3notif',{opacity:0}),4600);
+    // 稼働中の実パネルを指すコールアウト
+    setTimeout(()=>$('co1').classList.add('show'),700);
+    setTimeout(()=>$('co1').classList.remove('show'),2700);
+    setTimeout(()=>$('co2').classList.add('show'),2900);
+    setTimeout(()=>$('co2').classList.remove('show'),4800);
 
-    // ゆっくり3人訪問（実速度感）
-    placeRing(CX[0],R2);
-    setTimeout(()=>{ $('scanring').style.opacity='1'; },3500);
-    const vb=['vb1','vb2','vb3'];
-    for(let i=0;i<3;i++){
-      const base=3600+i*1350;
-      setTimeout(()=>placeRing(CX[i],R2),base);
-      setTimeout(()=>{
-        $(vb[i]).style.left=(CX[i]-52)+'px'; $(vb[i]).style.top=(R2+96)+'px'; $(vb[i]).classList.add('show');
-        setProg(prog+1);
-      },base+950);
-    }
+    // 実画面上を訪問リングがゆっくり移動（実速度感）
+    placeRing(CX[1],R2);
+    setTimeout(()=>{ $('scanring').style.opacity='1'; },3400);
+    const slow=[[CX[1],R2],[CX[2],R2],[CX[3],R2],[CX[4],R2]];
+    slow.forEach((h,i)=>setTimeout(()=>placeRing(h[0],h[1]),3600+i*950));
 
     // 「あとは、放置。」→ 高速スイープ
-    setTimeout(()=>{ $('zenpill').classList.add('show'); $('scanring').classList.add('fast'); },7700);
-    const hops=[[CX[0],R1],[CX[1],R1],[CX[2],R1],[CX[3],R1],[CX[4],R1],[CX[2],R2],[CX[1],R2],[CX[0],R2],[CX[1],R1],[CX[3],R1]];
-    hops.forEach((h,j)=>{
-      setTimeout(()=>{ placeRing(h[0],h[1]); setProg(prog+2); },7950+j*260);
-    });
-    // 途中で自動リロード演出
-    setTimeout(()=>{ $('reload-flash').classList.add('show');
-      setTimeout(()=>$('reload-flash').classList.remove('show'),280);
-      $('panel-reload-times').textContent='1回';
-      ['vb1','vb2','vb3'].forEach(id=>$(id).classList.remove('show'));
-    },9250);
+    setTimeout(()=>{ $('zenpill').classList.add('show'); $('scanring').classList.add('fast'); },7300);
+    const hops=[[CX[0],R1],[CX[1],R1],[CX[2],R1],[CX[3],R1],[CX[4],R1],[CX[4],R2],[CX[3],R2],[CX[0],R2],[CX[2],R1],[CX[1],R2]];
+    hops.forEach((h,j)=>setTimeout(()=>placeRing(h[0],h[1]),7550+j*250));
+
+    // 訪問済み状態へ実際に切り替え（自動リロード演出）
+    setTimeout(()=>{ $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),280); },9250);
+    setTimeout(()=>{ $('shotC').style.opacity='1'; },9330);
 
     // ドカンと数字
     setTimeout(()=>{ $('zenpill').classList.remove('show'); },10750);
-    setTimeout(()=>{ $('mega').classList.add('show'); },10950);
-    setTimeout(()=>{ $('mega').classList.remove('show'); $('scanring').style.opacity='0'; },13900);
+    setTimeout(()=>{ $('scanring').style.opacity='0'; $('mega').classList.add('show'); },10950);
+    setTimeout(()=>{ $('mega').classList.remove('show'); },13900);
   }]); t+=14400;
 
-  // S4: Rewards (5.8s)
+  // S4: Rewards (5.6s)
   timeline.push([t,()=>{ showScene('s4');
     setTimeout(()=>anim('r0',{opacity:1,transform:'translateY(0)'},550),250);
     ['rn1','rn2','rn3','rn4'].forEach((id,i)=>{
-      setTimeout(()=>anim(id,{opacity:1,transform:'translateY(0) scale(1)'},480),900+i*620);
+      setTimeout(()=>anim(id,{opacity:1,transform:'translateY(0) scale(1)'},480),900+i*560);
     });
-  }]); t+=5800;
+  }]); t+=5600;
 
-  // S5: Effortless (4.2s)
+  // S5: Feature showcase (6.4s)
   timeline.push([t,()=>{ showScene('s5');
-    setTimeout(()=>anim('z0',{opacity:1,transform:'translateY(0)'},550),250);
-    ['zc1','zc2','zc3'].forEach((id,i)=>setTimeout(()=>anim(id,{opacity:1,transform:'translateY(0)'},450),1000+i*280));
-  }]); t+=4200;
+    setTimeout(()=>anim('fh',{opacity:1,transform:'translateY(0)'},550),200);
+    ['fc1','fc2','fc3','fc4','fc5','fc6'].forEach((id,i)=>{
+      setTimeout(()=>anim(id,{opacity:1,transform:'translateY(0) scale(1)'},470),900+i*260);
+    });
+  }]); t+=6400;
 
-  // S6: CTA
+  // S6: CTA (5s)
   timeline.push([t,()=>{ showScene('s6');
-    setTimeout(()=>anim('c0',{opacity:1,transform:'translateY(0)'},550),250);
-    setTimeout(()=>anim('c1',{opacity:1,transform:'translateY(0)'},500),1100);
-    setTimeout(()=>anim('c2',{opacity:1},500),1500);
-    setTimeout(()=>anim('c3',{opacity:1},500),1900);
+    setTimeout(()=>anim('ck',{opacity:1,transform:'translateY(0)'},500),200);
+    setTimeout(()=>anim('c0',{opacity:1,transform:'translateY(0)'},550),800);
+    setTimeout(()=>anim('c1',{opacity:1,transform:'translateY(0)'},500),1600);
+    setTimeout(()=>anim('c2',{opacity:1},500),2000);
+    setTimeout(()=>anim('c3',{opacity:1},500),2400);
   }]);
 }
 
 function resetAll(){
   clearTimeout(timer);
-  ['h1','h2','h3','m0','m9','r0','z0','c0','c1','c2','c3'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';}});
+  ['h1','h2','h3','m0','m9','r0','fh','ck','c0','c1','c2','c3'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';}});
   ['h1','h2'].forEach(id=>{$(id).style.transform='translateY(30px)';});
   $('h3').style.transform='translateY(26px)';
   $('m0').style.transform='translateY(30px)';
   $('m9').style.transform='translateY(20px)';
   ['ms1','ms2','ms3','ms4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(36px) scale(0.92)';});
   ['ma1','ma2','ma3'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';});
-  $('e3panel')&&Object.assign($('e3panel').style,{transition:'none',opacity:'0',transform:'translateY(20px)'});
-  $('e3panel')&&$('e3panel').classList.remove('highlight-ring');
-  $('e3notif')&&Object.assign($('e3notif').style,{transition:'none',opacity:'0',transform:'translateY(-10px)'});
   ['co1','co2'].forEach(id=>$(id).classList.remove('show'));
   $('zenpill').classList.remove('show');
   $('mega').classList.remove('show');
   $('scanring').style.opacity='0'; $('scanring').classList.remove('fast');
-  ['vb1','vb2','vb3'].forEach(id=>$(id).classList.remove('show'));
   $('reload-flash').classList.remove('show');
-  $('panel-start').style.display='block'; $('panel-stop').style.display='none';
-  prog=0; $('panel-progress').textContent='0 / 999'; $('panel-reload').textContent='30人'; $('panel-reload-times').textContent='0回';
+  $('shotC')&&($('shotC').style.opacity='0');
   ['rn1','rn2','rn3','rn4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(26px) scale(0.94)';});
   $('r0').style.transform='translateY(30px)';
-  ['zc1','zc2','zc3'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(30px)';});
-  $('z0').style.transform='translateY(30px)';
+  ['fc1','fc2','fc3','fc4','fc5','fc6'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(34px) scale(0.95)';});
+  $('fh').style.transform='translateY(30px)';
+  $('ck').style.transform='translateY(24px)';
   $('c0').style.transform='translateY(40px)';
   $('c1').style.transform='translateY(20px)';
 }

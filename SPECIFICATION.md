@@ -14,8 +14,9 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/images/<lang>/` | ストア画像(翻訳版) | - | no | `store-image-{1..5}.png`(1280x800) + `store-tile-marquee.png`(1400x560) × 10言語。生成元は拡張リポジトリ FormPilot の `store-image-*.html` + `store-i18n.js`(`?lang=` 指定・ar はRTL)。en は `/formpilot/` 直下 |
 | `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは**実際のPairs画面のキャプチャ**(`pairs-real.png`)＋日本語パネルレプリカ重ね。写真は実会員のため実写真にブラー(blur 9px)をかけた上で撮影 |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
-| `/ashiato-maker/pairs-real.png` | 画像 | - | no | 実際のPairs検索画面キャプチャ(2400x1500)。会員写真は実写真ぼかし処理。LP・promo両方の背景に使用 |
-| `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用。感情訴求型の6シーン構成（フック「気づかれていないだけ」→足あとの仕組み→実Pairs画面デモ(高速スイープ+「1時間に100人以上」)→足あと返し/いいね通知→「何もしなくていい」→CTA「気づかれる側へ」）・約38秒。実Pairs画面は`pairs-real.png` |
+| `/ashiato-maker/pairs-real.png` | 画像 | - | no | 実際のPairs検索画面キャプチャ(2400x1500)。会員写真は実写真ぼかし処理。LPのデモ画像に使用 |
+| `/ashiato-maker/live-b.png` `live-c.png` | 画像 | - | no | **拡張機能を実際に稼働させた**Pairs画面キャプチャ(2400x1500)。実パネル(日本語化/停止ボタン/進捗)・訪問中バッジ・通知トースト・訪問済マーク入り。写真は実写真ぼかし。promoのデモシーン背景(b=稼働中→c=訪問済へクロスフェード) |
+| `/ashiato-maker/promo.html` | 動画用 | noindex | no | 録画専用。6シーン構成（フック「気づかれていないだけ」→足あとの仕組み→**実稼働画面デモ**(`live-b/c.png`+訪問リング+「1時間に100人以上」)→「足あとを残した分だけいいねは返ってくる」→**機能6グリッド「機能は、ぜんぶ入り。しかも、ずっと無料。」**→CTA「あなたは、ボタンを押すだけ。今日から気づかれる側へ」）・約42.5秒 |
 | `/lovent/` | LP | index | yes | Android |
 | `/lovent/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/lovent/promo.html` | 動画用 | noindex | no | 録画専用 |
