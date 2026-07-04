@@ -214,19 +214,21 @@
         <img class="ext-icon" src="icons/icon128.png" alt="">
       </div>
       <div class="browser-body">
-        <!-- 実際に拡張機能を動かしているPairs画面（写真はぼかし処理） -->
+        <!-- 実際に拡張機能を動かしているPairs画面（写真はぼかし処理）。連続=別々の新しい会員 -->
         <img class="real-shot" id="shotB" src="live-b.png" alt="Pairs 実画面（自動訪問中）">
-        <img class="real-shot" id="shotV" src="live-visit.png" alt="プロフィールを開いて足あとを残す" style="opacity:0; z-index:2;">
-        <img class="real-shot" id="shotF" src="live-full.png" alt="Pairs 実画面（1画面まるごと訪問済み）" style="opacity:0; transition:opacity 0.5s ease; z-index:3;">
+        <img class="real-shot" id="shotSeq" src="live-seq-1.png" alt="新しい会員を次々に自動訪問" style="opacity:0; z-index:2;">
+        <img class="real-shot" id="shotV" src="live-visit.png" alt="プロフィールを開いて足あとを残す" style="opacity:0; z-index:3;">
+        <img class="real-shot" id="shotF" src="live-full.png" alt="Pairs 実画面（1画面まるごと訪問済み）" style="opacity:0; transition:opacity 0.5s ease; z-index:4;">
+        <div style="position:absolute; width:0; height:0; overflow:hidden;">
+          <img src="live-seq-2.png"><img src="live-seq-3.png"><img src="live-seq-4.png"><img src="live-seq-5.png"><img src="live-seq-6.png">
+        </div>
 
         <div class="reload-flash" id="reload-flash"></div>
         <div class="fp-layer" id="fplayer"></div>
 
-        <div class="fp-counter" id="fpcount"><span class="fpc-ico">&#128099;</span><span class="fpc-num" id="fpcnum">0</span><span class="fpc-unit">人に足あと</span></div>
-
         <div class="callout" id="co1" style="bottom:250px;right:430px;"><div class="callout-title">&#9654;&#65039; 「開始」を押すだけ</div><div class="callout-desc">登録も面倒な設定もいりません</div><div class="callout-arrow arrow-right"></div></div>
-        <div class="callout" id="co2" style="bottom:150px;left:110px;"><div class="callout-title">&#128099; プロフィールを次々に開いて<br>足あとを連打</div><div class="callout-desc">本物の画面で、1件ずつ確実に</div></div>
-        <div class="callout" id="co3" style="top:120px;left:50%;transform:translateX(-50%);"><div class="callout-title">&#128293; 1画面まるごと、足あと完了</div><div class="callout-desc">訪問済みは自動スキップ＋無限リロードで回り続ける</div></div>
+        <div class="callout" id="co2" style="bottom:150px;left:110px;"><div class="callout-title">&#128099; 新しい会員だけに、次々と足あと</div><div class="callout-desc">訪問済みは自動でスキップ。同じ人に重複しません</div></div>
+        <div class="callout" id="co3" style="top:120px;left:50%;transform:translateX(-50%);"><div class="callout-title">&#128293; 1画面まるごと、足あと完了</div><div class="callout-desc">無限リロードで新しいお相手を回り続ける</div></div>
 
         <div class="mega-overlay" id="mega">
           <div class="mega-card">
@@ -314,38 +316,44 @@ function buildTimeline(){
     setTimeout(()=>anim('m9',{opacity:1,transform:'translateY(0)'},500),3700);
   }]); t+=6000;
 
-  // S3: Real demo — 実際に拡張がプロフィールを開いて足あとをバンバン連打 (15s)
+  // S3: Real demo — 拡張が新しい会員を次々に訪問して足あとを付けていく実連続 (15s)
   timeline.push([t,()=>{ showScene('s3');
     // ① 開始を押すだけ（稼働中グリッド live-b）
     setTimeout(()=>$('co1').classList.add('show'),700);
-    setTimeout(()=>$('co1').classList.remove('show'),2900);
+    setTimeout(()=>$('co1').classList.remove('show'),2800);
 
-    // ② バンバン足あと montage: プロフィールを高速で開いて足あと連打
-    $('shotV').style.transition='opacity 0.16s ease';
-    setTimeout(()=>$('shotV').style.opacity='1',3100);
-    // 開く⇄次へ を高速フラッシュ（実オーバーレイ live-visit）
-    [[3900,'0'],[4200,'1'],[4900,'0'],[5200,'1'],[5900,'0'],[6200,'1'],[6900,'0'],[7200,'1']].forEach(([ti,op])=>setTimeout(()=>$('shotV').style.opacity=op,ti));
-    setTimeout(()=>$('co2').classList.add('show'),3500);
-    setTimeout(()=>$('co2').classList.remove('show'),7500);
+    // ② 実キャプチャの高速連続: 別々の会員に訪問中バッジが移り、訪問済が増えていく
+    const seq=['live-seq-1.png','live-seq-2.png','live-seq-3.png','live-seq-4.png','live-seq-5.png','live-seq-6.png'];
+    setTimeout(()=>{ $('shotSeq').style.opacity='1'; $('shotSeq').src=seq[0]; },3000);
+    setTimeout(()=>$('shotSeq').src=seq[1],3550);
+    // 実際にプロフィールを開いて足あとを残す瞬間（live-visit）を差し込む
+    setTimeout(()=>$('shotV').style.opacity='1',4050);
+    setTimeout(()=>$('shotV').style.opacity='0',4600);
+    setTimeout(()=>$('shotSeq').src=seq[2],4650);
+    setTimeout(()=>$('shotSeq').src=seq[3],5200);
+    setTimeout(()=>$('shotSeq').src=seq[4],5750);
+    setTimeout(()=>$('shotV').style.opacity='1',6250);
+    setTimeout(()=>$('shotV').style.opacity='0',6800);
+    setTimeout(()=>$('shotSeq').src=seq[5],6850);
+    setTimeout(()=>$('shotSeq').src=seq[3],7350);
+    setTimeout(()=>$('shotSeq').src=seq[5],7750);
 
-    // カウンター爆速climb
-    setTimeout(()=>$('fpcount').classList.add('show'),3200);
-    const climb=[[3300,3],[3800,9],[4300,17],[4900,28],[5500,41],[6100,57],[6700,74],[7300,93],[7800,116]];
-    climb.forEach(([ti,v])=>setTimeout(()=>{ $('fpcnum').textContent=v; $('fpcnum').style.transform='scale(1.18)'; setTimeout(()=>$('fpcnum').style.transform='scale(1)',110); },ti));
+    setTimeout(()=>$('co2').classList.add('show'),3300);
+    setTimeout(()=>$('co2').classList.remove('show'),7600);
 
-    // 足あとスタンプをバンバン
-    const pos=[[14,30],[30,54],[46,26],[61,58],[22,70],[53,40],[38,74],[66,34],[18,46],[49,64],[33,36],[58,72]];
+    // 足あとスタンプをバンバン（実際に足あとを付けている演出）
+    const pos=[[16,32],[34,56],[50,26],[64,58],[24,70],[44,42],[58,72],[30,38],[52,64]];
     const stamps=pos.map(([x,y])=>{ const s=document.createElement('span'); s.className='fp-stamp'; s.textContent='👣'; s.style.left=x+'%'; s.style.top=y+'%'; $('fplayer').appendChild(s); return s; });
-    stamps.forEach((s,i)=>setTimeout(()=>{ s.classList.remove('pop'); void s.offsetWidth; s.classList.add('pop'); },3500+i*370));
+    stamps.forEach((s,i)=>setTimeout(()=>{ s.classList.remove('pop'); void s.offsetWidth; s.classList.add('pop'); },3500+i*480));
 
     // ③ 1画面まるごと訪問済み（live-full） → 締め
-    setTimeout(()=>{ $('shotV').style.opacity='0'; $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),240); },8000);
-    setTimeout(()=>{ $('shotF').style.opacity='1'; },8100);
-    setTimeout(()=>$('co3').classList.add('show'),8500);
+    setTimeout(()=>{ $('shotV').style.opacity='0'; $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),240); },8100);
+    setTimeout(()=>{ $('shotF').style.opacity='1'; },8200);
+    setTimeout(()=>$('co3').classList.add('show'),8600);
     setTimeout(()=>$('co3').classList.remove('show'),11200);
 
     // ドカンと数字
-    setTimeout(()=>{ $('fpcount').classList.remove('show'); $('mega').classList.add('show'); },11500);
+    setTimeout(()=>{ $('mega').classList.add('show'); },11500);
     setTimeout(()=>{ $('mega').classList.remove('show'); },14600);
   }]); t+=15000;
 
@@ -389,7 +397,7 @@ function resetAll(){
   $('reload-flash').classList.remove('show');
   $('shotV')&&($('shotV').style.opacity='0');
   $('shotF')&&($('shotF').style.opacity='0');
-  if($('fpcount')){ $('fpcount').classList.remove('show'); $('fpcnum').textContent='0'; }
+  if($('shotSeq')){ $('shotSeq').style.opacity='0'; $('shotSeq').src='live-seq-1.png'; }
   if($('fplayer')){ $('fplayer').innerHTML=''; }
   ['rn1','rn2','rn3','rn4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(26px) scale(0.94)';});
   $('r0').style.transform='translateY(30px)';
