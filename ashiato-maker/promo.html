@@ -67,6 +67,17 @@
   .reload-flash { position: absolute; inset: 0; background: #fff; z-index: 20; opacity: 0; pointer-events: none; transition: opacity 0.15s; }
   .reload-flash.show { opacity: 1; }
 
+  /* バンバン足あと: カウンター＋足あとスタンプ */
+  .fp-layer { position: absolute; inset: 0; z-index: 38; pointer-events: none; }
+  .fp-stamp { position: absolute; font-size: 66px; opacity: 0; transform: scale(0.3) rotate(-18deg); filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35)); }
+  .fp-stamp.pop { animation: fp-pop 0.75s ease-out forwards; }
+  @keyframes fp-pop { 0% { opacity:0; transform: scale(0.3) rotate(-22deg); } 28% { opacity:1; transform: scale(1.25) rotate(-8deg); } 100% { opacity:0; transform: scale(1.05) rotate(-6deg); } }
+  .fp-counter { position: absolute; top: 78px; left: 50%; transform: translateX(-50%) scale(0.8); background: linear-gradient(135deg,#667eea,#764ba2); color: #fff; padding: 16px 44px; border-radius: 56px; box-shadow: 0 12px 44px rgba(102,126,234,0.55); z-index: 41; opacity: 0; transition: opacity 0.3s, transform 0.3s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: flex-end; gap: 14px; }
+  .fp-counter.show { opacity: 1; transform: translateX(-50%) scale(1); }
+  .fp-counter .fpc-ico { font-size: 46px; line-height: 1; }
+  .fp-counter .fpc-num { font-size: 82px; font-weight: 900; line-height: 0.9; letter-spacing: -2px; transition: transform 0.12s; }
+  .fp-counter .fpc-unit { font-size: 30px; font-weight: 800; margin-bottom: 8px; }
+
   .panel-replica { position: absolute; bottom: 32px; right: 32px; width: 360px; background: #fff; border-radius: 14px; box-shadow: 0 6px 32px rgba(0,0,0,0.28); z-index: 25; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; color: #333; overflow: hidden; opacity: 0; transform: translateY(20px); }
   .panel-header { display: flex; align-items: center; padding: 11px 15px; background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); color: #fff; gap: 7px; }
   .panel-header .panel-icon { width: 26px; height: 26px; border-radius: 6px; }
@@ -205,14 +216,17 @@
       <div class="browser-body">
         <!-- 実際に拡張機能を動かしているPairs画面（写真はぼかし処理） -->
         <img class="real-shot" id="shotB" src="live-b.png" alt="Pairs 実画面（自動訪問中）">
-        <img class="real-shot" id="shotV" src="live-visit.png" alt="プロフィールを開いて足あとを残す" style="opacity:0; transition:opacity 0.5s ease; z-index:2;">
-        <img class="real-shot" id="shotC" src="live-c.png" alt="Pairs 実画面（訪問済）" style="opacity:0; transition:opacity 0.5s ease; z-index:3;">
+        <img class="real-shot" id="shotV" src="live-visit.png" alt="プロフィールを開いて足あとを残す" style="opacity:0; z-index:2;">
+        <img class="real-shot" id="shotF" src="live-full.png" alt="Pairs 実画面（1画面まるごと訪問済み）" style="opacity:0; transition:opacity 0.5s ease; z-index:3;">
 
         <div class="reload-flash" id="reload-flash"></div>
+        <div class="fp-layer" id="fplayer"></div>
+
+        <div class="fp-counter" id="fpcount"><span class="fpc-ico">&#128099;</span><span class="fpc-num" id="fpcnum">0</span><span class="fpc-unit">人に足あと</span></div>
 
         <div class="callout" id="co1" style="bottom:250px;right:430px;"><div class="callout-title">&#9654;&#65039; 「開始」を押すだけ</div><div class="callout-desc">登録も面倒な設定もいりません</div><div class="callout-arrow arrow-right"></div></div>
-        <div class="callout" id="co2" style="top:120px;left:700px;"><div class="callout-title">&#128099; プロフィールを自動で開いて<br>足あとを残す</div><div class="callout-desc">本物の画面で1件ずつ確実に</div><div class="callout-arrow arrow-down"></div></div>
-        <div class="callout" id="co3" style="bottom:250px;right:430px;"><div class="callout-title">&#128260; 訪問済みは自動スキップ</div><div class="callout-desc">無限リロードで新しいお相手を回り続ける</div><div class="callout-arrow arrow-right"></div></div>
+        <div class="callout" id="co2" style="bottom:150px;left:110px;"><div class="callout-title">&#128099; プロフィールを次々に開いて<br>足あとを連打</div><div class="callout-desc">本物の画面で、1件ずつ確実に</div></div>
+        <div class="callout" id="co3" style="top:120px;left:50%;transform:translateX(-50%);"><div class="callout-title">&#128293; 1画面まるごと、足あと完了</div><div class="callout-desc">訪問済みは自動スキップ＋無限リロードで回り続ける</div></div>
 
         <div class="mega-overlay" id="mega">
           <div class="mega-card">
@@ -300,26 +314,38 @@ function buildTimeline(){
     setTimeout(()=>anim('m9',{opacity:1,transform:'translateY(0)'},500),3700);
   }]); t+=6000;
 
-  // S3: Real demo — 実際に拡張が動き、プロフィールを開いて足あとを残す (15s)
+  // S3: Real demo — 実際に拡張がプロフィールを開いて足あとをバンバン連打 (15s)
   timeline.push([t,()=>{ showScene('s3');
     // ① 開始を押すだけ（稼働中グリッド live-b）
     setTimeout(()=>$('co1').classList.add('show'),700);
-    setTimeout(()=>$('co1').classList.remove('show'),3100);
+    setTimeout(()=>$('co1').classList.remove('show'),2900);
 
-    // ② プロフィールを自動で開いて足あとを残す（実オーバーレイ live-visit へ）
-    setTimeout(()=>{ $('shotV').style.opacity='1'; },3300);
-    setTimeout(()=>$('co2').classList.add('show'),4000);
-    setTimeout(()=>$('co2').classList.remove('show'),7100);
-    setTimeout(()=>{ $('shotV').style.opacity='0'; },7300); // 閉じる → 次へ
+    // ② バンバン足あと montage: プロフィールを高速で開いて足あと連打
+    $('shotV').style.transition='opacity 0.16s ease';
+    setTimeout(()=>$('shotV').style.opacity='1',3100);
+    // 開く⇄次へ を高速フラッシュ（実オーバーレイ live-visit）
+    [[3900,'0'],[4200,'1'],[4900,'0'],[5200,'1'],[5900,'0'],[6200,'1'],[6900,'0'],[7200,'1']].forEach(([ti,op])=>setTimeout(()=>$('shotV').style.opacity=op,ti));
+    setTimeout(()=>$('co2').classList.add('show'),3500);
+    setTimeout(()=>$('co2').classList.remove('show'),7500);
 
-    // ③ 訪問済みは自動スキップ＋自動リロード（live-c へ）
-    setTimeout(()=>{ $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),260); },7900);
-    setTimeout(()=>{ $('shotC').style.opacity='1'; },7980);
+    // カウンター爆速climb
+    setTimeout(()=>$('fpcount').classList.add('show'),3200);
+    const climb=[[3300,3],[3800,9],[4300,17],[4900,28],[5500,41],[6100,57],[6700,74],[7300,93],[7800,116]];
+    climb.forEach(([ti,v])=>setTimeout(()=>{ $('fpcnum').textContent=v; $('fpcnum').style.transform='scale(1.18)'; setTimeout(()=>$('fpcnum').style.transform='scale(1)',110); },ti));
+
+    // 足あとスタンプをバンバン
+    const pos=[[14,30],[30,54],[46,26],[61,58],[22,70],[53,40],[38,74],[66,34],[18,46],[49,64],[33,36],[58,72]];
+    const stamps=pos.map(([x,y])=>{ const s=document.createElement('span'); s.className='fp-stamp'; s.textContent='👣'; s.style.left=x+'%'; s.style.top=y+'%'; $('fplayer').appendChild(s); return s; });
+    stamps.forEach((s,i)=>setTimeout(()=>{ s.classList.remove('pop'); void s.offsetWidth; s.classList.add('pop'); },3500+i*370));
+
+    // ③ 1画面まるごと訪問済み（live-full） → 締め
+    setTimeout(()=>{ $('shotV').style.opacity='0'; $('reload-flash').classList.add('show'); setTimeout(()=>$('reload-flash').classList.remove('show'),240); },8000);
+    setTimeout(()=>{ $('shotF').style.opacity='1'; },8100);
     setTimeout(()=>$('co3').classList.add('show'),8500);
-    setTimeout(()=>$('co3').classList.remove('show'),11300);
+    setTimeout(()=>$('co3').classList.remove('show'),11200);
 
     // ドカンと数字
-    setTimeout(()=>{ $('mega').classList.add('show'); },11600);
+    setTimeout(()=>{ $('fpcount').classList.remove('show'); $('mega').classList.add('show'); },11500);
     setTimeout(()=>{ $('mega').classList.remove('show'); },14600);
   }]); t+=15000;
 
@@ -358,11 +384,13 @@ function resetAll(){
   $('m9').style.transform='translateY(20px)';
   ['ms1','ms2','ms3','ms4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(36px) scale(0.92)';});
   ['ma1','ma2','ma3'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';});
-  ['co1','co2','co3'].forEach(id=>$(id)&&$(id).classList.remove('show'));
+  ['co1','co2','co3'].forEach(id=>{const el=$(id);if(el){el.classList.remove('show');}});
   $('mega').classList.remove('show');
   $('reload-flash').classList.remove('show');
   $('shotV')&&($('shotV').style.opacity='0');
-  $('shotC')&&($('shotC').style.opacity='0');
+  $('shotF')&&($('shotF').style.opacity='0');
+  if($('fpcount')){ $('fpcount').classList.remove('show'); $('fpcnum').textContent='0'; }
+  if($('fplayer')){ $('fplayer').innerHTML=''; }
   ['rn1','rn2','rn3','rn4'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(26px) scale(0.94)';});
   $('r0').style.transform='translateY(30px)';
   ['fc1','fc2','fc3','fc4','fc5','fc6'].forEach(id=>{const el=$(id);el.style.transition='none';el.style.opacity='0';el.style.transform='translateY(34px) scale(0.95)';});
