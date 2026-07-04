@@ -19,6 +19,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/ashiato-maker/promo.html` | 動画用 | noindex | no | （旧方式・録画専用）現行の `promo.webm` はこのHTML録画ではなく**ffmpeg合成方式**で生成（下記promo.webm欄参照） |
 | `/ashiato-maker/promo.webm` `promo.mp4` | 動画 | - | no | **ライトモード・6シーン合成**（イントロ→課題提起+4ステップ→**実稼働デモ13秒×1.3倍スロー**[コールアウト6個: 開始ボタン/訪問中…巡回/✓訪問済スキップ/最大訪問数・ディレイ/自動リロード無限ループ/進捗100人+]→比較「その"ポチポチ"、今日で終わり。」→機能6グリッド→CTA）約34秒・VP9/H.264。生成法: シーン別HTML(Puppeteer PNG)+gdigrab実写録画を ffmpeg overlay/concat/per-scene setpts で合成（デモ以外は高速テンポ）。会員写真10px・名前9pxぼかし |
 | `/ashiato-maker/store-image-{1..5}.png` | ストア画像 | - | no | 1280x800ネイティブのライトモード専用デザイン（動画フレーム流用ではない）。**実際のPairs稼働キャプチャ**（グリッド+日本語パネル / お相手詳細オーバーレイ）をブラウザ枠モックに載せて使用。1=ヒーロー(コピー+実画面)、2=実稼働アノテーション(訪問中/✓訪問済/パネルをリング強調)、3=プロフ詳細訪問(1人ずつちゃんと訪問)、4=ポチポチ比較、5=機能6グリッド |
+| `/ashiato-maker/store-tile-small.png` `store-tile-marquee.png` | ストア画像 | - | no | プロモーションタイル(440x280)とマーキープロモーションタイル(1400x560)。store-imageと同一のライトモードデザイン。マーキーは左コピー+右実稼働キャプチャ |
 | `/lovent/` | LP | index | yes | Android |
 | `/lovent/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/lovent/promo.html` | 動画用 | noindex | no | 録画専用 |
