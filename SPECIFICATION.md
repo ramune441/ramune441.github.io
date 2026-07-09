@@ -7,6 +7,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | パス | 種別 | インデックス | sitemap | 説明 |
 |---|---|---|---|---|
 | `/` | ルートポータル | index | yes | 全プロダクト一覧 |
+| `/contact/contact.js` | 共有スクリプト | - | no | 全LP共有のお問い合わせモーダル（下記「お問い合わせフォーム」参照） |
 | `/formpilot/` | LP | index | yes | Chrome拡張 |
 | `/formpilot/guide.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
@@ -47,6 +48,20 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | プロダクト | URL | 種別 |
 |---|---|---|
 | Charmly | https://charm-ly.com/ | Web |
+
+## お問い合わせフォーム
+
+旧Googleフォームは廃止し（2026-07-09）、全LP共通の自前モーダル `/contact/contact.js` に移管。
+
+- 対象ページ: 全6プロダクトのLPフッター＋プライバシーポリシー（formpilotはguide.htmlも）。
+  `<script src="/contact/contact.js" defer></script>` を読み込み、トリガーに `data-contact-form="<product>"` を付与
+- トリガーのクリックはdocument委譲（i18nのinnerHTML差し替え後も有効）
+- `data-contact-label` を付けたトリガーは、リンク文言も contact.js が `html[lang]` に連動して自動翻訳
+  （footer_contact キーを持たない lovent / ripen / sendready-chrome のLPで使用）
+- モーダルは13言語対応（ja/en/zh/ko/es/fr/de/it/pt/ru/ar/hi/id）。`html[lang]` で判定、ar はRTL
+- 送信先: Cloudflare Worker `contact-api`（`https://contact-api.warload57.workers.dev/api/contact`）。
+  仕様・管理画面・デプロイ方法は `C:\Users\Warlo\MyProduct\Website\contact-api\SPECIFICATION.md` を参照
+- 例外: `ashiato-maker/note-article.md`（note公開済み記事の控え）内のGoogleフォームURLはそのまま
 
 ## SEO 設計
 
@@ -112,3 +127,4 @@ GitHub Pages（masterブランチ直push）。手動ビルドなし。
 | Google Ads | 広告計測 (ashiato-maker のみ) | gtag.js | - |
 | Google Fonts | Webフォント | - | Noto Sans JP / Inter |
 | Google Search Console | サーチ計測 | metaタグ認証 | - |
+| Cloudflare Workers (contact-api) | お問い合わせフォーム送信先 | なし（CORSで自サイトのみ許可） | 同一IP 5件/時 |
