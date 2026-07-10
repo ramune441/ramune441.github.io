@@ -11,25 +11,25 @@
 body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
 /*
-  ── Ripen design tokens (night garden / theme.dart・colors.xml) ──
-  night bg          : #0A0A0A
-  soil              : #12241A
-  surface           : #161616   surface-2: #1E1E1E
-  leaf green        : #34C759   green-dark: #2E9E4F   greenAccent: #69F0AE
-  harvest gold      : #FFD60A   amber: #FFC107
-  bloom coral       : #FF9F8E   bloom lavender: #C9A7FF
-  accents           : tealAccent #64FFDA  lightBlueAccent #40C4FF  deepOrangeAccent #FF6E40
-  text              : #FFFFFF / 70% / 54% / 38%
+  ── Ripen design tokens (昼の庭 / theme.dart light()・colors.xml) ──
+  light bg          : #F4F7EE   surface: #FFFFFF   container: #ECF1E6
+  leaf green (deep) : #1E8A47 (primary, onPrimary=白)   leaf green: #34C759
+  harvest gold deep : #C08A12   gold: #FFD60A   fruit orange: #FF9F0A
+  blossom pink      : #F9C9D8 / deep #F2A9C0
+  accents (light)   : success #1E8A47  warning #C25E00  info #1A73E8  teal #00897B
+  text (ink)        : #13241A / 72% / 55% / 40%
 */
 :root {
-  /* phone-interior tokens = unchanged (実アプリはダーク固定なので端末モックはダークのまま) */
-  --night:#0A0A0A; --soil:#12241A; --sf:#161616; --sf2:#1E1E1E; --sf3:#252525;
-  --green:#34C759; --greenD:#2E9E4F; --greenA:#69F0AE;
-  --gold:#FFD60A; --amber:#FFC107;
-  --coral:#FF9F8E; --lav:#C9A7FF;
-  --teal:#64FFDA; --blue:#40C4FF; --orange:#FF6E40;
-  --t1:#FFFFFF; --t2:rgba(255,255,255,0.70); --t3:rgba(255,255,255,0.54); --t4:rgba(255,255,255,0.38);
-  --line:rgba(255,255,255,0.10);
+  /* phone-interior tokens = ライトモード「昼の庭」（theme.dart light() 準拠）
+     bg #F4F7EE / surface #FFFFFF / container #ECF1E6
+     primary #1E8A47 (onPrimary 白) / gold #C08A12 / warning #C25E00 / info #1A73E8 */
+  --night:#F4F7EE; --soil:#ECF1E6; --sf:#FFFFFF; --sf2:#ECF1E6; --sf3:#E3EBDC;
+  --green:#1E8A47; --greenD:#1E8A47; --greenA:#1E8A47;
+  --gold:#C08A12; --amber:#C08A12;
+  --coral:#FF9F8E; --lav:#8E6BC9;
+  --teal:#00897B; --blue:#1A73E8; --orange:#C25E00;
+  --t1:#13241A; --t2:rgba(19,36,26,0.72); --t3:rgba(19,36,26,0.55); --t4:rgba(19,36,26,0.40);
+  --line:rgba(19,36,26,0.10);
   /* light canvas / panel tokens（背景・左パネルのライト化用） */
   --green-ink:#0C7A35;        /* 白地で可読な濃いグリーン */
   --gold-ink:#B26B00;         /* 白地で可読な濃いゴールド */
@@ -65,13 +65,13 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 .s-title .gold { color:var(--gold-ink); }
 .s-sub   { font-size:13.5px; color:var(--ink2); line-height:1.7; }
 
-/* ── Phone frame (dark) ── */
-.ph { position:absolute; background:var(--night); border-radius:34px; overflow:hidden;
-  box-shadow:0 24px 64px rgba(0,0,0,0.55), 0 0 0 1.5px rgba(255,255,255,0.08), inset 0 0 0 6px #000;
+/* ── Phone frame (黒ベゼル＋ライト画面) ── */
+.ph { position:absolute; background:#0A0A0A; border-radius:34px; overflow:hidden;
+  box-shadow:0 24px 56px rgba(19,36,26,0.30), 0 0 0 1.5px rgba(19,36,26,0.10), inset 0 0 0 6px #000;
   display:flex; flex-direction:column; }
 .ph-bg { position:absolute; inset:6px; border-radius:28px; background:
-  radial-gradient(90% 55% at 50% 0%, rgba(52,199,89,0.08), transparent 60%),
-  linear-gradient(180deg,#0C0C0C 0%, #0A0A0A 100%); }
+  radial-gradient(90% 55% at 50% 0%, rgba(30,138,71,0.07), transparent 60%),
+  linear-gradient(180deg,#F8FBF3 0%, #F4F7EE 100%); }
 .scr { position:relative; z-index:1; flex:1; display:flex; flex-direction:column; min-height:0; }
 
 /* Top app bar */
@@ -79,10 +79,11 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 .tab-logo { width:24px; height:24px; flex-shrink:0; }
 .tab-name { font-size:16px; font-weight:800; color:var(--t1); flex:1; letter-spacing:0.2px; }
 .tab-ico { width:20px; height:20px; flex-shrink:0; opacity:0.6; }
-.tab-ico path { fill:#fff; }
+.tab-ico path { fill:#13241A; }
 
-/* status card mini tiles */
-.card { background:var(--sf); border-radius:20px; padding:13px 15px 15px; }
+/* status card mini tiles（昼＝白カード＋新緑の柔らかい影） */
+.card { background:var(--sf); border-radius:20px; padding:13px 15px 15px;
+  border:1px solid rgba(30,138,71,0.06); box-shadow:0 5px 16px rgba(30,138,71,0.12); }
 .card-h { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--t2); margin-bottom:12px; }
 .card-h .lf { width:15px; height:15px; }
 .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px 12px; }
@@ -94,7 +95,7 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
 /* chips / buttons */
 .btn { border-radius:16px; padding:13px; text-align:center; font-size:14px; font-weight:700; }
-.btn-fill { background:var(--green); color:#0A0A0A; }
+.btn-fill { background:var(--green); color:#FFFFFF; }
 .chip { display:inline-flex; align-items:center; gap:6px; background:var(--sf2); border-radius:999px;
   padding:6px 13px; font-size:12px; font-weight:700; color:var(--greenA); }
 .chip .lf { width:14px; height:14px; }
@@ -104,13 +105,30 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 </head>
 <body>
 
-<!-- Reusable sprout symbol -->
+<!-- Reusable brand mark（ic_launcher_foreground と同じ造形：枝＋桜の花＋熟した実） -->
 <svg width="0" height="0" style="position:absolute">
+  <defs>
+    <radialGradient id="fruitG" gradientUnits="userSpaceOnUse" cx="66.5" cy="56.5" r="21.7">
+      <stop offset="0" stop-color="#FFD60A"/>
+      <stop offset="1" stop-color="#FF9F0A"/>
+    </radialGradient>
+  </defs>
   <symbol id="sprout" viewBox="0 0 108 108">
-    <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
-    <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
-    <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
-    <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+    <g transform="translate(54,54) scale(1.42) translate(-57.5,-52.9)">
+      <path d="M40,84 C43,70 46,56 56.5,41.5" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+      <path d="M44,72.5 C45.3,69.25 38.36,64.86 29,66.5 C34.64,74.14 42.7,75.75 44,72.5 Z" fill="#34C759"/>
+      <path d="M49,57 C56,53 63,49 69.5,49.5" fill="none" stroke="#2E9E4F" stroke-width="4" stroke-linecap="round"/>
+      <path d="M70,48.5 C71.63,50.95 76.83,48.99 79,42.5 C72.17,42.01 68.37,46.05 70,48.5 Z" fill="#34C759"/>
+      <circle cx="70.5" cy="61.5" r="14" fill="url(#fruitG)"/>
+      <path d="M63.3,56.3 C61.9,59.3 62.3,63.1 64.3,65.5 C61.1,63.5 60.3,58.7 63.3,56.3 Z" fill="rgba(19,36,26,0.55)"/>
+      <path d="M56.5,33 C51.1,30.25 52.61,21.78 56.5,22 C60.39,21.78 61.9,30.25 56.5,33 Z" fill="#F9C9D8"/>
+      <path d="M58.88,34.73 C59.82,28.74 68.35,27.56 69.34,31.33 C70.75,34.96 63.16,39.01 58.88,34.73 Z" fill="#F9C9D8"/>
+      <path d="M57.97,37.52 C63.95,36.57 67.71,44.31 64.44,46.42 C61.42,48.89 55.22,42.92 57.97,37.52 Z" fill="#F9C9D8"/>
+      <path d="M55.03,37.52 C57.78,42.92 51.58,48.89 48.56,46.42 C45.29,44.31 49.05,36.57 55.03,37.52 Z" fill="#F9C9D8"/>
+      <path d="M54.12,34.73 C49.84,39.01 42.25,34.96 43.66,31.33 C44.65,27.56 53.18,28.74 54.12,34.73 Z" fill="#F9C9D8"/>
+      <circle cx="56.5" cy="35.5" r="4" fill="#FFD60A"/>
+      <path d="M80,33.5 C83.02,31.16 87.51,34.3 86.34,36.46 C85.44,38.74 80.15,37.32 80,33.5 Z" fill="#F2A9C0"/>
+    </g>
   </symbol>
   <symbol id="leaf1" viewBox="0 0 24 24">
     <path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C21 14.5 22 3 22 3S10.5 4 6.05 8.05z"/>
@@ -133,10 +151,10 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
   <div style="position:absolute;left:64px;top:0;bottom:0;width:560px;display:flex;flex-direction:column;justify-content:center;z-index:2;">
     <div style="display:flex;align-items:center;gap:18px;margin-bottom:26px;">
       <div style="width:92px;height:92px;border-radius:24px;position:relative;overflow:hidden;
-        background:linear-gradient(180deg,#0A0A0A,#13271B);box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06);">
-        <div style="position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:74px;height:74px;
-          filter:drop-shadow(0 0 12px rgba(255,214,10,.35));">
-          <svg width="74" height="74"><use href="#sprout"/></svg>
+        background:#FFFFFF;box-shadow:0 10px 28px rgba(30,138,71,.22),0 0 0 1px rgba(30,138,71,.10);">
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;
+          filter:drop-shadow(0 2px 4px rgba(19,36,26,.14));">
+          <svg width="78" height="78"><use href="#sprout"/></svg>
         </div>
       </div>
       <div>
@@ -168,13 +186,13 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
       <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:6px 22px 18px;">
         <div style="position:relative;width:200px;height:200px;margin:14px 0 4px;">
           <svg width="200" height="200" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
-            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round"
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(19,36,26,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#1E8A47" stroke-width="14" stroke-linecap="round"
               stroke-dasharray="378 541" transform="rotate(-90 100 100)"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
             <div style="font-size:13px;color:var(--t3);">Left</div>
-            <div style="font-size:42px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:1px;">17:20</div>
+            <div style="font-size:42px;font-weight:800;color:var(--t1);line-height:1.05;letter-spacing:1px;">17:20</div>
             <div style="font-size:11.5px;color:var(--t2);margin-top:4px;">Focused 8m / Goal 25m</div>
           </div>
         </div>
@@ -230,13 +248,13 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
         <!-- progress ring -->
         <div style="position:relative;width:210px;height:210px;margin:14px 0 8px;">
           <svg width="210" height="210" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
-            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round"
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(19,36,26,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#1E8A47" stroke-width="14" stroke-linecap="round"
               stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
             <div style="font-size:13px;color:var(--t3);">Left</div>
-            <div style="font-size:44px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:1px;">17:20</div>
+            <div style="font-size:44px;font-weight:800;color:var(--t1);line-height:1.05;letter-spacing:1px;">17:20</div>
             <div style="font-size:12px;color:var(--t2);margin-top:4px;">Focused 8m / Goal 25m</div>
           </div>
         </div>
@@ -274,33 +292,33 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
       <div style="flex:1;padding:4px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden;">
         <!-- status card -->
         <div class="card">
-          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Current status</div>
+          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Current status</div>
           <div class="grid2">
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FFC107" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#C08A12" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
               <div class="mt"><div class="mv" style="color:var(--amber)">18 min</div><div class="ml">Usable time</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#34C759" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#1E8A47" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
               <div class="mt"><div class="mv">92 min</div><div class="ml">Focus today</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#69F0AE"/></svg>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#1E8A47"/></svg>
               <div class="mt"><div class="mv" style="color:var(--greenA)">30 min</div><div class="ml">Earned today</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#64FFDA" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#00897B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
               <div class="mt"><div class="mv">6</div><div class="ml">Done today</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#40C4FF" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#1A73E8" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
               <div class="mt"><div class="mv" style="font-size:15px;">2/6 left</div><div class="ml">This window</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FF6E40" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#C25E00" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
               <div class="mt"><div class="mv" style="color:var(--orange)">14 days</div><div class="ml">Streak</div></div></div>
           </div>
         </div>
         <!-- weekly chart -->
         <div class="card" style="flex:1;display:flex;flex-direction:column;">
-          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Focus this week</div>
+          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Focus this week</div>
           <div style="flex:1;display:flex;align-items:flex-end;gap:9px;padding:4px 2px 0;">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:48px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">M</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:70px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:38px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">W</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:84px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:62px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">F</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:96px;background:linear-gradient(180deg,#69F0AE,#34C759);border-radius:5px;box-shadow:0 0 12px rgba(105,240,174,.4);"></div><span style="font-size:9px;color:var(--greenA)">S</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:54px;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">S</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:48px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">M</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:70px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:38px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">W</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:84px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:62px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">F</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:96px;background:linear-gradient(180deg,#34C759,#1E8A47);border-radius:5px;box-shadow:0 0 12px rgba(30,138,71,.35);"></div><span style="font-size:9px;color:var(--greenA)">S</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:54px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">S</span></div>
           </div>
         </div>
       </div>
@@ -336,9 +354,9 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
         <div style="position:relative;width:230px;height:230px;margin-top:6px;">
           <svg width="230" height="230" viewBox="0 0 220 220">
             <!-- base ring -->
-            <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
+            <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(19,36,26,0.10)" stroke-width="14"/>
             <!-- ticks -->
-            <g stroke="rgba(255,255,255,0.30)" stroke-width="1.6">
+            <g stroke="rgba(19,36,26,0.35)" stroke-width="1.6">
               <line x1="110" y1="22" x2="110" y2="30"/>
               <line x1="198" y1="110" x2="190" y2="110"/>
               <line x1="110" y1="198" x2="110" y2="190"/>
@@ -352,10 +370,10 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
               <line x1="34.2" y1="66" x2="41.5" y2="69.2" stroke-width="1.1"/>
               <line x1="66" y1="34.2" x2="69.2" y2="41.5" stroke-width="1.1"/>
             </g>
-            <text x="110" y="46" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">0</text>
-            <text x="176" y="114" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">6</text>
-            <text x="110" y="180" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">12</text>
-            <text x="44" y="114" fill="rgba(255,255,255,0.55)" font-size="11" text-anchor="middle" font-family="Inter">18</text>
+            <text x="110" y="46" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">0</text>
+            <text x="176" y="114" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">6</text>
+            <text x="110" y="180" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">12</text>
+            <text x="44" y="114" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">18</text>
             <!-- Morning 06:00-08:00 (amber, candidate w/ handles) -->
             <path d="M 190 110 A 80 80 0 0 1 179.28 150" fill="none" stroke="#FFCA28" stroke-width="14" stroke-linecap="round"/>
             <!-- Lunch 12:30-13:00 (green) -->
@@ -363,12 +381,12 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
             <!-- Evening 21:00-23:30 (blue) -->
             <path d="M 53.43 53.43 A 80 80 0 0 1 99.56 30.7" fill="none" stroke="#42A5F5" stroke-width="14" stroke-linecap="round"/>
             <!-- handles on amber arc -->
-            <circle cx="190" cy="110" r="9" fill="#000"/><circle cx="190" cy="110" r="8" fill="#FFCA28"/><circle cx="190" cy="110" r="3.5" fill="#000"/>
-            <circle cx="179.28" cy="150" r="9" fill="#000"/><circle cx="179.28" cy="150" r="8" fill="#FFCA28"/><circle cx="179.28" cy="150" r="3.5" fill="#000"/>
+            <circle cx="190" cy="110" r="9" fill="#FFFFFF"/><circle cx="190" cy="110" r="8" fill="#FFCA28"/><circle cx="190" cy="110" r="3.5" fill="#7A5600"/>
+            <circle cx="179.28" cy="150" r="9" fill="#FFFFFF"/><circle cx="179.28" cy="150" r="8" fill="#FFCA28"/><circle cx="179.28" cy="150" r="3.5" fill="#7A5600"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;">
             <div style="font-size:13px;color:var(--t3);">Editing</div>
-            <div style="font-size:15px;font-weight:800;color:#fff;">3 windows</div>
+            <div style="font-size:15px;font-weight:800;color:var(--t1);">3 windows</div>
           </div>
         </div>
         <!-- legend / block card -->
@@ -376,10 +394,10 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
           <div style="display:flex;align-items:center;gap:9px;">
             <span style="width:11px;height:11px;border-radius:3px;background:#FFCA28;flex-shrink:0;"></span>
             <div style="flex:1;">
-              <div style="font-size:14px;font-weight:700;color:#fff;">Morning Focus　06:00–08:00</div>
+              <div style="font-size:14px;font-weight:700;color:var(--t1);">Morning Focus　06:00–08:00</div>
               <div style="font-size:11px;color:var(--t3);margin-top:2px;">Focus 25m → 5m · max 6 · 4 blocked</div>
             </div>
-            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="rgba(255,255,255,0.4)" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="rgba(19,36,26,0.4)" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>
           </div>
           <div style="height:1px;background:var(--line);margin:11px 0;"></div>
           <div style="display:flex;gap:18px;">
@@ -411,19 +429,19 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
   <!-- Phone: block screen -->
   <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
     <div class="ph-bg"></div>
-    <div class="scr" style="background:linear-gradient(180deg,#0A0A0A 0%, #10221A 100%);">
+    <div class="scr" style="background:linear-gradient(180deg,#F8FBF3 0%, #EAF3E2 100%);">
       <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 30px;text-align:center;">
         <div style="width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;
           background:radial-gradient(circle, rgba(52,199,89,0.12), transparent 70%);">
-          <div style="filter:drop-shadow(0 0 16px rgba(255,214,10,.3));"><svg width="92" height="92"><use href="#sprout"/></svg></div>
+          <div style="filter:drop-shadow(0 3px 8px rgba(19,36,26,.15));"><svg width="92" height="92"><use href="#sprout"/></svg></div>
         </div>
-        <div style="font-size:23px;font-weight:800;color:#fff;margin-top:20px;letter-spacing:0.3px;">Time to focus</div>
+        <div style="font-size:23px;font-weight:800;color:var(--t1);margin-top:20px;letter-spacing:0.3px;">Time to focus</div>
         <div style="font-size:13.5px;color:var(--t2);line-height:1.7;margin-top:12px;">
-          <span style="color:#fff;font-weight:700;">"Instagram"</span> is locked right now.<br>Focus to ripen some usable time.
+          <span style="color:var(--t1);font-weight:700;">"Instagram"</span> is locked right now.<br>Focus to ripen some usable time.
         </div>
         <div style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;
-          background:rgba(255,214,10,0.12);border:1px solid rgba(255,214,10,0.3);border-radius:999px;padding:8px 18px;">
-          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#FFD60A" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
+          background:rgba(192,138,18,0.10);border:1px solid rgba(192,138,18,0.35);border-radius:999px;padding:8px 18px;">
+          <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#C08A12" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
           <span style="font-size:13px;font-weight:800;color:var(--gold);">Usable time 0 min</span>
         </div>
         <div style="flex:0"></div>
@@ -471,12 +489,12 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
         <!-- privacy callouts -->
         <div style="width:100%;display:flex;flex-direction:column;gap:11px;margin-top:22px;">
           <div style="display:flex;align-items:center;gap:12px;background:var(--sf);border-radius:14px;padding:13px 15px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
-            <div><div style="font-size:13.5px;font-weight:700;color:#fff;">On-device processing</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Judged locally with Google ML Kit</div></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#1E8A47" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div style="font-size:13.5px;font-weight:700;color:var(--t1);">On-device processing</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Judged locally with Google ML Kit</div></div>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:var(--sf);border-radius:14px;padding:13px 15px;">
-            <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
-            <div><div style="font-size:13.5px;font-weight:700;color:#fff;">No image saved or sent</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Only "were you present" is logged</div></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#1E8A47" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div style="font-size:13.5px;font-weight:700;color:var(--t1);">No image saved or sent</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Only "were you present" is logged</div></div>
           </div>
         </div>
         <div style="flex:1"></div>
