@@ -90,6 +90,12 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 
 - ルートに `<meta name="google-site-verification" content="prSam5v9XLSOs51WRCTyq592bxz1Xmf6HiBGRA-_ke0">` を設置済み。
 
+### Bing Webmaster Tools 認証
+
+- ルート `index.html` に `<meta name="msvalidate.01" content="1C375C5F8B9811B7B6156E4202B36EA4">` を設置済み。
+- ルートに `BingSiteAuth.xml` も設置済み（同一コード。どちらか一方が残っていれば検証は維持される）。
+- sitemap.xml 送信済み・全15 URL を URL Submission で送信済み（2026-07-11）。
+
 ## 新規プロダクト追加時の必須作業
 
 1. ディレクトリ作成 (`<product>/`)
@@ -112,3 +118,4 @@ GitHub Pages（masterブランチ直push）。手動ビルドなし。
 | Google Ads | 広告計測 (ashiato-maker のみ) | gtag.js | - |
 | Google Fonts | Webフォント | - | Noto Sans JP / Inter |
 | Google Search Console | サーチ計測 | metaタグ認証 | - |
+| Bing Webmaster Tools | サーチ計測・URL送信 | metaタグ + BingSiteAuth.xml 認証 | URL Submission は1日100件まで |
