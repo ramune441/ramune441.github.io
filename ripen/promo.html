@@ -46,8 +46,8 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .iburst{display:flex;align-items:center;gap:30px;opacity:0;transform:scale(.88);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .iburst.show{opacity:1;transform:scale(1)}
 .iburst-icon{width:132px;height:132px;border-radius:30px;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,#0A0A0A,#13271B);box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
-.iburst-icon svg{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:104px;height:104px;filter:drop-shadow(0 0 16px rgba(255,214,10,.4))}
+  background:#FFFFFF;box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
+.iburst-icon svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:110px;height:110px;filter:drop-shadow(0 2px 6px rgba(19,36,26,.18))}
 .iburst-name{font-size:130px;font-weight:900;color:var(--ink);letter-spacing:-5px;line-height:1}
 .itagline{font-size:52px;font-weight:800;color:var(--green-ink);opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .itagline.show{opacity:1;transform:translateY(0)}
@@ -265,11 +265,28 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 
 <!-- Reusable SVG symbols -->
 <svg width="0" height="0" style="position:absolute">
+  <defs>
+    <radialGradient id="fruitG" gradientUnits="userSpaceOnUse" cx="66.5" cy="56.5" r="21.7">
+      <stop offset="0" stop-color="#FFD60A"/>
+      <stop offset="1" stop-color="#FF9F0A"/>
+    </radialGradient>
+  </defs>
   <symbol id="sprout" viewBox="0 0 108 108">
-    <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
-    <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
-    <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
-    <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+    <g transform="translate(54,54) scale(1.42) translate(-57.5,-52.9)">
+      <path d="M40,84 C43,70 46,56 56.5,41.5" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+      <path d="M44,72.5 C45.3,69.25 38.36,64.86 29,66.5 C34.64,74.14 42.7,75.75 44,72.5 Z" fill="#34C759"/>
+      <path d="M49,57 C56,53 63,49 69.5,49.5" fill="none" stroke="#2E9E4F" stroke-width="4" stroke-linecap="round"/>
+      <path d="M70,48.5 C71.63,50.95 76.83,48.99 79,42.5 C72.17,42.01 68.37,46.05 70,48.5 Z" fill="#34C759"/>
+      <circle cx="70.5" cy="61.5" r="14" fill="url(#fruitG)"/>
+      <path d="M63.3,56.3 C61.9,59.3 62.3,63.1 64.3,65.5 C61.1,63.5 60.3,58.7 63.3,56.3 Z" fill="rgba(255,255,255,0.55)"/>
+      <path d="M56.5,33 C51.1,30.25 52.61,21.78 56.5,22 C60.39,21.78 61.9,30.25 56.5,33 Z" fill="#F9C9D8"/>
+      <path d="M58.88,34.73 C59.82,28.74 68.35,27.56 69.34,31.33 C70.75,34.96 63.16,39.01 58.88,34.73 Z" fill="#F9C9D8"/>
+      <path d="M57.97,37.52 C63.95,36.57 67.71,44.31 64.44,46.42 C61.42,48.89 55.22,42.92 57.97,37.52 Z" fill="#F9C9D8"/>
+      <path d="M55.03,37.52 C57.78,42.92 51.58,48.89 48.56,46.42 C45.29,44.31 49.05,36.57 55.03,37.52 Z" fill="#F9C9D8"/>
+      <path d="M54.12,34.73 C49.84,39.01 42.25,34.96 43.66,31.33 C44.65,27.56 53.18,28.74 54.12,34.73 Z" fill="#F9C9D8"/>
+      <circle cx="56.5" cy="35.5" r="4" fill="#FFD60A"/>
+      <path d="M80,33.5 C83.02,31.16 87.51,34.3 86.34,36.46 C85.44,38.74 80.15,37.32 80,33.5 Z" fill="#F2A9C0"/>
+    </g>
   </symbol>
   <symbol id="leaf1" viewBox="0 0 24 24">
     <path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C21 14.5 22 3 22 3S10.5 4 6.05 8.05z"/>

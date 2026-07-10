@@ -31,7 +31,7 @@ body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
   justify-content:space-between; padding:0 56px; z-index:50; border-bottom:1px solid var(--line);
   background:rgba(10,10,10,.35); backdrop-filter:blur(6px); }
 .brand{ display:flex; align-items:center; gap:16px; }
-.brand .mk{ width:52px; height:52px; border-radius:13px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); box-shadow:0 0 0 1px var(--line); display:flex; align-items:center; justify-content:center; }
+.brand .mk{ width:52px; height:52px; border-radius:13px; overflow:hidden; background:#FFFFFF; box-shadow:0 0 0 1px var(--line); display:flex; align-items:center; justify-content:center; }
 .brand .mk svg{ width:40px; height:40px; }
 .brand .nm{ font-size:30px; font-weight:900; color:#fff; letter-spacing:.3px; }
 .perm{ font-family:'JetBrains Mono',monospace; font-size:21px; font-weight:600; color:var(--greenA);
@@ -84,7 +84,7 @@ body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
 .scene.on .shade.drop{ transform:translateY(0); }
 .notif{ background:#1c1d1f; border-radius:24px; padding:16px 18px; box-shadow:0 12px 40px rgba(0,0,0,.5); }
 .notif .nh{ display:flex; align-items:center; gap:9px; font-size:14px; color:var(--t3); margin-bottom:9px; }
-.notif .nh .ic{ width:20px; height:20px; border-radius:5px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; }
+.notif .nh .ic{ width:20px; height:20px; border-radius:5px; overflow:hidden; background:#FFFFFF; display:flex; align-items:center; justify-content:center; }
 .notif .nh .ic svg{ width:15px; height:15px; }
 .notif .nh .ong{ display:inline-flex; align-items:center; gap:5px; }
 .notif .nh .ong svg{ width:12px; height:12px; fill:var(--t3); }
@@ -110,7 +110,7 @@ body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
 /* accessibility toggle screen */
 .setbar{ padding:18px 22px; font-size:20px; font-weight:800; color:#fff; display:flex; align-items:center; gap:12px; }
 .setrow{ margin:8px 16px; background:var(--sf); border-radius:18px; padding:18px 18px; display:flex; align-items:center; gap:14px; }
-.setrow .ai{ width:46px; height:46px; border-radius:12px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; }
+.setrow .ai{ width:46px; height:46px; border-radius:12px; overflow:hidden; background:#FFFFFF; display:flex; align-items:center; justify-content:center; }
 .setrow .ai svg{ width:34px; height:34px; }
 .setrow .nm{ flex:1; } .setrow .nm b{ font-size:18px; color:#fff; } .setrow .nm small{ display:block; font-size:13px; color:var(--t3); margin-top:3px; }
 .tg{ width:62px; height:34px; border-radius:18px; background:#3a3a3a; position:relative; transition:background .4s; }
@@ -136,15 +136,15 @@ body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
 .codecard .k{ color:var(--blue); } .codecard .a{ color:var(--gold); } .codecard .s{ color:var(--greenA); } .codecard .c{ color:var(--t4); }
 .endwrap{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; }
 .endhead{ display:flex; align-items:center; gap:20px; }
-.endhead .mk{ width:78px; height:78px; border-radius:20px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 1px var(--line); }
+.endhead .mk{ width:78px; height:78px; border-radius:20px; overflow:hidden; background:#FFFFFF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 1px var(--line); }
 .endhead .mk svg{ width:62px; height:62px; }
 .endhead .tx{ font-size:40px; font-weight:900; color:#fff; }
 .endhead .tx small{ display:block; font-size:20px; font-weight:600; color:var(--greenA); margin-top:4px; }
 
 /* intro overlay */
 .introcard{ width:980px; text-align:center; }
-.introcard .mk{ width:150px; height:150px; border-radius:38px; margin:0 auto 30px; overflow:hidden; background:linear-gradient(180deg,#0A0A0A,#13271B); display:flex; align-items:center; justify-content:center; box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px var(--line); }
-.introcard .mk svg{ width:118px; height:118px; filter:drop-shadow(0 0 16px rgba(255,214,10,.35)); }
+.introcard .mk{ width:150px; height:150px; border-radius:38px; margin:0 auto 30px; overflow:hidden; background:#FFFFFF; display:flex; align-items:center; justify-content:center; box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px var(--line); }
+.introcard .mk svg{ width:118px; height:118px; filter:drop-shadow(0 2px 6px rgba(19,36,26,.18)); }
 .introcard h1{ font-size:74px; font-weight:900; color:#fff; letter-spacing:-1px; }
 .introcard .perm2{ font-family:'JetBrains Mono',monospace; font-size:30px; color:var(--greenA); margin-top:18px; }
 .introcard .sub{ font-size:26px; color:var(--t2); margin-top:22px; line-height:1.6; }
@@ -161,11 +161,28 @@ body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
 <div class="star" style="left:1700px;top:300px;width:3px;height:3px;opacity:.3"></div>
 
 <svg width="0" height="0" style="position:absolute">
+  <defs>
+    <radialGradient id="fruitG" gradientUnits="userSpaceOnUse" cx="66.5" cy="56.5" r="21.7">
+      <stop offset="0" stop-color="#FFD60A"/>
+      <stop offset="1" stop-color="#FF9F0A"/>
+    </radialGradient>
+  </defs>
   <symbol id="sprout" viewBox="0 0 108 108">
-    <path d="M54,80 C54,71 54,60 54,49" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
-    <path d="M52,62 C40,60 30,52 29,42 C40,44 49,51 52,62 Z" fill="#34C759"/>
-    <path d="M56,62 C68,60 78,52 79,42 C68,44 59,51 56,62 Z" fill="#34C759"/>
-    <circle cx="54" cy="38" r="8.5" fill="#FFD60A"/>
+    <g transform="translate(54,54) scale(1.42) translate(-57.5,-52.9)">
+      <path d="M40,84 C43,70 46,56 56.5,41.5" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+      <path d="M44,72.5 C45.3,69.25 38.36,64.86 29,66.5 C34.64,74.14 42.7,75.75 44,72.5 Z" fill="#34C759"/>
+      <path d="M49,57 C56,53 63,49 69.5,49.5" fill="none" stroke="#2E9E4F" stroke-width="4" stroke-linecap="round"/>
+      <path d="M70,48.5 C71.63,50.95 76.83,48.99 79,42.5 C72.17,42.01 68.37,46.05 70,48.5 Z" fill="#34C759"/>
+      <circle cx="70.5" cy="61.5" r="14" fill="url(#fruitG)"/>
+      <path d="M63.3,56.3 C61.9,59.3 62.3,63.1 64.3,65.5 C61.1,63.5 60.3,58.7 63.3,56.3 Z" fill="rgba(255,255,255,0.55)"/>
+      <path d="M56.5,33 C51.1,30.25 52.61,21.78 56.5,22 C60.39,21.78 61.9,30.25 56.5,33 Z" fill="#F9C9D8"/>
+      <path d="M58.88,34.73 C59.82,28.74 68.35,27.56 69.34,31.33 C70.75,34.96 63.16,39.01 58.88,34.73 Z" fill="#F9C9D8"/>
+      <path d="M57.97,37.52 C63.95,36.57 67.71,44.31 64.44,46.42 C61.42,48.89 55.22,42.92 57.97,37.52 Z" fill="#F9C9D8"/>
+      <path d="M55.03,37.52 C57.78,42.92 51.58,48.89 48.56,46.42 C45.29,44.31 49.05,36.57 55.03,37.52 Z" fill="#F9C9D8"/>
+      <path d="M54.12,34.73 C49.84,39.01 42.25,34.96 43.66,31.33 C44.65,27.56 53.18,28.74 54.12,34.73 Z" fill="#F9C9D8"/>
+      <circle cx="56.5" cy="35.5" r="4" fill="#FFD60A"/>
+      <path d="M80,33.5 C83.02,31.16 87.51,34.3 86.34,36.46 C85.44,38.74 80.15,37.32 80,33.5 Z" fill="#F2A9C0"/>
+    </g>
   </symbol>
   <symbol id="person" viewBox="0 0 24 24"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></symbol>
   <symbol id="lock" viewBox="0 0 24 24"><path fill="#69F0AE" d="M12 17a2 2 0 002-2 2 2 0 00-2-2 2 2 0 00-2 2 2 2 0 002 2m6-9a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V10a2 2 0 012-2h1V6a5 5 0 015-5 5 5 0 015 5v2h1m-6-5a3 3 0 00-3 3v2h6V6a3 3 0 00-3-3z"/></symbol>
@@ -267,7 +284,7 @@ body{ font-family:'Noto Sans JP','Inter',sans-serif; position:relative; }
           <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#4a8cff,#2b5fd0)"></div><div class="nm">電話</div></div>
           <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#34c759,#1f9d45)"></div><div class="nm">メッセージ</div></div>
           <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#ff6b6b,#d63a3a)"></div><div class="nm">カメラ</div></div>
-          <div class="ic"><div class="sq" style="background:linear-gradient(135deg,#0A0A0A,#13271B);box-shadow:0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center"><svg width="40" height="40"><use href="#sprout"/></svg></div><div class="nm">Ripen</div></div>
+          <div class="ic"><div class="sq" style="background:#FFFFFF;box-shadow:0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center"><svg width="40" height="40"><use href="#sprout"/></svg></div><div class="nm">Ripen</div></div>
         </div></div>
         <div class="shade drop">
           <div class="notif">
