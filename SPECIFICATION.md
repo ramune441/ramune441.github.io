@@ -7,7 +7,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | パス | 種別 | インデックス | sitemap | 説明 |
 |---|---|---|---|---|
 | `/` | ルートポータル | index | yes | 全プロダクト一覧 |
-| `/formpilot/` | LP | index | yes | Chrome拡張 |
+| `/formpilot/` | LP | index | yes | Chrome拡張。`i18n-lp.js` で11言語対応。YouTube埋め込み（`#promo-video`）は `LP_VIDEO_IDS` により表示言語の動画に自動切替 |
 | `/formpilot/guide.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、sendready-chrome/promo.html と同方式。文言は i18n-lp.js と同期、デモの人物・住所も言語別、ar は RTL） |
@@ -29,7 +29,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/sendready/tutorial.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/sendready/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/sendready/promo.html` | 動画用 | noindex | no | 録画専用 |
-| `/sendready-chrome/` | LP | index | yes | Chrome拡張（SendReady）。`i18n-lp.js` で11言語対応 |
+| `/sendready-chrome/` | LP | index | yes | Chrome拡張（SendReady）。`i18n-lp.js` で11言語対応。YouTube埋め込み（`#promo-video`）は `LP_VIDEO_IDS` により表示言語の動画に自動切替 |
 | `/sendready-chrome/how-to.html` | 使い方ガイド | index | no | 操作手順（LPからリンク） |
 | `/sendready-chrome/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー（英語） |
 | `/sendready-chrome/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、store-images.html と同方式。文言は i18n-lp.js と同期、ar は RTL） |
