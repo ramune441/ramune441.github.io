@@ -10,7 +10,8 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/` | LP | index | yes | Chrome拡張 |
 | `/formpilot/guide.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
-| `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用 |
+| `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、sendready-chrome/promo.html と同方式。文言は i18n-lp.js と同期、デモの人物・住所も言語別、ar は RTL） |
+| `/formpilot/promo-<lang>.webm` `promo-<lang>.mp4` | 動画 | - | no | 翻訳版プロモ動画 ×10言語（webm=VP9/33.0s、mp4=H.264+AAC BGM入り・YouTube掲載用。BGM は既存動画「FormPilot ver2」と同一音源）。en は既存の `promo.webm`/`promo.mp4`(43s) のまま。**YouTube 公開済み（タイトル「FormPilot ver2 (言語名)」）**: en=EpnJ9PxK3E4 / ja=XKmaApdHuQA / zh=_Li59XmDGXw / ko=bDGDK64LLlU / es=QovRVM3qoBw / fr=jnbzEM-hjns / de=qcIbr2r_-rs / pt=r31JnbqboSs / hi=B5NVBz3P1Q0 / id=npOF6c8Hdng / ar=0h7mb8ibqwo。各言語のストア掲載情報のプロモ動画欄に `https://www.youtube.com/watch?v=<ID>` を設定（手動） |
 | `/formpilot/images/<lang>/` | ストア画像(翻訳版) | - | no | `store-image-{1..5}.png`(1280x800) + `store-tile-marquee.png`(1400x560) × 10言語。生成元は拡張リポジトリ FormPilot の `store-image-*.html` + `store-i18n.js`(`?lang=` 指定・ar はRTL)。en は `/formpilot/` 直下 |
 | `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは**実際のPairs画面のキャプチャ**(`pairs-real.png`)＋日本語パネルレプリカ重ね。写真は実会員のため実写真にブラー(blur 9px)をかけた上で撮影 |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
