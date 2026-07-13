@@ -7,11 +7,23 @@
 <title>FormPilot Promo Video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f0fdf4; }
   body { font-family: 'Noto Sans JP', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  html[data-lang="zh"] body { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+  html[data-lang="ko"] body { font-family: 'Noto Sans KR', 'Inter', sans-serif; }
+  html[data-lang="hi"] body { font-family: 'Noto Sans Devanagari', 'Inter', sans-serif; }
+  html[data-lang="ar"] body { font-family: 'Noto Sans Arabic', 'Inter', sans-serif; }
+  html[data-lang="es"] body, html[data-lang="fr"] body, html[data-lang="de"] body, html[data-lang="pt"] body, html[data-lang="id"] body { font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+  /* Devanagari / Arabic need taller line boxes so matras & diacritics don't clip */
+  html[data-lang="hi"] .rep-title, html[data-lang="ar"] .rep-title,
+  html[data-lang="hi"] .problem-title, html[data-lang="ar"] .problem-title,
+  html[data-lang="hi"] .solution-title, html[data-lang="ar"] .solution-title,
+  html[data-lang="hi"] .demo-title, html[data-lang="ar"] .demo-title,
+  html[data-lang="hi"] .cta-title, html[data-lang="ar"] .cta-title,
+  html[data-lang="hi"] #s1 .tagline, html[data-lang="ar"] #s1 .tagline { line-height: 1.5 !important; }
 
   .scene {
     position: absolute; inset: 0;
@@ -30,8 +42,8 @@
     overflow: hidden;
   }
   #s1 .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
-  #s1 .logo-text { font-size: 110px; font-weight: 900; color: #064e3b; letter-spacing: -3px; }
-  #s1 .tagline { font-size: 52px; font-weight: 600; color: #475569; opacity: 0; transform: translateY(30px); }
+  #s1 .logo-text { font-size: 110px; font-weight: 900; color: #064e3b; letter-spacing: -3px; font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+  #s1 .tagline { font-size: 52px; font-weight: 600; color: #475569; opacity: 0; transform: translateY(30px); text-align: center; line-height: 1.4; }
   #s1 .tagline .green { font-weight: 800; }
 
   /* ===== S2: Repetitive Input (stacking forms) ===== */
@@ -61,7 +73,7 @@
   }
   .sf-bar .sf-dot { width: 12px; height: 12px; border-radius: 50%; }
   .sf-bar .sf-dot-r { background: #ef4444; } .sf-bar .sf-dot-y { background: #eab308; } .sf-bar .sf-dot-g { background: #22c55e; }
-  .sf-bar .sf-url { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 6px 14px; font-size: 14px; color: #64748b; margin-left: 8px; }
+  .sf-bar .sf-url { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 6px 14px; font-size: 14px; color: #64748b; margin-left: 8px; direction: ltr; }
   .stack-form h4 { font-size: 20px; color: #1e293b; font-weight: 700; margin-bottom: 14px; }
   .sf-field { margin-bottom: 8px; }
   .sf-field .sf-label { font-size: 12px; color: #94a3b8; font-weight: 600; margin-bottom: 3px; }
@@ -114,7 +126,7 @@
   .chrome-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid #e2e8f0; }
   .chrome-bar .dot { width: 14px; height: 14px; border-radius: 50%; }
   .chrome-bar .dot-r { background: #ef4444; } .chrome-bar .dot-y { background: #eab308; } .chrome-bar .dot-g { background: #22c55e; }
-  .chrome-bar .url-bar { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 8px 16px; font-size: 14px; color: #94a3b8; margin-left: 8px; }
+  .chrome-bar .url-bar { flex: 1; background: #f1f5f9; border-radius: 8px; padding: 8px 16px; font-size: 14px; color: #94a3b8; margin-left: 8px; direction: ltr; }
   .chrome-form h3 { font-size: 24px; color: #1e293b; margin-bottom: 24px; font-weight: 700; }
   .cf-row { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .cf-row label { display: block; font-size: 15px; color: #64748b; margin-bottom: 4px; font-weight: 600; width: 100%; }
@@ -128,13 +140,15 @@
   .cf-status.s-ng { background: #fee2e2; color: #dc2626; }
   .cf-status.s-warn { background: #fef3c7; color: #d97706; }
   .chrome-form .autofill-badge { position: absolute; top: 16px; right: 16px; background: #dbeafe; color: #2563eb; font-size: 14px; font-weight: 700; padding: 6px 16px; border-radius: 8px; opacity: 0; transition: opacity 0.3s; }
+  html[dir="rtl"] .chrome-form .autofill-badge { right: auto; left: 16px; }
 
   /* ===== S4: Solution ===== */
   #s4 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); flex-direction: column; gap: 48px; }
   #s4 .solution-title { font-size: 84px; font-weight: 900; color: #064e3b; text-align: center; opacity: 0; transform: scale(0.8); }
   #s4 .three-sec { font-size: 220px; font-weight: 900; color: #059669; opacity: 0; transform: scale(0.5); text-shadow: 0 0 80px rgba(5,150,105,0.2); line-height: 1; }
+  html[data-lang="hi"] #s4 .three-sec, html[data-lang="ar"] #s4 .three-sec { line-height: 1.25; }
   #s4 .three-sec-label { font-size: 48px; color: #065f46; margin-top: -8px; opacity: 0; }
-  #s4 .solution-sub { font-size: 40px; color: #1e293b; text-align: center; opacity: 0; transform: translateY(30px); }
+  #s4 .solution-sub { font-size: 40px; color: #1e293b; text-align: center; opacity: 0; transform: translateY(30px); line-height: 1.6; }
 
   /* ===== S5: Demo ===== */
   #s5 { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); flex-direction: row; gap: 80px; padding: 0 100px; }
@@ -181,10 +195,10 @@
 
   /* ===== S7: CTA ===== */
   #s7 { background: linear-gradient(135deg, #ecfdf5, #d1fae5); flex-direction: column; gap: 48px; }
-  #s7 .cta-title { font-size: 72px; font-weight: 900; color: #064e3b; text-align: center; opacity: 0; transform: translateY(40px); }
+  #s7 .cta-title { font-size: 72px; font-weight: 900; color: #064e3b; text-align: center; opacity: 0; transform: translateY(40px); line-height: 1.35; }
   #s7 .cta-checks { display: flex; flex-direction: column; gap: 24px; opacity: 0; }
   .cta-check { display: flex; align-items: center; gap: 18px; font-size: 32px; color: #1e293b; font-weight: 500; }
-  .cta-check .check-circle { width: 48px; height: 48px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; font-weight: 800; }
+  .cta-check .check-circle { width: 48px; height: 48px; border-radius: 50%; background: #10b981; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #fff; font-weight: 800; flex-shrink: 0; }
   #s7 .cta-btn { display: inline-flex; align-items: center; gap: 16px; background: #10b981; color: #fff; font-size: 30px; font-weight: 800; padding: 28px 64px; border-radius: 20px; border: none; box-shadow: 0 8px 32px rgba(16,185,129,0.3); opacity: 0; transform: translateY(20px); }
   #s7 .cta-note { font-size: 22px; color: #64748b; opacity: 0; }
 
@@ -197,62 +211,62 @@
 <div class="scene active" id="s1">
   <div style="display:flex;flex-direction:column;align-items:center;gap:32px;">
     <div class="logo-row" id="e1a"><div class="logo-icon"><img src="icons/icon128.png" alt="FormPilot"></div><div class="logo-text">FormPilot</div></div>
-    <div class="tagline" id="e1b">AI-powered <span class="green">one-click</span> form auto-fill</div>
+    <div class="tagline" id="e1b" data-i18n="tagline">AI-powered <span class="green">one-click</span> form auto-fill</div>
   </div>
 </div>
 
 <!-- S2: Repetitive Input (stacking forms) -->
 <div class="scene" id="s2">
   <div class="s2-layout">
-  <div class="rep-title" id="e2a">Tired of typing the same info<br><span class="orange">over and over again?</span></div>
+  <div class="rep-title" id="e2a" data-i18n="rep_title">Tired of typing the same info<br><span class="orange">over and over again?</span></div>
   <div class="stack-area" id="e2b">
     <div class="stack-form" id="sf1" style="z-index:5;">
       <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">shopping-site.com/signup</div></div>
-      <h4>Sign Up</h4>
-      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
-      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
-      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
-      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+      <h4 data-i18n="sf1_t">Sign Up</h4>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_name">Full Name</div><div class="sf-input" data-i18n="v_name">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_email">Email</div><div class="sf-input" data-i18n="v_email">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_addr">Address</div><div class="sf-input" data-i18n="v_addr">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_phone">Phone</div><div class="sf-input" data-i18n="v_phone">+1 (555) 123-4567</div></div>
     </div>
     <div class="stack-form" id="sf2" style="z-index:4;">
       <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">bank-service.jp/apply</div></div>
-      <h4>Open Account</h4>
-      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
-      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
-      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
-      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+      <h4 data-i18n="sf2_t">Open Account</h4>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_name">Full Name</div><div class="sf-input" data-i18n="v_name">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_email">Email</div><div class="sf-input" data-i18n="v_email">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_addr">Address</div><div class="sf-input" data-i18n="v_addr">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_phone">Phone</div><div class="sf-input" data-i18n="v_phone">+1 (555) 123-4567</div></div>
     </div>
     <div class="stack-form" id="sf3" style="z-index:3;">
       <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">job-apply.co.jp/entry</div></div>
-      <h4>Job Application</h4>
-      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
-      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
-      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
-      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+      <h4 data-i18n="sf3_t">Job Application</h4>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_name">Full Name</div><div class="sf-input" data-i18n="v_name">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_email">Email</div><div class="sf-input" data-i18n="v_email">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_addr">Address</div><div class="sf-input" data-i18n="v_addr">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_phone">Phone</div><div class="sf-input" data-i18n="v_phone">+1 (555) 123-4567</div></div>
     </div>
     <div class="stack-form" id="sf4" style="z-index:2;">
       <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">insurance.co.jp/quote</div></div>
-      <h4>Get a Quote</h4>
-      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
-      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
-      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
-      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+      <h4 data-i18n="sf4_t">Get a Quote</h4>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_name">Full Name</div><div class="sf-input" data-i18n="v_name">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_email">Email</div><div class="sf-input" data-i18n="v_email">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_addr">Address</div><div class="sf-input" data-i18n="v_addr">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_phone">Phone</div><div class="sf-input" data-i18n="v_phone">+1 (555) 123-4567</div></div>
     </div>
     <div class="stack-form" id="sf5" style="z-index:1;">
       <div class="sf-bar"><div class="sf-dot sf-dot-r"></div><div class="sf-dot sf-dot-y"></div><div class="sf-dot sf-dot-g"></div><div class="sf-url">delivery.com/checkout</div></div>
-      <h4>Shipping Info</h4>
-      <div class="sf-field"><div class="sf-label">Full Name</div><div class="sf-input">John Smith</div></div>
-      <div class="sf-field"><div class="sf-label">Email</div><div class="sf-input">john@example.com</div></div>
-      <div class="sf-field"><div class="sf-label">Address</div><div class="sf-input">123 Main St, New York, NY</div></div>
-      <div class="sf-field"><div class="sf-label">Phone</div><div class="sf-input">+1 (555) 123-4567</div></div>
+      <h4 data-i18n="sf5_t">Shipping Info</h4>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_name">Full Name</div><div class="sf-input" data-i18n="v_name">John Smith</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_email">Email</div><div class="sf-input" data-i18n="v_email">john@example.com</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_addr">Address</div><div class="sf-input" data-i18n="v_addr">123 Main St, New York, NY</div></div>
+      <div class="sf-field"><div class="sf-label" data-i18n="lbl_phone">Phone</div><div class="sf-input" data-i18n="v_phone">+1 (555) 123-4567</div></div>
     </div>
   </div>
   <div class="s2-bottom-area">
-    <div class="sigh-text" id="e2sigh">&#128553; Not this form again...</div>
+    <div class="sigh-text" id="e2sigh" data-i18n="sigh">&#128553; Not this form again...</div>
     <div class="rep-bottom" id="e2c">
       <div class="rep-save-card">
         <div class="rep-save-icon">&#128190;</div>
-        <div class="rep-save-text">With FormPilot, <span class="green">set up once.</span><br>Auto-fill &amp; restore on any site with one click.</div>
+        <div class="rep-save-text" data-i18n="save_text">With FormPilot, <span class="green">set up once.</span><br>Auto-fill &amp; restore on any site with one click.</div>
       </div>
     </div>
   </div>
@@ -262,26 +276,26 @@
 <!-- S3: Chrome Autofill Problem -->
 <div class="scene" id="s3">
   <div class="problem-left">
-    <div class="problem-title" id="e3a">Chrome autofill is<br><span class="red">frustrating, isn't it?</span></div>
+    <div class="problem-title" id="e3a" data-i18n="prob_title">Chrome autofill is<br><span class="red">frustrating, isn't it?</span></div>
     <div class="problem-list" id="e3b">
-      <div class="problem-item" id="p1"><div class="x-icon">&#10007;</div>Skips custom fields entirely</div>
-      <div class="problem-item" id="p2"><div class="x-icon">&#10007;</div>Fills the wrong fields</div>
-      <div class="problem-item" id="p3"><div class="x-icon">&#10007;</div>Ignores non-standard inputs</div>
-      <div class="problem-item" id="p4"><div class="x-icon">&#10007;</div>Can't handle dropdowns</div>
-      <div class="problem-item" id="p5"><div class="x-icon">&#10007;</div>You end up fixing it manually...</div>
+      <div class="problem-item" id="p1"><div class="x-icon">&#10007;</div><span data-i18n="prob1">Skips custom fields entirely</span></div>
+      <div class="problem-item" id="p2"><div class="x-icon">&#10007;</div><span data-i18n="prob2">Fills the wrong fields</span></div>
+      <div class="problem-item" id="p3"><div class="x-icon">&#10007;</div><span data-i18n="prob3">Ignores non-standard inputs</span></div>
+      <div class="problem-item" id="p4"><div class="x-icon">&#10007;</div><span data-i18n="prob4">Can't handle dropdowns</span></div>
+      <div class="problem-item" id="p5"><div class="x-icon">&#10007;</div><span data-i18n="prob5">You end up fixing it manually...</span></div>
     </div>
   </div>
   <div class="problem-right">
     <div class="chrome-form" id="e3c">
-      <div class="autofill-badge" id="e3d">Chrome Autofill</div>
+      <div class="autofill-badge" id="e3d" data-i18n="af_badge">Chrome Autofill</div>
       <div class="chrome-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="url-bar">example.com/register</div></div>
-      <h3>Sign Up</h3>
-      <div class="cf-row"><div style="flex:1"><label>Full Name</label><div class="cf-field" id="cf1"></div></div><div class="cf-status s-ok" id="cs1">&#10003;</div></div>
-      <div class="cf-row"><div style="flex:1"><label>Company</label><div class="cf-field" id="cf2"></div></div><div class="cf-status s-warn" id="cs2">？</div></div>
-      <div class="cf-row"><div style="flex:1"><label>Email</label><div class="cf-field" id="cf3"></div></div><div class="cf-status s-ok" id="cs3">&#10003;</div></div>
-      <div class="cf-row"><div style="flex:1"><label>Phone</label><div class="cf-field" id="cf4"></div></div><div class="cf-status s-ng" id="cs4">&#10007;</div></div>
-      <div class="cf-row"><div style="flex:1"><label>Department</label><div class="cf-field" id="cf5"></div></div><div class="cf-status s-ng" id="cs5">&#10007;</div></div>
-      <div class="cf-row"><div style="flex:1"><label>Preferred Date</label><div class="cf-field" id="cf6" style="color:#94a3b8;"></div></div><div class="cf-status s-ng" id="cs6">&#10007;</div></div>
+      <h3 data-i18n="sf1_t">Sign Up</h3>
+      <div class="cf-row"><div style="flex:1"><label data-i18n="lbl_name">Full Name</label><div class="cf-field" id="cf1"></div></div><div class="cf-status s-ok" id="cs1">&#10003;</div></div>
+      <div class="cf-row"><div style="flex:1"><label data-i18n="lbl_company">Company</label><div class="cf-field" id="cf2"></div></div><div class="cf-status s-warn" id="cs2">？</div></div>
+      <div class="cf-row"><div style="flex:1"><label data-i18n="lbl_email">Email</label><div class="cf-field" id="cf3"></div></div><div class="cf-status s-ok" id="cs3">&#10003;</div></div>
+      <div class="cf-row"><div style="flex:1"><label data-i18n="lbl_phone">Phone</label><div class="cf-field" id="cf4"></div></div><div class="cf-status s-ng" id="cs4">&#10007;</div></div>
+      <div class="cf-row"><div style="flex:1"><label data-i18n="lbl_dept">Department</label><div class="cf-field" id="cf5"></div></div><div class="cf-status s-ng" id="cs5">&#10007;</div></div>
+      <div class="cf-row"><div style="flex:1"><label data-i18n="lbl_date">Preferred Date</label><div class="cf-field" id="cf6" style="color:#94a3b8;"></div></div><div class="cf-status s-ng" id="cs6">&#10007;</div></div>
     </div>
   </div>
 </div>
@@ -289,43 +303,43 @@
 <!-- S4: Solution -->
 <div class="scene" id="s4">
   <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-    <div class="solution-title" id="e4a">With FormPilot</div>
-    <div class="three-sec" id="e4b">3 sec</div>
-    <div class="three-sec-label" id="e4c">to fill any form.</div>
-    <div class="solution-sub" id="e4d" style="margin-top:24px;">AI analyzes form structure and <strong>accurately fills every field</strong></div>
+    <div class="solution-title" id="e4a" data-i18n="sol_title">With FormPilot</div>
+    <div class="three-sec" id="e4b" data-i18n="sol_3sec">3 sec</div>
+    <div class="three-sec-label" id="e4c" data-i18n="sol_label">to fill any form.</div>
+    <div class="solution-sub" id="e4d" style="margin-top:24px;" data-i18n="sol_sub">AI analyzes form structure and <strong>accurately fills every field</strong></div>
   </div>
 </div>
 
 <!-- S5: Demo -->
 <div class="scene" id="s5">
   <div class="demo-left">
-    <div class="demo-badge" id="e5a">&#9889; AI Auto-Fill</div>
-    <div class="demo-title" id="e5b">One button,<br><span class="green">every field filled.</span></div>
-    <div class="demo-desc" id="e5c">Not just text fields — AI also handles<br><span style="color:#059669;font-weight:700;">dropdowns, radio buttons &amp; checkboxes</span><br>automatically.</div>
+    <div class="demo-badge" id="e5a" data-i18n="demo_badge">&#9889; AI Auto-Fill</div>
+    <div class="demo-title" id="e5b" data-i18n="demo_title">One button,<br><span class="green">every field filled.</span></div>
+    <div class="demo-desc" id="e5c" data-i18n="demo_desc">Not just text fields — AI also handles<br><span style="color:#059669;font-weight:700;">dropdowns, radio buttons &amp; checkboxes</span><br>automatically.</div>
   </div>
   <div class="demo-right">
     <div class="demo-form" id="e5d">
       <div class="form-header">
-        <h3>Contact Form</h3>
-        <div class="autofill-btn" id="e5btn"><span>&#9889;</span> AI Auto-Fill<div class="btn-shine" id="e5shine"></div></div>
+        <h3 data-i18n="demo_form_t">Contact Form</h3>
+        <div class="autofill-btn" id="e5btn"><span>&#9889;</span> <span data-i18n="demo_btn">AI Auto-Fill</span><div class="btn-shine" id="e5shine"></div></div>
       </div>
       <div class="field-row">
-        <div class="field"><label>Last Name</label><div class="demo-input" id="d1"></div></div>
-        <div class="field"><label>First Name</label><div class="demo-input" id="d2"></div></div>
+        <div class="field"><label data-i18n="lbl_last">Last Name</label><div class="demo-input" id="d1"></div></div>
+        <div class="field"><label data-i18n="lbl_first">First Name</label><div class="demo-input" id="d2"></div></div>
       </div>
-      <div class="field"><label>Email</label><div class="demo-input" id="d3"></div></div>
-      <div class="field"><label>Phone</label><div class="demo-input" id="d4"></div></div>
-      <div class="field"><label>Inquiry Type</label><div class="demo-select" id="d5"><span class="select-text">Select...</span><span class="select-arrow">&#9660;</span></div></div>
-      <div class="field"><label>Gender</label>
+      <div class="field"><label data-i18n="lbl_email">Email</label><div class="demo-input" id="d3"></div></div>
+      <div class="field"><label data-i18n="lbl_phone">Phone</label><div class="demo-input" id="d4"></div></div>
+      <div class="field"><label data-i18n="lbl_inq">Inquiry Type</label><div class="demo-select" id="d5"><span class="select-text" data-i18n="v_select">Select...</span><span class="select-arrow">&#9660;</span></div></div>
+      <div class="field"><label data-i18n="lbl_gender">Gender</label>
         <div class="demo-radio-group">
-          <div class="demo-radio" id="dr1"><div class="radio-circle"><div class="radio-dot"></div></div>Male</div>
-          <div class="demo-radio" id="dr2"><div class="radio-circle"><div class="radio-dot"></div></div>Female</div>
-          <div class="demo-radio" id="dr3"><div class="radio-circle"><div class="radio-dot"></div></div>Other</div>
+          <div class="demo-radio" id="dr1"><div class="radio-circle"><div class="radio-dot"></div></div><span data-i18n="v_male">Male</span></div>
+          <div class="demo-radio" id="dr2"><div class="radio-circle"><div class="radio-dot"></div></div><span data-i18n="v_female">Female</span></div>
+          <div class="demo-radio" id="dr3"><div class="radio-circle"><div class="radio-dot"></div></div><span data-i18n="v_other">Other</span></div>
         </div>
       </div>
-      <div class="field"><label>Contact Method</label><div class="demo-select" id="d6"><span class="select-text">Select...</span><span class="select-arrow">&#9660;</span></div></div>
-      <div class="field"><label>Agree to Privacy Policy</label>
-        <div class="demo-checkbox-group"><div class="demo-checkbox" id="dc1"><div class="check-box">&#10003;</div>I agree</div></div>
+      <div class="field"><label data-i18n="lbl_contact">Contact Method</label><div class="demo-select" id="d6"><span class="select-text" data-i18n="v_select">Select...</span><span class="select-arrow">&#9660;</span></div></div>
+      <div class="field"><label data-i18n="lbl_privacy">Agree to Privacy Policy</label>
+        <div class="demo-checkbox-group"><div class="demo-checkbox" id="dc1"><div class="check-box">&#10003;</div><span data-i18n="v_agree">I agree</span></div></div>
       </div>
     </div>
   </div>
@@ -334,14 +348,14 @@
 <!-- S6: Features -->
 <div class="scene" id="s6">
   <div style="display:flex;flex-direction:column;align-items:center;gap:56px;">
-    <div class="feat-title" id="e6a">Features</div>
+    <div class="feat-title" id="e6a" data-i18n="feat_title">Features</div>
     <div class="feat-grid">
-      <div class="feat-item" id="f1"><span class="feat-emoji">&#129302;</span><h4>AI Form Analysis</h4><p>AI understands form fields automatically<br>No per-site setup needed</p></div>
-      <div class="feat-item" id="f2"><span class="feat-emoji">&#128101;</span><h4>Multiple Profiles</h4><p>Work, personal, testing — up to<br>10 profiles to switch between</p></div>
-      <div class="feat-item" id="f3"><span class="feat-emoji">&#128295;</span><h4>Custom Fields</h4><p>Add any non-standard field<br>Up to 20 per profile</p></div>
-      <div class="feat-item" id="f4"><span class="feat-emoji">&#128737;</span><h4>Minimal Permissions</h4><p>Only reads form fields<br>No camera, mic, or location</p></div>
-      <div class="feat-item" id="f5"><span class="feat-emoji">&#128190;</span><h4>Per-Site Data Save</h4><p>Save form data per website<br>Restore with one click next time</p></div>
-      <div class="feat-item" id="f6"><span class="feat-emoji">&#128274;</span><h4>Local Storage Only</h4><p>All data stays in your browser<br>Nothing sent to external servers</p></div>
+      <div class="feat-item" id="f1"><span class="feat-emoji">&#129302;</span><h4 data-i18n="f1_t">AI Form Analysis</h4><p data-i18n="f1_p">AI understands form fields automatically<br>No per-site setup needed</p></div>
+      <div class="feat-item" id="f2"><span class="feat-emoji">&#128101;</span><h4 data-i18n="f2_t">Multiple Profiles</h4><p data-i18n="f2_p">Work, personal, testing — up to<br>10 profiles to switch between</p></div>
+      <div class="feat-item" id="f3"><span class="feat-emoji">&#128295;</span><h4 data-i18n="f3_t">Custom Fields</h4><p data-i18n="f3_p">Add any non-standard field<br>Up to 20 per profile</p></div>
+      <div class="feat-item" id="f4"><span class="feat-emoji">&#128737;</span><h4 data-i18n="f4_t">Minimal Permissions</h4><p data-i18n="f4_p">Only reads form fields<br>No camera, mic, or location</p></div>
+      <div class="feat-item" id="f5"><span class="feat-emoji">&#128190;</span><h4 data-i18n="f5_t">Per-Site Data Save</h4><p data-i18n="f5_p">Save form data per website<br>Restore with one click next time</p></div>
+      <div class="feat-item" id="f6"><span class="feat-emoji">&#128274;</span><h4 data-i18n="f6_t">Local Storage Only</h4><p data-i18n="f6_p">All data stays in your browser<br>Nothing sent to external servers</p></div>
     </div>
   </div>
 </div>
@@ -349,18 +363,450 @@
 <!-- S7: CTA -->
 <div class="scene" id="s7">
   <div style="display:flex;flex-direction:column;align-items:center;gap:36px;">
-    <div class="cta-title" id="e7a">Start <span style="color:#059669">automating</span><br>your form filling today.</div>
+    <div class="cta-title" id="e7a" data-i18n="cta_title">Start <span style="color:#059669">automating</span><br>your form filling today.</div>
     <div class="cta-checks" id="e7b">
-      <div class="cta-check"><div class="check-circle">&#10003;</div> 100% Free</div>
-      <div class="cta-check"><div class="check-circle">&#10003;</div> No sign-up required</div>
-      <div class="cta-check"><div class="check-circle">&#10003;</div> Install in 30 seconds</div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div> <span data-i18n="cta_c1">100% Free</span></div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div> <span data-i18n="cta_c2">No sign-up required</span></div>
+      <div class="cta-check"><div class="check-circle">&#10003;</div> <span data-i18n="cta_c3">Install in 30 seconds</span></div>
     </div>
-    <div class="cta-btn" id="e7c">&#9889; Add to Chrome — Free</div>
-    <div class="cta-note" id="e7d">Available on Chrome Web Store</div>
+    <div class="cta-btn" id="e7c" data-i18n="cta_btn">&#9889; Add to Chrome — Free</div>
+    <div class="cta-note" id="e7d" data-i18n="cta_note">Available on Chrome Web Store</div>
   </div>
 </div>
 
 <script>
+// ── i18n ─────────────────────────────────────────────────────────────
+// English is the DOM default (same convention as sendready-chrome/promo.html).
+// Open promo.html?lang=ja etc. to record a localized video.
+// Feature/CTA wording is kept in sync with i18n-lp.js.
+const I18N = {
+
+ja: {
+tagline:"AIが<span class=\"green\">ワンクリック</span>でフォームを自動入力",
+rep_title:"同じ情報を何度も<br><span class=\"orange\">手入力していませんか？</span>",
+sf1_t:"会員登録", sf2_t:"口座開設", sf3_t:"求人応募", sf4_t:"見積り依頼", sf5_t:"配送先入力",
+lbl_name:"氏名", lbl_email:"メールアドレス", lbl_addr:"住所", lbl_phone:"電話番号",
+v_name:"山田 太郎", v_email:"taro@example.com", v_addr:"東京都新宿区西新宿1-2-3", v_phone:"090-1234-5678",
+sigh:"😩 また同じ入力…",
+save_text:"FormPilotなら<span class=\"green\">設定は1回だけ。</span><br>どのサイトでもワンクリックで自動入力＆復元。",
+prob_title:"Chromeの自動入力、<br><span class=\"red\">イライラしませんか？</span>",
+prob1:"カスタム項目は丸ごとスキップ",
+prob2:"違う欄に入力してしまう",
+prob3:"非標準の入力欄は無視",
+prob4:"ドロップダウンは非対応",
+prob5:"結局、手で直すはめに…",
+af_badge:"Chrome 自動入力",
+lbl_company:"会社名", lbl_dept:"部署名", lbl_date:"希望日",
+sol_title:"FormPilotなら",
+sol_3sec:"3秒",
+sol_label:"どんなフォームも入力完了。",
+sol_sub:"AIがフォーム構造を解析し、<strong>すべての項目に正確に入力</strong>",
+demo_badge:"⚡ AI自動入力",
+demo_title:"ボタン1つで、<br><span class=\"green\">全項目に入力。</span>",
+demo_desc:"テキスト欄だけじゃない —<br><span style=\"color:#059669;font-weight:700;\">ドロップダウン・ラジオ・チェックボックス</span><br>もAIが自動で処理。",
+demo_form_t:"お問い合わせフォーム", demo_btn:"AI自動入力",
+lbl_last:"姓", lbl_first:"名", lbl_inq:"お問い合わせ種別", lbl_gender:"性別", lbl_contact:"希望連絡方法", lbl_privacy:"プライバシーポリシーに同意",
+v_select:"選択してください", v_male:"男性", v_female:"女性", v_other:"その他", v_agree:"同意する",
+v_last:"山田", v_first:"太郎", v_inq:"製品について", v_contact:"メール",
+feat_title:"機能",
+f1_t:"AI フォーム解析", f1_p:"AIがフォーム項目を自動判別<br>サイトごとの設定は不要",
+f2_t:"複数プロフィール", f2_p:"仕事用・個人用・テスト用など<br>最大10個を切り替え",
+f3_t:"カスタムフィールド", f3_p:"標準にない項目も追加可能<br>1プロフィールあたり最大20個",
+f4_t:"最小限の権限", f4_p:"読み取るのはフォーム項目だけ<br>カメラ・マイク・位置情報は不使用",
+f5_t:"サイト別データ保存", f5_p:"サイトごとに入力内容を保存<br>次回はワンクリックで復元",
+f6_t:"データ完全ローカル", f6_p:"データはブラウザ内にのみ保存<br>外部サーバーには一切送信なし",
+cta_title:"フォーム入力の<span style=\"color:#059669\">自動化</span>を、<br>今日から始めよう。",
+cta_c1:"完全無料", cta_c2:"登録不要", cta_c3:"30秒でインストール",
+cta_btn:"⚡ Chromeに追加 — 無料",
+cta_note:"Chrome ウェブストアからすぐに追加できます"
+},
+
+zh: {
+tagline:"AI 驱动，<span class=\"green\">一键</span>自动填写表单",
+rep_title:"同样的信息，<br><span class=\"orange\">还要反复输入多少次？</span>",
+sf1_t:"注册账号", sf2_t:"开设账户", sf3_t:"职位申请", sf4_t:"获取报价", sf5_t:"配送信息",
+lbl_name:"姓名", lbl_email:"邮箱", lbl_addr:"地址", lbl_phone:"电话",
+v_name:"李伟", v_email:"liwei@example.com", v_addr:"北京市朝阳区建国路88号", v_phone:"138-0013-8000",
+sigh:"😩 又是这个表单…",
+save_text:"有了 FormPilot，<span class=\"green\">只需设置一次。</span><br>任何网站都能一键自动填写和恢复。",
+prob_title:"Chrome 的自动填充，<br><span class=\"red\">是不是很让人恼火？</span>",
+prob1:"自定义字段直接跳过",
+prob2:"填到错误的字段里",
+prob3:"非标准输入框被忽略",
+prob4:"下拉菜单无法处理",
+prob5:"最后还得手动修改…",
+af_badge:"Chrome 自动填充",
+lbl_company:"公司", lbl_dept:"部门", lbl_date:"期望日期",
+sol_title:"有了 FormPilot",
+sol_3sec:"3秒",
+sol_label:"填完任何表单。",
+sol_sub:"AI 分析表单结构，<strong>准确填写每一个字段</strong>",
+demo_badge:"⚡ AI 自动填写",
+demo_title:"一个按钮，<br><span class=\"green\">填满所有字段。</span>",
+demo_desc:"不只是文本框 —<br><span style=\"color:#059669;font-weight:700;\">下拉菜单、单选按钮、复选框</span><br>AI 也能自动处理。",
+demo_form_t:"联系表单", demo_btn:"AI 自动填写",
+lbl_last:"姓", lbl_first:"名", lbl_inq:"咨询类型", lbl_gender:"性别", lbl_contact:"联系方式", lbl_privacy:"同意隐私政策",
+v_select:"请选择", v_male:"男", v_female:"女", v_other:"其他", v_agree:"我同意",
+v_last:"李", v_first:"伟", v_inq:"产品咨询", v_contact:"邮箱",
+feat_title:"功能",
+f1_t:"AI 表单解析", f1_p:"AI 自动识别表单字段<br>无需按网站逐个设置",
+f2_t:"多个个人资料", f2_p:"工作、个人、测试等<br>最多10个随时切换",
+f3_t:"自定义字段", f3_p:"任何非标准字段都能添加<br>每个资料最多20个",
+f4_t:"最小权限", f4_p:"只读取表单字段<br>不用摄像头、麦克风或定位",
+f5_t:"按网站保存数据", f5_p:"按网站保存表单内容<br>下次一键恢复",
+f6_t:"数据完全本地", f6_p:"数据只存在你的浏览器里<br>不会发送到外部服务器",
+cta_title:"从今天起，让表单填写<br><span style=\"color:#059669\">自动完成</span>。",
+cta_c1:"100% 免费", cta_c2:"无需注册", cta_c3:"30秒完成安装",
+cta_btn:"⚡ 添加到 Chrome — 免费",
+cta_note:"可从 Chrome 应用商店立即添加"
+},
+
+ko: {
+tagline:"AI가 <span class=\"green\">원클릭</span>으로 폼을 자동 입력",
+rep_title:"같은 정보를 몇 번이나<br><span class=\"orange\">다시 입력하고 계신가요?</span>",
+sf1_t:"회원 가입", sf2_t:"계좌 개설", sf3_t:"입사 지원", sf4_t:"견적 요청", sf5_t:"배송지 입력",
+lbl_name:"이름", lbl_email:"이메일", lbl_addr:"주소", lbl_phone:"전화번호",
+v_name:"김민준", v_email:"minjun@example.com", v_addr:"서울특별시 강남구 테헤란로 123", v_phone:"010-1234-5678",
+sigh:"😩 또 이 폼이야…",
+save_text:"FormPilot이라면 <span class=\"green\">설정은 한 번만.</span><br>어느 사이트든 원클릭으로 자동 입력 & 복원.",
+prob_title:"Chrome 자동 완성,<br><span class=\"red\">답답하지 않으세요?</span>",
+prob1:"사용자 정의 필드는 통째로 건너뜀",
+prob2:"엉뚱한 칸에 입력됨",
+prob3:"비표준 입력란은 무시",
+prob4:"드롭다운은 처리 불가",
+prob5:"결국 손으로 고치게 됨…",
+af_badge:"Chrome 자동 완성",
+lbl_company:"회사명", lbl_dept:"부서", lbl_date:"희망 날짜",
+sol_title:"FormPilot이라면",
+sol_3sec:"3초",
+sol_label:"어떤 폼이든 입력 완료.",
+sol_sub:"AI가 폼 구조를 분석해 <strong>모든 항목을 정확하게 입력</strong>",
+demo_badge:"⚡ AI 자동 입력",
+demo_title:"버튼 하나로<br><span class=\"green\">모든 필드 입력 완료.</span>",
+demo_desc:"텍스트 필드뿐만 아니라<br><span style=\"color:#059669;font-weight:700;\">드롭다운·라디오 버튼·체크박스</span>까지<br>AI가 자동으로 처리.",
+demo_form_t:"문의 폼", demo_btn:"AI 자동 입력",
+lbl_last:"성", lbl_first:"이름", lbl_inq:"문의 유형", lbl_gender:"성별", lbl_contact:"연락 방법", lbl_privacy:"개인정보처리방침 동의",
+v_select:"선택하세요", v_male:"남성", v_female:"여성", v_other:"기타", v_agree:"동의합니다",
+v_last:"김", v_first:"민준", v_inq:"제품 문의", v_contact:"이메일",
+feat_title:"기능",
+f1_t:"AI 폼 분석", f1_p:"AI가 폼 항목을 자동 판별<br>사이트별 설정 불필요",
+f2_t:"다중 프로필", f2_p:"업무용·개인용·테스트용 등<br>최대 10개 전환 가능",
+f3_t:"사용자 정의 필드", f3_p:"표준에 없는 항목도 추가<br>프로필당 최대 20개",
+f4_t:"최소한의 권한", f4_p:"폼 필드만 읽음<br>카메라·마이크·위치 사용 안 함",
+f5_t:"사이트별 데이터 저장", f5_p:"사이트별로 입력 내용 저장<br>다음엔 클릭 한 번으로 복원",
+f6_t:"데이터 완전 로컬", f6_p:"데이터는 브라우저에만 저장<br>외부 서버 전송 없음",
+cta_title:"폼 입력 <span style=\"color:#059669\">자동화</span>,<br>오늘부터 시작하세요.",
+cta_c1:"100% 무료", cta_c2:"가입 불필요", cta_c3:"30초면 설치 완료",
+cta_btn:"⚡ Chrome에 추가 — 무료",
+cta_note:"Chrome 웹 스토어에서 바로 추가할 수 있습니다"
+},
+
+es: {
+tagline:"Autorrelleno de formularios con IA — <span class=\"green\">en un clic</span>",
+rep_title:"¿Cansado de escribir lo mismo<br><span class=\"orange\">una y otra vez?</span>",
+sf1_t:"Registro", sf2_t:"Abrir cuenta", sf3_t:"Solicitud de empleo", sf4_t:"Pedir presupuesto", sf5_t:"Datos de envío",
+lbl_name:"Nombre completo", lbl_email:"Email", lbl_addr:"Dirección", lbl_phone:"Teléfono",
+v_name:"Javier Morales", v_email:"javier@example.com", v_addr:"Calle Mayor 12, Madrid", v_phone:"+34 612 345 678",
+sigh:"😩 Otra vez este formulario…",
+save_text:"Con FormPilot, <span class=\"green\">configúralo una vez.</span><br>Rellena y restaura en cualquier sitio con un clic.",
+prob_title:"El autorrelleno de Chrome<br><span class=\"red\">es frustrante, ¿verdad?</span>",
+prob1:"Omite por completo los campos personalizados",
+prob2:"Rellena los campos equivocados",
+prob3:"Ignora los campos no estándar",
+prob4:"No puede con los desplegables",
+prob5:"Acabas corrigiéndolo a mano…",
+af_badge:"Autorrelleno de Chrome",
+lbl_company:"Empresa", lbl_dept:"Departamento", lbl_date:"Fecha preferida",
+sol_title:"Con FormPilot",
+sol_3sec:"3 seg",
+sol_label:"para rellenar cualquier formulario.",
+sol_sub:"La IA analiza la estructura del formulario y <strong>rellena cada campo con precisión</strong>",
+demo_badge:"⚡ Autorrelleno con IA",
+demo_title:"Un botón,<br><span class=\"green\">todos los campos llenos.</span>",
+demo_desc:"No solo campos de texto — la IA también gestiona<br><span style=\"color:#059669;font-weight:700;\">desplegables, botones de radio y casillas</span><br>automáticamente.",
+demo_form_t:"Formulario de contacto", demo_btn:"Autorrelleno IA",
+lbl_last:"Apellido", lbl_first:"Nombre", lbl_inq:"Tipo de consulta", lbl_gender:"Género", lbl_contact:"Método de contacto", lbl_privacy:"Acepto la política de privacidad",
+v_select:"Seleccionar...", v_male:"Hombre", v_female:"Mujer", v_other:"Otro", v_agree:"Acepto",
+v_last:"Morales", v_first:"Javier", v_inq:"Consulta de producto", v_contact:"Email",
+feat_title:"Funciones",
+f1_t:"Análisis de formularios con IA", f1_p:"La IA entiende los campos automáticamente<br>Sin configuración por sitio",
+f2_t:"Múltiples perfiles", f2_p:"Trabajo, personal, pruebas — hasta<br>10 perfiles intercambiables",
+f3_t:"Campos personalizados", f3_p:"Añade cualquier campo no estándar<br>Hasta 20 por perfil",
+f4_t:"Permisos mínimos", f4_p:"Solo lee campos de formulario<br>Sin cámara, micro ni ubicación",
+f5_t:"Datos guardados por sitio", f5_p:"Guarda datos por sitio web<br>Restaura con un clic la próxima vez",
+f6_t:"Solo almacenamiento local", f6_p:"Todo queda en tu navegador<br>Nada se envía a servidores externos",
+cta_title:"Empieza hoy a <span style=\"color:#059669\">automatizar</span><br>tus formularios.",
+cta_c1:"100% gratis", cta_c2:"Sin registro", cta_c3:"Se instala en 30 segundos",
+cta_btn:"⚡ Añadir a Chrome — Gratis",
+cta_note:"Añádelo directamente desde la Chrome Web Store"
+},
+
+fr: {
+tagline:"Remplissage automatique par IA — <span class=\"green\">en un clic</span>",
+rep_title:"Fatigué de retaper les mêmes infos<br><span class=\"orange\">encore et encore ?</span>",
+sf1_t:"Inscription", sf2_t:"Ouvrir un compte", sf3_t:"Candidature", sf4_t:"Demander un devis", sf5_t:"Adresse de livraison",
+lbl_name:"Nom complet", lbl_email:"E-mail", lbl_addr:"Adresse", lbl_phone:"Téléphone",
+v_name:"Lucas Martin", v_email:"lucas@example.com", v_addr:"12 rue de la Paix, Paris", v_phone:"06 12 34 56 78",
+sigh:"😩 Encore ce formulaire…",
+save_text:"Avec FormPilot, <span class=\"green\">configurez une seule fois.</span><br>Remplissage et restauration en un clic, sur tous les sites.",
+prob_title:"Le remplissage auto de Chrome,<br><span class=\"red\">c'est agaçant, non ?</span>",
+prob1:"Ignore totalement les champs personnalisés",
+prob2:"Remplit les mauvais champs",
+prob3:"Néglige les champs non standards",
+prob4:"Ne gère pas les listes déroulantes",
+prob5:"Vous finissez par corriger à la main…",
+af_badge:"Remplissage auto Chrome",
+lbl_company:"Société", lbl_dept:"Service", lbl_date:"Date souhaitée",
+sol_title:"Avec FormPilot",
+sol_3sec:"3 sec",
+sol_label:"pour remplir n'importe quel formulaire.",
+sol_sub:"L'IA analyse la structure du formulaire et <strong>remplit chaque champ avec précision</strong>",
+demo_badge:"⚡ Remplissage IA",
+demo_title:"Un bouton,<br><span class=\"green\">tous les champs remplis.</span>",
+demo_desc:"Pas seulement le texte — l'IA gère aussi<br><span style=\"color:#059669;font-weight:700;\">listes déroulantes, boutons radio et cases</span><br>automatiquement.",
+demo_form_t:"Formulaire de contact", demo_btn:"Remplissage IA",
+lbl_last:"Nom", lbl_first:"Prénom", lbl_inq:"Type de demande", lbl_gender:"Genre", lbl_contact:"Moyen de contact", lbl_privacy:"J'accepte la politique de confidentialité",
+v_select:"Sélectionner...", v_male:"Homme", v_female:"Femme", v_other:"Autre", v_agree:"J'accepte",
+v_last:"Martin", v_first:"Lucas", v_inq:"Question produit", v_contact:"E-mail",
+feat_title:"Fonctionnalités",
+f1_t:"Analyse de formulaires par IA", f1_p:"L'IA comprend les champs automatiquement<br>Aucun réglage par site",
+f2_t:"Profils multiples", f2_p:"Pro, perso, test — jusqu'à<br>10 profils interchangeables",
+f3_t:"Champs personnalisés", f3_p:"Ajoutez tout champ non standard<br>Jusqu'à 20 par profil",
+f4_t:"Permissions minimales", f4_p:"Lit uniquement les champs de formulaire<br>Ni caméra, ni micro, ni position",
+f5_t:"Données par site", f5_p:"Enregistrez les données par site<br>Restaurez en un clic la prochaine fois",
+f6_t:"Stockage 100 % local", f6_p:"Tout reste dans votre navigateur<br>Rien n'est envoyé à des serveurs externes",
+cta_title:"Commencez dès aujourd'hui à<br><span style=\"color:#059669\">automatiser</span> vos formulaires.",
+cta_c1:"100 % gratuit", cta_c2:"Sans inscription", cta_c3:"Installé en 30 secondes",
+cta_btn:"⚡ Ajouter à Chrome — Gratuit",
+cta_note:"Ajoutez-le directement depuis le Chrome Web Store"
+},
+
+de: {
+tagline:"KI-gestütztes Formular-Ausfüllen — <span class=\"green\">mit einem Klick</span>",
+rep_title:"Genervt davon, dieselben Daten<br><span class=\"orange\">immer wieder einzutippen?</span>",
+sf1_t:"Registrierung", sf2_t:"Konto eröffnen", sf3_t:"Bewerbung", sf4_t:"Angebot anfordern", sf5_t:"Lieferadresse",
+lbl_name:"Name", lbl_email:"E-Mail", lbl_addr:"Adresse", lbl_phone:"Telefon",
+v_name:"Lukas Becker", v_email:"lukas@example.com", v_addr:"Hauptstraße 12, 10115 Berlin", v_phone:"0151 2345678",
+sigh:"😩 Nicht schon wieder dieses Formular…",
+save_text:"Mit FormPilot <span class=\"green\">einmal einrichten.</span><br>Auf jeder Website mit einem Klick ausfüllen & wiederherstellen.",
+prob_title:"Chromes Autofill ist<br><span class=\"red\">frustrierend, oder?</span>",
+prob1:"Überspringt eigene Felder komplett",
+prob2:"Füllt die falschen Felder aus",
+prob3:"Ignoriert Nicht-Standard-Felder",
+prob4:"Kommt mit Dropdowns nicht klar",
+prob5:"Am Ende korrigierst du alles von Hand…",
+af_badge:"Chrome Autofill",
+lbl_company:"Firma", lbl_dept:"Abteilung", lbl_date:"Wunschtermin",
+sol_title:"Mit FormPilot",
+sol_3sec:"3 Sek",
+sol_label:"für jedes Formular.",
+sol_sub:"KI analysiert die Formularstruktur und <strong>füllt jedes Feld präzise aus</strong>",
+demo_badge:"⚡ KI-Autofill",
+demo_title:"Ein Button,<br><span class=\"green\">alle Felder gefüllt.</span>",
+demo_desc:"Nicht nur Textfelder — die KI übernimmt auch<br><span style=\"color:#059669;font-weight:700;\">Dropdowns, Radio-Buttons & Checkboxen</span><br>automatisch.",
+demo_form_t:"Kontaktformular", demo_btn:"KI-Autofill",
+lbl_last:"Nachname", lbl_first:"Vorname", lbl_inq:"Anfrageart", lbl_gender:"Geschlecht", lbl_contact:"Kontaktweg", lbl_privacy:"Datenschutzerklärung akzeptieren",
+v_select:"Auswählen...", v_male:"Männlich", v_female:"Weiblich", v_other:"Divers", v_agree:"Ich stimme zu",
+v_last:"Becker", v_first:"Lukas", v_inq:"Produktanfrage", v_contact:"E-Mail",
+feat_title:"Funktionen",
+f1_t:"KI-Formularanalyse", f1_p:"KI versteht Formularfelder automatisch<br>Keine Einrichtung pro Website",
+f2_t:"Mehrere Profile", f2_p:"Arbeit, privat, Test — bis zu<br>10 Profile zum Umschalten",
+f3_t:"Benutzerdefinierte Felder", f3_p:"Beliebige Sonderfelder hinzufügen<br>Bis zu 20 pro Profil",
+f4_t:"Minimale Berechtigungen", f4_p:"Liest nur Formularfelder<br>Keine Kamera, kein Mikro, kein Standort",
+f5_t:"Daten pro Website", f5_p:"Formulardaten pro Website speichern<br>Beim nächsten Mal per Klick zurückholen",
+f6_t:"Nur lokale Speicherung", f6_p:"Alle Daten bleiben im Browser<br>Nichts geht an externe Server",
+cta_title:"Starte noch heute mit dem<br><span style=\"color:#059669\">automatischen</span> Ausfüllen.",
+cta_c1:"100 % kostenlos", cta_c2:"Keine Registrierung nötig", cta_c3:"In 30 Sekunden installiert",
+cta_btn:"⚡ Zu Chrome hinzufügen — Kostenlos",
+cta_note:"Sofort im Chrome Web Store hinzufügen"
+},
+
+pt: {
+tagline:"Preenchimento automático com IA — <span class=\"green\">em um clique</span>",
+rep_title:"Cansado de digitar as mesmas coisas<br><span class=\"orange\">de novo e de novo?</span>",
+sf1_t:"Cadastro", sf2_t:"Abrir conta", sf3_t:"Candidatura", sf4_t:"Pedir orçamento", sf5_t:"Dados de entrega",
+lbl_name:"Nome completo", lbl_email:"E-mail", lbl_addr:"Endereço", lbl_phone:"Telefone",
+v_name:"Lucas Oliveira", v_email:"lucas@example.com", v_addr:"Av. Paulista 1000, São Paulo", v_phone:"(11) 91234-5678",
+sigh:"😩 Esse formulário de novo…",
+save_text:"Com o FormPilot, <span class=\"green\">configure uma vez só.</span><br>Preencha e restaure em qualquer site com um clique.",
+prob_title:"O preenchimento automático do Chrome<br><span class=\"red\">é frustrante, não é?</span>",
+prob1:"Pula campos personalizados por completo",
+prob2:"Preenche os campos errados",
+prob3:"Ignora campos fora do padrão",
+prob4:"Não dá conta de listas suspensas",
+prob5:"No fim, você corrige tudo na mão…",
+af_badge:"Preenchimento do Chrome",
+lbl_company:"Empresa", lbl_dept:"Departamento", lbl_date:"Data preferida",
+sol_title:"Com o FormPilot",
+sol_3sec:"3 seg",
+sol_label:"para preencher qualquer formulário.",
+sol_sub:"A IA analisa a estrutura do formulário e <strong>preenche cada campo com precisão</strong>",
+demo_badge:"⚡ Preenchimento com IA",
+demo_title:"Um botão,<br><span class=\"green\">todos os campos preenchidos.</span>",
+demo_desc:"Não só campos de texto — a IA também cuida de<br><span style=\"color:#059669;font-weight:700;\">listas suspensas, botões de opção e caixas</span><br>automaticamente.",
+demo_form_t:"Formulário de contato", demo_btn:"Preencher com IA",
+lbl_last:"Sobrenome", lbl_first:"Nome", lbl_inq:"Tipo de contato", lbl_gender:"Gênero", lbl_contact:"Forma de contato", lbl_privacy:"Aceito a política de privacidade",
+v_select:"Selecionar...", v_male:"Masculino", v_female:"Feminino", v_other:"Outro", v_agree:"Aceito",
+v_last:"Oliveira", v_first:"Lucas", v_inq:"Dúvida sobre produto", v_contact:"E-mail",
+feat_title:"Recursos",
+f1_t:"Análise de formulários por IA", f1_p:"A IA entende os campos automaticamente<br>Sem configuração por site",
+f2_t:"Múltiplos perfis", f2_p:"Trabalho, pessoal, testes — até<br>10 perfis para alternar",
+f3_t:"Campos personalizados", f3_p:"Adicione qualquer campo fora do padrão<br>Até 20 por perfil",
+f4_t:"Permissões mínimas", f4_p:"Lê apenas campos de formulário<br>Sem câmera, microfone ou localização",
+f5_t:"Dados salvos por site", f5_p:"Salve dados por site<br>Restaure com um clique na próxima vez",
+f6_t:"Somente armazenamento local", f6_p:"Tudo fica no seu navegador<br>Nada vai para servidores externos",
+cta_title:"Comece hoje a <span style=\"color:#059669\">automatizar</span><br>seus formulários.",
+cta_c1:"100% grátis", cta_c2:"Sem cadastro", cta_c3:"Instala em 30 segundos",
+cta_btn:"⚡ Adicionar ao Chrome — Grátis",
+cta_note:"Adicione diretamente pela Chrome Web Store"
+},
+
+hi: {
+tagline:"AI से <span class=\"green\">एक क्लिक</span> में फ़ॉर्म ऑटो-फ़िल",
+rep_title:"वही जानकारी बार-बार<br><span class=\"orange\">टाइप करते-करते थक गए?</span>",
+sf1_t:"साइन अप", sf2_t:"खाता खोलें", sf3_t:"नौकरी आवेदन", sf4_t:"कोटेशन लें", sf5_t:"डिलीवरी विवरण",
+lbl_name:"पूरा नाम", lbl_email:"ईमेल", lbl_addr:"पता", lbl_phone:"फ़ोन",
+v_name:"अर्जुन शर्मा", v_email:"arjun@example.com", v_addr:"123 एमजी रोड, नई दिल्ली", v_phone:"+91 98765 43210",
+sigh:"😩 फिर वही फ़ॉर्म…",
+save_text:"FormPilot के साथ, <span class=\"green\">सेटअप बस एक बार।</span><br>किसी भी साइट पर एक क्लिक में ऑटो-फ़िल और रिस्टोर।",
+prob_title:"Chrome का ऑटोफ़िल<br><span class=\"red\">खीझ दिलाता है, है ना?</span>",
+prob1:"कस्टम फ़ील्ड पूरी तरह छोड़ देता है",
+prob2:"गलत फ़ील्ड में भर देता है",
+prob3:"ग़ैर-मानक इनपुट को नज़रअंदाज़ करता है",
+prob4:"ड्रॉपडाउन संभाल नहीं पाता",
+prob5:"आख़िर में हाथ से ठीक करना पड़ता है…",
+af_badge:"Chrome ऑटोफ़िल",
+lbl_company:"कंपनी", lbl_dept:"विभाग", lbl_date:"पसंदीदा तारीख़",
+sol_title:"FormPilot के साथ",
+sol_3sec:"3 सेकंड",
+sol_label:"में कोई भी फ़ॉर्म भर जाए।",
+sol_sub:"AI फ़ॉर्म की संरचना समझता है और <strong>हर फ़ील्ड सटीक भरता है</strong>",
+demo_badge:"⚡ AI ऑटो-फ़िल",
+demo_title:"एक बटन,<br><span class=\"green\">हर फ़ील्ड भर गई।</span>",
+demo_desc:"सिर्फ़ टेक्स्ट फ़ील्ड नहीं — AI<br><span style=\"color:#059669;font-weight:700;\">ड्रॉपडाउन, रेडियो बटन और चेकबॉक्स</span><br>भी अपने-आप संभालता है।",
+demo_form_t:"संपर्क फ़ॉर्म", demo_btn:"AI ऑटो-फ़िल",
+lbl_last:"उपनाम", lbl_first:"नाम", lbl_inq:"पूछताछ का प्रकार", lbl_gender:"लिंग", lbl_contact:"संपर्क माध्यम", lbl_privacy:"गोपनीयता नीति से सहमत",
+v_select:"चुनें...", v_male:"पुरुष", v_female:"महिला", v_other:"अन्य", v_agree:"मैं सहमत हूँ",
+v_last:"शर्मा", v_first:"अर्जुन", v_inq:"उत्पाद पूछताछ", v_contact:"ईमेल",
+feat_title:"फ़ीचर",
+f1_t:"AI फ़ॉर्म विश्लेषण", f1_p:"AI फ़ील्ड अपने-आप समझता है<br>हर साइट के लिए सेटअप नहीं चाहिए",
+f2_t:"एकाधिक प्रोफ़ाइल", f2_p:"काम, व्यक्तिगत, टेस्टिंग —<br>10 तक प्रोफ़ाइल बदल सकते हैं",
+f3_t:"कस्टम फ़ील्ड", f3_p:"कोई भी ग़ैर-मानक फ़ील्ड जोड़ें<br>प्रति प्रोफ़ाइल 20 तक",
+f4_t:"न्यूनतम अनुमतियाँ", f4_p:"सिर्फ़ फ़ॉर्म फ़ील्ड पढ़ता है<br>कैमरा, माइक या लोकेशन नहीं",
+f5_t:"साइट-वार डेटा सेव", f5_p:"हर वेबसाइट का डेटा सेव करें<br>अगली बार एक क्लिक में रिस्टोर",
+f6_t:"डेटा पूरी तरह लोकल", f6_p:"सारा डेटा आपके ब्राउज़र में रहता है<br>बाहरी सर्वर पर कुछ नहीं जाता",
+cta_title:"आज ही फ़ॉर्म भरना<br><span style=\"color:#059669\">ऑटोमेट</span> करें।",
+cta_c1:"100% मुफ़्त", cta_c2:"साइन-अप ज़रूरी नहीं", cta_c3:"30 सेकंड में इंस्टॉल",
+cta_btn:"⚡ Chrome में जोड़ें — मुफ़्त",
+cta_note:"Chrome Web Store से तुरंत जोड़ें"
+},
+
+id: {
+tagline:"Isi formulir otomatis dengan AI — <span class=\"green\">sekali klik</span>",
+rep_title:"Capek mengetik info yang sama<br><span class=\"orange\">berulang-ulang?</span>",
+sf1_t:"Daftar Akun", sf2_t:"Buka Rekening", sf3_t:"Lamaran Kerja", sf4_t:"Minta Penawaran", sf5_t:"Info Pengiriman",
+lbl_name:"Nama Lengkap", lbl_email:"Email", lbl_addr:"Alamat", lbl_phone:"Telepon",
+v_name:"Budi Santoso", v_email:"budi@example.com", v_addr:"Jl. Sudirman No. 25, Jakarta", v_phone:"0812-3456-7890",
+sigh:"😩 Formulir ini lagi…",
+save_text:"Dengan FormPilot, <span class=\"green\">atur sekali saja.</span><br>Isi otomatis & pulihkan di situs mana pun dengan sekali klik.",
+prob_title:"Isi otomatis Chrome itu<br><span class=\"red\">bikin frustrasi, kan?</span>",
+prob1:"Kolom kustom dilewati begitu saja",
+prob2:"Mengisi kolom yang salah",
+prob3:"Mengabaikan input non-standar",
+prob4:"Tidak bisa menangani dropdown",
+prob5:"Ujung-ujungnya diperbaiki manual…",
+af_badge:"Isi Otomatis Chrome",
+lbl_company:"Perusahaan", lbl_dept:"Departemen", lbl_date:"Tanggal Pilihan",
+sol_title:"Dengan FormPilot",
+sol_3sec:"3 dtk",
+sol_label:"untuk mengisi formulir apa pun.",
+sol_sub:"AI menganalisis struktur formulir dan <strong>mengisi setiap kolom dengan akurat</strong>",
+demo_badge:"⚡ Isi Otomatis AI",
+demo_title:"Satu tombol,<br><span class=\"green\">semua kolom terisi.</span>",
+demo_desc:"Bukan cuma kolom teks — AI juga menangani<br><span style=\"color:#059669;font-weight:700;\">dropdown, tombol radio & kotak centang</span><br>secara otomatis.",
+demo_form_t:"Formulir Kontak", demo_btn:"Isi Otomatis AI",
+lbl_last:"Nama Belakang", lbl_first:"Nama Depan", lbl_inq:"Jenis Pertanyaan", lbl_gender:"Jenis Kelamin", lbl_contact:"Metode Kontak", lbl_privacy:"Setuju Kebijakan Privasi",
+v_select:"Pilih...", v_male:"Pria", v_female:"Wanita", v_other:"Lainnya", v_agree:"Saya setuju",
+v_last:"Santoso", v_first:"Budi", v_inq:"Pertanyaan Produk", v_contact:"Email",
+feat_title:"Fitur",
+f1_t:"Analisis Formulir AI", f1_p:"AI memahami kolom secara otomatis<br>Tanpa pengaturan per situs",
+f2_t:"Profil Ganda", f2_p:"Kerja, pribadi, pengujian — hingga<br>10 profil bisa dipilih",
+f3_t:"Kolom Kustom", f3_p:"Tambahkan kolom non-standar apa pun<br>Hingga 20 per profil",
+f4_t:"Izin Minimal", f4_p:"Hanya membaca kolom formulir<br>Tanpa kamera, mikrofon, atau lokasi",
+f5_t:"Simpan Data per Situs", f5_p:"Simpan data formulir per situs<br>Pulihkan sekali klik di kunjungan berikutnya",
+f6_t:"Hanya Penyimpanan Lokal", f6_p:"Semua data tetap di browser<br>Tidak ada yang dikirim ke server luar",
+cta_title:"Mulai <span style=\"color:#059669\">otomatiskan</span> pengisian<br>formulirmu hari ini.",
+cta_c1:"100% Gratis", cta_c2:"Tanpa pendaftaran", cta_c3:"Terpasang dalam 30 detik",
+cta_btn:"⚡ Tambahkan ke Chrome — Gratis",
+cta_note:"Tambahkan langsung dari Chrome Web Store"
+},
+
+ar: {
+tagline:"ملء النماذج تلقائيًا بالذكاء الاصطناعي — <span class=\"green\">بنقرة واحدة</span>",
+rep_title:"سئمت من كتابة المعلومات نفسها<br><span class=\"orange\">مرارًا وتكرارًا؟</span>",
+sf1_t:"إنشاء حساب", sf2_t:"فتح حساب بنكي", sf3_t:"طلب وظيفة", sf4_t:"طلب عرض سعر", sf5_t:"بيانات الشحن",
+lbl_name:"الاسم الكامل", lbl_email:"البريد الإلكتروني", lbl_addr:"العنوان", lbl_phone:"الهاتف",
+v_name:"عمر الخالد", v_email:"omar@example.com", v_addr:"شارع الملك فهد 12، الرياض", v_phone:"050 123 4567",
+sigh:"😩 هذا النموذج مرة أخرى…",
+save_text:"مع FormPilot، <span class=\"green\">جهّزه مرة واحدة.</span><br>ملء واستعادة في أي موقع بنقرة واحدة.",
+prob_title:"الملء التلقائي في Chrome<br><span class=\"red\">مزعج، أليس كذلك؟</span>",
+prob1:"يتخطى الحقول المخصصة تمامًا",
+prob2:"يملأ الحقول الخاطئة",
+prob3:"يتجاهل الحقول غير القياسية",
+prob4:"لا يتعامل مع القوائم المنسدلة",
+prob5:"وينتهي بك الأمر بالتصحيح يدويًا…",
+af_badge:"الملء التلقائي في Chrome",
+lbl_company:"الشركة", lbl_dept:"القسم", lbl_date:"التاريخ المفضل",
+sol_title:"مع FormPilot",
+sol_3sec:"3 ثوانٍ",
+sol_label:"لملء أي نموذج.",
+sol_sub:"الذكاء الاصطناعي يحلل بنية النموذج و<strong>يملأ كل حقل بدقة</strong>",
+demo_badge:"⚡ ملء تلقائي بالذكاء الاصطناعي",
+demo_title:"زر واحد،<br><span class=\"green\">وكل الحقول ممتلئة.</span>",
+demo_desc:"ليس حقول النص فقط — الذكاء الاصطناعي يتعامل أيضًا مع<br><span style=\"color:#059669;font-weight:700;\">القوائم المنسدلة وأزرار الاختيار ومربعات التحديد</span><br>تلقائيًا.",
+demo_form_t:"نموذج التواصل", demo_btn:"ملء تلقائي",
+lbl_last:"اسم العائلة", lbl_first:"الاسم الأول", lbl_inq:"نوع الاستفسار", lbl_gender:"الجنس", lbl_contact:"طريقة التواصل", lbl_privacy:"أوافق على سياسة الخصوصية",
+v_select:"اختر...", v_male:"ذكر", v_female:"أنثى", v_other:"آخر", v_agree:"أوافق",
+v_last:"الخالد", v_first:"عمر", v_inq:"استفسار عن المنتج", v_contact:"البريد الإلكتروني",
+feat_title:"الميزات",
+f1_t:"تحليل النماذج بالذكاء الاصطناعي", f1_p:"يفهم الحقول تلقائيًا<br>دون إعداد لكل موقع",
+f2_t:"ملفات شخصية متعددة", f2_p:"عمل، شخصي، اختبار — حتى<br>10 ملفات للتبديل بينها",
+f3_t:"حقول مخصصة", f3_p:"أضف أي حقل غير قياسي<br>حتى 20 لكل ملف شخصي",
+f4_t:"أذونات في حدها الأدنى", f4_p:"يقرأ حقول النماذج فقط<br>بلا كاميرا أو ميكروفون أو موقع",
+f5_t:"حفظ البيانات حسب الموقع", f5_p:"احفظ بيانات كل موقع على حدة<br>واستعدها بنقرة في المرة القادمة",
+f6_t:"تخزين محلي فقط", f6_p:"كل البيانات تبقى في متصفحك<br>لا يُرسل شيء إلى خوادم خارجية",
+cta_title:"ابدأ اليوم في <span style=\"color:#059669\">أتمتة</span><br>ملء نماذجك.",
+cta_c1:"مجاني 100%", cta_c2:"بلا تسجيل", cta_c3:"يُثبَّت في 30 ثانية",
+cta_btn:"⚡ أضِف إلى Chrome — مجانًا",
+cta_note:"أضفه فورًا من سوق Chrome الإلكتروني"
+}
+};
+
+const LANG = new URLSearchParams(location.search).get('lang') || 'en';
+const L = I18N[LANG] || {};
+document.documentElement.setAttribute('data-lang', LANG);
+document.documentElement.lang = LANG;
+if (LANG === 'ar') document.documentElement.dir = 'rtl';
+if (LANG !== 'en') {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (L[k] !== undefined) el.innerHTML = L[k];
+  });
+}
+// values used by the timeline / reset
+const V = {
+  name: L.v_name || 'John Smith',
+  email: L.v_email || 'john@example.com',
+  addr: L.v_addr || '123 Main St, New York, NY',
+  phone: L.v_phone || '+1 (555) 123-4567',
+  select: L.v_select || 'Select...',
+  last: L.v_last || 'Smith',
+  first: L.v_first || 'John',
+  inq: L.v_inq || 'Product Inquiry',
+  contact: L.v_contact || 'Email',
+  demoEmail: (L.v_email ? L.v_email : 'john.smith@example.com'),
+};
+
 const $ = id => document.getElementById(id);
 const scenes = ['s1','s2','s3','s4','s5','s6','s7'];
 let timeline = [], timelineIndex = 0, isPaused = false, timer = null;
@@ -436,9 +882,9 @@ function buildTimeline() {
     setTimeout(() => anim('e3c', {opacity:1, transform:'scale(1)'}), 400);
     setTimeout(() => anim('e3d', {opacity:1}), 700);
     const cfData = [
-      ['cf1','John Smith','ok',900], ['cf2','','empty',1050],
-      ['cf3','john@example.com','ok',1200], ['cf4','123 Main St...','wrong',1350],
-      ['cf5','','empty',1500], ['cf6','Select... ▾','empty',1650],
+      ['cf1',V.name,'ok',900], ['cf2','','empty',1050],
+      ['cf3',V.email,'ok',1200], ['cf4',V.addr.slice(0,12)+'...','wrong',1350],
+      ['cf5','','empty',1500], ['cf6',V.select+' ▾','empty',1650],
     ];
     cfData.forEach(([id, text, status, delay]) => {
       setTimeout(() => { const el=$(id); if(text) el.textContent=text; el.classList.add(status); }, delay);
@@ -476,11 +922,11 @@ function buildTimeline() {
       $('e5shine').style.transition = 'left 0.6s ease'; $('e5shine').style.left = '100%';
     }, 1800);
     const steps = [
-      [2200, () => fillField('d1','Smith')], [2350, () => fillField('d2','John')],
-      [2500, () => fillField('d3','john.smith@example.com')], [2650, () => fillField('d4','+1 (555) 123-4567')],
-      [2850, () => { const s=$('d5'); s.querySelector('.select-text').textContent='Product Inquiry'; s.classList.add('filled'); }],
+      [2200, () => fillField('d1',V.last)], [2350, () => fillField('d2',V.first)],
+      [2500, () => fillField('d3',V.demoEmail)], [2650, () => fillField('d4',V.phone)],
+      [2850, () => { const s=$('d5'); s.querySelector('.select-text').textContent=V.inq; s.classList.add('filled'); }],
       [3050, () => $('dr1').classList.add('selected')],
-      [3250, () => { const s=$('d6'); s.querySelector('.select-text').textContent='Email'; s.classList.add('filled'); }],
+      [3250, () => { const s=$('d6'); s.querySelector('.select-text').textContent=V.contact; s.classList.add('filled'); }],
       [3450, () => $('dc1').classList.add('checked')],
     ];
     steps.forEach(([delay, fn]) => setTimeout(fn, delay));
@@ -520,7 +966,7 @@ function resetAll() {
   ['cs1','cs2','cs3','cs4','cs5','cs6'].forEach(id=>{const el=$(id);if(el)el.classList.remove('show');});
   ['p1','p2','p3','p4','p5'].forEach(id=>{const el=$(id);if(el){el.style.transition='none';el.style.opacity='0';el.style.transform='translateX(-30px)';}});
   ['d1','d2','d3','d4'].forEach(id=>{const el=$(id);if(el){el.textContent='';el.classList.remove('filled');}});
-  ['d5','d6'].forEach(id=>{const el=$(id);if(el){el.classList.remove('filled');const t=el.querySelector('.select-text');if(t)t.textContent='Select...';}});
+  ['d5','d6'].forEach(id=>{const el=$(id);if(el){el.classList.remove('filled');const t=el.querySelector('.select-text');if(t)t.textContent=V.select;}});
   ['dr1','dr2','dr3'].forEach(id=>{const el=$(id);if(el)el.classList.remove('selected');});
   const dc=$('dc1');if(dc)dc.classList.remove('checked');
   const sh=$('e5shine');if(sh){sh.style.transition='none';sh.style.left='-100%';}
