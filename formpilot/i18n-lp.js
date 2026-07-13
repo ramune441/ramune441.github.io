@@ -1553,7 +1553,22 @@ function applyLPTranslations(locale) {
 
   // Set dir attribute for RTL languages
   document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+
+  // swap the promo video to the matching language
+  var vid = LP_VIDEO_IDS[locale] || LP_VIDEO_IDS.en;
+  var vf = document.getElementById("promo-video");
+  if (vf && vid) {
+    var src = "https://www.youtube.com/embed/" + vid;
+    if (vf.getAttribute("src") !== src) vf.setAttribute("src", src);
+  }
 }
+
+// ── Promo video (YouTube ID per language, 4K) ───────────────────────
+const LP_VIDEO_IDS = {
+  en: "c02Ka-_WdIE", ja: "2Caux6fcero", zh: "3RzbNsLkw6Q", ko: "qqjFaQIk0IQ",
+  es: "4eLZeM5lRLo", fr: "ljIlLc6FTM8", de: "FhwzRQyPnQo", pt: "df5TcuOgLvM",
+  hi: "ZSdSh7UxRnc", id: "nmI-oOZIHRs", ar: "Uue8B-AuAj4"
+};
 
 // ── Initialization ──────────────────────────────────────────────────
 function initLP() {

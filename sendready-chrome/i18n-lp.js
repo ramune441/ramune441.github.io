@@ -1264,6 +1264,13 @@ const LP_LANG_NAMES = {
   fr: "Français", de: "Deutsch", pt: "Português", hi: "हिन्दी", id: "Indonesia", ar: "العربية"
 };
 
+// ── Promo video (YouTube ID per language, 4K) ───────────────────────
+const LP_VIDEO_IDS = {
+  en: "EgFYF6ePogI", ja: "XJfutrY5Hi4", zh: "O14tQiPTOuM", ko: "EP851RRJ960",
+  es: "i5upjawC5Wc", fr: "yy85fFNBexM", de: "A27lAS3KP6A", pt: "gUgKhme1FLg",
+  hi: "XCgpLPoVV8I", id: "vuDxSAuPJJk", ar: "4li9HWk8jf0"
+};
+
 // ── Detect Locale ───────────────────────────────────────────────────
 function detectLPLocale() {
   const supported = Object.keys(LP_MESSAGES);
@@ -1292,6 +1299,14 @@ function applyLPTranslations(locale) {
   });
   document.documentElement.lang = locale;
   document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
+
+  // swap the promo video to the matching language
+  var vid = LP_VIDEO_IDS[locale] || LP_VIDEO_IDS.en;
+  var vf = document.getElementById("promo-video");
+  if (vf && vid) {
+    var src = "https://www.youtube.com/embed/" + vid;
+    if (vf.getAttribute("src") !== src) vf.setAttribute("src", src);
+  }
 }
 
 // ── Init ────────────────────────────────────────────────────────────
