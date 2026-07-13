@@ -6,10 +6,24 @@
 <meta name="robots" content="noindex, nofollow">
 <title>SendReady Promo Video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+html[data-lang="zh"] body{font-family:'Noto Sans SC','Noto Sans',sans-serif}
+html[data-lang="ko"] body{font-family:'Noto Sans KR','Noto Sans',sans-serif}
+html[data-lang="hi"] body{font-family:'Noto Sans Devanagari','Noto Sans',sans-serif}
+html[data-lang="ar"] body{font-family:'Noto Sans Arabic','Noto Sans',sans-serif}
+html[data-lang="es"] body,html[data-lang="fr"] body,html[data-lang="de"] body,html[data-lang="pt"] body,html[data-lang="id"] body{font-family:'Noto Sans','Noto Sans JP',sans-serif}
+/* Devanagari / Arabic need taller line boxes so matras & diacritics don't clip */
+html[data-lang="hi"] .prob-h,html[data-lang="ar"] .prob-h,
+html[data-lang="hi"] .steps-h,html[data-lang="ar"] .steps-h,
+html[data-lang="hi"] .fhead h2,html[data-lang="ar"] .fhead h2,
+html[data-lang="hi"] .cta-ttl,html[data-lang="ar"] .cta-ttl{line-height:1.42}
+html[data-lang="hi"] .co-ttl,html[data-lang="ar"] .co-ttl{line-height:1.42}
+html[data-lang="hi"] .itagline,html[data-lang="ar"] .itagline{line-height:1.55}
+html[data-lang="ar"] .prob-eyebrow,html[data-lang="ar"] .steps-eyebrow,html[data-lang="ar"] .fhead-lbl,html[data-lang="ar"] .co-tag,html[data-lang="ar"] .srlbl{letter-spacing:0}
+html[data-lang="de"] .chip{font-size:20px;padding:10px 16px}
 :root{
   --ind:#0F77F2; --ind-light:#3D90F5; --ind-pale:#5AA0FF; --ind-deep:#0B5ED6; --snip:#C99400;
   --bg:#FBFBFF; --bg-alt:#EAF3FF; --t1:#14163A; --t2:#3C4068; --t3:#6E739B; --dv:#D9DEF5;
@@ -25,7 +39,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 .iburst{display:flex;align-items:center;gap:28px;opacity:0;transform:scale(.88);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .iburst.show{opacity:1;transform:scale(1)}
 .iburst-icon{width:124px;height:124px;border-radius:28px;box-shadow:0 16px 50px rgba(15,119,242,.4)}
-.iburst-name{font-size:128px;font-weight:900;color:var(--ind-deep);letter-spacing:-5px;line-height:1}
+.iburst-name{font-size:128px;font-weight:900;color:var(--ind-deep);letter-spacing:-5px;line-height:1;font-family:'Noto Sans','Noto Sans JP',sans-serif}
 .itagline{font-size:50px;font-weight:700;color:var(--ind);opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;text-align:center;line-height:1.3}
 .itagline.show{opacity:1;transform:translateY(0)}
 .ipills{display:flex;gap:16px;opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
@@ -57,13 +71,13 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 .steps-eyebrow{font-size:20px;font-weight:700;letter-spacing:.14em;color:var(--ind);margin-bottom:10px}
 .steps-h{font-size:76px;font-weight:900;color:var(--t1);line-height:1.1}
 .steps-h em{color:var(--ind);font-style:normal}
-.steps-row{display:flex;gap:36px;max-width:1560px;width:100%;padding:0 160px}
-.step-card{flex:1;background:#fff;border:1.5px solid var(--dv);border-radius:22px;padding:38px 40px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 4px 24px rgba(15,119,242,.08)}
+.steps-row{display:flex;gap:28px;max-width:1700px;width:100%;padding:0 110px}
+.step-card{flex:1;background:#fff;border:1.5px solid var(--dv);border-radius:22px;padding:36px 32px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s;box-shadow:0 4px 24px rgba(15,119,242,.08)}
 .step-card.show{opacity:1;transform:translateY(0)}
 .step-num{font-size:18px;font-weight:800;color:var(--ind);letter-spacing:.1em}
-.step-ico{font-size:54px;line-height:1}
-.step-ttl{font-size:32px;font-weight:800;color:var(--t1)}
-.step-desc{font-size:21px;color:var(--t2);line-height:1.55}
+.step-ico{font-size:50px;line-height:1}
+.step-ttl{font-size:30px;font-weight:800;color:var(--t1)}
+.step-desc{font-size:20px;color:var(--t2);line-height:1.5}
 
 /* DEMO stage: browser window slides L/R */
 .demo-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
@@ -73,7 +87,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 .device.left{left:90px}.device.right{left:710px}
 .win-bar{height:64px;background:#f1f3f9;display:flex;align-items:center;gap:10px;padding:0 26px;border-bottom:1px solid #e3e6f0;flex-shrink:0}
 .dot{width:18px;height:18px;border-radius:50%}.dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
-.url{flex:1;height:44px;background:#fff;border:1px solid #e3e6f0;border-radius:11px;margin-left:18px;display:flex;align-items:center;padding:0 24px;font-size:23px;color:#9499b8}
+.url{flex:1;height:44px;background:#fff;border:1px solid #e3e6f0;border-radius:11px;margin-left:18px;display:flex;align-items:center;padding:0 24px;font-size:23px;color:#9499b8;direction:ltr}
 .ext-ico{width:36px;height:36px;margin-left:16px}
 .win-body{position:relative;height:616px}
 .screen{position:absolute;inset:0;display:none}
@@ -81,27 +95,31 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 .sel{background:rgba(15,119,242,.22);border-radius:4px;padding:2px 4px}
 
 /* extension popover (within window) */
-.srp{width:500px;background:#fff;border-radius:20px;padding:22px;border:1px solid rgba(127,127,127,.14);box-shadow:0 22px 64px rgba(20,22,58,.32)}
+.srp{width:520px;background:#fff;border-radius:20px;padding:22px;border:1px solid rgba(127,127,127,.14);box-shadow:0 22px 64px rgba(20,22,58,.32)}
 .srh{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .srtw{display:flex;align-items:center;gap:10px}.srtw img{width:30px;height:30px}
 .srt{font-weight:700;font-size:26px;color:#1a1a1a}.srx{font-size:24px;opacity:.45}
-.sri{display:flex;align-items:center;gap:13px;padding:15px 14px;border-radius:13px;font-size:27px;color:#1a1a1a;transition:all .3s}
-.sri.hi{background:rgba(15,119,242,.15);outline:3px solid var(--ind);outline-offset:-3px}
-.srtag{font-size:18px;padding:4px 12px;border-radius:8px;font-weight:700;background:rgba(15,119,242,.16);color:var(--ind)}
-.srtt{flex:1}.srtg{font-family:ui-monospace,monospace;font-size:20px;color:#9499b8}
-.srchk{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(127,127,127,.14);font-size:24px;font-weight:600;color:#1a1a1a}
-.srcb{width:27px;height:27px;border-radius:6px;border:2.5px solid var(--ind);display:inline-flex;align-items:center;justify-content:center;color:var(--ind);font-size:17px}
+.srprev{font-size:22px;color:var(--t3);background:#f6f8fe;border:1px solid var(--dv);border-radius:12px;padding:13px 16px;line-height:1.4;margin-bottom:14px}
+.srtoggle{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:13px;border:1px solid var(--dv);font-size:24px;font-weight:600;color:#1a1a1a;margin-bottom:16px}
+.srcb{width:27px;height:27px;border-radius:6px;border:2.5px solid var(--ind);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:17px;flex-shrink:0}
+.srcb.on{background:var(--ind)}
+.srlbl{font-size:20px;font-weight:700;color:var(--t3);letter-spacing:.04em;margin-bottom:11px}
+.chips{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:18px}
+.chip{font-size:23px;padding:11px 22px;border-radius:999px;border:1.5px solid var(--dv);color:var(--t1);background:#fff}
+.chip.on{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
+.srgo{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px;border-radius:14px;font-size:26px;font-weight:700;background:#e7eaf4;color:#9aa0c0;transition:background .3s,color .3s}
+.srgo.on{background:var(--ind);color:#fff;box-shadow:0 8px 24px rgba(15,119,242,.4)}
+.srgo.press{transform:scale(.97)}
 .srl{width:66px;height:66px;border-radius:50%;background:#fff;border:1px solid rgba(127,127,127,.16);box-shadow:0 8px 26px rgba(20,22,58,.28);display:flex;align-items:center;justify-content:center;padding:9px}
 .srl img{width:100%;height:100%;object-fit:contain}
 .spin{width:56px;height:56px;border-radius:50%;border:6px solid rgba(15,119,242,.25);border-top-color:var(--ind);animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.srbox{border:1px solid var(--dv);border-radius:14px;padding:19px 22px;font-size:30px;color:var(--t1);line-height:1.55;background:#fcfcff}
+.srbox{border:1px solid var(--dv);border-radius:14px;padding:19px 22px;font-size:29px;color:var(--t1);line-height:1.55;background:#fcfcff}
 .sracts{display:flex;gap:13px;margin-top:18px}
-.srbtn{padding:14px 28px;border-radius:13px;font-size:24px;border:1px solid rgba(127,127,127,.28);color:#1a1a1a}
+.srbtn{flex:1;text-align:center;padding:14px 0;border-radius:13px;font-size:24px;border:1px solid rgba(127,127,127,.28);color:#1a1a1a}
 .srbtn.p{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
-.chip{font-size:24px;padding:12px 28px;border-radius:999px;border:1px solid var(--dv);color:var(--t1)}
-.chip.on{background:var(--ind);color:#fff;border-color:var(--ind);font-weight:600}
 .kbd{display:inline-flex;align-items:center;font-family:ui-monospace,monospace;font-size:28px;background:#fff;border:1px solid #cbd2ee;border-bottom-width:4px;border-radius:11px;padding:9px 19px;color:var(--t1);font-weight:700}
+.tinput{border:2px solid var(--dv);border-radius:13px;padding:15px 18px;font-size:25px;color:var(--t1);min-height:60px;line-height:1.4;background:#fff}
 
 /* CALLOUT (dark) */
 .callout{position:absolute;top:50%;background:#0A2A4D;border:1.5px solid rgba(15,119,242,.4);border-radius:22px;padding:44px 50px;width:560px;opacity:0;transition:opacity .5s,transform .5s;pointer-events:none}
@@ -112,6 +130,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 .co-tag{display:inline-block;font-size:21px;font-weight:700;letter-spacing:.08em;color:var(--ind-pale);margin-bottom:16px}
 .co-ttl{font-size:46px;font-weight:800;color:#fff;margin-bottom:16px;line-height:1.22}
 .co-desc{font-size:27px;color:rgba(255,255,255,.74);line-height:1.55}
+.co-desc kbd{font-family:ui-monospace,monospace;font-size:24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:7px;padding:2px 10px;color:#fff}
 
 /* S5 FEATURES */
 .feat-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FBFBFF 0%,#F0F7FF 50%,#DCEBFF 100%);opacity:0;transition:opacity .6s;pointer-events:none}
@@ -152,8 +171,8 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 <div class="scene" id="s1">
   <div class="intro-wrap">
     <div class="iburst" id="ib"><img class="iburst-icon" src="icons/icon128.png" alt="SendReady"><span class="iburst-name">SendReady</span></div>
-    <div class="itagline" id="it">Transform any text with AI — in one tap</div>
-    <div class="ipills" id="ip"><span class="ipill">Free</span><span class="ipill">Chrome Extension</span><span class="ipill">AI-Powered</span></div>
+    <div class="itagline" id="it" data-i18n="it">Transform any text with AI — in one tap</div>
+    <div class="ipills" id="ip"><span class="ipill" data-i18n="pill1">Free</span><span class="ipill" data-i18n="pill2">Chrome Extension</span><span class="ipill" data-i18n="pill3">AI-Powered</span></div>
   </div>
 </div>
 
@@ -161,21 +180,21 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 <div class="scene" id="s2">
   <div class="prob-wrap">
     <div class="prob-head" id="ph2">
-      <div class="prob-eyebrow">THE PROBLEM</div>
-      <div class="prob-h">"Is this <em>worded right</em>?"</div>
+      <div class="prob-eyebrow" data-i18n="p_eyebrow">THE PROBLEM</div>
+      <div class="prob-h" data-i18n="p_h">"Is this <em>worded right</em>?"</div>
     </div>
     <div class="prob-cards" id="pc">
       <div class="prob-card bad">
-        <div class="pcard-title">😮‍💨 Without SendReady</div>
-        <div class="pitem"><span class="pitem-icon">📋</span>Copy to another AI tab, prompt it, paste it back</div>
-        <div class="pitem"><span class="pitem-icon">⏰</span>A round-trip every time you polish or translate</div>
-        <div class="pitem"><span class="pitem-icon">😵</span>Easy to paste the wrong thing or forget to delete</div>
+        <div class="pcard-title" data-i18n="p_bad_t">😮‍💨 Without SendReady</div>
+        <div class="pitem"><span class="pitem-icon">📋</span><span data-i18n="p_bad1">Copy to another AI tab, prompt it, paste it back</span></div>
+        <div class="pitem"><span class="pitem-icon">⏰</span><span data-i18n="p_bad2">A round-trip every time you polish or translate</span></div>
+        <div class="pitem"><span class="pitem-icon">😵</span><span data-i18n="p_bad3">Easy to paste the wrong thing or forget to delete</span></div>
       </div>
       <div class="prob-card good">
-        <div class="pcard-title good">✨ With SendReady</div>
-        <div class="pitem good"><span class="pitem-icon">🖱️</span>One tap, right where you're typing</div>
-        <div class="pitem good"><span class="pitem-icon">🤖</span>AI polishes, translates, summarizes &amp; replies</div>
-        <div class="pitem good"><span class="pitem-icon">⚡</span>Snippets expand instantly — unlimited, no AI</div>
+        <div class="pcard-title good" data-i18n="p_good_t">✨ With SendReady</div>
+        <div class="pitem good"><span class="pitem-icon">🖱️</span><span data-i18n="p_good1">One tap, right where you're typing</span></div>
+        <div class="pitem good"><span class="pitem-icon">🤖</span><span data-i18n="p_good2">AI polishes, translates, summarizes &amp; replies</span></div>
+        <div class="pitem good"><span class="pitem-icon">⚡</span><span data-i18n="p_good3">Snippets expand instantly — unlimited, no AI</span></div>
       </div>
     </div>
   </div>
@@ -184,11 +203,12 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 <!-- S3 STEPS -->
 <div class="scene" id="s3">
   <div class="steps-wrap">
-    <div class="steps-head" id="sh3"><div class="steps-eyebrow">HOW IT WORKS</div><div class="steps-h">Done in <em>3 steps</em></div></div>
+    <div class="steps-head" id="sh3"><div class="steps-eyebrow" data-i18n="s_eyebrow">HOW IT WORKS</div><div class="steps-h" data-i18n="s_h">Done in <em>4 steps</em></div></div>
     <div class="steps-row">
-      <div class="step-card" id="st1"><div class="step-num">STEP 01</div><div class="step-ico">🖱️</div><div class="step-ttl">Select or type</div><div class="step-desc">Highlight text, or type<br>a trigger in any field</div></div>
-      <div class="step-card" id="st2"><div class="step-num">STEP 02</div><div class="step-ico">🤖</div><div class="step-ttl">AI transforms it</div><div class="step-desc">Polish, translate, reply<br>or expand a snippet</div></div>
-      <div class="step-card" id="st3"><div class="step-num">STEP 03</div><div class="step-ico">✅</div><div class="step-ttl">Apply or copy</div><div class="step-desc">One tap puts it in the<br>field — or copies it</div></div>
+      <div class="step-card" id="st1"><div class="step-num">STEP 01</div><div class="step-ico">✏️</div><div class="step-ttl" data-i18n="st1_t">Select or type</div><div class="step-desc" data-i18n="st1_d">Highlight text, or type<br>a trigger in any field</div></div>
+      <div class="step-card" id="st2"><div class="step-num">STEP 02</div><div class="step-ico">✦</div><div class="step-ttl" data-i18n="st2_t">Launch it</div><div class="step-desc" data-i18n="st2_d">Toolbar, right-click<br>or a shortcut</div></div>
+      <div class="step-card" id="st3"><div class="step-num">STEP 03</div><div class="step-ico">🎚️</div><div class="step-ttl" data-i18n="st3_t">AI transforms it</div><div class="step-desc" data-i18n="st3_d">Polish, translate, reply<br>or expand a snippet</div></div>
+      <div class="step-card" id="st4"><div class="step-num">STEP 04</div><div class="step-ico">✅</div><div class="step-ttl" data-i18n="st4_t">Apply or copy</div><div class="step-desc" data-i18n="st4_d">One tap fills the field<br>— or copies it</div></div>
     </div>
   </div>
 </div>
@@ -199,92 +219,101 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
     <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url" id="durl">🔒 mail.google.com</div><img src="icons/icon48.png" class="ext-ico"></div>
     <div class="win-body">
 
-      <!-- Screen A: selection toolbar -->
+      <!-- Screen A: selection → palette → Transform -->
       <div class="screen" id="scA">
         <div style="padding:42px 48px;">
-          <div style="font-size:26px;color:var(--t3);padding:14px 0;border-bottom:1px solid var(--dv);">To: Client</div>
-          <div style="font-size:30px;font-weight:600;padding:18px 0;border-bottom:1px solid var(--dv);">Re: our meeting</div>
-          <div style="font-size:33px;line-height:1.9;padding:28px 2px;"><span id="aSel">Tomorrow at 10 works for me. Thanks.</span><span id="aApplied" style="color:var(--ind);font-weight:600;display:none;">Tomorrow at 10 works perfectly for me. I look forward to it.</span></div>
+          <div style="font-size:26px;color:var(--t3);padding:14px 0;border-bottom:1px solid var(--dv);" data-i18n="a_to">To: Client</div>
+          <div style="font-size:30px;font-weight:600;padding:18px 0;border-bottom:1px solid var(--dv);" data-i18n="a_subj">Re: our meeting</div>
+          <div style="font-size:33px;line-height:1.9;padding:28px 2px;"><span id="aSel" class="sel" data-i18n="a_src">Tomorrow at 10 works for me. Thanks.</span><span id="aApplied" style="color:var(--ind);font-weight:600;display:none;" data-i18n="a_applied">Tomorrow at 10 works perfectly for me. I look forward to it.</span></div>
         </div>
         <div class="srl" id="aLaunch" style="position:absolute;left:470px;top:212px;opacity:0;transform:scale(.5);transition:opacity .35s,transform .35s;"><img src="icons/mark.png"></div>
-        <div class="srp" id="aMenu" style="position:absolute;left:470px;top:280px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;">
+        <div class="srp" id="aMenu" style="position:absolute;left:440px;top:250px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;">
           <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">SendReady</span></div><span class="srx">✕</span></div>
-          <div class="sri" id="aP1"><span class="srtag">AI</span><span class="srtt">Polish 💝</span><span class="srtg">//p</span></div>
-          <div class="sri"><span class="srtag">AI</span><span class="srtt">Translate 🌏</span><span class="srtg">//tr</span></div>
-          <div class="sri"><span class="srtag">AI</span><span class="srtt">Summarize 📝</span><span class="srtg">//sum</span></div>
-          <div class="srchk"><span class="srcb">✓</span><span>↩ Write a reply</span></div>
+          <div class="srprev" data-i18n="a_src">Tomorrow at 10 works for me. Thanks.</div>
+          <div class="srtoggle"><span class="srcb">✓</span><span data-i18n="a_reply">↩ Draft a reply</span></div>
+          <div class="srlbl" data-i18n="a_lbl">PICK A STYLE</div>
+          <div class="chips">
+            <span class="chip" id="aChip" data-i18n="chip_polish">Polish 💝</span>
+            <span class="chip" data-i18n="chip_translate">Translate 🌏</span>
+            <span class="chip" data-i18n="chip_sum">Summarize 📝</span>
+            <span class="chip" data-i18n="chip_fix">Fix ✅</span>
+          </div>
+          <div class="srgo" id="aGo" data-i18n="a_go">Transform</div>
         </div>
-        <div id="aLoad" style="position:absolute;left:470px;top:280px;width:500px;opacity:0;transition:opacity .3s;background:#fff;border-radius:20px;padding:54px;box-shadow:0 22px 64px rgba(20,22,58,.32);display:flex;flex-direction:column;align-items:center;gap:20px;"><div class="spin"></div><div style="font-size:26px;color:var(--t3);">Working…</div></div>
+        <div id="aLoad" style="position:absolute;left:440px;top:250px;width:520px;opacity:0;transition:opacity .3s;background:#fff;border-radius:20px;padding:54px;box-shadow:0 22px 64px rgba(20,22,58,.32);display:flex;flex-direction:column;align-items:center;gap:20px;"><div class="spin"></div><div style="font-size:26px;color:var(--t3);" data-i18n="working">Working…</div></div>
       </div>
 
-      <!-- Screen B: inline trigger -->
+      <!-- Screen B: inline AI trigger + Tab -->
       <div class="screen" id="scB">
         <div style="padding:48px 52px;display:flex;flex-direction:column;gap:28px;">
           <div>
-            <div style="font-size:20px;color:var(--ind);font-weight:700;margin-bottom:12px;letter-spacing:.05em;">TYPE HERE</div>
-            <div style="border:3px solid var(--ind);border-radius:16px;padding:26px 28px;font-size:38px;min-height:120px;line-height:1.45;"><span id="bTyped" style="font-family:ui-monospace,monospace;"></span><span id="bCaret" style="display:inline-block;width:4px;height:44px;background:var(--ind);vertical-align:-7px;"></span></div>
-            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;font-size:26px;color:var(--t3);">Press <span class="kbd" id="bEnter" style="opacity:.4;">Enter ⏎</span></div>
+            <div style="font-size:20px;color:var(--ind);font-weight:700;margin-bottom:12px;letter-spacing:.05em;" data-i18n="b_lbl">TYPE HERE</div>
+            <div style="border:3px solid var(--ind);border-radius:16px;padding:26px 28px;font-size:38px;min-height:120px;line-height:1.45;"><span id="bTyped" style="font-family:ui-monospace,monospace;unicode-bidi:plaintext;"></span><span id="bCaret" style="display:inline-block;width:4px;height:44px;background:var(--ind);vertical-align:-7px;"></span></div>
+            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;font-size:26px;color:var(--t3);" data-i18n="b_hint">Press <span class="kbd" id="bTab" style="opacity:.4;">Tab</span></div>
           </div>
           <div class="srp" id="bRes" style="opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s;">
             <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">SendReady</span></div><span class="srx">✕</span></div>
-            <div class="srbox">I'll be there at 10 tomorrow.</div>
-            <div class="sracts"><span class="srbtn p">Apply</span><span class="srbtn">Copy</span><span class="srbtn">Redo</span></div>
+            <div class="srbox" data-i18n="b_res">I'll be there at 10 tomorrow.</div>
+            <div class="sracts"><span class="srbtn p" data-i18n="btn_apply">Apply</span><span class="srbtn" data-i18n="btn_copy">Copy</span><span class="srbtn" data-i18n="btn_retry">Retry</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Screen C: reply -->
+      <!-- Screen C: reply (style + gist → Generate → Copy) -->
       <div class="screen" id="scC">
-        <div style="padding:38px 44px;display:flex;gap:32px;">
-          <div style="flex:0 0 440px;">
-            <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px;"><div style="width:60px;height:60px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ind);font-size:26px;">A</div><div><div style="font-weight:700;font-size:26px;">Alex</div><div style="font-size:20px;color:var(--t3);">2:32 PM</div></div></div>
-            <div style="font-size:28px;line-height:1.75;"><span class="sel">Are you free Wednesday afternoon for our meeting next week?</span></div>
+        <div style="padding:34px 40px;display:flex;gap:30px;">
+          <div style="flex:0 0 400px;">
+            <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px;"><div style="width:58px;height:58px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ind);font-size:26px;" data-i18n="c_init">A</div><div><div style="font-weight:700;font-size:25px;" data-i18n="c_name">Alex</div><div style="font-size:19px;color:var(--t3);" data-i18n="c_time">2:32 PM</div></div></div>
+            <div style="font-size:27px;line-height:1.7;"><span class="sel" data-i18n="c_msg">Are you free Wednesday afternoon for our meeting next week?</span></div>
           </div>
-          <div class="srp" id="cPanel" style="flex:1;">
-            <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt">↩ Write a reply</span></div><span class="srx">✕</span></div>
-            <div style="font-size:22px;color:var(--t3);margin-bottom:12px;">Pick a tone</div>
-            <div style="display:flex;gap:11px;margin-bottom:18px;"><span class="chip on" id="cChip">Polite</span><span class="chip">Casual</span><span class="chip">Short</span></div>
-            <div id="cGen" style="display:flex;align-items:center;justify-content:center;gap:16px;min-height:150px;color:var(--t3);font-size:26px;opacity:0;transition:opacity .3s;"><div class="spin" style="width:40px;height:40px;border-width:5px;"></div>Writing…</div>
-            <div id="cOut" style="display:none;">
-              <div class="srbox" style="font-size:25px;">Thanks for reaching out! Wednesday afternoon works — I'll be there at 2 PM. Looking forward to it.</div>
-              <div class="sracts"><span class="srbtn p">Copy</span><span class="srbtn">Redo</span></div>
+          <div class="srp" id="cPanel" style="flex:1;width:auto;">
+            <div class="srh"><div class="srtw"><img src="icons/mark.png"><span class="srt" data-i18n="a_reply">↩ Draft a reply</span></div><span class="srx">✕</span></div>
+            <div class="srlbl" data-i18n="c_style">STYLE</div>
+            <div class="chips"><span class="chip on" data-i18n="chip_polish">Polish 💝</span><span class="chip" data-i18n="chip_translate">Translate 🌏</span><span class="chip" data-i18n="chip_sum">Summarize 📝</span></div>
+            <div class="srlbl" data-i18n="c_what">WHAT TO SAY</div>
+            <div class="tinput" style="margin-bottom:18px;"><span id="cGist" style="color:var(--t1);"></span><span id="cGistCaret" style="display:inline-block;width:3px;height:30px;background:var(--ind);vertical-align:-5px;"></span></div>
+            <div class="srgo" id="cGo" data-i18n="c_go">Generate reply</div>
+            <div id="cGen" style="display:none;align-items:center;justify-content:center;gap:16px;min-height:120px;color:var(--t3);font-size:26px;"><div class="spin" style="width:40px;height:40px;border-width:5px;"></div><span data-i18n="c_writing">Writing…</span></div>
+            <div id="cOut" style="display:none;margin-top:16px;">
+              <div class="srbox" style="font-size:25px;" data-i18n="c_out">Thanks for reaching out! Wednesday afternoon works for me — I'll be there at 2 PM. Looking forward to it.</div>
+              <div class="sracts"><span class="srbtn p" data-i18n="btn_copy">Copy</span><span class="srbtn" data-i18n="btn_retry">Retry</span></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Screen D: snippet -->
+      <!-- Screen D: snippet trigger + Tab -->
       <div class="screen" id="scD">
         <div style="padding:48px 52px;display:flex;flex-direction:column;gap:26px;">
           <div>
-            <div style="font-size:20px;color:var(--snip);font-weight:700;margin-bottom:12px;">JUST TYPE YOUR SHORTCUT</div>
-            <div style="border:3px solid var(--snip);border-radius:16px;padding:26px 28px;font-size:38px;min-height:104px;"><span id="dTyped" style="font-family:ui-monospace,monospace;color:var(--snip);font-weight:700;"></span><span id="dCaret" style="display:inline-block;width:4px;height:44px;background:var(--snip);vertical-align:-7px;"></span></div>
-            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;font-size:26px;color:var(--t3);">Press <span class="kbd" id="dSpace" style="opacity:.4;">Space</span> → instant expand</div>
+            <div style="font-size:20px;color:var(--snip);font-weight:700;margin-bottom:12px;" data-i18n="d_lbl">JUST TYPE YOUR SHORTCUT</div>
+            <div style="border:3px solid var(--snip);border-radius:16px;padding:26px 28px;font-size:38px;min-height:104px;"><span id="dTyped" style="font-family:ui-monospace,monospace;color:var(--snip);font-weight:700;unicode-bidi:plaintext;"></span><span id="dCaret" style="display:inline-block;width:4px;height:44px;background:var(--snip);vertical-align:-7px;"></span></div>
+            <div style="margin-top:18px;display:flex;align-items:center;gap:14px;font-size:26px;color:var(--t3);" data-i18n="d_hint">Press <span class="kbd" id="dTab" style="opacity:.4;">Tab</span> → instant expand</div>
           </div>
-          <div id="dOut" style="opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;border:1px solid var(--dv);border-radius:16px;padding:28px;background:#fcfcff;font-size:28px;line-height:1.7;color:var(--t1);">━━━━━━━━━━<br>Alex Carter<br>📧 alex@example.com 　📱 (555) 123-4567</div>
+          <div id="dOut" style="opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;border:1px solid var(--dv);border-radius:16px;padding:28px;background:#fcfcff;font-size:28px;line-height:1.7;color:var(--t1);" data-i18n="d_sig">━━━━━━━━━━<br>Alex Carter<br>📧 alex@example.com 　📱 (555) 123-4567</div>
         </div>
       </div>
 
     </div>
   </div>
 
-  <div class="callout side-left" id="co1"><div class="co-tag">DEMO 01 — Selection toolbar</div><div class="co-ttl">Just select to<br>open the menu</div><div class="co-desc">Highlight text, tap the icon, pick a preset. Done.</div></div>
-  <div class="callout side-right" id="co2"><div class="co-tag">DEMO 02 — Inline trigger</div><div class="co-ttl">Type, hit Enter,<br>replace in place</div><div class="co-desc">Type a trigger like //p before your text, hit Enter — AI rewrites it.</div></div>
-  <div class="callout side-left" id="co3"><div class="co-tag">DEMO 03 — Write a reply</div><div class="co-ttl">Turn a message<br>into a reply</div><div class="co-desc">Pick a tone, add a hint if you like — then copy it to your reply box.</div></div>
-  <div class="callout side-right" id="co4"><div class="co-tag">DEMO 04 — Snippets</div><div class="co-ttl">Expand in an<br>instant</div><div class="co-desc">Type ;sig and press space. No AI, unlimited, instant.</div></div>
+  <div class="callout side-left" id="co1"><div class="co-tag" data-i18n="co1_tag">DEMO 01 — Selection toolbar</div><div class="co-ttl" data-i18n="co1_ttl">Select, pick a<br>style, Transform</div><div class="co-desc" data-i18n="co1_desc">Highlight text, tap the icon, choose a style — then Transform.</div></div>
+  <div class="callout side-right" id="co2"><div class="co-tag" data-i18n="co2_tag">DEMO 02 — AI trigger</div><div class="co-ttl" data-i18n="co2_ttl">Type a trigger,<br>hit Tab</div><div class="co-desc" data-i18n="co2_desc">Write <kbd>//p</kbd> before your text and press <kbd>Tab</kbd> — AI rewrites it in place.</div></div>
+  <div class="callout side-left" id="co3"><div class="co-tag" data-i18n="co3_tag">DEMO 03 — Draft a reply</div><div class="co-ttl" data-i18n="co3_ttl">Turn a message<br>into a reply</div><div class="co-desc" data-i18n="co3_desc">Pick a style, type your gist, then Generate — and copy it in.</div></div>
+  <div class="callout side-right" id="co4"><div class="co-tag" data-i18n="co4_tag">DEMO 04 — Snippets</div><div class="co-ttl" data-i18n="co4_ttl">Expand in an<br>instant</div><div class="co-desc" data-i18n="co4_desc">Type <kbd>;sig</kbd> and press <kbd>Tab</kbd>. No AI, unlimited, instant.</div></div>
 </div>
 
 <!-- S5 FEATURES -->
 <div class="feat-scene" id="s5">
   <div class="fwrap">
-    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>Two engines, <em>built for speed</em></h2></div>
+    <div class="fhead" id="fh"><span class="fhead-lbl" data-i18n="f_lbl">FEATURES</span><h2 data-i18n="f_h">Two engines, <em>built for speed</em></h2></div>
     <div class="fgrid">
-      <div class="fcard" id="fc1"><div class="fcard-ico">🤖</div><div class="fcard-ttl">AI presets</div><div class="fcard-txt">Polish, translate, summarize, fix typos</div></div>
-      <div class="fcard" id="fc2"><div class="fcard-ico">⚡</div><div class="fcard-ttl">Snippets</div><div class="fcard-txt">Expand by trigger — unlimited</div></div>
-      <div class="fcard" id="fc3"><div class="fcard-ico">↩️</div><div class="fcard-ttl">Write a reply</div><div class="fcard-txt">AI replies from a message you got</div></div>
-      <div class="fcard" id="fc4"><div class="fcard-ico">🎯</div><div class="fcard-ttl">3 ways to launch</div><div class="fcard-txt">Toolbar · right-click · shortcut</div></div>
-      <div class="fcard" id="fc5"><div class="fcard-ico">🌏</div><div class="fcard-ttl">11 languages</div><div class="fcard-txt">Auto-detects · RTL ready</div></div>
-      <div class="fcard" id="fc6"><div class="fcard-ico">🔒</div><div class="fcard-ttl">Privacy-first</div><div class="fcard-txt">Sends only what you pick · no ads</div></div>
+      <div class="fcard" id="fc1"><div class="fcard-ico">🤖</div><div class="fcard-ttl" data-i18n="fc1_t">AI presets</div><div class="fcard-txt" data-i18n="fc1_x">Polish, translate, summarize, fix typos</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">⚡</div><div class="fcard-ttl" data-i18n="fc2_t">Snippets</div><div class="fcard-txt" data-i18n="fc2_x">Expand by trigger — unlimited</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">↩️</div><div class="fcard-ttl" data-i18n="fc3_t">Draft a reply</div><div class="fcard-txt" data-i18n="fc3_x">AI replies from a message you got</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico">🎯</div><div class="fcard-ttl" data-i18n="fc4_t">4 ways to launch</div><div class="fcard-txt" data-i18n="fc4_x">Toolbar · right-click · shortcut · trigger</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">🌏</div><div class="fcard-ttl" data-i18n="fc5_t">11 languages</div><div class="fcard-txt" data-i18n="fc5_x">Auto-detects · RTL ready</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico">🔒</div><div class="fcard-ttl" data-i18n="fc6_t">Privacy-first</div><div class="fcard-txt" data-i18n="fc6_x">Sends only what you pick · no ads</div></div>
     </div>
   </div>
 </div>
@@ -292,16 +321,577 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFBFF;font-fam
 <!-- S6 CTA -->
 <div class="cta-scene" id="s6">
   <div class="cta-inner">
-    <div class="cta-ttl" id="ct">Let AI handle<br><em>the last touch.</em></div>
+    <div class="cta-ttl" id="ct" data-i18n="cta_h">Let AI handle<br><em>the last touch.</em></div>
     <button class="cta-btn" id="cb">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      <span class="cta-btn-txt">Add to Chrome — Free</span>
+      <span class="cta-btn-txt" data-i18n="cta_btn">Add to Chrome — Free</span>
     </button>
-    <div class="cta-note" id="cn">Free · No sign-up · Works in any field</div>
+    <div class="cta-note" id="cn" data-i18n="cta_note">Free · No sign-up · Works in any field</div>
   </div>
 </div>
 
 <script>
+// ── i18n ─────────────────────────────────────────────────────────────
+// English is the DOM default (same convention as store-images.html).
+// Open promo.html?lang=ja etc. to record a localized video.
+// Demo strings are kept in sync with i18n-lp.js.
+const I18N = {
+
+ja: {
+it:"どんなテキストも、AIでワンタップ変換",
+pill1:"無料", pill2:"Chrome拡張機能", pill3:"AI搭載",
+p_eyebrow:"よくある悩み",
+p_h:"「この言い方で<em>大丈夫かな？</em>」",
+p_bad_t:"😮‍💨 SendReadyなしだと",
+p_bad1:"別タブのAIへコピー→指示→貼り戻し",
+p_bad2:"丁寧化や翻訳のたびに毎回往復",
+p_bad3:"貼り間違いや消し忘れも起こりがち",
+p_good_t:"✨ SendReadyなら",
+p_good1:"入力中のその場で、ワンタップ",
+p_good2:"丁寧化・翻訳・要約・返信までAIにおまかせ",
+p_good3:"定型文は一瞬で展開 — AI不使用・回数無制限",
+s_eyebrow:"使い方",
+s_h:"<em>4ステップ</em>で完了",
+st1_t:"選択 or 入力", st1_d:"文字を選択、または<br>入力欄でトリガーを入力",
+st2_t:"起動する", st2_d:"ツールバー・右クリック<br>・ショートカットから",
+st3_t:"AIが変換", st3_d:"丁寧化・翻訳・返信<br>定型文の展開も",
+st4_t:"反映 or コピー", st4_d:"ワンタップで入力欄へ<br>コピーも選べる",
+a_to:"宛先：取引先さん", a_subj:"打ち合わせの件",
+a_src:"明日10時で大丈夫です。よろしく。",
+a_applied:"明日10時で問題ございません。何卒よろしくお願いいたします。",
+a_reply:"↩ 返信を作成", a_lbl:"スタイルを選ぶ",
+chip_polish:"丁寧に 💝", chip_translate:"英語に翻訳 🌏", chip_sum:"要約 📝", chip_fix:"誤字修正 ✅",
+a_go:"変換する", working:"変換中…",
+b_lbl:"ここに入力", b_typed:"//p 明日10時いきます",
+b_hint:"<span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span> を押す",
+b_res:"明日10時に伺います。よろしくお願いいたします。",
+btn_apply:"反映", btn_copy:"コピー", btn_retry:"作り直す",
+c_init:"田", c_name:"田中さん", c_time:"14:32",
+c_msg:"来週の打ち合わせ、水曜の午後はご都合いかがでしょうか？",
+c_style:"スタイル", c_what:"伝えたい内容", c_gist:"空いてます、14時OK",
+c_go:"返信を生成", c_writing:"返信を作成中…",
+c_out:"ご連絡ありがとうございます。水曜の午後で問題ございません。14時に伺います。よろしくお願いいたします。",
+d_lbl:"ショートカットを入力するだけ",
+d_hint:"<span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> で一瞬展開",
+d_sig:"━━━━━━━━━━<br>山田 太郎 / Taro Yamada<br>📧 taro@example.com　📱 090-1234-5678",
+co1_tag:"デモ 01 — 選択ツールバー", co1_ttl:"選択して、スタイルを<br>選んで、変換", co1_desc:"テキストを選択してアイコンをタップ。スタイルを選んで「変換する」。",
+co2_tag:"デモ 02 — AIトリガー", co2_ttl:"トリガーを入力して<br>Tabキー", co2_desc:"文の前に <kbd>//p</kbd> を付けて <kbd>Tab</kbd> — その場でAIが書き換え。",
+co3_tag:"デモ 03 — 返信を作成", co3_ttl:"メッセージから<br>返信を生成", co3_desc:"トーンを選んで要点を入力、「生成」してコピーするだけ。",
+co4_tag:"デモ 04 — 定型文", co4_ttl:"一瞬で<br>展開", co4_desc:"<kbd>;sig</kbd> と入力して <kbd>Tab</kbd>。AI不使用・無制限・一瞬。",
+f_lbl:"機能",
+f_h:"2つのエンジンで、<em>とにかく速い</em>",
+fc1_t:"AI変換プリセット", fc1_x:"丁寧化・翻訳・要約・誤字修正",
+fc2_t:"定型文スニペット", fc2_x:"トリガーで展開 — 回数無制限",
+fc3_t:"返信を作成", fc3_x:"受信メッセージからAIが返信案",
+fc4_t:"4つの起動方法", fc4_x:"ツールバー · 右クリック · ショートカット · トリガー",
+fc5_t:"11言語対応", fc5_x:"自動判定 · RTL対応",
+fc6_t:"プライバシー最優先", fc6_x:"送るのは選んだテキストだけ · 広告なし",
+cta_h:"最後のひと手間は、<br><em>AIに任せよう。</em>",
+cta_btn:"Chromeに追加 — 無料",
+cta_note:"無料 · 登録不要 · あらゆる入力欄で"
+},
+
+zh: {
+it:"任何文字，AI 一键转换",
+pill1:"免费", pill2:"Chrome 扩展", pill3:"AI 驱动",
+p_eyebrow:"常见困扰",
+p_h:"“这样说<em>合适吗？</em>”",
+p_bad_t:"😮‍💨 没有 SendReady",
+p_bad1:"复制到别的 AI 标签页，写提示，再粘贴回来",
+p_bad2:"每次润色或翻译都要来回折腾",
+p_bad3:"容易贴错内容或忘了删掉",
+p_good_t:"✨ 有了 SendReady",
+p_good1:"就在你输入的地方，一键搞定",
+p_good2:"AI 润色、翻译、总结、写回复",
+p_good3:"短语瞬间展开 — 不限次数、无需 AI",
+s_eyebrow:"使用方法",
+s_h:"<em>4 步</em>完成",
+st1_t:"选中或输入", st1_d:"选中文字，或在输入框<br>键入触发词",
+st2_t:"启动它", st2_d:"工具栏、右键菜单<br>或快捷键",
+st3_t:"AI 转换", st3_d:"润色、翻译、回复<br>或展开短语",
+st4_t:"应用或复制", st4_d:"一键填入输入框<br>也可直接复制",
+a_to:"收件人：客户", a_subj:"回复：关于我们的会议",
+a_src:"明天 10 点我可以，谢谢。",
+a_applied:"明天 10 点对我来说非常合适，期待与您会面。",
+a_reply:"↩ 写回复", a_lbl:"选择风格",
+chip_polish:"润色 💝", chip_translate:"翻译 🌏", chip_sum:"总结 📝", chip_fix:"纠错 ✅",
+a_go:"转换", working:"处理中…",
+b_lbl:"在这里输入", b_typed:"//p 明天10点到",
+b_hint:"按 <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"我明天上午 10 点到。",
+btn_apply:"应用", btn_copy:"复制", btn_retry:"重试",
+c_init:"李", c_name:"李伟", c_time:"14:32",
+c_msg:"下周的会议，周三下午你有空吗？",
+c_style:"风格", c_what:"想说什么", c_gist:"有空，下午2点可以",
+c_go:"生成回复", c_writing:"撰写中…",
+c_out:"感谢联系！周三下午可以——我下午 2 点到。期待见面。",
+d_lbl:"只需输入你的快捷词",
+d_hint:"按 <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → 瞬间展开",
+d_sig:"━━━━━━━━━━<br>李伟<br>📧 alex@example.com　📱 (555) 123-4567",
+co1_tag:"演示 01 — 划词工具栏", co1_ttl:"选中文字，选个风格，<br>一键转换", co1_desc:"选中文字，点击图标，选择风格 — 然后点“转换”。",
+co2_tag:"演示 02 — AI 触发词", co2_ttl:"输入触发词，<br>按 Tab", co2_desc:"在文字前加 <kbd>//p</kbd>，按 <kbd>Tab</kbd> — AI 原地改写。",
+co3_tag:"演示 03 — 写回复", co3_ttl:"把收到的消息<br>变成回复", co3_desc:"选个语气，输入要点，点“生成”— 再复制进去。",
+co4_tag:"演示 04 — 短语", co4_ttl:"瞬间<br>展开", co4_desc:"输入 <kbd>;sig</kbd> 再按 <kbd>Tab</kbd>。无需 AI、不限次数、即刻完成。",
+f_lbl:"功能",
+f_h:"两大引擎，<em>快字当头</em>",
+fc1_t:"AI 预设", fc1_x:"润色、翻译、总结、纠错",
+fc2_t:"短语", fc2_x:"触发词展开 — 不限次数",
+fc3_t:"写回复", fc3_x:"根据收到的消息生成回复",
+fc4_t:"4 种启动方式", fc4_x:"工具栏 · 右键 · 快捷键 · 触发词",
+fc5_t:"11 种语言", fc5_x:"自动检测 · 支持 RTL",
+fc6_t:"隐私优先", fc6_x:"只发送你选中的内容 · 无广告",
+cta_h:"最后一步，<br><em>交给 AI。</em>",
+cta_btn:"添加到 Chrome — 免费",
+cta_note:"免费 · 无需注册 · 任何输入框都能用"
+},
+
+ko: {
+it:"어떤 텍스트든 AI로 원탭 변환",
+pill1:"무료", pill2:"Chrome 확장 프로그램", pill3:"AI 기반",
+p_eyebrow:"흔한 고민",
+p_h:"“이 표현, <em>괜찮을까?</em>”",
+p_bad_t:"😮‍💨 SendReady 없이는",
+p_bad1:"다른 AI 탭에 복사 → 지시 → 다시 붙여넣기",
+p_bad2:"다듬거나 번역할 때마다 왕복 반복",
+p_bad3:"잘못 붙여넣거나 지우는 걸 깜빡하기 일쑤",
+p_good_t:"✨ SendReady라면",
+p_good1:"입력하던 바로 그 자리에서 원탭",
+p_good2:"다듬기·번역·요약·답장까지 AI가 처리",
+p_good3:"문구는 즉시 펼침 — 무제한, AI 불필요",
+s_eyebrow:"사용 방법",
+s_h:"<em>4단계</em>면 끝",
+st1_t:"선택 또는 입력", st1_d:"텍스트를 선택하거나<br>입력란에 트리거 입력",
+st2_t:"실행하기", st2_d:"툴바, 우클릭<br>또는 단축키로",
+st3_t:"AI가 변환", st3_d:"다듬기·번역·답장<br>문구 펼침까지",
+st4_t:"적용 또는 복사", st4_d:"원탭으로 입력란에 반영<br>복사도 가능",
+a_to:"받는 사람: 거래처", a_subj:"Re: 회의 건",
+a_src:"내일 10시 괜찮습니다. 감사합니다.",
+a_applied:"내일 10시 전혀 문제없습니다. 잘 부탁드립니다.",
+a_reply:"↩ 답장 작성", a_lbl:"스타일 선택",
+chip_polish:"다듬기 💝", chip_translate:"번역 🌏", chip_sum:"요약 📝", chip_fix:"오타 수정 ✅",
+a_go:"변환", working:"변환 중…",
+b_lbl:"여기에 입력", b_typed:"//p 내일 10시 갈게",
+b_hint:"<span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span> 누르기",
+b_res:"내일 10시에 가겠습니다.",
+btn_apply:"적용", btn_copy:"복사", btn_retry:"다시",
+c_init:"민", c_name:"민준", c_time:"오후 2:32",
+c_msg:"다음 주 회의, 수요일 오후에 시간 괜찮으세요?",
+c_style:"스타일", c_what:"전할 내용", c_gist:"가능해요, 오후 2시 좋아요",
+c_go:"답장 생성", c_writing:"작성 중…",
+c_out:"연락 주셔서 감사합니다! 수요일 오후 괜찮습니다 — 오후 2시에 가겠습니다. 기대하겠습니다.",
+d_lbl:"단축어만 입력하세요",
+d_hint:"<span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → 즉시 펼침",
+d_sig:"━━━━━━━━━━<br>김민준 / Minjun Kim<br>📧 minjun@example.com　📱 010-1234-5678",
+co1_tag:"데모 01 — 선택 툴바", co1_ttl:"선택하고, 스타일 고르고,<br>변환", co1_desc:"텍스트를 선택하고 아이콘을 탭한 뒤 스타일을 고르고 ‘변환’.",
+co2_tag:"데모 02 — AI 트리거", co2_ttl:"트리거 입력 후<br>Tab", co2_desc:"문장 앞에 <kbd>//p</kbd>를 붙이고 <kbd>Tab</kbd> — 그 자리에서 AI가 다시 써 줍니다.",
+co3_tag:"데모 03 — 답장 작성", co3_ttl:"받은 메시지를<br>답장으로", co3_desc:"톤을 고르고 요점을 입력한 뒤 ‘생성’ — 복사하면 끝.",
+co4_tag:"데모 04 — 문구", co4_ttl:"한순간에<br>펼침", co4_desc:"<kbd>;sig</kbd> 입력 후 <kbd>Tab</kbd>. AI 불필요·무제한·즉시.",
+f_lbl:"기능",
+f_h:"두 엔진으로 <em>더 빠르게</em>",
+fc1_t:"AI 프리셋", fc1_x:"다듬기·번역·요약·오타 수정",
+fc2_t:"문구", fc2_x:"트리거로 펼침 — 무제한",
+fc3_t:"답장 작성", fc3_x:"받은 메시지로 AI가 답장 초안",
+fc4_t:"4가지 실행 방법", fc4_x:"툴바 · 우클릭 · 단축키 · 트리거",
+fc5_t:"11개 언어", fc5_x:"자동 감지 · RTL 지원",
+fc6_t:"프라이버시 우선", fc6_x:"선택한 텍스트만 전송 · 광고 없음",
+cta_h:"마지막 손질은<br><em>AI에게 맡기세요.</em>",
+cta_btn:"Chrome에 추가 — 무료",
+cta_note:"무료 · 가입 불필요 · 모든 입력란에서"
+},
+
+es: {
+it:"Transforma cualquier texto con IA — en un toque",
+pill1:"Gratis", pill2:"Extensión de Chrome", pill3:"Con IA",
+p_eyebrow:"EL PROBLEMA",
+p_h:"«¿Está <em>bien dicho</em> así?»",
+p_bad_t:"😮‍💨 Sin SendReady",
+p_bad1:"Copiar a otra pestaña de IA, dar instrucciones, pegar de vuelta",
+p_bad2:"Un ida y vuelta cada vez que pules o traduces",
+p_bad3:"Fácil pegar lo que no era u olvidar borrar",
+p_good_t:"✨ Con SendReady",
+p_good1:"Un toque, justo donde escribes",
+p_good2:"La IA pule, traduce, resume y responde",
+p_good3:"Las frases se expanden al instante — sin límite, sin IA",
+s_eyebrow:"CÓMO FUNCIONA",
+s_h:"Listo en <em>4 pasos</em>",
+st1_t:"Selecciona o escribe", st1_d:"Resalta el texto o escribe<br>un disparador en el campo",
+st2_t:"Actívalo", st2_d:"Barra, clic derecho<br>o un atajo",
+st3_t:"La IA lo transforma", st3_d:"Pulir, traducir, responder<br>o expandir una frase",
+st4_t:"Aplica o copia", st4_d:"Un toque lo pone en el campo<br>— o lo copia",
+a_to:"Para: Cliente", a_subj:"Re: nuestra reunión",
+a_src:"Mañana a las 10 me viene bien. Gracias.",
+a_applied:"Mañana a las 10 me viene perfecto. Lo espero con interés.",
+a_reply:"↩ Escribir una respuesta", a_lbl:"ELIGE UN ESTILO",
+chip_polish:"Pulir 💝", chip_translate:"Traducir 🌏", chip_sum:"Resumir 📝", chip_fix:"Corregir ✅",
+a_go:"Transformar", working:"Procesando…",
+b_lbl:"ESCRIBE AQUÍ", b_typed:"//p llego mñn a las 10",
+b_hint:"Pulsa <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"Llegaré mañana a las 10.",
+btn_apply:"Aplicar", btn_copy:"Copiar", btn_retry:"Rehacer",
+c_init:"J", c_name:"Javier", c_time:"2:32 PM",
+c_msg:"¿Tienes libre el miércoles por la tarde para nuestra reunión de la próxima semana?",
+c_style:"ESTILO", c_what:"QUÉ DECIR", c_gist:"Libre — 2 PM me va",
+c_go:"Generar respuesta", c_writing:"Escribiendo…",
+c_out:"¡Gracias por escribir! El miércoles por la tarde me viene bien: estaré ahí a las 2 PM. Lo espero con ganas.",
+d_lbl:"SOLO ESCRIBE TU ATAJO",
+d_hint:"Pulsa <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → se expande al instante",
+d_sig:"━━━━━━━━━━<br>Javier Morales<br>📧 javier@example.com　📱 (555) 123-4567",
+co1_tag:"DEMO 01 — Barra de selección", co1_ttl:"Selecciona, elige un<br>estilo, Transformar", co1_desc:"Resalta el texto, toca el icono, elige un estilo — y Transformar.",
+co2_tag:"DEMO 02 — Disparador de IA", co2_ttl:"Escribe un disparador<br>y pulsa Tab", co2_desc:"Escribe <kbd>//p</kbd> antes del texto y pulsa <kbd>Tab</kbd> — la IA lo reescribe ahí mismo.",
+co3_tag:"DEMO 03 — Escribir una respuesta", co3_ttl:"Convierte un mensaje<br>en una respuesta", co3_desc:"Elige un tono, escribe la idea y Generar — y cópiala.",
+co4_tag:"DEMO 04 — Frases guardadas", co4_ttl:"Se expande<br>al instante", co4_desc:"Escribe <kbd>;sig</kbd> y pulsa <kbd>Tab</kbd>. Sin IA, sin límite, al instante.",
+f_lbl:"FUNCIONES",
+f_h:"Dos motores, <em>hechos para la velocidad</em>",
+fc1_t:"Ajustes de IA", fc1_x:"Pulir, traducir, resumir, corregir erratas",
+fc2_t:"Frases guardadas", fc2_x:"Se expanden con un disparador — sin límite",
+fc3_t:"Escribir una respuesta", fc3_x:"La IA responde al mensaje recibido",
+fc4_t:"4 formas de activarlo", fc4_x:"Barra · clic derecho · atajo · disparador",
+fc5_t:"11 idiomas", fc5_x:"Detección automática · Listo para RTL",
+fc6_t:"Privacidad primero", fc6_x:"Solo envía lo que eliges · sin anuncios",
+cta_h:"Deja que la IA dé<br><em>el último toque.</em>",
+cta_btn:"Añadir a Chrome — Gratis",
+cta_note:"Gratis · Sin registro · Funciona en cualquier campo"
+},
+
+fr: {
+it:"Transformez n'importe quel texte avec l'IA — en un geste",
+pill1:"Gratuit", pill2:"Extension Chrome", pill3:"Propulsé par l'IA",
+p_eyebrow:"LE PROBLÈME",
+p_h:"« Est-ce que c'est <em>bien formulé</em> ? »",
+p_bad_t:"😮‍💨 Sans SendReady",
+p_bad1:"Copier vers un autre onglet IA, écrire la consigne, recoller",
+p_bad2:"Un aller-retour à chaque retouche ou traduction",
+p_bad3:"Facile de coller la mauvaise version ou d'oublier d'effacer",
+p_good_t:"✨ Avec SendReady",
+p_good1:"Un geste, là où vous écrivez",
+p_good2:"L'IA peaufine, traduit, résume et répond",
+p_good3:"Les formules s'insèrent instantanément — illimité, sans IA",
+s_eyebrow:"COMMENT ÇA MARCHE",
+s_h:"Fini en <em>4 étapes</em>",
+st1_t:"Sélectionnez ou tapez", st1_d:"Surlignez le texte, ou tapez<br>un déclencheur dans le champ",
+st2_t:"Lancez-le", st2_d:"Barre d'outils, clic droit<br>ou raccourci",
+st3_t:"L'IA transforme", st3_d:"Peaufiner, traduire, répondre<br>ou insérer une formule",
+st4_t:"Appliquez ou copiez", st4_d:"Un geste remplit le champ<br>— ou copie le texte",
+a_to:"À : Client", a_subj:"Re : notre réunion",
+a_src:"Demain à 10 h me convient. Merci.",
+a_applied:"Demain à 10 h me convient parfaitement. Je m'en réjouis d'avance.",
+a_reply:"↩ Rédiger une réponse", a_lbl:"CHOISISSEZ UN STYLE",
+chip_polish:"Polir 💝", chip_translate:"Traduire 🌏", chip_sum:"Résumer 📝", chip_fix:"Corriger ✅",
+a_go:"Transformer", working:"En cours…",
+b_lbl:"TAPEZ ICI", b_typed:"//p j'arrive demain 10h",
+b_hint:"Appuyez sur <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"J'arriverai demain à 10 h.",
+btn_apply:"Appliquer", btn_copy:"Copier", btn_retry:"Refaire",
+c_init:"L", c_name:"Lucas", c_time:"14:32",
+c_msg:"Êtes-vous disponible mercredi après-midi pour notre réunion de la semaine prochaine ?",
+c_style:"STYLE", c_what:"QUOI DIRE", c_gist:"Dispo — 14 h ça marche",
+c_go:"Générer la réponse", c_writing:"Rédaction…",
+c_out:"Merci de votre message ! Mercredi après-midi me convient — je serai là à 14 h. J'ai hâte d'y être.",
+d_lbl:"TAPEZ SIMPLEMENT VOTRE RACCOURCI",
+d_hint:"Appuyez sur <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → insertion instantanée",
+d_sig:"━━━━━━━━━━<br>Lucas Martin<br>📧 lucas@example.com　📱 (555) 123-4567",
+co1_tag:"DÉMO 01 — Barre de sélection", co1_ttl:"Sélectionnez, choisissez<br>un style, Transformer", co1_desc:"Surlignez le texte, touchez l'icône, choisissez un style — puis Transformer.",
+co2_tag:"DÉMO 02 — Déclencheur IA", co2_ttl:"Tapez un déclencheur,<br>puis Tab", co2_desc:"Écrivez <kbd>//p</kbd> devant votre texte puis <kbd>Tab</kbd> — l'IA le réécrit sur place.",
+co3_tag:"DÉMO 03 — Rédiger une réponse", co3_ttl:"D'un message reçu<br>à une réponse", co3_desc:"Choisissez un ton, tapez l'essentiel, puis Générer — et copiez-la.",
+co4_tag:"DÉMO 04 — Formules", co4_ttl:"Insertion<br>instantanée", co4_desc:"Tapez <kbd>;sig</kbd> puis <kbd>Tab</kbd>. Sans IA, illimité, instantané.",
+f_lbl:"FONCTIONNALITÉS",
+f_h:"Deux moteurs, <em>pensés pour la vitesse</em>",
+fc1_t:"Préréglages IA", fc1_x:"Peaufiner, traduire, résumer, corriger",
+fc2_t:"Formules", fc2_x:"Insertion par déclencheur — illimité",
+fc3_t:"Rédiger une réponse", fc3_x:"L'IA répond au message reçu",
+fc4_t:"4 façons de lancer", fc4_x:"Barre · clic droit · raccourci · déclencheur",
+fc5_t:"11 langues", fc5_x:"Détection auto · Prêt pour le RTL",
+fc6_t:"Confidentialité d'abord", fc6_x:"N'envoie que ce que vous choisissez · sans pub",
+cta_h:"Laissez l'IA mettre<br><em>la touche finale.</em>",
+cta_btn:"Ajouter à Chrome — Gratuit",
+cta_note:"Gratuit · Sans inscription · Dans n'importe quel champ"
+},
+
+de: {
+it:"Jeden Text mit KI umwandeln — mit einem Tipp",
+pill1:"Kostenlos", pill2:"Chrome-Erweiterung", pill3:"KI-gestützt",
+p_eyebrow:"DAS PROBLEM",
+p_h:"„Ist das <em>gut formuliert</em>?“",
+p_bad_t:"😮‍💨 Ohne SendReady",
+p_bad1:"In einen KI-Tab kopieren, anweisen, zurückkopieren",
+p_bad2:"Bei jedem Feinschliff oder Übersetzen ein Hin und Her",
+p_bad3:"Schnell das Falsche eingefügt oder das Löschen vergessen",
+p_good_t:"✨ Mit SendReady",
+p_good1:"Ein Tipp — genau dort, wo du schreibst",
+p_good2:"KI perfektioniert, übersetzt, fasst zusammen, antwortet",
+p_good3:"Textbausteine sofort eingefügt — unbegrenzt, ohne KI",
+s_eyebrow:"SO FUNKTIONIERT'S",
+s_h:"Fertig in <em>4 Schritten</em>",
+st1_t:"Markieren oder tippen", st1_d:"Text markieren oder Trigger<br>im Feld eintippen",
+st2_t:"Starten", st2_d:"Toolbar, Rechtsklick<br>oder Kurzbefehl",
+st3_t:"KI wandelt um", st3_d:"Perfektionieren, übersetzen,<br>antworten oder einfügen",
+st4_t:"Übernehmen oder kopieren", st4_d:"Ein Tipp füllt das Feld<br>— oder kopiert den Text",
+a_to:"An: Kunde", a_subj:"Re: unser Meeting",
+a_src:"Morgen um 10 passt mir. Danke.",
+a_applied:"Morgen um 10 Uhr passt mir bestens. Ich freue mich darauf.",
+a_reply:"↩ Antwort schreiben", a_lbl:"STIL WÄHLEN",
+chip_polish:"Verfeinern 💝", chip_translate:"Übersetzen 🌏", chip_sum:"Kürzen 📝", chip_fix:"Korrigieren ✅",
+a_go:"Umwandeln", working:"Wird bearbeitet…",
+b_lbl:"HIER TIPPEN", b_typed:"//p bin morgen um 10 da",
+b_hint:"Drücke <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"Ich bin morgen um 10 Uhr da.",
+btn_apply:"Übernehmen", btn_copy:"Kopieren", btn_retry:"Neu",
+c_init:"L", c_name:"Lukas", c_time:"14:32",
+c_msg:"Hast du nächste Woche am Mittwochnachmittag Zeit für unser Meeting?",
+c_style:"STIL", c_what:"WAS SAGEN", c_gist:"Frei – 14 Uhr passt",
+c_go:"Antwort generieren", c_writing:"Wird geschrieben…",
+c_out:"Danke für deine Nachricht! Mittwochnachmittag passt – ich bin um 14 Uhr da. Ich freue mich darauf.",
+d_lbl:"EINFACH KÜRZEL TIPPEN",
+d_hint:"Drücke <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → sofort eingefügt",
+d_sig:"━━━━━━━━━━<br>Lukas Becker<br>📧 lukas@example.com　📱 (555) 123-4567",
+co1_tag:"DEMO 01 — Auswahl-Toolbar", co1_ttl:"Markieren, Stil wählen,<br>Umwandeln", co1_desc:"Text markieren, Icon antippen, Stil wählen — dann Umwandeln.",
+co2_tag:"DEMO 02 — KI-Trigger", co2_ttl:"Trigger tippen,<br>Tab drücken", co2_desc:"Schreibe <kbd>//p</kbd> vor deinen Text und drücke <kbd>Tab</kbd> — die KI schreibt ihn direkt um.",
+co3_tag:"DEMO 03 — Antwort schreiben", co3_ttl:"Aus einer Nachricht<br>wird eine Antwort", co3_desc:"Ton wählen, Kernaussage tippen, Generieren — und einfach kopieren.",
+co4_tag:"DEMO 04 — Textbausteine", co4_ttl:"Sofort<br>eingefügt", co4_desc:"Tippe <kbd>;sig</kbd> und drücke <kbd>Tab</kbd>. Ohne KI, unbegrenzt, sofort.",
+f_lbl:"FUNKTIONEN",
+f_h:"Zwei Engines, <em>gebaut für Tempo</em>",
+fc1_t:"KI-Vorlagen", fc1_x:"Perfektionieren, übersetzen, zusammenfassen, korrigieren",
+fc2_t:"Textbausteine", fc2_x:"Per Trigger einfügen — unbegrenzt",
+fc3_t:"Antwort schreiben", fc3_x:"KI antwortet auf erhaltene Nachrichten",
+fc4_t:"4 Wege zum Starten", fc4_x:"Toolbar · Rechtsklick · Kurzbefehl · Trigger",
+fc5_t:"11 Sprachen", fc5_x:"Automatisch erkannt · RTL-fähig",
+fc6_t:"Datenschutz zuerst", fc6_x:"Sendet nur, was du wählst · keine Werbung",
+cta_h:"Überlass der KI<br><em>den letzten Schliff.</em>",
+cta_btn:"Zu Chrome hinzufügen — Kostenlos",
+cta_note:"Kostenlos · Ohne Anmeldung · In jedem Textfeld"
+},
+
+pt: {
+it:"Transforme qualquer texto com IA — em um toque",
+pill1:"Grátis", pill2:"Extensão do Chrome", pill3:"Com IA",
+p_eyebrow:"O PROBLEMA",
+p_h:"\"Será que está <em>bem escrito</em>?\"",
+p_bad_t:"😮‍💨 Sem o SendReady",
+p_bad1:"Copiar para outra aba de IA, dar o comando, colar de volta",
+p_bad2:"Um vai e vem a cada retoque ou tradução",
+p_bad3:"Fácil colar errado ou esquecer de apagar",
+p_good_t:"✨ Com o SendReady",
+p_good1:"Um toque, bem onde você digita",
+p_good2:"A IA pule, traduz, resume e responde",
+p_good3:"Atalhos de texto expandem na hora — sem limite, sem IA",
+s_eyebrow:"COMO FUNCIONA",
+s_h:"Pronto em <em>4 passos</em>",
+st1_t:"Selecione ou digite", st1_d:"Destaque o texto ou digite<br>um gatilho no campo",
+st2_t:"Acione", st2_d:"Barra, clique direito<br>ou atalho",
+st3_t:"A IA transforma", st3_d:"Polir, traduzir, responder<br>ou expandir um atalho",
+st4_t:"Aplique ou copie", st4_d:"Um toque preenche o campo<br>— ou copia o texto",
+a_to:"Para: Cliente", a_subj:"Re: nossa reunião",
+a_src:"Amanhã às 10 funciona pra mim. Obrigado.",
+a_applied:"Amanhã às 10 horas é perfeito para mim. Fico no aguardo.",
+a_reply:"↩ Escrever uma resposta", a_lbl:"ESCOLHA UM ESTILO",
+chip_polish:"Polir 💝", chip_translate:"Traduzir 🌏", chip_sum:"Resumir 📝", chip_fix:"Corrigir ✅",
+a_go:"Transformar", working:"Processando…",
+b_lbl:"DIGITE AQUI", b_typed:"//p chego amanhã às 10",
+b_hint:"Pressione <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"Chegarei amanhã às 10 horas.",
+btn_apply:"Aplicar", btn_copy:"Copiar", btn_retry:"Refazer",
+c_init:"L", c_name:"Lucas", c_time:"14:32",
+c_msg:"Você tem disponibilidade na quarta à tarde para nossa reunião na semana que vem?",
+c_style:"ESTILO", c_what:"O QUE DIZER", c_gist:"Livre — 14h funciona",
+c_go:"Gerar resposta", c_writing:"Escrevendo…",
+c_out:"Obrigado pelo contato! Quarta à tarde funciona — estarei aí às 14h. Fico no aguardo.",
+d_lbl:"SÓ DIGITE SEU ATALHO",
+d_hint:"Pressione <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → expande na hora",
+d_sig:"━━━━━━━━━━<br>Lucas Oliveira<br>📧 lucas@example.com　📱 (11) 91234-5678",
+co1_tag:"DEMO 01 — Barra de seleção", co1_ttl:"Selecione, escolha um<br>estilo, Transformar", co1_desc:"Destaque o texto, toque no ícone, escolha um estilo — e Transformar.",
+co2_tag:"DEMO 02 — Gatilho de IA", co2_ttl:"Digite um gatilho<br>e aperte Tab", co2_desc:"Escreva <kbd>//p</kbd> antes do texto e aperte <kbd>Tab</kbd> — a IA reescreve ali mesmo.",
+co3_tag:"DEMO 03 — Escrever resposta", co3_ttl:"Transforme uma mensagem<br>em resposta", co3_desc:"Escolha o tom, digite a ideia e Gerar — depois é só copiar.",
+co4_tag:"DEMO 04 — Atalhos de texto", co4_ttl:"Expande<br>na hora", co4_desc:"Digite <kbd>;sig</kbd> e aperte <kbd>Tab</kbd>. Sem IA, sem limite, instantâneo.",
+f_lbl:"RECURSOS",
+f_h:"Dois motores, <em>feitos para a velocidade</em>",
+fc1_t:"Predefinições de IA", fc1_x:"Polir, traduzir, resumir, corrigir erros",
+fc2_t:"Atalhos de texto", fc2_x:"Expansão por gatilho — sem limite",
+fc3_t:"Escrever resposta", fc3_x:"A IA responde à mensagem recebida",
+fc4_t:"4 formas de acionar", fc4_x:"Barra · clique direito · atalho · gatilho",
+fc5_t:"11 idiomas", fc5_x:"Detecção automática · Pronto para RTL",
+fc6_t:"Privacidade em primeiro lugar", fc6_x:"Envia só o que você escolher · sem anúncios",
+cta_h:"Deixe a IA dar<br><em>o toque final.</em>",
+cta_btn:"Adicionar ao Chrome — Grátis",
+cta_note:"Grátis · Sem cadastro · Em qualquer campo de texto"
+},
+
+hi: {
+it:"किसी भी टेक्स्ट को AI से बदलें — एक टैप में",
+pill1:"मुफ़्त", pill2:"Chrome एक्सटेंशन", pill3:"AI-संचालित",
+p_eyebrow:"समस्या",
+p_h:"\"क्या यह <em>सही लिखा</em> है?\"",
+p_bad_t:"😮‍💨 SendReady के बिना",
+p_bad1:"दूसरे AI टैब में कॉपी करें, प्रॉम्प्ट लिखें, वापस पेस्ट करें",
+p_bad2:"हर बार सुधारने या अनुवाद के लिए आना-जाना",
+p_bad3:"गलत चीज़ पेस्ट होना या डिलीट करना भूलना आम बात",
+p_good_t:"✨ SendReady के साथ",
+p_good1:"एक टैप — वहीं, जहाँ आप लिख रहे हैं",
+p_good2:"AI पॉलिश, अनुवाद, सारांश और जवाब — सब करता है",
+p_good3:"स्निपेट तुरंत फैलते हैं — असीमित, बिना AI",
+s_eyebrow:"कैसे काम करता है",
+s_h:"सिर्फ़ <em>4 स्टेप</em> में",
+st1_t:"चुनें या टाइप करें", st1_d:"टेक्स्ट चुनें, या फ़ील्ड में<br>ट्रिगर टाइप करें",
+st2_t:"इसे चलाएँ", st2_d:"टूलबार, राइट-क्लिक<br>या शॉर्टकट से",
+st3_t:"AI बदल देता है", st3_d:"पॉलिश, अनुवाद, जवाब<br>या स्निपेट का विस्तार",
+st4_t:"लागू करें या कॉपी करें", st4_d:"एक टैप में फ़ील्ड में<br>— या कॉपी करें",
+a_to:"प्रति: क्लाइंट", a_subj:"Re: हमारी मीटिंग",
+a_src:"कल सुबह 10 बजे मेरे लिए ठीक है। धन्यवाद।",
+a_applied:"कल सुबह 10 बजे मेरे लिए बिल्कुल सही है। मुझे इसका इंतज़ार रहेगा।",
+a_reply:"↩ जवाब लिखें", a_lbl:"स्टाइल चुनें",
+chip_polish:"पॉलिश करें 💝", chip_translate:"अनुवाद करें 🌏", chip_sum:"सारांश बनाएँ 📝", chip_fix:"सुधारें ✅",
+a_go:"बदलें", working:"चल रहा है…",
+b_lbl:"यहाँ टाइप करें", b_typed:"//p कल 10 बजे आऊँगा",
+b_hint:"<span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span> दबाएँ",
+b_res:"मैं कल सुबह 10 बजे आ जाऊँगा।",
+btn_apply:"लागू करें", btn_copy:"कॉपी करें", btn_retry:"फिर से",
+c_init:"अ", c_name:"अर्जुन", c_time:"2:32 PM",
+c_msg:"क्या अगले हफ़्ते हमारी मीटिंग के लिए आप बुधवार दोपहर को खाली हैं?",
+c_style:"स्टाइल", c_what:"क्या कहना है", c_gist:"खाली हूँ — 2 बजे ठीक है",
+c_go:"जवाब बनाएँ", c_writing:"लिख रहा है…",
+c_out:"संपर्क करने के लिए धन्यवाद! बुधवार दोपहर ठीक रहेगा — मैं दोपहर 2 बजे वहाँ रहूँगा। इंतज़ार रहेगा।",
+d_lbl:"बस अपना शॉर्टकट टाइप करें",
+d_hint:"<span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> दबाएँ → तुरंत विस्तार",
+d_sig:"━━━━━━━━━━<br>अर्जुन शर्मा<br>📧 arjun@example.com　📱 (555) 123-4567",
+co1_tag:"डेमो 01 — चयन टूलबार", co1_ttl:"चुनें, स्टाइल तय करें,<br>बदलें", co1_desc:"टेक्स्ट चुनें, आइकन टैप करें, स्टाइल चुनें — फिर 'बदलें'।",
+co2_tag:"डेमो 02 — AI ट्रिगर", co2_ttl:"ट्रिगर टाइप करें,<br>Tab दबाएँ", co2_desc:"टेक्स्ट से पहले <kbd>//p</kbd> लिखें और <kbd>Tab</kbd> दबाएँ — AI वहीं दोबारा लिख देता है।",
+co3_tag:"डेमो 03 — जवाब लिखें", co3_ttl:"मिले संदेश को<br>जवाब में बदलें", co3_desc:"टोन चुनें, अपनी बात टाइप करें, फिर 'बनाएँ' — और कॉपी कर लें।",
+co4_tag:"डेमो 04 — स्निपेट", co4_ttl:"पलक झपकते<br>विस्तार", co4_desc:"<kbd>;sig</kbd> टाइप करें और <kbd>Tab</kbd> दबाएँ। बिना AI, असीमित, तुरंत।",
+f_lbl:"फ़ीचर",
+f_h:"दो इंजन, <em>रफ़्तार के लिए बने</em>",
+fc1_t:"AI प्रीसेट", fc1_x:"पॉलिश, अनुवाद, सारांश, ग़लतियाँ सुधारें",
+fc2_t:"स्निपेट", fc2_x:"ट्रिगर से विस्तार — असीमित",
+fc3_t:"जवाब लिखें", fc3_x:"मिले संदेश से AI जवाब बनाता है",
+fc4_t:"चलाने के 4 तरीके", fc4_x:"टूलबार · राइट-क्लिक · शॉर्टकट · ट्रिगर",
+fc5_t:"11 भाषाएँ", fc5_x:"अपने-आप पहचान · RTL तैयार",
+fc6_t:"प्राइवेसी सबसे पहले", fc6_x:"सिर्फ़ चुना हुआ टेक्स्ट भेजता है · कोई विज्ञापन नहीं",
+cta_h:"आख़िरी छुअन<br><em>AI पर छोड़ दें।</em>",
+cta_btn:"Chrome में जोड़ें — मुफ़्त",
+cta_note:"मुफ़्त · साइन-अप नहीं · हर टेक्स्ट फ़ील्ड में"
+},
+
+id: {
+it:"Ubah teks apa pun dengan AI — sekali ketuk",
+pill1:"Gratis", pill2:"Ekstensi Chrome", pill3:"Ditenagai AI",
+p_eyebrow:"MASALAHNYA",
+p_h:"\"Apa kalimat ini <em>sudah pas</em>?\"",
+p_bad_t:"😮‍💨 Tanpa SendReady",
+p_bad1:"Salin ke tab AI lain, tulis perintah, tempel kembali",
+p_bad2:"Bolak-balik setiap kali memperhalus atau menerjemahkan",
+p_bad3:"Gampang salah tempel atau lupa menghapus",
+p_good_t:"✨ Dengan SendReady",
+p_good1:"Sekali ketuk, tepat di tempat kamu mengetik",
+p_good2:"AI memperhalus, menerjemahkan, meringkas & membalas",
+p_good3:"Teks tersimpan langsung terpasang — tanpa batas, tanpa AI",
+s_eyebrow:"CARA KERJANYA",
+s_h:"Selesai dalam <em>4 langkah</em>",
+st1_t:"Pilih atau ketik", st1_d:"Sorot teks, atau ketik<br>pemicu di kolom mana pun",
+st2_t:"Jalankan", st2_d:"Bilah alat, klik kanan<br>atau pintasan",
+st3_t:"AI mengubahnya", st3_d:"Perhalus, terjemahkan, balas<br>atau pasang teks tersimpan",
+st4_t:"Terapkan atau salin", st4_d:"Sekali ketuk mengisi kolom<br>— atau menyalinnya",
+a_to:"Kepada: Klien", a_subj:"Re: rapat kita",
+a_src:"Besok jam 10 cocok buat saya. Terima kasih.",
+a_applied:"Besok pukul 10 sangat cocok bagi saya. Saya menantikannya.",
+a_reply:"↩ Tulis balasan", a_lbl:"PILIH GAYA",
+chip_polish:"Perhalus 💝", chip_translate:"Terjemah 🌏", chip_sum:"Ringkas 📝", chip_fix:"Koreksi ✅",
+a_go:"Ubah", working:"Memproses…",
+b_lbl:"KETIK DI SINI", b_typed:"//p besok jam 10 datang",
+b_hint:"Tekan <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"Saya akan datang besok pukul 10.",
+btn_apply:"Terapkan", btn_copy:"Salin", btn_retry:"Ulangi",
+c_init:"B", c_name:"Budi", c_time:"14:32",
+c_msg:"Apa kamu ada waktu Rabu siang untuk rapat kita minggu depan?",
+c_style:"GAYA", c_what:"MAU BILANG APA", c_gist:"Bisa — jam 2 siang oke",
+c_go:"Buat balasan", c_writing:"Menulis…",
+c_out:"Terima kasih sudah menghubungi! Rabu siang cocok — saya akan datang jam 2 siang. Saya menantikannya.",
+d_lbl:"CUKUP KETIK PINTASANMU",
+d_hint:"Tekan <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> → langsung terpasang",
+d_sig:"━━━━━━━━━━<br>Budi Santoso<br>📧 budi@example.com　📱 (021) 123-4567",
+co1_tag:"DEMO 01 — Bilah seleksi", co1_ttl:"Pilih, tentukan gaya,<br>Ubah", co1_desc:"Sorot teks, ketuk ikonnya, pilih gaya — lalu Ubah.",
+co2_tag:"DEMO 02 — Pemicu AI", co2_ttl:"Ketik pemicu,<br>tekan Tab", co2_desc:"Tulis <kbd>//p</kbd> sebelum teksmu lalu tekan <kbd>Tab</kbd> — AI menulis ulang di tempat.",
+co3_tag:"DEMO 03 — Tulis balasan", co3_ttl:"Ubah pesan masuk<br>jadi balasan", co3_desc:"Pilih nada, ketik intinya, lalu Buat — tinggal salin.",
+co4_tag:"DEMO 04 — Teks tersimpan", co4_ttl:"Terpasang<br>seketika", co4_desc:"Ketik <kbd>;sig</kbd> lalu tekan <kbd>Tab</kbd>. Tanpa AI, tanpa batas, seketika.",
+f_lbl:"FITUR",
+f_h:"Dua mesin, <em>dibuat untuk kecepatan</em>",
+fc1_t:"Preset AI", fc1_x:"Perhalus, terjemahkan, ringkas, koreksi",
+fc2_t:"Teks tersimpan", fc2_x:"Terpasang lewat pemicu — tanpa batas",
+fc3_t:"Tulis balasan", fc3_x:"AI membalas pesan yang kamu terima",
+fc4_t:"4 cara menjalankan", fc4_x:"Bilah alat · klik kanan · pintasan · pemicu",
+fc5_t:"11 bahasa", fc5_x:"Deteksi otomatis · Siap RTL",
+fc6_t:"Privasi utama", fc6_x:"Hanya mengirim yang kamu pilih · tanpa iklan",
+cta_h:"Biarkan AI memberi<br><em>sentuhan terakhir.</em>",
+cta_btn:"Tambahkan ke Chrome — Gratis",
+cta_note:"Gratis · Tanpa daftar · Di kolom teks mana pun"
+},
+
+ar: {
+it:"حوِّل أي نص بالذكاء الاصطناعي — بلمسة واحدة",
+pill1:"مجاني", pill2:"إضافة Chrome", pill3:"بالذكاء الاصطناعي",
+p_eyebrow:"المشكلة",
+p_h:"«هل هذه <em>الصياغة مناسبة</em>؟»",
+p_bad_t:"😮‍💨 بدون SendReady",
+p_bad1:"انسخ إلى تبويب ذكاء اصطناعي آخر، اكتب التعليمات، ثم الصق مجددًا",
+p_bad2:"ذهاب وإياب في كل مرة تصقل أو تترجم",
+p_bad3:"من السهل لصق الشيء الخطأ أو نسيان الحذف",
+p_good_t:"✨ مع SendReady",
+p_good1:"لمسة واحدة، حيث تكتب تمامًا",
+p_good2:"الذكاء الاصطناعي يصقل ويترجم ويلخّص ويرد",
+p_good3:"المقاطع تتوسّع فورًا — بلا حدود وبلا ذكاء اصطناعي",
+s_eyebrow:"كيف يعمل",
+s_h:"يكتمل في <em>4 خطوات</em>",
+st1_t:"حدِّد أو اكتب", st1_d:"ظلِّل النص، أو اكتب<br>مشغِّلًا في أي حقل",
+st2_t:"شغِّله", st2_d:"شريط الأدوات، النقر الأيمن<br>أو اختصار",
+st3_t:"الذكاء الاصطناعي يحوّله", st3_d:"صقل، ترجمة، رد<br>أو توسيع مقطع",
+st4_t:"طبِّق أو انسخ", st4_d:"لمسة واحدة تملأ الحقل<br>— أو تنسخه",
+a_to:"إلى: العميل", a_subj:"بخصوص: اجتماعنا",
+a_src:"غدًا في العاشرة يناسبني. شكرًا.",
+a_applied:"غدًا في العاشرة يناسبني تمامًا. أتطلّع إلى ذلك.",
+a_reply:"↩ اكتب ردًّا", a_lbl:"اختر أسلوبًا",
+chip_polish:"صقل 💝", chip_translate:"ترجمة 🌏", chip_sum:"تلخيص 📝", chip_fix:"تصحيح ✅",
+a_go:"حوِّل", working:"جارٍ العمل…",
+b_lbl:"اكتب هنا", b_typed:"//p سأكون هناك غدًا 10",
+b_hint:"اضغط <span class=\"kbd\" id=\"bTab\" style=\"opacity:.4;\">Tab</span>",
+b_res:"سأكون هناك غدًا في العاشرة صباحًا.",
+btn_apply:"طبِّق", btn_copy:"نسخ", btn_retry:"إعادة",
+c_init:"أ", c_name:"أليكس", c_time:"2:32 م",
+c_msg:"هل أنت متفرّغ بعد ظهر الأربعاء لاجتماعنا الأسبوع القادم؟",
+c_style:"الأسلوب", c_what:"ماذا تريد أن تقول", c_gist:"متفرّغ — الثانية ظهرًا تناسبني",
+c_go:"أنشئ الرد", c_writing:"جارٍ الكتابة…",
+c_out:"شكرًا لتواصلك! بعد ظهر الأربعاء يناسبني — سأكون هناك في الثانية ظهرًا. أتطلّع إلى ذلك.",
+d_lbl:"فقط اكتب اختصارك",
+d_hint:"اضغط <span class=\"kbd\" id=\"dTab\" style=\"opacity:.4;\">Tab</span> ← توسّع فوري",
+d_sig:"━━━━━━━━━━<br>أليكس كارتر<br>📧 alex@example.com　📱 (555) 123-4567",
+co1_tag:"عرض 01 — شريط التحديد", co1_ttl:"حدِّد، اختر أسلوبًا،<br>ثم حوِّل", co1_desc:"ظلِّل النص، المس الأيقونة، اختر أسلوبًا — ثم «حوِّل».",
+co2_tag:"عرض 02 — مشغِّل الذكاء الاصطناعي", co2_ttl:"اكتب مشغِّلًا<br>واضغط Tab", co2_desc:"اكتب <kbd>//p</kbd> قبل نصك واضغط <kbd>Tab</kbd> — يعيد الذكاء الاصطناعي كتابته في مكانه.",
+co3_tag:"عرض 03 — اكتب ردًّا", co3_ttl:"حوِّل رسالة واردة<br>إلى رد", co3_desc:"اختر نبرة، اكتب الفكرة، ثم «أنشئ» — وانسخه حيث تشاء.",
+co4_tag:"عرض 04 — المقاطع", co4_ttl:"توسّع<br>في لحظة", co4_desc:"اكتب <kbd>;sig</kbd> واضغط <kbd>Tab</kbd>. بلا ذكاء اصطناعي، بلا حدود، فورًا.",
+f_lbl:"الميزات",
+f_h:"محرّكان، <em>صُمّما للسرعة</em>",
+fc1_t:"إعدادات جاهزة للذكاء الاصطناعي", fc1_x:"صقل، ترجمة، تلخيص، تصحيح الأخطاء",
+fc2_t:"المقاطع", fc2_x:"تتوسّع بمشغِّل — بلا حدود",
+fc3_t:"اكتب ردًّا", fc3_x:"الذكاء الاصطناعي يرد على رسائلك",
+fc4_t:"4 طرق للتشغيل", fc4_x:"شريط الأدوات · النقر الأيمن · اختصار · مشغِّل",
+fc5_t:"11 لغة", fc5_x:"اكتشاف تلقائي · جاهز للكتابة من اليمين إلى اليسار",
+fc6_t:"الخصوصية أولًا", fc6_x:"يرسل ما تختاره فقط · بلا إعلانات",
+cta_h:"دَع الذكاء الاصطناعي يضع<br><em>اللمسة الأخيرة.</em>",
+cta_btn:"أضِف إلى Chrome — مجانًا",
+cta_note:"مجاني · بلا تسجيل · يعمل في أي حقل نصي"
+}
+};
+
+const LANG = new URLSearchParams(location.search).get('lang') || 'en';
+const L = I18N[LANG] || {};
+document.documentElement.setAttribute('data-lang', LANG);
+document.documentElement.lang = LANG;
+if (LANG === 'ar') document.documentElement.dir = 'rtl';
+if (LANG !== 'en') {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (L[k] !== undefined) el.innerHTML = L[k];
+  });
+}
+const B_TYPED = L.b_typed || '//p be there at 10 tmrw';
+const C_GIST  = L.c_gist  || "I'm free — 2 PM works";
+
 const $=id=>document.getElementById(id);
 let T=[],t0=0,idx=0,tmr=null;
 function at(ms,fn){T.push([ms,fn])}
@@ -314,15 +904,24 @@ function hideCos(){[1,2,3,4].forEach(n=>co(n,false))}
 function reset(){
   clearTimeout(tmr);T=[];idx=0;
   ['s1','s2','s3','s5','s6','ds'].forEach(id=>$(id).classList.remove('show'));
-  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3','fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
+  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3','st4','fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
   screen(null);hideCos();devPos(null);
-  // demo internal resets
+  // demo A
   ['aLaunch','aMenu','aLoad'].forEach(id=>$(id).style.opacity='0');
   $('aLaunch').style.transform='scale(.5)';$('aMenu').style.transform='translateY(10px)';
-  $('aP1').classList.remove('hi');$('aSel').style.display='inline';$('aApplied').style.display='none';
-  $('bTyped').textContent='';$('bEnter').style.opacity='.4';$('bRes').style.opacity='0';$('bRes').style.transform='translateY(16px)';
-  $('cChip').classList.add('on');$('cGen').style.opacity='0';$('cGen').style.display='flex';$('cOut').style.display='none';
-  $('dTyped').textContent='';$('dSpace').style.opacity='.4';$('dOut').style.opacity='0';$('dOut').style.transform='translateY(14px)';
+  $('aChip').classList.remove('on');$('aGo').classList.remove('on','press');
+  $('aSel').style.display='inline';$('aApplied').style.display='none';
+  // demo B
+  $('bTyped').textContent='';$('bTab').style.opacity='.4';$('bRes').style.opacity='0';$('bRes').style.transform='translateY(16px)';
+  // demo C
+  $('cGist').textContent='';$('cGo').classList.remove('on','press');$('cGo').style.display='flex';
+  $('cGen').style.display='none';$('cOut').style.display='none';
+  // demo D
+  $('dTyped').textContent='';$('dTab').style.opacity='.4';$('dOut').style.opacity='0';$('dOut').style.transform='translateY(14px)';
+}
+
+function typeInto(elId,text,step,done){
+  let i=0;const iv=setInterval(()=>{i++;$(elId).textContent=text.slice(0,i);if(i>=text.length){clearInterval(iv);if(done)done()}},step);
 }
 
 function buildTimeline(){
@@ -332,40 +931,44 @@ function buildTimeline(){
   at(t+2300,()=>show('s1',false));t+=2500;
   // S2 PROBLEM (4.5s)
   at(t,()=>show('s2'));at(t+150,()=>show('ph2'));at(t+550,()=>show('pc'));at(t+4200,()=>show('s2',false));t+=4500;
-  // S3 STEPS (3s)
-  at(t,()=>show('s3'));at(t+150,()=>show('sh3'));at(t+500,()=>show('st1'));at(t+800,()=>show('st2'));at(t+1100,()=>show('st3'));
-  at(t+2750,()=>show('s3',false));t+=3000;
+  // S3 STEPS (3.2s)
+  at(t,()=>show('s3'));at(t+150,()=>show('sh3'));
+  ['st1','st2','st3','st4'].forEach((id,i)=>at(t+450+i*260,()=>show(id)));
+  at(t+2950,()=>show('s3',false));t+=3200;
 
-  // DEMO 1: selection toolbar (4s) — window right, callout left
+  // DEMO 1: selection → pick style → Transform (5s) — window right, callout left
   at(t,()=>{show('ds');devPos('right');$('durl').textContent='🔒 mail.google.com';screen('scA')});
   at(t+300,()=>co(1));
-  at(t+700,()=>{$('aLaunch').style.opacity='1';$('aLaunch').style.transform='scale(1)'});
-  at(t+1300,()=>{$('aLaunch').style.opacity='0';$('aMenu').style.opacity='1';$('aMenu').style.transform='translateY(0)'});
-  at(t+2000,()=>$('aP1').classList.add('hi'));
-  at(t+2500,()=>{$('aMenu').style.opacity='0';setTimeout(()=>$('aLoad').style.opacity='1',180)});
-  at(t+3300,()=>{$('aLoad').style.opacity='0';$('aSel').style.display='none';$('aApplied').style.display='inline'});
-  at(t+3850,()=>co(1,false));t+=4000;
+  at(t+800,()=>{$('aLaunch').style.opacity='1';$('aLaunch').style.transform='scale(1)'});
+  at(t+1500,()=>{$('aLaunch').style.opacity='0';$('aMenu').style.opacity='1';$('aMenu').style.transform='translateY(0)'});
+  at(t+2400,()=>{$('aChip').classList.add('on');$('aGo').classList.add('on')});
+  at(t+3100,()=>$('aGo').classList.add('press'));
+  at(t+3350,()=>{$('aMenu').style.opacity='0';setTimeout(()=>$('aLoad').style.opacity='1',180)});
+  at(t+4200,()=>{$('aLoad').style.opacity='0';$('aSel').style.display='none';$('aApplied').style.display='inline'});
+  at(t+4800,()=>co(1,false));t+=5000;
 
-  // DEMO 2: inline trigger (4s) — window left, callout right
+  // DEMO 2: inline AI trigger + Tab (4s) — window left, callout right
   at(t,()=>{devPos('left');$('durl').textContent='🔒 x.com';screen('scB')});
   at(t+300,()=>co(2));
-  at(t+700,()=>{const f='//p be there at 10 tmrw';let i=0;const iv=setInterval(()=>{i++;$('bTyped').textContent=f.slice(0,i);if(i>=f.length)clearInterval(iv)},70)});
-  at(t+2500,()=>{$('bEnter').style.opacity='1'});
+  at(t+700,()=>typeInto('bTyped',B_TYPED,Math.min(70,Math.floor(1700/B_TYPED.length))));
+  at(t+2500,()=>$('bTab').style.opacity='1');
   at(t+2900,()=>{$('bRes').style.opacity='1';$('bRes').style.transform='translateY(0)'});
   at(t+3850,()=>co(2,false));t+=4000;
 
-  // DEMO 3: reply (4.5s) — window right, callout left
+  // DEMO 3: reply — style + gist → Generate → Copy (5.5s) — window right, callout left
   at(t,()=>{devPos('right');$('durl').textContent='🔒 mail.google.com';screen('scC')});
   at(t+300,()=>co(3));
-  at(t+1600,()=>$('cGen').style.opacity='1');
-  at(t+3000,()=>{$('cGen').style.display='none';$('cOut').style.display='block'});
-  at(t+4300,()=>co(3,false));t+=4500;
+  at(t+900,()=>typeInto('cGist',C_GIST,Math.min(55,Math.floor(1700/C_GIST.length)),()=>$('cGo').classList.add('on')));
+  at(t+2700,()=>$('cGo').classList.add('press'));
+  at(t+2950,()=>{$('cGo').style.display='none';$('cGen').style.display='flex'});
+  at(t+4300,()=>{$('cGen').style.display='none';$('cOut').style.display='block'});
+  at(t+5300,()=>co(3,false));t+=5500;
 
-  // DEMO 4: snippet (3.5s) — window left, callout right
+  // DEMO 4: snippet trigger + Tab (3.5s) — window left, callout right
   at(t,()=>{devPos('left');$('durl').textContent='🔒 mail.google.com';screen('scD')});
   at(t+300,()=>co(4));
-  at(t+700,()=>{const f=';sig';let i=0;const iv=setInterval(()=>{i++;$('dTyped').textContent=f.slice(0,i);if(i>=f.length)clearInterval(iv)},150)});
-  at(t+1700,()=>$('dSpace').style.opacity='1');
+  at(t+700,()=>typeInto('dTyped',';sig',150));
+  at(t+1700,()=>$('dTab').style.opacity='1');
   at(t+2100,()=>{$('dOut').style.opacity='1';$('dOut').style.transform='translateY(0)'});
   at(t+3200,()=>{co(4,false);show('ds',false)});t+=3500;
 

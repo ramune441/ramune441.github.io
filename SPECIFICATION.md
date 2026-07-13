@@ -31,7 +31,8 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/sendready-chrome/` | LP | index | yes | Chrome拡張（SendReady）。`i18n-lp.js` で11言語対応 |
 | `/sendready-chrome/how-to.html` | 使い方ガイド | index | no | 操作手順（LPからリンク） |
 | `/sendready-chrome/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー（英語） |
-| `/sendready-chrome/promo.html` | 動画用 | noindex | no | 録画専用 |
+| `/sendready-chrome/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、store-images.html と同方式。文言は i18n-lp.js と同期、ar は RTL） |
+| `/sendready-chrome/promo.webm` `promo-<lang>.webm` | 動画 | - | no | Chrome Web Store 用（VP9/yuv420p/1080p/30fps/約34.6秒/約2MB）。en=`promo.webm`、翻訳版=`promo-{ja,zh,ko,es,fr,de,pt,hi,id,ar}.webm`。`page.screencast()` で録画し、録画ごとに実測係数（wall-clock ÷ raw実尺）で setpts 再エンコード |
 | `/sendready-chrome/store-images.html` | ストア画像生成 | noindex | no | スクショ撮影用。`images/store-image-{1..5}.png`(1280x800) + `store-image-feature.png`(1400x560) + `store-tile-small.png`(440x280・enのみ) を Puppeteer の要素スクショで生成。`?lang=` で11言語対応(en=DOM既定、翻訳版は `images/<lang>/` に同名で出力。文言は拡張の lib/i18n.js・lib/presets.js・LP の i18n-lp.js と同期、ar は RTL) |
 | `/ripen/` | LP | index | yes | Android（旧称 Focus First）。`i18n-lp.js` で12言語対応（ja/en/zh/ko/es/fr/de/it/pt/ru/ar/hi）＋言語セレクター |
 | `/ripen/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー。`i18n-pp.js` で同12言語対応＋言語セレクター |
