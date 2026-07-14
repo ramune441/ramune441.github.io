@@ -137,7 +137,13 @@ guide_s4_h3: "Change settings from the header",
 guide_s4_p: "Use the two selectors in the top-right corner of the popup to switch language and theme.",
 guide_s4_d1: "<strong>Language</strong><br>Supports 11 languages. Auto-detected from your browser language on first use.",
 guide_s4_d2: "<strong>Theme</strong><br>Choose from Light / Dark / Auto (follows OS settings).",
-guide_s4_mock: "Switch using the selectors in the top-right header"
+guide_s4_mock: "Switch using the selectors in the top-right header",
+guide_s5_title: "Run from the Right-Click Menu",
+guide_s5_h3: "Run instantly from the page's right-click menu",
+guide_s5_p: "You can auto-fill and restore directly from the page's right-click (context) menu — no need to open the popup.",
+guide_s5_d1: "<strong>Fill with profile</strong><br>Pick a profile from the list to run AI auto-fill with it (✓ marks the active profile).",
+guide_s5_d2: "<strong>Restore</strong><br>On pages where you saved form data, a \"Restore\" menu appears. Click an entry to restore it instantly.",
+guide_s5_note: "Progress and errors are shown as toast notifications at the top-right of the page. The \"Skip already filled fields\" setting from the popup is applied."
 },
 
 // ── Japanese ────────────────────────────────────────────────────────
@@ -274,7 +280,13 @@ guide_s4_h3: "ヘッダーから設定を変更",
 guide_s4_p: "ポップアップの右上にある2つのセレクターで、言語とテーマを切り替えられます。",
 guide_s4_d1: "<strong>言語</strong><br>11言語に対応。初回はブラウザの言語から自動検出されます。",
 guide_s4_d2: "<strong>テーマ</strong><br>Light / Dark / Auto（OS設定に連動）の3つから選択できます。",
-guide_s4_mock: "ヘッダー右上のセレクターで切替できます"
+guide_s4_mock: "ヘッダー右上のセレクターで切替できます",
+guide_s5_title: "右クリックメニューから実行",
+guide_s5_h3: "ページ上の右クリックで即実行",
+guide_s5_p: "ポップアップを開かなくても、ページ上の右クリック（コンテキスト）メニューから自動入力と復元を実行できます。",
+guide_s5_d1: "<strong>プロフィールを選んで入力</strong><br>一覧からプロフィールを選ぶと、そのプロフィールでAI自動入力を実行します（✓ が現在のアクティブプロフィール）。",
+guide_s5_d2: "<strong>復元</strong><br>フォームデータを保存したページでは「復元」メニューが表示され、エントリーをクリックするとワンクリックで復元できます。",
+guide_s5_note: "実行状況やエラーはページ右上のトースト通知で表示されます。「入力済みスキップ」はポップアップでの設定が使われます。"
 },
 
 // ── Chinese (Simplified) ────────────────────────────────────────────
@@ -411,7 +423,13 @@ guide_s4_h3: "从标题栏更改设置",
 guide_s4_p: "使用弹出窗口右上角的两个选择器切换语言和主题。",
 guide_s4_d1: "<strong>语言</strong><br>支持11种语言。首次使用时会从浏览器语言自动检测。",
 guide_s4_d2: "<strong>主题</strong><br>可选择 Light / Dark / Auto（跟随系统设置）三种模式。",
-guide_s4_mock: "使用标题栏右上角的选择器进行切换"
+guide_s4_mock: "使用标题栏右上角的选择器进行切换",
+guide_s5_title: "从右键菜单运行",
+guide_s5_h3: "在页面上右键即可立即运行",
+guide_s5_p: "无需打开弹窗，直接从页面的右键（上下文）菜单即可执行自动填充和恢复。",
+guide_s5_d1: "<strong>选择资料填充</strong><br>从列表中选择一个资料，即可用它执行AI自动填充（✓ 表示当前使用中的资料）。",
+guide_s5_d2: "<strong>恢复</strong><br>在保存过表单数据的页面上会显示「恢复」菜单，点击条目即可一键恢复。",
+guide_s5_note: "进度和错误会以页面右上角的提示通知显示。将使用弹窗中的「跳过已填写字段」设置。"
 },
 
 // ── Korean ──────────────────────────────────────────────────────────
@@ -548,7 +566,13 @@ guide_s4_h3: "헤더에서 설정 변경",
 guide_s4_p: "팝업 오른쪽 상단의 두 선택기로 언어와 테마를 전환할 수 있습니다.",
 guide_s4_d1: "<strong>언어</strong><br>11개 언어를 지원합니다. 처음 사용 시 브라우저 언어에서 자동 감지됩니다.",
 guide_s4_d2: "<strong>테마</strong><br>Light / Dark / Auto(OS 설정 연동) 중에서 선택할 수 있습니다.",
-guide_s4_mock: "헤더 오른쪽 상단의 선택기로 전환하세요"
+guide_s4_mock: "헤더 오른쪽 상단의 선택기로 전환하세요",
+guide_s5_title: "우클릭 메뉴에서 실행",
+guide_s5_h3: "페이지 우클릭으로 바로 실행",
+guide_s5_p: "팝업을 열지 않고도 페이지의 우클릭(컨텍스트) 메뉴에서 자동 입력과 복원을 실행할 수 있습니다.",
+guide_s5_d1: "<strong>프로필 선택하여 입력</strong><br>목록에서 프로필을 선택하면 해당 프로필로 AI 자동 입력을 실행합니다 (✓ 는 현재 활성 프로필).",
+guide_s5_d2: "<strong>복원</strong><br>폼 데이터를 저장한 페이지에서는 「복원」 메뉴가 표시되며, 항목을 클릭하면 원클릭으로 복원됩니다.",
+guide_s5_note: "진행 상황과 오류는 페이지 오른쪽 상단의 토스트 알림으로 표시됩니다. 팝업의 「입력된 필드 건너뛰기」 설정이 적용됩니다."
 },
 
 // ── Spanish ─────────────────────────────────────────────────────────
@@ -685,7 +709,13 @@ guide_s4_h3: "Cambia la configuración desde el encabezado",
 guide_s4_p: "Usa los dos selectores en la esquina superior derecha del popup para cambiar idioma y tema.",
 guide_s4_d1: "<strong>Idioma</strong><br>Compatible con 11 idiomas. Se detecta automáticamente del idioma del navegador en el primer uso.",
 guide_s4_d2: "<strong>Tema</strong><br>Elige entre Light / Dark / Auto (sigue la configuración del sistema).",
-guide_s4_mock: "Cambia usando los selectores en la esquina superior derecha"
+guide_s4_mock: "Cambia usando los selectores en la esquina superior derecha",
+guide_s5_title: "Ejecutar desde el menú contextual",
+guide_s5_h3: "Ejecuta al instante con clic derecho en la página",
+guide_s5_p: "Puedes autorrellenar y restaurar directamente desde el menú contextual (clic derecho) de la página, sin abrir el popup.",
+guide_s5_d1: "<strong>Rellenar con perfil</strong><br>Elige un perfil de la lista para ejecutar el autorrellenado con IA (✓ marca el perfil activo).",
+guide_s5_d2: "<strong>Restaurar</strong><br>En las páginas donde guardaste datos de formulario aparece el menú \"Restaurar\". Haz clic en una entrada para restaurarla al instante.",
+guide_s5_note: "El progreso y los errores se muestran como notificaciones en la esquina superior derecha de la página. Se aplica el ajuste \"Omitir campos ya rellenados\" del popup."
 },
 
 // ── French ───────────────────────────────────────────────────────────
@@ -822,7 +852,13 @@ guide_s4_h3: "Modifier les paramètres depuis l'en-tête",
 guide_s4_p: "Utilisez les deux sélecteurs en haut à droite du popup pour changer la langue et le thème.",
 guide_s4_d1: "<strong>Langue</strong><br>Prend en charge 11 langues. Détectée automatiquement depuis la langue du navigateur lors de la première utilisation.",
 guide_s4_d2: "<strong>Thème</strong><br>Choisissez parmi Light / Dark / Auto (suit les paramètres du système).",
-guide_s4_mock: "Changez à l'aide des sélecteurs en haut à droite de l'en-tête"
+guide_s4_mock: "Changez à l'aide des sélecteurs en haut à droite de l'en-tête",
+guide_s5_title: "Exécuter depuis le menu contextuel",
+guide_s5_h3: "Exécution instantanée par clic droit sur la page",
+guide_s5_p: "Vous pouvez remplir et restaurer directement depuis le menu contextuel (clic droit) de la page, sans ouvrir la fenêtre popup.",
+guide_s5_d1: "<strong>Remplir avec un profil</strong><br>Choisissez un profil dans la liste pour lancer le remplissage automatique par IA (✓ indique le profil actif).",
+guide_s5_d2: "<strong>Restaurer</strong><br>Sur les pages où vous avez enregistré des données de formulaire, un menu « Restaurer » apparaît. Cliquez sur une entrée pour la restaurer instantanément.",
+guide_s5_note: "La progression et les erreurs s'affichent sous forme de notifications en haut à droite de la page. Le réglage « Ignorer les champs déjà remplis » du popup est appliqué."
 },
 
 // ── German ───────────────────────────────────────────────────────────
@@ -959,7 +995,13 @@ guide_s4_h3: "Einstellungen über die Kopfzeile ändern",
 guide_s4_p: "Verwenden Sie die beiden Auswahlfelder oben rechts im Popup, um Sprache und Design zu wechseln.",
 guide_s4_d1: "<strong>Sprache</strong><br>Unterstützt 11 Sprachen. Wird beim ersten Gebrauch automatisch aus der Browsersprache erkannt.",
 guide_s4_d2: "<strong>Design</strong><br>Wählen Sie zwischen Light / Dark / Auto (folgt den Systemeinstellungen).",
-guide_s4_mock: "Wechseln Sie über die Auswahlfelder oben rechts in der Kopfzeile"
+guide_s4_mock: "Wechseln Sie über die Auswahlfelder oben rechts in der Kopfzeile",
+guide_s5_title: "Über das Rechtsklick-Menü ausführen",
+guide_s5_h3: "Direkt per Rechtsklick auf der Seite ausführen",
+guide_s5_p: "Autofill und Wiederherstellung lassen sich direkt über das Rechtsklick-Menü (Kontextmenü) der Seite ausführen — ohne das Popup zu öffnen.",
+guide_s5_d1: "<strong>Mit Profil ausfüllen</strong><br>Wählen Sie ein Profil aus der Liste, um damit das KI-Autofill auszuführen (✓ markiert das aktive Profil).",
+guide_s5_d2: "<strong>Wiederherstellen</strong><br>Auf Seiten mit gespeicherten Formulardaten erscheint das Menü „Wiederherstellen“. Ein Klick auf einen Eintrag stellt ihn sofort wieder her.",
+guide_s5_note: "Fortschritt und Fehler werden als Benachrichtigung oben rechts auf der Seite angezeigt. Die Popup-Einstellung „Bereits ausgefüllte Felder überspringen“ wird übernommen."
 },
 
 // ── Portuguese ───────────────────────────────────────────────────────
@@ -1096,7 +1138,13 @@ guide_s4_h3: "Altere as configurações pelo cabeçalho",
 guide_s4_p: "Use os dois seletores no canto superior direito do popup para alternar idioma e tema.",
 guide_s4_d1: "<strong>Idioma</strong><br>Suporta 11 idiomas. Detectado automaticamente do idioma do navegador no primeiro uso.",
 guide_s4_d2: "<strong>Tema</strong><br>Escolha entre Light / Dark / Auto (segue as configurações do sistema).",
-guide_s4_mock: "Alterne usando os seletores no canto superior direito do cabeçalho"
+guide_s4_mock: "Alterne usando os seletores no canto superior direito do cabeçalho",
+guide_s5_title: "Executar pelo menu de contexto",
+guide_s5_h3: "Execute na hora com o clique direito na página",
+guide_s5_p: "Você pode preencher e restaurar diretamente pelo menu de contexto (clique direito) da página, sem abrir o popup.",
+guide_s5_d1: "<strong>Preencher com perfil</strong><br>Escolha um perfil da lista para executar o preenchimento automático com IA (✓ indica o perfil ativo).",
+guide_s5_d2: "<strong>Restaurar</strong><br>Nas páginas onde você salvou dados de formulário, o menu \"Restaurar\" aparece. Clique em uma entrada para restaurá-la na hora.",
+guide_s5_note: "O progresso e os erros são exibidos como notificações no canto superior direito da página. A configuração \"Pular campos já preenchidos\" do popup é aplicada."
 },
 
 // ── Hindi ────────────────────────────────────────────────────────────
@@ -1233,7 +1281,13 @@ guide_s4_h3: "हेडर से सेटिंग बदलें",
 guide_s4_p: "भाषा और थीम बदलने के लिए पॉपअप के ऊपर दाईं ओर दो सेलेक्टर का उपयोग करें।",
 guide_s4_d1: "<strong>भाषा</strong><br>11 भाषाओं का समर्थन। पहले उपयोग पर ब्राउज़र भाषा से स्वचालित पहचान।",
 guide_s4_d2: "<strong>थीम</strong><br>Light / Dark / Auto (सिस्टम सेटिंग का अनुसरण) में से चुनें।",
-guide_s4_mock: "हेडर के ऊपर दाईं ओर सेलेक्टर से बदलें"
+guide_s4_mock: "हेडर के ऊपर दाईं ओर सेलेक्टर से बदलें",
+guide_s5_title: "राइट-क्लिक मेनू से चलाएँ",
+guide_s5_h3: "पेज पर राइट-क्लिक से तुरंत चलाएँ",
+guide_s5_p: "पॉपअप खोले बिना, पेज के राइट-क्लिक (कॉन्टेक्स्ट) मेनू से ऑटो-फिल और पुनर्स्थापना चला सकते हैं।",
+guide_s5_d1: "<strong>प्रोफ़ाइल चुनकर भरें</strong><br>सूची से प्रोफ़ाइल चुनें और उसी से AI ऑटो-फिल चलाएँ (✓ सक्रिय प्रोफ़ाइल दर्शाता है)।",
+guide_s5_d2: "<strong>पुनर्स्थापित करें</strong><br>जिन पेजों पर आपने फ़ॉर्म डेटा सहेजा है, वहाँ \"पुनर्स्थापित करें\" मेनू दिखता है। किसी प्रविष्टि पर क्लिक करते ही वह पुनर्स्थापित हो जाती है।",
+guide_s5_note: "प्रगति और त्रुटियाँ पेज के ऊपर-दाएँ टोस्ट सूचना के रूप में दिखती हैं। पॉपअप की \"पहले से भरे फ़ील्ड छोड़ें\" सेटिंग लागू होती है।"
 },
 
 // ── Indonesian ───────────────────────────────────────────────────────
@@ -1370,7 +1424,13 @@ guide_s4_h3: "Ubah pengaturan dari header",
 guide_s4_p: "Gunakan dua pemilih di sudut kanan atas popup untuk mengganti bahasa dan tema.",
 guide_s4_d1: "<strong>Bahasa</strong><br>Mendukung 11 bahasa. Terdeteksi otomatis dari bahasa browser saat pertama kali digunakan.",
 guide_s4_d2: "<strong>Tema</strong><br>Pilih dari Light / Dark / Auto (mengikuti pengaturan sistem).",
-guide_s4_mock: "Ganti menggunakan pemilih di kanan atas header"
+guide_s4_mock: "Ganti menggunakan pemilih di kanan atas header",
+guide_s5_title: "Jalankan dari Menu Klik Kanan",
+guide_s5_h3: "Jalankan langsung dari klik kanan di halaman",
+guide_s5_p: "Anda dapat mengisi otomatis dan memulihkan langsung dari menu klik kanan (konteks) halaman — tanpa membuka popup.",
+guide_s5_d1: "<strong>Isi dengan profil</strong><br>Pilih profil dari daftar untuk menjalankan isi otomatis AI dengan profil tersebut (✓ menandai profil aktif).",
+guide_s5_d2: "<strong>Pulihkan</strong><br>Di halaman tempat Anda menyimpan data formulir, menu \"Pulihkan\" akan muncul. Klik entri untuk memulihkannya seketika.",
+guide_s5_note: "Progres dan kesalahan ditampilkan sebagai notifikasi di kanan atas halaman. Pengaturan \"Lewati bidang yang sudah terisi\" dari popup akan diterapkan."
 },
 
 // ── Arabic ───────────────────────────────────────────────────────────
@@ -1507,7 +1567,13 @@ guide_s4_h3: "تغيير الإعدادات من الرأس",
 guide_s4_p: "استخدم المحددين في الزاوية العلوية اليمنى من النافذة المنبثقة لتبديل اللغة والسمة.",
 guide_s4_d1: "<strong>اللغة</strong><br>يدعم 11 لغة. يتم الكشف تلقائيًا من لغة المتصفح عند الاستخدام الأول.",
 guide_s4_d2: "<strong>السمة</strong><br>اختر من Light / Dark / Auto (يتبع إعدادات النظام).",
-guide_s4_mock: "قم بالتبديل باستخدام المحددات في أعلى يمين الرأس"
+guide_s4_mock: "قم بالتبديل باستخدام المحددات في أعلى يمين الرأس",
+guide_s5_title: "التشغيل من قائمة النقر الأيمن",
+guide_s5_h3: "تشغيل فوري من قائمة النقر الأيمن على الصفحة",
+guide_s5_p: "يمكنك الملء التلقائي والاستعادة مباشرة من قائمة النقر الأيمن (قائمة السياق) للصفحة — دون فتح النافذة المنبثقة.",
+guide_s5_d1: "<strong>الملء باستخدام ملف تعريف</strong><br>اختر ملف تعريف من القائمة لتشغيل الملء التلقائي بالذكاء الاصطناعي به (✓ تشير إلى الملف النشط).",
+guide_s5_d2: "<strong>استعادة</strong><br>في الصفحات التي حفظت فيها بيانات النموذج، تظهر قائمة \"استعادة\". انقر على أي إدخال لاستعادته فورًا.",
+guide_s5_note: "يظهر التقدم والأخطاء كإشعارات أعلى يمين الصفحة. يُطبَّق إعداد \"تخطي الحقول المعبأة مسبقًا\" من النافذة المنبثقة."
 }
 
 }; // end LP_MESSAGES
@@ -1560,6 +1626,18 @@ function applyLPTranslations(locale) {
   if (vf && vid) {
     var src = "https://www.youtube.com/embed/" + vid;
     if (vf.getAttribute("src") !== src) vf.setAttribute("src", src);
+  }
+
+  // swap the guide demo video (usage guide page) to the matching language
+  var gv = document.getElementById("guide-demo-video");
+  if (gv) {
+    var gsrc = "guide-demo-" + locale + ".webm";
+    if (gv.getAttribute("src") !== gsrc) {
+      gv.muted = true;
+      gv.setAttribute("src", gsrc);
+      gv.load();
+      if (gv.play) gv.play().catch(function () {});
+    }
   }
 }
 

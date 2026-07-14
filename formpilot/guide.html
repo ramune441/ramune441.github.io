@@ -144,6 +144,13 @@
       position: absolute; z-index: 2; box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
     .mockup-wrap { position: relative; }
+    /* Annotation badges are anchored INSIDE the element they point at,
+       so they stay aligned at any zoom level or viewport width. */
+    .anno-host { position: relative; }
+    .anno-host > .anno { top: 50%; transform: translateY(-50%); }
+    .anno-host.anno-r > .anno { right: -9px; }
+    .anno-host.anno-l > .anno { left: -9px; }
+    .anno-host.anno-t > .anno { top: -9px; left: 50%; transform: translate(-50%, 0); }
 
     /* DESCRIPTION SIDE */
     .guide-desc { flex: 1; min-width: 0; }
@@ -159,6 +166,28 @@
     .desc-text { font-size: 14px; color: var(--text-sub); line-height: 1.6; }
     .desc-text strong { color: var(--text); }
     .note { font-size: 13px; color: var(--text-light); margin-top: 12px; padding-left: 14px; border-left: 3px solid var(--green-200); }
+
+    /* GUIDE DEMO VIDEO */
+    .guide-video {
+      display: block; width: 100%; aspect-ratio: 16 / 9; margin-bottom: 36px;
+      border-radius: 14px; background: #eef2f7;
+      box-shadow: 0 12px 40px rgba(6,78,59,0.14), 0 3px 10px rgba(0,0,0,0.08);
+    }
+
+    /* CONTEXT MENU MOCK */
+    .ctx-stage { position: relative; height: 300px; background: #eef2f7; }
+    .ctx-menu {
+      position: absolute; background: #fff; border: 1px solid #d1d5db; border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18); padding: 5px 0;
+      font-size: 12px; color: #374151;
+    }
+    .ctx-item { padding: 7px 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; white-space: nowrap; }
+    .ctx-item.dim { color: #9ca3af; }
+    .ctx-item.hl { background: var(--green-50); color: var(--green-800); font-weight: 600; }
+    .ctx-sep { height: 1px; background: #e5e7eb; margin: 5px 0; }
+    .ctx-arrow { color: #9ca3af; font-size: 9px; }
+    .ctx-brand { display: flex; align-items: center; gap: 7px; }
+    .ctx-brand img { width: 14px; height: 14px; border-radius: 3px; }
 
     /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 24px 20px; text-align: center; font-size: 13px; color: var(--text-light); }
@@ -193,10 +222,6 @@
       <h2 class="section-title" data-i18n="guide_s1_title">プロフィールを登録する</h2>
       <div class="guide-row">
         <div class="mockup-wrap">
-          <span class="anno" style="top:136px; right:-10px;">1</span>
-          <span class="anno" style="top:316px; left:-10px;">2</span>
-          <span class="anno" style="top:807px; right:-10px;">3</span>
-          <span class="anno" style="top:949px; left:50%; transform:translateX(-50%);">4</span>
           <div class="mockup">
             <div class="mock-header">
               <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
@@ -210,7 +235,8 @@
               <div class="mock-tab active">&#9823; Profile</div>
             </div>
             <div class="mock-body">
-              <div class="mock-preset-bar">
+              <div class="mock-preset-bar anno-host anno-r">
+                <span class="anno">1</span>
                 <span class="mock-edit-label">&#9998; Editing</span>
                 <select class="mock-preset-select"><option>Alex Johnson (Personal)</option></select>
                 <span class="mock-preset-count">1/10</span>
@@ -218,7 +244,8 @@
               </div>
               <div class="mock-field"><div class="mock-label">Profile Name</div><input class="mock-input" value="Alex Johnson (Personal)" readonly></div>
               <div class="mock-section-label">Name</div>
-              <div class="mock-input-row">
+              <div class="mock-input-row anno-host anno-l">
+                <span class="anno">2</span>
                 <div class="mock-field"><div class="mock-label">First Name</div><input class="mock-input" value="Alex" readonly></div>
                 <div class="mock-field"><div class="mock-label">Last Name</div><input class="mock-input" value="Johnson" readonly></div>
               </div>
@@ -236,7 +263,8 @@
                 <div class="mock-field"><div class="mock-label">Company</div><input class="mock-input" value="Acme Corp" readonly></div>
                 <div class="mock-field"><div class="mock-label">Gender</div><select class="mock-input"><option>Male</option></select></div>
               </div>
-              <div class="mock-section-label" style="margin-top:14px;">
+              <div class="mock-section-label anno-host anno-r" style="margin-top:14px;">
+                <span class="anno">3</span>
                 <div class="mock-custom-header">
                   <span>Extra Fields</span>
                   <span style="display:flex;gap:6px;align-items:center;"><span class="mock-custom-count">2/20</span><span class="mock-add-btn">+ Add</span></span>
@@ -252,7 +280,7 @@
                 <input class="mock-input" value="Professional" readonly style="flex:1">
                 <div class="mock-custom-del">&times;</div>
               </div>
-              <div style="margin-top: 14px;"><div class="mock-btn mock-btn-save">&#128190; Save</div></div>
+              <div class="anno-host anno-r" style="margin-top: 14px;"><span class="anno">4</span><div class="mock-btn mock-btn-save">&#128190; Save</div></div>
             </div>
           </div>
         </div>
@@ -274,10 +302,6 @@
       <h2 class="section-title" data-i18n="guide_s2_title">AI自動入力を実行する</h2>
       <div class="guide-row reverse">
         <div class="mockup-wrap">
-          <span class="anno" style="top:153px; right:-10px;">1</span>
-          <span class="anno" style="top:256px; left:-10px;">2</span>
-          <span class="anno" style="top:361px; right:-10px;">3</span>
-          <span class="anno" style="top:488px; left:-10px;">4</span>
           <div class="mockup">
             <div class="mock-header">
               <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
@@ -291,10 +315,10 @@
               <div class="mock-tab">&#9823; Profile</div>
             </div>
             <div class="mock-body">
-              <div class="mock-field"><div class="mock-label">Active Profile</div><select class="mock-input"><option>Alex Johnson (Personal)</option></select></div>
-              <div class="mock-btn mock-btn-green">&#128269; AI Auto-Fill</div>
-              <div class="mock-check"><div class="mock-check-box">&#10003;</div>Skip already filled fields</div>
-              <div class="mock-status">&#10003; Filled 9 of 9 fields (2.3s)</div>
+              <div class="mock-field anno-host anno-r"><span class="anno">1</span><div class="mock-label">Active Profile</div><select class="mock-input"><option>Alex Johnson (Personal)</option></select></div>
+              <div class="mock-btn mock-btn-green anno-host anno-l"><span class="anno">2</span>&#128269; AI Auto-Fill</div>
+              <div class="mock-check anno-host anno-r"><span class="anno">3</span><div class="mock-check-box">&#10003;</div>Skip already filled fields</div>
+              <div class="mock-status anno-host anno-l"><span class="anno">4</span>&#10003; Filled 9 of 9 fields (2.3s)</div>
             </div>
           </div>
         </div>
@@ -317,8 +341,6 @@
       <h2 class="section-title" data-i18n="guide_s3_title">フォームデータの保存・復元</h2>
       <div class="guide-row">
         <div class="mockup-wrap">
-          <span class="anno" style="top:512px; left:-10px;">1</span>
-          <span class="anno" style="top:631px; right:-10px;">2</span>
           <div class="mockup">
             <div class="mock-header">
               <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
@@ -337,8 +359,9 @@
               <div class="mock-check"><div class="mock-check-box">&#10003;</div>Skip already filled fields</div>
               <div class="mock-saved-section">
                 <div class="mock-saved-header">Saved Inputs</div>
-                <div class="mock-btn mock-btn-outline" style="margin-bottom:10px;">&#128190; Save Current Form</div>
-                <div class="mock-saved-item">
+                <div class="mock-btn mock-btn-outline anno-host anno-l" style="margin-bottom:10px;"><span class="anno">1</span>&#128190; Save Current Form</div>
+                <div class="mock-saved-item anno-host anno-r">
+                  <span class="anno">2</span>
                   <div><div class="mock-saved-name">Checkout - Mar 1</div><div class="mock-saved-meta">8 fields saved</div></div>
                   <button class="mock-saved-restore">Restore</button>
                 </div>
@@ -367,14 +390,12 @@
       <h2 class="section-title" data-i18n="guide_s4_title">テーマ・言語の変更</h2>
       <div class="guide-row reverse">
         <div class="mockup-wrap">
-          <span class="anno" style="top:14px; right:68px;">1</span>
-          <span class="anno" style="top:14px; right:16px;">2</span>
           <div class="mockup">
             <div class="mock-header">
               <div class="mock-header-left"><img src="icons/icon48.png" alt=""><span>FormPilot</span></div>
               <div class="mock-header-right">
-                <select class="mock-select-sm" style="border:2px solid #fbbf24;"><option>JA</option></select>
-                <select class="mock-select-sm" style="border:2px solid #fbbf24;"><option>Dark</option></select>
+                <span class="anno-host anno-t" style="display:inline-block;"><span class="anno">1</span><select class="mock-select-sm" style="border:2px solid #fbbf24;"><option>JA</option></select></span>
+                <span class="anno-host anno-t" style="display:inline-block;"><span class="anno">2</span><select class="mock-select-sm" style="border:2px solid #fbbf24;"><option>Dark</option></select></span>
               </div>
             </div>
             <div class="mock-tabs">
@@ -393,6 +414,46 @@
             <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s4_d1"><strong>言語</strong><br>11言語に対応。初回はブラウザの言語から自動検出されます。</div></li>
             <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s4_d2"><strong>テーマ</strong><br>Light / Dark / Auto（OS設定に連動）の3つから選択できます。</div></li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. CONTEXT MENU -->
+    <div class="section">
+      <h2 class="section-title" data-i18n="guide_s5_title">右クリックメニューから実行</h2>
+      <video class="guide-video" id="guide-demo-video" src="guide-demo-en.webm" autoplay muted loop playsinline controls></video>
+      <div class="guide-row">
+        <div class="mockup-wrap">
+          <div class="mockup">
+            <div class="ctx-stage">
+              <div class="ctx-menu" style="top:20px; left:14px; width:132px;">
+                <div class="ctx-item dim">Back</div>
+                <div class="ctx-item dim">Reload</div>
+                <div class="ctx-item dim">Save as...</div>
+                <div class="ctx-sep"></div>
+                <div class="ctx-item hl"><span class="ctx-brand"><img src="icons/icon48.png" alt="">FormPilot</span><span class="ctx-arrow">&#9654;</span></div>
+                <div class="ctx-sep"></div>
+                <div class="ctx-item dim">Inspect</div>
+              </div>
+              <div class="ctx-menu" style="top:98px; left:138px; width:160px;">
+                <div class="ctx-item hl anno-host anno-r"><span class="anno">1</span>Fill with profile <span class="ctx-arrow">&#9654;</span></div>
+                <div class="ctx-item anno-host anno-r"><span class="anno">2</span>Restore <span class="ctx-arrow">&#9654;</span></div>
+              </div>
+              <div class="ctx-menu" style="top:190px; left:112px; width:186px;">
+                <div class="ctx-item hl">&#10003; Alex Johnson (Personal)</div>
+                <div class="ctx-item">Alex Johnson (Work)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="guide-desc">
+          <h3 data-i18n="guide_s5_h3">ページ上の右クリックで即実行</h3>
+          <p data-i18n="guide_s5_p">ポップアップを開かなくても、ページ上の右クリック（コンテキスト）メニューから自動入力と復元を実行できます。</p>
+          <ul class="desc-list">
+            <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s5_d1"><strong>プロフィールを選んで入力</strong><br>一覧からプロフィールを選ぶと、そのプロフィールでAI自動入力を実行します（✓ が現在のアクティブプロフィール）。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s5_d2"><strong>復元</strong><br>フォームデータを保存したページでは「復元」メニューが表示され、エントリーをクリックするとワンクリックで復元できます。</div></li>
+          </ul>
+          <p class="note" data-i18n="guide_s5_note">実行状況やエラーはページ右上のトースト通知で表示されます。「入力済みスキップ」はポップアップでの設定が使われます。</p>
         </div>
       </div>
     </div>

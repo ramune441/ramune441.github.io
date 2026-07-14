@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=1920">
+<title>FormPilot Context Menu Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f0fdf4; }
+  body { font-family: 'Noto Sans JP', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+  html[data-lang="zh"] body { font-family: 'Noto Sans SC', 'Inter', sans-serif; }
+  html[data-lang="ko"] body { font-family: 'Noto Sans KR', 'Inter', sans-serif; }
+  html[data-lang="hi"] body { font-family: 'Noto Sans Devanagari', 'Inter', sans-serif; }
+  html[data-lang="ar"] body { font-family: 'Noto Sans Arabic', 'Inter', sans-serif; }
+  html[data-lang="es"] body, html[data-lang="fr"] body, html[data-lang="de"] body, html[data-lang="pt"] body, html[data-lang="id"] body { font-family: 'Inter', 'Noto Sans JP', sans-serif; }
+
+  .stage {
+    position: relative; width: 1920px; height: 1080px;
+    background: radial-gradient(1200px 800px at 30% 20%, #ecfdf5 0%, #f0fdf4 45%, #e6f7ee 100%);
+  }
+
+  /* CAPTION */
+  .caption {
+    position: absolute; top: 56px; left: 0; right: 0; text-align: center;
+    font-size: 52px; font-weight: 800; color: #064e3b; opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease; transform: translateY(-14px);
+  }
+  .caption .green { color: #059669; }
+
+  /* BROWSER WINDOW */
+  .browser {
+    position: absolute; left: 50%; top: 190px; transform: translateX(-50%);
+    width: 1240px; height: 800px; background: #fff; border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(6,78,59,0.18), 0 6px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .chrome-bar { height: 64px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; }
+  .url { flex: 1; margin-left: 12px; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; height: 38px; display: flex; align-items: center; padding: 0 20px; font-size: 17px; color: #64748b; }
+
+  /* FORM */
+  .page { padding: 44px 90px; }
+  .form-title { font-size: 34px; font-weight: 800; color: #0f172a; margin-bottom: 30px; }
+  .field { margin-bottom: 24px; }
+  .field label { display: block; font-size: 17px; font-weight: 600; color: #475569; margin-bottom: 8px; }
+  .finput {
+    width: 100%; height: 56px; border: 2px solid #e2e8f0; border-radius: 10px;
+    display: flex; align-items: center; padding: 0 18px; font-size: 20px; color: #0f172a;
+    background: #fff; transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  }
+  .finput.filled { border-color: #10b981; background: #f0fdf4; box-shadow: 0 0 0 4px rgba(16,185,129,0.15); }
+  .finput .ph { color: #cbd5e1; }
+  .frow { display: flex; gap: 24px; }
+  .frow .field { flex: 1; }
+  .sel-caret { margin-left: auto; color: #94a3b8; font-size: 14px; }
+
+  /* CONTEXT MENUS */
+  .ctx {
+    position: absolute; background: #fff; border: 1px solid #d1d5db; border-radius: 10px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.22); padding: 8px 0; width: 300px;
+    font-size: 20px; color: #374151; opacity: 0; transform: scale(0.96);
+    transform-origin: top left; transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 40;
+  }
+  .ctx.show { opacity: 1; transform: scale(1); }
+  .ci { padding: 12px 22px; display: flex; justify-content: space-between; align-items: center; gap: 14px; white-space: nowrap; transition: background 0.15s; }
+  .ci.dim { color: #9ca3af; }
+  .ci.hover { background: #ecfdf5; color: #065f46; font-weight: 700; }
+  .csep { height: 1px; background: #e5e7eb; margin: 7px 0; }
+  .carrow { color: #9ca3af; font-size: 15px; }
+  #m3 .ci, #m4 .ci { justify-content: flex-start; }
+  .cbrand { display: flex; align-items: center; gap: 12px; }
+  .cbrand img { width: 24px; height: 24px; border-radius: 5px; }
+
+  /* CURSOR */
+  #cursor {
+    position: absolute; width: 34px; height: 34px; z-index: 90;
+    left: 1560px; top: 950px; transition: left 0.6s cubic-bezier(.4,.1,.2,1), top 0.6s cubic-bezier(.4,.1,.2,1);
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.35));
+  }
+  #click-ring {
+    position: absolute; width: 60px; height: 60px; border: 4px solid #059669; border-radius: 50%;
+    z-index: 85; opacity: 0; transform: scale(0.3); pointer-events: none;
+  }
+  #click-ring.pop { transition: opacity 0.45s ease, transform 0.45s ease; opacity: 0; transform: scale(1.5); }
+  #click-ring.pre { transition: none; opacity: 0.9; transform: scale(0.3); }
+
+  /* TOAST */
+  .toast {
+    position: absolute; top: 84px; right: 26px; z-index: 60;
+    padding: 16px 26px; border-radius: 12px; color: #fff; font-size: 21px; font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25); opacity: 0; transform: translateY(-14px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  .toast.info { background: #1565c0; }
+  .toast.success { background: #2e7d32; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  /* END CARD */
+  #endcard {
+    position: absolute; inset: 0; background: linear-gradient(135deg, #064e3b 0%, #059669 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
+    opacity: 0; transition: opacity 0.7s ease; z-index: 100;
+  }
+  #endcard img { width: 140px; height: 140px; border-radius: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+  #endcard .brand { font-size: 84px; font-weight: 900; color: #fff; letter-spacing: -1px; }
+  #endcard .tag { font-size: 40px; font-weight: 600; color: #a7f3d0; }
+</style>
+</head>
+<body>
+<div class="stage">
+
+  <div class="caption" id="cap"></div>
+
+  <div class="browser" id="browser">
+    <div class="chrome-bar">
+      <div class="dot" style="background:#f87171"></div>
+      <div class="dot" style="background:#fbbf24"></div>
+      <div class="dot" style="background:#34d399"></div>
+      <div class="url">https://example.com/signup</div>
+    </div>
+    <div class="page">
+      <div class="form-title" data-i18n="form_title">Sign Up</div>
+      <div class="frow">
+        <div class="field"><label data-i18n="lbl_name">Full Name</label><div class="finput" id="f1"><span class="ph"></span></div></div>
+        <div class="field"><label data-i18n="lbl_email">Email</label><div class="finput" id="f2"><span class="ph"></span></div></div>
+      </div>
+      <div class="frow">
+        <div class="field"><label data-i18n="lbl_phone">Phone</label><div class="finput" id="f3"><span class="ph"></span></div></div>
+        <div class="field"><label data-i18n="lbl_country">Country</label><div class="finput" id="f5"><span class="val" data-i18n="v_select">Select...</span><span class="sel-caret">&#9660;</span></div></div>
+      </div>
+      <div class="field"><label data-i18n="lbl_addr">Address</label><div class="finput" id="f4"><span class="ph"></span></div></div>
+    </div>
+
+    <!-- toast lives inside the browser window -->
+    <div class="toast" id="toast"></div>
+
+    <!-- cascading context menus (positions relative to browser) -->
+    <div class="ctx" id="m1" style="left:240px; top:300px;">
+      <div class="ci dim" data-i18n="ctx_back">Back</div>
+      <div class="ci dim" data-i18n="ctx_reload">Reload</div>
+      <div class="ci dim" data-i18n="ctx_save">Save as...</div>
+      <div class="csep"></div>
+      <div class="ci" id="m1-fp"><span class="cbrand"><img src="icons/icon48.png" alt="">FormPilot</span><span class="carrow">&#9654;</span></div>
+      <div class="csep"></div>
+      <div class="ci dim" data-i18n="ctx_inspect">Inspect</div>
+    </div>
+    <div class="ctx" id="m2" style="left:528px; top:414px; width:360px;">
+      <div class="ci" id="m2-fill"><span data-i18n="menu_fill_with">Fill with profile</span><span class="carrow">&#9654;</span></div>
+      <div class="ci" id="m2-restore"><span data-i18n="menu_restore">Restore</span><span class="carrow">&#9654;</span></div>
+    </div>
+    <div class="ctx" id="m3" style="left:876px; top:428px; width:340px;">
+      <div class="ci" id="m3-p1">&#10003; <span data-i18n="prof1">Alex Johnson</span></div>
+      <div class="ci" id="m3-p2"><span data-i18n="prof2">Work</span></div>
+    </div>
+    <div class="ctx" id="m4" style="left:876px; top:482px; width:340px;">
+      <div class="ci" id="m4-e1"><span data-i18n="entry1">Checkout — Mar 1</span></div>
+      <div class="ci" id="m4-e2"><span data-i18n="entry2">Draft</span></div>
+    </div>
+  </div>
+
+  <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2 L4 20 L9 15.5 L12.5 22 L15.5 20.5 L12 14 L19 13.5 Z" fill="#111" stroke="#fff" stroke-width="1.4"/></svg>
+  <div id="click-ring"></div>
+
+  <div id="endcard">
+    <img src="icons/icon128.png" alt="">
+    <div class="brand">FormPilot</div>
+    <div class="tag" data-i18n="end_tag">Always one right-click away.</div>
+  </div>
+</div>
+
+<script>
+// ── i18n ─────────────────────────────────────────────────────────────
+// English is the DOM default. Open guide-demo.html?lang=ja etc. to record
+// a localized video. Menu/toast wording mirrors the extension's i18n.js.
+const I18N = {
+
+ja: {
+form_title:"会員登録",
+lbl_name:"氏名", lbl_email:"メールアドレス", lbl_phone:"電話番号", lbl_addr:"住所", lbl_country:"国",
+v_name:"山田 太郎", v_email:"taro@example.com", v_phone:"090-1234-5678", v_addr:"東京都新宿区西新宿1-2-3", v_country:"日本", v_select:"選択してください",
+ctx_back:"戻る", ctx_reload:"再読み込み", ctx_save:"名前を付けて保存...", ctx_inspect:"検証",
+menu_fill_with:"プロフィールを選んで入力", menu_restore:"復元",
+prof1:"山田 太郎", prof2:"仕事用",
+entry1:"注文フォーム — 3/1", entry2:"下書き",
+toast_analyzing:"FormPilot: AIでフォームを解析中...",
+toast_filled:"FormPilot: 5件のフィールドを入力しました",
+toast_restored:"FormPilot: 「注文フォーム — 3/1」を復元しました（5件）",
+cap1:"フォームのあるページで<span class=\"green\">右クリック</span>",
+cap2:"<span class=\"green\">プロフィールを選ぶ</span>だけ",
+cap3:"AIが<span class=\"green\">全項目に自動入力</span>",
+cap4:"保存した入力も<span class=\"green\">右クリックで復元</span>",
+end_tag:"右クリックから、いつでも。"
+},
+
+zh: {
+form_title:"注册",
+lbl_name:"姓名", lbl_email:"邮箱", lbl_phone:"电话", lbl_addr:"地址", lbl_country:"国家",
+v_name:"李伟", v_email:"liwei@example.com", v_phone:"138-0013-8000", v_addr:"北京市朝阳区建国路88号", v_country:"中国", v_select:"请选择",
+ctx_back:"返回", ctx_reload:"重新加载", ctx_save:"另存为...", ctx_inspect:"检查",
+menu_fill_with:"选择资料填充", menu_restore:"恢复",
+prof1:"李伟", prof2:"工作",
+entry1:"结账表单 — 3/1", entry2:"草稿",
+toast_analyzing:"FormPilot: AI正在分析表单...",
+toast_filled:"FormPilot: 已填充5个字段",
+toast_restored:"FormPilot: 已恢复\"结账表单 — 3/1\"（5个字段）",
+cap1:"在有表单的页面上<span class=\"green\">点击右键</span>",
+cap2:"只需<span class=\"green\">选择一个资料</span>",
+cap3:"AI<span class=\"green\">自动填充所有字段</span>",
+cap4:"保存的输入也可<span class=\"green\">右键恢复</span>",
+end_tag:"右键即达，随时可用。"
+},
+
+ko: {
+form_title:"회원가입",
+lbl_name:"이름", lbl_email:"이메일", lbl_phone:"전화번호", lbl_addr:"주소", lbl_country:"국가",
+v_name:"김민준", v_email:"minjun@example.com", v_phone:"010-1234-5678", v_addr:"서울특별시 강남구 테헤란로 123", v_country:"대한민국", v_select:"선택하세요",
+ctx_back:"뒤로", ctx_reload:"새로고침", ctx_save:"다른 이름으로 저장...", ctx_inspect:"검사",
+menu_fill_with:"프로필 선택하여 입력", menu_restore:"복원",
+prof1:"김민준", prof2:"업무용",
+entry1:"주문 양식 — 3/1", entry2:"임시저장",
+toast_analyzing:"FormPilot: AI로 폼을 분석 중...",
+toast_filled:"FormPilot: 5개 필드를 입력했습니다",
+toast_restored:"FormPilot: \"주문 양식 — 3/1\" 복원 완료 (5개 필드)",
+cap1:"폼이 있는 페이지에서 <span class=\"green\">우클릭</span>",
+cap2:"<span class=\"green\">프로필만 선택</span>하면 끝",
+cap3:"AI가 <span class=\"green\">모든 필드를 자동 입력</span>",
+cap4:"저장한 입력도 <span class=\"green\">우클릭으로 복원</span>",
+end_tag:"언제나 우클릭 한 번으로."
+},
+
+es: {
+form_title:"Registro",
+lbl_name:"Nombre completo", lbl_email:"Email", lbl_phone:"Teléfono", lbl_addr:"Dirección", lbl_country:"País",
+v_name:"Javier Morales", v_email:"javier@example.com", v_phone:"+34 612 345 678", v_addr:"Calle Mayor 12, Madrid", v_country:"España", v_select:"Seleccionar...",
+ctx_back:"Atrás", ctx_reload:"Recargar", ctx_save:"Guardar como...", ctx_inspect:"Inspeccionar",
+menu_fill_with:"Rellenar con perfil", menu_restore:"Restaurar",
+prof1:"Javier Morales", prof2:"Trabajo",
+entry1:"Pedido — 1 mar", entry2:"Borrador",
+toast_analyzing:"FormPilot: Analizando formulario con IA...",
+toast_filled:"FormPilot: 5 campo(s) rellenado(s)",
+toast_restored:"FormPilot: \"Pedido — 1 mar\" restaurado (5 campos)",
+cap1:"<span class=\"green\">Clic derecho</span> en cualquier página con formulario",
+cap2:"Solo <span class=\"green\">elige un perfil</span>",
+cap3:"La IA <span class=\"green\">rellena todos los campos</span>",
+cap4:"Restaura entradas guardadas con <span class=\"green\">clic derecho</span>",
+end_tag:"Siempre a un clic derecho."
+},
+
+fr: {
+form_title:"Inscription",
+lbl_name:"Nom complet", lbl_email:"E-mail", lbl_phone:"Téléphone", lbl_addr:"Adresse", lbl_country:"Pays",
+v_name:"Lucas Martin", v_email:"lucas@example.com", v_phone:"06 12 34 56 78", v_addr:"12 rue de la Paix, Paris", v_country:"France", v_select:"Sélectionner...",
+ctx_back:"Retour", ctx_reload:"Actualiser", ctx_save:"Enregistrer sous...", ctx_inspect:"Inspecter",
+menu_fill_with:"Remplir avec un profil", menu_restore:"Restaurer",
+prof1:"Lucas Martin", prof2:"Travail",
+entry1:"Commande — 1 mars", entry2:"Brouillon",
+toast_analyzing:"FormPilot : Analyse du formulaire par IA...",
+toast_filled:"FormPilot : 5 champ(s) rempli(s)",
+toast_restored:"FormPilot : « Commande — 1 mars » restauré (5 champs)",
+cap1:"<span class=\"green\">Clic droit</span> sur une page avec formulaire",
+cap2:"<span class=\"green\">Choisissez un profil</span>, c'est tout",
+cap3:"L'IA <span class=\"green\">remplit tous les champs</span>",
+cap4:"Restaurez vos saisies d'un <span class=\"green\">clic droit</span>",
+end_tag:"Toujours à un clic droit."
+},
+
+de: {
+form_title:"Registrierung",
+lbl_name:"Name", lbl_email:"E-Mail", lbl_phone:"Telefon", lbl_addr:"Adresse", lbl_country:"Land",
+v_name:"Lukas Becker", v_email:"lukas@example.com", v_phone:"0151 2345678", v_addr:"Hauptstraße 12, 10115 Berlin", v_country:"Deutschland", v_select:"Auswählen...",
+ctx_back:"Zurück", ctx_reload:"Neu laden", ctx_save:"Speichern unter...", ctx_inspect:"Untersuchen",
+menu_fill_with:"Mit Profil ausfüllen", menu_restore:"Wiederherstellen",
+prof1:"Lukas Becker", prof2:"Arbeit",
+entry1:"Bestellung — 1. März", entry2:"Entwurf",
+toast_analyzing:"FormPilot: Formular wird mit KI analysiert...",
+toast_filled:"FormPilot: 5 Feld(er) ausgefüllt",
+toast_restored:"FormPilot: „Bestellung — 1. März“ wiederhergestellt (5 Felder)",
+cap1:"<span class=\"green\">Rechtsklick</span> auf jeder Seite mit Formular",
+cap2:"Einfach <span class=\"green\">Profil auswählen</span>",
+cap3:"KI <span class=\"green\">füllt alle Felder aus</span>",
+cap4:"Gespeicherte Eingaben per <span class=\"green\">Rechtsklick wiederherstellen</span>",
+end_tag:"Immer nur einen Rechtsklick entfernt."
+},
+
+pt: {
+form_title:"Cadastro",
+lbl_name:"Nome completo", lbl_email:"E-mail", lbl_phone:"Telefone", lbl_addr:"Endereço", lbl_country:"País",
+v_name:"Lucas Oliveira", v_email:"lucas@example.com", v_phone:"(11) 91234-5678", v_addr:"Av. Paulista 1000, São Paulo", v_country:"Brasil", v_select:"Selecionar...",
+ctx_back:"Voltar", ctx_reload:"Recarregar", ctx_save:"Salvar como...", ctx_inspect:"Inspecionar",
+menu_fill_with:"Preencher com perfil", menu_restore:"Restaurar",
+prof1:"Lucas Oliveira", prof2:"Trabalho",
+entry1:"Pedido — 1 mar", entry2:"Rascunho",
+toast_analyzing:"FormPilot: Analisando formulário com IA...",
+toast_filled:"FormPilot: 5 campo(s) preenchido(s)",
+toast_restored:"FormPilot: \"Pedido — 1 mar\" restaurado (5 campos)",
+cap1:"<span class=\"green\">Clique direito</span> em qualquer página com formulário",
+cap2:"Basta <span class=\"green\">escolher um perfil</span>",
+cap3:"A IA <span class=\"green\">preenche todos os campos</span>",
+cap4:"Restaure entradas salvas com o <span class=\"green\">clique direito</span>",
+end_tag:"Sempre a um clique direito."
+},
+
+hi: {
+form_title:"पंजीकरण",
+lbl_name:"पूरा नाम", lbl_email:"ईमेल", lbl_phone:"फ़ोन", lbl_addr:"पता", lbl_country:"देश",
+v_name:"अर्जुन शर्मा", v_email:"arjun@example.com", v_phone:"+91 98765 43210", v_addr:"123 एमजी रोड, नई दिल्ली", v_country:"भारत", v_select:"चुनें...",
+ctx_back:"वापस", ctx_reload:"रीलोड करें", ctx_save:"इस रूप में सहेजें...", ctx_inspect:"निरीक्षण",
+menu_fill_with:"प्रोफ़ाइल चुनकर भरें", menu_restore:"पुनर्स्थापित करें",
+prof1:"अर्जुन शर्मा", prof2:"कार्य",
+entry1:"ऑर्डर फ़ॉर्म — 1 मार्च", entry2:"ड्राफ़्ट",
+toast_analyzing:"FormPilot: AI से फ़ॉर्म का विश्लेषण हो रहा है...",
+toast_filled:"FormPilot: 5 फ़ील्ड भरे गए",
+toast_restored:"FormPilot: \"ऑर्डर फ़ॉर्म — 1 मार्च\" पुनर्स्थापित (5 फ़ील्ड)",
+cap1:"फ़ॉर्म वाले पेज पर <span class=\"green\">राइट-क्लिक करें</span>",
+cap2:"बस <span class=\"green\">प्रोफ़ाइल चुनें</span>",
+cap3:"AI <span class=\"green\">हर फ़ील्ड भर देता है</span>",
+cap4:"सहेजे गए इनपुट भी <span class=\"green\">राइट-क्लिक से पुनर्स्थापित</span>",
+end_tag:"हमेशा एक राइट-क्लिक दूर।"
+},
+
+id: {
+form_title:"Pendaftaran",
+lbl_name:"Nama Lengkap", lbl_email:"Email", lbl_phone:"Telepon", lbl_addr:"Alamat", lbl_country:"Negara",
+v_name:"Budi Santoso", v_email:"budi@example.com", v_phone:"0812-3456-7890", v_addr:"Jl. Sudirman No. 25, Jakarta", v_country:"Indonesia", v_select:"Pilih...",
+ctx_back:"Kembali", ctx_reload:"Muat ulang", ctx_save:"Simpan sebagai...", ctx_inspect:"Inspeksi",
+menu_fill_with:"Isi dengan profil", menu_restore:"Pulihkan",
+prof1:"Budi Santoso", prof2:"Kerja",
+entry1:"Formulir pesanan — 1 Mar", entry2:"Draf",
+toast_analyzing:"FormPilot: Menganalisis formulir dengan AI...",
+toast_filled:"FormPilot: 5 bidang terisi",
+toast_restored:"FormPilot: \"Formulir pesanan — 1 Mar\" dipulihkan (5 bidang)",
+cap1:"<span class=\"green\">Klik kanan</span> di halaman mana pun yang berisi formulir",
+cap2:"Cukup <span class=\"green\">pilih profil</span>",
+cap3:"AI <span class=\"green\">mengisi semua bidang</span>",
+cap4:"Pulihkan input tersimpan lewat <span class=\"green\">klik kanan</span>",
+end_tag:"Selalu hanya satu klik kanan."
+},
+
+ar: {
+form_title:"التسجيل",
+lbl_name:"الاسم الكامل", lbl_email:"البريد الإلكتروني", lbl_phone:"الهاتف", lbl_addr:"العنوان", lbl_country:"الدولة",
+v_name:"عمر الخالد", v_email:"omar@example.com", v_phone:"050 123 4567", v_addr:"شارع الملك فهد 12، الرياض", v_country:"السعودية", v_select:"اختر...",
+ctx_back:"رجوع", ctx_reload:"إعادة تحميل", ctx_save:"حفظ باسم...", ctx_inspect:"فحص",
+menu_fill_with:"الملء باستخدام ملف تعريف", menu_restore:"استعادة",
+prof1:"عمر الخالد", prof2:"العمل",
+entry1:"نموذج الطلب — 1 مارس", entry2:"مسودة",
+toast_analyzing:"FormPilot: جاري تحليل النموذج بالذكاء الاصطناعي...",
+toast_filled:"FormPilot: تم ملء 5 حقول",
+toast_restored:"FormPilot: تم استعادة \"نموذج الطلب — 1 مارس\" (5 حقول)",
+cap1:"<span class=\"green\">انقر بزر الفأرة الأيمن</span> على أي صفحة بها نموذج",
+cap2:"فقط <span class=\"green\">اختر ملف تعريف</span>",
+cap3:"الذكاء الاصطناعي <span class=\"green\">يملأ كل الحقول</span>",
+cap4:"استعد المدخلات المحفوظة بـ<span class=\"green\">النقر الأيمن</span>",
+end_tag:"دائمًا على بُعد نقرة يمنى واحدة."
+}
+};
+
+// English defaults for strings only used from JS
+const EN = {
+  v_name:"John Smith", v_email:"john@example.com", v_phone:"+1 (555) 123-4567",
+  v_addr:"123 Main St, New York, NY", v_country:"United States", v_select:"Select...",
+  toast_analyzing:"FormPilot: Analyzing form with AI...",
+  toast_filled:"FormPilot: Filled 5 field(s)",
+  toast_restored:"FormPilot: Restored \"Checkout — Mar 1\" (5 fields)",
+  cap1:"<span class=\"green\">Right-click</span> on any page with a form",
+  cap2:"Just <span class=\"green\">pick a profile</span>",
+  cap3:"AI <span class=\"green\">fills every field</span>",
+  cap4:"Restore saved inputs with a <span class=\"green\">right-click</span>",
+  end_tag:"Always one right-click away."
+};
+
+const params = new URLSearchParams(location.search);
+const LANG = params.get('lang') || 'en';
+const M = Object.assign({}, EN, I18N[LANG] || {});
+if (I18N[LANG]) {
+  document.documentElement.setAttribute('data-lang', LANG);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (M[k] !== undefined) el.innerHTML = M[k];
+  });
+}
+
+// ── helpers ──────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+let timer, startTime, timelineIndex = 0, timeline = [];
+
+function moveCursor(x, y, ms = 600) {
+  const c = $('cursor');
+  c.style.transitionDuration = ms + 'ms, ' + ms + 'ms';
+  c.style.left = x + 'px'; c.style.top = y + 'px';
+}
+function clickRing(x, y) {
+  const r = $('click-ring');
+  r.style.left = (x - 30) + 'px'; r.style.top = (y - 30) + 'px';
+  r.className = 'pre'; void r.offsetWidth; r.className = 'pop';
+}
+function showCap(key) {
+  const c = $('cap');
+  c.style.opacity = '0'; c.style.transform = 'translateY(-14px)';
+  setTimeout(() => { c.innerHTML = M[key]; c.style.opacity = '1'; c.style.transform = 'translateY(0)'; }, 300);
+}
+function menu(id, on) { $(id).classList.toggle('show', !!on); }
+function hover(id, on) { $(id).classList.toggle('hover', on !== false); }
+function toast(kind, key) {
+  const t = $('toast');
+  t.className = 'toast ' + kind; t.textContent = M[key];
+  void t.offsetWidth; t.classList.add('show');
+}
+function hideToast() { $('toast').classList.remove('show'); }
+function fill(id, key) {
+  const f = $(id);
+  f.innerHTML = '';
+  const s = document.createElement('span'); s.textContent = M[key]; f.appendChild(s);
+  if (id === 'f5') { const c = document.createElement('span'); c.className = 'sel-caret'; c.textContent = '▼'; f.appendChild(c); }
+  f.classList.add('filled');
+}
+function clearForm() {
+  ['f1','f2','f3','f4'].forEach(id => { const f = $(id); f.innerHTML = '<span class="ph"></span>'; f.classList.remove('filled'); });
+  const f5 = $('f5'); f5.classList.remove('filled');
+  f5.innerHTML = '<span class="val">' + M.v_select + '</span><span class="sel-caret">▼</span>';
+}
+
+// Browser window offset (stage coords): left = (1920-1240)/2 = 340, top = 190
+const BX = 340, BY = 190;
+// First right-click point (in browser coords) — menus are anchored at 240,300
+const CLICK1 = { x: BX + 240, y: BY + 300 };
+const FP_ITEM = { x: BX + 380, y: BY + 448 };   // "FormPilot" row in m1
+const FILL_ITEM = { x: BX + 700, y: BY + 442 }; // "Fill with profile" row in m2
+const REST_ITEM = { x: BX + 700, y: BY + 496 }; // "Restore" row in m2
+const PROF1 = { x: BX + 1010, y: BY + 456 };    // first profile in m3
+const ENTRY1 = { x: BX + 1010, y: BY + 510 };   // first entry in m4
+
+function buildTimeline() {
+  timeline = [];
+  let t = 300;
+
+  // ── Part 1: fill with profile ──
+  timeline.push([t, () => showCap('cap1')]);
+  timeline.push([t + 500, () => moveCursor(CLICK1.x, CLICK1.y, 900)]);
+  timeline.push([t + 1600, () => { clickRing(CLICK1.x, CLICK1.y); }]);
+  timeline.push([t + 1900, () => menu('m1', true)]);
+  timeline.push([t + 2500, () => moveCursor(FP_ITEM.x, FP_ITEM.y, 500)]);
+  timeline.push([t + 3050, () => hover('m1-fp')]);
+  timeline.push([t + 3300, () => menu('m2', true)]);
+  timeline.push([t + 3800, () => { showCap('cap2'); moveCursor(FILL_ITEM.x, FILL_ITEM.y, 500); }]);
+  timeline.push([t + 4350, () => hover('m2-fill')]);
+  timeline.push([t + 4600, () => menu('m3', true)]);
+  timeline.push([t + 5300, () => moveCursor(PROF1.x, PROF1.y, 500)]);
+  timeline.push([t + 5850, () => hover('m3-p1')]);
+  timeline.push([t + 6200, () => clickRing(PROF1.x, PROF1.y)]);
+  timeline.push([t + 6500, () => {
+    menu('m1', false); menu('m2', false); menu('m3', false);
+    hover('m1-fp', false); hover('m2-fill', false); hover('m3-p1', false);
+    moveCursor(BX + 900, BY + 720, 700);
+  }]);
+  timeline.push([t + 6900, () => toast('info', 'toast_analyzing')]);
+  timeline.push([t + 7600, () => showCap('cap3')]);
+  timeline.push([t + 8300, () => fill('f1', 'v_name')]);
+  timeline.push([t + 8750, () => fill('f2', 'v_email')]);
+  timeline.push([t + 9200, () => fill('f3', 'v_phone')]);
+  timeline.push([t + 9650, () => fill('f5', 'v_country')]);
+  timeline.push([t + 10100, () => fill('f4', 'v_addr')]);
+  timeline.push([t + 10700, () => { hideToast(); }]);
+  timeline.push([t + 11000, () => toast('success', 'toast_filled')]);
+
+  // ── Part 2: restore ──
+  const r = t + 13200;
+  timeline.push([r, () => { hideToast(); showCap('cap4'); clearForm(); }]);
+  timeline.push([r + 700, () => moveCursor(CLICK1.x, CLICK1.y, 700)]);
+  timeline.push([r + 1500, () => clickRing(CLICK1.x, CLICK1.y)]);
+  timeline.push([r + 1800, () => menu('m1', true)]);
+  timeline.push([r + 2300, () => moveCursor(FP_ITEM.x, FP_ITEM.y, 450)]);
+  timeline.push([r + 2800, () => { hover('m1-fp'); menu('m2', true); }]);
+  timeline.push([r + 3300, () => moveCursor(REST_ITEM.x, REST_ITEM.y, 450)]);
+  timeline.push([r + 3800, () => { hover('m2-restore'); menu('m4', true); }]);
+  timeline.push([r + 4400, () => moveCursor(ENTRY1.x, ENTRY1.y, 450)]);
+  timeline.push([r + 4900, () => hover('m4-e1')]);
+  timeline.push([r + 5200, () => clickRing(ENTRY1.x, ENTRY1.y)]);
+  timeline.push([r + 5500, () => {
+    menu('m1', false); menu('m2', false); menu('m4', false);
+    hover('m1-fp', false); hover('m2-restore', false); hover('m4-e1', false);
+    moveCursor(BX + 900, BY + 720, 700);
+  }]);
+  timeline.push([r + 5900, () => {
+    fill('f1', 'v_name'); fill('f2', 'v_email'); fill('f3', 'v_phone');
+    fill('f5', 'v_country'); fill('f4', 'v_addr');
+  }]);
+  timeline.push([r + 6200, () => toast('success', 'toast_restored')]);
+
+  // ── End card ──
+  timeline.push([r + 8300, () => { $('endcard').style.opacity = '1'; }]);
+}
+
+function runTimeline() {
+  if (timelineIndex >= timeline.length) return;
+  const [delay, fn] = timeline[timelineIndex];
+  const wait = Math.max(0, delay - (Date.now() - startTime));
+  timer = setTimeout(() => { fn(); timelineIndex++; runTimeline(); }, wait);
+}
+
+function resetAll() {
+  clearTimeout(timer);
+  $('cap').style.opacity = '0';
+  ['m1','m2','m3','m4'].forEach(id => menu(id, false));
+  ['m1-fp','m2-fill','m2-restore','m3-p1','m4-e1'].forEach(id => hover(id, false));
+  hideToast(); clearForm();
+  $('endcard').style.opacity = '0';
+  const c = $('cursor'); c.style.transitionDuration = '0ms, 0ms'; c.style.left = '1560px'; c.style.top = '950px';
+}
+
+function start() {
+  resetAll(); startTime = Date.now(); timelineIndex = 0;
+  buildTimeline(); void document.body.offsetHeight; runTimeline();
+}
+
+start();
+</script>
+</body>
+</html>
