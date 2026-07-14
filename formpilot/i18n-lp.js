@@ -1581,6 +1581,13 @@ guide_s5_note: "يظهر التقدم والأخطاء كإشعارات أعلى
 // ── Locale Detection ────────────────────────────────────────────────
 function detectLPLocale() {
   const supported = Object.keys(LP_MESSAGES);
+
+  // ?lang=xx overrides browser-language detection (verification / sharing)
+  try {
+    const forced = new URLSearchParams(location.search).get("lang");
+    if (forced && supported.includes(forced.toLowerCase())) return forced.toLowerCase();
+  } catch (e) {}
+
   const nav = (navigator.language || navigator.userLanguage || "en").toLowerCase();
 
   // Exact match first (e.g. "en", "ja", "zh")
