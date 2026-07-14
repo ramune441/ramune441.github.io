@@ -1638,9 +1638,10 @@ function applyLPTranslations(locale) {
   // swap the guide demo video (usage guide page) to the matching language
   var gv = document.getElementById("guide-demo-video");
   if (gv) {
-    var gsrc = "guide-demo-" + locale + ".webm";
+    var gsrc = "guide-demo-" + locale + ".mp4";
     if (gv.getAttribute("src") !== gsrc) {
       gv.muted = true;
+      gv.setAttribute("poster", "guide-demo-" + locale + "-poster.jpg");
       gv.setAttribute("src", gsrc);
       gv.load();
       if (gv.play) gv.play().catch(function () {});
