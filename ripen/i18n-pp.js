@@ -40,7 +40,7 @@
     "pp_h8": "Changes to this policy",
     "pp_s8_p": "We may revise this Privacy Policy as needed. When we do, we’ll update the “Last updated” date at the top of this page.",
     "pp_h9": "Contact",
-    "pp_s9_p": "For questions about this Privacy Policy, please reach out via our <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>contact form</a>.",
+    "pp_s9_p": "For questions about this Privacy Policy, please reach out via our <a href='contact.html' target='_blank' rel='noopener'>contact form</a>.",
     "pp_home": "Home"
   },
   "zh": {
@@ -81,7 +81,7 @@
     "pp_h8": "本政策的变更",
     "pp_s8_p": "我们可能会根据需要修订本隐私政策。修订时，我们将更新本页顶部的「最后更新」日期。",
     "pp_h9": "联系我们",
-    "pp_s9_p": "如对本隐私政策有任何疑问，请通过我们的<a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>联系表单</a>与我们联系。",
+    "pp_s9_p": "如对本隐私政策有任何疑问，请通过我们的<a href='contact.html' target='_blank' rel='noopener'>联系表单</a>与我们联系。",
     "pp_home": "首页"
   },
   "ko": {
@@ -122,7 +122,7 @@
     "pp_h8": "본 방침의 변경",
     "pp_s8_p": "당사는 필요에 따라 본 개인정보 처리방침을 개정할 수 있습니다. 개정 시에는 이 페이지 상단의 ‘최종 업데이트’ 날짜를 갱신합니다.",
     "pp_h9": "문의",
-    "pp_s9_p": "본 개인정보 처리방침에 관한 문의는 <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>문의 양식</a>을 통해 연락해 주시기 바랍니다.",
+    "pp_s9_p": "본 개인정보 처리방침에 관한 문의는 <a href='contact.html' target='_blank' rel='noopener'>문의 양식</a>을 통해 연락해 주시기 바랍니다.",
     "pp_home": "홈"
   },
   "es": {
@@ -163,7 +163,7 @@
     "pp_h8": "Cambios en esta política",
     "pp_s8_p": "Podemos revisar esta Política de privacidad cuando sea necesario. Cuando lo hagamos, actualizaremos la fecha de «Última actualización» en la parte superior de esta página.",
     "pp_h9": "Contacto",
-    "pp_s9_p": "Si tienes preguntas sobre esta Política de privacidad, ponte en contacto con nosotros mediante nuestro <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>formulario de contacto</a>.",
+    "pp_s9_p": "Si tienes preguntas sobre esta Política de privacidad, ponte en contacto con nosotros mediante nuestro <a href='contact.html' target='_blank' rel='noopener'>formulario de contacto</a>.",
     "pp_home": "Inicio"
   },
   "fr": {
@@ -204,7 +204,7 @@
     "pp_h8": "Modifications de cette politique",
     "pp_s8_p": "Nous pouvons réviser cette politique de confidentialité si nécessaire. Le cas échéant, nous mettrons à jour la date de « Dernière mise à jour » en haut de cette page.",
     "pp_h9": "Contact",
-    "pp_s9_p": "Pour toute question concernant cette politique de confidentialité, veuillez nous contacter via notre <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>formulaire de contact</a>.",
+    "pp_s9_p": "Pour toute question concernant cette politique de confidentialité, veuillez nous contacter via notre <a href='contact.html' target='_blank' rel='noopener'>formulaire de contact</a>.",
     "pp_home": "Accueil"
   },
   "de": {
@@ -245,7 +245,7 @@
     "pp_h8": "Änderungen dieser Erklärung",
     "pp_s8_p": "Wir können diese Datenschutzerklärung bei Bedarf überarbeiten. In diesem Fall aktualisieren wir das Datum „Zuletzt aktualisiert“ oben auf dieser Seite.",
     "pp_h9": "Kontakt",
-    "pp_s9_p": "Bei Fragen zu dieser Datenschutzerklärung wende dich bitte über unser <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>Kontaktformular</a> an uns.",
+    "pp_s9_p": "Bei Fragen zu dieser Datenschutzerklärung wende dich bitte über unser <a href='contact.html' target='_blank' rel='noopener'>Kontaktformular</a> an uns.",
     "pp_home": "Startseite"
   },
   "it": {
@@ -286,7 +286,7 @@
     "pp_h8": "Modifiche a questa informativa",
     "pp_s8_p": "Potremmo rivedere questa Informativa sulla privacy in base alle necessità. Quando lo faremo, aggiorneremo la data di «Ultimo aggiornamento» in cima a questa pagina.",
     "pp_h9": "Contatti",
-    "pp_s9_p": "Per domande su questa Informativa sulla privacy, contattaci tramite il nostro <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>modulo di contatto</a>.",
+    "pp_s9_p": "Per domande su questa Informativa sulla privacy, contattaci tramite il nostro <a href='contact.html' target='_blank' rel='noopener'>modulo di contatto</a>.",
     "pp_home": "Home"
   },
   "pt": {
@@ -327,7 +327,7 @@
     "pp_h8": "Alterações nesta política",
     "pp_s8_p": "Podemos revisar esta Política de Privacidade conforme necessário. Quando o fizermos, atualizaremos a data de “Última atualização” no topo desta página.",
     "pp_h9": "Contato",
-    "pp_s9_p": "Para dúvidas sobre esta Política de Privacidade, entre em contato por meio do nosso <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>formulário de contato</a>.",
+    "pp_s9_p": "Para dúvidas sobre esta Política de Privacidade, entre em contato por meio do nosso <a href='contact.html' target='_blank' rel='noopener'>formulário de contato</a>.",
     "pp_home": "Início"
   },
   "ru": {
@@ -368,7 +368,7 @@
     "pp_h8": "Изменения в этой политике",
     "pp_s8_p": "При необходимости мы можем пересматривать эту Политику конфиденциальности. В таком случае мы обновим дату «Последнее обновление» в верхней части этой страницы.",
     "pp_h9": "Контакты",
-    "pp_s9_p": "По вопросам, связанным с этой Политикой конфиденциальности, свяжитесь с нами через нашу <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>контактную форму</a>.",
+    "pp_s9_p": "По вопросам, связанным с этой Политикой конфиденциальности, свяжитесь с нами через нашу <a href='contact.html' target='_blank' rel='noopener'>контактную форму</a>.",
     "pp_home": "Главная"
   },
   "ar": {
@@ -409,7 +409,7 @@
     "pp_h8": "التغييرات على هذه السياسة",
     "pp_s8_p": "قد نراجع سياسة الخصوصية هذه عند الحاجة. وعندما نفعل ذلك، سنقوم بتحديث تاريخ «آخر تحديث» في أعلى هذه الصفحة.",
     "pp_h9": "التواصل",
-    "pp_s9_p": "لأي أسئلة حول سياسة الخصوصية هذه، يُرجى التواصل معنا عبر <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>نموذج التواصل</a>.",
+    "pp_s9_p": "لأي أسئلة حول سياسة الخصوصية هذه، يُرجى التواصل معنا عبر <a href='contact.html' target='_blank' rel='noopener'>نموذج التواصل</a>.",
     "pp_home": "الصفحة الرئيسية"
   },
   "hi": {
@@ -450,7 +450,7 @@
     "pp_h8": "इस नीति में बदलाव",
     "pp_s8_p": "हम आवश्यकता पड़ने पर इस गोपनीयता नीति को संशोधित कर सकते हैं। ऐसा करने पर, हम इस पृष्ठ के शीर्ष पर “अंतिम अपडेट” की तारीख को अपडेट कर देंगे।",
     "pp_h9": "संपर्क",
-    "pp_s9_p": "इस गोपनीयता नीति के बारे में प्रश्नों के लिए, कृपया हमारे <a href='https://docs.google.com/forms/d/e/1FAIpQLScIT8cRe4LxXK5gRiwnAFbjq0zDEnQNyufl2GBz5srIUHboRg/viewform?usp=dialog' target='_blank' rel='noopener'>संपर्क फ़ॉर्म</a> के माध्यम से संपर्क करें।",
+    "pp_s9_p": "इस गोपनीयता नीति के बारे में प्रश्नों के लिए, कृपया हमारे <a href='contact.html' target='_blank' rel='noopener'>संपर्क फ़ॉर्म</a> के माध्यम से संपर्क करें।",
     "pp_home": "होम"
   }
 };

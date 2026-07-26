@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SendReady Uninstall Survey</title>
+  <meta name="description" content="Thank you for trying SendReady. Please tell us why you uninstalled — it helps us improve.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="SendReady Uninstall Survey">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="SendReady">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --accent: #4361EE; --accent-dark: #3A0CA3;
+      --pale: #EEF1FF; --pale-border: #B0BDFF;
+      --text: #1e293b; --text-sub: #475569; --text-light: #94a3b8;
+      --bg: #f8fafc; --border: #e2e8f0;
+      --red-50: #fef2f2; --red-200: #fecaca;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Noto Sans JP', 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .nav-inner { max-width: 960px; width: 100%; display: flex; align-items: center; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .container { max-width: 680px; margin: 0 auto; padding: 88px 24px 80px; }
+    .page-title { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .page-desc { font-size: 15px; color: var(--text-sub); margin-bottom: 40px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+    .field { margin-bottom: 28px; }
+    .field-label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 100px; line-height: 1.6; }
+    .tag-req { background: var(--pale); color: var(--accent-dark); border: 1px solid var(--pale-border); }
+    .tag-opt { background: #f1f5f9; color: var(--text-light); border: 1px solid var(--border); }
+    .field-note { font-size: 12px; color: var(--text-light); margin-top: 6px; }
+    .check { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; cursor: pointer; font-size: 14px; transition: border-color 0.2s, background 0.2s; }
+    .check:hover { border-color: var(--accent); background: var(--pale); }
+    .check input { width: 18px; height: 18px; margin-top: 4px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
+    .check:has(input:checked) { border-color: var(--accent); background: var(--pale); }
+    input[type="text"], textarea { width: 100%; font-family: inherit; font-size: 15px; color: var(--text); background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px 14px; line-height: 1.6; transition: border-color 0.2s, box-shadow 0.2s; }
+    input::placeholder, textarea::placeholder { color: #cbd5e1; }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent); }
+    textarea { min-height: 140px; resize: vertical; }
+    #reason-other-text { margin-top: 8px; }
+    #reason-other-text[hidden] { display: none; }
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .hp-file { position: absolute; left: -9999px; opacity: 0; width: 0; height: 0; }
+    .file-drop { display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 14px 16px; color: var(--text-light); font-size: 14px; transition: border-color 0.2s, background 0.2s; }
+    .file-drop:hover, .file-drop.has-file { border-color: var(--accent); background: var(--pale); color: var(--accent-dark); }
+    .file-drop.has-file { border-style: solid; }
+    .file-drop svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .file-drop.has-file .file-drop-text { display: none; }
+    .file-drop-name { font-weight: 600; word-break: break-all; }
+    .file-clear { margin-left: auto; width: 24px; height: 24px; border: none; border-radius: 50%; background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent-dark); font-size: 15px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+    .submit-btn { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; font-family: inherit; font-size: 15px; font-weight: 700; padding: 15px 32px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 16px color-mix(in srgb, var(--accent) 25%, transparent); transition: all 0.2s; }
+    .submit-btn:hover:not(:disabled) { background: var(--accent-dark); transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .submit-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .privacy-note { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 16px; }
+    .alert { display: none; border-radius: 10px; padding: 14px 16px; font-size: 14px; margin-bottom: 20px; background: var(--red-50); border: 1px solid var(--red-200); color: #b91c1c; }
+    .alert.show { display: block; }
+    .success { display: none; text-align: center; padding: 20px 0; }
+    .success.show { display: block; }
+    .success-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--pale); border: 1px solid var(--pale-border); display: flex; align-items: center; justify-content: center; }
+    .success-icon svg { width: 30px; height: 30px; stroke: var(--accent); stroke-width: 2.5; fill: none; }
+    .success-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .success-desc { font-size: 14px; color: var(--text-sub); }
+    @media (max-width: 720px) {
+      .container { padding: 84px 16px 60px; }
+      .card { padding: 28px 20px; border-radius: 14px; }
+      .page-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-brand"><img src="icons/icon128.png" alt="" width="32" height="32">SendReady</span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="page-title">SendReady Uninstall Survey</h1>
+    <p class="page-desc">Thank you for trying SendReady. Please tell us why you uninstalled — it helps us improve.</p>
+
+    <div class="card">
+      <div class="success" id="success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="success-title">Thank you for your feedback</h2>
+        <p class="success-desc">Your response has been sent. We read every submission and use it to improve the product.</p>
+      </div>
+
+      <form id="survey-form" novalidate>
+        <div class="alert" id="error-box" role="alert" aria-live="polite">Sending failed. Please wait a moment and try again.</div>
+
+        <input type="hidden" name="kind" value="uninstall">
+        <input type="hidden" name="product" value="SendReady">
+        <input type="hidden" name="language" value="en">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <div class="field-label">
+            <span>Why did you uninstall? (select all that apply)</span>
+            <span class="tag tag-req">Required</span>
+          </div>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Didn't know how to use it">
+            <span>Didn't know how to use it</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="It didn't work properly / had bugs">
+            <span>It didn't work properly / had bugs</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Not what I expected">
+            <span>Not what I expected</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="No longer needed">
+            <span>No longer needed</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Performance issues">
+            <span>Performance issues</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Switched to another tool">
+            <span>Switched to another tool</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Other" id="reason-other">
+            <span>Other</span>
+          </label>
+          <input type="text" id="reason-other-text" name="reasonOther" placeholder="Please specify" hidden>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-details">
+            <span>Details or feedback (optional)</span>
+            <span class="tag tag-opt">Optional</span>
+          </label>
+          <textarea id="f-details" name="content" placeholder="Anything you would like us to know."></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-file">
+            <span>Attached files (screenshots, videos, etc.) — optional</span>
+            <span class="tag tag-opt">Optional</span>
+          </label>
+          <label class="file-drop" id="file-drop" for="f-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span class="file-drop-text">Click to choose a file</span>
+            <span class="file-drop-name" id="file-name"></span>
+            <button type="button" class="file-clear" id="file-clear" hidden aria-label="Remove file">&times;</button>
+          </label>
+          <input type="file" id="f-file" name="attachment" class="hp-file" accept="image/*,video/*,.pdf,.txt">
+          <p class="field-note">Image, video, PDF, or text — up to 25MB.</p>
+          <p class="field-note" id="file-error" style="color:#b91c1c" hidden>The file is too large (max 25MB).</p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span id="submit-label">Send</span>
+        </button>
+        <p class="privacy-note">Your response is used only to improve the product.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
+      var MAX_FILE_BYTES = 25 * 1024 * 1024;
+      var MSG = {"sending":"Sending...","submit":"Send","error":"Sending failed. Please wait a moment and try again.","reasonsRequired":"Please select at least one reason."};
+
+      var form = document.getElementById('survey-form');
+      var success = document.getElementById('success');
+      var errorBox = document.getElementById('error-box');
+      var btn = document.getElementById('submit-btn');
+      var btnLabel = document.getElementById('submit-label');
+      var otherBox = document.getElementById('reason-other');
+      var otherText = document.getElementById('reason-other-text');
+      var fileInput = document.getElementById('f-file');
+      var fileDrop = document.getElementById('file-drop');
+      var fileName = document.getElementById('file-name');
+      var fileClear = document.getElementById('file-clear');
+      var fileError = document.getElementById('file-error');
+
+      // The "Other" checkbox reveals its write-in field, matching the Google Form.
+      otherBox.addEventListener('change', function () {
+        otherText.hidden = !otherBox.checked;
+        if (otherBox.checked) otherText.focus(); else otherText.value = '';
+      });
+
+      function syncFileUI() {
+        var f = fileInput.files[0];
+        var tooLarge = !!f && f.size > MAX_FILE_BYTES;
+        fileError.hidden = !tooLarge;
+        if (tooLarge) { fileInput.value = ''; f = null; }
+        fileDrop.classList.toggle('has-file', !!f);
+        fileName.textContent = f ? f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)' : '';
+        fileClear.hidden = !f;
+      }
+      fileInput.addEventListener('change', syncFileUI);
+      fileClear.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        fileInput.value = '';
+        syncFileUI();
+      });
+
+      function showError(msg) {
+        errorBox.textContent = msg;
+        errorBox.classList.add('show');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorBox.classList.remove('show');
+
+        if (!form.querySelectorAll('input[name="reasons"]:checked').length) {
+          showError(MSG.reasonsRequired);
+          return;
+        }
+
+        btn.disabled = true;
+        btnLabel.textContent = MSG.sending;
+
+        fetch(ENDPOINT, { method: 'POST', body: new FormData(form) })
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            if (!json.success) throw new Error(json.message || 'submit failed');
+            form.style.display = 'none';
+            success.classList.add('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          })
+          .catch(function () {
+            showError(MSG.error);
+            btn.disabled = false;
+            btnLabel.textContent = MSG.submit;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>

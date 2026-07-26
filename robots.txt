@@ -19,6 +19,11 @@ Disallow: /ripen/icon-512.html
 # 権限説明動画（Play Console 提出用）の生成HTMLはインデックス対象外
 Disallow: /ripen/fgs-demo/fgs-demo.html
 
+# アンインストール理由アンケート（拡張の setUninstallURL 専用）はインデックス対象外
+Disallow: /formpilot/uninstall.html
+Disallow: /sendready-chrome/uninstall.html
+Disallow: /ashiato-maker/uninstall.html
+
 # ビルド成果物
 Disallow: /formpilot/node_modules/
 

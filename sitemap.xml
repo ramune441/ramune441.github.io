@@ -20,6 +20,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://ramune441.github.io/formpilot/contact.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://ramune441.github.io/formpilot/privacy-policy.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
@@ -33,6 +39,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://ramune441.github.io/ashiato-maker/contact.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://ramune441.github.io/ashiato-maker/privacy-policy.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
@@ -44,6 +56,12 @@
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/lovent/contact.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ramune441.github.io/lovent/privacy-policy.html</loc>
@@ -63,6 +81,12 @@
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready/contact.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ramune441.github.io/sendready/privacy-policy.html</loc>
@@ -89,6 +113,12 @@
     <lastmod>2026-06-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/ripen/contact.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://ramune441.github.io/ripen/privacy-policy.html</loc>
