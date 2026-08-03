@@ -10,14 +10,14 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/` | LP | index | yes | Chrome拡張。`i18n-lp.js` で11言語対応。YouTube埋め込み（`#promo-video`）は `LP_VIDEO_IDS` により表示言語の動画に自動切替 |
 | `/formpilot/guide.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/formpilot/contact.html` | 問い合わせ | index | yes | 自前フォーム（下記「問い合わせフォーム基盤」参照）。`i18n-lp.js` で11言語対応 |
-| `/formpilot/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先 |
+| `/formpilot/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先。拡張がクエリで渡す匿名診断（`v`/`lang`/`days`/`fills`/`err`）を hidden `diagnostics` に集約して送信し、`lang` は hidden `language` にも反映。詳細欄は**必須** |
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、sendready-chrome/promo.html と同方式。文言は i18n-lp.js と同期、デモの人物・住所も言語別、ar は RTL） |
 | `/formpilot/promo[-lang].webm` `promo[-lang].mp4` | 動画 | - | no | プロモ動画 ×11言語（en=無印）。**4K録画（deviceScaleFactor=2）**から生成: webm=1080p VP9(lanczos縮小/33.0s)、mp4=4K H.264+AAC BGM（YouTube用。BGM は旧動画「FormPilot ver2」と同一音源）。**YouTube 公開済み（4K版・タイトル「FormPilot ver2 (言語名)」）**: en=c02Ka-_WdIE / ja=2Caux6fcero / zh=3RzbNsLkw6Q / ko=qqjFaQIk0IQ / es=4eLZeM5lRLo / fr=ljIlLc6FTM8 / de=FhwzRQyPnQo / pt=df5TcuOgLvM / hi=ZSdSh7UxRnc / id=nmI-oOZIHRs / ar=Uue8B-AuAj4（旧1080p版11本は非公開化済み）。各言語のストア掲載情報のプロモ動画欄に `https://www.youtube.com/watch?v=<ID>` を設定（手動） |
 | `/formpilot/images/<lang>/` | ストア画像(翻訳版) | - | no | `store-image-{1..5}.png`(1280x800) + `store-tile-marquee.png`(1400x560) × 10言語。生成元は拡張リポジトリ FormPilot の `store-image-*.html` + `store-i18n.js`(`?lang=` 指定・ar はRTL)。en は `/formpilot/` 直下 |
 | `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは**実際のPairs画面のキャプチャ**(`pairs-real.png`)＋日本語パネルレプリカ重ね。写真は実会員のため実写真にブラー(blur 9px)をかけた上で撮影 |
 | `/ashiato-maker/contact.html` | 問い合わせ | index | yes | 自前フォーム（自己完結型・インライン11言語辞書）。「使っているアプリ」選択（Pairs/With/東カレデート/Tinder → `app` フィールド）つき |
-| `/ashiato-maker/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（日本語）。`chrome.runtime.setUninstallURL` の遷移先 |
+| `/ashiato-maker/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（日本語）。`chrome.runtime.setUninstallURL` の遷移先。拡張がクエリで渡す匿名診断（`v`/`days`/`visits`/`runs`）を hidden `diagnostics` に集約して送信。詳細欄は**必須** |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/ashiato-maker/pairs-real.png` | 画像 | - | no | 実際のPairs検索画面キャプチャ(2400x1500)。会員写真は実写真ぼかし処理。LPのデモ画像に使用 |
 | `/ashiato-maker/live-b.png` `live-seq-1..6.png` `live-visit.png` `live-full.png` | 画像 | - | no | **拡張機能を実際に稼働させた**Pairs画面キャプチャ(2400x1500)。seq1..6=**リセットせず連続実行し、訪問中バッジが別々の新しい会員へ移り✓訪問済が増えていく実連続**(進捗39→43)、visit=お相手詳細オーバーレイを開いて足あとを残す瞬間(顔/名前/自己紹介ぼかし)、full=1画面まるごと✓訪問済。実パネル日本語化。写真は実写真ぼかし。※重複訪問しないよう進捗リセットは禁止 |

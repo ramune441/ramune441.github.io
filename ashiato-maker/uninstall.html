@@ -105,6 +105,7 @@
         <input type="hidden" name="kind" value="uninstall">
         <input type="hidden" name="product" value="Ashiato Maker">
         <input type="hidden" name="language" value="ja">
+        <input type="hidden" name="diagnostics" id="f-diagnostics">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
         <div class="field">
@@ -145,10 +146,10 @@
 
         <div class="field">
           <label class="field-label" for="f-details">
-            <span>詳細・ご意見（任意）</span>
-            <span class="tag tag-opt">任意</span>
+            <span>詳細・ご意見</span>
+            <span class="tag tag-req">必須</span>
           </label>
-          <textarea id="f-details" name="content" placeholder="お気づきの点がありましたらご記入ください。"></textarea>
+          <textarea id="f-details" name="content" placeholder="どのアプリで・何をしたときに・どうなったかをご記入ください。改善の大きな助けになります。"></textarea>
         </div>
 
         <div class="field">
@@ -180,7 +181,19 @@
     (function () {
       var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
       var MAX_FILE_BYTES = 25 * 1024 * 1024;
-      var MSG = {"sending":"送信中...","submit":"送信する","error":"送信に失敗しました。時間をおいて、もう一度お試しください。","reasonsRequired":"理由を1つ以上選択してください。"};
+      var MSG = {"sending":"送信中...","submit":"送信する","error":"送信に失敗しました。時間をおいて、もう一度お試しください。","reasonsRequired":"理由を1つ以上選択してください。","detailsRequired":"詳細をご記入ください。問題の調査に必要です。"};
+
+      // 拡張機能が setUninstallURL で付与する匿名診断情報
+      // (v=バージョン, days=利用日数, visits=累計訪問数, runs=実行回数)
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var parts = [];
+        ['v', 'days', 'visits', 'runs'].forEach(function (k) {
+          var val = (params.get(k) || '').slice(0, 150);
+          if (val) parts.push(k + '=' + val);
+        });
+        document.getElementById('f-diagnostics').value = parts.join(', ');
+      })();
 
       var form = document.getElementById('survey-form');
       var success = document.getElementById('success');
@@ -229,6 +242,13 @@
 
         if (!form.querySelectorAll('input[name="reasons"]:checked').length) {
           showError(MSG.reasonsRequired);
+          return;
+        }
+
+        var details = document.getElementById('f-details');
+        if (!details.value.trim()) {
+          showError(MSG.detailsRequired);
+          details.focus();
           return;
         }
 
