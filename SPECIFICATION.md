@@ -37,7 +37,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/sendready/promo.html` | 動画用 | noindex | no | 録画専用 |
 | `/sendready-chrome/` | LP | index | yes | Chrome拡張（SendReady）。`i18n-lp.js` で11言語対応。YouTube埋め込み（`#promo-video`）は `LP_VIDEO_IDS` により表示言語の動画に自動切替 |
 | `/sendready-chrome/how-to.html` | 使い方ガイド | index | no | 操作手順（LPからリンク） |
-| `/sendready-chrome/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先。診断クエリ（`v`/`lang`/`days`/`uses`/`err`）を hidden `diagnostics` に集約して送信（拡張側は未対応、ページのみ先行対応）。詳細欄は**必須** |
+| `/sendready-chrome/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先。診断クエリ（`v`/`lang`/`days`/`uses`/`err`）を hidden `diagnostics` に集約して送信（拡張側は v1.1.6 で対応済み）。詳細欄は**必須** |
 | `/sendready-chrome/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー（英語） |
 | `/sendready-chrome/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、store-images.html と同方式。文言は i18n-lp.js と同期、ar は RTL） |
 | `/sendready-chrome/promo[-lang].webm` | 動画 | - | no | Chrome Web Store 用（VP9/yuv420p/1080p/30fps/約34.6秒）。en=`promo.webm`、翻訳版=`promo-{ja,zh,ko,es,fr,de,pt,hi,id,ar}.webm`。**4K録画（deviceScaleFactor=2）から lanczos 縮小**。`page.screencast()` で録画し、録画ごとに実測係数（wall-clock ÷ raw実尺）で setpts 再エンコード |
