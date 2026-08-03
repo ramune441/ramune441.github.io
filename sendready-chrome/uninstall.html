@@ -104,7 +104,8 @@
 
         <input type="hidden" name="kind" value="uninstall">
         <input type="hidden" name="product" value="SendReady">
-        <input type="hidden" name="language" value="en">
+        <input type="hidden" name="language" value="en" id="f-language">
+        <input type="hidden" name="diagnostics" id="f-diagnostics">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
         <div class="field">
@@ -145,10 +146,10 @@
 
         <div class="field">
           <label class="field-label" for="f-details">
-            <span>Details or feedback (optional)</span>
-            <span class="tag tag-opt">Optional</span>
+            <span>Details or feedback</span>
+            <span class="tag tag-req">Required</span>
           </label>
-          <textarea id="f-details" name="content" placeholder="Anything you would like us to know."></textarea>
+          <textarea id="f-details" name="content" placeholder="Please tell us what happened — what you expected, and what went wrong."></textarea>
         </div>
 
         <div class="field">
@@ -180,7 +181,21 @@
     (function () {
       var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
       var MAX_FILE_BYTES = 25 * 1024 * 1024;
-      var MSG = {"sending":"Sending...","submit":"Send","error":"Sending failed. Please wait a moment and try again.","reasonsRequired":"Please select at least one reason."};
+      var MSG = {"sending":"Sending...","submit":"Send","error":"Sending failed. Please wait a moment and try again.","reasonsRequired":"Please select at least one reason.","detailsRequired":"Please enter some details — it really helps us fix the problem."};
+
+      // Anonymous diagnostics passed by the extension via setUninstallURL
+      // (v=version, lang=UI language, days=days installed, err=last error)
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var parts = [];
+        ['v', 'days', 'uses', 'err'].forEach(function (k) {
+          var val = (params.get(k) || '').slice(0, 150);
+          if (val) parts.push(k + '=' + val);
+        });
+        document.getElementById('f-diagnostics').value = parts.join(', ');
+        var lang = (params.get('lang') || '').slice(0, 10);
+        if (lang) document.getElementById('f-language').value = lang;
+      })();
 
       var form = document.getElementById('survey-form');
       var success = document.getElementById('success');
@@ -229,6 +244,13 @@
 
         if (!form.querySelectorAll('input[name="reasons"]:checked').length) {
           showError(MSG.reasonsRequired);
+          return;
+        }
+
+        var details = document.getElementById('f-details');
+        if (!details.value.trim()) {
+          showError(MSG.detailsRequired);
+          details.focus();
           return;
         }
 
