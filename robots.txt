@@ -5,13 +5,10 @@ Allow: /
 # プロモ動画用HTMLはインデックス対象外
 Disallow: /formpilot/promo.html
 Disallow: /ashiato-maker/promo.html
-Disallow: /lovent/promo.html
-Disallow: /sendready/promo.html
 Disallow: /sendready-chrome/promo.html
 Disallow: /ripen/promo.html
 
 # ストア画像生成用HTMLはインデックス対象外
-Disallow: /lovent/store-images.html
 Disallow: /sendready-chrome/store-images.html
 Disallow: /ripen/store-images.html
 Disallow: /ripen/icon-512.html
