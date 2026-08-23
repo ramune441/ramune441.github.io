@@ -40,7 +40,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/ripen/promo.mp4` | 動画 | - | no | LP/ストア紹介用。`images/promo/audio/promo-en.mp4` と同一ファイル（BGM入り） |
 | `/ripen/images/promo/promo-<lang>.mp4` | 動画 | - | no | BGM 無しの中間ファイル×12言語で**リポジトリ管理外**（BGM版から作り直せるため追跡しない）。H.264 High/yuv420p/1080p/30fps/約32.7秒。`page.screencast()` で実時間録画し、フレーム数から逆算した実fpsで再タイミング＋末尾1.5秒フリーズ |
 | `/ripen/images/promo/audio/promo-<lang>.mp4` | 動画 | - | no | 上記に BGM を足した YouTube 掲載用×12言語（AAC 192k/48kHz stereo）。BGM は `mp3/271_BPM110.mp3`（音源はライセンス品のためリポジトリ管理外）を音量0.85・冒頭0.6秒フェードイン・末尾2秒フェードアウト。掲載タイトル/説明文は同ディレクトリの `youtube.json`（`YOUTUBE.md` は同内容の閲覧用）。**YouTube 公開済み（チャンネル: Just One More Animal、タイトル「Ripen — <各言語のコピー>」）**: en=YWXSLB3oNIk / ja=ZQU_WGjQm_I / ko=WPGNv3VMRiw / zh=IfsfJfg0vNo / de=CZ40F6x5vhk / es=NbepPxeCQCQ / fr=ckaQ6bCZWyk / it=ick4Fth687I / pt=XyePSrbkaps / ru=s7OqzqooMc8 / hi=pUys6pfdarU / ar=nfaGKUhp_J8。Play Console のストア掲載情報「アプリの YouTube プロモ動画の URL」に `https://www.youtube.com/watch?v=<ID>` を言語別に設定（12言語ぶんを1回の保存でコミット→`公開の概要` で審査に送信。デベロッパーコンソールは手動サインインが必要） |
-| `/ripen/store-images.html` | ストア画像生成 | noindex | no | スクショ撮影用 |
+| `/ripen/store-images.html` | ストア画像生成 | noindex | no | スクショ撮影用。`?lang=` で12言語対応（en=DOM既定、ar は RTL）。Puppeteer の要素スクショで `images/store/<lang>/store-image-{feature,1..5}.png`(1024x500) を出力。5枚とも「ユーザーの痛み → RIPEN なら → 解決」の型で、痛みは**製品への疑いではなくユーザー自身の困りごとを置く**（ストアのカルーセルは大見出しだけ読まれるため、疑いを置くと不安だけが残る）。掲載手順は `images/store/UPLOAD.md` |
 | `/ripen/icon-512.html` | アイコン生成 | noindex | no | 512pxアイコン撮影用 |
 | `/ripen/fgs-demo/fgs-demo.html` | 動画用 | noindex | no | FOREGROUND_SERVICE_SPECIAL_USE 権限説明動画の録画ソース |
 | `/ripen/fgs-demo/fgs-demo.mp4` | 動画 | - | no | Play Console 提出用（H.264/1080p）。`fgs-demo.webm` も同梱 |
