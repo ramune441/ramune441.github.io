@@ -5,7 +5,14 @@ package-lock.json
 record.mjs
 record-store.mjs
 record-*.mjs
+add-audio-*.mjs
 _frames/
 _frames_guide/
 _probe/
+
+# BGM 音源（ライセンス品。公開リポジトリに置かない）
+mp3/
+
+# BGM 前の中間動画（audio/ 配下の完成版から作り直せる）
+ripen/images/promo/promo-*.mp4
 

@@ -7,18 +7,19 @@
 <title>Ripen Promo Video</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-family:'Inter','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
 
 :root{
-  /* phone-interior tokens = unchanged（端末モックはダーク固定のまま） */
-  --night:#0A0A0A;--soil:#12241A;--sf:#161616;--sf2:#1E1E1E;--sf3:#252525;
-  --green:#34C759;--greenD:#2E9E4F;--greenA:#69F0AE;
-  --gold:#FFD60A;--amber:#FFC107;
-  --coral:#FF9F8E;--lav:#C9A7FF;--teal:#64FFDA;--blue:#40C4FF;--orange:#FF6E40;
-  --t1:#FFFFFF;--t2:rgba(255,255,255,0.70);--t3:rgba(255,255,255,0.54);--t4:rgba(255,255,255,0.38);
-  --line:rgba(255,255,255,0.10);
+  /* phone-interior tokens = ライト「昼の庭」（theme.dart light()／store-images 準拠） */
+  --night:#F4F7EE;--soil:#ECF1E6;--sf:#FFFFFF;--sf2:#ECF1E6;--sf3:#E3EBDC;
+  --green:#1E8A47;--greenD:#1E8A47;--greenA:#1E8A47;
+  --gold:#C08A12;--amber:#C08A12;
+  --coral:#FF9F8E;--lav:#8E6BC9;--teal:#00897B;--blue:#1A73E8;--orange:#C25E00;
+  --t1:#13241A;--t2:rgba(19,36,26,0.72);--t3:rgba(19,36,26,0.55);--t4:rgba(19,36,26,0.40);
+  --line:rgba(19,36,26,0.10);
   /* light scene-chrome tokens */
   --green-ink:#0C7A35;--gold-ink:#B26B00;
   --ink:#13241A;--ink2:rgba(19,36,26,0.66);--ink3:rgba(19,36,26,0.45);
@@ -104,40 +105,40 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 }
 .phone.left{left:168px}
 .phone.right{left:1286px}
-.phone-bg{position:absolute;inset:0;background:radial-gradient(90% 50% at 50% 0%,rgba(52,199,89,.08),transparent 60%),linear-gradient(180deg,#0C0C0C,#0A0A0A)}
-.sbar{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;font-size:14px;font-weight:600;color:#fff;flex-shrink:0;position:relative;z-index:2}
+.phone-bg{position:absolute;inset:0;background:radial-gradient(90% 55% at 50% 0%,rgba(30,138,71,.07),transparent 60%),linear-gradient(180deg,#F8FBF3 0%,#F4F7EE 100%)}
+.sbar{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;font-size:14px;font-weight:600;color:var(--t1);flex-shrink:0;position:relative;z-index:2}
 .screen{position:absolute;top:36px;left:0;right:0;bottom:0;display:none;flex-direction:column;z-index:2}
 .screen.show{display:flex}
 
 /* app bar */
 .atop{padding:18px 22px 12px;display:flex;align-items:center;gap:11px;flex-shrink:0}
 .atop-logo{width:30px;height:30px;flex-shrink:0}
-.atop-name{font-size:22px;font-weight:800;color:#fff;flex:1;letter-spacing:.2px}
+.atop-name{font-size:22px;font-weight:800;color:var(--t1);flex:1;letter-spacing:.2px}
 .atop-ico{width:24px;height:24px;flex-shrink:0;opacity:.55}
-.atop-ico path{fill:#fff}
+.atop-ico path{fill:#13241A}
 
 /* focus screen */
 .fwrap2{flex:1;display:flex;flex-direction:column;align-items:center;padding:6px 34px 26px}
 .cam{width:108px;height:108px;border-radius:50%;border:4px solid var(--greenA);padding:4px;margin-top:10px}
 .cam-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;background:radial-gradient(60% 55% at 50% 38%,#3a3f4a 0%,#20242c 60%,#14171d 100%)}
 .cam-inner>svg{width:100%;height:100%;opacity:.5}
-.cam-bracket{position:absolute;left:26%;top:18%;width:48%;height:52%;border:2.5px solid #69F0AE;border-radius:10px;box-shadow:0 0 12px rgba(105,240,174,.5)}
+.cam-bracket{position:absolute;left:26%;top:18%;width:48%;height:52%;border:2.5px solid #34C759;border-radius:10px;box-shadow:0 0 12px rgba(52,199,89,.5)}
 .present{display:flex;align-items:center;gap:8px;margin-top:13px}
 .present .dot{width:11px;height:11px;border-radius:50%;background:var(--greenA);box-shadow:0 0 10px var(--greenA)}
 .present span{font-size:17px;color:var(--greenA);font-weight:600}
 .ring-wrap{position:relative;width:268px;height:268px;margin:18px 0 8px}
 .ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .ring-left{font-size:16px;color:var(--t3)}
-.ring-time{font-size:60px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:1px}
+.ring-time{font-size:60px;font-weight:800;color:var(--t1);line-height:1.05;letter-spacing:1px}
 .ring-goal{font-size:16px;color:var(--t2);margin-top:6px}
 .ring-done{font-size:42px;font-weight:900;color:var(--greenA);line-height:1.1}
 .chip{display:inline-flex;align-items:center;gap:8px;background:var(--sf2);border-radius:999px;padding:9px 18px;font-size:17px;font-weight:700;color:var(--greenA)}
 .chip svg{width:19px;height:19px}
-.harvest-toast{display:flex;align-items:center;gap:13px;background:linear-gradient(135deg,rgba(105,240,174,.16),rgba(52,199,89,.08));border:1.5px solid rgba(105,240,174,.45);border-radius:18px;padding:16px 20px;width:100%;margin-top:4px}
-.harvest-toast .ht-ico{width:42px;height:42px;border-radius:12px;background:rgba(105,240,174,.18);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.harvest-toast .ht-t1{font-size:19px;font-weight:800;color:#fff}
+.harvest-toast{display:flex;align-items:center;gap:13px;background:linear-gradient(135deg,rgba(30,138,71,.12),rgba(30,138,71,.05));border:1.5px solid rgba(30,138,71,.35);border-radius:18px;padding:16px 20px;width:100%;margin-top:4px}
+.harvest-toast .ht-ico{width:42px;height:42px;border-radius:12px;background:rgba(30,138,71,.12);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.harvest-toast .ht-t1{font-size:19px;font-weight:800;color:var(--t1)}
 .harvest-toast .ht-t2{font-size:14px;color:var(--t2);margin-top:2px}
-.btn-fill{background:var(--green);color:#06120B;border-radius:18px;padding:17px;text-align:center;font-size:19px;font-weight:800;width:100%}
+.btn-fill{background:var(--green);color:#FFFFFF;border-radius:18px;padding:17px;text-align:center;font-size:19px;font-weight:800;width:100%}
 .txt-link{text-align:center;font-size:15px;color:var(--t4);margin-top:13px}
 .spacer{flex:1}
 
@@ -149,12 +150,12 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:17px 14px}
 .mini{display:flex;align-items:center;gap:11px}
 .mini .mi{width:26px;height:26px;flex-shrink:0}
-.mini .mv{font-size:21px;font-weight:800;color:#fff;line-height:1.1;white-space:nowrap}
+.mini .mv{font-size:21px;font-weight:800;color:var(--t1);line-height:1.1;white-space:nowrap}
 .mini .ml{font-size:12.5px;color:var(--t3);margin-top:2px;white-space:nowrap}
 .wk{flex:1;display:flex;align-items:flex-end;gap:11px;padding:6px 2px 0}
 .wk-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
-.wk-bar{width:100%;background:linear-gradient(180deg,#34C759,#2E9E4F);border-radius:6px}
-.wk-bar.hi{background:linear-gradient(180deg,#69F0AE,#34C759);box-shadow:0 0 14px rgba(105,240,174,.45)}
+.wk-bar{width:100%;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:6px}
+.wk-bar.hi{background:linear-gradient(180deg,#34C759,#1E8A47);box-shadow:0 0 12px rgba(30,138,71,.35)}
 .wk-col span{font-size:11px;color:var(--t4)}
 
 /* dial */
@@ -166,7 +167,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .blockcard{background:var(--sf);border-radius:20px;padding:16px 18px;width:100%;margin-top:16px}
 .bc-row{display:flex;align-items:center;gap:11px}
 .bc-sw{width:13px;height:13px;border-radius:4px;flex-shrink:0}
-.bc-t1{font-size:17px;font-weight:700;color:#fff}
+.bc-t1{font-size:17px;font-weight:700;color:var(--t1)}
 .bc-t2{font-size:13.5px;color:var(--t3);margin-top:3px}
 .bc-edit{width:22px;height:22px}
 .bc-dvr{height:1px;background:var(--line);margin:13px 0}
@@ -174,13 +175,13 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .bc-leg{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--t2)}
 
 /* lock screen */
-.lockwrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px;text-align:center;background:linear-gradient(180deg,#0A0A0A 0%,#10221A 100%)}
-.lock-orb{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(52,199,89,.14),transparent 70%)}
-.lock-orb svg{width:118px;height:118px;filter:drop-shadow(0 0 20px rgba(255,214,10,.32))}
-.lock-h{font-size:30px;font-weight:800;color:#fff;margin-top:24px;letter-spacing:.3px}
+.lockwrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px;text-align:center;background:linear-gradient(180deg,#F8FBF3 0%,#EAF3E2 100%)}
+.lock-orb{width:150px;height:150px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(30,138,71,.12),transparent 70%)}
+.lock-orb svg{width:118px;height:118px;filter:drop-shadow(0 3px 8px rgba(19,36,26,.15))}
+.lock-h{font-size:30px;font-weight:800;color:var(--t1);margin-top:24px;letter-spacing:.3px}
 .lock-p{font-size:18px;color:var(--t2);line-height:1.7;margin-top:14px}
-.lock-p b{color:#fff;font-weight:700}
-.lock-badge{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:rgba(255,214,10,.12);border:1.5px solid rgba(255,214,10,.32);border-radius:999px;padding:11px 22px}
+.lock-p b{color:var(--t1);font-weight:700}
+.lock-badge{display:inline-flex;align-items:center;gap:9px;margin-top:24px;background:rgba(192,138,18,.10);border:1.5px solid rgba(192,138,18,.35);border-radius:999px;padding:11px 22px}
 .lock-badge svg{width:20px;height:20px}
 .lock-badge span{font-size:17px;font-weight:800;color:var(--gold)}
 
@@ -188,7 +189,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .privcards{width:100%;display:flex;flex-direction:column;gap:14px;margin-top:26px}
 .privcard{display:flex;align-items:center;gap:15px;background:var(--sf);border-radius:18px;padding:17px 19px}
 .privcard svg{width:30px;height:30px;flex-shrink:0}
-.privcard .pc1{font-size:18px;font-weight:700;color:#fff}
+.privcard .pc1{font-size:18px;font-weight:700;color:var(--t1)}
 .privcard .pc2{font-size:14px;color:var(--t3);margin-top:2px}
 
 /* app picker (blocked apps) */
@@ -197,15 +198,15 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .ap-search svg{width:20px;height:20px;fill:var(--t4)}
 .cat{background:var(--sf);border-radius:18px;padding:4px 2px 8px}
 .cat-h{display:flex;align-items:center;gap:10px;padding:12px 16px 8px}
-.cat-h .cat-n{flex:1;font-size:16px;font-weight:800;color:#fff;letter-spacing:.2px}
+.cat-h .cat-n{flex:1;font-size:16px;font-weight:800;color:var(--t1);letter-spacing:.2px}
 .cat-h .cat-meta{font-size:13px;font-weight:800;color:var(--greenA)}
 .cat-h .cat-cv{width:18px;height:18px;fill:var(--t4);flex-shrink:0}
 .approw{display:flex;align-items:center;gap:13px;padding:8px 16px}
 .appico{width:42px;height:42px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:900;color:#fff}
 .appmeta{flex:1;min-width:0}
-.appname{font-size:17px;font-weight:600;color:#fff}
+.appname{font-size:17px;font-weight:600;color:var(--t1)}
 .appuse{font-size:13px;color:var(--t3);margin-top:1px}
-.sw{width:50px;height:30px;border-radius:999px;background:#3a3a3a;position:relative;flex-shrink:0}
+.sw{width:50px;height:30px;border-radius:999px;background:#CDD5C6;position:relative;flex-shrink:0}
 .sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.4)}
 .sw.on{background:var(--green)}
 .sw.on::after{left:23px}
@@ -244,21 +245,45 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 .fcard-txt{font-size:18px;color:var(--ink2);line-height:1.55}
 
 /* ── S6: CTA ── */
-.cta-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0E3D22 0%,#2E9E4F 55%,#34C759 100%);opacity:0;transition:opacity .6s;pointer-events:none}
+.cta-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#FBFCF9 0%,#F1F6EE 55%,#E9F3E4 100%);opacity:0;transition:opacity .6s;pointer-events:none}
 .cta-scene.show{opacity:1}
-.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 1200px 800px at 50% 30%,rgba(255,214,10,.14),transparent 60%)}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 1300px 850px at 50% 26%,rgba(30,138,71,.10),transparent 60%),radial-gradient(ellipse 900px 700px at 85% 92%,rgba(255,196,0,.10),transparent 60%)}
 .cta-inner{position:relative;display:flex;flex-direction:column;align-items:center;gap:44px}
-.cta-ttl{font-size:96px;font-weight:900;color:#fff;text-align:center;line-height:1.15;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.cta-ttl{font-size:96px;font-weight:900;color:var(--ink);text-align:center;line-height:1.15;max-width:1500px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
 .cta-ttl.show{opacity:1;transform:translateY(0)}
-.cta-ttl em{color:var(--gold);font-style:normal}
-.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border:none;border-radius:18px;padding:20px 52px;box-shadow:0 14px 50px rgba(0,0,0,.3);opacity:0;transform:translateY(18px);transition:opacity .6s .2s,transform .6s .2s}
+.cta-ttl em{color:var(--gold-ink);font-style:normal}
+.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#1E8A47;border:none;border-radius:18px;padding:20px 52px;box-shadow:0 16px 46px rgba(30,138,71,.34);opacity:0;transform:translateY(18px);transition:opacity .6s .2s,transform .6s .2s}
 .cta-btn.show{opacity:1;transform:translateY(0)}
 .cta-btn svg{width:34px;height:34px}
 .cta-btn-txt{display:flex;flex-direction:column;text-align:left}
-.cta-get{font-size:16px;color:#666;line-height:1}
-.cta-gp{font-size:32px;font-weight:700;color:#0A0A0A;line-height:1.25}
-.cta-note{font-size:28px;color:rgba(255,255,255,.82);opacity:0;transition:opacity .5s .4s}
+.cta-get{font-size:16px;color:rgba(255,255,255,.78);line-height:1}
+.cta-gp{font-size:32px;font-weight:700;color:#FFFFFF;line-height:1.25}
+.cta-note{font-size:28px;color:var(--ink2);opacity:0;transition:opacity .5s .4s}
 .cta-note.show{opacity:1}
+
+/* ── redesign: 端末は左右どちらか・文字は反対側に大きく。状況→できること→解決(なぜ使うか)を訴求 ── */
+.phone{top:90px!important;width:452px!important;height:900px!important;
+  transition:left .6s cubic-bezier(.16,1,.3,1),opacity .45s!important}
+.phone.left{left:150px!important}
+.phone.right{left:1318px!important}
+.callout,.callout.side-left,.callout.side-right{
+  top:50%!important;transform:translateY(calc(-50% + 16px))!important;
+  width:800px!important;padding:0!important;background:none!important;border:none!important;box-shadow:none!important;text-align:left!important}
+.callout.side-left{left:120px!important;right:auto!important}
+.callout.side-right{right:120px!important;left:auto!important}
+.callout.show,.callout.side-left.show,.callout.side-right.show{transform:translateY(-50%)!important}
+html[dir=rtl] .callout{text-align:right!important}
+.callout-tag{display:inline-block!important;font-size:23px!important;font-weight:800!important;letter-spacing:.03em!important;
+  color:var(--green-ink)!important;background:rgba(22,163,74,.10)!important;border:1px solid rgba(22,163,74,.30)!important;
+  border-radius:100px!important;padding:9px 24px!important;margin-bottom:22px!important}
+.callout-ttl{font-size:56px!important;line-height:1.14!important;margin:0!important;font-weight:900!important;max-width:760px!important}
+.callout-desc{display:block!important;font-size:27px!important;color:var(--ink2)!important;line-height:1.55!important;
+  margin:24px 0 0!important;max-width:720px!important}
+/* イントロの価値メッセージ（なぜ使うか＝問題→解決） */
+.ivalue{font-size:44px;font-weight:800;color:var(--ink);line-height:1.32;text-align:center;max-width:1220px;
+  opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
+.ivalue.show{opacity:1;transform:translateY(0)}
+.ivalue em{color:var(--gold-ink);font-style:normal}
 </style>
 </head>
 <body>
@@ -310,11 +335,12 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
       <span class="iburst-icon"><svg><use href="#sprout"/></svg></span>
       <span class="iburst-name">Ripen</span>
     </div>
-    <div class="itagline" id="it">Let your effort ripen.</div>
+    <div class="itagline" id="it" data-i18n="ft_tagline">Let your effort ripen.</div>
+    <div class="ivalue" id="iv" data-i18n="intro_value">"Just a peek" becomes an hour.<br>Beat it with <em>rewards</em>, not willpower.</div>
     <div class="ipills" id="ip">
-      <span class="ipill gold">Free</span>
-      <span class="ipill">Android</span>
-      <span class="ipill">On-device</span>
+      <span class="ipill gold" data-i18n="pill_free">Free</span>
+      <span class="ipill" data-i18n="pill_android">Android</span>
+      <span class="ipill" data-i18n="pill_ondevice">On-device</span>
     </div>
   </div>
 </div>
@@ -323,21 +349,21 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 <div class="scene" id="s2">
   <div class="prob-wrap">
     <div class="prob-head" id="ph2">
-      <div class="prob-eyebrow">THE PROBLEM</div>
-      <div class="prob-h">"Just a peek" turns into <em>an hour gone</em></div>
+      <div class="prob-eyebrow" data-i18n="prob_eyebrow">THE PROBLEM</div>
+      <div class="prob-h" data-i18n="prob_h">"Just a peek" turns into <em>an hour gone</em></div>
     </div>
     <div class="prob-cards" id="pc">
       <div class="prob-card bad">
-        <div class="pcard-title">😩 Willpower alone</div>
-        <div class="pitem"><span class="pitem-icon">🚫</span>Hard app bans backfire — you just turn them off</div>
-        <div class="pitem"><span class="pitem-icon">🌀</span>"One quick scroll" eats a whole hour</div>
-        <div class="pitem"><span class="pitem-icon">🔁</span>Reinstall the blocker, uninstall it again</div>
+        <div class="pcard-title" data-i18n="prob_bad_title">😩 Willpower alone</div>
+        <div class="pitem"><span class="pitem-icon">🚫</span><span data-i18n="prob_bad1">Hard app bans backfire — you just turn them off</span></div>
+        <div class="pitem"><span class="pitem-icon">🌀</span><span data-i18n="prob_bad2">"One quick scroll" eats a whole hour</span></div>
+        <div class="pitem"><span class="pitem-icon">🔁</span><span data-i18n="prob_bad3">Reinstall the blocker, uninstall it again</span></div>
       </div>
       <div class="prob-card good">
-        <div class="pcard-title good">🌱 With Ripen</div>
-        <div class="pitem good"><span class="pitem-icon">⏱️</span>Focus to <b>harvest</b> usable free time</div>
-        <div class="pitem good"><span class="pitem-icon">🎁</span>Rewards, not willpower — so it sticks</div>
-        <div class="pitem good"><span class="pitem-icon">📈</span>Watch your progress grow every day</div>
+        <div class="pcard-title good" data-i18n="prob_good_title">🌱 With Ripen</div>
+        <div class="pitem good"><span class="pitem-icon">⏱️</span><span data-i18n="prob_good1">Focus to <b>harvest</b> usable free time</span></div>
+        <div class="pitem good"><span class="pitem-icon">🎁</span><span data-i18n="prob_good2">Rewards, not willpower — so it sticks</span></div>
+        <div class="pitem good"><span class="pitem-icon">📈</span><span data-i18n="prob_good3">Watch your progress grow every day</span></div>
       </div>
     </div>
   </div>
@@ -347,33 +373,33 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 <div class="scene" id="s3">
   <div class="steps-wrap">
     <div class="steps-head" id="sh3">
-      <div class="steps-eyebrow">HOW IT WORKS</div>
-      <div class="steps-h">Focus, then <em>harvest</em></div>
+      <div class="steps-eyebrow" data-i18n="steps_eyebrow">HOW IT WORKS</div>
+      <div class="steps-h" data-i18n="steps_h">Focus, then <em>harvest</em></div>
     </div>
     <div class="steps-row">
       <div class="step-card" id="st1">
         <div class="step-num">STEP 01</div>
         <div class="step-ico">🕒</div>
-        <div class="step-ttl">Set your windows</div>
-        <div class="step-desc">Pick when to focus &amp; how<br>much time you'll earn</div>
+        <div class="step-ttl" data-i18n="step1_t">Set your windows</div>
+        <div class="step-desc" data-i18n="step1_d">Pick when to focus &amp; how<br>much time you'll earn</div>
       </div>
       <div class="step-card" id="st2">
         <div class="step-num">STEP 02</div>
         <div class="step-ico">👁️</div>
-        <div class="step-ttl">Focus, present</div>
-        <div class="step-desc">Front camera confirms you're<br>there — the timer counts down</div>
+        <div class="step-ttl" data-i18n="step2_t">Focus, present</div>
+        <div class="step-desc" data-i18n="step2_d">Front camera confirms you're<br>there — the timer counts down</div>
       </div>
       <div class="step-card" id="st3">
         <div class="step-num">STEP 03</div>
         <div class="step-ico">🌱</div>
-        <div class="step-ttl">Harvest free time</div>
-        <div class="step-desc">Finish a session → earn<br>minutes for SNS &amp; video</div>
+        <div class="step-ttl" data-i18n="step3_t">Harvest free time</div>
+        <div class="step-desc" data-i18n="step3_d">Finish a session → earn<br>minutes for SNS &amp; video</div>
       </div>
       <div class="step-card" id="st4">
         <div class="step-num">STEP 04</div>
         <div class="step-ico">🔒</div>
-        <div class="step-ttl">Lock at zero</div>
-        <div class="step-desc">Run out and target apps<br>lock gently on their own</div>
+        <div class="step-ttl" data-i18n="step4_t">Lock at zero</div>
+        <div class="step-desc" data-i18n="step4_d">Run out and target apps<br>lock gently on their own</div>
       </div>
     </div>
   </div>
@@ -387,80 +413,80 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 
     <!-- Screen A: focus running -->
     <div class="screen" id="sc-a">
-      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus</span>
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name" data-i18n="tab_focus">Focus</span>
         <svg class="atop-ico" viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h-1.5c-.41-4.41-4.12-7.86-8.63-7.86h-.32l1.43 1.43-.71.71L9.45 2.49 12.2-.26l.71.71L11.48 2.2c4.99.16 9.01 4.15 9.27 9.14M2.05 11h-1.5C.91 6.78 4.4 3.36 8.55 3.04L7.12 1.61l.71-.71L10.55 3.51 7.83 6.23l-.71-.71L8.56 4.07C4.78 4.39 1.91 7.4 1.55 11h.5z"/></svg>
       </div>
       <div class="fwrap2">
         <div class="cam"><div class="cam-inner"><svg viewBox="0 0 24 24"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div></div>
-        <div class="present"><span class="dot"></span><span>Present — counting</span></div>
+        <div class="present"><span class="dot"></span><span data-i18n="present">Present — counting</span></div>
         <div class="ring-wrap">
           <svg width="268" height="268" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
-            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round" stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(19,36,26,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#1E8A47" stroke-width="14" stroke-linecap="round" stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
           </svg>
           <div class="ring-center">
-            <div class="ring-left">Left</div>
+            <div class="ring-left" data-i18n="left">Left</div>
             <div class="ring-time">17:20</div>
-            <div class="ring-goal">Focused 8m / Goal 25m</div>
+            <div class="ring-goal" data-i18n="timer_sub">Focused 8m / Goal 25m</div>
           </div>
         </div>
-        <div class="chip"><svg><use href="#leaf1" fill="#69F0AE"/></svg>+5 min on finish</div>
+        <div class="chip"><svg><use href="#leaf1" fill="#1E8A47"/></svg><span data-i18n="chip_finish">+5 min on finish</span></div>
         <div class="spacer"></div>
-        <div class="btn-fill">⏸ Pause</div>
-        <div class="txt-link">Stop &amp; reset</div>
+        <div class="btn-fill" data-i18n="pause">⏸ Pause</div>
+        <div class="txt-link" data-i18n="stop_reset">Stop &amp; reset</div>
       </div>
     </div>
 
     <!-- Screen B: focus finished / harvested -->
     <div class="screen" id="sc-b">
-      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus</span></div>
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name" data-i18n="tab_focus">Focus</span></div>
       <div class="fwrap2">
         <div class="cam" style="border-color:var(--gold)"><div class="cam-inner" style="display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(255,214,10,.18),transparent 70%)"><svg width="70" height="70"><use href="#sprout"/></svg></div></div>
-        <div class="present"><span class="dot" style="background:var(--gold);box-shadow:0 0 10px var(--gold)"></span><span style="color:var(--gold)">Session complete!</span></div>
+        <div class="present"><span class="dot" style="background:var(--gold);box-shadow:0 0 10px var(--gold)"></span><span style="color:var(--gold)" data-i18n="session_complete">Session complete!</span></div>
         <div class="ring-wrap">
           <svg width="268" height="268" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
-            <circle cx="100" cy="100" r="86" fill="none" stroke="#69F0AE" stroke-width="14" stroke-linecap="round" stroke-dasharray="541 541" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="rgba(19,36,26,0.10)" stroke-width="14"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#1E8A47" stroke-width="14" stroke-linecap="round" stroke-dasharray="541 541" transform="rotate(-90 100 100)"/>
           </svg>
           <div class="ring-center">
             <div class="ring-done">✓ 25m</div>
-            <div class="ring-goal" style="margin-top:8px">Focus done</div>
+            <div class="ring-goal" style="margin-top:8px" data-i18n="focus_done">Focus done</div>
           </div>
         </div>
         <div class="harvest-toast">
           <div class="ht-ico">🌱</div>
-          <div><div class="ht-t1">+5 min harvested</div><div class="ht-t2">Usable time&nbsp; 18 → 23 min</div></div>
+          <div><div class="ht-t1" data-i18n="harvested_t1">+5 min harvested</div><div class="ht-t2" data-i18n="harvested_t2">Usable time&nbsp; 18 → 23 min</div></div>
         </div>
         <div class="spacer"></div>
-        <div class="btn-fill">▶ Start next session</div>
+        <div class="btn-fill" data-i18n="start_next">▶ Start next session</div>
       </div>
     </div>
 
     <!-- Screen C: dashboard -->
     <div class="screen" id="sc-c">
-      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Dashboard</span></div>
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name" data-i18n="tab_dash">Dashboard</span></div>
       <div class="dwrap">
         <div class="card">
-          <div class="card-h"><svg viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Current status</div>
+          <div class="card-h"><svg viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg><span data-i18n="cur_status">Current status</span></div>
           <div class="grid2">
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FFC107" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg><div><div class="mv" style="color:var(--amber)">23 min</div><div class="ml">Usable time</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#34C759" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><div><div class="mv">92 min</div><div class="ml">Focus today</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#69F0AE"/></svg><div><div class="mv" style="color:var(--greenA)">35 min</div><div class="ml">Earned today</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#64FFDA" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg><div><div class="mv">7</div><div class="ml">Done today</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#40C4FF" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><div><div class="mv" style="font-size:18px">3/6 left</div><div class="ml">This window</div></div></div>
-            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#FF6E40" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg><div><div class="mv" style="color:var(--orange)">14 days</div><div class="ml">Streak</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#C08A12" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg><div><div class="mv" style="color:var(--amber)" data-i18n="d_usable_v">23 min</div><div class="ml" data-i18n="usable_l">Usable time</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#1E8A47" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><div><div class="mv" data-i18n="d_focus_v">92 min</div><div class="ml" data-i18n="focus_l">Focus today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#1E8A47"/></svg><div><div class="mv" style="color:var(--greenA)" data-i18n="d_earned_v">35 min</div><div class="ml" data-i18n="earned_l">Earned today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#00897B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg><div><div class="mv" data-i18n="d_done_v">7</div><div class="ml" data-i18n="done_l">Done today</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#1A73E8" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><div><div class="mv" style="font-size:18px" data-i18n="d_win_v">3/6 left</div><div class="ml" data-i18n="win_l">This window</div></div></div>
+            <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#C25E00" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg><div><div class="mv" style="color:var(--orange)" data-i18n="d_streak_v">14 days</div><div class="ml" data-i18n="streak_l">Streak</div></div></div>
           </div>
         </div>
         <div class="card" style="flex:1;display:flex;flex-direction:column">
-          <div class="card-h"><svg viewBox="0 0 24 24"><path fill="#34C759" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Focus this week</div>
+          <div class="card-h"><svg viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg><span data-i18n="week_title">Focus this week</span></div>
           <div class="wk">
-            <div class="wk-col"><div class="wk-bar" style="height:54px"></div><span>M</span></div>
-            <div class="wk-col"><div class="wk-bar" style="height:82px"></div><span>T</span></div>
-            <div class="wk-col"><div class="wk-bar" style="height:44px"></div><span>W</span></div>
-            <div class="wk-col"><div class="wk-bar" style="height:98px"></div><span>T</span></div>
-            <div class="wk-col"><div class="wk-bar" style="height:70px"></div><span>F</span></div>
-            <div class="wk-col"><div class="wk-bar hi" style="height:118px"></div><span style="color:var(--greenA)">S</span></div>
-            <div class="wk-col"><div class="wk-bar" style="height:62px"></div><span>S</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:54px"></div><span class="wd">M</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:82px"></div><span class="wd">T</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:44px"></div><span class="wd">W</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:98px"></div><span class="wd">T</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:70px"></div><span class="wd">F</span></div>
+            <div class="wk-col"><div class="wk-bar hi" style="height:118px"></div><span class="wd" style="color:var(--greenA)">S</span></div>
+            <div class="wk-col"><div class="wk-bar" style="height:62px"></div><span class="wd">S</span></div>
           </div>
         </div>
       </div>
@@ -468,39 +494,65 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 
     <!-- Screen D: focus windows (24h dial) -->
     <div class="screen" id="sc-d">
-      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus windows</span>
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name" data-i18n="tab_windows">Focus windows</span>
         <svg class="atop-ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
       </div>
       <div class="dialwrap">
-        <div class="dial">
-          <svg width="286" height="286" viewBox="0 0 220 220">
-            <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="14"/>
-            <g stroke="rgba(255,255,255,0.28)" stroke-width="1.6">
-              <line x1="110" y1="22" x2="110" y2="30"/><line x1="198" y1="110" x2="190" y2="110"/>
-              <line x1="110" y1="198" x2="110" y2="190"/><line x1="22" y1="110" x2="30" y2="110"/>
+        <!-- weekly schedule grid (列=月〜日 × 縦=24h、色帯=時間帯ブロック) = 実装(WeekScheduleGrid) 準拠 -->
+        <div style="width:100%;margin-top:6px;">
+          <svg viewBox="0 0 388 236" width="100%" style="display:block;">
+            <!-- today column bg (Wed) -->
+            <rect x="128" y="20" width="52" height="216" fill="rgba(30,138,71,0.07)"/>
+            <!-- grid lines -->
+            <g stroke="rgba(19,36,26,0.11)" stroke-width="1">
+              <line x1="24" y1="20" x2="388" y2="20"/><line x1="24" y1="74" x2="388" y2="74"/>
+              <line x1="24" y1="128" x2="388" y2="128"/><line x1="24" y1="182" x2="388" y2="182"/>
+              <line x1="24" y1="236" x2="388" y2="236"/>
+              <line x1="24" y1="20" x2="24" y2="236"/><line x1="76" y1="20" x2="76" y2="236"/>
+              <line x1="128" y1="20" x2="128" y2="236"/><line x1="180" y1="20" x2="180" y2="236"/>
+              <line x1="232" y1="20" x2="232" y2="236"/><line x1="284" y1="20" x2="284" y2="236"/>
+              <line x1="336" y1="20" x2="336" y2="236"/><line x1="388" y1="20" x2="388" y2="236"/>
             </g>
-            <text x="110" y="46" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">0</text>
-            <text x="176" y="114" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">6</text>
-            <text x="110" y="180" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">12</text>
-            <text x="44" y="114" fill="rgba(255,255,255,0.5)" font-size="11" text-anchor="middle" font-family="Inter">18</text>
-            <path d="M 190 110 A 80 80 0 0 1 179.28 150" fill="none" stroke="#FFCA28" stroke-width="14" stroke-linecap="round"/>
-            <path d="M 99.56 189.3 A 80 80 0 0 1 89.3 187.3" fill="none" stroke="#66BB6A" stroke-width="14" stroke-linecap="round"/>
-            <path d="M 53.43 53.43 A 80 80 0 0 1 99.56 30.7" fill="none" stroke="#42A5F5" stroke-width="14" stroke-linecap="round"/>
-            <circle cx="190" cy="110" r="9" fill="#000"/><circle cx="190" cy="110" r="8" fill="#FFCA28"/><circle cx="190" cy="110" r="3.5" fill="#000"/>
-            <circle cx="179.28" cy="150" r="9" fill="#000"/><circle cx="179.28" cy="150" r="8" fill="#FFCA28"/><circle cx="179.28" cy="150" r="3.5" fill="#000"/>
+            <!-- hour labels -->
+            <g fill="rgba(19,36,26,0.5)" font-size="11" font-family="Inter" text-anchor="end">
+              <text x="20" y="24">0</text><text x="20" y="78">6</text><text x="20" y="132">12</text>
+              <text x="20" y="186">18</text><text x="20" y="234">24</text>
+            </g>
+            <!-- weekday labels (Wed=今日を強調) -->
+            <g fill="rgba(19,36,26,0.5)" font-size="12" font-family="Inter" text-anchor="middle">
+              <text class="gday" x="50" y="14">M</text><text class="gday" x="102" y="14">T</text>
+              <text class="gday" x="154" y="14" fill="#1E8A47" font-weight="bold">W</text>
+              <text class="gday" x="206" y="14">T</text><text class="gday" x="258" y="14">F</text>
+              <text class="gday" x="310" y="14">S</text><text class="gday" x="362" y="14">S</text>
+            </g>
+            <!-- Morning Focus 06:00–08:00 (amber, Mon–Fri) -->
+            <g fill="#FFCA28" fill-opacity="0.92">
+              <rect x="27" y="74" width="46" height="18" rx="3"/><rect x="79" y="74" width="46" height="18" rx="3"/>
+              <rect x="131" y="74" width="46" height="18" rx="3"/><rect x="183" y="74" width="46" height="18" rx="3"/>
+              <rect x="235" y="74" width="46" height="18" rx="3"/>
+            </g>
+            <!-- Lunch 12:00–13:00 (green, Sat–Sun) -->
+            <g fill="#66BB6A" fill-opacity="0.92">
+              <rect x="287" y="128" width="46" height="9" rx="3"/><rect x="339" y="128" width="46" height="9" rx="3"/>
+            </g>
+            <!-- Evening Study 21:00–23:00 (blue, Mon–Fri) -->
+            <g fill="#42A5F5" fill-opacity="0.92">
+              <rect x="27" y="209" width="46" height="18" rx="3"/><rect x="79" y="209" width="46" height="18" rx="3"/>
+              <rect x="131" y="209" width="46" height="18" rx="3"/><rect x="183" y="209" width="46" height="18" rx="3"/>
+              <rect x="235" y="209" width="46" height="18" rx="3"/>
+            </g>
           </svg>
-          <div class="dial-center"><div class="dial-c1">Editing</div><div class="dial-c2">3 windows</div></div>
         </div>
         <div class="blockcard">
           <div class="bc-row">
             <span class="bc-sw" style="background:#FFCA28"></span>
-            <div style="flex:1"><div class="bc-t1">Morning Focus　06:00–08:00</div><div class="bc-t2">Focus 25m → 5m · max 6 · 4 blocked</div></div>
+            <div style="flex:1"><div class="bc-t1"><span data-i18n="mor_name">Morning Focus</span>　<span data-i18n="mor_time">06:00–08:00</span></div><div class="bc-t2" data-i18n="mor_sub">Focus 25m → 5m · max 6 · 4 blocked</div></div>
             <svg class="bc-edit" viewBox="0 0 24 24"><path fill="rgba(255,255,255,0.4)" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>
           </div>
           <div class="bc-dvr"></div>
           <div class="bc-legend">
-            <div class="bc-leg"><span class="bc-sw" style="background:#66BB6A"></span>Lunch</div>
-            <div class="bc-leg"><span class="bc-sw" style="background:#42A5F5"></span>Evening Study</div>
+            <div class="bc-leg"><span class="bc-sw" style="background:#66BB6A"></span><span data-i18n="lunch">Lunch</span></div>
+            <div class="bc-leg"><span class="bc-sw" style="background:#42A5F5"></span><span data-i18n="evening">Evening Study</span></div>
           </div>
         </div>
       </div>
@@ -508,25 +560,25 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 
     <!-- Screen G: choose blocked apps -->
     <div class="screen" id="sc-g">
-      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Blocked apps</span>
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name" data-i18n="tab_blocked">Blocked apps</span>
         <svg class="atop-ico" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14z"/></svg>
       </div>
       <div class="applist">
-        <div class="ap-search"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14z"/></svg>Search apps</div>
+        <div class="ap-search"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14z"/></svg><span data-i18n="search_apps">Search apps</span></div>
         <div class="cat">
-          <div class="cat-h"><span class="cat-n">Social</span><span class="cat-meta">3 selected</span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
-          <div class="approw"><span class="appico" style="background:linear-gradient(135deg,#f9a02c,#dd2a7b 55%,#8134af)">📷</span><div class="appmeta"><div class="appname">Instagram</div><div class="appuse">Today 52m</div></div><span class="sw on"></span></div>
-          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c">𝕏</span><div class="appmeta"><div class="appname">X</div><div class="appuse">Today 34m</div></div><span class="sw on"></span></div>
-          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c">🎵</span><div class="appmeta"><div class="appname">TikTok</div><div class="appuse">Today 1h 8m</div></div><span class="sw on"></span></div>
+          <div class="cat-h"><span class="cat-n" data-i18n="cat_social">Social</span><span class="cat-meta"><span data-i18n="n_selected3">3 selected</span></span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="approw"><span class="appico" style="background:linear-gradient(135deg,#f9a02c,#dd2a7b 55%,#8134af)">📷</span><div class="appmeta"><div class="appname">Instagram</div><div class="appuse" data-i18n="use_52">Today 52m</div></div><span class="sw on"></span></div>
+          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c">𝕏</span><div class="appmeta"><div class="appname">X</div><div class="appuse" data-i18n="use_34">Today 34m</div></div><span class="sw on"></span></div>
+          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c">🎵</span><div class="appmeta"><div class="appname">TikTok</div><div class="appuse" data-i18n="use_68">Today 1h 8m</div></div><span class="sw on"></span></div>
         </div>
         <div class="cat">
-          <div class="cat-h"><span class="cat-n">Video</span><span class="cat-meta">2 selected</span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
-          <div class="approw"><span class="appico" style="background:#FF0000">▶</span><div class="appmeta"><div class="appname">YouTube</div><div class="appuse">Today 41m</div></div><span class="sw on"></span></div>
-          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c;color:#E50914">N</span><div class="appmeta"><div class="appname">Netflix</div><div class="appuse">Today 22m</div></div><span class="sw on"></span></div>
+          <div class="cat-h"><span class="cat-n" data-i18n="cat_video">Video</span><span class="cat-meta"><span data-i18n="n_selected2">2 selected</span></span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="approw"><span class="appico" style="background:#FF0000">▶</span><div class="appmeta"><div class="appname">YouTube</div><div class="appuse" data-i18n="use_41">Today 41m</div></div><span class="sw on"></span></div>
+          <div class="approw"><span class="appico" style="background:#0A0A0A;border:1px solid #2c2c2c;color:#E50914">N</span><div class="appmeta"><div class="appname">Netflix</div><div class="appuse" data-i18n="use_22">Today 22m</div></div><span class="sw on"></span></div>
         </div>
         <div class="cat">
-          <div class="cat-h"><span class="cat-n">Games</span><span class="cat-meta">0 selected</span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
-          <div class="approw"><span class="appico" style="background:#5b3df5">🎮</span><div class="appmeta"><div class="appname">Puzzle Quest</div><div class="appuse">Today 9m</div></div><span class="sw"></span></div>
+          <div class="cat-h"><span class="cat-n" data-i18n="cat_games">Games</span><span class="cat-meta"><span data-i18n="n_selected0">0 selected</span></span><svg class="cat-cv" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg></div>
+          <div class="approw"><span class="appico" style="background:#5b3df5">🎮</span><div class="appmeta"><div class="appname">Puzzle Quest</div><div class="appuse" data-i18n="use_9">Today 9m</div></div><span class="sw"></span></div>
         </div>
       </div>
     </div>
@@ -535,33 +587,33 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
     <div class="screen" id="sc-e">
       <div class="lockwrap">
         <div class="lock-orb"><svg><use href="#sprout"/></svg></div>
-        <div class="lock-h">Time to focus</div>
-        <div class="lock-p"><b>"Instagram"</b> is locked right now.<br>Focus to ripen some usable time.</div>
-        <div class="lock-badge"><svg viewBox="0 0 24 24"><path fill="#FFD60A" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg><span>Usable time 0 min</span></div>
+        <div class="lock-h" data-i18n="b_title">Time to focus</div>
+        <div class="lock-p" data-i18n="b_body"><b>"Instagram"</b> is locked right now.<br>Focus to ripen some usable time.</div>
+        <div class="lock-badge"><svg viewBox="0 0 24 24"><path fill="#C08A12" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg><span data-i18n="b_chip">Usable time 0 min</span></div>
         <div class="spacer" style="flex:0"></div>
-        <div class="btn-fill" style="margin-top:30px">▶ Focus &amp; ripen</div>
-        <div class="txt-link">Back to home</div>
+        <div class="btn-fill" style="margin-top:30px" data-i18n="b_btn">▶ Focus &amp; ripen</div>
+        <div class="txt-link" data-i18n="b_home">Back to home</div>
       </div>
     </div>
 
     <!-- Screen F: privacy / on-device -->
     <div class="screen" id="sc-f">
-      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name">Focus</span></div>
+      <div class="atop"><svg class="atop-logo"><use href="#sprout"/></svg><span class="atop-name" data-i18n="tab_focus">Focus</span></div>
       <div class="fwrap2">
         <div class="cam"><div class="cam-inner"><svg viewBox="0 0 24 24"><path fill="#aeb6c2" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg><div class="cam-bracket"></div></div></div>
-        <div class="present"><span class="dot"></span><span>Face detected — judged on-device</span></div>
+        <div class="present"><span class="dot"></span><span data-i18n="face_det">Face detected — judged on-device</span></div>
         <div class="privcards">
           <div class="privcard">
-            <svg viewBox="0 0 24 24"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
-            <div><div class="pc1">On-device processing</div><div class="pc2">Judged locally with Google ML Kit</div></div>
+            <svg viewBox="0 0 24 24"><path fill="#1E8A47" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div class="pc1" data-i18n="pc1_t">On-device processing</div><div class="pc2" data-i18n="pc1_s">Judged locally with Google ML Kit</div></div>
           </div>
           <div class="privcard">
-            <svg viewBox="0 0 24 24"><path fill="#69F0AE" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
-            <div><div class="pc1">No image saved or sent</div><div class="pc2">Only "were you present" is logged</div></div>
+            <svg viewBox="0 0 24 24"><path fill="#1E8A47" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
+            <div><div class="pc1" data-i18n="pc2_t">No image saved or sent</div><div class="pc2" data-i18n="pc2_s">Only "were you present" is logged</div></div>
           </div>
         </div>
         <div class="spacer"></div>
-        <div class="txt-link">Camera is used only to confirm presence</div>
+        <div class="txt-link" data-i18n="cam_note">Camera is used only to confirm presence</div>
       </div>
     </div>
   </div><!-- /phone -->
@@ -569,53 +621,53 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
   <!-- Callouts -->
   <!-- co1: Demo1 phone=right → callout left -->
   <div class="callout side-left" id="co1">
-    <div class="callout-tag">DEMO 01 — Reward Loop</div>
-    <div class="callout-ttl">Focus to <em>harvest</em><br>your free time</div>
-    <div class="callout-desc">The timer runs only while you're present. Finish a session → earn minutes for SNS &amp; video.</div>
+    <div class="callout-tag" data-i18n="co1_tag">When you can't put the phone down</div>
+    <div class="callout-ttl" data-i18n="co1_ttl">Focus first — <em>then</em> scroll</div>
+    <div class="callout-desc" data-i18n="co1_desc">Finish a focus session and earn usable minutes for social &amp; video apps.</div>
   </div>
   <!-- co2: Demo2 phone=left → callout right -->
   <div class="callout side-right" id="co2">
-    <div class="callout-tag">DEMO 02 — Dashboard</div>
-    <div class="callout-ttl">Progress that<br>keeps you going</div>
-    <div class="callout-desc">Usable time, focus today, streak &amp; weekly trends — all at a glance. Earned vs. spent, made visible.</div>
+    <div class="callout-tag" data-i18n="co2_tag">Not sure it'll stick?</div>
+    <div class="callout-ttl" data-i18n="co2_ttl">Watch your progress <em>add up</em></div>
+    <div class="callout-desc" data-i18n="co2_desc">Usable time, focus today, streak &amp; weekly trends — all at a glance.</div>
   </div>
   <!-- co3: Demo3 phone=right → callout left -->
   <div class="callout side-left" id="co3">
-    <div class="callout-tag">DEMO 03 — Time Windows</div>
-    <div class="callout-ttl">Your rules,<br>per <em>time of day</em></div>
-    <div class="callout-desc">Drag on the 24-hour dial. Set a focus goal, usable minutes, rounds &amp; blocked apps per window.</div>
+    <div class="callout-tag" data-i18n="co3_tag">Study by day, relax at night</div>
+    <div class="callout-ttl" data-i18n="co3_ttl">Different rules <em>per time of day</em></div>
+    <div class="callout-desc" data-i18n="co3_desc">Paint the weekly grid — set a goal &amp; blocked apps for each window.</div>
   </div>
   <!-- co6: Demo4 phone=left → callout right -->
   <div class="callout side-right" id="co6">
-    <div class="callout-tag">DEMO 04 — Blocked Apps</div>
-    <div class="callout-ttl">Pick the apps<br>to <em>put on hold</em></div>
-    <div class="callout-desc">Choose which SNS, video &amp; game apps to restrict — by category, per window. Everything else stays free.</div>
+    <div class="callout-tag" data-i18n="co4_tag">Don't want to block everything</div>
+    <div class="callout-ttl" data-i18n="co4_ttl">Pause <em>only</em> the apps you pick</div>
+    <div class="callout-desc" data-i18n="co4_desc">Choose social, video &amp; games by category. Everything else stays free.</div>
   </div>
   <!-- co4: Demo5 phone=right → callout left -->
   <div class="callout side-left" id="co4">
-    <div class="callout-tag">DEMO 05 — Gentle Lock</div>
-    <div class="callout-ttl">At zero, it<br><em>locks gently</em></div>
-    <div class="callout-desc">Spend a window's time and the apps you chose lock automatically. Distractions lock during focus, too.</div>
+    <div class="callout-tag" data-i18n="co5_tag">Out of time, still tapping the icon</div>
+    <div class="callout-ttl" data-i18n="co5_ttl">At zero, it <em>locks itself</em></div>
+    <div class="callout-desc" data-i18n="co5_desc">Spent apps lock automatically — focus again to unlock them.</div>
   </div>
   <!-- co5: Demo6 phone=left → callout right -->
   <div class="callout side-right" id="co5">
-    <div class="callout-tag">DEMO 06 — Privacy First</div>
-    <div class="callout-ttl">On-device.<br>Nothing leaves your phone</div>
-    <div class="callout-desc">The camera only checks "present or not." No image is ever saved or sent to the cloud.</div>
+    <div class="callout-tag" data-i18n="co6_tag">You can't fake it</div>
+    <div class="callout-ttl" data-i18n="co6_ttl">The camera <em>keeps you honest</em></div>
+    <div class="callout-desc" data-i18n="co6_desc">The timer moves only while you're present — real focus, no cheating. All on-device; no image saved or sent.</div>
   </div>
 </div><!-- /phone-stage -->
 
 <!-- S5: FEATURES -->
 <div class="feat-scene" id="s5">
   <div class="fwrap">
-    <div class="fhead" id="fh"><span class="fhead-lbl">FEATURES</span><h2>Everything to make it <em>stick</em></h2></div>
+    <div class="fhead" id="fh"><span class="fhead-lbl" data-i18n="feat_lbl">FEATURES</span><h2 data-i18n="feat_h">Everything to make it <em>stick</em></h2></div>
     <div class="fgrid">
-      <div class="fcard" id="fc1"><div class="fcard-ico">🌱</div><div class="fcard-ttl">Reward Loop</div><div class="fcard-txt">Finish focus → harvest usable time for SNS &amp; video</div></div>
-      <div class="fcard" id="fc2"><div class="fcard-ico">👁️</div><div class="fcard-ttl">On-device Presence</div><div class="fcard-txt">Front camera checks presence — nothing saved or sent</div></div>
-      <div class="fcard" id="fc3"><div class="fcard-ico">🕒</div><div class="fcard-ttl">Time Windows</div><div class="fcard-txt">Different goals, rewards &amp; blocked apps per time of day</div></div>
-      <div class="fcard" id="fc4"><div class="fcard-ico">🎁</div><div class="fcard-ttl">Pre-leisure</div><div class="fcard-txt">Free minutes the moment a window starts</div></div>
-      <div class="fcard" id="fc5"><div class="fcard-ico">🔒</div><div class="fcard-ttl">Setting Lock</div><div class="fcard-txt">A cooldown stops you from loosening your own rules</div></div>
-      <div class="fcard" id="fc6"><div class="fcard-ico">📊</div><div class="fcard-ttl">Analytics</div><div class="fcard-txt">Trends, focus calendar &amp; your best hours to focus</div></div>
+      <div class="fcard" id="fc1"><div class="fcard-ico">🌱</div><div class="fcard-ttl" data-i18n="feat1_t">Reward Loop</div><div class="fcard-txt" data-i18n="feat1_d">Finish focus → harvest usable time for SNS &amp; video</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">👁️</div><div class="fcard-ttl" data-i18n="feat2_t">On-device Presence</div><div class="fcard-txt" data-i18n="feat2_d">Front camera checks presence — nothing saved or sent</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">🕒</div><div class="fcard-ttl" data-i18n="feat3_t">Time Windows</div><div class="fcard-txt" data-i18n="feat3_d">Different goals, rewards &amp; blocked apps per time of day</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico">🎁</div><div class="fcard-ttl" data-i18n="feat4_t">Pre-leisure</div><div class="fcard-txt" data-i18n="feat4_d">Free minutes the moment a window starts</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">🔒</div><div class="fcard-ttl" data-i18n="feat5_t">Setting Lock</div><div class="fcard-txt" data-i18n="feat5_d">A cooldown stops you from loosening your own rules</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico">📊</div><div class="fcard-ttl" data-i18n="feat6_t">Analytics</div><div class="fcard-txt" data-i18n="feat6_d">Trends, focus calendar &amp; your best hours to focus</div></div>
     </div>
   </div>
 </div>
@@ -624,15 +676,48 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#FBFCF9;font-fam
 <div class="cta-scene" id="s6">
   <div class="cta-glow"></div>
   <div class="cta-inner">
-    <div class="cta-ttl" id="ct">Let your effort ripen.<br><em>Starting today.</em></div>
+    <div class="cta-ttl" id="ct" data-i18n="cta_ttl">Let your effort ripen.<br><em>Starting today.</em></div>
     <button class="cta-btn" id="cb">
-      <svg viewBox="0 0 24 24" fill="#0A0A0A"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
-      <div class="cta-btn-txt"><span class="cta-get">GET IT ON</span><span class="cta-gp">Google Play</span></div>
+      <svg viewBox="0 0 24 24" fill="#FFFFFF"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+      <div class="cta-btn-txt"><span class="cta-get" data-i18n="cta_get">GET IT ON</span><span class="cta-gp">Google Play</span></div>
     </button>
-    <div class="cta-note" id="cn">Free · Android 8.0+ · On-device · No account</div>
+    <div class="cta-note" id="cn" data-i18n="cta_note">Free · Android 8.0+ · On-device · No account</div>
   </div>
 </div>
 
+<!-- i18n: ?lang=xx で全テキストを差し替え。共有UI語=store-images-i18n.js / 宣伝文=promo-i18n.js。既定(en)はHTMLのまま -->
+<script src="store-images-i18n.js"></script>
+<script src="promo-i18n.js"></script>
+<script>
+(function () {
+  var lang = new URLSearchParams(location.search).get('lang') || 'en';
+  var shared = (window.STORE_I18N && window.STORE_I18N[lang]) || null;
+  var promo = (window.PROMO_I18N && window.PROMO_I18N[lang]) || null;
+  if (!shared && !promo) return;
+  var dict = Object.assign({}, shared || {}, promo || {});
+  document.documentElement.setAttribute('lang', lang);
+  if (lang === 'ar') document.documentElement.setAttribute('dir', 'rtl');
+  var fam = {
+    ja: "'Inter','Noto Sans JP',sans-serif", ko: "'Inter','Noto Sans KR',sans-serif",
+    zh: "'Inter','Noto Sans SC',sans-serif", hi: "'Inter','Noto Sans Devanagari',sans-serif",
+    ar: "'Noto Sans Arabic','Inter',sans-serif"
+  };
+  if (fam[lang]) document.body.style.fontFamily = fam[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n');
+    if (dict[k] != null) el.innerHTML = dict[k];
+  });
+  if (dict.wd) {
+    var wd = dict.wd.split('|');
+    var fill = function (sel) {
+      var n = 0;
+      document.querySelectorAll(sel).forEach(function (el) { if (wd[n] != null) el.textContent = wd[n]; n++; });
+    };
+    fill('.wk .wd');   // 週次チャート(sc-c)
+    fill('.gday');     // 週間グリッド(sc-d)
+  }
+})();
+</script>
 <script>
 const $=id=>document.getElementById(id);
 let T=[],t0=0,idx=0,tmr=null;
@@ -649,7 +734,7 @@ function reset(){
   ['s1','s2','s3'].forEach(id=>$(id).classList.remove('show'));
   $('s5').classList.remove('show');
   $('s6').classList.remove('show');
-  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3','st4'].forEach(id=>$(id).classList.remove('show'));
+  ['ib','it','iv','ip','ph2','pc','sh3','st1','st2','st3','st4'].forEach(id=>$(id).classList.remove('show'));
   ['fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn'].forEach(id=>$(id).classList.remove('show'));
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('show'));
   hideCos();
@@ -658,83 +743,56 @@ function reset(){
 function buildTimeline(){
   let t=0;
 
-  // S1: INTRO 0–2000 (2s)
+  // S1 イントロ: ロゴ→タグライン→価値メッセージ（なぜ使うか＝問題→解決）(3.0s)
   at(t,()=>$('s1').classList.add('show'));
-  at(t+100,()=>$('ib').classList.add('show'));
-  at(t+500,()=>$('it').classList.add('show'));
-  at(t+900,()=>$('ip').classList.add('show'));
-  at(t+1800,()=>$('s1').classList.remove('show'));
-  t+=2000;
-
-  // S2: PROBLEM 2000–6500 (4.5s)
-  at(t,()=>$('s2').classList.add('show'));
-  at(t+150,()=>$('ph2').classList.add('show'));
-  at(t+550,()=>$('pc').classList.add('show'));
-  at(t+4200,()=>$('s2').classList.remove('show'));
-  t+=4500;
-
-  // S3: STEPS 6500–9500 (3s)
-  at(t,()=>$('s3').classList.add('show'));
-  at(t+150,()=>$('sh3').classList.add('show'));
-  at(t+450,()=>$('st1').classList.add('show'));
-  at(t+700,()=>$('st2').classList.add('show'));
-  at(t+950,()=>$('st3').classList.add('show'));
-  at(t+1200,()=>$('st4').classList.add('show'));
-  at(t+2800,()=>$('s3').classList.remove('show'));
+  at(t+80,()=>$('ib').classList.add('show'));
+  at(t+380,()=>$('it').classList.add('show'));
+  at(t+760,()=>$('iv').classList.add('show'));
+  at(t+1300,()=>$('ip').classList.add('show'));
+  at(t+2750,()=>$('s1').classList.remove('show'));
   t+=3000;
 
-  // S4 DEMO
+  // 実機画面プレゼン: 端末は左右交互・文字は反対側に大きく（各機能を使い場面で見せる）
 
-  // Demo 1: focus running → harvested (4.5s)
+  // 1: コア＝集中して自由時間を収穫（端末右／文字左。動→完了→収穫。5.2s）
   at(t,()=>{$('ps').classList.add('show');phonePos('right');screen('sc-a')});
   at(t+350,()=>showCo(1));
-  at(t+2300,()=>screen('sc-b'));
-  at(t+4200,()=>hideCos());
-  t+=4500;
+  at(t+2800,()=>screen('sc-b'));
+  at(t+4900,()=>hideCos());
+  t+=5200;
 
-  // Demo 2: dashboard (3.5s)
+  // 2: ダッシュボード（端末左／文字右。4s）
   at(t,()=>{phonePos('left');screen('sc-c')});
   at(t+350,()=>showCo(2));
-  at(t+3200,()=>hideCos());
-  t+=3500;
+  at(t+3700,()=>hideCos());
+  t+=4000;
 
-  // Demo 3: time windows (3.5s)
+  // 3: 時間帯設定（端末右／文字左。4s）
   at(t,()=>{phonePos('right');screen('sc-d')});
   at(t+350,()=>showCo(3));
-  at(t+3200,()=>hideCos());
-  t+=3500;
+  at(t+3700,()=>hideCos());
+  t+=4000;
 
-  // Demo 4: choose blocked apps (4s)
+  // 4: 禁止アプリを選ぶ（端末左／文字右。4s）
   at(t,()=>{phonePos('left');screen('sc-g')});
   at(t+350,()=>showCo(6));
   at(t+3700,()=>hideCos());
   t+=4000;
 
-  // Demo 5: gentle lock (3.5s)
+  // 5: やさしいロック（端末右／文字左。4s）
   at(t,()=>{phonePos('right');screen('sc-e')});
   at(t+350,()=>showCo(4));
-  at(t+3200,()=>hideCos());
-  t+=3500;
+  at(t+3700,()=>hideCos());
+  t+=4000;
 
-  // Demo 6: privacy (3.5s)
+  // 6: プライバシー（端末左／文字右。4s）
   at(t,()=>{phonePos('left');screen('sc-f')});
   at(t+350,()=>showCo(5));
-  at(t+3200,()=>{hideCos();$('ps').classList.remove('show')});
-  t+=3500;
+  at(t+3700,()=>{hideCos();$('ps').classList.remove('show')});
+  t+=4000;
 
-  // S5: FEATURES 28000–31000 (3s)
-  at(t,()=>$('s5').classList.add('show'));
-  at(t+200,()=>$('fh').classList.add('show'));
-  at(t+330,()=>$('fc1').classList.add('show'));
-  at(t+440,()=>$('fc2').classList.add('show'));
-  at(t+550,()=>$('fc3').classList.add('show'));
-  at(t+660,()=>$('fc4').classList.add('show'));
-  at(t+770,()=>$('fc5').classList.add('show'));
-  at(t+880,()=>$('fc6').classList.add('show'));
-  t+=3000;
-
-  // S6: CTA 31000–
-  at(t,()=>{$('s5').classList.remove('show');$('s6').classList.add('show')});
+  // S6: CTA
+  at(t,()=>$('s6').classList.add('show'));
   at(t+200,()=>$('ct').classList.add('show'));
   at(t+550,()=>$('cb').classList.add('show'));
   at(t+850,()=>$('cn').classList.add('show'));

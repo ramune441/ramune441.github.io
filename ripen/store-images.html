@@ -6,6 +6,7 @@
 <title>Ripen Store Images</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;700;800;900&family=Noto+Sans+Arabic:wght@400;500;700;800;900&display=swap">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
@@ -101,6 +102,14 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 .chip .lf { width:14px; height:14px; }
 
 .txt-link { text-align:center; font-size:12px; color:var(--t4); }
+
+/* ── 言語別の微調整（長い言語の見出しを少し縮める） ── */
+html[lang="de"] .p-title, html[lang="ru"] .p-title { font-size:31px; }
+html[lang="fr"] .p-title, html[lang="es"] .p-title, html[lang="pt"] .p-title, html[lang="it"] .p-title { font-size:32px; }
+html[lang="de"] .s-title, html[lang="ru"] .s-title, html[lang="fr"] .s-title { font-size:24px; }
+html[lang="es"] .s-title, html[lang="pt"] .s-title, html[lang="it"] .s-title { font-size:25px; }
+html[lang="hi"] .p-title { line-height:1.32; }
+html[lang="ar"] .p-title { line-height:1.3; }
 </style>
 </head>
 <body>
@@ -159,20 +168,20 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
       </div>
       <div>
         <div style="font-size:62px;font-weight:900;color:var(--ink);letter-spacing:-1px;line-height:1;">Ripen</div>
-        <div style="font-size:20px;font-weight:700;color:var(--green-ink);margin-top:6px;letter-spacing:0.5px;">Let your effort ripen.</div>
+        <div style="font-size:20px;font-weight:700;color:var(--green-ink);margin-top:6px;letter-spacing:0.5px;" data-i18n="ft_tagline">Let your effort ripen.</div>
       </div>
     </div>
     <div style="font-size:32px;font-weight:800;color:var(--ink);line-height:1.35;letter-spacing:-0.5px;">
-      Focus more,<br><span style="color:var(--gold-ink);">harvest more free time.</span>
+      <span data-i18n="ft_head1">Focus more,</span><br><span style="color:var(--gold-ink);" data-i18n="ft_head2">harvest more free time.</span>
     </div>
-    <div style="font-size:15px;color:var(--ink2);line-height:1.8;margin-top:16px;max-width:440px;">
+    <div style="font-size:15px;color:var(--ink2);line-height:1.8;margin-top:16px;max-width:440px;" data-i18n="ft_body">
       Willpower-only app blockers don't last. Ripen lets you "harvest" time on social
       &amp; video apps by stacking focus — a reward loop that actually sticks.
     </div>
     <div style="display:flex;gap:10px;margin-top:22px;">
-      <span class="dvr-p">On-device face check</span>
-      <span class="dvr-p">Per-window rules</span>
-      <span class="dvr-p" style="color:var(--gold-ink);border-color:rgba(178,107,0,.32);background:rgba(255,196,0,.14);">Free · Android</span>
+      <span class="dvr-p" data-i18n="ft_chip1">On-device face check</span>
+      <span class="dvr-p" data-i18n="ft_chip2">Per-window rules</span>
+      <span class="dvr-p" style="color:var(--gold-ink);border-color:rgba(178,107,0,.32);background:rgba(255,196,0,.14);" data-i18n="ft_chip3">Free · Android</span>
     </div>
   </div>
 
@@ -180,7 +189,7 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
   <div class="ph" style="width:300px;height:556px;right:62px;top:-28px;transform:rotate(4deg);">
     <div class="ph-bg"></div>
     <div class="scr">
-      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus</span>
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name" data-i18n="tab_focus">Focus</span>
         <svg class="tab-ico" viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h-1.5c-.41-4.41-4.12-7.86-8.63-7.86h-.32l1.43 1.43-.71.71L9.45 2.49 12.2-.26l.71.71L11.48 2.2c4.99.16 9.01 4.15 9.27 9.14M2.05 11h-1.5C.91 6.78 4.4 3.36 8.55 3.04L7.12 1.61l.71-.71L10.55 3.51 7.83 6.23l-.71-.71L8.56 4.07C4.78 4.39 1.91 7.4 1.55 11h.5z"/></svg>
       </div>
       <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:6px 22px 18px;">
@@ -191,18 +200,18 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
               stroke-dasharray="378 541" transform="rotate(-90 100 100)"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-            <div style="font-size:13px;color:var(--t3);">Left</div>
+            <div style="font-size:13px;color:var(--t3);" data-i18n="left">Left</div>
             <div style="font-size:42px;font-weight:800;color:var(--t1);line-height:1.05;letter-spacing:1px;">17:20</div>
-            <div style="font-size:11.5px;color:var(--t2);margin-top:4px;">Focused 8m / Goal 25m</div>
+            <div style="font-size:11.5px;color:var(--t2);margin-top:4px;" data-i18n="timer_sub">Focused 8m / Goal 25m</div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;margin-top:8px;">
           <span style="width:9px;height:9px;border-radius:50%;background:var(--greenA);"></span>
-          <span style="font-size:12.5px;color:var(--greenA);">Present — counting</span>
+          <span style="font-size:12.5px;color:var(--greenA);" data-i18n="present">Present — counting</span>
         </div>
-        <div class="chip" style="margin-top:14px;"><svg class="lf"><use href="#leaf1"/></svg>+5 min on finish</div>
+        <div class="chip" style="margin-top:14px;"><svg class="lf"><use href="#leaf1"/></svg><span data-i18n="chip_finish">+5 min on finish</span></div>
         <div style="flex:1"></div>
-        <div class="btn btn-fill" style="width:100%;">⏸ Pause</div>
+        <div class="btn btn-fill" style="width:100%;" data-i18n="pause">⏸ Pause</div>
       </div>
     </div>
   </div>
@@ -219,18 +228,18 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
   <div class="panel">
     <div class="p-emoji">🌀</div>
-    <div class="p-title">An hour gone,<br>mindlessly scrolling.</div>
-    <div class="p-sub">"Just a peek" turns into forever.<br>Willpower alone won't break the loop.</div>
-    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
-    <div class="s-title">Focus more,<br><span class="gold">harvest free time.</span></div>
-    <div class="s-sub">The front camera confirms you're present while the<br>timer counts down. Finish a session to harvest time.</div>
+    <div class="p-title" data-i18n="i1_t">An hour gone,<br>mindlessly scrolling.</div>
+    <div class="p-sub" data-i18n="i1_s">"Just a peek" turns into forever.<br>Willpower alone won't break the loop.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg><span data-i18n="with_ripen">With Ripen</span></div><div class="dvr-l"></div></div>
+    <div class="s-title"><span data-i18n="i1_h1">Focus more,</span><br><span class="gold" data-i18n="i1_h2">harvest free time.</span></div>
+    <div class="s-sub" data-i18n="i1_b">The front camera confirms you're present while the<br>timer counts down. Finish a session to harvest time.</div>
   </div>
 
   <!-- Phone: focus running -->
   <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
     <div class="ph-bg"></div>
     <div class="scr">
-      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus</span>
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name" data-i18n="tab_focus">Focus</span>
         <svg class="tab-ico" viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h-1.5c-.41-4.41-4.12-7.86-8.63-7.86h-.32l1.43 1.43-.71.71L9.45 2.49 12.2-.26l.71.71L11.48 2.2c4.99.16 9.01 4.15 9.27 9.14M2.05 11h-1.5C.91 6.78 4.4 3.36 8.55 3.04L7.12 1.61l.71-.71L10.55 3.51 7.83 6.23l-.71-.71L8.56 4.07C4.78 4.39 1.91 7.4 1.55 11h.5z"/></svg>
       </div>
       <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:4px 26px 20px;">
@@ -243,7 +252,7 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
         </div>
         <div style="display:flex;align-items:center;gap:6px;margin-top:9px;">
           <span style="width:9px;height:9px;border-radius:50%;background:var(--greenA);"></span>
-          <span style="font-size:12.5px;color:var(--greenA);">Present — counting</span>
+          <span style="font-size:12.5px;color:var(--greenA);" data-i18n="present">Present — counting</span>
         </div>
         <!-- progress ring -->
         <div style="position:relative;width:210px;height:210px;margin:14px 0 8px;">
@@ -253,15 +262,15 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
               stroke-dasharray="367 541" transform="rotate(-90 100 100)"/>
           </svg>
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;">
-            <div style="font-size:13px;color:var(--t3);">Left</div>
+            <div style="font-size:13px;color:var(--t3);" data-i18n="left">Left</div>
             <div style="font-size:44px;font-weight:800;color:var(--t1);line-height:1.05;letter-spacing:1px;">17:20</div>
-            <div style="font-size:12px;color:var(--t2);margin-top:4px;">Focused 8m / Goal 25m</div>
+            <div style="font-size:12px;color:var(--t2);margin-top:4px;" data-i18n="timer_sub">Focused 8m / Goal 25m</div>
           </div>
         </div>
-        <div class="chip"><svg class="lf"><use href="#leaf1"/></svg>+5 min on finish</div>
+        <div class="chip"><svg class="lf"><use href="#leaf1"/></svg><span data-i18n="chip_finish">+5 min on finish</span></div>
         <div style="flex:1"></div>
-        <div class="btn btn-fill" style="width:100%;">⏸ Pause</div>
-        <div class="txt-link" style="margin-top:11px;">Stop &amp; reset</div>
+        <div class="btn btn-fill" style="width:100%;" data-i18n="pause">⏸ Pause</div>
+        <div class="txt-link" style="margin-top:11px;" data-i18n="stop_reset">Stop &amp; reset</div>
       </div>
     </div>
   </div>
@@ -277,48 +286,48 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
   <div class="panel">
     <div class="p-emoji">🚫</div>
-    <div class="p-title">Hard blocks<br>never stick.</div>
-    <div class="p-sub">Plain app bans backfire — stress makes you turn<br>them off. Pure willpower has its limits.</div>
-    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
-    <div class="s-title">Not willpower —<br><span class="gold">rewards.</span></div>
-    <div class="s-sub">See the free time you've earned at a glance.<br>That growing sense of progress keeps you going.</div>
+    <div class="p-title" data-i18n="i2_t">Hard blocks<br>never stick.</div>
+    <div class="p-sub" data-i18n="i2_s">Plain app bans backfire — stress makes you turn<br>them off. Pure willpower has its limits.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg><span data-i18n="with_ripen">With Ripen</span></div><div class="dvr-l"></div></div>
+    <div class="s-title"><span data-i18n="i2_h1">Not willpower —</span><br><span class="gold" data-i18n="i2_h2">rewards.</span></div>
+    <div class="s-sub" data-i18n="i2_b">See the free time you've earned at a glance.<br>That growing sense of progress keeps you going.</div>
   </div>
 
   <!-- Phone: dashboard -->
   <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
     <div class="ph-bg"></div>
     <div class="scr">
-      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Dashboard</span></div>
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name" data-i18n="tab_dash">Dashboard</span></div>
       <div style="flex:1;padding:4px 14px 14px;display:flex;flex-direction:column;gap:12px;overflow:hidden;">
         <!-- status card -->
         <div class="card">
-          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Current status</div>
+          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg><span data-i18n="cur_status">Current status</span></div>
           <div class="grid2">
             <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#C08A12" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
-              <div class="mt"><div class="mv" style="color:var(--amber)">18 min</div><div class="ml">Usable time</div></div></div>
+              <div class="mt"><div class="mv" style="color:var(--amber)" data-i18n="usable_v">18 min</div><div class="ml" data-i18n="usable_l">Usable time</div></div></div>
             <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#1E8A47" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-              <div class="mt"><div class="mv">92 min</div><div class="ml">Focus today</div></div></div>
+              <div class="mt"><div class="mv" data-i18n="focus_v">92 min</div><div class="ml" data-i18n="focus_l">Focus today</div></div></div>
             <div class="mini"><svg class="mi" viewBox="0 0 24 24"><use href="#leaf1" fill="#1E8A47"/></svg>
-              <div class="mt"><div class="mv" style="color:var(--greenA)">30 min</div><div class="ml">Earned today</div></div></div>
+              <div class="mt"><div class="mv" style="color:var(--greenA)" data-i18n="earned_v">30 min</div><div class="ml" data-i18n="earned_l">Earned today</div></div></div>
             <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#00897B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
-              <div class="mt"><div class="mv">6</div><div class="ml">Done today</div></div></div>
+              <div class="mt"><div class="mv" data-i18n="done_v">6</div><div class="ml" data-i18n="done_l">Done today</div></div></div>
             <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#1A73E8" d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
-              <div class="mt"><div class="mv" style="font-size:15px;">2/6 left</div><div class="ml">This window</div></div></div>
+              <div class="mt"><div class="mv" style="font-size:15px;" data-i18n="win_v">2/6 left</div><div class="ml" data-i18n="win_l">This window</div></div></div>
             <div class="mini"><svg class="mi" viewBox="0 0 24 24"><path fill="#C25E00" d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-              <div class="mt"><div class="mv" style="color:var(--orange)">14 days</div><div class="ml">Streak</div></div></div>
+              <div class="mt"><div class="mv" style="color:var(--orange)" data-i18n="streak_v">14 days</div><div class="ml" data-i18n="streak_l">Streak</div></div></div>
           </div>
         </div>
         <!-- weekly chart -->
         <div class="card" style="flex:1;display:flex;flex-direction:column;">
-          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>Focus this week</div>
-          <div style="flex:1;display:flex;align-items:flex-end;gap:9px;padding:4px 2px 0;">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:48px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">M</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:70px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:38px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">W</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:84px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">T</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:62px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">F</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:96px;background:linear-gradient(180deg,#34C759,#1E8A47);border-radius:5px;box-shadow:0 0 12px rgba(30,138,71,.35);"></div><span style="font-size:9px;color:var(--greenA)">S</span></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:54px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span style="font-size:9px;color:var(--t4)">S</span></div>
+          <div class="card-h"><svg class="lf" viewBox="0 0 24 24"><path fill="#1E8A47" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg><span data-i18n="week_title">Focus this week</span></div>
+          <div class="weekbars" style="flex:1;display:flex;align-items:flex-end;gap:9px;padding:4px 2px 0;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:48px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span class="wd" style="font-size:9px;color:var(--t4)">M</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:70px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span class="wd" style="font-size:9px;color:var(--t4)">T</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:38px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span class="wd" style="font-size:9px;color:var(--t4)">W</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:84px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span class="wd" style="font-size:9px;color:var(--t4)">T</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:62px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span class="wd" style="font-size:9px;color:var(--t4)">F</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:96px;background:linear-gradient(180deg,#34C759,#1E8A47);border-radius:5px;box-shadow:0 0 12px rgba(30,138,71,.35);"></div><span class="wd" style="font-size:9px;color:var(--greenA)">S</span></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;"><div style="width:100%;height:54px;background:linear-gradient(180deg,#2FA45B,#1E8A47);border-radius:5px;"></div><span class="wd" style="font-size:9px;color:var(--t4)">S</span></div>
           </div>
         </div>
       </div>
@@ -335,74 +344,80 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
   <div class="panel">
     <div class="p-emoji">🕒</div>
-    <div class="p-title">When should<br>I focus?</div>
-    <div class="p-sub">Mornings, noon, nights — your rhythm shifts.<br>One single setting never fits them all.</div>
-    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
-    <div class="s-title">Your rules,<br>per <span class="gold">time of day.</span></div>
-    <div class="s-sub">Just drag on the 24-hour dial. Set a focus goal,<br>usable minutes, rounds &amp; blocked apps per window.</div>
+    <div class="p-title" data-i18n="i3_t">When should<br>I focus?</div>
+    <div class="p-sub" data-i18n="i3_s">Mornings, noon, nights — your rhythm shifts.<br>One single setting never fits them all.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg><span data-i18n="with_ripen">With Ripen</span></div><div class="dvr-l"></div></div>
+    <div class="s-title"><span data-i18n="i3_h1">Your rules,</span><br><span class="gold" data-i18n="i3_h2">per time of day.</span></div>
+    <div class="s-sub" data-i18n="i3_b">Just drag on the 24-hour dial. Set a focus goal,<br>usable minutes, rounds &amp; blocked apps per window.</div>
   </div>
 
   <!-- Phone: time block settings -->
   <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
     <div class="ph-bg"></div>
     <div class="scr">
-      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus windows</span>
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name" data-i18n="tab_windows">Focus windows</span>
         <svg class="tab-ico" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
       </div>
-      <div style="flex:1;padding:6px 18px 16px;display:flex;flex-direction:column;align-items:center;">
-        <!-- 24h dial -->
-        <div style="position:relative;width:230px;height:230px;margin-top:6px;">
-          <svg width="230" height="230" viewBox="0 0 220 220">
-            <!-- base ring -->
-            <circle cx="110" cy="110" r="80" fill="none" stroke="rgba(19,36,26,0.10)" stroke-width="14"/>
-            <!-- ticks -->
-            <g stroke="rgba(19,36,26,0.35)" stroke-width="1.6">
-              <line x1="110" y1="22" x2="110" y2="30"/>
-              <line x1="198" y1="110" x2="190" y2="110"/>
-              <line x1="110" y1="198" x2="110" y2="190"/>
-              <line x1="22" y1="110" x2="30" y2="110"/>
-              <line x1="154" y1="34.2" x2="150.8" y2="41.5" stroke-width="1.1"/>
-              <line x1="185.8" y1="66" x2="178.5" y2="69.2" stroke-width="1.1"/>
-              <line x1="185.8" y1="154" x2="178.5" y2="150.8" stroke-width="1.1"/>
-              <line x1="154" y1="185.8" x2="150.8" y2="178.5" stroke-width="1.1"/>
-              <line x1="66" y1="185.8" x2="69.2" y2="178.5" stroke-width="1.1"/>
-              <line x1="34.2" y1="154" x2="41.5" y2="150.8" stroke-width="1.1"/>
-              <line x1="34.2" y1="66" x2="41.5" y2="69.2" stroke-width="1.1"/>
-              <line x1="66" y1="34.2" x2="69.2" y2="41.5" stroke-width="1.1"/>
+      <div style="flex:1;padding:8px 18px 16px;display:flex;flex-direction:column;align-items:center;">
+        <!-- weekly schedule grid (列=月〜日 × 縦=24h、色帯=時間帯ブロック) = 実装(WeekScheduleGrid) 準拠 -->
+        <div style="width:100%;margin-top:4px;">
+          <svg viewBox="0 0 336 208" width="100%" style="display:block;">
+            <!-- today column bg (Wed) -->
+            <rect x="111" y="16" width="45" height="192" fill="rgba(30,138,71,0.07)"/>
+            <!-- grid lines -->
+            <g stroke="rgba(19,36,26,0.11)" stroke-width="1">
+              <line x1="21" y1="16" x2="336" y2="16"/><line x1="21" y1="64" x2="336" y2="64"/>
+              <line x1="21" y1="112" x2="336" y2="112"/><line x1="21" y1="160" x2="336" y2="160"/>
+              <line x1="21" y1="208" x2="336" y2="208"/>
+              <line x1="21" y1="16" x2="21" y2="208"/><line x1="66" y1="16" x2="66" y2="208"/>
+              <line x1="111" y1="16" x2="111" y2="208"/><line x1="156" y1="16" x2="156" y2="208"/>
+              <line x1="201" y1="16" x2="201" y2="208"/><line x1="246" y1="16" x2="246" y2="208"/>
+              <line x1="291" y1="16" x2="291" y2="208"/><line x1="336" y1="16" x2="336" y2="208"/>
             </g>
-            <text x="110" y="46" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">0</text>
-            <text x="176" y="114" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">6</text>
-            <text x="110" y="180" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">12</text>
-            <text x="44" y="114" fill="rgba(19,36,26,0.55)" font-size="11" text-anchor="middle" font-family="Inter">18</text>
-            <!-- Morning 06:00-08:00 (amber, candidate w/ handles) -->
-            <path d="M 190 110 A 80 80 0 0 1 179.28 150" fill="none" stroke="#FFCA28" stroke-width="14" stroke-linecap="round"/>
-            <!-- Lunch 12:30-13:00 (green) -->
-            <path d="M 99.56 189.3 A 80 80 0 0 1 89.3 187.3" fill="none" stroke="#66BB6A" stroke-width="14" stroke-linecap="round"/>
-            <!-- Evening 21:00-23:30 (blue) -->
-            <path d="M 53.43 53.43 A 80 80 0 0 1 99.56 30.7" fill="none" stroke="#42A5F5" stroke-width="14" stroke-linecap="round"/>
-            <!-- handles on amber arc -->
-            <circle cx="190" cy="110" r="9" fill="#FFFFFF"/><circle cx="190" cy="110" r="8" fill="#FFCA28"/><circle cx="190" cy="110" r="3.5" fill="#7A5600"/>
-            <circle cx="179.28" cy="150" r="9" fill="#FFFFFF"/><circle cx="179.28" cy="150" r="8" fill="#FFCA28"/><circle cx="179.28" cy="150" r="3.5" fill="#7A5600"/>
+            <!-- hour labels -->
+            <g fill="rgba(19,36,26,0.50)" font-size="9" font-family="Inter" text-anchor="end">
+              <text x="17" y="19">0</text><text x="17" y="67">6</text><text x="17" y="115">12</text>
+              <text x="17" y="163">18</text><text x="17" y="206">24</text>
+            </g>
+            <!-- weekday labels (JS が wd で差し替え。水曜=今日を強調) -->
+            <g fill="rgba(19,36,26,0.54)" font-size="10" font-family="Inter" text-anchor="middle">
+              <text class="gday" x="43.5" y="11">M</text><text class="gday" x="88.5" y="11">T</text>
+              <text class="gday" x="133.5" y="11" fill="#1E8A47" font-weight="bold">W</text>
+              <text class="gday" x="178.5" y="11">T</text><text class="gday" x="223.5" y="11">F</text>
+              <text class="gday" x="268.5" y="11">S</text><text class="gday" x="313.5" y="11">S</text>
+            </g>
+            <!-- Morning Focus 06:00–08:00 (amber, Mon–Fri) -->
+            <g fill="#FFCA28" fill-opacity="0.85">
+              <rect x="23" y="64" width="41" height="16" rx="2"/><rect x="68" y="64" width="41" height="16" rx="2"/>
+              <rect x="113" y="64" width="41" height="16" rx="2"/><rect x="158" y="64" width="41" height="16" rx="2"/>
+              <rect x="203" y="64" width="41" height="16" rx="2"/>
+            </g>
+            <!-- Lunch 12:00–13:00 (green, Sat–Sun) -->
+            <g fill="#66BB6A" fill-opacity="0.85">
+              <rect x="248" y="112" width="41" height="8" rx="2"/><rect x="293" y="112" width="41" height="8" rx="2"/>
+            </g>
+            <!-- Evening Study 21:00–23:00 (blue, Mon–Fri) -->
+            <g fill="#42A5F5" fill-opacity="0.85">
+              <rect x="23" y="184" width="41" height="16" rx="2"/><rect x="68" y="184" width="41" height="16" rx="2"/>
+              <rect x="113" y="184" width="41" height="16" rx="2"/><rect x="158" y="184" width="41" height="16" rx="2"/>
+              <rect x="203" y="184" width="41" height="16" rx="2"/>
+            </g>
           </svg>
-          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;">
-            <div style="font-size:13px;color:var(--t3);">Editing</div>
-            <div style="font-size:15px;font-weight:800;color:var(--t1);">3 windows</div>
-          </div>
         </div>
         <!-- legend / block card -->
         <div class="card" style="width:100%;margin-top:14px;padding:13px 15px;">
           <div style="display:flex;align-items:center;gap:9px;">
             <span style="width:11px;height:11px;border-radius:3px;background:#FFCA28;flex-shrink:0;"></span>
             <div style="flex:1;">
-              <div style="font-size:14px;font-weight:700;color:var(--t1);">Morning Focus　06:00–08:00</div>
-              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Focus 25m → 5m · max 6 · 4 blocked</div>
+              <div style="font-size:14px;font-weight:700;color:var(--t1);"><span data-i18n="mor_name">Morning Focus</span>　<span data-i18n="mor_time">06:00–08:00</span></div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;" data-i18n="mor_sub">Focus 25m → 5m · max 6 · 4 blocked</div>
             </div>
             <svg width="18" height="18" viewBox="0 0 24 24"><path fill="rgba(19,36,26,0.4)" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75zM20.71 7.04a.996.996 0 000-1.41l-2.34-2.34a.996.996 0 00-1.41 0l-1.83 1.83 3.75 3.75z"/></svg>
           </div>
           <div style="height:1px;background:var(--line);margin:11px 0;"></div>
           <div style="display:flex;gap:18px;">
-            <div style="display:flex;align-items:center;gap:7px;"><span style="width:11px;height:11px;border-radius:3px;background:#66BB6A;"></span><span style="font-size:11.5px;color:var(--t2)">Lunch</span></div>
-            <div style="display:flex;align-items:center;gap:7px;"><span style="width:11px;height:11px;border-radius:3px;background:#42A5F5;"></span><span style="font-size:11.5px;color:var(--t2)">Evening Study</span></div>
+            <div style="display:flex;align-items:center;gap:7px;"><span style="width:11px;height:11px;border-radius:3px;background:#66BB6A;"></span><span style="font-size:11.5px;color:var(--t2)" data-i18n="lunch">Lunch</span></div>
+            <div style="display:flex;align-items:center;gap:7px;"><span style="width:11px;height:11px;border-radius:3px;background:#42A5F5;"></span><span style="font-size:11.5px;color:var(--t2)" data-i18n="evening">Evening Study</span></div>
           </div>
         </div>
       </div>
@@ -419,11 +434,11 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
   <div class="panel">
     <div class="p-emoji">📵</div>
-    <div class="p-title">You open it<br>without thinking.</div>
-    <div class="p-sub">Even at zero free time, your thumb taps the app.<br>If you can't stop there, nothing changes.</div>
-    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
-    <div class="s-title">At zero,<br>it <span class="gold">locks gently.</span></div>
-    <div class="s-sub">Spend your time in a window and target apps lock<br>automatically. Distractions lock during focus, too.</div>
+    <div class="p-title" data-i18n="i4_t">You open it<br>without thinking.</div>
+    <div class="p-sub" data-i18n="i4_s">Even at zero free time, your thumb taps the app.<br>If you can't stop there, nothing changes.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg><span data-i18n="with_ripen">With Ripen</span></div><div class="dvr-l"></div></div>
+    <div class="s-title"><span data-i18n="i4_h1">At zero,</span><br><span class="gold" data-i18n="i4_h2">it locks gently.</span></div>
+    <div class="s-sub" data-i18n="i4_b">Spend your time in a window and target apps lock<br>automatically. Distractions lock during focus, too.</div>
   </div>
 
   <!-- Phone: block screen -->
@@ -435,18 +450,18 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
           background:radial-gradient(circle, rgba(52,199,89,0.12), transparent 70%);">
           <div style="filter:drop-shadow(0 3px 8px rgba(19,36,26,.15));"><svg width="92" height="92"><use href="#sprout"/></svg></div>
         </div>
-        <div style="font-size:23px;font-weight:800;color:var(--t1);margin-top:20px;letter-spacing:0.3px;">Time to focus</div>
-        <div style="font-size:13.5px;color:var(--t2);line-height:1.7;margin-top:12px;">
+        <div style="font-size:23px;font-weight:800;color:var(--t1);margin-top:20px;letter-spacing:0.3px;" data-i18n="b_title">Time to focus</div>
+        <div style="font-size:13.5px;color:var(--t2);line-height:1.7;margin-top:12px;" data-i18n="b_body">
           <span style="color:var(--t1);font-weight:700;">"Instagram"</span> is locked right now.<br>Focus to ripen some usable time.
         </div>
         <div style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;
           background:rgba(192,138,18,0.10);border:1px solid rgba(192,138,18,0.35);border-radius:999px;padding:8px 18px;">
           <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#C08A12" d="M6 2v6h.01L6 8.01 10 12l-4 4 .01.01H6V22h12v-5.99h-.01L18 16l-4-4 4-3.99-.01-.01H18V2H6z"/></svg>
-          <span style="font-size:13px;font-weight:800;color:var(--gold);">Usable time 0 min</span>
+          <span style="font-size:13px;font-weight:800;color:var(--gold);" data-i18n="b_chip">Usable time 0 min</span>
         </div>
         <div style="flex:0"></div>
-        <div class="btn btn-fill" style="width:100%;margin-top:26px;">▶ Focus &amp; ripen</div>
-        <div class="txt-link" style="margin-top:12px;">Back to home</div>
+        <div class="btn btn-fill" style="width:100%;margin-top:26px;" data-i18n="b_btn">▶ Focus &amp; ripen</div>
+        <div class="txt-link" style="margin-top:12px;" data-i18n="b_home">Back to home</div>
       </div>
     </div>
   </div>
@@ -461,18 +476,18 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
 
   <div class="panel">
     <div class="p-emoji">🔒</div>
-    <div class="p-title">A camera —<br>am I being watched?</div>
-    <div class="p-sub">"Camera for focus detection" sounds unsettling.<br>Footage leaving your phone? Absolutely not.</div>
-    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg>With Ripen</div><div class="dvr-l"></div></div>
-    <div class="s-title">It only checks<br><span class="gold">"present or not."</span></div>
-    <div class="s-sub">Whether a face is there — judged entirely on-device.<br>No image is ever saved or sent to the cloud.</div>
+    <div class="p-title" data-i18n="i5_t">A camera —<br>am I being watched?</div>
+    <div class="p-sub" data-i18n="i5_s">"Camera for focus detection" sounds unsettling.<br>Footage leaving your phone? Absolutely not.</div>
+    <div class="dvr"><div class="dvr-l"></div><div class="dvr-p"><svg class="lf"><use href="#sprout"/></svg><span data-i18n="with_ripen">With Ripen</span></div><div class="dvr-l"></div></div>
+    <div class="s-title"><span data-i18n="i5_h1">It only checks</span><br><span class="gold" data-i18n="i5_h2">"present or not."</span></div>
+    <div class="s-sub" data-i18n="i5_b">Whether a face is there — judged entirely on-device.<br>No image is ever saved or sent to the cloud.</div>
   </div>
 
   <!-- Phone: focus + privacy callouts -->
   <div class="ph" style="width:372px;height:480px;right:30px;top:10px;">
     <div class="ph-bg"></div>
     <div class="scr">
-      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name">Focus</span></div>
+      <div class="tab"><svg class="tab-logo"><use href="#sprout"/></svg><span class="tab-name" data-i18n="tab_focus">Focus</span></div>
       <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 24px 18px;">
         <div style="width:96px;height:96px;border-radius:50%;border:3px solid var(--greenA);padding:3px;margin-top:8px;">
           <div style="width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;
@@ -484,25 +499,64 @@ body { background:#2a2a2a; font-family:'Inter','Noto Sans JP',sans-serif; }
         </div>
         <div style="display:flex;align-items:center;gap:6px;margin-top:10px;">
           <span style="width:9px;height:9px;border-radius:50%;background:var(--greenA);"></span>
-          <span style="font-size:12.5px;color:var(--greenA);">Face detected — judged on-device</span>
+          <span style="font-size:12.5px;color:var(--greenA);" data-i18n="face_det">Face detected — judged on-device</span>
         </div>
         <!-- privacy callouts -->
         <div style="width:100%;display:flex;flex-direction:column;gap:11px;margin-top:22px;">
           <div style="display:flex;align-items:center;gap:12px;background:var(--sf);border-radius:14px;padding:13px 15px;">
             <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#1E8A47" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
-            <div><div style="font-size:13.5px;font-weight:700;color:var(--t1);">On-device processing</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Judged locally with Google ML Kit</div></div>
+            <div><div style="font-size:13.5px;font-weight:700;color:var(--t1);" data-i18n="pc1_t">On-device processing</div><div style="font-size:11px;color:var(--t3);margin-top:1px;" data-i18n="pc1_s">Judged locally with Google ML Kit</div></div>
           </div>
           <div style="display:flex;align-items:center;gap:12px;background:var(--sf);border-radius:14px;padding:13px 15px;">
             <svg width="22" height="22" viewBox="0 0 24 24" style="flex-shrink:0"><path fill="#1E8A47" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8z"/></svg>
-            <div><div style="font-size:13.5px;font-weight:700;color:var(--t1);">No image saved or sent</div><div style="font-size:11px;color:var(--t3);margin-top:1px;">Only "were you present" is logged</div></div>
+            <div><div style="font-size:13.5px;font-weight:700;color:var(--t1);" data-i18n="pc2_t">No image saved or sent</div><div style="font-size:11px;color:var(--t3);margin-top:1px;" data-i18n="pc2_s">Only "were you present" is logged</div></div>
           </div>
         </div>
         <div style="flex:1"></div>
-        <div style="font-size:11px;color:var(--t4);text-align:center;">Camera is used only to confirm presence</div>
+        <div style="font-size:11px;color:var(--t4);text-align:center;" data-i18n="cam_note">Camera is used only to confirm presence</div>
       </div>
     </div>
   </div>
 </div>
 
+<script src="store-images-i18n.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var lang = params.get('lang') || 'en';
+  var dict = (window.STORE_I18N && window.STORE_I18N[lang]) || null;
+  if (!dict) return;                       // en = そのまま（既定HTML）
+
+  document.documentElement.setAttribute('lang', lang);
+  if (lang === 'ar') document.documentElement.setAttribute('dir', 'rtl');
+
+  // フォントを言語に合わせる（CJK/Devanagari/Arabic を Inter より優先）
+  var famMap = {
+    ja: "'Inter','Noto Sans JP',sans-serif",
+    ko: "'Inter','Noto Sans KR',sans-serif",
+    zh: "'Inter','Noto Sans SC',sans-serif",
+    hi: "'Inter','Noto Sans Devanagari',sans-serif",
+    ar: "'Noto Sans Arabic','Inter',sans-serif"
+  };
+  if (famMap[lang]) document.body.style.fontFamily = famMap[lang];
+
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var k = el.getAttribute('data-i18n');
+    if (dict[k] != null) el.innerHTML = dict[k];
+  });
+
+  // 週次チャートの曜日ラベル（"月|火|…"）
+  if (dict.wd) {
+    var wd = dict.wd.split('|');
+    document.querySelectorAll('.weekbars .wd').forEach(function (el, i) {
+      if (wd[i] != null) el.textContent = wd[i];
+    });
+    // 週間グリッド（img3）の曜日ラベルも同じ辞書で
+    document.querySelectorAll('.gday').forEach(function (el, i) {
+      if (wd[i] != null) el.textContent = wd[i];
+    });
+  }
+})();
+</script>
 </body>
 </html>
