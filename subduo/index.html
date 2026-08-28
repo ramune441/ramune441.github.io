@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubDuo｜Dual subtitles for Prime Video — show two languages at once (Chrome extension)</title>
+  <meta name="description" content="SubDuo shows two of a title's subtitle languages at once on Amazon Prime Video — the original on top, your language below. Drag, resize and style them right on the video. 100% local, free Chrome extension for language learners.">
+  <meta name="keywords" content="dual subtitles, bilingual subtitles, Prime Video, Amazon Prime Video, Chrome extension, language learning, two subtitles, 二言語字幕, SubDuo">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/subduo/">
+
+  <meta property="og:title" content="SubDuo｜Dual subtitles for Prime Video">
+  <meta property="og:description" content="Show two subtitle languages at once on Prime Video — original on top, your language below. Drag, resize and style them on the video. 100% local, free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/subduo/">
+  <meta property="og:image" content="https://ramune441.github.io/subduo/images/store-image-1.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="SubDuo — two subtitle languages shown at once on a Prime Video player">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="SubDuo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SubDuo｜Dual subtitles for Prime Video">
+  <meta name="twitter:description" content="Show two subtitle languages at once on Prime Video. Drag, resize and style them on the video. 100% local, free Chrome extension.">
+  <meta name="twitter:image" content="https://ramune441.github.io/subduo/images/store-image-1.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SubDuo",
+    "alternateName": "SubDuo — Dual Subtitles for Prime Video",
+    "description": "Chrome extension that shows two of a title's subtitle languages at once on Amazon Prime Video. Made for language learners. Runs entirely in the browser.",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Ramune" },
+    "softwareVersion": "0.1.0",
+    "browserRequirements": "Google Chrome 111 or later",
+    "url": "https://ramune441.github.io/subduo/",
+    "image": "https://ramune441.github.io/subduo/images/store-image-1.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Does SubDuo translate subtitles?", "acceptedAnswer": { "@type": "Answer", "text": "No. SubDuo shows two of the subtitle tracks Amazon already provides for the title. It never machine-translates, so if a title offers only one language, only that one can be shown." } },
+      { "@type": "Question", "name": "Which languages can I pick?", "acceptedAnswer": { "@type": "Answer", "text": "Any two subtitle languages the title offers. Press play and SubDuo lists every track it detects; pick one for the top line and one for the bottom." } },
+      { "@type": "Question", "name": "Does it work in fullscreen?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The subtitles live inside the player itself, so they stay in place and scale with the video in fullscreen." } },
+      { "@type": "Question", "name": "Is anything sent to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. SubDuo only reads the subtitle files Amazon delivers to your browser for the title you are watching. There is no account, no analytics, and nothing leaves your browser." } },
+      { "@type": "Question", "name": "Which sites are supported?", "acceptedAnswer": { "@type": "Answer", "text": "primevideo.com and the Prime Video pages on amazon.co.jp, amazon.com, amazon.co.uk, amazon.de, amazon.fr, amazon.it, amazon.es, amazon.in, amazon.com.au, amazon.com.br, amazon.com.mx and amazon.nl." } },
+      { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No account, no sign-up, no limits." } }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Ramune Apps", "item": "https://ramune441.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "SubDuo", "item": "https://ramune441.github.io/subduo/" }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&family=Noto+Sans+TC:wght@400;500;700;800&family=Noto+Sans+Devanagari:wght@400;500;700;800&display=swap">
+
+  <style>
+    :root {
+      /* SubDuo brand: navy screen, white top line, yellow bottom line, Prime-ish cyan accent */
+      --navy: #0F2A3F;
+      --cy: #38B6FF;
+      --cy-deep: #00A8E1;
+      --cy-pale: #8FD0FF;
+      --yel: #FFD76A;
+      --yel-deep: #E9B93A;
+      /* dark surfaces */
+      --bg: #0A0E1A;
+      --bg-2: #0F1830;
+      --bg-3: #141F3B;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.18);
+      /* text */
+      --text: #E2E8F0;
+      --text-sub: #A3AECB;
+      --text-light: #7C879F;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.8; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; }
+    .cy { color: var(--cy); }
+    .yel { color: var(--yel); }
+    code { font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; font-size: 0.92em; background: rgba(255,255,255,0.08); padding: 1px 7px; border-radius: 5px; color: var(--cy-pale); }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,14,26,0.82); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .nav-inner { max-width: 1100px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -0.3px; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta { background: var(--cy-deep); color: #06121c; font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: 8px; transition: background 0.2s; white-space: nowrap; }
+    .nav-cta:hover { background: var(--cy); }
+    #lang-select { font-family: inherit; font-size: 13px; color: var(--text); background: var(--bg-3); border: 1px solid var(--border-strong); border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+
+    /* HERO */
+    .hero { padding: 120px 24px 72px; position: relative; overflow: hidden; background: radial-gradient(ellipse 70% 55% at 50% -5%, rgba(56,182,255,0.16) 0%, transparent 65%), linear-gradient(180deg, #0A0E1A 0%, #0F1830 100%); }
+    .hero-deco { position: absolute; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(255,215,106,0.08) 0%, transparent 68%); bottom: -300px; right: -200px; pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(56,182,255,0.10); color: var(--cy-pale); font-size: 13.5px; font-weight: 600; padding: 7px 18px; border-radius: 100px; border: 1px solid rgba(56,182,255,0.25); margin-bottom: 26px; }
+    .hero-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cy); box-shadow: 0 0 10px var(--cy); }
+    h1 { font-size: clamp(34px, 5.4vw, 60px); font-weight: 900; color: #fff; line-height: 1.18; margin-bottom: 20px; letter-spacing: -1px; }
+    h1 .accent { color: var(--cy); }
+    .hero-desc { font-size: 17.5px; color: var(--text-sub); line-height: 1.8; margin-bottom: 34px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--cy-deep); color: #06121c; font-size: 15px; font-weight: 800; padding: 14px 30px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 6px 28px rgba(0,168,225,0.35); transition: all 0.2s; }
+    .btn-primary:hover { background: var(--cy); transform: translateY(-1px); box-shadow: 0 8px 34px rgba(56,182,255,0.42); }
+    .btn-primary svg { width: 20px; height: 20px; fill: currentColor; }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); font-size: 14px; font-weight: 500; padding: 14px 8px; transition: color 0.2s; }
+    .btn-ghost:hover { color: #fff; }
+    .hero-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
+
+    /* ═══ PLAYER MOCK (Prime-Video-like frame, fictional title) ═══ */
+    .player { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08); font-family: 'Inter', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans Devanagari', sans-serif; text-align: center; container-type: inline-size; }
+    .scene { position: absolute; inset: 0; background: linear-gradient(180deg, #0b1a33 0%, #1c3a64 34%, #c8683c 60%, #f2a45b 68%, #20304d 68.2%, #0a1424 100%); }
+    .scene::before { content: ''; position: absolute; left: 50%; top: 52%; width: 18%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff3c2 0%, #ffc46b 45%, rgba(255,150,80,0) 72%); transform: translate(-50%, -50%); filter: blur(2px); }
+    .scene .sea { position: absolute; left: 0; right: 0; top: 68%; bottom: 0; background: linear-gradient(180deg, rgba(255,180,100,0.35) 0%, rgba(20,40,80,0.2) 30%, rgba(5,10,25,0.6) 100%); }
+    .scene .glint { position: absolute; left: 46.5%; right: 46.5%; top: 68.5%; height: 16%; background: repeating-linear-gradient(180deg, rgba(255,220,150,0.5) 0 2px, transparent 2px 7px); filter: blur(0.8px); opacity: 0.55; }
+    .scene .hill { position: absolute; bottom: 0; background: #060b16; }
+    .scene .hill.l { left: -4%; width: 42%; height: 40%; clip-path: polygon(0 100%, 0 42%, 12% 30%, 24% 38%, 33% 22%, 45% 34%, 58% 20%, 70% 36%, 84% 28%, 100% 44%, 100% 100%); }
+    .scene .hill.r { right: -6%; width: 46%; height: 36%; clip-path: polygon(0 100%, 0 48%, 10% 36%, 22% 42%, 36% 24%, 50% 34%, 62% 18%, 75% 30%, 88% 26%, 100% 40%, 100% 100%); }
+    .scene .vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 45%, rgba(0,0,0,0.55) 100%); }
+    .scene .grain { position: absolute; inset: 0; opacity: 0.06; background-image: radial-gradient(rgba(255,255,255,0.8) 0.6px, transparent 0.7px); background-size: 4px 4px; mix-blend-mode: overlay; }
+    .p-top { position: absolute; top: 0; left: 0; right: 0; padding: 3.2% 3.4%; display: flex; align-items: center; gap: 3%; color: #fff; text-align: left; background: linear-gradient(180deg, rgba(0,0,0,0.55), transparent); font-size: clamp(9px, 2cqw, 18px); }
+    .p-top .back { font-size: 1.5em; line-height: 1; opacity: 0.9; }
+    .p-top .title { font-weight: 700; letter-spacing: -0.2px; }
+    .p-top .ep { font-weight: 400; opacity: 0.75; margin-left: 0.5em; }
+    .p-ctrl { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5% 3.4% 2.6%; background: linear-gradient(0deg, rgba(0,0,0,0.72), transparent); color: #fff; font-size: clamp(8px, 1.7cqw, 16px); }
+    .p-bar { position: relative; height: 0.32em; background: rgba(255,255,255,0.28); border-radius: 999px; margin-bottom: 0.8em; }
+    .p-bar .fill { position: absolute; left: 0; top: 0; bottom: 0; width: 63%; background: var(--cy-deep); border-radius: 999px; }
+    .p-bar .knob { position: absolute; left: 63%; top: 50%; width: 1em; height: 1em; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 6px rgba(0,0,0,0.5); }
+    .p-row { display: flex; align-items: center; gap: 1.4em; }
+    .p-row .ico { width: 1.5em; height: 1.5em; fill: #fff; opacity: 0.92; flex: none; }
+    .p-row .time { font-variant-numeric: tabular-nums; opacity: 0.85; margin-left: 0.2em; }
+    .p-row .sp { flex: 1; }
+    .p-row .cc { font-size: 0.72em; font-weight: 800; border: 1.5px solid #fff; border-radius: 4px; padding: 0 0.35em; line-height: 1.45; }
+    .p-ctrl.hidden { opacity: 0; }
+
+    /* SubDuo overlay — mirrors content.js (.subduo-overlay / .subduo-line) */
+    .sd { position: absolute; left: 4%; right: 4%; bottom: 12%; display: flex; flex-direction: column; align-items: stretch; text-align: center; font-size: clamp(9px, 3.8cqw, 34px); pointer-events: none; }
+    .sd-line { white-space: pre-wrap; line-height: 1.25; padding: 0.06em 0.4em; min-height: 1.37em; background: rgba(0,0,0,0.55); text-shadow: 0 0 4px rgba(0,0,0,0.9); font-weight: 600; width: auto; align-self: center; max-width: 100%; }
+    .sd-a { color: #fff; border-radius: 0.18em 0.18em 0 0; }
+    .sd-b { color: #ffd76a; font-size: 0.8em; border-radius: 0 0 0.18em 0.18em; }
+    .sd-box { display: inline-flex; flex-direction: column; align-self: center; max-width: 100%; }
+    .sd-box .sd-line { align-self: stretch; }
+    .sd.selected .sd-box { outline: 2px solid var(--cy); outline-offset: 6px; border-radius: 4px; }
+    .sd-toolbar { position: absolute; bottom: calc(100% + 14px); left: 50%; transform: translateX(-50%); display: flex; gap: 4px; padding: 4px; background: rgba(24,24,28,0.96); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; font-size: 0.38em; }
+    .sd-toolbar span { color: #fff; padding: 3px 9px; border-radius: 5px; white-space: nowrap; font-weight: 500; }
+    .sd-toolbar span.on { background: var(--cy); color: #10161a; }
+    .sd-hint { position: absolute; top: calc(100% + 0.35em); left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.38em; color: #fff; background: rgba(0,0,0,0.7); border-radius: 0.3em; padding: 0.2em 0.7em; }
+    .hero-player { max-width: 960px; margin: 56px auto 0; position: relative; }
+    .hero-player .sd-a, .hero-player .sd-b { transition: opacity 0.25s; }
+    .hero-caption { margin-top: 18px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-size: 13.5px; color: var(--text-sub); }
+    .hero-caption span { display: inline-flex; align-items: center; gap: 7px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .dot-a { background: #fff; } .dot-b { background: var(--yel); }
+
+    /* SITES BAR */
+    .sites-bar { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 36px 24px; text-align: center; }
+    .sites-inner { max-width: 900px; margin: 0 auto; }
+    .sites-h { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .sites-sub { font-size: 14px; color: var(--text-sub); margin-bottom: 18px; }
+    .sites-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .sites-list span { font-size: 12.5px; font-weight: 600; color: var(--text-sub); background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 999px; padding: 5px 13px; font-family: ui-monospace, Consolas, monospace; }
+    .sites-list span.main { color: var(--cy-pale); border-color: rgba(56,182,255,0.35); background: rgba(56,182,255,0.08); }
+
+    /* SECTIONS */
+    section { padding: 96px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--cy); margin-bottom: 12px; }
+    h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; color: #fff; line-height: 1.35; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .section-lead { font-size: 16px; color: var(--text-sub); max-width: 640px; line-height: 1.8; margin-bottom: 52px; }
+    .section-center { text-align: center; }
+    .section-center .section-lead { margin-left: auto; margin-right: auto; }
+    .bg-alt { background: var(--bg-2); }
+
+    /* PROBLEM BANNER */
+    .problem-banner { background: linear-gradient(135deg, #0F2A3F, #123A58, #0B4F73); color: #fff; padding: 80px 24px; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .problem-banner h2 { color: #fff; margin-bottom: 16px; }
+    .problem-banner p { color: rgba(255,255,255,0.72); font-size: 17px; max-width: 720px; margin: 0 auto; line-height: 1.9; }
+    .problem-banner .highlight { color: var(--yel); font-weight: 700; }
+
+    /* BEFORE / AFTER */
+    .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 980px; margin: 0 auto; }
+    .ba-card { border-radius: 18px; padding: 30px 30px 26px; border: 1px solid var(--border); background: var(--card); text-align: left; }
+    .ba-card.after { border-color: rgba(56,182,255,0.4); background: linear-gradient(160deg, rgba(56,182,255,0.10), rgba(56,182,255,0.03)); box-shadow: 0 20px 60px rgba(0,168,225,0.12); }
+    .ba-lab { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); margin-bottom: 14px; }
+    .ba-card.after .ba-lab { color: var(--cy); }
+    .ba-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .ba-card li { display: flex; gap: 10px; font-size: 15px; color: var(--text-sub); line-height: 1.6; }
+    .ba-card li::before { content: '✕'; color: #f87171; font-weight: 800; flex: none; }
+    .ba-card.after li::before { content: '✓'; color: var(--cy); }
+    .ba-card.after li { color: var(--text); }
+    .ba-card .mini { margin-top: 20px; }
+
+    /* FLOW */
+    .flow-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; max-width: 900px; margin: 0 auto; }
+    .flow-timeline::before { content: ''; position: absolute; top: 28px; left: calc(16.66% + 12px); right: calc(16.66% + 12px); height: 2px; background: linear-gradient(90deg, var(--border), var(--cy), var(--border)); border-radius: 2px; }
+    .flow-item { text-align: center; position: relative; z-index: 1; padding: 0 12px; }
+    .flow-num { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #00A8E1, #38B6FF); color: #06121c; font-size: 20px; font-weight: 800; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(56,182,255,0.4); }
+    .flow-item h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .flow-item p { font-size: 13.5px; color: var(--text-sub); line-height: 1.65; }
+
+    /* DEMO TABS */
+    .da-tabs { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 34px; }
+    .da-tab { display: inline-flex; align-items: center; gap: 8px; font-family: inherit; font-size: 14.5px; font-weight: 700; color: var(--text-sub); background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 10px 22px; cursor: pointer; transition: all .2s; }
+    .da-tab .e { font-size: 17px; }
+    .da-tab.active { background: var(--cy-deep); color: #06121c; border-color: var(--cy-deep); box-shadow: 0 6px 18px rgba(0,168,225,.32); }
+    .da-frame { max-width: 900px; margin: 0 auto; }
+    .da-scene { display: none; }
+    .da-scene.on { display: block; }
+    .da-cap { margin-top: 22px; font-size: 16px; color: var(--text-sub); min-height: 26px; line-height: 1.6; }
+    .da-cap b { color: var(--cy); }
+    .da-split { display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: center; }
+
+    /* popup mock — mirrors popup.html / popup.css (light theme, ~1.15x) */
+    .popup { width: 340px; margin: 0 auto; background: #ffffff; color: #1f2328; border-radius: 12px; padding: 14px 16px 16px; font-size: 14px; text-align: left; box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08); line-height: 1.5; }
+    .pu-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+    .pu-head h4 { font-size: 18px; font-weight: 700; color: #00a8e1; }
+    .pu-toggle { position: relative; width: 44px; height: 24px; background: #00a8e1; border-radius: 12px; }
+    .pu-toggle::before { content: ''; position: absolute; width: 18px; height: 18px; left: 23px; top: 3px; background: #fff; border-radius: 50%; }
+    .pu-status { color: #6b7280; font-size: 12.5px; margin: 0 0 10px; white-space: pre-line; line-height: 1.5; }
+    .pu-sec { display: flex; align-items: center; gap: 6px; margin: 12px 0 6px; padding-bottom: 3px; border-bottom: 1px solid #d0d7de; font-size: 12.5px; font-weight: 700; color: #00a8e1; }
+    .pu-row { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+    .pu-row label { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 13.5px; }
+    .pu-row label .v { margin-left: auto; font-weight: 500; color: #6b7280; }
+    .pu-sel { padding: 6px 8px; border: 1px solid #d0d7de; border-radius: 6px; background: #fff; font-size: 13.5px; display: flex; justify-content: space-between; align-items: center; }
+    .pu-sel::after { content: '▾'; color: #6b7280; font-size: 12px; }
+    .pu-sel.hi { border-color: #00a8e1; box-shadow: 0 0 0 3px rgba(0,168,225,0.18); }
+    .pu-range { position: relative; height: 4px; background: #d0d7de; border-radius: 2px; margin: 8px 0 4px; }
+    .pu-range i { position: absolute; left: 0; top: 0; bottom: 0; background: #00a8e1; border-radius: 2px; }
+    .pu-range b { position: absolute; top: 50%; width: 14px; height: 14px; background: #fff; border: 2px solid #00a8e1; border-radius: 50%; transform: translate(-50%, -50%); }
+    .pu-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .pu-dot.a { background: #fff; border: 1px solid #d0d7de; } .pu-dot.b { background: #ffd76a; }
+    .pu-more { color: #9aa1aa; font-size: 12px; text-align: center; margin-top: 4px; letter-spacing: 2px; }
+
+    /* right-click panel mock — mirrors content.js .subduo-panel (~1.15x) */
+    .sd-panel { position: absolute; z-index: 5; min-width: 250px; background: rgba(24,24,28,0.96); color: #fff; font-size: clamp(8px, 1.45cqw, 13.5px); line-height: 1.5; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 10px 12px; text-align: left; pointer-events: none; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+    .sd-panel .ph { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 6px; }
+    .sd-panel .ph i { font-style: normal; color: #aaa; }
+    .sd-panel .ps { font-weight: 700; font-size: 0.9em; color: #8fd0ff; margin: 8px 0 2px; }
+    .sd-panel label { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+    .sd-panel label span:first-child { flex: none; }
+    .sd-panel .rg { flex: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; position: relative; }
+    .sd-panel .rg i { position: absolute; left: 0; top: 0; bottom: 0; background: #8fd0ff; border-radius: 2px; }
+    .sd-panel .rg b { position: absolute; top: 50%; width: 11px; height: 11px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); }
+    .sd-panel .val { width: 3em; text-align: right; font-variant-numeric: tabular-nums; }
+    .sd-panel .sw { width: 34px; height: 20px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.35); margin-left: auto; }
+    .sd-panel .reset { margin-top: 8px; text-align: center; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 6px; padding: 5px 8px; }
+
+    /* annotations on player mocks */
+    .anno { position: absolute; z-index: 6; background: var(--yel); color: #1a1400; font-size: clamp(8px, 1.5cqw, 14px); font-weight: 700; padding: 0.35em 0.8em; border-radius: 999px; box-shadow: 0 6px 18px rgba(0,0,0,0.45); white-space: nowrap; }
+    .anno::after { content: ''; position: absolute; width: 10px; height: 10px; background: var(--yel); transform: rotate(45deg); }
+    .anno.down::after { left: 50%; bottom: -4px; margin-left: -5px; }
+    .anno.up::after { left: 50%; top: -4px; margin-left: -5px; }
+
+    /* FEATURES */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .feat-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 30px 26px; transition: border-color 0.3s, background 0.3s; text-align: left; }
+    .feat-card:hover { border-color: rgba(56,182,255,0.4); background: rgba(56,182,255,0.05); }
+    .feat-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(56,182,255,0.10); border: 1px solid rgba(56,182,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+    .feat-icon.y { background: rgba(255,215,106,0.10); border-color: rgba(255,215,106,0.25); }
+    .feat-card h3 { font-size: 16.5px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .feat-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* SAFETY */
+    .safety-section { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .safety-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .safety-card { background: rgba(56,182,255,0.05); border: 1px solid rgba(56,182,255,0.15); border-radius: 14px; padding: 28px 24px; text-align: left; }
+    .safety-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+    .safety-card p { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* NOTES */
+    .notes-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; text-align: left; }
+    .note-item { display: flex; gap: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; font-size: 14.5px; color: var(--text-sub); line-height: 1.7; }
+    .note-item .n { flex: none; color: var(--yel); font-weight: 800; }
+    .note-item b { color: var(--text); }
+
+    /* FAQ */
+    .faq-list { max-width: 720px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; text-align: left; }
+    .faq-item:hover { border-color: var(--border-strong); }
+    .faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; padding: 20px 24px; font-size: 15px; font-weight: 600; color: #fff; text-align: left; font-family: inherit; line-height: 1.5; }
+    .faq-q::after { content: ''; width: 20px; height: 20px; flex-shrink: 0; margin-left: 16px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2338B6FF' stroke-width='2.5'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/contain no-repeat; transition: transform 0.3s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-a { max-height: 520px; }
+    .faq-a-inner { padding: 16px 24px 20px; font-size: 14px; color: var(--text-sub); line-height: 1.8; border-top: 1px solid var(--border); }
+
+    /* CTA BOTTOM */
+    .cta-bottom { background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(56,182,255,0.16), transparent 70%), var(--bg-2); text-align: center; padding: 96px 24px; border-top: 1px solid var(--border); }
+    .cta-bottom h2 { margin-bottom: 24px; }
+    .cta-checklist { max-width: 480px; margin: 0 auto 36px; text-align: left; display: flex; flex-direction: column; gap: 10px; }
+    .cta-check-item { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; color: var(--text); }
+    .cta-check-icon { width: 22px; height: 22px; border-radius: 50%; background: var(--cy-deep); color: #06121c; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+    .cta-note { margin-top: 16px; font-size: 13px; color: var(--text-light); }
+
+    /* FOOTER */
+    footer { background: var(--bg); padding: 40px 24px; text-align: center; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 700px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; font-size: 13px; color: var(--text-light); }
+    .footer-inner a { color: var(--text-light); transition: color 0.2s; }
+    .footer-inner a:hover { color: var(--cy); }
+
+    [dir="rtl"] .ba-card, [dir="rtl"] .feat-card, [dir="rtl"] .note-item { text-align: right; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .da-split { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 100px 20px 56px; }
+      .ba-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .safety-grid { grid-template-columns: 1fr; }
+      .flow-timeline { grid-template-columns: 1fr; gap: 28px; }
+      .flow-timeline::before { display: none; }
+      .nav-brand span { display: none; }
+      .popup { width: 100%; max-width: 340px; }
+    }
+    @media (max-width: 480px) {
+      section { padding: 64px 16px; }
+      .nav { padding: 0 14px; }
+      .nav-cta { padding: 8px 12px; }
+      .sd-hint { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">
+        <img src="icons/logo.svg" alt="" width="30" height="30">
+        <span>SubDuo</span>
+      </a>
+      <div class="nav-right">
+        <select id="lang-select" aria-label="Language"></select>
+        <a href="https://chromewebstore.google.com/" class="nav-cta store-link" target="_blank" rel="noopener" data-i18n="nav_cta">Add to Chrome</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span data-i18n="hero_badge">Free · Chrome extension · For Amazon Prime Video</span></div>
+      <h1 data-i18n-html="hero_h1">Two languages. One screen.<br><span class="accent">Turn Prime Video into your language class.</span></h1>
+      <p class="hero-desc" data-i18n="hero_desc">SubDuo shows two of a title's subtitle languages at the same time — the original on top, your language below. Read, compare, and keep watching without pausing. Runs 100% inside your browser.</p>
+      <div class="hero-actions">
+        <a href="https://chromewebstore.google.com/" class="btn-primary store-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          <span data-i18n="hero_cta">Add to Chrome (Free)</span>
+        </a>
+        <a href="#demo" class="btn-ghost" data-i18n="hero_ghost">See how it works ↓</a>
+      </div>
+      <p class="hero-note" data-i18n="hero_note">Uses the subtitles Amazon already provides · No account · Nothing leaves your browser</p>
+
+      <!-- animated player: cues cycle like real playback -->
+      <div class="hero-player">
+        <div class="player" id="hero-player">
+          <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
+          <div class="p-top"><span class="back">‹</span><span class="title" data-i18n="demo_title">The Long Way Home</span><span class="ep" data-i18n="demo_ep">Season 1, Ep. 3</span></div>
+          <div class="sd" id="hero-sd" style="bottom:19%;">
+            <div class="sd-box">
+              <div class="sd-line sd-a" id="hero-a" data-i18n="cue1_a">Llevo toda la vida esperando este momento.</div>
+              <div class="sd-line sd-b" id="hero-b" data-i18n="cue1_b">I've been waiting for this moment my whole life.</div>
+            </div>
+          </div>
+          <div class="p-ctrl">
+            <div class="p-bar"><div class="fill"></div><div class="knob"></div></div>
+            <div class="p-row">
+              <svg class="ico" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M11 6L6 10H3v4h3l5 4V6zm3 2.5v7a3.5 3.5 0 000-7z"/></svg>
+              <span class="time">42:18 / 1:05:30</span>
+              <span class="sp"></span>
+              <span class="cc">CC</span>
+              <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="hero-caption">
+          <span><i class="dot dot-a"></i><span data-i18n="hero_cap_a">Top: subtitle 1 (original)</span></span>
+          <span><i class="dot dot-b"></i><span data-i18n="hero_cap_b">Bottom: subtitle 2 (your language)</span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUPPORTED SITES -->
+  <div class="sites-bar">
+    <div class="sites-inner">
+      <p class="sites-h" data-i18n="sites_h">Works wherever you watch Prime Video</p>
+      <p class="sites-sub" data-i18n="sites_sub">primevideo.com and the Prime Video pages of these Amazon stores:</p>
+      <div class="sites-list">
+        <span class="main">primevideo.com</span><span>amazon.co.jp</span><span>amazon.com</span><span>amazon.co.uk</span><span>amazon.de</span><span>amazon.fr</span><span>amazon.it</span><span>amazon.es</span><span>amazon.in</span><span>amazon.com.au</span><span>amazon.com.br</span><span>amazon.com.mx</span><span>amazon.nl</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM BANNER -->
+  <div class="problem-banner">
+    <h2 data-i18n="problem_h2">One language at a time. Pause, rewind, look it up, lose the plot.</h2>
+    <p data-i18n-html="problem_p">Watching in a foreign language means choosing: subtitles you can learn from, or subtitles you can follow.<br>SubDuo ends the trade-off — <span class="highlight">both languages sit on screen together</span>, so you read the original, glance at the translation, and keep watching.</p>
+  </div>
+
+  <!-- BEFORE / AFTER -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_compare">Before / After</span>
+      <h2 data-i18n="compare_h2">Stop switching subtitle tracks</h2>
+      <p class="section-lead" data-i18n="compare_lead">Prime Video lets you show one subtitle language. SubDuo adds a second one on top of it.</p>
+      <div class="ba-grid">
+        <div class="ba-card">
+          <div class="ba-lab" data-i18n="ba_before">Without SubDuo</div>
+          <ul>
+            <li data-i18n="ba_b1">One subtitle language at a time</li>
+            <li data-i18n="ba_b2">Pause and switch tracks to check a line</li>
+            <li data-i18n="ba_b3">Rewind to catch what you missed</li>
+            <li data-i18n="ba_b4">Subtitles stuck at one size and position</li>
+          </ul>
+        </div>
+        <div class="ba-card after">
+          <div class="ba-lab" data-i18n="ba_after">With SubDuo</div>
+          <ul>
+            <li data-i18n="ba_a1">Two languages on screen at once, in one clean box</li>
+            <li data-i18n="ba_a2">Pick any two of the title's subtitle tracks</li>
+            <li data-i18n="ba_a3">Drag, resize and align them right on the video</li>
+            <li data-i18n="ba_a4">Color and transparency per line — synced across your Chrome</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_how">How it works</span>
+      <h2 data-i18n="flow_h2">Ready in three steps</h2>
+      <p class="section-lead" data-i18n="flow_lead">No account, no setup screens. Install it and press play.</p>
+      <div class="flow-timeline">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <h3 data-i18n="flow1_h3">Install and open a title</h3>
+          <p data-i18n="flow1_p">Add SubDuo to Chrome and play anything on Prime Video.</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <h3 data-i18n="flow2_h3">Pick two languages</h3>
+          <p data-i18n="flow2_p">SubDuo detects the title's subtitle tracks as it plays. Choose one for the top and one for the bottom in the popup.</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <h3 data-i18n="flow3_h3">Watch and adjust</h3>
+          <p data-i18n="flow3_p">Both lines appear over the video. Drag to move, scroll to resize, right-click for colors — it remembers everything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_demo">See it in action</span>
+      <h2 data-i18n="demo_h2">Everything happens on the video</h2>
+      <p class="section-lead" data-i18n="demo_lead">Four things SubDuo does, shown on a mock player. Switch with the tabs.</p>
+      <span id="cap0src" data-i18n-html="demo_cap0" hidden><b>Two subtitle tracks, one box.</b> The top line is subtitle 1, the bottom line is subtitle 2 — merged into a single frame with no gap.</span>
+      <span id="cap1src" data-i18n-html="demo_cap1" hidden><b>Pick languages in the popup.</b> Every track the title offers is listed. Sizes, colors, position and presets live here too.</span>
+      <span id="cap2src" data-i18n-html="demo_cap2" hidden><b>Adjust it right on the video.</b> Click to select, drag to move, scroll to resize a line, arrow keys to nudge, one click to align left / center / right.</span>
+      <span id="cap3src" data-i18n-html="demo_cap3" hidden><b>Right-click for style.</b> Text color, text transparency and background transparency — each line has its own settings.</span>
+      <div class="da-tabs">
+        <button class="da-tab active" data-i="0"><span class="e">🎬</span><span data-i18n="demo_tab0">Dual subtitles</span></button>
+        <button class="da-tab" data-i="1"><span class="e">🌐</span><span data-i18n="demo_tab1">Pick languages</span></button>
+        <button class="da-tab" data-i="2"><span class="e">🖱️</span><span data-i18n="demo_tab2">Adjust on screen</span></button>
+        <button class="da-tab" data-i="3"><span class="e">🎨</span><span data-i18n="demo_tab3">Style each line</span></button>
+      </div>
+      <div class="da-frame">
+
+        <!-- Scene 0: dual subtitles -->
+        <div class="da-scene on" id="da0">
+          <div class="player">
+            <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
+            <div class="p-top"><span class="back">‹</span><span class="title" data-i18n="demo_title">The Long Way Home</span><span class="ep" data-i18n="demo_ep">Season 1, Ep. 3</span></div>
+            <div class="sd"><div class="sd-box">
+              <div class="sd-line sd-a" data-i18n="cue1_a">I've been waiting for this moment my whole life.</div>
+              <div class="sd-line sd-b" data-i18n="cue1_b">この瞬間を、ずっと待っていたんだ。</div>
+            </div></div>
+            <div class="p-ctrl hidden"></div>
+          </div>
+        </div>
+
+        <!-- Scene 1: popup -->
+        <div class="da-scene" id="da1">
+          <div class="da-split">
+            <div class="player">
+              <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
+              <div class="p-top"><span class="back">‹</span><span class="title" data-i18n="demo_title">The Long Way Home</span><span class="ep" data-i18n="demo_ep">Season 1, Ep. 3</span></div>
+              <div class="sd"><div class="sd-box">
+                <div class="sd-line sd-a" data-i18n="cue2_a">Don't look back. We're almost there.</div>
+                <div class="sd-line sd-b" data-i18n="cue2_b">振り返るな。もうすぐ着く。</div>
+              </div></div>
+              <div class="p-ctrl hidden"></div>
+            </div>
+            <div class="popup">
+              <div class="pu-head"><h4>SubDuo</h4><span class="pu-toggle"></span></div>
+              <p class="pu-status" data-i18n="pu_status">Detected: 6 languages
+Top: English
+Bottom: 日本語</p>
+              <div class="pu-sec" data-i18n="pu_sec_lang">Languages</div>
+              <div class="pu-row"><label><span class="pu-dot a"></span><span data-i18n="pu_top">Top</span></label><div class="pu-sel hi" data-i18n="pu_lang_a">English</div></div>
+              <div class="pu-row"><label><span class="pu-dot b"></span><span data-i18n="pu_bottom">Bottom</span></label><div class="pu-sel" data-i18n="pu_lang_b">日本語</div></div>
+              <div class="pu-sec"><span class="pu-dot a"></span><span data-i18n="pu_sec_top">Top (subtitle 1)</span></div>
+              <div class="pu-row"><label><span data-i18n="pu_size">Text size</span><span class="v">100%</span></label><div class="pu-range"><i style="width:33%"></i><b style="left:33%"></b></div></div>
+              <div class="pu-sec"><span class="pu-dot b"></span><span data-i18n="pu_sec_bottom">Bottom (subtitle 2)</span></div>
+              <div class="pu-row"><label><span data-i18n="pu_size">Text size</span><span class="v">80%</span></label><div class="pu-range"><i style="width:20%"></i><b style="left:20%"></b></div></div>
+              <div class="pu-more">• • •</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scene 2: on-screen adjustment -->
+        <div class="da-scene" id="da2">
+          <div class="player">
+            <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
+            <div class="p-top"><span class="back">‹</span><span class="title" data-i18n="demo_title">The Long Way Home</span><span class="ep" data-i18n="demo_ep">Season 1, Ep. 3</span></div>
+            <div class="sd selected" style="bottom:22%;">
+              <div class="sd-toolbar"><span data-i18n="tb_left">Left</span><span class="on" data-i18n="tb_center">Center</span><span data-i18n="tb_right">Right</span></div>
+              <div class="sd-box">
+                <div class="sd-line sd-a" data-i18n="cue3_a">You can't outrun the tide.</div>
+                <div class="sd-line sd-b" data-i18n="cue3_b">潮からは逃げられない。</div>
+              </div>
+              <div class="sd-hint" data-i18n="sd_hint">Height 22% · Center 50% · Size top 100% / bottom 80%</div>
+            </div>
+            <div class="anno down" style="left:8%;top:30%;" data-i18n="anno_drag">Drag to move</div>
+            <div class="anno down" style="right:8%;top:30%;" data-i18n="anno_wheel">Scroll to resize a line</div>
+            <div class="anno up" style="left:50%;transform:translateX(-50%);bottom:5%;" data-i18n="anno_keys">Arrow keys to nudge · Esc to deselect</div>
+            <div class="p-ctrl hidden"></div>
+          </div>
+        </div>
+
+        <!-- Scene 3: right-click panel -->
+        <div class="da-scene" id="da3">
+          <div class="player">
+            <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
+            <div class="p-top"><span class="back">‹</span><span class="title" data-i18n="demo_title">The Long Way Home</span><span class="ep" data-i18n="demo_ep">Season 1, Ep. 3</span></div>
+            <div class="sd" style="left:4%;right:auto;width:52%;">
+              <div class="sd-box">
+                <div class="sd-line sd-a" style="color:#fff;background:rgba(0,0,0,0.75);" data-i18n="cue4_a">Some doors only open once.</div>
+                <div class="sd-line sd-b" style="color:#8fd0ff;background:rgba(0,0,0,0.75);" data-i18n="cue4_b">一度しか開かない扉もある。</div>
+              </div>
+            </div>
+            <div class="sd-panel" style="right:4%;top:10%;">
+              <div class="ph"><span data-i18n="pn_title">SubDuo display settings</span><i>✕</i></div>
+              <div class="ps" data-i18n="pn_top">Top (subtitle 1)</div>
+              <label><span data-i18n="pn_color">Text color</span><span class="sw" style="background:#ffffff"></span></label>
+              <label><span data-i18n="pn_text_op">Text transparency</span><span class="rg"><i style="width:0%"></i><b style="left:0%"></b></span><span class="val">0%</span></label>
+              <label><span data-i18n="pn_bg_op">Background transparency</span><span class="rg"><i style="width:25%"></i><b style="left:25%"></b></span><span class="val">25%</span></label>
+              <div class="ps" data-i18n="pn_bottom">Bottom (subtitle 2)</div>
+              <label><span data-i18n="pn_color">Text color</span><span class="sw" style="background:#8fd0ff"></span></label>
+              <label><span data-i18n="pn_text_op">Text transparency</span><span class="rg"><i style="width:0%"></i><b style="left:0%"></b></span><span class="val">0%</span></label>
+              <label><span data-i18n="pn_bg_op">Background transparency</span><span class="rg"><i style="width:25%"></i><b style="left:25%"></b></span><span class="val">25%</span></label>
+              <div class="reset" data-i18n="pn_reset">Reset colors &amp; transparency</div>
+            </div>
+            <div class="p-ctrl hidden"></div>
+          </div>
+        </div>
+
+        <div class="da-cap" id="dacap"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_features">Features</span>
+      <h2 data-i18n="features_h2">Small extension, thought through</h2>
+      <p class="section-lead" data-i18n="features_lead">Built for people who watch a lot and want the subtitles out of the way — until they need them.</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <div class="feat-icon">🎬</div>
+          <h3 data-i18n="feat1_h3">Any two of the title's languages</h3>
+          <p data-i18n="feat1_p">Every subtitle track Amazon provides for the title is detected the moment it plays. Pick one for the top line, one for the bottom — or hide one side.</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">🖱️</div>
+          <h3 data-i18n="feat2_h3">Adjust on the video</h3>
+          <p data-i18n="feat2_p">Drag to move, scroll to resize the line under the pointer, arrow keys to nudge by 1% (Shift: 5%), and align left, center or right from the toolbar.</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon y">🎨</div>
+          <h3 data-i18n="feat3_h3">Style each line</h3>
+          <p data-i18n="feat3_p">Text color, text transparency and background transparency, set separately for the top and bottom lines. Both always share one clean box.</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">📐</div>
+          <h3 data-i18n="feat4_h3">Always fits, always readable</h3>
+          <p data-i18n="feat4_p">Font size follows the video height — fullscreen included. Long lines wrap naturally, the block shrinks to stay on screen, and it steps aside when the control bar appears.</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">☁️</div>
+          <h3 data-i18n="feat5_h3">Synced settings and presets</h3>
+          <p data-i18n="feat5_p">Languages, sizes, position and colors are saved to Chrome sync, so they follow you. Save up to 20 named presets and switch setups in one click.</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon y">🌏</div>
+          <h3 data-i18n="feat6_h3">12 interface languages</h3>
+          <p data-i18n="feat6_p">The popup and on-screen hints follow your Chrome language: English, 日本語, 简体中文, 繁體中文, 한국어, Español, Français, Deutsch, Italiano, Português, Русский, हिन्दी.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="safety-section">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_privacy">Privacy &amp; Safety</span>
+      <h2 data-i18n="safety_h2">Nothing leaves your browser.</h2>
+      <p class="section-lead" data-i18n="safety_lead">SubDuo has no server. It only reads the subtitle files Amazon already sends to your browser for the title you're watching.</p>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h3 data-i18n="safe1_h3">🔒 100% local</h3>
+          <p data-i18n="safe1_p">Subtitle files are fetched from Amazon, parsed in your browser, and drawn over the video. No text, no titles, no viewing history is sent anywhere.</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe2_h3">🚫 No account, no tracking, no ads</h3>
+          <p data-i18n="safe2_p">There is nothing to sign up for. The extension contains no analytics, no advertising, and no third-party code.</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe3_h3">🛡️ Minimal permissions</h3>
+          <p data-i18n="safe3_p">Only "storage" (your settings) and "tabs" (to show the current tab's status in the popup). It runs solely on Prime Video and Amazon video pages.</p>
+        </div>
+        <div class="safety-card">
+          <h3 data-i18n="safe4_h3">🧹 Uninstall removes everything</h3>
+          <p data-i18n="safe4_p">Your settings live in Chrome's storage. Removing the extension removes them; nothing is kept elsewhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTES -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_notes">Good to know</span>
+      <h2 data-i18n="notes_h2">Before you install</h2>
+      <div class="notes-list" style="margin-top:40px;">
+        <div class="note-item"><span class="n">1</span><span data-i18n-html="note1"><b>No machine translation.</b> SubDuo can only show subtitle languages Amazon provides for that title. If a title has one language, only one line is possible.</span></div>
+        <div class="note-item"><span class="n">2</span><span data-i18n-html="note2"><b>Turn off Prime Video's own subtitles.</b> Otherwise the same line shows twice. SubDuo draws its own.</span></div>
+        <div class="note-item"><span class="n">3</span><span data-i18n-html="note3"><b>Reload after installing or updating.</b> Tabs that were already open need a refresh before SubDuo can see the subtitle tracks.</span></div>
+        <div class="note-item"><span class="n">4</span><span data-i18n-html="note4"><b>It relies on Prime Video's player.</b> If Amazon changes how subtitles are delivered, SubDuo may stop detecting tracks until it's updated.</span></div>
+        <div class="note-item"><span class="n">5</span><span data-i18n-html="note5"><b>Live streams and ad-supported playback</b> haven't been verified. Requires Google Chrome 111 or later on desktop.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag" data-i18n="tag_faq">FAQ</span>
+      <h2 data-i18n="faq_h2">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq1_q">Does SubDuo translate subtitles?</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">No. It shows two of the subtitle tracks Amazon already provides for the title — nothing is machine-translated. If a title offers only one language, only that one can be shown.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq2_q">Which languages can I pick?</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">Any two the title offers. Press play and SubDuo lists every track it detects in the popup; before playback starts it offers the 12 most common languages as a preset list.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq3_q">Does it work in fullscreen?</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">Yes. The subtitle block lives inside the player element, so it stays in place and scales with the video in fullscreen.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq4_q">Is anything sent to a server?</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">No. SubDuo only reads the subtitle files Amazon delivers to your browser for the title you're watching. There's no account, no analytics, and nothing leaves your browser.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq5_q">The subtitles show twice. What's wrong?</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq5_a">Prime Video's built-in subtitles are still on. Turn them off in the player's subtitle menu — SubDuo draws its own two lines.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span data-i18n="faq6_q">Is it free?</span></button>
+          <div class="faq-a"><div class="faq-a-inner" data-i18n="faq6_a">Yes, completely. No sign-up, no limits, no premium tier. A Prime Video subscription is of course required to watch the videos themselves.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <h2 data-i18n="cta_h2">Watch in two languages tonight.</h2>
+      <div class="cta-checklist">
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check1">Two subtitle languages at once on Prime Video</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check2">Drag, resize, and style right on the video</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check3">Completely free, no account</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon">✓</span><span data-i18n="cta_check4">100% local — nothing leaves your browser</span></div>
+      </div>
+      <a href="https://chromewebstore.google.com/" class="btn-primary store-link" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <span data-i18n="cta_btn">Add to Chrome — free</span>
+      </a>
+      <p class="cta-note" data-i18n="cta_note">Installs from the Chrome Web Store in seconds</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 SubDuo by Ramune</span>
+      <a href="privacy-policy.html" id="foot-pp" target="_blank" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="https://ramune441.github.io/" data-i18n="footer_other">Other products</a>
+    </div>
+  </footer>
+
+  <script>
+    // Chrome Web Store listing URL. TODO: replace with the real listing URL once published
+    // (all CTA buttons carry class "store-link" and are rewritten from this one constant).
+    var SUBDUO_STORE_URL = "https://chromewebstore.google.com/";
+    document.querySelectorAll(".store-link").forEach(function (a) { a.href = SUBDUO_STORE_URL; });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function (el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) { item.classList.add('open'); this.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+
+    // Demo tabs
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var tabs = [].slice.call(document.querySelectorAll('.da-tab'));
+      var scenes = ['da0', 'da1', 'da2', 'da3'];
+      var cur = -1, autoT = null;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function caps(i) { var el = $('cap' + i + 'src'); return el ? el.innerHTML : ''; }
+      function activate(i, manual) {
+        if (i === cur && !manual) return;
+        cur = i;
+        scenes.forEach(function (id, j) { $(id).classList.toggle('on', j === i); });
+        tabs.forEach(function (t, j) { t.classList.toggle('active', j === i); });
+        $('dacap').innerHTML = caps(i);
+        if (autoT) clearTimeout(autoT);
+        if (!reduce && !manual) autoT = setTimeout(function () { activate((i + 1) % scenes.length); }, 5000);
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { activate(+t.dataset.i, true); }); });
+      var sec = document.getElementById('demo'), started = false;
+      function maybeStart() {
+        if (started) return;
+        var r = sec.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.85 && r.bottom > 0) { started = true; activate(0, false); }
+      }
+      window.addEventListener('scroll', maybeStart, { passive: true });
+      window.addEventListener('load', maybeStart);
+      maybeStart();
+      // re-render caption when the language changes
+      document.addEventListener('lp:lang', function () { if (cur >= 0) $('dacap').innerHTML = caps(cur); });
+    })();
+
+    // Hero: cycle through cue pairs like real playback
+    (function () {
+      var a = document.getElementById('hero-a'), b = document.getElementById('hero-b');
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      var i = 0;
+      function cues() {
+        var keys = ['cue1', 'cue2', 'cue3', 'cue4'];
+        var msgs = (window.LP_MESSAGES && window.LP_MESSAGES[document.documentElement.lang]) || (window.LP_MESSAGES && window.LP_MESSAGES.en) || {};
+        return keys.map(function (k) { return [msgs[k + '_a'] || a.textContent, msgs[k + '_b'] || b.textContent]; });
+      }
+      setInterval(function () {
+        var list = cues();
+        i = (i + 1) % list.length;
+        a.style.opacity = 0; b.style.opacity = 0;
+        setTimeout(function () {
+          a.textContent = list[i][0]; b.textContent = list[i][1];
+          a.style.opacity = 1; b.style.opacity = 1;
+        }, 260);
+      }, 3600);
+    })();
+  </script>
+  <script src="i18n-lp.js?v=1"></script>
+  <script>
+    // pass the current language on to the privacy policy
+    (function () {
+      function sync() {
+        var lang = document.documentElement.lang || 'en';
+        var a = document.getElementById('foot-pp');
+        if (a) a.href = 'privacy-policy.html' + (lang.indexOf('ja') === 0 ? '?lang=ja' : '');
+      }
+      document.addEventListener('lp:lang', sync);
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sync); else sync();
+    })();
+  </script>
+</body>
+</html>

@@ -33,6 +33,9 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/sendready-chrome/promo[-lang].webm` | 動画 | - | no | Chrome Web Store 用（VP9/yuv420p/1080p/30fps/約34.6秒）。en=`promo.webm`、翻訳版=`promo-{ja,zh,ko,es,fr,de,pt,hi,id,ar}.webm`。**4K録画（deviceScaleFactor=2）から lanczos 縮小**。`page.screencast()` で録画し、録画ごとに実測係数（wall-clock ÷ raw実尺）で setpts 再エンコード |
 | `/sendready-chrome/promo[-lang].mp4` | 動画 | - | no | YouTube 掲載用 **4K**（H.264 High/yuv420p/3840x2160/30fps + AAC BGM、約8-10MB）。BGM は旧動画と同一音源。**YouTube 公開済み（4K版・チャンネル: Just One More Animal、タイトル「SendReady ChromeExtension (言語名)」）**: en=EgFYF6ePogI / ja=XJfutrY5Hi4 / zh=O14tQiPTOuM / ko=EP851RRJ960 / es=i5upjawC5Wc / fr=yy85fFNBexM / de=A27lAS3KP6A / pt=gUgKhme1FLg / hi=XCgpLPoVV8I / id=vuDxSAuPJJk / ar=4li9HWk8jf0（旧1080p版11本は非公開化済み）。各言語のストア掲載情報のプロモーション動画欄に `https://www.youtube.com/watch?v=<ID>` を設定（デベロッパーコンソールは拡張から操作不可のため手動） |
 | `/sendready-chrome/store-images.html` | ストア画像生成 | noindex | no | スクショ撮影用。`images/store-image-{1..5}.png`(1280x800) + `store-image-feature.png`(1400x560) + `store-tile-small.png`(440x280・enのみ) を Puppeteer の要素スクショで生成。`?lang=` で11言語対応(en=DOM既定、翻訳版は `images/<lang>/` に同名で出力。文言は拡張の lib/i18n.js・lib/presets.js・LP の i18n-lp.js と同期、ar は RTL) |
+| `/subduo/` | LP | index | yes | Chrome拡張（SubDuo・Prime Video 二言語字幕）。ダークテーマ。`i18n-lp.js` で拡張UIと同じ12言語対応（en=DOM既定、ja/zh/zh-TW/ko/es/fr/de/it/pt/ru/hi）＋言語セレクター（`?lang=` > localStorage > ブラウザ言語）。デモは実Prime Video画面ではなく架空作品のプレイヤーモック（ヒーローは cue を3.6秒周期で切替）。**ウェブストアCTAは `SUBDUO_STORE_URL` 定数のプレースホルダ（公開後に掲載URLへ差し替え）** |
+| `/subduo/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー（英語／日本語の切替ボタン、`?lang=ja` で日本語）。完全ローカル動作・権限は storage / tabs のみ |
+| `/subduo/store-images.html` | ストア画像生成 | noindex | no | `record-store.mjs`（puppeteer-core・要素スクショ）で `images/store-image-{1..5}.png`(1280x800) + `store-image-marquee.png`(1400x560) + `store-tile-small.png`(440x280・enのみ) を生成。`?lang=` で12言語（翻訳版は `images/<lang>/`、zh-TW はディレクトリ名も `zh-TW`）。字幕サンプルは「上段=原語 / 下段=UI言語」（en のみ上段スペイン語）。あふれ判定は装飾 `.glow` を除いた `window.__overflow()` で行う（scrollHeight は overflow:hidden でも装飾のはみ出しを含むため使わない） |
 | `/ripen/` | LP | index | yes | Android（旧称 Focus First）。`i18n-lp.js` で12言語対応（ja/en/zh/ko/es/fr/de/it/pt/ru/ar/hi）＋言語セレクター |
 | `/ripen/contact.html` | 問い合わせ | index | yes | 自前フォーム（自己完結型・インライン11言語辞書。it/ru は en にフォールバック） |
 | `/ripen/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー。`i18n-pp.js` で同12言語対応＋言語セレクター |
@@ -86,6 +89,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | formpilot | G-4QPZE2JTLP |
 | ashiato-maker | G-NLL1M8ZFGH (+ Google広告 AW-17017238782) |
 | ripen | G-4YHTG3FQSX |
+| subduo | G-4YHTG3FQSX（ルートと共用） |
 
 ### Google Search Console 認証
 

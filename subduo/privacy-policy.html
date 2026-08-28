@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubDuo Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Chrome extension SubDuo (dual subtitles for Prime Video). SubDuo runs entirely in the browser: no server, no account, no analytics. Covers the data it reads, where settings are stored, permissions, and deletion.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/subduo/privacy-policy.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+  <style>
+    :root { --cy: #00A8E1; --cy-deep: #0089B8; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: var(--cy-deep); }
+    a:hover { color: var(--cy); }
+    .header { display: flex; align-items: center; gap: 10px; max-width: 720px; margin: 0 auto; padding: 28px 20px 0; }
+    .header img { width: 32px; height: 32px; border-radius: 8px; }
+    .header span { font-size: 18px; font-weight: 700; color: #0F2A3F; }
+    .header .lang { margin-left: auto; display: flex; gap: 6px; }
+    .header .lang button { font-family: inherit; font-size: 12.5px; font-weight: 600; padding: 5px 12px; border-radius: 999px; border: 1px solid #cbd5e1; background: #fff; color: #475569; cursor: pointer; }
+    .header .lang button.on { background: #0F2A3F; border-color: #0F2A3F; color: #fff; }
+    .container { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 32px; font-size: 14px; font-weight: 500; color: #64748b; text-decoration: none; transition: color 0.2s; }
+    .back:hover { color: var(--cy-deep); }
+    h1 { font-size: 28px; font-weight: 800; color: #0F2A3F; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; color: #0F2A3F; margin-top: 40px; margin-bottom: 16px; }
+    h3 { font-size: 16px; font-weight: 700; color: #1e293b; margin-top: 24px; margin-bottom: 8px; }
+    p, li { font-size: 15px; color: #475569; margin-bottom: 12px; }
+    ul { padding-left: 24px; }
+    strong { color: #1e293b; font-weight: 700; }
+    code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #334155; word-break: break-all; font-family: ui-monospace, Consolas, monospace; }
+    .box { background: #E6F6FC; border: 1px solid #B9E6F5; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+    .box p { margin: 0; color: #0F2A3F; font-weight: 600; }
+    footer { border-top: 1px solid #e2e8f0; padding: 24px 20px; text-align: center; font-size: 13px; color: #94a3b8; }
+    [data-lang] { display: none; }
+    [data-lang].on { display: block; }
+    @media (max-width: 480px) { .container { padding: 24px 16px 64px; } h1 { font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img src="icons/logo.svg" alt="" width="32" height="32">
+    <span>SubDuo</span>
+    <div class="lang"><button type="button" data-set="en" class="on">English</button><button type="button" data-set="ja">日本語</button></div>
+  </header>
+
+  <!-- ═══════════════ English ═══════════════ -->
+  <div class="container on" data-lang="en">
+    <a href="index.html" class="back">&larr; Back to SubDuo</a>
+    <h1>SubDuo Privacy Policy</h1>
+    <p class="updated">Last updated: August 28, 2026</p>
+
+    <p>This Privacy Policy describes how the developer Ramune (the "Developer") handles user information in the Chrome extension "SubDuo — Dual Subtitles for Prime Video" (the "Extension"). The Extension shows two subtitle languages at once on Amazon Prime Video.</p>
+
+    <div class="box"><p>In short: SubDuo has no server. It collects nothing, sends nothing, and contains no analytics, advertising or third-party code. Everything happens inside your browser.</p></div>
+
+    <h2>1. Information the Extension handles</h2>
+    <h3>(1) Subtitle files of the title you are watching</h3>
+    <ul>
+      <li>To display two languages, the Extension reads the subtitle track list that Prime Video's player receives from Amazon for the current title, and fetches the corresponding subtitle files (TTML) from Amazon's own delivery servers.</li>
+      <li>These files are parsed in your browser and drawn over the video. They are kept only in memory for the current tab and are discarded when the tab is closed.</li>
+      <li>The Extension does not read, record or transmit the video itself, the title name, your watch history, or anything else on the page.</li>
+    </ul>
+
+    <h3>(2) Settings stored locally</h3>
+    <ul>
+      <li>Your display settings: on/off, the two chosen languages, text size, position, alignment, text colors and transparency per line.</li>
+      <li>Named presets you save (up to 20).</li>
+    </ul>
+    <p>These are stored with the Chrome Storage API (<code>chrome.storage.sync</code>). Chrome may sync them between your own devices when you are signed in to Chrome with sync enabled; the Developer has no access to them.</p>
+
+    <h2>2. Information sent to external servers</h2>
+    <p><strong>None.</strong> The Extension makes no requests to any server operated by the Developer or any third party. The only network requests it makes are to Amazon's subtitle delivery servers, for the subtitle files of the title you are already streaming — the same files Prime Video's own player downloads.</p>
+
+    <h2>3. Third-party sharing</h2>
+    <p>The Developer never collects, sells or shares any user data, because none is collected. The Extension contains <strong>no advertising, tracking, or analytics</strong>.</p>
+
+    <h2>4. Permissions</h2>
+    <p>The Extension requests only the permissions needed for its features:</p>
+    <ul>
+      <li><strong>storage</strong>: saving your display settings and presets.</li>
+      <li><strong>tabs</strong>: checking whether the current tab is a Prime Video page, so the popup can show the detected subtitle languages for that tab.</li>
+      <li><strong>Content scripts on Prime Video / Amazon video pages</strong> (<code>primevideo.com</code> and the Amazon stores listed on the product page): detecting subtitle tracks and drawing the overlay. The Extension does not run on any other site.</li>
+    </ul>
+    <p>The Extension does <strong>not</strong> request access to your camera, microphone, location, browsing history, or clipboard.</p>
+
+    <h2>5. Data retention and deletion</h2>
+    <p>All data the Extension stores (settings and presets) is kept solely in your browser's Chrome storage area. The Developer does not store it anywhere. <strong>Uninstalling the Extension deletes all of it.</strong></p>
+
+    <h2>6. Children's privacy</h2>
+    <p>The Extension collects no personal information from anyone, including children.</p>
+
+    <h2>7. Contact</h2>
+    <ul>
+      <li>Developer: <strong>Ramune</strong></li>
+      <li>Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a></li>
+    </ul>
+
+    <h2>8. Changes to this policy</h2>
+    <p>This policy may be revised in response to changes in the law or the Extension. The updated version will be published on this page with a new "Last updated" date.</p>
+  </div>
+
+  <!-- ═══════════════ 日本語 ═══════════════ -->
+  <div class="container" data-lang="ja">
+    <a href="index.html?lang=ja" class="back">&larr; SubDuo に戻る</a>
+    <h1>SubDuo プライバシーポリシー</h1>
+    <p class="updated">最終更新日: 2026年8月28日</p>
+
+    <p>本プライバシーポリシーは、開発者 Ramune（以下「開発者」）が Chrome 拡張機能「SubDuo — Prime Video 二言語字幕」（以下「本拡張機能」）において利用者の情報をどのように扱うかを定めるものです。本拡張機能は、Amazon Prime Video の字幕を2言語同時に表示するツールです。</p>
+
+    <div class="box"><p>要点: SubDuo にサーバーはありません。何も収集せず、何も送信せず、解析・広告・第三者のコードも含みません。すべてブラウザ内で完結します。</p></div>
+
+    <h2>1. 本拡張機能が扱う情報</h2>
+    <h3>(1) 視聴中の作品の字幕ファイル</h3>
+    <ul>
+      <li>2言語を表示するため、本拡張機能は Prime Video のプレイヤーが Amazon から受け取る現在の作品の字幕トラック一覧を読み取り、該当する字幕ファイル（TTML）を Amazon 自身の配信サーバーから取得します。</li>
+      <li>取得した字幕はブラウザ内で解析し、動画の上に描画します。字幕はそのタブのメモリ上にのみ保持され、タブを閉じると破棄されます。</li>
+      <li>動画そのもの、作品名、視聴履歴、ページ上のその他の情報を読み取り・記録・送信することはありません。</li>
+    </ul>
+
+    <h3>(2) ローカルに保存する設定</h3>
+    <ul>
+      <li>表示設定: ON/OFF、選択した2言語、文字サイズ、表示位置、文字揃え、段ごとの文字色と透過度。</li>
+      <li>利用者が保存した名前付きプリセット（最大20件）。</li>
+    </ul>
+    <p>これらは Chrome Storage API（<code>chrome.storage.sync</code>）で保存されます。Chrome にサインインして同期を有効にしている場合、Chrome が利用者自身の端末間で同期することがありますが、開発者はこれらにアクセスできません。</p>
+
+    <h2>2. 外部サーバーへ送信する情報</h2>
+    <p><strong>ありません。</strong> 本拡張機能は、開発者または第三者が運営するいかなるサーバーにもリクエストを送りません。行う通信は、視聴中の作品の字幕ファイルを Amazon の字幕配信サーバーから取得することだけで、これは Prime Video のプレイヤー自身がダウンロードするものと同じファイルです。</p>
+
+    <h2>3. 第三者への提供</h2>
+    <p>開発者は利用者のデータを収集していないため、販売・提供することもありません。本拡張機能には<strong>広告・トラッキング・解析はいっさい含まれていません</strong>。</p>
+
+    <h2>4. 権限</h2>
+    <p>本拡張機能が要求する権限は、機能の提供に必要な最小限のものです。</p>
+    <ul>
+      <li><strong>storage</strong>: 表示設定とプリセットの保存。</li>
+      <li><strong>tabs</strong>: 現在のタブが Prime Video のページかどうかを確認し、ポップアップにそのタブで検出した字幕言語を表示するため。</li>
+      <li><strong>Prime Video / Amazon 動画ページでのコンテンツスクリプト</strong>（<code>primevideo.com</code> および製品ページに記載の Amazon 各国ストア）: 字幕トラックの検出とオーバーレイの描画。これ以外のサイトでは動作しません。</li>
+    </ul>
+    <p>カメラ・マイク・位置情報・閲覧履歴・クリップボードへのアクセスは<strong>要求しません</strong>。</p>
+
+    <h2>5. データの保存期間と削除</h2>
+    <p>本拡張機能が保存するデータ（設定とプリセット）は、利用者のブラウザの Chrome ストレージ領域にのみ保持されます。開発者はこれをどこにも保存しません。<strong>本拡張機能をアンインストールすると、これらはすべて削除されます。</strong></p>
+
+    <h2>6. 子どものプライバシー</h2>
+    <p>本拡張機能は、子どもを含むいかなる利用者からも個人情報を収集しません。</p>
+
+    <h2>7. お問い合わせ</h2>
+    <ul>
+      <li>開発者: <strong>Ramune</strong></li>
+      <li>メール: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a></li>
+    </ul>
+
+    <h2>8. 本ポリシーの変更</h2>
+    <p>法令や本拡張機能の変更に応じて、本ポリシーを改定することがあります。改定後の内容は本ページに新しい「最終更新日」とともに掲載します。</p>
+  </div>
+
+  <footer>&copy; 2026 SubDuo by Ramune</footer>
+
+  <script>
+    (function () {
+      var blocks = document.querySelectorAll('[data-lang]');
+      var buttons = document.querySelectorAll('.lang button');
+      function set(lang) {
+        blocks.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
+        buttons.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-set') === lang); });
+        document.documentElement.lang = lang;
+        document.title = lang === 'ja' ? 'SubDuo プライバシーポリシー' : 'SubDuo Privacy Policy';
+      }
+      var q = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
+      var nav = (navigator.language || '').toLowerCase();
+      set(q === 'ja' || (!q && nav.indexOf('ja') === 0) ? 'ja' : 'en');
+      buttons.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-set')); }); });
+    })();
+  </script>
+</body>
+</html>

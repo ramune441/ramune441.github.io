@@ -10,6 +10,7 @@ Disallow: /ripen/promo.html
 
 # ストア画像生成用HTMLはインデックス対象外
 Disallow: /sendready-chrome/store-images.html
+Disallow: /subduo/store-images.html
 Disallow: /ripen/store-images.html
 Disallow: /ripen/icon-512.html
 
