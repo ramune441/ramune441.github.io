@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap">
 <style>
 /* Generator for Chrome Web Store assets. Screenshot each #id element with Puppeteer (record-store.mjs).
-   ?lang=xx swaps all text (en = DOM default). Colors mirror the LP (index.html). */
+   ?lang=xx swaps all text (en = DOM default). Colors mirror the LP (index.html).
+   Story of the 5 shots: 1 hook (full-bleed scene) → 2 pain/solution (before/after) → 3 any language pair
+   → 4 make it yours (3 looks) → 5 zero friction (3 steps + trust). */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#3a3f52; -webkit-font-smoothing:antialiased; padding:40px 0;
   font-family:'Inter','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans TC','Noto Sans Devanagari','Segoe UI',sans-serif; }
@@ -21,113 +23,154 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 
 /* ════ canvas (1280x800) ════ */
 .si { width:1280px; height:800px; position:relative; overflow:hidden; margin:0 auto 56px; color:var(--t1);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px; padding:44px 60px;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; padding:44px 60px;
   background:radial-gradient(ellipse 70% 55% at 50% -5%, rgba(56,182,255,.18) 0%, transparent 65%), linear-gradient(180deg,#0A0E1A 0%,#0F1830 100%); }
+.si.bleed { display:block; padding:0; }
 .glow { position:absolute; border-radius:50%; pointer-events:none; }
-.brand { position:absolute; left:40px; top:34px; display:flex; align-items:center; gap:10px; z-index:3; }
+.brand { position:absolute; left:40px; top:34px; display:flex; align-items:center; gap:10px; z-index:5; }
 .brand img { width:34px; height:34px; border-radius:9px; }
 .brand span { font-size:20px; font-weight:800; letter-spacing:-.3px; }
 .cap { text-align:center; z-index:2; max-width:1140px; position:relative; }
-.eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:16px; font-weight:800; letter-spacing:.14em;
-  color:var(--cy-pale); background:rgba(56,182,255,.10); border:1px solid rgba(56,182,255,.28);
-  border-radius:100px; padding:8px 22px; margin-bottom:16px; }
+.cap.top { position:absolute; top:58px; left:0; right:0; max-width:none; padding:0 90px; z-index:4; }
+.eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:800; letter-spacing:.14em;
+  color:var(--cy-pale); background:rgba(56,182,255,.12); border:1px solid rgba(56,182,255,.3);
+  border-radius:100px; padding:8px 22px; margin-bottom:16px; backdrop-filter:blur(6px); }
 .eyebrow.y { color:var(--yel); background:rgba(255,215,106,.10); border-color:rgba(255,215,106,.3); }
-.cap h1 { font-size:58px; font-weight:900; color:var(--t1); letter-spacing:-1.5px; line-height:1.12; }
-.cap p { font-size:25px; color:var(--t2); margin-top:12px; font-weight:500; line-height:1.4; }
+.cap h1 { font-size:56px; font-weight:900; color:var(--t1); letter-spacing:-1.5px; line-height:1.14; text-shadow:0 4px 30px rgba(0,0,0,.35); }
+.cap p { font-size:24px; color:var(--t2); margin-top:12px; font-weight:500; line-height:1.45; }
+.cap.top p { color:#dbe4f5; text-shadow:0 2px 16px rgba(0,0,0,.5); }
 
-/* ════ player mock (same CSS as LP) ════ */
-.player { position:relative; width:940px; aspect-ratio:16/9; border-radius:16px; overflow:hidden; background:#000; text-align:center;
-  box-shadow:0 34px 90px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.10); container-type:inline-size; z-index:2; flex:none; }
-.scene { position:absolute; inset:0; background:linear-gradient(180deg,#0b1a33 0%,#1c3a64 34%,#c8683c 60%,#f2a45b 68%,#20304d 68.2%,#0a1424 100%); }
-.scene::before { content:''; position:absolute; left:50%; top:52%; width:18%; aspect-ratio:1; border-radius:50%;
-  background:radial-gradient(circle,#fff3c2 0%,#ffc46b 45%,rgba(255,150,80,0) 72%); transform:translate(-50%,-50%); filter:blur(2px); }
-.scene .sea { position:absolute; left:0; right:0; top:68%; bottom:0; background:linear-gradient(180deg,rgba(255,180,100,.35) 0%,rgba(20,40,80,.2) 30%,rgba(5,10,25,.6) 100%); }
-.scene .glint { position:absolute; left:46.5%; right:46.5%; top:68.5%; height:16%; background:repeating-linear-gradient(180deg,rgba(255,220,150,.5) 0 2px,transparent 2px 7px); filter:blur(.8px); opacity:.55; }
-.scene .hill { position:absolute; bottom:0; background:#060b16; }
-.scene .hill.l { left:-4%; width:42%; height:40%; clip-path:polygon(0 100%,0 42%,12% 30%,24% 38%,33% 22%,45% 34%,58% 20%,70% 36%,84% 28%,100% 44%,100% 100%); }
-.scene .hill.r { right:-6%; width:46%; height:36%; clip-path:polygon(0 100%,0 48%,10% 36%,22% 42%,36% 24%,50% 34%,62% 18%,75% 30%,88% 26%,100% 40%,100% 100%); }
-.scene .vignette { position:absolute; inset:0; background:radial-gradient(ellipse 80% 70% at 50% 45%,transparent 45%,rgba(0,0,0,.55) 100%); }
+/* ════ frames & scenes ════ */
+.frame { position:relative; overflow:hidden; border-radius:16px; background:#000; text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.10); flex:none; }
+.frame.full { position:absolute; inset:0; border-radius:0; box-shadow:none; }
+.frame.full::after { content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(5,8,20,.88) 0%, rgba(5,8,20,.45) 30%, transparent 52%, transparent 78%, rgba(0,0,0,.7) 100%); }
+.scene { position:absolute; inset:0; }
+.scene .vig { position:absolute; inset:0; background:radial-gradient(ellipse 80% 70% at 50% 45%, transparent 45%, rgba(0,0,0,.5) 100%); }
 .scene .grain { position:absolute; inset:0; opacity:.06; background-image:radial-gradient(rgba(255,255,255,.8) .6px,transparent .7px); background-size:4px 4px; mix-blend-mode:overlay; }
-.p-top { position:absolute; top:0; left:0; right:0; padding:3.2% 3.4%; display:flex; align-items:center; gap:3%; color:#fff; text-align:left;
-  background:linear-gradient(180deg,rgba(0,0,0,.55),transparent); font-size:clamp(9px,2cqw,19px); }
-.p-top .back { font-size:1.5em; line-height:1; opacity:.9; }
-.p-top .title { font-weight:700; }
-.p-top .ep { font-weight:400; opacity:.75; margin-left:.5em; }
-.p-ctrl { position:absolute; left:0; right:0; bottom:0; padding:2.5% 3.4% 2.6%; background:linear-gradient(0deg,rgba(0,0,0,.72),transparent); color:#fff; font-size:clamp(8px,1.7cqw,16px); }
-.p-bar { position:relative; height:.32em; background:rgba(255,255,255,.28); border-radius:999px; margin-bottom:.8em; }
-.p-bar .fill { position:absolute; left:0; top:0; bottom:0; width:63%; background:var(--cy-deep); border-radius:999px; }
-.p-bar .knob { position:absolute; left:63%; top:50%; width:1em; height:1em; background:#fff; border-radius:50%; transform:translate(-50%,-50%); box-shadow:0 0 6px rgba(0,0,0,.5); }
-.p-row { display:flex; align-items:center; gap:1.4em; }
-.p-row .ico { width:1.5em; height:1.5em; fill:#fff; opacity:.92; flex:none; }
-.p-row .time { font-variant-numeric:tabular-nums; opacity:.85; margin-left:.2em; }
-.p-row .sp { flex:1; }
-.p-row .cc { font-size:.72em; font-weight:800; border:1.5px solid #fff; border-radius:4px; padding:0 .35em; line-height:1.45; }
+.scene.dim { filter:saturate(.25) brightness(.55); }
+/* night city with bokeh */
+.scene.city { background:radial-gradient(ellipse 90% 34% at 50% 66%, rgba(255,140,70,.28), transparent 70%), linear-gradient(180deg,#03050c 0%,#0a1230 42%,#26194f 74%,#3d2140 100%); }
+.bokeh { position:absolute; border-radius:50%; filter:blur(9px); }
+.bld { position:absolute; bottom:0; background-color:#04060e; box-shadow:0 0 40px rgba(0,0,0,.6);
+  /* lit windows: two dot layers with different pitches so the pattern doesn't read as a uniform grid */
+  background-image:radial-gradient(rgba(255,208,140,.55) 1.3px, transparent 2px), radial-gradient(rgba(255,208,140,.35) 1.2px, transparent 2px);
+  background-size:13px 17px, 31px 23px; background-position:0 0, 7px 9px; }
+.bld.dark { background-image:radial-gradient(rgba(255,208,140,.22) 1.3px, transparent 2px); background-size:15px 19px; }
+.scene.city .ground { position:absolute; left:0; right:0; bottom:0; height:7%; background:linear-gradient(180deg, transparent, #03050c 40%); z-index:1; }
+/* sunset sea */
+.scene.sea { background:linear-gradient(180deg,#0b1a33 0%,#1c3a64 34%,#c8683c 60%,#f2a45b 68%,#20304d 68.2%,#0a1424 100%); }
+.scene.sea::before { content:''; position:absolute; left:50%; top:52%; width:18%; aspect-ratio:1; border-radius:50%;
+  background:radial-gradient(circle,#fff3c2 0%,#ffc46b 45%,rgba(255,150,80,0) 72%); transform:translate(-50%,-50%); filter:blur(2px); }
+.scene.sea .sea { position:absolute; left:0; right:0; top:68%; bottom:0; background:linear-gradient(180deg,rgba(255,180,100,.35) 0%,rgba(20,40,80,.2) 30%,rgba(5,10,25,.6) 100%); }
+.scene.sea .hill { position:absolute; bottom:0; background:#060b16; }
+.scene.sea .hill.l { left:-4%; width:42%; height:40%; clip-path:polygon(0 100%,0 42%,12% 30%,24% 38%,33% 22%,45% 34%,58% 20%,70% 36%,84% 28%,100% 44%,100% 100%); }
+.scene.sea .hill.r { right:-6%; width:46%; height:36%; clip-path:polygon(0 100%,0 48%,10% 36%,22% 42%,36% 24%,50% 34%,62% 18%,75% 30%,88% 26%,100% 40%,100% 100%); }
+/* rainy window (cool) */
+.scene.rain { background:linear-gradient(180deg,#061223 0%,#0f3a5c 55%,#0a2238 100%); }
+.scene.rain::before { content:''; position:absolute; inset:-10%; background:repeating-linear-gradient(104deg, transparent 0 22px, rgba(255,255,255,.05) 22px 24px); }
+.scene.rain .lamp { position:absolute; border-radius:50%; filter:blur(12px); }
+/* simple gradient scenes for cards */
+.scene.g-forest { background:linear-gradient(180deg,#06120d 0%,#1b4d35 62%,#0a1f16 100%); }
+.scene.g-desert { background:linear-gradient(180deg,#1a0f08 0%,#c07a33 60%,#3a2010 61%,#160c06 100%); }
+.scene.g-snow { background:linear-gradient(180deg,#0e1b33 0%,#7ea5cf 64%,#1b2a44 65%,#0c1526 100%); }
+.scene.g-neon { background:linear-gradient(160deg,#150a2e 0%,#4a1d6e 52%,#0e2540 100%); }
+.scene.g-dawn { background:linear-gradient(180deg,#1a1530 0%,#7a4b7a 45%,#e7a06a 66%,#2a1c2e 67%,#120b16 100%); }
+.scene.g-sea2 { background:linear-gradient(180deg,#071a2a 0%,#0b6a8a 58%,#063a4c 59%,#031a24 100%); }
+.scene .orb { position:absolute; left:50%; top:46%; width:22%; aspect-ratio:1; border-radius:50%; transform:translate(-50%,-50%); filter:blur(6px);
+  background:radial-gradient(circle, rgba(255,240,200,.95) 0%, rgba(255,200,120,.6) 40%, transparent 70%); }
 
 /* SubDuo overlay (mirrors content.js) */
-.sd { position:absolute; left:4%; right:4%; bottom:12%; display:flex; flex-direction:column; align-items:center; text-align:center; font-size:clamp(9px,3.8cqw,36px); }
+.sd { position:absolute; left:4%; right:4%; bottom:12%; display:flex; flex-direction:column; align-items:center; text-align:center; z-index:3; }
+.sd.left { align-items:flex-start; text-align:left; }
 .sd-box { display:inline-flex; flex-direction:column; max-width:100%; position:relative; }
 .sd-line { white-space:pre-wrap; line-height:1.25; padding:.06em .4em; min-height:1.37em; background:rgba(0,0,0,.55); text-shadow:0 0 4px rgba(0,0,0,.9); font-weight:600; }
 .sd-a { color:#fff; border-radius:.18em .18em 0 0; }
 .sd-b { color:#ffd76a; font-size:.8em; border-radius:0 0 .18em .18em; }
-.sd.selected .sd-box { outline:2.5px solid var(--cy); outline-offset:7px; border-radius:4px; }
-.sd-toolbar { position:absolute; bottom:calc(100% + 18px); left:50%; transform:translateX(-50%); display:flex; gap:5px; padding:5px; background:rgba(24,24,28,.96); border:1px solid rgba(255,255,255,.2); border-radius:9px; font-size:16px; }
-.sd-toolbar span { color:#fff; padding:4px 12px; border-radius:6px; white-space:nowrap; font-weight:500; }
-.sd-toolbar span.on { background:var(--cy); color:#10161a; }
-.sd-hint { position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%); white-space:nowrap; font-size:16px; color:#fff; background:rgba(0,0,0,.72); border-radius:6px; padding:4px 14px; font-weight:500; }
-.anno { position:absolute; z-index:6; background:var(--yel); color:#1a1400; font-size:20px; font-weight:700; padding:8px 18px; border-radius:999px; box-shadow:0 8px 22px rgba(0,0,0,.5); white-space:nowrap; }
-.anno::after { content:''; position:absolute; width:12px; height:12px; background:var(--yel); transform:rotate(45deg); }
-.anno.down::after { left:50%; bottom:-5px; margin-left:-6px; }
-.anno.up::after { left:50%; top:-5px; margin-left:-6px; }
-.anno.left::after { top:50%; left:-5px; margin-top:-6px; }
-.anno.right::after { top:50%; right:-5px; margin-top:-6px; }
+.sd.only .sd-a { border-radius:.18em; }
+.sd.nobg .sd-line { background:transparent; text-shadow:0 0 8px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,.9); }
+.sd.big { font-size:48px; }
+.p-top { position:absolute; top:0; left:0; right:0; padding:2.8% 3.4%; display:flex; align-items:center; gap:2.6%; color:#fff; text-align:left; z-index:3; }
+.p-top .back { font-size:1.5em; line-height:1; opacity:.9; }
+.p-top .title { font-weight:700; }
+.p-top .ep { font-weight:400; opacity:.75; margin-left:.4em; }
+.p-ctrl { position:absolute; left:0; right:0; bottom:0; padding:22px 44px 26px; color:#fff; font-size:16px; z-index:3; }
+.p-bar { position:relative; height:5px; background:rgba(255,255,255,.28); border-radius:999px; margin-bottom:14px; }
+.p-bar .fill { position:absolute; left:0; top:0; bottom:0; width:63%; background:var(--cy-deep); border-radius:999px; }
+.p-bar .knob { position:absolute; left:63%; top:50%; width:16px; height:16px; background:#fff; border-radius:50%; transform:translate(-50%,-50%); box-shadow:0 0 6px rgba(0,0,0,.5); }
+.p-row { display:flex; align-items:center; gap:22px; }
+.p-row .ico { width:24px; height:24px; fill:#fff; opacity:.92; flex:none; }
+.p-row .time { font-variant-numeric:tabular-nums; opacity:.85; }
+.p-row .sp { flex:1; }
+.p-row .cc { font-size:12px; font-weight:800; border:1.5px solid #fff; border-radius:4px; padding:0 5px; line-height:1.45; }
 
-/* right-click panel (mirrors content.js .subduo-panel, enlarged) */
-.sd-panel { position:absolute; z-index:5; width:360px; background:rgba(24,24,28,.96); color:#fff; font-size:17px; line-height:1.5; border:1px solid rgba(255,255,255,.22); border-radius:10px; padding:14px 16px; text-align:left; box-shadow:0 24px 60px rgba(0,0,0,.55); }
-.sd-panel .ph { display:flex; justify-content:space-between; font-weight:700; margin-bottom:8px; font-size:18px; }
-.sd-panel .ph i { font-style:normal; color:#aaa; }
-.sd-panel .ps { font-weight:700; font-size:15px; color:#8fd0ff; margin:10px 0 2px; }
-.sd-panel label { display:flex; align-items:center; gap:12px; margin:8px 0; }
-.sd-panel label span:first-child { flex:none; }
-.sd-panel .rg { flex:1; height:5px; background:rgba(255,255,255,.3); border-radius:3px; position:relative; }
-.sd-panel .rg i { position:absolute; left:0; top:0; bottom:0; background:#8fd0ff; border-radius:3px; }
-.sd-panel .rg b { position:absolute; top:50%; width:14px; height:14px; background:#fff; border-radius:50%; transform:translate(-50%,-50%); }
-.sd-panel .val { width:3em; text-align:right; font-variant-numeric:tabular-nums; }
-.sd-panel .sw { width:42px; height:24px; border-radius:5px; border:1px solid rgba(255,255,255,.35); margin-left:auto; }
-.sd-panel .reset { margin-top:10px; text-align:center; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:7px; padding:7px 10px; }
+/* ════ IMG 2: before / after ════ */
+.split { display:flex; align-items:flex-start; gap:0; z-index:2; }
+.col { width:560px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+.arrow { width:64px; display:flex; align-items:center; justify-content:center; font-size:56px; color:var(--cy); align-self:center; padding-bottom:60px; font-weight:300; }
+.tag { position:absolute; left:16px; top:14px; z-index:4; font-size:13px; font-weight:800; letter-spacing:.14em; padding:6px 14px; border-radius:100px;
+  background:rgba(0,0,0,.55); color:#cfd8ea; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(4px); }
+.tag.ok { background:var(--cy); color:#06121c; border-color:var(--cy); }
+.pauseicon { position:absolute; left:50%; top:44%; width:96px; height:96px; border-radius:50%; transform:translate(-50%,-50%); z-index:3;
+  background:rgba(255,255,255,.14); border:2px solid rgba(255,255,255,.55); display:flex; align-items:center; justify-content:center; }
+.pauseicon i { display:block; width:34px; height:38px; background:linear-gradient(90deg,#fff 0 36%, transparent 36% 64%, #fff 64%); }
+.qmark { position:absolute; right:7%; bottom:34%; z-index:4; font-size:60px; font-weight:900; color:#fff; opacity:.85; text-shadow:0 4px 20px rgba(0,0,0,.6); transform:rotate(12deg); }
+.chips { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:560px; }
+.chip { font-size:18px; font-weight:700; padding:9px 18px; border-radius:100px; white-space:nowrap; }
+.chip.x { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); color:#b5bfd3; font-size:16.5px; padding:8px 15px; }
+.chip.ok { background:var(--cy); color:#06121c; font-size:21px; padding:11px 26px; box-shadow:0 10px 30px rgba(56,182,255,.35); }
 
-/* ════ popup mock (mirrors popup.html, ~1.3x) ════ */
-.flow { display:flex; align-items:center; gap:34px; z-index:2; position:relative; }
-.popup { width:390px; background:#fff; color:#1f2328; border-radius:14px; padding:16px 18px 18px; font-size:16px; text-align:left; box-shadow:0 34px 90px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.1); line-height:1.5; flex:none; }
-.pu-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
-.pu-head h4 { font-size:21px; font-weight:700; color:#00a8e1; }
-.pu-toggle { position:relative; width:52px; height:28px; background:#00a8e1; border-radius:14px; }
-.pu-toggle::before { content:''; position:absolute; width:22px; height:22px; left:27px; top:3px; background:#fff; border-radius:50%; }
-.pu-status { color:#6b7280; font-size:14.5px; margin:0 0 8px; white-space:pre-line; line-height:1.45; }
-.pu-sec { display:flex; align-items:center; gap:7px; margin:9px 0 6px; padding-bottom:3px; border-bottom:1px solid #d0d7de; font-size:14.5px; font-weight:700; color:#00a8e1; }
-.pu-row { display:flex; flex-direction:column; gap:4px; margin-bottom:8px; }
-#img2 { padding-top:34px; padding-bottom:34px; gap:22px; }
-.pu-row label { display:flex; align-items:center; gap:7px; font-weight:600; font-size:15.5px; }
-.pu-row label .v { margin-left:auto; font-weight:500; color:#6b7280; }
-.pu-sel { padding:8px 10px; border:1px solid #d0d7de; border-radius:7px; background:#fff; font-size:15.5px; display:flex; justify-content:space-between; align-items:center; }
-.pu-sel::after { content:'▾'; color:#6b7280; font-size:13px; }
+/* ════ IMG 3: pair cards ════ */
+.pairs { display:grid; grid-template-columns:repeat(3, 372px); gap:18px; z-index:2; }
+.pair { width:372px; height:209px; }
+.plabel { position:absolute; left:12px; top:12px; z-index:4; display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:800; padding:5px 12px; border-radius:100px;
+  background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.22); color:#fff; backdrop-filter:blur(4px); }
+.plabel b { color:var(--yel); font-weight:800; }
+.plabel .x { color:var(--t3); font-weight:500; }
+.pair .sd { font-size:22px; bottom:9%; }
+
+/* ════ IMG 4: three looks ════ */
+.looks { display:flex; gap:22px; z-index:2; }
+.look { width:380px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.look .frame { width:380px; height:214px; }
+.look-l { font-size:19px; font-weight:700; color:var(--t2); }
+.gest { display:flex; gap:12px; z-index:2; }
+.gest span { font-size:19px; font-weight:700; padding:10px 22px; border-radius:100px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.18); white-space:nowrap; }
+
+/* ════ IMG 5: steps + trust ════ */
+.steps { display:flex; gap:20px; z-index:2; }
+.step { width:368px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:20px; padding:18px 18px 20px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+.ill { width:100%; height:176px; border-radius:14px; background:#0A0E1A; border:1px solid rgba(255,255,255,.08); position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.st-row { display:flex; align-items:center; gap:12px; }
+.num { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#00A8E1,#38B6FF); color:#06121c; font-weight:900; font-size:18px; display:flex; align-items:center; justify-content:center; flex:none; }
+.st { font-size:23px; font-weight:800; letter-spacing:-.3px; }
+/* ill 1: chrome web store button */
+.tb { width:300px; background:#f3f5fa; border-radius:12px; padding:10px 12px; display:flex; flex-direction:column; gap:10px; box-shadow:0 14px 40px rgba(0,0,0,.45); }
+.tb-bar { display:flex; align-items:center; gap:7px; }
+.tb-bar i { width:10px; height:10px; border-radius:50%; display:block; } .tb-bar .r{background:#ff5f57}.tb-bar .y{background:#febc2e}.tb-bar .g{background:#28c840}
+.tb-url { flex:1; height:24px; background:#fff; border:1px solid #e1e5f0; border-radius:7px; margin-left:6px; font-size:11.5px; color:#8a90a8; display:flex; align-items:center; padding:0 10px; }
+.tb-body { display:flex; align-items:center; gap:12px; padding:2px 4px 4px; }
+.tb-body img { width:40px; height:40px; border-radius:10px; }
+.tb-body .n { flex:1; text-align:left; color:#1a1f36; font-weight:800; font-size:15px; line-height:1.25; }
+.tb-body .n small { display:block; font-weight:500; color:#8a90a8; font-size:11px; margin-top:2px; }
+.tb-btn { background:#1a73e8; color:#fff; font-size:13px; font-weight:700; padding:9px 14px; border-radius:8px; white-space:nowrap; }
+/* ill 2: play */
+.mini { width:300px; height:150px; border-radius:12px; overflow:hidden; position:relative; box-shadow:0 14px 40px rgba(0,0,0,.45); }
+.mini .p-top { font-size:12px; padding:10px 12px; }
+.play { position:absolute; left:50%; top:52%; width:64px; height:64px; border-radius:50%; transform:translate(-50%,-50%); background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; z-index:3; box-shadow:0 8px 30px rgba(0,0,0,.4); }
+.play i { display:block; width:0; height:0; border-left:24px solid #0F2A3F; border-top:14px solid transparent; border-bottom:14px solid transparent; margin-left:6px; }
+/* ill 3: popup rows */
+.pu { width:300px; background:#fff; border-radius:12px; padding:12px 14px; color:#1f2328; text-align:left; box-shadow:0 14px 40px rgba(0,0,0,.45); display:flex; flex-direction:column; gap:9px; }
+.pu-row { display:flex; flex-direction:column; gap:4px; }
+.pu-row label { display:flex; align-items:center; gap:6px; font-weight:700; font-size:13px; }
+.pu-dot { width:10px; height:10px; border-radius:50%; display:inline-block; flex:none; }
+.pu-dot.a { background:#fff; border:1px solid #c5ccd8; } .pu-dot.b { background:#ffd76a; }
+.pu-sel { padding:7px 10px; border:1px solid #d0d7de; border-radius:7px; background:#fff; font-size:14px; display:flex; justify-content:space-between; align-items:center; }
+.pu-sel::after { content:'▾'; color:#6b7280; font-size:12px; }
 .pu-sel.hi { border-color:#00a8e1; box-shadow:0 0 0 3px rgba(0,168,225,.18); }
-.pu-range { position:relative; height:5px; background:#d0d7de; border-radius:3px; margin:9px 0 4px; }
-.pu-range i { position:absolute; left:0; top:0; bottom:0; background:#00a8e1; border-radius:3px; }
-.pu-range b { position:absolute; top:50%; width:16px; height:16px; background:#fff; border:2px solid #00a8e1; border-radius:50%; transform:translate(-50%,-50%); }
-.pu-dot { width:11px; height:11px; border-radius:50%; display:inline-block; flex:none; }
-.pu-dot.a { background:#fff; border:1px solid #d0d7de; } .pu-dot.b { background:#ffd76a; }
-.pu-more { color:#9aa1aa; font-size:13px; text-align:center; margin-top:2px; letter-spacing:2px; }
-.pu-list { position:absolute; left:18px; right:18px; background:#fff; border:1px solid #d0d7de; border-radius:8px; box-shadow:0 14px 40px rgba(0,0,0,.25); padding:6px 0; z-index:5; }
-.pu-list div { padding:6px 12px; font-size:15px; }
-.pu-list div.on { background:#00a8e1; color:#fff; font-weight:600; }
-
-/* ════ tiles (IMG 5) ════ */
-.tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; width:1140px; z-index:2; }
-.tile-c { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:24px 24px 22px; text-align:left; }
-.tile-c .ic { width:50px; height:50px; border-radius:13px; background:rgba(56,182,255,.12); border:1px solid rgba(56,182,255,.25); display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:14px; }
-.tile-c .ic.y { background:rgba(255,215,106,.12); border-color:rgba(255,215,106,.3); }
-.tile-c h3 { font-size:22px; font-weight:800; margin-bottom:6px; letter-spacing:-.3px; }
-.tile-c p { font-size:17px; color:var(--t2); line-height:1.5; }
+.pills { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; z-index:2; max-width:1160px; }
+.pill { font-size:18px; font-weight:700; padding:9px 20px; border-radius:100px; background:rgba(56,182,255,.10); border:1px solid rgba(56,182,255,.3); color:#dff1ff; white-space:nowrap; }
 
 /* ════ small promo tile (440x280) ════ */
 .tile { width:440px; height:280px; position:relative; overflow:hidden; margin:0 auto 56px; color:#fff;
@@ -157,150 +200,198 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .fb-pills { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
 .fb-pill { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22); font-size:17px; font-weight:700; padding:8px 18px; border-radius:100px; white-space:nowrap; }
 .fb-right { width:660px; flex:none; z-index:2; }
-.fb-right .player { width:660px; }
+.fb-right .frame { width:660px; height:371px; }
+.fb-right .sd { font-size:27px; bottom:13%; }
+.fb-right .p-top { font-size:14px; }
 </style>
 </head>
 <body>
 
-<!-- ════ IMG 1 · Hero: dual subtitles on the player ════ -->
-<div class="si" id="img1">
-  <div class="glow" style="right:-180px;bottom:-260px;width:640px;height:640px;background:radial-gradient(circle,rgba(255,215,106,.10),transparent 65%);"></div>
-  <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
-  <div class="cap">
-    <div class="eyebrow" data-i="e1">🎬 DUAL SUBTITLES FOR PRIME VIDEO</div>
-    <h1 data-i="h1">Two languages. <span class="cy">One screen.</span></h1>
-    <p data-i="s1">The original on top, your language below — on any Prime Video title</p>
+<!-- ════ IMG 1 · Hook: full-bleed night scene, big dual subtitles ════ -->
+<div class="si bleed" id="img1">
+  <div class="frame full">
+    <div class="scene city">
+      <div class="bokeh" style="left:9%;top:24%;width:120px;height:120px;background:radial-gradient(circle,rgba(255,150,70,.85),rgba(255,150,70,0) 70%);"></div>
+      <div class="bokeh" style="left:20%;top:38%;width:70px;height:70px;background:radial-gradient(circle,rgba(255,90,140,.8),rgba(255,90,140,0) 70%);"></div>
+      <div class="bokeh" style="left:30%;top:28%;width:46px;height:46px;background:radial-gradient(circle,rgba(120,220,255,.85),rgba(120,220,255,0) 70%);"></div>
+      <div class="bokeh" style="left:62%;top:30%;width:150px;height:150px;background:radial-gradient(circle,rgba(255,200,90,.8),rgba(255,200,90,0) 70%);"></div>
+      <div class="bokeh" style="left:76%;top:42%;width:64px;height:64px;background:radial-gradient(circle,rgba(90,200,255,.85),rgba(90,200,255,0) 70%);"></div>
+      <div class="bokeh" style="left:86%;top:26%;width:96px;height:96px;background:radial-gradient(circle,rgba(255,110,170,.75),rgba(255,110,170,0) 70%);"></div>
+      <div class="bokeh" style="left:46%;top:44%;width:56px;height:56px;background:radial-gradient(circle,rgba(255,240,200,.9),rgba(255,240,200,0) 70%);"></div>
+      <div class="bokeh" style="left:40%;top:18%;width:38px;height:38px;background:radial-gradient(circle,rgba(200,160,255,.8),rgba(200,160,255,0) 70%);"></div>
+      <div class="bld dark" style="left:-2%;width:9%;height:30%;"></div>
+      <div class="bld" style="left:6%;width:7%;height:44%;"></div>
+      <div class="bld dark" style="left:12%;width:10%;height:26%;"></div>
+      <div class="bld" style="left:21%;width:6%;height:52%;"></div>
+      <div class="bld dark" style="left:26%;width:9%;height:34%;"></div>
+      <div class="bld" style="left:34%;width:8%;height:40%;"></div>
+      <div class="bld dark" style="left:41%;width:12%;height:22%;"></div>
+      <div class="bld" style="left:52%;width:6%;height:58%;"></div>
+      <div class="bld dark" style="left:57%;width:9%;height:36%;"></div>
+      <div class="bld" style="left:65%;width:7%;height:46%;"></div>
+      <div class="bld dark" style="left:71%;width:11%;height:28%;"></div>
+      <div class="bld" style="left:81%;width:6%;height:50%;"></div>
+      <div class="bld dark" style="left:86%;width:9%;height:38%;"></div>
+      <div class="bld" style="left:94%;width:8%;height:32%;"></div>
+      <div class="ground"></div><div class="vig"></div><div class="grain"></div>
+    </div>
   </div>
-  <div class="player">
-    <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
-    <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span><span class="ep" data-i="ep">Season 1, Ep. 3</span></div>
-    <div class="sd" style="bottom:19%;"><div class="sd-box">
-      <div class="sd-line sd-a" data-i="cue1_a">Llevo toda la vida esperando este momento.</div>
-      <div class="sd-line sd-b" data-i="cue1_b">I've been waiting for this moment my whole life.</div>
-    </div></div>
-    <div class="p-ctrl">
-      <div class="p-bar"><div class="fill"></div><div class="knob"></div></div>
-      <div class="p-row">
-        <svg class="ico" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-        <svg class="ico" viewBox="0 0 24 24"><path d="M11 6L6 10H3v4h3l5 4V6zm3 2.5v7a3.5 3.5 0 000-7z"/></svg>
-        <span class="time">42:18 / 1:05:30</span><span class="sp"></span><span class="cc">CC</span>
-        <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg>
-      </div>
+  <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
+  <div class="cap top">
+    <div class="eyebrow" data-i="e1">🎬 FOR PRIME VIDEO · FREE CHROME EXTENSION</div>
+    <h1 data-i="h1">Two languages. One screen.</h1>
+    <p data-i="s1">Your favorite shows become your best language lessons — original on top, yours below.</p>
+  </div>
+  <div class="sd big" style="bottom:20%;"><div class="sd-box">
+    <div class="sd-line sd-a" data-i="cue1_a">Llevo toda la vida esperando este momento.</div>
+    <div class="sd-line sd-b" data-i="cue1_b">I've been waiting for this moment my whole life.</div>
+  </div></div>
+  <div class="p-ctrl">
+    <div class="p-bar"><div class="fill"></div><div class="knob"></div></div>
+    <div class="p-row">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M11 6L6 10H3v4h3l5 4V6zm3 2.5v7a3.5 3.5 0 000-7z"/></svg>
+      <span class="time">42:18 / 1:05:30</span><span class="sp"></span>
+      <span style="font-weight:700;opacity:.9;" data-i="title">The Long Way Home</span><span style="opacity:.65;" data-i="ep">Season 1, Ep. 3</span>
+      <span class="cc">CC</span>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg>
     </div>
   </div>
 </div>
 
-<!-- ════ IMG 2 · Pick languages (popup) ════ -->
-<div class="si" id="img2">
+<!-- ════ IMG 2 · Pain → solution: before / after ════ -->
+<div class="si" id="img2" style="padding-left:40px;padding-right:40px;">
+  <div class="glow" style="right:-200px;bottom:-260px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
+  <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
+  <div class="cap">
+    <div class="eyebrow" data-i="e2">🎯 NEVER MISS A LINE</div>
+    <h1 data-i="h2">No pausing. No rewinding. No switching.</h1>
+    <p data-i="s2">Didn't catch it? Glance at the second line and keep watching — the story never stops.</p>
+  </div>
+  <div class="split">
+    <div class="col">
+      <div class="frame" style="width:560px;height:315px;">
+        <div class="scene sea dim"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div></div>
+        <div class="tag" data-i="bl">BEFORE</div>
+        <div class="pauseicon"><i></i></div>
+        <div class="qmark">?</div>
+        <div class="sd only" style="font-size:26px;bottom:10%;"><div class="sd-box">
+          <div class="sd-line sd-a" style="opacity:.85;" data-i="cue2_a">No mires atrás. Ya casi llegamos.</div>
+        </div></div>
+      </div>
+      <div class="chips"><span class="chip x" data-i="bc1">⏸ Pause</span><span class="chip x" data-i="bc2">⟲ Back 10s</span><span class="chip x" data-i="bc3">🔁 Switch subtitles</span><span class="chip x" data-i="bc4">😩 Lose the plot</span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="col">
+      <div class="frame" style="width:560px;height:315px;box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 2px rgba(56,182,255,.55);">
+        <div class="scene sea"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div><div class="grain"></div></div>
+        <div class="tag ok" data-i="al">WITH SUBDUO</div>
+        <div class="sd" style="font-size:26px;bottom:10%;"><div class="sd-box">
+          <div class="sd-line sd-a" data-i="cue2_a">No mires atrás. Ya casi llegamos.</div>
+          <div class="sd-line sd-b" data-i="cue2_b">Don't look back. We're almost there.</div>
+        </div></div>
+      </div>
+      <div class="chips"><span class="chip ok" data-i="ac">▶ Just keep watching</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ IMG 3 · Any pair you like: cards built by JS ════ -->
+<div class="si" id="img3">
   <div class="glow" style="left:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap">
-    <div class="eyebrow" data-i="e2">🌐 PICK ANY TWO LANGUAGES</div>
-    <h1 data-i="h2">Every subtitle the title has, <span class="cy">ready to pair</span></h1>
-    <p data-i="s2">Detected the moment you press play — choose one for the top line, one for the bottom</p>
+    <div class="eyebrow" data-i="e3">🌐 ANY PAIR YOU LIKE</div>
+    <h1 data-i="h3">Spanish × English. Korean × English. Your call.</h1>
+    <p data-i="s3">Pick any two of the subtitle languages the title offers — detected automatically when you press play.</p>
   </div>
-  <div class="flow">
-    <div class="player" style="width:700px;">
-      <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
-      <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span><span class="ep" data-i="ep">Season 1, Ep. 3</span></div>
-      <div class="sd"><div class="sd-box">
-        <div class="sd-line sd-a" data-i="cue2_a">No mires atrás. Ya casi llegamos.</div>
-        <div class="sd-line sd-b" data-i="cue2_b">Don't look back. We're almost there.</div>
-      </div></div>
-    </div>
-    <div class="popup" style="position:relative;">
-      <div class="pu-head"><h4>SubDuo</h4><span class="pu-toggle"></span></div>
-      <p class="pu-status" data-i="pu_status">Detected: 6 languages
-Top: Español
-Bottom: English</p>
-      <div class="pu-sec" data-i="pu_langs">Languages</div>
-      <div class="pu-row"><label><span class="pu-dot a"></span><span data-i="pu_top">Top</span></label><div class="pu-sel hi" data-i="pu_lang_a">Español</div></div>
-      <div class="pu-row"><label><span class="pu-dot b"></span><span data-i="pu_bottom">Bottom</span></label><div class="pu-sel" data-i="pu_lang_b">English</div></div>
-      <div class="pu-sec"><span class="pu-dot a"></span><span data-i="pu_sec_top">Top (subtitle 1)</span></div>
-      <div class="pu-row"><label><span data-i="pu_size">Text size</span><span class="v">100%</span></label><div class="pu-range"><i style="width:33%"></i><b style="left:33%"></b></div></div>
-      <div class="pu-sec"><span class="pu-dot b"></span><span data-i="pu_sec_bottom">Bottom (subtitle 2)</span></div>
-      <div class="pu-row"><label><span data-i="pu_size">Text size</span><span class="v">80%</span></label><div class="pu-range"><i style="width:20%"></i><b style="left:20%"></b></div></div>
-      <div class="pu-more">• • •</div>
-    </div>
-  </div>
+  <div class="pairs" id="pairs"></div>
 </div>
 
-<!-- ════ IMG 3 · Adjust on the video ════ -->
-<div class="si" id="img3">
-  <div class="glow" style="right:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
+<!-- ════ IMG 4 · Make it yours: three looks ════ -->
+<div class="si" id="img4" style="padding-left:40px;padding-right:40px;">
+  <div class="glow" style="right:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(255,215,106,.09),transparent 65%);"></div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap">
-    <div class="eyebrow" data-i="e3">🖱️ ADJUST ON THE VIDEO</div>
-    <h1 data-i="h3">Drag it. Scroll it. <span class="cy">Nudge it.</span></h1>
-    <p data-i="s3">Move, resize and align the subtitles right where you watch — no settings page needed</p>
+    <div class="eyebrow y" data-i="e4">🎨 RIGHT ON THE VIDEO</div>
+    <h1 data-i="h4">Size, position, color — your way.</h1>
+    <p data-i="s4">Drag to move, scroll to resize, right-click for colors and transparency. Tweak it while you watch, no settings page.</p>
   </div>
-  <div class="player">
-    <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
-    <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span><span class="ep" data-i="ep">Season 1, Ep. 3</span></div>
-    <div class="sd selected" style="bottom:24%;">
-      <div class="sd-box">
-        <div class="sd-toolbar"><span data-i="tb_left">Left</span><span class="on" data-i="tb_center">Center</span><span data-i="tb_right">Right</span></div>
-        <div class="sd-line sd-a" data-i="cue3_a">No puedes escapar de la marea.</div>
-        <div class="sd-line sd-b" data-i="cue3_b">You can't outrun the tide.</div>
-        <div class="sd-hint" data-i="hint">Height 24% · Center 50% · Size top 100% / bottom 80%</div>
+  <div class="looks">
+    <div class="look">
+      <div class="frame">
+        <div class="scene rain"><div class="lamp" style="left:18%;top:30%;width:90px;height:90px;background:radial-gradient(circle,rgba(255,200,120,.75),rgba(255,200,120,0) 70%);"></div><div class="lamp" style="left:70%;top:24%;width:60px;height:60px;background:radial-gradient(circle,rgba(150,220,255,.7),rgba(150,220,255,0) 70%);"></div><div class="vig"></div><div class="grain"></div></div>
+        <div class="sd" style="font-size:20px;bottom:10%;"><div class="sd-box">
+          <div class="sd-line sd-a" data-i="cue3_a">No puedes escapar de la marea.</div>
+          <div class="sd-line sd-b" data-i="cue3_b">You can't outrun the tide.</div>
+        </div></div>
       </div>
+      <div class="look-l" data-i="l1">Default</div>
     </div>
-    <div class="anno down" style="left:5%;top:29%;" data-i="anno_drag">Drag to move</div>
-    <div class="anno down" style="right:5%;top:29%;" data-i="anno_wheel">Scroll to resize a line</div>
-    <div class="anno up" style="left:50%;transform:translateX(-50%);bottom:5%;" data-i="anno_keys">Arrow keys to nudge · Esc to deselect</div>
-  </div>
-</div>
-
-<!-- ════ IMG 4 · Style each line (right-click panel) ════ -->
-<div class="si" id="img4">
-  <div class="glow" style="left:-200px;bottom:-240px;width:640px;height:640px;background:radial-gradient(circle,rgba(255,215,106,.10),transparent 65%);"></div>
-  <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
-  <div class="cap">
-    <div class="eyebrow y" data-i="e4">🎨 STYLE EACH LINE</div>
-    <h1 data-i="h4">Your colors, <span class="yel">your transparency</span></h1>
-    <p data-i="s4">Right-click the subtitles: text color, text and background transparency — set per line</p>
-  </div>
-  <div class="player">
-    <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
-    <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span><span class="ep" data-i="ep">Season 1, Ep. 3</span></div>
-    <div class="sd" style="left:4%;right:auto;width:50%;bottom:14%;">
-      <div class="sd-box">
-        <div class="sd-line sd-a" style="color:#fff;background:rgba(0,0,0,.75);" data-i="cue4_a">Algunas puertas solo se abren una vez.</div>
-        <div class="sd-line sd-b" style="color:#8fd0ff;background:rgba(0,0,0,.75);" data-i="cue4_b">Some doors only open once.</div>
+    <div class="look">
+      <div class="frame">
+        <div class="scene rain"><div class="lamp" style="left:18%;top:30%;width:90px;height:90px;background:radial-gradient(circle,rgba(255,200,120,.75),rgba(255,200,120,0) 70%);"></div><div class="lamp" style="left:70%;top:24%;width:60px;height:60px;background:radial-gradient(circle,rgba(150,220,255,.7),rgba(150,220,255,0) 70%);"></div><div class="vig"></div><div class="grain"></div></div>
+        <div class="sd left" style="font-size:27px;top:9%;bottom:auto;"><div class="sd-box">
+          <div class="sd-line sd-a" data-i="cue3_a">No puedes escapar de la marea.</div>
+          <div class="sd-line sd-b" data-i="cue3_b">You can't outrun the tide.</div>
+        </div></div>
       </div>
+      <div class="look-l" data-i="l2">Bigger, higher</div>
     </div>
-    <div class="sd-panel" style="right:3.5%;top:8%;">
-      <div class="ph"><span data-i="pn_title">SubDuo display settings</span><i>✕</i></div>
-      <div class="ps" data-i="pn_top">Top (subtitle 1)</div>
-      <label><span data-i="pn_color">Text color</span><span class="sw" style="background:#ffffff"></span></label>
-      <label><span data-i="pn_text_op">Text transparency</span><span class="rg"><i style="width:0%"></i><b style="left:0%"></b></span><span class="val">0%</span></label>
-      <label><span data-i="pn_bg_op">Background transparency</span><span class="rg"><i style="width:25%"></i><b style="left:25%"></b></span><span class="val">25%</span></label>
-      <div class="ps" data-i="pn_bottom">Bottom (subtitle 2)</div>
-      <label><span data-i="pn_color">Text color</span><span class="sw" style="background:#8fd0ff"></span></label>
-      <label><span data-i="pn_text_op">Text transparency</span><span class="rg"><i style="width:0%"></i><b style="left:0%"></b></span><span class="val">0%</span></label>
-      <label><span data-i="pn_bg_op">Background transparency</span><span class="rg"><i style="width:25%"></i><b style="left:25%"></b></span><span class="val">25%</span></label>
-      <div class="reset" data-i="pn_reset">Reset colors &amp; transparency</div>
+    <div class="look">
+      <div class="frame">
+        <div class="scene rain"><div class="lamp" style="left:18%;top:30%;width:90px;height:90px;background:radial-gradient(circle,rgba(255,200,120,.75),rgba(255,200,120,0) 70%);"></div><div class="lamp" style="left:70%;top:24%;width:60px;height:60px;background:radial-gradient(circle,rgba(150,220,255,.7),rgba(150,220,255,0) 70%);"></div><div class="vig"></div><div class="grain"></div></div>
+        <div class="sd nobg" style="font-size:21px;bottom:10%;"><div class="sd-box">
+          <div class="sd-line sd-a" style="color:#fff;" data-i="cue3_a">No puedes escapar de la marea.</div>
+          <div class="sd-line sd-b" style="color:#8fd0ff;" data-i="cue3_b">You can't outrun the tide.</div>
+        </div></div>
+      </div>
+      <div class="look-l" data-i="l3">Custom colors, no box</div>
     </div>
   </div>
+  <div class="gest"><span data-i="g1">✋ Drag to move</span><span data-i="g2">🖱️ Scroll to resize</span><span data-i="g3">🎨 Right-click for colors</span></div>
 </div>
 
-<!-- ════ IMG 5 · 100% local + what else it does ════ -->
-<div class="si" id="img5" style="gap:34px;">
-  <div class="glow" style="right:-200px;bottom:-240px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
+<!-- ════ IMG 5 · Zero friction: 3 steps + trust ════ -->
+<div class="si" id="img5">
+  <div class="glow" style="left:-200px;bottom:-260px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap">
-    <div class="eyebrow" data-i="e5">🔒 100% LOCAL</div>
-    <h1 data-i="h5">Nothing leaves <span class="cy">your browser</span></h1>
-    <p data-i="s5">No server, no account, no tracking — just the subtitles Amazon already sends you</p>
+    <div class="eyebrow" data-i="e5">⚡ READY IN 30 SECONDS</div>
+    <h1 data-i="h5">Install. Play. Done.</h1>
+    <p data-i="s5">No account, completely free. It only uses the subtitles Amazon already streams to you — nothing is sent anywhere.</p>
   </div>
-  <div class="tiles">
-    <div class="tile-c"><div class="ic">🔒</div><h3 data-i="t1">No server</h3><p data-i="d1">Subtitles are fetched from Amazon, parsed and drawn in your browser</p></div>
-    <div class="tile-c"><div class="ic">🚫</div><h3 data-i="t2">No account, no tracking</h3><p data-i="d2">Nothing to sign up for, no analytics, no ads, no third-party code</p></div>
-    <div class="tile-c"><div class="ic">🛡️</div><h3 data-i="t3">Two permissions only</h3><p data-i="d3">“storage” and “tabs” — runs solely on Prime Video pages</p></div>
-    <div class="tile-c"><div class="ic y">📐</div><h3 data-i="t4">Fits fullscreen</h3><p data-i="d4">Scales with the video, wraps long lines, dodges the control bar</p></div>
-    <div class="tile-c"><div class="ic y">☁️</div><h3 data-i="t5">Synced settings + presets</h3><p data-i="d5">Settings follow your Chrome; save up to 20 named presets</p></div>
-    <div class="tile-c"><div class="ic y">🌏</div><h3 data-i="t6">12 interface languages</h3><p data-i="d6">Popup and on-screen hints follow your Chrome language</p></div>
+  <div class="steps">
+    <div class="step">
+      <div class="ill">
+        <div class="tb">
+          <div class="tb-bar"><i class="r"></i><i class="y"></i><i class="g"></i><div class="tb-url">chromewebstore.google.com</div></div>
+          <div class="tb-body"><img src="icons/logo.svg" alt=""><div class="n">SubDuo<small>Dual Subtitles for Prime Video</small></div><div class="tb-btn" data-i="addbtn">Add to Chrome</div></div>
+        </div>
+      </div>
+      <div class="st-row"><span class="num">1</span><span class="st" data-i="st1">Add to Chrome</span></div>
+    </div>
+    <div class="step">
+      <div class="ill">
+        <div class="mini">
+          <div class="scene sea"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div></div>
+          <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span></div>
+          <div class="play"><i></i></div>
+        </div>
+      </div>
+      <div class="st-row"><span class="num">2</span><span class="st" data-i="st2">Play on Prime Video</span></div>
+    </div>
+    <div class="step">
+      <div class="ill">
+        <div class="pu" id="pu5">
+          <div class="pu-row"><label><span class="pu-dot a"></span><span data-i="pu_top">Top</span></label><div class="pu-sel hi" id="pu5a">Español</div></div>
+          <div class="pu-row"><label><span class="pu-dot b"></span><span data-i="pu_bottom">Bottom</span></label><div class="pu-sel" id="pu5b">English</div></div>
+        </div>
+      </div>
+      <div class="st-row"><span class="num">3</span><span class="st" data-i="st3">Pick two languages</span></div>
+    </div>
   </div>
+  <div class="pills"><span class="pill" data-i="p1">🔒 100% local</span><span class="pill" data-i="p2">🚫 No account</span><span class="pill" data-i="p3">🛡️ Only storage &amp; tabs</span><span class="pill" data-i="p4">☁️ Chrome sync</span><span class="pill" data-i="p5">🌏 12 UI languages</span></div>
 </div>
 
 <!-- ════ SMALL PROMO TILE (440x280, en only) ════ -->
@@ -322,22 +413,20 @@ Bottom: English</p>
     <div class="fb-pills"><span class="fb-pill" data-i="fbp1">🌐 Any two languages</span><span class="fb-pill" data-i="fbp2">🖱️ Adjust on screen</span><span class="fb-pill" data-i="fbp3">🎨 Style per line</span><span class="fb-pill" data-i="fbp4">🔒 100% local</span></div>
   </div>
   <div class="fb-right">
-    <div class="player">
-      <div class="scene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div><div class="grain"></div></div>
+    <div class="frame">
+      <div class="scene city">
+        <div class="bokeh" style="left:12%;top:26%;width:80px;height:80px;background:radial-gradient(circle,rgba(255,150,70,.85),rgba(255,150,70,0) 70%);"></div>
+        <div class="bokeh" style="left:30%;top:36%;width:40px;height:40px;background:radial-gradient(circle,rgba(120,220,255,.85),rgba(120,220,255,0) 70%);"></div>
+        <div class="bokeh" style="left:60%;top:28%;width:100px;height:100px;background:radial-gradient(circle,rgba(255,200,90,.8),rgba(255,200,90,0) 70%);"></div>
+        <div class="bokeh" style="left:82%;top:40%;width:50px;height:50px;background:radial-gradient(circle,rgba(255,110,170,.75),rgba(255,110,170,0) 70%);"></div>
+        <div class="bld dark" style="left:-2%;width:10%;height:30%;"></div><div class="bld" style="left:7%;width:7%;height:46%;"></div><div class="bld dark" style="left:13%;width:11%;height:26%;"></div><div class="bld" style="left:23%;width:6%;height:54%;"></div><div class="bld dark" style="left:28%;width:10%;height:34%;"></div><div class="bld" style="left:37%;width:8%;height:42%;"></div><div class="bld dark" style="left:44%;width:12%;height:24%;"></div><div class="bld" style="left:55%;width:6%;height:58%;"></div><div class="bld dark" style="left:60%;width:10%;height:36%;"></div><div class="bld" style="left:69%;width:7%;height:48%;"></div><div class="bld dark" style="left:75%;width:11%;height:28%;"></div><div class="bld" style="left:85%;width:6%;height:50%;"></div><div class="bld dark" style="left:90%;width:12%;height:36%;"></div>
+        <div class="ground"></div><div class="vig"></div><div class="grain"></div>
+      </div>
       <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span><span class="ep" data-i="ep">Season 1, Ep. 3</span></div>
-      <div class="sd" style="bottom:19%;"><div class="sd-box">
+      <div class="sd"><div class="sd-box">
         <div class="sd-line sd-a" data-i="cue1_a">Llevo toda la vida esperando este momento.</div>
         <div class="sd-line sd-b" data-i="cue1_b">I've been waiting for this moment my whole life.</div>
       </div></div>
-      <div class="p-ctrl">
-        <div class="p-bar"><div class="fill"></div><div class="knob"></div></div>
-        <div class="p-row">
-          <svg class="ico" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-          <svg class="ico" viewBox="0 0 24 24"><path d="M11 6L6 10H3v4h3l5 4V6zm3 2.5v7a3.5 3.5 0 000-7z"/></svg>
-          <span class="time">42:18 / 1:05:30</span><span class="sp"></span><span class="cc">CC</span>
-          <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -348,248 +437,213 @@ Bottom: English</p>
 // UI labels are kept in sync with the extension's _locales/<locale>/messages.json.
 const I18N = {
 ja: {
-  e1:"🎬 Prime Video 二言語字幕", h1:"字幕を2言語、<span class='cy'>同時に。</span>", s1:"上段に原語、下段に自分の言語 — Prime Video のどの作品でも",
+  e1:"🎬 Prime Video 専用 · 無料の Chrome 拡張", h1:"字幕を2言語、同時に。", s1:"好きな作品が、そのまま語学教材に。上段に原語、下段に母語。",
   title:"The Long Way Home", ep:"シーズン1 第3話",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"この瞬間を、ずっと待っていたんだ。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"振り返るな。もうすぐ着く。",
   cue3_a:"You can't outrun the tide.", cue3_b:"潮からは逃げられない。",
-  cue4_a:"Some doors only open once.", cue4_b:"一度しか開かない扉もある。",
-  e2:"🌐 好きな2言語を選ぶ", h2:"作品にある字幕を、<span class='cy'>どれでも組み合わせ</span>", s2:"再生した瞬間に自動検出 — 上段と下段に1つずつ選ぶだけ",
-  pu_status:"検出済み: 6 言語\n上段: English\n下段: 日本語", pu_langs:"言語", pu_top:"上段", pu_bottom:"下段", pu_lang_a:"English", pu_lang_b:"日本語",
-  pu_sec_top:"上段（第1字幕）", pu_size:"文字サイズ", pu_sec_bottom:"下段（第2字幕）",
-  e3:"🖱️ 動画の上で直接調整", h3:"ドラッグ、ホイール、<span class='cy'>矢印キー。</span>", s3:"見ているその場で移動・拡大縮小・文字揃え — 設定画面いらず",
-  tb_left:"左揃え", tb_center:"中央揃え", tb_right:"右揃え", hint:"高さ 24% ・ 中心 50% ・ サイズ 上100% 下80%",
-  anno_drag:"ドラッグで移動", anno_wheel:"ホイールでその段のサイズ変更", anno_keys:"矢印キーで微調整 · Esc で解除",
-  e4:"🎨 段ごとに見た目を設定", h4:"色も透過度も、<span class='yel'>自分好みに</span>", s4:"字幕を右クリック: 文字色・文字と背景の透過度を段ごとに",
-  pn_title:"SubDuo 表示設定", pn_top:"上段（第1字幕）", pn_bottom:"下段（第2字幕）", pn_color:"文字色", pn_text_op:"文字の透過度", pn_bg_op:"背景の透過度", pn_reset:"色・透過度を初期値に戻す",
-  e5:"🔒 完全ローカル動作", h5:"ブラウザの外には<span class='cy'>何も出ない</span>", s5:"サーバーなし・アカウントなし・トラッキングなし — Amazon が配信する字幕をそのまま使うだけ",
-  t1:"サーバーなし", d1:"字幕は Amazon から取得し、ブラウザ内で解析・描画", t2:"アカウント・追跡なし", d2:"登録不要、解析も広告も第三者コードもなし",
-  t3:"権限は2つだけ", d3:"「storage」と「tabs」— 動作するのは Prime Video のページのみ", t4:"全画面でも収まる", d4:"動画に合わせて拡大、長い行は折り返し、操作バーを避ける",
-  t5:"設定の同期とプリセット", d5:"設定は Chrome に同期。名前付きプリセットを最大20件", t6:"UI は12言語", d6:"ポップアップとヒントは Chrome の言語に追従",
+  e2:"🎯 もう、聞き逃さない", h2:"止めない。戻さない。切り替えない。", s2:"わからない一行は、下の段をちらっと見るだけ。作品の流れを止めずに観られます。",
+  bl:"これまで", al:"SubDuo なら", bc1:"⏸ 止める", bc2:"⟲ 10秒戻す", bc3:"🔁 字幕を切り替える", bc4:"😩 話を見失う", ac:"▶ そのまま観続ける",
+  e3:"🌐 組み合わせは自由", h3:"英語×日本語も、韓国語×日本語も。", s3:"作品に用意された字幕から、上段と下段に好きな言語を1つずつ。再生すれば自動で検出します。",
+  e4:"🎨 動画の上で、直接", h4:"大きさも、位置も、色も、思いのまま。", s4:"ドラッグで移動、ホイールで拡大縮小、右クリックで色と透過度。設定画面を開かず、観ながら整えられます。",
+  l1:"標準", l2:"大きく・上に", l3:"色を変えて・背景なし", g1:"✋ ドラッグで位置", g2:"🖱️ ホイールで大きさ", g3:"🎨 右クリックで色・透過度",
+  e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕は Amazon が配信しているものをそのまま使うので、外部には何も送りません。",
+  st1:"Chrome に追加", st2:"Prime Video で再生", st3:"言語を2つ選ぶ", addbtn:"Chrome に追加", pu_top:"上段", pu_bottom:"下段",
+  p1:"🔒 完全ローカル", p2:"🚫 アカウント不要", p3:"🛡️ 権限は storage と tabs だけ", p4:"☁️ Chrome 同期", p5:"🌏 UI は12言語",
   fb_badge:"🎬 無料 · Amazon Prime Video 対応", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video の二言語字幕 —<br>動画の上で直接ドラッグ・拡大縮小・色変更。",
   fbp1:"🌐 好きな2言語", fbp2:"🖱️ 画面上で調整", fbp3:"🎨 段ごとの見た目", fbp4:"🔒 完全ローカル"
 },
 zh: {
-  e1:"🎬 Prime Video 双语字幕", h1:"两种语言，<span class='cy'>同一屏幕。</span>", s1:"上行原文，下行你的语言 —— 任何 Prime Video 影片都行",
+  e1:"🎬 专为 Prime Video · 免费 Chrome 扩展", h1:"两种语言，同一屏幕。", s1:"你爱看的剧，就是最好的语言课 —— 上行原文，下行母语。",
   title:"The Long Way Home", ep:"第 1 季 第 3 集",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"这一刻，我等了一辈子。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"别回头，我们快到了。",
   cue3_a:"You can't outrun the tide.", cue3_b:"你跑不过潮水。",
-  cue4_a:"Some doors only open once.", cue4_b:"有些门，只会打开一次。",
-  e2:"🌐 任选两种语言", h2:"影片自带的字幕，<span class='cy'>随意搭配</span>", s2:"按下播放即自动检测 —— 上行、下行各选一种即可",
-  pu_status:"已检测: 6 种语言\n上行: English\n下行: 中文（简体）", pu_langs:"语言", pu_top:"上行", pu_bottom:"下行", pu_lang_a:"English", pu_lang_b:"中文（简体）",
-  pu_sec_top:"上行（字幕 1）", pu_size:"文字大小", pu_sec_bottom:"下行（字幕 2）",
-  e3:"🖱️ 直接在视频上调整", h3:"拖动、滚轮、<span class='cy'>方向键。</span>", s3:"边看边移动、缩放、对齐字幕 —— 无需设置页面",
-  tb_left:"左对齐", tb_center:"居中", tb_right:"右对齐", hint:"高度 24% · 中心 50% · 大小 上 100% / 下 80%",
-  anno_drag:"拖动移动", anno_wheel:"滚轮缩放该行", anno_keys:"方向键微调 · Esc 取消选中",
-  e4:"🎨 逐行设置样式", h4:"你的颜色，<span class='yel'>你的透明度</span>", s4:"右键点击字幕：文字颜色、文字与背景透明度 —— 逐行设置",
-  pn_title:"SubDuo 显示设置", pn_top:"上行（字幕 1）", pn_bottom:"下行（字幕 2）", pn_color:"文字颜色", pn_text_op:"文字透明度", pn_bg_op:"背景透明度", pn_reset:"重置颜色和透明度",
-  e5:"🔒 100% 本地运行", h5:"数据不会离开<span class='cy'>你的浏览器</span>", s5:"无服务器、无账号、无跟踪 —— 只用 Amazon 已发送给你的字幕",
-  t1:"无服务器", d1:"字幕从 Amazon 获取，在浏览器内解析并绘制", t2:"无账号、无跟踪", d2:"无需注册，没有统计、广告或第三方代码",
-  t3:"仅两项权限", d3:"“storage”和“tabs”—— 仅在 Prime Video 页面运行", t4:"全屏也合适", d4:"随视频缩放，长句换行，自动避让控制栏",
-  t5:"设置同步 + 预设", d5:"设置随 Chrome 同步；最多保存 20 个命名预设", t6:"12 种界面语言", d6:"弹出窗口和屏幕提示跟随 Chrome 语言",
+  e2:"🎯 再也不漏掉一句", h2:"不暂停。不倒回。不切换。", s2:"没听清？瞄一眼下行，继续看 —— 剧情不会中断。",
+  bl:"以前", al:"有了 SubDuo", bc1:"⏸ 暂停", bc2:"⟲ 倒回 10 秒", bc3:"🔁 切换字幕", bc4:"😩 跟丢剧情", ac:"▶ 继续看下去",
+  e3:"🌐 任意组合", h3:"英语×中文，日语×中文，随你搭配。", s3:"从影片自带的字幕中，为上行和下行各选一种语言 —— 按下播放即自动检测。",
+  e4:"🎨 直接在视频上", h4:"大小、位置、颜色，都由你定。", s4:"拖动移动，滚轮缩放，右键设置颜色和透明度。边看边调，不用打开设置页。",
+  l1:"默认", l2:"更大、更靠上", l3:"自定义颜色、无底框", g1:"✋ 拖动定位", g2:"🖱️ 滚轮缩放", g3:"🎨 右键改颜色",
+  e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。只使用 Amazon 已发送给你的字幕 —— 不向任何地方发送数据。",
+  st1:"添加至 Chrome", st2:"在 Prime Video 播放", st3:"选择两种语言", addbtn:"添加至 Chrome", pu_top:"上行", pu_bottom:"下行",
+  p1:"🔒 100% 本地", p2:"🚫 无需账号", p3:"🛡️ 仅 storage 和 tabs 权限", p4:"☁️ Chrome 同步", p5:"🌏 12 种界面语言",
   fb_badge:"🎬 免费 · 适用于 Amazon Prime Video", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video 双语字幕 ——<br>直接在视频上拖动、缩放、设置样式。",
   fbp1:"🌐 任选两种语言", fbp2:"🖱️ 屏幕上调整", fbp3:"🎨 逐行样式", fbp4:"🔒 100% 本地"
 },
 "zh-TW": {
-  e1:"🎬 Prime Video 雙語字幕", h1:"兩種語言，<span class='cy'>同一畫面。</span>", s1:"上排原文，下排你的語言 —— 任何 Prime Video 影片都行",
+  e1:"🎬 專為 Prime Video · 免費 Chrome 擴充功能", h1:"兩種語言，同一畫面。", s1:"你愛看的劇，就是最好的語言課 —— 上排原文，下排母語。",
   title:"The Long Way Home", ep:"第 1 季 第 3 集",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"這一刻，我等了一輩子。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"別回頭，我們快到了。",
   cue3_a:"You can't outrun the tide.", cue3_b:"你跑不過潮水。",
-  cue4_a:"Some doors only open once.", cue4_b:"有些門，只會打開一次。",
-  e2:"🌐 任選兩種語言", h2:"影片內建的字幕，<span class='cy'>隨意搭配</span>", s2:"按下播放即自動偵測 —— 上排、下排各選一種即可",
-  pu_status:"已偵測: 6 種語言\n上排: English\n下排: 中文（繁體）", pu_langs:"語言", pu_top:"上排", pu_bottom:"下排", pu_lang_a:"English", pu_lang_b:"中文（繁體）",
-  pu_sec_top:"上排（字幕 1）", pu_size:"文字大小", pu_sec_bottom:"下排（字幕 2）",
-  e3:"🖱️ 直接在影片上調整", h3:"拖曳、滾輪、<span class='cy'>方向鍵。</span>", s3:"邊看邊移動、縮放、對齊字幕 —— 不需設定頁面",
-  tb_left:"靠左", tb_center:"置中", tb_right:"靠右", hint:"高度 24% · 中心 50% · 大小 上 100% / 下 80%",
-  anno_drag:"拖曳移動", anno_wheel:"滾輪縮放該排", anno_keys:"方向鍵微調 · Esc 取消選取",
-  e4:"🎨 逐排設定樣式", h4:"你的顏色，<span class='yel'>你的透明度</span>", s4:"右鍵點擊字幕：文字顏色、文字與背景透明度 —— 逐排設定",
-  pn_title:"SubDuo 顯示設定", pn_top:"上排（字幕 1）", pn_bottom:"下排（字幕 2）", pn_color:"文字顏色", pn_text_op:"文字透明度", pn_bg_op:"背景透明度", pn_reset:"重設顏色與透明度",
-  e5:"🔒 100% 本機執行", h5:"資料不會離開<span class='cy'>你的瀏覽器</span>", s5:"無伺服器、無帳號、無追蹤 —— 只用 Amazon 已傳送給你的字幕",
-  t1:"無伺服器", d1:"字幕從 Amazon 取得，在瀏覽器內解析並繪製", t2:"無帳號、無追蹤", d2:"不需註冊，沒有分析、廣告或第三方程式碼",
-  t3:"僅兩項權限", d3:"「storage」與「tabs」—— 僅在 Prime Video 頁面執行", t4:"全螢幕也合適", d4:"隨影片縮放，長句換行，自動閃避控制列",
-  t5:"設定同步 + 預設集", d5:"設定隨 Chrome 同步；最多儲存 20 組命名預設集", t6:"12 種介面語言", d6:"彈出視窗與畫面提示跟隨 Chrome 語言",
+  e2:"🎯 再也不漏掉一句", h2:"不暫停。不倒帶。不切換。", s2:"沒聽清楚？瞄一眼下排，繼續看 —— 劇情不會中斷。",
+  bl:"以前", al:"有了 SubDuo", bc1:"⏸ 暫停", bc2:"⟲ 倒帶 10 秒", bc3:"🔁 切換字幕", bc4:"😩 跟丟劇情", ac:"▶ 繼續看下去",
+  e3:"🌐 任意組合", h3:"英文×中文，日文×中文，隨你搭配。", s3:"從影片內建的字幕中，為上排與下排各選一種語言 —— 按下播放即自動偵測。",
+  e4:"🎨 直接在影片上", h4:"大小、位置、顏色，都由你決定。", s4:"拖曳移動，滾輪縮放，右鍵設定顏色與透明度。邊看邊調，不必打開設定頁。",
+  l1:"預設", l2:"更大、更靠上", l3:"自訂顏色、無底框", g1:"✋ 拖曳定位", g2:"🖱️ 滾輪縮放", g3:"🎨 右鍵改顏色",
+  e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。只使用 Amazon 已傳送給你的字幕 —— 不會把資料傳到任何地方。",
+  st1:"加到 Chrome", st2:"在 Prime Video 播放", st3:"選擇兩種語言", addbtn:"加到 Chrome", pu_top:"上排", pu_bottom:"下排",
+  p1:"🔒 100% 本機", p2:"🚫 不需帳號", p3:"🛡️ 僅 storage 與 tabs 權限", p4:"☁️ Chrome 同步", p5:"🌏 12 種介面語言",
   fb_badge:"🎬 免費 · 適用於 Amazon Prime Video", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video 雙語字幕 ——<br>直接在影片上拖曳、縮放、設定樣式。",
   fbp1:"🌐 任選兩種語言", fbp2:"🖱️ 畫面上調整", fbp3:"🎨 逐排樣式", fbp4:"🔒 100% 本機"
 },
 ko: {
-  e1:"🎬 Prime Video 이중 자막", h1:"두 언어를 <span class='cy'>한 화면에.</span>", s1:"위에는 원어, 아래에는 내 언어 — Prime Video의 어떤 작품이든",
+  e1:"🎬 Prime Video 전용 · 무료 Chrome 확장", h1:"두 언어를 한 화면에.", s1:"좋아하는 작품이 최고의 어학 교재로 — 위에는 원어, 아래에는 내 언어.",
   title:"The Long Way Home", ep:"시즌 1, 3화",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"이 순간을 평생 기다려 왔어.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"돌아보지 마. 거의 다 왔어.",
   cue3_a:"You can't outrun the tide.", cue3_b:"밀물보다 빨리 달릴 순 없어.",
-  cue4_a:"Some doors only open once.", cue4_b:"어떤 문은 단 한 번만 열려.",
-  e2:"🌐 원하는 두 언어 선택", h2:"작품에 있는 자막이라면, <span class='cy'>어떤 조합이든</span>", s2:"재생을 누르는 순간 자동 감지 — 위와 아래에 하나씩 고르기만",
-  pu_status:"감지됨: 6개 언어\n위: English\n아래: 한국어", pu_langs:"언어", pu_top:"위", pu_bottom:"아래", pu_lang_a:"English", pu_lang_b:"한국어",
-  pu_sec_top:"위 (자막 1)", pu_size:"글자 크기", pu_sec_bottom:"아래 (자막 2)",
-  e3:"🖱️ 영상 위에서 바로 조절", h3:"드래그, 휠, <span class='cy'>방향키.</span>", s3:"보는 그 자리에서 이동·크기 조절·정렬 — 설정 화면 없이",
-  tb_left:"왼쪽", tb_center:"가운데", tb_right:"오른쪽", hint:"높이 24% · 가운데 50% · 크기 위 100% / 아래 80%",
-  anno_drag:"드래그로 이동", anno_wheel:"휠로 해당 줄 크기 조절", anno_keys:"방향키로 미세 조정 · Esc로 해제",
-  e4:"🎨 줄마다 다른 스타일", h4:"색상도 투명도도 <span class='yel'>내 취향대로</span>", s4:"자막을 우클릭: 글자 색상, 글자·배경 투명도를 줄마다 설정",
-  pn_title:"SubDuo 표시 설정", pn_top:"위 (자막 1)", pn_bottom:"아래 (자막 2)", pn_color:"글자 색상", pn_text_op:"글자 투명도", pn_bg_op:"배경 투명도", pn_reset:"색상·투명도 초기화",
-  e5:"🔒 100% 로컬", h5:"브라우저 밖으로는 <span class='cy'>아무것도 안 나갑니다</span>", s5:"서버도 계정도 추적도 없음 — Amazon이 이미 보내 주는 자막만 사용",
-  t1:"서버 없음", d1:"자막은 Amazon에서 받아 브라우저 안에서 해석·표시", t2:"계정·추적 없음", d2:"가입 불필요, 분석·광고·제3자 코드 없음",
-  t3:"권한은 두 개뿐", d3:"\"storage\"와 \"tabs\" — Prime Video 페이지에서만 동작", t4:"전체 화면도 OK", d4:"영상에 맞춰 확대, 긴 줄은 줄바꿈, 컨트롤 바를 피함",
-  t5:"설정 동기화 + 프리셋", d5:"설정은 Chrome에 동기화, 이름 붙인 프리셋 최대 20개", t6:"12개 언어 UI", d6:"팝업과 화면 힌트는 Chrome 언어를 따름",
+  e2:"🎯 한 줄도 놓치지 않게", h2:"멈추지 않고. 되감지 않고. 바꾸지 않고.", s2:"못 알아들었나요? 아래 줄을 슬쩍 보고 계속 보세요 — 이야기는 멈추지 않습니다.",
+  bl:"지금까지", al:"SubDuo라면", bc1:"⏸ 멈춤", bc2:"⟲ 10초 되감기", bc3:"🔁 자막 전환", bc4:"😩 줄거리 놓침", ac:"▶ 그대로 계속 보기",
+  e3:"🌐 조합은 자유", h3:"영어×한국어도, 일본어×한국어도.", s3:"작품에 있는 자막 중 위와 아래에 원하는 언어를 하나씩 — 재생하면 자동으로 감지합니다.",
+  e4:"🎨 영상 위에서 바로", h4:"크기도, 위치도, 색상도 마음대로.", s4:"드래그로 이동, 휠로 크기 조절, 우클릭으로 색상과 투명도. 설정 화면 없이 보면서 다듬으세요.",
+  l1:"기본", l2:"크게·위로", l3:"색상 변경·배경 없음", g1:"✋ 드래그로 위치", g2:"🖱️ 휠로 크기", g3:"🎨 우클릭으로 색상",
+  e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. Amazon이 이미 보내 주는 자막만 사용하므로 외부로는 아무것도 보내지 않습니다.",
+  st1:"Chrome에 추가", st2:"Prime Video에서 재생", st3:"언어 두 개 선택", addbtn:"Chrome에 추가", pu_top:"위", pu_bottom:"아래",
+  p1:"🔒 100% 로컬", p2:"🚫 계정 불필요", p3:"🛡️ 권한은 storage와 tabs뿐", p4:"☁️ Chrome 동기화", p5:"🌏 12개 언어 UI",
   fb_badge:"🎬 무료 · Amazon Prime Video용", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video 이중 자막 —<br>영상 위에서 바로 드래그·크기 조절·스타일 설정.",
   fbp1:"🌐 원하는 두 언어", fbp2:"🖱️ 화면에서 조절", fbp3:"🎨 줄별 스타일", fbp4:"🔒 100% 로컬"
 },
 es: {
-  e1:"🎬 SUBTÍTULOS DOBLES PARA PRIME VIDEO", h1:"Dos idiomas. <span class='cy'>Una pantalla.</span>", s1:"El original arriba, tu idioma abajo — en cualquier título de Prime Video",
+  e1:"🎬 PARA PRIME VIDEO · EXTENSIÓN GRATUITA DE CHROME", h1:"Dos idiomas. Una pantalla.", s1:"Tus series favoritas, tu mejor clase de idiomas: el original arriba, el tuyo abajo.",
   title:"The Long Way Home", ep:"Temporada 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Llevo toda la vida esperando este momento.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"No mires atrás. Ya casi llegamos.",
   cue3_a:"You can't outrun the tide.", cue3_b:"No puedes escapar de la marea.",
-  cue4_a:"Some doors only open once.", cue4_b:"Algunas puertas solo se abren una vez.",
-  e2:"🌐 ELIGE DOS IDIOMAS CUALESQUIERA", h2:"Todos los subtítulos del título, <span class='cy'>listos para combinar</span>", s2:"Detectados al pulsar reproducir — elige uno para arriba y otro para abajo",
-  pu_status:"Detectados: 6 idiomas\nArriba: English\nAbajo: Español", pu_langs:"Idiomas", pu_top:"Arriba", pu_bottom:"Abajo", pu_lang_a:"English", pu_lang_b:"Español",
-  pu_sec_top:"Arriba (subtítulo 1)", pu_size:"Tamaño del texto", pu_sec_bottom:"Abajo (subtítulo 2)",
-  e3:"🖱️ AJUSTA SOBRE EL VÍDEO", h3:"Arrastra. Desliza. <span class='cy'>Afina.</span>", s3:"Mueve, redimensiona y alinea los subtítulos donde miras — sin página de ajustes",
-  tb_left:"Izquierda", tb_center:"Centro", tb_right:"Derecha", hint:"Altura 24 % · Centro 50 % · Tamaño arriba 100 % / abajo 80 %",
-  anno_drag:"Arrastra para mover", anno_wheel:"Rueda para redimensionar una línea", anno_keys:"Flechas para afinar · Esc para deseleccionar",
-  e4:"🎨 ESTILO POR LÍNEA", h4:"Tus colores, <span class='yel'>tu transparencia</span>", s4:"Clic derecho en los subtítulos: color, transparencia del texto y del fondo — por línea",
-  pn_title:"Ajustes de visualización de SubDuo", pn_top:"Arriba (subtítulo 1)", pn_bottom:"Abajo (subtítulo 2)", pn_color:"Color del texto", pn_text_op:"Transparencia del texto", pn_bg_op:"Transparencia del fondo", pn_reset:"Restablecer colores y transparencia",
-  e5:"🔒 100 % LOCAL", h5:"Nada sale de <span class='cy'>tu navegador</span>", s5:"Sin servidor, sin cuenta, sin rastreo — solo los subtítulos que Amazon ya te envía",
-  t1:"Sin servidor", d1:"Los subtítulos se obtienen de Amazon y se procesan y dibujan en tu navegador", t2:"Sin cuenta ni rastreo", d2:"Nada que registrar, sin analítica, sin anuncios, sin código de terceros",
-  t3:"Solo dos permisos", d3:"«storage» y «tabs» — funciona solo en páginas de Prime Video", t4:"Encaja a pantalla completa", d4:"Escala con el vídeo, ajusta líneas largas y esquiva la barra de controles",
-  t5:"Ajustes sincronizados + preajustes", d5:"Los ajustes siguen a tu Chrome; guarda hasta 20 preajustes", t6:"12 idiomas de interfaz", d6:"La ventana y las ayudas siguen el idioma de tu Chrome",
+  e2:"🎯 NO TE PIERDAS NI UNA FRASE", h2:"Sin pausar. Sin rebobinar. Sin cambiar.", s2:"¿No lo pillaste? Mira la segunda línea y sigue viendo: la historia no se detiene.",
+  bl:"ANTES", al:"CON SUBDUO", bc1:"⏸ Pausar", bc2:"⟲ Atrás 10 s", bc3:"🔁 Cambiar subtítulos", bc4:"😩 Perder el hilo", ac:"▶ Seguir viendo",
+  e3:"🌐 LA PAREJA QUE QUIERAS", h3:"Inglés × español. Francés × español. Tú decides.", s3:"Elige dos de los idiomas de subtítulos que ofrece el título: se detectan solos al pulsar reproducir.",
+  e4:"🎨 DIRECTAMENTE SOBRE EL VÍDEO", h4:"Tamaño, posición, color: a tu manera.", s4:"Arrastra para mover, rueda para redimensionar, clic derecho para colores y transparencia. Ajústalo mientras ves, sin página de ajustes.",
+  l1:"Por defecto", l2:"Más grande, más arriba", l3:"Colores propios, sin caja", g1:"✋ Arrastra para mover", g2:"🖱️ Rueda para el tamaño", g3:"🎨 Clic derecho para colores",
+  e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Solo usa los subtítulos que Amazon ya te envía: no se manda nada a ningún sitio.",
+  st1:"Añadir a Chrome", st2:"Reproducir en Prime Video", st3:"Elegir dos idiomas", addbtn:"Añadir a Chrome", pu_top:"Arriba", pu_bottom:"Abajo",
+  p1:"🔒 100 % local", p2:"🚫 Sin cuenta", p3:"🛡️ Solo storage y tabs", p4:"☁️ Sincronización de Chrome", p5:"🌏 12 idiomas de interfaz",
   fb_badge:"🎬 Gratis · Para Amazon Prime Video", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles para Prime Video —<br>arrastra, redimensiona y da estilo sobre el vídeo.",
   fbp1:"🌐 Dos idiomas cualesquiera", fbp2:"🖱️ Ajuste en pantalla", fbp3:"🎨 Estilo por línea", fbp4:"🔒 100 % local"
 },
 fr: {
-  e1:"🎬 DOUBLE SOUS-TITRES POUR PRIME VIDEO", h1:"Deux langues. <span class='cy'>Un seul écran.</span>", s1:"L'original en haut, votre langue en bas — sur n'importe quel titre Prime Video",
+  e1:"🎬 POUR PRIME VIDEO · EXTENSION CHROME GRATUITE", h1:"Deux langues. Un seul écran.", s1:"Vos séries préférées deviennent votre meilleur cours de langue : l'original en haut, la vôtre en bas.",
   title:"The Long Way Home", ep:"Saison 1, ép. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"J'ai attendu ce moment toute ma vie.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Ne te retourne pas. On y est presque.",
   cue3_a:"You can't outrun the tide.", cue3_b:"On ne peut pas fuir la marée.",
-  cue4_a:"Some doors only open once.", cue4_b:"Certaines portes ne s'ouvrent qu'une fois.",
-  e2:"🌐 CHOISISSEZ DEUX LANGUES", h2:"Tous les sous-titres du titre, <span class='cy'>prêts à combiner</span>", s2:"Détectés dès la lecture — choisissez-en un pour le haut, un pour le bas",
-  pu_status:"Détecté : 6 langues\nHaut : English\nBas : Français", pu_langs:"Langues", pu_top:"Haut", pu_bottom:"Bas", pu_lang_a:"English", pu_lang_b:"Français",
-  pu_sec_top:"Haut (sous-titre 1)", pu_size:"Taille du texte", pu_sec_bottom:"Bas (sous-titre 2)",
-  e3:"🖱️ AJUSTEZ SUR LA VIDÉO", h3:"Glissez. Molette. <span class='cy'>Flèches.</span>", s3:"Déplacez, redimensionnez et alignez les sous-titres là où vous regardez — sans page de réglages",
-  tb_left:"Gauche", tb_center:"Centre", tb_right:"Droite", hint:"Hauteur 24 % · Centre 50 % · Taille haut 100 % / bas 80 %",
-  anno_drag:"Glisser pour déplacer", anno_wheel:"Molette pour redimensionner une ligne", anno_keys:"Flèches pour affiner · Échap pour désélectionner",
-  e4:"🎨 UN STYLE PAR LIGNE", h4:"Vos couleurs, <span class='yel'>votre transparence</span>", s4:"Clic droit sur les sous-titres : couleur, transparence du texte et du fond — par ligne",
-  pn_title:"Réglages d'affichage SubDuo", pn_top:"Haut (sous-titre 1)", pn_bottom:"Bas (sous-titre 2)", pn_color:"Couleur du texte", pn_text_op:"Transparence du texte", pn_bg_op:"Transparence du fond", pn_reset:"Réinitialiser couleurs et transparence",
-  e5:"🔒 100 % LOCAL", h5:"Rien ne quitte <span class='cy'>votre navigateur</span>", s5:"Pas de serveur, pas de compte, pas de suivi — seulement les sous-titres qu'Amazon vous envoie déjà",
-  t1:"Pas de serveur", d1:"Les sous-titres sont récupérés chez Amazon, analysés et dessinés dans votre navigateur", t2:"Ni compte ni suivi", d2:"Rien à créer, pas d'analyse, pas de publicité, pas de code tiers",
-  t3:"Deux permissions seulement", d3:"« storage » et « tabs » — ne s'exécute que sur les pages Prime Video", t4:"Parfait en plein écran", d4:"Suit la taille de la vidéo, replie les longues lignes, évite la barre de contrôle",
-  t5:"Réglages synchronisés + préréglages", d5:"Vos réglages suivent votre Chrome ; jusqu'à 20 préréglages nommés", t6:"12 langues d'interface", d6:"Fenêtre et indications suivent la langue de votre Chrome",
+  e2:"🎯 NE RATEZ PLUS UNE RÉPLIQUE", h2:"Sans pause. Sans retour. Sans changement.", s2:"Pas compris ? Un coup d'œil à la seconde ligne et vous continuez : l'histoire ne s'arrête jamais.",
+  bl:"AVANT", al:"AVEC SUBDUO", bc1:"⏸ Pause", bc2:"⟲ Retour 10 s", bc3:"🔁 Changer de sous-titres", bc4:"😩 Perdre le fil", ac:"▶ Continuer à regarder",
+  e3:"🌐 LA PAIRE DE VOTRE CHOIX", h3:"Anglais × français. Espagnol × français. À vous de voir.", s3:"Choisissez deux des langues de sous-titres du titre : détectées automatiquement dès la lecture.",
+  e4:"🎨 DIRECTEMENT SUR LA VIDÉO", h4:"Taille, position, couleur : à votre façon.", s4:"Glissez pour déplacer, molette pour redimensionner, clic droit pour couleurs et transparence. Réglez en regardant, sans page de réglages.",
+  l1:"Par défaut", l2:"Plus grand, plus haut", l3:"Couleurs perso, sans cadre", g1:"✋ Glisser pour déplacer", g2:"🖱️ Molette pour la taille", g3:"🎨 Clic droit pour les couleurs",
+  e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Il n'utilise que les sous-titres qu'Amazon vous envoie déjà : rien n'est transmis nulle part.",
+  st1:"Ajouter à Chrome", st2:"Lire sur Prime Video", st3:"Choisir deux langues", addbtn:"Ajouter à Chrome", pu_top:"Haut", pu_bottom:"Bas",
+  p1:"🔒 100 % local", p2:"🚫 Sans compte", p3:"🛡️ Seulement storage et tabs", p4:"☁️ Synchro Chrome", p5:"🌏 12 langues d'interface",
   fb_badge:"🎬 Gratuit · Pour Amazon Prime Video", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres pour Prime Video —<br>déplacez, redimensionnez et stylisez sur la vidéo.",
   fbp1:"🌐 Deux langues au choix", fbp2:"🖱️ Réglage à l'écran", fbp3:"🎨 Style par ligne", fbp4:"🔒 100 % local"
 },
 de: {
-  e1:"🎬 DOPPELTE UNTERTITEL FÜR PRIME VIDEO", h1:"Zwei Sprachen. <span class='cy'>Ein Bildschirm.</span>", s1:"Das Original oben, deine Sprache unten – bei jedem Prime-Video-Titel",
+  e1:"🎬 FÜR PRIME VIDEO · KOSTENLOSE CHROME-ERWEITERUNG", h1:"Zwei Sprachen. Ein Bildschirm.", s1:"Deine Lieblingsserien werden zum besten Sprachkurs – Original oben, deine Sprache unten.",
   title:"The Long Way Home", ep:"Staffel 1, Folge 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Auf diesen Moment habe ich mein ganzes Leben gewartet.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Schau nicht zurück. Wir sind fast da.",
   cue3_a:"You can't outrun the tide.", cue3_b:"Der Flut läuft man nicht davon.",
-  cue4_a:"Some doors only open once.", cue4_b:"Manche Türen öffnen sich nur einmal.",
-  e2:"🌐 ZWEI BELIEBIGE SPRACHEN WÄHLEN", h2:"Jeder Untertitel des Titels, <span class='cy'>frei kombinierbar</span>", s2:"Beim Abspielen erkannt – eine Sprache für oben, eine für unten wählen",
-  pu_status:"Erkannt: 6 Sprachen\nOben: English\nUnten: Deutsch", pu_langs:"Sprachen", pu_top:"Oben", pu_bottom:"Unten", pu_lang_a:"English", pu_lang_b:"Deutsch",
-  pu_sec_top:"Oben (Untertitel 1)", pu_size:"Textgröße", pu_sec_bottom:"Unten (Untertitel 2)",
-  e3:"🖱️ AUF DEM VIDEO ANPASSEN", h3:"Ziehen. Scrollen. <span class='cy'>Feinjustieren.</span>", s3:"Untertitel direkt beim Schauen verschieben, skalieren und ausrichten – ohne Einstellungsseite",
-  tb_left:"Links", tb_center:"Mitte", tb_right:"Rechts", hint:"Höhe 24 % · Mitte 50 % · Größe oben 100 % / unten 80 %",
-  anno_drag:"Ziehen zum Verschieben", anno_wheel:"Scrollen skaliert eine Zeile", anno_keys:"Pfeiltasten zum Feinjustieren · Esc zum Abwählen",
-  e4:"🎨 STIL PRO ZEILE", h4:"Deine Farben, <span class='yel'>deine Transparenz</span>", s4:"Rechtsklick auf die Untertitel: Textfarbe, Text- und Hintergrundtransparenz – pro Zeile",
-  pn_title:"SubDuo-Anzeigeeinstellungen", pn_top:"Oben (Untertitel 1)", pn_bottom:"Unten (Untertitel 2)", pn_color:"Textfarbe", pn_text_op:"Texttransparenz", pn_bg_op:"Hintergrundtransparenz", pn_reset:"Farben & Transparenz zurücksetzen",
-  e5:"🔒 100 % LOKAL", h5:"Nichts verlässt <span class='cy'>deinen Browser</span>", s5:"Kein Server, kein Konto, kein Tracking – nur die Untertitel, die Amazon dir ohnehin schickt",
-  t1:"Kein Server", d1:"Untertitel werden von Amazon geladen und im Browser verarbeitet und gezeichnet", t2:"Kein Konto, kein Tracking", d2:"Keine Registrierung, keine Analyse, keine Werbung, kein Fremdcode",
-  t3:"Nur zwei Berechtigungen", d3:"„storage“ und „tabs“ – läuft ausschließlich auf Prime-Video-Seiten", t4:"Passt im Vollbild", d4:"Skaliert mit dem Video, bricht lange Zeilen um, weicht der Steuerleiste aus",
-  t5:"Synchronisierte Einstellungen + Voreinstellungen", d5:"Einstellungen folgen deinem Chrome; bis zu 20 benannte Voreinstellungen", t6:"12 Oberflächensprachen", d6:"Pop-up und Hinweise folgen deiner Chrome-Sprache",
+  e2:"🎯 KEINE ZEILE MEHR VERPASSEN", h2:"Kein Pausieren. Kein Zurückspulen. Kein Umschalten.", s2:"Nicht verstanden? Ein Blick auf die zweite Zeile, und du schaust weiter – die Geschichte läuft.",
+  bl:"VORHER", al:"MIT SUBDUO", bc1:"⏸ Pause", bc2:"⟲ 10 s zurück", bc3:"🔁 Untertitel wechseln", bc4:"😩 Den Faden verlieren", ac:"▶ Einfach weiterschauen",
+  e3:"🌐 JEDES PAAR, DAS DU WILLST", h3:"Englisch × Deutsch. Spanisch × Deutsch. Du entscheidest.", s3:"Wähle zwei der Untertitelsprachen des Titels – automatisch erkannt, sobald du auf Play drückst.",
+  e4:"🎨 DIREKT AUF DEM VIDEO", h4:"Größe, Position, Farbe – wie du willst.", s4:"Ziehen zum Verschieben, Scrollen zum Skalieren, Rechtsklick für Farben und Transparenz. Beim Schauen anpassen, ohne Einstellungsseite.",
+  l1:"Standard", l2:"Größer, höher", l3:"Eigene Farben, ohne Kasten", g1:"✋ Ziehen zum Verschieben", g2:"🖱️ Scrollen für die Größe", g3:"🎨 Rechtsklick für Farben",
+  e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Es nutzt nur die Untertitel, die Amazon dir ohnehin streamt – nichts wird irgendwohin gesendet.",
+  st1:"Zu Chrome hinzufügen", st2:"Auf Prime Video abspielen", st3:"Zwei Sprachen wählen", addbtn:"Hinzufügen", pu_top:"Oben", pu_bottom:"Unten",
+  p1:"🔒 100 % lokal", p2:"🚫 Kein Konto", p3:"🛡️ Nur storage & tabs", p4:"☁️ Chrome-Sync", p5:"🌏 12 Oberflächensprachen",
   fb_badge:"🎬 Kostenlos · Für Amazon Prime Video", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel für Prime Video –<br>direkt auf dem Video verschieben, skalieren, gestalten.",
   fbp1:"🌐 Zwei beliebige Sprachen", fbp2:"🖱️ Auf dem Bild anpassen", fbp3:"🎨 Stil pro Zeile", fbp4:"🔒 100 % lokal"
 },
 it: {
-  e1:"🎬 DOPPI SOTTOTITOLI PER PRIME VIDEO", h1:"Due lingue. <span class='cy'>Uno schermo.</span>", s1:"L'originale sopra, la tua lingua sotto — su qualsiasi titolo di Prime Video",
+  e1:"🎬 PER PRIME VIDEO · ESTENSIONE CHROME GRATUITA", h1:"Due lingue. Uno schermo.", s1:"Le tue serie preferite diventano la tua miglior lezione di lingua: l'originale sopra, la tua sotto.",
   title:"The Long Way Home", ep:"Stagione 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Ho aspettato questo momento tutta la vita.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Non voltarti. Ci siamo quasi.",
   cue3_a:"You can't outrun the tide.", cue3_b:"Non puoi sfuggire alla marea.",
-  cue4_a:"Some doors only open once.", cue4_b:"Alcune porte si aprono una sola volta.",
-  e2:"🌐 SCEGLI DUE LINGUE QUALSIASI", h2:"Tutti i sottotitoli del titolo, <span class='cy'>pronti da abbinare</span>", s2:"Rilevati appena premi play — scegline uno per sopra e uno per sotto",
-  pu_status:"Rilevate: 6 lingue\nSopra: English\nSotto: Italiano", pu_langs:"Lingue", pu_top:"Sopra", pu_bottom:"Sotto", pu_lang_a:"English", pu_lang_b:"Italiano",
-  pu_sec_top:"Sopra (sottotitolo 1)", pu_size:"Dimensione testo", pu_sec_bottom:"Sotto (sottotitolo 2)",
-  e3:"🖱️ REGOLA SUL VIDEO", h3:"Trascina. Scorri. <span class='cy'>Rifinisci.</span>", s3:"Sposta, ridimensiona e allinea i sottotitoli mentre guardi — senza pagina di impostazioni",
-  tb_left:"Sinistra", tb_center:"Centro", tb_right:"Destra", hint:"Altezza 24 % · Centro 50 % · Dimensione sopra 100 % / sotto 80 %",
-  anno_drag:"Trascina per spostare", anno_wheel:"Rotella per ridimensionare una riga", anno_keys:"Frecce per rifinire · Esc per deselezionare",
-  e4:"🎨 STILE PER RIGA", h4:"I tuoi colori, <span class='yel'>la tua trasparenza</span>", s4:"Tasto destro sui sottotitoli: colore, trasparenza del testo e dello sfondo — per riga",
-  pn_title:"Impostazioni di visualizzazione SubDuo", pn_top:"Sopra (sottotitolo 1)", pn_bottom:"Sotto (sottotitolo 2)", pn_color:"Colore del testo", pn_text_op:"Trasparenza del testo", pn_bg_op:"Trasparenza dello sfondo", pn_reset:"Ripristina colori e trasparenza",
-  e5:"🔒 100 % LOCALE", h5:"Nulla esce dal <span class='cy'>tuo browser</span>", s5:"Nessun server, nessun account, nessun tracciamento — solo i sottotitoli che Amazon ti invia già",
-  t1:"Nessun server", d1:"I sottotitoli vengono scaricati da Amazon, analizzati e disegnati nel browser", t2:"Nessun account, nessun tracciamento", d2:"Niente iscrizioni, analisi, pubblicità o codice di terze parti",
-  t3:"Solo due permessi", d3:"«storage» e «tabs» — funziona solo sulle pagine di Prime Video", t4:"Perfetto a schermo intero", d4:"Scala con il video, manda a capo le righe lunghe, evita la barra dei controlli",
-  t5:"Impostazioni sincronizzate + preset", d5:"Le impostazioni seguono il tuo Chrome; fino a 20 preset con nome", t6:"12 lingue dell'interfaccia", d6:"Popup e suggerimenti seguono la lingua del tuo Chrome",
+  e2:"🎯 NON PERDERE PIÙ UNA BATTUTA", h2:"Niente pause. Niente riavvolgimenti. Niente cambi.", s2:"Non l'hai capita? Un'occhiata alla seconda riga e continui a guardare: la storia non si ferma.",
+  bl:"PRIMA", al:"CON SUBDUO", bc1:"⏸ Pausa", bc2:"⟲ Indietro 10 s", bc3:"🔁 Cambia sottotitoli", bc4:"😩 Perdi il filo", ac:"▶ Continua a guardare",
+  e3:"🌐 LA COPPIA CHE VUOI", h3:"Inglese × italiano. Spagnolo × italiano. Decidi tu.", s3:"Scegli due delle lingue dei sottotitoli del titolo: rilevate in automatico appena premi play.",
+  e4:"🎨 DIRETTAMENTE SUL VIDEO", h4:"Dimensione, posizione, colore: a modo tuo.", s4:"Trascina per spostare, rotella per ridimensionare, tasto destro per colori e trasparenza. Regola mentre guardi, senza pagina di impostazioni.",
+  l1:"Predefinito", l2:"Più grande, più in alto", l3:"Colori personalizzati, senza riquadro", g1:"✋ Trascina per spostare", g2:"🖱️ Rotella per la dimensione", g3:"🎨 Tasto destro per i colori",
+  e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. Usa solo i sottotitoli che Amazon ti invia già: nulla viene mandato da nessuna parte.",
+  st1:"Aggiungi a Chrome", st2:"Riproduci su Prime Video", st3:"Scegli due lingue", addbtn:"Aggiungi a Chrome", pu_top:"Sopra", pu_bottom:"Sotto",
+  p1:"🔒 100 % locale", p2:"🚫 Nessun account", p3:"🛡️ Solo storage e tabs", p4:"☁️ Sincronizzazione Chrome", p5:"🌏 12 lingue dell'interfaccia",
   fb_badge:"🎬 Gratis · Per Amazon Prime Video", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli per Prime Video —<br>trascina, ridimensiona e personalizza sul video.",
   fbp1:"🌐 Due lingue qualsiasi", fbp2:"🖱️ Regola sullo schermo", fbp3:"🎨 Stile per riga", fbp4:"🔒 100 % locale"
 },
 pt: {
-  e1:"🎬 LEGENDAS DUPLAS PARA O PRIME VIDEO", h1:"Dois idiomas. <span class='cy'>Uma tela.</span>", s1:"O original em cima, o seu idioma embaixo — em qualquer título do Prime Video",
+  e1:"🎬 PARA O PRIME VIDEO · EXTENSÃO GRATUITA DO CHROME", h1:"Dois idiomas. Uma tela.", s1:"Suas séries favoritas viram a melhor aula de idiomas: o original em cima, o seu embaixo.",
   title:"The Long Way Home", ep:"Temporada 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Esperei por este momento a vida inteira.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Não olhe para trás. Estamos quase lá.",
   cue3_a:"You can't outrun the tide.", cue3_b:"Não dá para fugir da maré.",
-  cue4_a:"Some doors only open once.", cue4_b:"Algumas portas só se abrem uma vez.",
-  e2:"🌐 ESCOLHA DOIS IDIOMAS QUAISQUER", h2:"Todas as legendas do título, <span class='cy'>prontas para combinar</span>", s2:"Detectadas ao apertar o play — escolha uma para cima e outra para baixo",
-  pu_status:"Detectados: 6 idiomas\nEm cima: English\nEmbaixo: Português", pu_langs:"Idiomas", pu_top:"Em cima", pu_bottom:"Embaixo", pu_lang_a:"English", pu_lang_b:"Português",
-  pu_sec_top:"Em cima (legenda 1)", pu_size:"Tamanho do texto", pu_sec_bottom:"Embaixo (legenda 2)",
-  e3:"🖱️ AJUSTE NO VÍDEO", h3:"Arraste. Role. <span class='cy'>Ajuste.</span>", s3:"Mova, redimensione e alinhe as legendas onde você assiste — sem página de configurações",
-  tb_left:"Esquerda", tb_center:"Centro", tb_right:"Direita", hint:"Altura 24 % · Centro 50 % · Tamanho cima 100 % / baixo 80 %",
-  anno_drag:"Arraste para mover", anno_wheel:"Role para redimensionar uma linha", anno_keys:"Setas para ajuste fino · Esc para desmarcar",
-  e4:"🎨 ESTILO POR LINHA", h4:"Suas cores, <span class='yel'>sua transparência</span>", s4:"Botão direito nas legendas: cor, transparência do texto e do fundo — por linha",
-  pn_title:"Configurações de exibição do SubDuo", pn_top:"Em cima (legenda 1)", pn_bottom:"Embaixo (legenda 2)", pn_color:"Cor do texto", pn_text_op:"Transparência do texto", pn_bg_op:"Transparência do fundo", pn_reset:"Redefinir cores e transparência",
-  e5:"🔒 100 % LOCAL", h5:"Nada sai do <span class='cy'>seu navegador</span>", s5:"Sem servidor, sem conta, sem rastreamento — só as legendas que a Amazon já envia para você",
-  t1:"Sem servidor", d1:"As legendas vêm da Amazon e são processadas e desenhadas no seu navegador", t2:"Sem conta, sem rastreamento", d2:"Nada para cadastrar, sem análise, sem anúncios, sem código de terceiros",
-  t3:"Apenas duas permissões", d3:"“storage” e “tabs” — roda somente em páginas do Prime Video", t4:"Cabe em tela cheia", d4:"Escala com o vídeo, quebra falas longas, desvia da barra de controles",
-  t5:"Configurações sincronizadas + predefinições", d5:"As configurações seguem seu Chrome; até 20 predefinições nomeadas", t6:"12 idiomas de interface", d6:"Pop-up e dicas seguem o idioma do seu Chrome",
+  e2:"🎯 NUNCA MAIS PERCA UMA FALA", h2:"Sem pausar. Sem voltar. Sem trocar.", s2:"Não pegou? Dê uma olhada na segunda linha e continue assistindo — a história não para.",
+  bl:"ANTES", al:"COM O SUBDUO", bc1:"⏸ Pausar", bc2:"⟲ Voltar 10 s", bc3:"🔁 Trocar legenda", bc4:"😩 Perder o fio", ac:"▶ Continuar assistindo",
+  e3:"🌐 O PAR QUE VOCÊ QUISER", h3:"Inglês × português. Espanhol × português. Você escolhe.", s3:"Escolha dois dos idiomas de legenda que o título oferece — detectados automaticamente ao apertar o play.",
+  e4:"🎨 DIRETO NO VÍDEO", h4:"Tamanho, posição, cor — do seu jeito.", s4:"Arraste para mover, role para redimensionar, botão direito para cores e transparência. Ajuste enquanto assiste, sem página de configurações.",
+  l1:"Padrão", l2:"Maior, mais alto", l3:"Cores próprias, sem caixa", g1:"✋ Arraste para mover", g2:"🖱️ Role para o tamanho", g3:"🎨 Botão direito para cores",
+  e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. Usa só as legendas que a Amazon já envia para você — nada é mandado a lugar nenhum.",
+  st1:"Adicionar ao Chrome", st2:"Reproduzir no Prime Video", st3:"Escolher dois idiomas", addbtn:"Adicionar ao Chrome", pu_top:"Em cima", pu_bottom:"Embaixo",
+  p1:"🔒 100 % local", p2:"🚫 Sem conta", p3:"🛡️ Só storage e tabs", p4:"☁️ Sincronização do Chrome", p5:"🌏 12 idiomas de interface",
   fb_badge:"🎬 Grátis · Para o Amazon Prime Video", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas para o Prime Video —<br>arraste, redimensione e estilize direto no vídeo.",
   fbp1:"🌐 Dois idiomas quaisquer", fbp2:"🖱️ Ajuste na tela", fbp3:"🎨 Estilo por linha", fbp4:"🔒 100 % local"
 },
 ru: {
-  e1:"🎬 ДВОЙНЫЕ СУБТИТРЫ ДЛЯ PRIME VIDEO", h1:"Два языка. <span class='cy'>Один экран.</span>", s1:"Оригинал сверху, ваш язык снизу — в любом фильме на Prime Video",
+  e1:"🎬 ДЛЯ PRIME VIDEO · БЕСПЛАТНОЕ РАСШИРЕНИЕ CHROME", h1:"Два языка. Один экран.", s1:"Любимые сериалы становятся лучшим уроком языка: оригинал сверху, ваш язык снизу.",
   title:"The Long Way Home", ep:"Сезон 1, серия 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Я ждал этого момента всю жизнь.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Не оглядывайся. Мы почти на месте.",
   cue3_a:"You can't outrun the tide.", cue3_b:"От прилива не убежишь.",
-  cue4_a:"Some doors only open once.", cue4_b:"Некоторые двери открываются лишь раз.",
-  e2:"🌐 ЛЮБЫЕ ДВА ЯЗЫКА", h2:"Все субтитры фильма — <span class='cy'>в любом сочетании</span>", s2:"Определяются при нажатии «Воспроизвести» — выберите один для верхней строки, один для нижней",
-  pu_status:"Обнаружено: 6 языков\nСверху: English\nСнизу: Русский", pu_langs:"Языки", pu_top:"Сверху", pu_bottom:"Снизу", pu_lang_a:"English", pu_lang_b:"Русский",
-  pu_sec_top:"Сверху (субтитры 1)", pu_size:"Размер текста", pu_sec_bottom:"Снизу (субтитры 2)",
-  e3:"🖱️ НАСТРОЙКА НА ВИДЕО", h3:"Перетащите. Прокрутите. <span class='cy'>Подвиньте.</span>", s3:"Перемещайте, масштабируйте и выравнивайте субтитры прямо во время просмотра — без страницы настроек",
-  tb_left:"Слева", tb_center:"По центру", tb_right:"Справа", hint:"Высота 24 % · Центр 50 % · Размер верх 100 % / низ 80 %",
-  anno_drag:"Перетащите, чтобы переместить", anno_wheel:"Колесо — размер строки", anno_keys:"Стрелки — подвинуть · Esc — снять выделение",
-  e4:"🎨 СТИЛЬ КАЖДОЙ СТРОКИ", h4:"Ваши цвета, <span class='yel'>ваша прозрачность</span>", s4:"Правый клик по субтитрам: цвет текста, прозрачность текста и фона — для каждой строки",
-  pn_title:"Настройки отображения SubDuo", pn_top:"Сверху (субтитры 1)", pn_bottom:"Снизу (субтитры 2)", pn_color:"Цвет текста", pn_text_op:"Прозрачность текста", pn_bg_op:"Прозрачность фона", pn_reset:"Сбросить цвета и прозрачность",
-  e5:"🔒 100 % ЛОКАЛЬНО", h5:"Ничего не покидает <span class='cy'>ваш браузер</span>", s5:"Без сервера, аккаунта и слежки — только субтитры, которые Amazon и так вам отправляет",
-  t1:"Без сервера", d1:"Субтитры загружаются с Amazon, разбираются и отрисовываются в браузере", t2:"Без аккаунта и слежки", d2:"Не нужно регистрироваться, нет аналитики, рекламы и стороннего кода",
-  t3:"Всего два разрешения", d3:"«storage» и «tabs» — работает только на страницах Prime Video", t4:"Подходит для полного экрана", d4:"Масштабируется с видео, переносит длинные строки, отступает от панели управления",
-  t5:"Синхронизация + пресеты", d5:"Настройки следуют за вашим Chrome; до 20 именованных пресетов", t6:"12 языков интерфейса", d6:"Окно и подсказки следуют языку вашего Chrome",
+  e2:"🎯 НЕ ПРОПУСКАЙТЕ НИ СТРОЧКИ", h2:"Без пауз. Без перемотки. Без переключений.", s2:"Не расслышали? Взгляните на вторую строку и смотрите дальше — история не останавливается.",
+  bl:"РАНЬШЕ", al:"С SUBDUO", bc1:"⏸ Пауза", bc2:"⟲ Назад на 10 с", bc3:"🔁 Сменить субтитры", bc4:"😩 Потерять нить", ac:"▶ Просто смотреть дальше",
+  e3:"🌐 ЛЮБАЯ ПАРА", h3:"Английский × русский. Испанский × русский. Решать вам.", s3:"Выберите любые два языка субтитров из имеющихся у фильма — определяются автоматически при нажатии «Воспроизвести».",
+  e4:"🎨 ПРЯМО НА ВИДЕО", h4:"Размер, положение, цвет — как вам удобно.", s4:"Перетаскивайте, крутите колесо для масштаба, правый клик для цветов и прозрачности. Настраивайте во время просмотра, без страницы настроек.",
+  l1:"По умолчанию", l2:"Крупнее, выше", l3:"Свои цвета, без рамки", g1:"✋ Перетащить", g2:"🖱️ Колесо — размер", g3:"🎨 Правый клик — цвета",
+  e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Использует только субтитры, которые Amazon и так вам передаёт, — ничего никуда не отправляется.",
+  st1:"Добавить в Chrome", st2:"Включить на Prime Video", st3:"Выбрать два языка", addbtn:"Добавить в Chrome", pu_top:"Сверху", pu_bottom:"Снизу",
+  p1:"🔒 100 % локально", p2:"🚫 Без аккаунта", p3:"🛡️ Только storage и tabs", p4:"☁️ Синхронизация Chrome", p5:"🌏 12 языков интерфейса",
   fb_badge:"🎬 Бесплатно · Для Amazon Prime Video", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры для Prime Video —<br>перетаскивайте, масштабируйте и оформляйте прямо на видео.",
   fbp1:"🌐 Любые два языка", fbp2:"🖱️ Настройка на экране", fbp3:"🎨 Стиль каждой строки", fbp4:"🔒 100 % локально"
 },
 hi: {
-  e1:"🎬 Prime Video के लिए दोहरे सबटाइटल", h1:"दो भाषाएँ। <span class='cy'>एक स्क्रीन।</span>", s1:"ऊपर मूल भाषा, नीचे आपकी भाषा — Prime Video के किसी भी टाइटल पर",
+  e1:"🎬 Prime Video के लिए · मुफ़्त Chrome एक्सटेंशन", h1:"दो भाषाएँ। एक स्क्रीन।", s1:"आपकी पसंदीदा सीरीज़ बन जाए सबसे अच्छी भाषा की क्लास — ऊपर मूल, नीचे आपकी भाषा।",
   title:"The Long Way Home", ep:"सीज़न 1, एपिसोड 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"मैं इस पल का इंतज़ार पूरी ज़िंदगी करता रहा।",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"पीछे मत देखो। हम बस पहुँचने वाले हैं।",
   cue3_a:"You can't outrun the tide.", cue3_b:"ज्वार से भागकर नहीं बच सकते।",
-  cue4_a:"Some doors only open once.", cue4_b:"कुछ दरवाज़े सिर्फ़ एक बार खुलते हैं।",
-  e2:"🌐 कोई भी दो भाषाएँ चुनें", h2:"टाइटल के सभी सबटाइटल, <span class='cy'>जोड़ी बनाने को तैयार</span>", s2:"प्ले दबाते ही पहचान — ऊपर के लिए एक, नीचे के लिए एक चुनें",
-  pu_status:"पहचाना गया: 6 भाषाएँ\nऊपर: English\nनीचे: हिन्दी", pu_langs:"भाषाएँ", pu_top:"ऊपर", pu_bottom:"नीचे", pu_lang_a:"English", pu_lang_b:"हिन्दी",
-  pu_sec_top:"ऊपर (सबटाइटल 1)", pu_size:"टेक्स्ट का आकार", pu_sec_bottom:"नीचे (सबटाइटल 2)",
-  e3:"🖱️ वीडियो पर ही समायोजन", h3:"खींचिए। स्क्रॉल कीजिए। <span class='cy'>खिसकाइए।</span>", s3:"देखते-देखते सबटाइटल को हटाइए, आकार बदलिए, संरेखित कीजिए — सेटिंग पेज की ज़रूरत नहीं",
-  tb_left:"बाएँ", tb_center:"बीच", tb_right:"दाएँ", hint:"ऊँचाई 24% · बीच 50% · आकार ऊपर 100% / नीचे 80%",
-  anno_drag:"हटाने के लिए खींचें", anno_wheel:"पंक्ति का आकार बदलने के लिए स्क्रॉल", anno_keys:"तीर कुंजियों से खिसकाएँ · Esc से चयन हटाएँ",
-  e4:"🎨 हर पंक्ति की स्टाइल", h4:"आपके रंग, <span class='yel'>आपकी पारदर्शिता</span>", s4:"सबटाइटल पर राइट-क्लिक: टेक्स्ट का रंग, टेक्स्ट और पृष्ठभूमि की पारदर्शिता — हर पंक्ति के लिए",
-  pn_title:"SubDuo प्रदर्शन सेटिंग", pn_top:"ऊपर (सबटाइटल 1)", pn_bottom:"नीचे (सबटाइटल 2)", pn_color:"टेक्स्ट का रंग", pn_text_op:"टेक्स्ट की पारदर्शिता", pn_bg_op:"पृष्ठभूमि की पारदर्शिता", pn_reset:"रंग और पारदर्शिता रीसेट करें",
-  e5:"🔒 100% लोकल", h5:"<span class='cy'>आपके ब्राउज़र</span> से कुछ बाहर नहीं जाता", s5:"न सर्वर, न खाता, न ट्रैकिंग — सिर्फ़ वे सबटाइटल जो Amazon पहले से आपको भेजता है",
-  t1:"कोई सर्वर नहीं", d1:"सबटाइटल Amazon से लिए जाते हैं और ब्राउज़र में ही पार्स और प्रदर्शित होते हैं", t2:"न खाता, न ट्रैकिंग", d2:"कोई साइन-अप नहीं, कोई एनालिटिक्स, विज्ञापन या तृतीय-पक्ष कोड नहीं",
-  t3:"सिर्फ़ दो अनुमतियाँ", d3:"\"storage\" और \"tabs\" — केवल Prime Video पेज पर चलता है", t4:"फ़ुलस्क्रीन में भी फ़िट", d4:"वीडियो के साथ स्केल, लंबी पंक्तियाँ मुड़ती हैं, कंट्रोल बार से बचता है",
-  t5:"सिंक सेटिंग + प्रीसेट", d5:"सेटिंग आपके Chrome के साथ चलती हैं; 20 तक नामित प्रीसेट", t6:"12 इंटरफ़ेस भाषाएँ", d6:"पॉपअप और संकेत आपके Chrome की भाषा के अनुसार",
+  e2:"🎯 अब कोई पंक्ति नहीं छूटेगी", h2:"न रोकना। न पीछे जाना। न बदलना।", s2:"समझ नहीं आया? नीचे की पंक्ति पर नज़र डालिए और देखते रहिए — कहानी रुकती नहीं।",
+  bl:"पहले", al:"SubDuo के साथ", bc1:"⏸ रोकें", bc2:"⟲ 10 सेकंड पीछे", bc3:"🔁 सबटाइटल बदलें", bc4:"😩 कहानी छूट जाए", ac:"▶ बस देखते रहिए",
+  e3:"🌐 कोई भी जोड़ी", h3:"अंग्रेज़ी × हिन्दी। जापानी × हिन्दी। आपकी मर्ज़ी।", s3:"टाइटल में उपलब्ध सबटाइटल भाषाओं में से कोई भी दो चुनिए — प्ले दबाते ही अपने-आप पहचान।",
+  e4:"🎨 सीधे वीडियो पर", h4:"आकार, जगह, रंग — आपके हिसाब से।", s4:"खींचकर हटाइए, स्क्रॉल से आकार बदलिए, राइट-क्लिक से रंग और पारदर्शिता। देखते-देखते ही सेट कीजिए, सेटिंग पेज की ज़रूरत नहीं।",
+  l1:"डिफ़ॉल्ट", l2:"बड़ा, ऊपर", l3:"अपने रंग, बिना बॉक्स", g1:"✋ खींचकर जगह बदलें", g2:"🖱️ स्क्रॉल से आकार", g3:"🎨 राइट-क्लिक से रंग",
+  e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सिर्फ़ वे सबटाइटल इस्तेमाल होते हैं जो Amazon पहले से आपको भेजता है — कहीं कुछ नहीं भेजा जाता।",
+  st1:"Chrome में जोड़ें", st2:"Prime Video पर प्ले करें", st3:"दो भाषाएँ चुनें", addbtn:"Chrome में जोड़ें", pu_top:"ऊपर", pu_bottom:"नीचे",
+  p1:"🔒 100% लोकल", p2:"🚫 कोई खाता नहीं", p3:"🛡️ सिर्फ़ storage और tabs", p4:"☁️ Chrome सिंक", p5:"🌏 12 इंटरफ़ेस भाषाएँ",
   fb_badge:"🎬 मुफ़्त · Amazon Prime Video के लिए", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"Prime Video के लिए दोहरे सबटाइटल —<br>सीधे वीडियो पर खींचिए, आकार बदलिए, स्टाइल कीजिए।",
   fbp1:"🌐 कोई भी दो भाषाएँ", fbp2:"🖱️ स्क्रीन पर समायोजन", fbp3:"🎨 हर पंक्ति की स्टाइल", fbp4:"🔒 100% लोकल"
 }
 };
+
+// IMG 3 pair cards: language names in their own script + one sample line per language ("Don't look back.").
+const LANG_NAMES = { en:"English", ja:"日本語", ko:"한국어", zh:"中文", "zh-TW":"中文（繁體）", es:"Español", fr:"Français", de:"Deutsch", it:"Italiano", pt:"Português", ru:"Русский", hi:"हिन्दी" };
+const SAMPLE = { en:"Don't look back.", ja:"振り返るな。", ko:"뒤돌아보지 마.", zh:"别回头。", "zh-TW":"別回頭。", es:"No mires atrás.", fr:"Ne te retourne pas.", de:"Schau nicht zurück.", it:"Non voltarti.", pt:"Não olhe para trás.", ru:"Не оглядывайся.", hi:"पीछे मत देखो।" };
+// [top (original), bottom (viewer)] per locale — the first pair also feeds IMG 5's popup.
+const PAIRS = {
+  en: [["es","en"],["ja","en"],["ko","en"],["fr","en"],["de","en"],["zh","en"]],
+  ja: [["en","ja"],["ko","ja"],["zh","ja"],["es","ja"],["fr","ja"],["de","ja"]],
+  zh: [["en","zh"],["ja","zh"],["ko","zh"],["es","zh"],["fr","zh"],["de","zh"]],
+  "zh-TW": [["en","zh-TW"],["ja","zh-TW"],["ko","zh-TW"],["es","zh-TW"],["fr","zh-TW"],["de","zh-TW"]],
+  ko: [["en","ko"],["ja","ko"],["zh","ko"],["es","ko"],["fr","ko"],["de","ko"]],
+  es: [["en","es"],["fr","es"],["ja","es"],["de","es"],["it","es"],["pt","es"]],
+  fr: [["en","fr"],["es","fr"],["ja","fr"],["de","fr"],["it","fr"],["ko","fr"]],
+  de: [["en","de"],["es","de"],["fr","de"],["ja","de"],["it","de"],["ko","de"]],
+  it: [["en","it"],["es","it"],["fr","it"],["de","it"],["ja","it"],["pt","it"]],
+  pt: [["en","pt"],["es","pt"],["fr","pt"],["ja","pt"],["it","pt"],["de","pt"]],
+  ru: [["en","ru"],["es","ru"],["de","ru"],["fr","ru"],["ja","ru"],["ko","ru"]],
+  hi: [["en","hi"],["ja","hi"],["ko","hi"],["es","hi"],["fr","hi"],["de","hi"]],
+};
+const CARD_SCENES = ["city", "sea", "g-neon", "g-forest", "g-dawn", "g-snow"];
 
 const lang = new URLSearchParams(location.search).get("lang") || "en";
 const dict = I18N[lang];
@@ -602,6 +656,22 @@ if (dict) {
 }
 if (["ja", "zh", "zh-TW", "ko", "hi"].includes(lang)) document.body.classList.add("nolat");
 
+// IMG 3 cards
+const pairs = PAIRS[lang] || PAIRS.en;
+document.getElementById("pairs").innerHTML = pairs.map(([a, b], i) => {
+  const sc = CARD_SCENES[i % CARD_SCENES.length];
+  const extra = sc === "city"
+    ? '<div class="bokeh" style="left:14%;top:26%;width:60px;height:60px;background:radial-gradient(circle,rgba(255,150,70,.85),rgba(255,150,70,0) 70%);"></div><div class="bokeh" style="left:66%;top:22%;width:74px;height:74px;background:radial-gradient(circle,rgba(255,200,90,.8),rgba(255,200,90,0) 70%);"></div><div class="bokeh" style="left:40%;top:40%;width:30px;height:30px;background:radial-gradient(circle,rgba(120,220,255,.85),rgba(120,220,255,0) 70%);"></div><div class="bld dark" style="left:-2%;width:14%;height:34%;"></div><div class="bld" style="left:11%;width:9%;height:50%;"></div><div class="bld dark" style="left:19%;width:15%;height:28%;"></div><div class="bld" style="left:33%;width:8%;height:56%;"></div><div class="bld dark" style="left:40%;width:14%;height:38%;"></div><div class="bld" style="left:53%;width:10%;height:44%;"></div><div class="bld dark" style="left:62%;width:16%;height:30%;"></div><div class="bld" style="left:77%;width:8%;height:52%;"></div><div class="bld dark" style="left:84%;width:18%;height:36%;"></div><div class="ground"></div>'
+    : sc === "sea" ? '<div class="sea"></div><div class="hill l"></div><div class="hill r"></div>'
+    : '<div class="orb"></div>';
+  return `<div class="frame pair"><div class="scene ${sc}">${extra}<div class="vig"></div><div class="grain"></div></div>
+    <div class="plabel"><span>${LANG_NAMES[a]}</span><span class="x">×</span><b>${LANG_NAMES[b]}</b></div>
+    <div class="sd"><div class="sd-box"><div class="sd-line sd-a">${SAMPLE[a]}</div><div class="sd-line sd-b">${SAMPLE[b]}</div></div></div></div>`;
+}).join("");
+// IMG 5 popup languages
+document.getElementById("pu5a").textContent = LANG_NAMES[pairs[0][0]];
+document.getElementById("pu5b").textContent = LANG_NAMES[pairs[0][1]];
+
 // キャンバス(固定サイズ)からコンテンツがはみ出している量(px)。装飾の .glow / .brand は除外
 // （scrollHeight は overflow:hidden でも装飾のはみ出しを含むため使わない）
 function overflowOf(el) {
@@ -610,18 +680,31 @@ function overflowOf(el) {
   const pad = { t: parseFloat(cs.paddingTop) || 0, b: parseFloat(cs.paddingBottom) || 0, l: parseFloat(cs.paddingLeft) || 0, r: parseFloat(cs.paddingRight) || 0 };
   let over = 0;
   for (const c of el.children) {
-    if (c.classList.contains("glow") || c.classList.contains("brand")) continue;
+    if (c.classList.contains("glow") || c.classList.contains("brand") || c.classList.contains("full")) continue;
     const cr = c.getBoundingClientRect();
     over = Math.max(over, cr.bottom - (r.bottom - pad.b), (r.top + pad.t) - cr.top, cr.right - (r.right - pad.r), (r.left + pad.l) - cr.left);
   }
   return Math.round(over);
 }
+// IMG1 (full-bleed): caption must end above the subtitle block
+function overflowBleed(el) {
+  const cap = el.querySelector(".cap.top").getBoundingClientRect();
+  const sd = el.querySelector(".sd").getBoundingClientRect();
+  return Math.round(Math.max(0, cap.bottom + 40 - sd.top));
+}
+const overflowAny = (el) => (el.classList.contains("bleed") ? overflowBleed(el) : overflowOf(el));
 // record-store.mjs から呼ぶあふれ検査
 window.__overflow = () => {
   const bad = [];
   for (const el of document.querySelectorAll(".si, .feat-banner, .tile")) {
-    const o = overflowOf(el);
+    const o = overflowAny(el);
     if (o > 0) bad.push(`#${el.id} +${o}px`);
+  }
+  for (const f of document.querySelectorAll(".frame")) {
+    for (const box of f.querySelectorAll(".sd-box")) {
+      const fr = f.getBoundingClientRect(), br = box.getBoundingClientRect();
+      if (br.left < fr.left - 1 || br.right > fr.right + 1 || br.top < fr.top - 1 || br.bottom > fr.bottom + 1) bad.push(`#${f.closest("[id]").id} subtitle box overflows frame`);
+    }
   }
   return bad;
 };
@@ -631,27 +714,29 @@ function fit() {
   document.querySelectorAll(".si").forEach((si) => {
     const h = si.querySelector("h1");
     const p = si.querySelector(".cap p");
-    let size = 58, ps = 25;
+    let size = 56, ps = 24;
     // 見出し → サブ → 見出し の順に段階的に縮める（サブが2行に折り返す言語のため）
-    while (overflowOf(si) > 0 && size > 46) { size -= 2; h.style.fontSize = size + "px"; }
-    while (overflowOf(si) > 0 && ps > 20) { ps -= 1; p.style.fontSize = ps + "px"; }
-    while (overflowOf(si) > 0 && size > 36) { size -= 2; h.style.fontSize = size + "px"; }
+    while (overflowAny(si) > 0 && size > 46) { size -= 2; h.style.fontSize = size + "px"; }
+    while (overflowAny(si) > 0 && ps > 20) { ps -= 1; p.style.fontSize = ps + "px"; }
+    while (overflowAny(si) > 0 && size > 36) { size -= 2; h.style.fontSize = size + "px"; }
   });
   const fb = document.querySelector(".feat-banner");
   const ft = fb.querySelector(".fb-title");
   let fs = 56;
-  while (overflowOf(fb) > 0 && fs > 36) {
-    fs -= 2;
-    ft.style.fontSize = fs + "px";
-  }
-  // annotation pills: shrink if they would run past the player edge
-  document.querySelectorAll(".anno").forEach((a) => {
-    const p = a.closest(".player");
-    let s = 20;
-    while (a.getBoundingClientRect().width > p.clientWidth * 0.44 && s > 13) {
-      s -= 1;
-      a.style.fontSize = s + "px";
-    }
+  while (overflowOf(fb) > 0 && fs > 36) { fs -= 2; ft.style.fontSize = fs + "px"; }
+  // 1行固定のチップ列は、親からはみ出すときだけ文字を縮めて収める（.chips / .pills は折り返す）
+  document.querySelectorAll(".gest").forEach((row) => {
+    let s = parseFloat(getComputedStyle(row.firstElementChild).fontSize);
+    while (row.scrollWidth > row.clientWidth + 1 && s > 13) { s -= 1; row.querySelectorAll("span").forEach((c) => (c.style.fontSize = s + "px")); }
+  });
+  document.querySelectorAll(".st-row").forEach((r) => {
+    const st = r.querySelector(".st");
+    let s = 23;
+    while (r.scrollWidth > r.parentElement.clientWidth - 36 && s > 15) { s -= 1; st.style.fontSize = s + "px"; }
+  });
+  document.querySelectorAll(".tb-btn, .look-l, .tag").forEach((b) => {
+    let s = parseFloat(getComputedStyle(b).fontSize);
+    while (b.scrollWidth > b.clientWidth + 1 && s > 10) { s -= 1; b.style.fontSize = s + "px"; }
   });
 }
 document.fonts.ready.then(() => requestAnimationFrame(fit));
