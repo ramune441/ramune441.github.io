@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SubDuo Privacy Policy</title>
-  <meta name="description" content="Privacy policy for the Chrome extension SubDuo (dual subtitles for Prime Video). SubDuo runs entirely in the browser: no server, no account, no analytics. Covers the data it reads, where settings are stored, permissions, and deletion.">
+  <meta name="description" content="Privacy policy for the Chrome extension SubDuo (dual subtitles for Prime Video, YouTube, Netflix and Disney+). SubDuo runs entirely in the browser: no server, no account, no analytics. Covers the data it reads, where settings are stored, permissions, and deletion.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ramune441.github.io/subduo/privacy-policy.html">
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
@@ -53,16 +53,17 @@
   <div class="container on" data-lang="en">
     <a href="index.html" class="back">&larr; Back to SubDuo</a>
     <h1>SubDuo Privacy Policy</h1>
-    <p class="updated">Last updated: August 28, 2026</p>
+    <p class="updated">Last updated: August 30, 2026</p>
 
-    <p>This Privacy Policy describes how the developer Ramune (the "Developer") handles user information in the Chrome extension "SubDuo — Dual Subtitles for Prime Video" (the "Extension"). The Extension shows two subtitle languages at once on Amazon Prime Video.</p>
+    <p>This Privacy Policy describes how the developer Ramune (the "Developer") handles user information in the Chrome extension "SubDuo — Dual Subtitles for Streaming" (the "Extension"). The Extension shows two subtitle languages at once on Prime Video, YouTube, Netflix and Disney+.</p>
 
     <div class="box"><p>In short: SubDuo has no server. It collects nothing, sends nothing, and contains no analytics, advertising or third-party code. Everything happens inside your browser.</p></div>
 
     <h2>1. Information the Extension handles</h2>
     <h3>(1) Subtitle files of the title you are watching</h3>
     <ul>
-      <li>To display two languages, the Extension reads the subtitle track list that Prime Video's player receives from Amazon for the current title, and fetches the corresponding subtitle files (TTML) from Amazon's own delivery servers.</li>
+      <li>To display two languages, the Extension reads the subtitle track list that the streaming site's own player receives for the current title, and fetches the corresponding subtitle files (TTML, WebVTT or the site's own caption format) from that site's own delivery servers.</li>
+      <li>On YouTube, the Extension additionally asks YouTube's own player API for the caption list of the video you are watching. This request is sent to YouTube <strong>without your cookies</strong>, so it is not tied to your YouTube account.</li>
       <li>These files are parsed in your browser and drawn over the video. They are kept only in memory for the current tab and are discarded when the tab is closed.</li>
       <li>The Extension does not read, record or transmit the video itself, the title name, your watch history, or anything else on the page.</li>
     </ul>
@@ -70,12 +71,12 @@
     <h3>(2) Settings stored locally</h3>
     <ul>
       <li>Your display settings: on/off, the two chosen languages, text size, position, alignment, text colors and transparency per line.</li>
-      <li>Named presets you save (up to 20).</li>
+      <li>These are kept <strong>separately for each supported site</strong>, so Prime Video, YouTube, Netflix and Disney+ can each have their own setup.</li>
     </ul>
     <p>These are stored with the Chrome Storage API (<code>chrome.storage.sync</code>). Chrome may sync them between your own devices when you are signed in to Chrome with sync enabled; the Developer has no access to them.</p>
 
     <h2>2. Information sent to external servers</h2>
-    <p><strong>None.</strong> The Extension makes no requests to any server operated by the Developer or any third party. The only network requests it makes are to Amazon's subtitle delivery servers, for the subtitle files of the title you are already streaming — the same files Prime Video's own player downloads.</p>
+    <p><strong>None.</strong> The Extension makes no requests to any server operated by the Developer or any third party. The only network requests it makes are to the streaming site you are already using, for the subtitle files of the title you are already streaming — the same files that site's own player downloads.</p>
 
     <h2>3. Third-party sharing</h2>
     <p>The Developer never collects, sells or shares any user data, because none is collected. The Extension contains <strong>no advertising, tracking, or analytics</strong>.</p>
@@ -83,9 +84,10 @@
     <h2>4. Permissions</h2>
     <p>The Extension requests only the permissions needed for its features:</p>
     <ul>
-      <li><strong>storage</strong>: saving your display settings and presets.</li>
-      <li><strong>tabs</strong>: checking whether the current tab is a Prime Video page, so the popup can show the detected subtitle languages for that tab.</li>
-      <li><strong>Content scripts on Prime Video / Amazon video pages</strong> (<code>primevideo.com</code> and the Amazon stores listed on the product page): detecting subtitle tracks and drawing the overlay. The Extension does not run on any other site.</li>
+      <li><strong>storage</strong>: saving your display settings for each site.</li>
+      <li><strong>tabs</strong>: checking which supported site the current tab is on, so the popup can show that tab's detected subtitle languages and edit that site's settings.</li>
+      <li><strong>scripting</strong>: re-attaching the Extension to already-open supported tabs after it is installed or updated, so you do not have to reload them.</li>
+      <li><strong>Host access to the supported sites</strong> (<code>primevideo.com</code> and the Amazon stores listed on the product page, <code>www.youtube.com</code>, <code>www.netflix.com</code>, <code>www.disneyplus.com</code>): detecting subtitle tracks and drawing the overlay. The Extension does not run on any other site.</li>
     </ul>
     <p>The Extension does <strong>not</strong> request access to your camera, microphone, location, browsing history, or clipboard.</p>
 
@@ -109,16 +111,17 @@
   <div class="container" data-lang="ja">
     <a href="index.html?lang=ja" class="back">&larr; SubDuo に戻る</a>
     <h1>SubDuo プライバシーポリシー</h1>
-    <p class="updated">最終更新日: 2026年8月28日</p>
+    <p class="updated">最終更新日: 2026年8月30日</p>
 
-    <p>本プライバシーポリシーは、開発者 Ramune（以下「開発者」）が Chrome 拡張機能「SubDuo — Prime Video 二言語字幕」（以下「本拡張機能」）において利用者の情報をどのように扱うかを定めるものです。本拡張機能は、Amazon Prime Video の字幕を2言語同時に表示するツールです。</p>
+    <p>本プライバシーポリシーは、開発者 Ramune（以下「開発者」）が Chrome 拡張機能「SubDuo — 動画配信の二言語字幕」（以下「本拡張機能」）において利用者の情報をどのように扱うかを定めるものです。本拡張機能は、Prime Video・YouTube・Netflix・Disney+ の字幕を2言語同時に表示するツールです。</p>
 
     <div class="box"><p>要点: SubDuo にサーバーはありません。何も収集せず、何も送信せず、解析・広告・第三者のコードも含みません。すべてブラウザ内で完結します。</p></div>
 
     <h2>1. 本拡張機能が扱う情報</h2>
     <h3>(1) 視聴中の作品の字幕ファイル</h3>
     <ul>
-      <li>2言語を表示するため、本拡張機能は Prime Video のプレイヤーが Amazon から受け取る現在の作品の字幕トラック一覧を読み取り、該当する字幕ファイル（TTML）を Amazon 自身の配信サーバーから取得します。</li>
+      <li>2言語を表示するため、本拡張機能は各配信サイトのプレイヤーが受け取る現在の作品の字幕トラック一覧を読み取り、該当する字幕ファイル（TTML・WebVTT など、そのサイトの字幕形式）をそのサイト自身の配信サーバーから取得します。</li>
+      <li>YouTube では、視聴中の動画の字幕一覧を YouTube 自身のプレイヤー API に問い合わせます。この通信は<strong>Cookie を送らずに</strong>行うため、利用者の YouTube アカウントとは結び付きません。</li>
       <li>取得した字幕はブラウザ内で解析し、動画の上に描画します。字幕はそのタブのメモリ上にのみ保持され、タブを閉じると破棄されます。</li>
       <li>動画そのもの、作品名、視聴履歴、ページ上のその他の情報を読み取り・記録・送信することはありません。</li>
     </ul>
@@ -126,12 +129,12 @@
     <h3>(2) ローカルに保存する設定</h3>
     <ul>
       <li>表示設定: ON/OFF、選択した2言語、文字サイズ、表示位置、文字揃え、段ごとの文字色と透過度。</li>
-      <li>利用者が保存した名前付きプリセット（最大20件）。</li>
+      <li>これらは<strong>対応サイトごとに独立して</strong>保存されるため、Prime Video・YouTube・Netflix・Disney+ で別々の設定を持てます。</li>
     </ul>
     <p>これらは Chrome Storage API（<code>chrome.storage.sync</code>）で保存されます。Chrome にサインインして同期を有効にしている場合、Chrome が利用者自身の端末間で同期することがありますが、開発者はこれらにアクセスできません。</p>
 
     <h2>2. 外部サーバーへ送信する情報</h2>
-    <p><strong>ありません。</strong> 本拡張機能は、開発者または第三者が運営するいかなるサーバーにもリクエストを送りません。行う通信は、視聴中の作品の字幕ファイルを Amazon の字幕配信サーバーから取得することだけで、これは Prime Video のプレイヤー自身がダウンロードするものと同じファイルです。</p>
+    <p><strong>ありません。</strong> 本拡張機能は、開発者または第三者が運営するいかなるサーバーにもリクエストを送りません。行う通信は、いま利用している配信サイトから視聴中の作品の字幕ファイルを取得することだけで、これはそのサイトのプレイヤー自身がダウンロードするものと同じファイルです。</p>
 
     <h2>3. 第三者への提供</h2>
     <p>開発者は利用者のデータを収集していないため、販売・提供することもありません。本拡張機能には<strong>広告・トラッキング・解析はいっさい含まれていません</strong>。</p>
@@ -139,9 +142,10 @@
     <h2>4. 権限</h2>
     <p>本拡張機能が要求する権限は、機能の提供に必要な最小限のものです。</p>
     <ul>
-      <li><strong>storage</strong>: 表示設定とプリセットの保存。</li>
-      <li><strong>tabs</strong>: 現在のタブが Prime Video のページかどうかを確認し、ポップアップにそのタブで検出した字幕言語を表示するため。</li>
-      <li><strong>Prime Video / Amazon 動画ページでのコンテンツスクリプト</strong>（<code>primevideo.com</code> および製品ページに記載の Amazon 各国ストア）: 字幕トラックの検出とオーバーレイの描画。これ以外のサイトでは動作しません。</li>
+      <li><strong>storage</strong>: サイトごとの表示設定の保存。</li>
+      <li><strong>tabs</strong>: 現在のタブがどの対応サイトかを確認し、ポップアップにそのタブで検出した字幕言語を表示し、そのサイトの設定を編集するため。</li>
+      <li><strong>scripting</strong>: インストール・更新の後、すでに開いている対応サイトのタブへ本拡張機能をつなぎ直すため（再読み込みを不要にするため）。</li>
+      <li><strong>対応サイトへのアクセス</strong>（<code>primevideo.com</code> および製品ページに記載の Amazon 各国ストア、<code>www.youtube.com</code>、<code>www.netflix.com</code>、<code>www.disneyplus.com</code>）: 字幕トラックの検出とオーバーレイの描画。これ以外のサイトでは動作しません。</li>
     </ul>
     <p>カメラ・マイク・位置情報・閲覧履歴・クリップボードへのアクセスは<strong>要求しません</strong>。</p>
 

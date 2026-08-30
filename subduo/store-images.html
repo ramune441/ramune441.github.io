@@ -39,6 +39,19 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .cap h1 { font-size:56px; font-weight:900; color:var(--t1); letter-spacing:-1.5px; line-height:1.14; text-shadow:0 4px 30px rgba(0,0,0,.35); }
 .cap p { font-size:24px; color:var(--t2); margin-top:12px; font-weight:500; line-height:1.45; }
 .cap.top p { color:#dbe4f5; text-shadow:0 2px 16px rgba(0,0,0,.5); }
+/* the four supported services (IMG 1) */
+.svc-row { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.svc { display:inline-flex; align-items:center; gap:9px; font-size:19px; font-weight:800; color:#fff; letter-spacing:-.2px;
+  background:rgba(10,16,30,.55); border:1px solid rgba(255,255,255,.22); border-radius:14px; padding:11px 20px; backdrop-filter:blur(6px); }
+.svc i { width:26px; height:26px; border-radius:7px; display:inline-flex; align-items:center; justify-content:center;
+  font-style:normal; font-size:13px; font-weight:900; color:#06121c; flex:none; }
+.svc .pv { background:linear-gradient(135deg,#00A8E1,#1FB6FF); }
+.svc .yt { background:#FF0033; color:#fff; }
+.svc .nf { background:#E50914; color:#fff; }
+.svc .dp { background:linear-gradient(135deg,#1a3fa8,#0a2472); color:#fff; }
+.svc.sm { font-size:16px; padding:9px 14px; gap:7px; background:rgba(255,255,255,.06); }
+.svc.sm i { width:22px; height:22px; font-size:11px; border-radius:6px; }
+.svc-grid { display:grid; grid-template-columns:auto auto; gap:10px; justify-content:center; align-content:center; }
 
 /* ════ frames & scenes ════ */
 .frame { position:relative; overflow:hidden; border-radius:16px; background:#000; text-align:center;
@@ -153,7 +166,8 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .tb-body { display:flex; align-items:center; gap:12px; padding:2px 4px 4px; }
 .tb-body img { width:40px; height:40px; border-radius:10px; }
 .tb-body .n { flex:1; text-align:left; color:#1a1f36; font-weight:800; font-size:15px; line-height:1.25; }
-.tb-body .n small { display:block; font-weight:500; color:#8a90a8; font-size:11px; margin-top:2px; }
+.tb-body .n small { display:block; font-weight:500; color:#8a90a8; font-size:11px; line-height:1.35; margin-top:2px; }
+.tb-body .n { min-width:0; }
 .tb-btn { background:#1a73e8; color:#fff; font-size:13px; font-weight:700; padding:9px 14px; border-radius:8px; white-space:nowrap; }
 /* ill 2: play */
 .mini { width:300px; height:150px; border-radius:12px; overflow:hidden; position:relative; box-shadow:0 14px 40px rgba(0,0,0,.45); }
@@ -169,6 +183,9 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .pu-sel { padding:7px 10px; border:1px solid #d0d7de; border-radius:7px; background:#fff; font-size:14px; display:flex; justify-content:space-between; align-items:center; }
 .pu-sel::after { content:'▾'; color:#6b7280; font-size:12px; }
 .pu-sel.hi { border-color:#00a8e1; box-shadow:0 0 0 3px rgba(0,168,225,.18); }
+.pu-hd { display:flex; align-items:center; gap:8px; padding-bottom:8px; margin-bottom:2px; border-bottom:1px solid #d0d7de; }
+.pu-hd b { font-size:16px; font-weight:800; color:#00a8e1; }
+.pu-site { font-size:11px; font-weight:700; color:#00a8e1; background:rgba(0,168,225,.1); border:1px solid rgba(0,168,225,.3); border-radius:999px; padding:2px 9px; }
 .pills { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; z-index:2; max-width:1160px; }
 .pill { font-size:18px; font-weight:700; padding:9px 20px; border-radius:100px; background:rgba(56,182,255,.10); border:1px solid rgba(56,182,255,.3); color:#dff1ff; white-space:nowrap; }
 
@@ -238,9 +255,15 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
   </div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap top">
-    <div class="eyebrow" data-i="e1">🎬 FOR PRIME VIDEO · FREE CHROME EXTENSION</div>
+    <div class="eyebrow" data-i="e1">🎬 FREE CHROME EXTENSION</div>
     <h1 data-i="h1">Two languages. One screen.</h1>
     <p data-i="s1">Your favorite shows become your best language lessons — original on top, yours below.</p>
+    <div class="svc-row">
+      <span class="svc"><i class="pv">▶</i>Prime Video</span>
+      <span class="svc"><i class="yt">▶</i>YouTube</span>
+      <span class="svc"><i class="nf">N</i>Netflix</span>
+      <span class="svc"><i class="dp">D</i>Disney+</span>
+    </div>
   </div>
   <div class="sd big" style="bottom:20%;"><div class="sd-box">
     <div class="sd-line sd-a" data-i="cue1_a">Llevo toda la vida esperando este momento.</div>
@@ -359,31 +382,35 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
   <div class="cap">
     <div class="eyebrow" data-i="e5">⚡ READY IN 30 SECONDS</div>
     <h1 data-i="h5">Install. Play. Done.</h1>
-    <p data-i="s5">No account, completely free. It only uses the subtitles Amazon already streams to you — nothing is sent anywhere.</p>
+    <p data-i="s5">No account, completely free. It only uses the subtitles each site already streams to you — nothing is sent anywhere.</p>
   </div>
   <div class="steps">
     <div class="step">
       <div class="ill">
         <div class="tb">
           <div class="tb-bar"><i class="r"></i><i class="y"></i><i class="g"></i><div class="tb-url">chromewebstore.google.com</div></div>
-          <div class="tb-body"><img src="icons/logo.svg" alt=""><div class="n">SubDuo<small>Dual Subtitles for Prime Video</small></div><div class="tb-btn" data-i="addbtn">Add to Chrome</div></div>
+          <div class="tb-body"><img src="icons/logo.svg" alt=""><div class="n">SubDuo<small>Dual Subtitles for Streaming</small></div><div class="tb-btn" data-i="addbtn">Add to Chrome</div></div>
         </div>
       </div>
       <div class="st-row"><span class="num">1</span><span class="st" data-i="st1">Add to Chrome</span></div>
     </div>
     <div class="step">
       <div class="ill">
-        <div class="mini">
-          <div class="scene sea"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div></div>
-          <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span></div>
-          <div class="play"><i></i></div>
+        <!-- 対応4サービスをそのまま見せる（プレイヤーは他の画像で見せているため） -->
+        <div class="svc-grid">
+          <span class="svc sm"><i class="pv">▶</i>Prime Video</span>
+          <span class="svc sm"><i class="yt">▶</i>YouTube</span>
+          <span class="svc sm"><i class="nf">N</i>Netflix</span>
+          <span class="svc sm"><i class="dp">D</i>Disney+</span>
         </div>
       </div>
-      <div class="st-row"><span class="num">2</span><span class="st" data-i="st2">Play on Prime Video</span></div>
+      <div class="st-row"><span class="num">2</span><span class="st" data-i="st2">Play on any of the four</span></div>
     </div>
     <div class="step">
       <div class="ill">
         <div class="pu" id="pu5">
+          <!-- ポップアップは「いま開いているサイトの設定」を編集する（バッジで示す） -->
+          <div class="pu-hd"><b>SubDuo</b><span class="pu-site" id="pu5site">Prime Video</span></div>
           <div class="pu-row"><label><span class="pu-dot a"></span><span data-i="pu_top">Top</span></label><div class="pu-sel hi" id="pu5a">Español</div></div>
           <div class="pu-row"><label><span class="pu-dot b"></span><span data-i="pu_bottom">Bottom</span></label><div class="pu-sel" id="pu5b">English</div></div>
         </div>
@@ -391,14 +418,14 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
       <div class="st-row"><span class="num">3</span><span class="st" data-i="st3">Pick two languages</span></div>
     </div>
   </div>
-  <div class="pills"><span class="pill" data-i="p1">🔒 100% local</span><span class="pill" data-i="p2">🚫 No account</span><span class="pill" data-i="p3">🛡️ Only storage &amp; tabs</span><span class="pill" data-i="p4">☁️ Chrome sync</span><span class="pill" data-i="p5">🌏 12 UI languages</span></div>
+  <div class="pills"><span class="pill" data-i="p1">🔒 100% local</span><span class="pill" data-i="p2">🚫 No account</span><span class="pill" data-i="p3">🛡️ Minimal permissions</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 12 UI languages</span></div>
 </div>
 
 <!-- ════ SMALL PROMO TILE (440x280, en only) ════ -->
 <div class="tile" id="tile">
   <div class="glow" style="left:-100px;bottom:-140px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,215,106,.18),transparent 62%);"></div>
   <div class="tile-brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
-  <div class="tile-tag" data-i="tile_tag">Dual subtitles for Prime Video</div>
+  <div class="tile-tag" data-i="tile_tag">Prime Video · YouTube · Netflix · Disney+</div>
   <div class="tile-bars"><span class="a"></span><span class="b"></span></div>
 </div>
 
@@ -407,10 +434,10 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
   <div class="glow" style="right:-160px;bottom:-220px;width:560px;height:560px;background:radial-gradient(circle,rgba(255,215,106,.10),transparent 62%);"></div>
   <div class="fb-left">
     <div class="fb-brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
-    <div class="fb-badge" data-i="fb_badge">🎬 Free · For Amazon Prime Video</div>
+    <div class="fb-badge" data-i="fb_badge">🎬 Free · Prime Video, YouTube, Netflix &amp; Disney+</div>
     <div class="fb-title" data-i="fb_title">Two languages.<br><em>One screen.</em></div>
-    <div class="fb-sub" data-i="fb_sub">Dual subtitles for Prime Video —<br>drag, resize and style them right on the video.</div>
-    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">🌐 Any two languages</span><span class="fb-pill" data-i="fbp2">🖱️ Adjust on screen</span><span class="fb-pill" data-i="fbp3">🎨 Style per line</span><span class="fb-pill" data-i="fbp4">🔒 100% local</span></div>
+    <div class="fb-sub" data-i="fb_sub">Dual subtitles on Prime Video, YouTube, Netflix and Disney+ —<br>drag, resize and style them right on the video.</div>
+    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">📺 4 streaming services</span><span class="fb-pill" data-i="fbp2">🌐 Any two languages</span><span class="fb-pill" data-i="fbp3">🖱️ Adjust on screen</span><span class="fb-pill" data-i="fbp4">🔒 100% local</span></div>
   </div>
   <div class="fb-right">
     <div class="frame">
@@ -437,7 +464,7 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 // UI labels are kept in sync with the extension's _locales/<locale>/messages.json.
 const I18N = {
 ja: {
-  e1:"🎬 Prime Video 専用 · 無料の Chrome 拡張", h1:"字幕を2言語、同時に。", s1:"好きな作品が、そのまま語学教材に。上段に原語、下段に母語。",
+  e1:"🎬 無料の Chrome 拡張機能", h1:"字幕を2言語、同時に。", s1:"好きな作品が、そのまま語学教材に。上段に原語、下段に母語。",
   title:"The Long Way Home", ep:"シーズン1 第3話",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"この瞬間を、ずっと待っていたんだ。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"振り返るな。もうすぐ着く。",
@@ -447,14 +474,14 @@ ja: {
   e3:"🌐 組み合わせは自由", h3:"英語×日本語も、韓国語×日本語も。", s3:"作品に用意された字幕から、上段と下段に好きな言語を1つずつ。再生すれば自動で検出します。",
   e4:"🎨 動画の上で、直接", h4:"大きさも、位置も、色も、思いのまま。", s4:"ドラッグで移動、ホイールで拡大縮小、右クリックで色と透過度。設定画面を開かず、観ながら整えられます。",
   l1:"標準", l2:"大きく・上に", l3:"色を変えて・背景なし", g1:"✋ ドラッグで位置", g2:"🖱️ ホイールで大きさ", g3:"🎨 右クリックで色・透過度",
-  e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕は Amazon が配信しているものをそのまま使うので、外部には何も送りません。",
-  st1:"Chrome に追加", st2:"Prime Video で再生", st3:"言語を2つ選ぶ", addbtn:"Chrome に追加", pu_top:"上段", pu_bottom:"下段",
-  p1:"🔒 完全ローカル", p2:"🚫 アカウント不要", p3:"🛡️ 権限は storage と tabs だけ", p4:"☁️ Chrome 同期", p5:"🌏 UI は12言語",
-  fb_badge:"🎬 無料 · Amazon Prime Video 対応", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video の二言語字幕 —<br>動画の上で直接ドラッグ・拡大縮小・色変更。",
-  fbp1:"🌐 好きな2言語", fbp2:"🖱️ 画面上で調整", fbp3:"🎨 段ごとの見た目", fbp4:"🔒 完全ローカル"
+  e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕は各サイトが配信しているものをそのまま使うので、外部には何も送りません。",
+  st1:"Chrome に追加", st2:"4サービスのどれかで再生", st3:"言語を2つ選ぶ", addbtn:"Chrome に追加", pu_top:"上段", pu_bottom:"下段",
+  p1:"🔒 完全ローカル", p2:"🚫 アカウント不要", p3:"🛡️ 最小限の権限", p4:"☁️ サイトごとの設定・同期", p5:"🌏 UI は12言語",
+  fb_badge:"🎬 無料 · Prime Video / YouTube / Netflix / Disney+", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video・YouTube・Netflix・Disney+ の二言語字幕 —<br>動画の上で直接ドラッグ・拡大縮小・色変更。",
+  fbp1:"📺 4つの配信サービス", fbp2:"🌐 好きな2言語", fbp3:"🖱️ 画面上で調整", fbp4:"🔒 完全ローカル"
 },
 zh: {
-  e1:"🎬 专为 Prime Video · 免费 Chrome 扩展", h1:"两种语言，同一屏幕。", s1:"你爱看的剧，就是最好的语言课 —— 上行原文，下行母语。",
+  e1:"🎬 免费 Chrome 扩展", h1:"两种语言，同一屏幕。", s1:"你爱看的剧，就是最好的语言课 —— 上行原文，下行母语。",
   title:"The Long Way Home", ep:"第 1 季 第 3 集",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"这一刻，我等了一辈子。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"别回头，我们快到了。",
@@ -464,14 +491,14 @@ zh: {
   e3:"🌐 任意组合", h3:"英语×中文，日语×中文，随你搭配。", s3:"从影片自带的字幕中，为上行和下行各选一种语言 —— 按下播放即自动检测。",
   e4:"🎨 直接在视频上", h4:"大小、位置、颜色，都由你定。", s4:"拖动移动，滚轮缩放，右键设置颜色和透明度。边看边调，不用打开设置页。",
   l1:"默认", l2:"更大、更靠上", l3:"自定义颜色、无底框", g1:"✋ 拖动定位", g2:"🖱️ 滚轮缩放", g3:"🎨 右键改颜色",
-  e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。只使用 Amazon 已发送给你的字幕 —— 不向任何地方发送数据。",
-  st1:"添加至 Chrome", st2:"在 Prime Video 播放", st3:"选择两种语言", addbtn:"添加至 Chrome", pu_top:"上行", pu_bottom:"下行",
-  p1:"🔒 100% 本地", p2:"🚫 无需账号", p3:"🛡️ 仅 storage 和 tabs 权限", p4:"☁️ Chrome 同步", p5:"🌏 12 种界面语言",
-  fb_badge:"🎬 免费 · 适用于 Amazon Prime Video", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video 双语字幕 ——<br>直接在视频上拖动、缩放、设置样式。",
-  fbp1:"🌐 任选两种语言", fbp2:"🖱️ 屏幕上调整", fbp3:"🎨 逐行样式", fbp4:"🔒 100% 本地"
+  e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。只使用各网站已发送给你的字幕 —— 不向任何地方发送数据。",
+  st1:"添加至 Chrome", st2:"在四个平台任一播放", st3:"选择两种语言", addbtn:"添加至 Chrome", pu_top:"上行", pu_bottom:"下行",
+  p1:"🔒 100% 本地", p2:"🚫 无需账号", p3:"🛡️ 最小权限", p4:"☁️ 按网站保存并同步", p5:"🌏 12 种界面语言",
+  fb_badge:"🎬 免费 · Prime Video / YouTube / Netflix / Disney+", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+ 的双语字幕 ——<br>直接在视频上拖动、缩放、设置样式。",
+  fbp1:"📺 4 个流媒体平台", fbp2:"🌐 任选两种语言", fbp3:"🖱️ 屏幕上调整", fbp4:"🔒 100% 本地"
 },
 "zh-TW": {
-  e1:"🎬 專為 Prime Video · 免費 Chrome 擴充功能", h1:"兩種語言，同一畫面。", s1:"你愛看的劇，就是最好的語言課 —— 上排原文，下排母語。",
+  e1:"🎬 免費 Chrome 擴充功能", h1:"兩種語言，同一畫面。", s1:"你愛看的劇，就是最好的語言課 —— 上排原文，下排母語。",
   title:"The Long Way Home", ep:"第 1 季 第 3 集",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"這一刻，我等了一輩子。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"別回頭，我們快到了。",
@@ -481,14 +508,14 @@ zh: {
   e3:"🌐 任意組合", h3:"英文×中文，日文×中文，隨你搭配。", s3:"從影片內建的字幕中，為上排與下排各選一種語言 —— 按下播放即自動偵測。",
   e4:"🎨 直接在影片上", h4:"大小、位置、顏色，都由你決定。", s4:"拖曳移動，滾輪縮放，右鍵設定顏色與透明度。邊看邊調，不必打開設定頁。",
   l1:"預設", l2:"更大、更靠上", l3:"自訂顏色、無底框", g1:"✋ 拖曳定位", g2:"🖱️ 滾輪縮放", g3:"🎨 右鍵改顏色",
-  e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。只使用 Amazon 已傳送給你的字幕 —— 不會把資料傳到任何地方。",
-  st1:"加到 Chrome", st2:"在 Prime Video 播放", st3:"選擇兩種語言", addbtn:"加到 Chrome", pu_top:"上排", pu_bottom:"下排",
-  p1:"🔒 100% 本機", p2:"🚫 不需帳號", p3:"🛡️ 僅 storage 與 tabs 權限", p4:"☁️ Chrome 同步", p5:"🌏 12 種介面語言",
-  fb_badge:"🎬 免費 · 適用於 Amazon Prime Video", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video 雙語字幕 ——<br>直接在影片上拖曳、縮放、設定樣式。",
-  fbp1:"🌐 任選兩種語言", fbp2:"🖱️ 畫面上調整", fbp3:"🎨 逐排樣式", fbp4:"🔒 100% 本機"
+  e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。只使用各網站已傳送給你的字幕 —— 不會把資料傳到任何地方。",
+  st1:"加到 Chrome", st2:"在四個平台任一播放", st3:"選擇兩種語言", addbtn:"加到 Chrome", pu_top:"上排", pu_bottom:"下排",
+  p1:"🔒 100% 本機", p2:"🚫 不需帳號", p3:"🛡️ 最小權限", p4:"☁️ 依網站保存並同步", p5:"🌏 12 種介面語言",
+  fb_badge:"🎬 免費 · Prime Video / YouTube / Netflix / Disney+", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+ 的雙語字幕 ——<br>直接在影片上拖曳、縮放、設定樣式。",
+  fbp1:"📺 4 個串流平台", fbp2:"🌐 任選兩種語言", fbp3:"🖱️ 畫面上調整", fbp4:"🔒 100% 本機"
 },
 ko: {
-  e1:"🎬 Prime Video 전용 · 무료 Chrome 확장", h1:"두 언어를 한 화면에.", s1:"좋아하는 작품이 최고의 어학 교재로 — 위에는 원어, 아래에는 내 언어.",
+  e1:"🎬 무료 Chrome 확장 프로그램", h1:"두 언어를 한 화면에.", s1:"좋아하는 작품이 최고의 어학 교재로 — 위에는 원어, 아래에는 내 언어.",
   title:"The Long Way Home", ep:"시즌 1, 3화",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"이 순간을 평생 기다려 왔어.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"돌아보지 마. 거의 다 왔어.",
@@ -498,14 +525,14 @@ ko: {
   e3:"🌐 조합은 자유", h3:"영어×한국어도, 일본어×한국어도.", s3:"작품에 있는 자막 중 위와 아래에 원하는 언어를 하나씩 — 재생하면 자동으로 감지합니다.",
   e4:"🎨 영상 위에서 바로", h4:"크기도, 위치도, 색상도 마음대로.", s4:"드래그로 이동, 휠로 크기 조절, 우클릭으로 색상과 투명도. 설정 화면 없이 보면서 다듬으세요.",
   l1:"기본", l2:"크게·위로", l3:"색상 변경·배경 없음", g1:"✋ 드래그로 위치", g2:"🖱️ 휠로 크기", g3:"🎨 우클릭으로 색상",
-  e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. Amazon이 이미 보내 주는 자막만 사용하므로 외부로는 아무것도 보내지 않습니다.",
-  st1:"Chrome에 추가", st2:"Prime Video에서 재생", st3:"언어 두 개 선택", addbtn:"Chrome에 추가", pu_top:"위", pu_bottom:"아래",
-  p1:"🔒 100% 로컬", p2:"🚫 계정 불필요", p3:"🛡️ 권한은 storage와 tabs뿐", p4:"☁️ Chrome 동기화", p5:"🌏 12개 언어 UI",
-  fb_badge:"🎬 무료 · Amazon Prime Video용", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video 이중 자막 —<br>영상 위에서 바로 드래그·크기 조절·스타일 설정.",
-  fbp1:"🌐 원하는 두 언어", fbp2:"🖱️ 화면에서 조절", fbp3:"🎨 줄별 스타일", fbp4:"🔒 100% 로컬"
+  e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. 각 사이트가 이미 보내 주는 자막만 사용하므로 외부로는 아무것도 보내지 않습니다.",
+  st1:"Chrome에 추가", st2:"네 서비스 중 아무거나 재생", st3:"언어 두 개 선택", addbtn:"Chrome에 추가", pu_top:"위", pu_bottom:"아래",
+  p1:"🔒 100% 로컬", p2:"🚫 계정 불필요", p3:"🛡️ 최소 권한", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 12개 언어 UI",
+  fb_badge:"🎬 무료 · Prime Video / YouTube / Netflix / Disney+", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video·YouTube·Netflix·Disney+ 이중 자막 —<br>영상 위에서 바로 드래그·크기 조절·스타일 설정.",
+  fbp1:"📺 4개 스트리밍 서비스", fbp2:"🌐 원하는 두 언어", fbp3:"🖱️ 화면에서 조절", fbp4:"🔒 100% 로컬"
 },
 es: {
-  e1:"🎬 PARA PRIME VIDEO · EXTENSIÓN GRATUITA DE CHROME", h1:"Dos idiomas. Una pantalla.", s1:"Tus series favoritas, tu mejor clase de idiomas: el original arriba, el tuyo abajo.",
+  e1:"🎬 EXTENSIÓN GRATUITA DE CHROME", h1:"Dos idiomas. Una pantalla.", s1:"Tus series favoritas, tu mejor clase de idiomas: el original arriba, el tuyo abajo.",
   title:"The Long Way Home", ep:"Temporada 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Llevo toda la vida esperando este momento.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"No mires atrás. Ya casi llegamos.",
@@ -515,14 +542,14 @@ es: {
   e3:"🌐 LA PAREJA QUE QUIERAS", h3:"Inglés × español. Francés × español. Tú decides.", s3:"Elige dos de los idiomas de subtítulos que ofrece el título: se detectan solos al pulsar reproducir.",
   e4:"🎨 DIRECTAMENTE SOBRE EL VÍDEO", h4:"Tamaño, posición, color: a tu manera.", s4:"Arrastra para mover, rueda para redimensionar, clic derecho para colores y transparencia. Ajústalo mientras ves, sin página de ajustes.",
   l1:"Por defecto", l2:"Más grande, más arriba", l3:"Colores propios, sin caja", g1:"✋ Arrastra para mover", g2:"🖱️ Rueda para el tamaño", g3:"🎨 Clic derecho para colores",
-  e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Solo usa los subtítulos que Amazon ya te envía: no se manda nada a ningún sitio.",
-  st1:"Añadir a Chrome", st2:"Reproducir en Prime Video", st3:"Elegir dos idiomas", addbtn:"Añadir a Chrome", pu_top:"Arriba", pu_bottom:"Abajo",
-  p1:"🔒 100 % local", p2:"🚫 Sin cuenta", p3:"🛡️ Solo storage y tabs", p4:"☁️ Sincronización de Chrome", p5:"🌏 12 idiomas de interfaz",
-  fb_badge:"🎬 Gratis · Para Amazon Prime Video", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles para Prime Video —<br>arrastra, redimensiona y da estilo sobre el vídeo.",
-  fbp1:"🌐 Dos idiomas cualesquiera", fbp2:"🖱️ Ajuste en pantalla", fbp3:"🎨 Estilo por línea", fbp4:"🔒 100 % local"
+  e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Solo usa los subtítulos que cada sitio ya te envía: no se manda nada a ningún sitio.",
+  st1:"Añadir a Chrome", st2:"Reproduce en cualquiera de los cuatro", st3:"Elegir dos idiomas", addbtn:"Añadir a Chrome", pu_top:"Arriba", pu_bottom:"Abajo",
+  p1:"🔒 100 % local", p2:"🚫 Sin cuenta", p3:"🛡️ Permisos mínimos", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 12 idiomas de interfaz",
+  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix y Disney+", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles en Prime Video, YouTube, Netflix y Disney+ —<br>arrastra, redimensiona y da estilo sobre el vídeo.",
+  fbp1:"📺 4 servicios", fbp2:"🌐 Dos idiomas cualesquiera", fbp3:"🖱️ Ajuste en pantalla", fbp4:"🔒 100 % local"
 },
 fr: {
-  e1:"🎬 POUR PRIME VIDEO · EXTENSION CHROME GRATUITE", h1:"Deux langues. Un seul écran.", s1:"Vos séries préférées deviennent votre meilleur cours de langue : l'original en haut, la vôtre en bas.",
+  e1:"🎬 EXTENSION CHROME GRATUITE", h1:"Deux langues. Un seul écran.", s1:"Vos séries préférées deviennent votre meilleur cours de langue : l'original en haut, la vôtre en bas.",
   title:"The Long Way Home", ep:"Saison 1, ép. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"J'ai attendu ce moment toute ma vie.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Ne te retourne pas. On y est presque.",
@@ -532,14 +559,14 @@ fr: {
   e3:"🌐 LA PAIRE DE VOTRE CHOIX", h3:"Anglais × français. Espagnol × français. À vous de voir.", s3:"Choisissez deux des langues de sous-titres du titre : détectées automatiquement dès la lecture.",
   e4:"🎨 DIRECTEMENT SUR LA VIDÉO", h4:"Taille, position, couleur : à votre façon.", s4:"Glissez pour déplacer, molette pour redimensionner, clic droit pour couleurs et transparence. Réglez en regardant, sans page de réglages.",
   l1:"Par défaut", l2:"Plus grand, plus haut", l3:"Couleurs perso, sans cadre", g1:"✋ Glisser pour déplacer", g2:"🖱️ Molette pour la taille", g3:"🎨 Clic droit pour les couleurs",
-  e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Il n'utilise que les sous-titres qu'Amazon vous envoie déjà : rien n'est transmis nulle part.",
-  st1:"Ajouter à Chrome", st2:"Lire sur Prime Video", st3:"Choisir deux langues", addbtn:"Ajouter à Chrome", pu_top:"Haut", pu_bottom:"Bas",
-  p1:"🔒 100 % local", p2:"🚫 Sans compte", p3:"🛡️ Seulement storage et tabs", p4:"☁️ Synchro Chrome", p5:"🌏 12 langues d'interface",
-  fb_badge:"🎬 Gratuit · Pour Amazon Prime Video", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres pour Prime Video —<br>déplacez, redimensionnez et stylisez sur la vidéo.",
-  fbp1:"🌐 Deux langues au choix", fbp2:"🖱️ Réglage à l'écran", fbp3:"🎨 Style par ligne", fbp4:"🔒 100 % local"
+  e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Il n'utilise que les sous-titres que chaque site vous envoie déjà : rien n'est transmis nulle part.",
+  st1:"Ajouter à Chrome", st2:"Lancez sur l'un des quatre", st3:"Choisir deux langues", addbtn:"Ajouter à Chrome", pu_top:"Haut", pu_bottom:"Bas",
+  p1:"🔒 100 % local", p2:"🚫 Sans compte", p3:"🛡️ Permissions minimales", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 12 langues d'interface",
+  fb_badge:"🎬 Gratuit · Prime Video, YouTube, Netflix et Disney+", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres sur Prime Video, YouTube, Netflix et Disney+ —<br>déplacez, redimensionnez et stylisez sur la vidéo.",
+  fbp1:"📺 4 services", fbp2:"🌐 Deux langues au choix", fbp3:"🖱️ Réglage à l'écran", fbp4:"🔒 100 % local"
 },
 de: {
-  e1:"🎬 FÜR PRIME VIDEO · KOSTENLOSE CHROME-ERWEITERUNG", h1:"Zwei Sprachen. Ein Bildschirm.", s1:"Deine Lieblingsserien werden zum besten Sprachkurs – Original oben, deine Sprache unten.",
+  e1:"🎬 KOSTENLOSE CHROME-ERWEITERUNG", h1:"Zwei Sprachen. Ein Bildschirm.", s1:"Deine Lieblingsserien werden zum besten Sprachkurs – Original oben, deine Sprache unten.",
   title:"The Long Way Home", ep:"Staffel 1, Folge 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Auf diesen Moment habe ich mein ganzes Leben gewartet.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Schau nicht zurück. Wir sind fast da.",
@@ -549,14 +576,14 @@ de: {
   e3:"🌐 JEDES PAAR, DAS DU WILLST", h3:"Englisch × Deutsch. Spanisch × Deutsch. Du entscheidest.", s3:"Wähle zwei der Untertitelsprachen des Titels – automatisch erkannt, sobald du auf Play drückst.",
   e4:"🎨 DIREKT AUF DEM VIDEO", h4:"Größe, Position, Farbe – wie du willst.", s4:"Ziehen zum Verschieben, Scrollen zum Skalieren, Rechtsklick für Farben und Transparenz. Beim Schauen anpassen, ohne Einstellungsseite.",
   l1:"Standard", l2:"Größer, höher", l3:"Eigene Farben, ohne Kasten", g1:"✋ Ziehen zum Verschieben", g2:"🖱️ Scrollen für die Größe", g3:"🎨 Rechtsklick für Farben",
-  e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Es nutzt nur die Untertitel, die Amazon dir ohnehin streamt – nichts wird irgendwohin gesendet.",
-  st1:"Zu Chrome hinzufügen", st2:"Auf Prime Video abspielen", st3:"Zwei Sprachen wählen", addbtn:"Hinzufügen", pu_top:"Oben", pu_bottom:"Unten",
-  p1:"🔒 100 % lokal", p2:"🚫 Kein Konto", p3:"🛡️ Nur storage & tabs", p4:"☁️ Chrome-Sync", p5:"🌏 12 Oberflächensprachen",
-  fb_badge:"🎬 Kostenlos · Für Amazon Prime Video", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel für Prime Video –<br>direkt auf dem Video verschieben, skalieren, gestalten.",
-  fbp1:"🌐 Zwei beliebige Sprachen", fbp2:"🖱️ Auf dem Bild anpassen", fbp3:"🎨 Stil pro Zeile", fbp4:"🔒 100 % lokal"
+  e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Es nutzt nur die Untertitel, die jede Seite dir ohnehin streamt – nichts wird irgendwohin gesendet.",
+  st1:"Zu Chrome hinzufügen", st2:"Auf einem der vier abspielen", st3:"Zwei Sprachen wählen", addbtn:"Hinzufügen", pu_top:"Oben", pu_bottom:"Unten",
+  p1:"🔒 100 % lokal", p2:"🚫 Kein Konto", p3:"🛡️ Minimale Berechtigungen", p4:"☁️ Einstellungen pro Seite", p5:"🌏 12 Oberflächensprachen",
+  fb_badge:"🎬 Kostenlos · Prime Video, YouTube, Netflix &amp; Disney+", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel auf Prime Video, YouTube, Netflix und Disney+ –<br>direkt auf dem Video verschieben, skalieren, gestalten.",
+  fbp1:"📺 4 Dienste", fbp2:"🌐 Zwei beliebige Sprachen", fbp3:"🖱️ Auf dem Bild anpassen", fbp4:"🔒 100 % lokal"
 },
 it: {
-  e1:"🎬 PER PRIME VIDEO · ESTENSIONE CHROME GRATUITA", h1:"Due lingue. Uno schermo.", s1:"Le tue serie preferite diventano la tua miglior lezione di lingua: l'originale sopra, la tua sotto.",
+  e1:"🎬 ESTENSIONE CHROME GRATUITA", h1:"Due lingue. Uno schermo.", s1:"Le tue serie preferite diventano la tua miglior lezione di lingua: l'originale sopra, la tua sotto.",
   title:"The Long Way Home", ep:"Stagione 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Ho aspettato questo momento tutta la vita.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Non voltarti. Ci siamo quasi.",
@@ -566,14 +593,14 @@ it: {
   e3:"🌐 LA COPPIA CHE VUOI", h3:"Inglese × italiano. Spagnolo × italiano. Decidi tu.", s3:"Scegli due delle lingue dei sottotitoli del titolo: rilevate in automatico appena premi play.",
   e4:"🎨 DIRETTAMENTE SUL VIDEO", h4:"Dimensione, posizione, colore: a modo tuo.", s4:"Trascina per spostare, rotella per ridimensionare, tasto destro per colori e trasparenza. Regola mentre guardi, senza pagina di impostazioni.",
   l1:"Predefinito", l2:"Più grande, più in alto", l3:"Colori personalizzati, senza riquadro", g1:"✋ Trascina per spostare", g2:"🖱️ Rotella per la dimensione", g3:"🎨 Tasto destro per i colori",
-  e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. Usa solo i sottotitoli che Amazon ti invia già: nulla viene mandato da nessuna parte.",
-  st1:"Aggiungi a Chrome", st2:"Riproduci su Prime Video", st3:"Scegli due lingue", addbtn:"Aggiungi a Chrome", pu_top:"Sopra", pu_bottom:"Sotto",
-  p1:"🔒 100 % locale", p2:"🚫 Nessun account", p3:"🛡️ Solo storage e tabs", p4:"☁️ Sincronizzazione Chrome", p5:"🌏 12 lingue dell'interfaccia",
-  fb_badge:"🎬 Gratis · Per Amazon Prime Video", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli per Prime Video —<br>trascina, ridimensiona e personalizza sul video.",
-  fbp1:"🌐 Due lingue qualsiasi", fbp2:"🖱️ Regola sullo schermo", fbp3:"🎨 Stile per riga", fbp4:"🔒 100 % locale"
+  e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. Usa solo i sottotitoli che ogni sito ti invia già: nulla viene mandato da nessuna parte.",
+  st1:"Aggiungi a Chrome", st2:"Riproduci su uno dei quattro", st3:"Scegli due lingue", addbtn:"Aggiungi a Chrome", pu_top:"Sopra", pu_bottom:"Sotto",
+  p1:"🔒 100 % locale", p2:"🚫 Nessun account", p3:"🛡️ Permessi minimi", p4:"☁️ Impostazioni per sito", p5:"🌏 12 lingue dell'interfaccia",
+  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix e Disney+", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli su Prime Video, YouTube, Netflix e Disney+ —<br>trascina, ridimensiona e personalizza sul video.",
+  fbp1:"📺 4 servizi", fbp2:"🌐 Due lingue qualsiasi", fbp3:"🖱️ Regola sullo schermo", fbp4:"🔒 100 % locale"
 },
 pt: {
-  e1:"🎬 PARA O PRIME VIDEO · EXTENSÃO GRATUITA DO CHROME", h1:"Dois idiomas. Uma tela.", s1:"Suas séries favoritas viram a melhor aula de idiomas: o original em cima, o seu embaixo.",
+  e1:"🎬 EXTENSÃO GRATUITA DO CHROME", h1:"Dois idiomas. Uma tela.", s1:"Suas séries favoritas viram a melhor aula de idiomas: o original em cima, o seu embaixo.",
   title:"The Long Way Home", ep:"Temporada 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Esperei por este momento a vida inteira.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Não olhe para trás. Estamos quase lá.",
@@ -583,14 +610,14 @@ pt: {
   e3:"🌐 O PAR QUE VOCÊ QUISER", h3:"Inglês × português. Espanhol × português. Você escolhe.", s3:"Escolha dois dos idiomas de legenda que o título oferece — detectados automaticamente ao apertar o play.",
   e4:"🎨 DIRETO NO VÍDEO", h4:"Tamanho, posição, cor — do seu jeito.", s4:"Arraste para mover, role para redimensionar, botão direito para cores e transparência. Ajuste enquanto assiste, sem página de configurações.",
   l1:"Padrão", l2:"Maior, mais alto", l3:"Cores próprias, sem caixa", g1:"✋ Arraste para mover", g2:"🖱️ Role para o tamanho", g3:"🎨 Botão direito para cores",
-  e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. Usa só as legendas que a Amazon já envia para você — nada é mandado a lugar nenhum.",
-  st1:"Adicionar ao Chrome", st2:"Reproduzir no Prime Video", st3:"Escolher dois idiomas", addbtn:"Adicionar ao Chrome", pu_top:"Em cima", pu_bottom:"Embaixo",
-  p1:"🔒 100 % local", p2:"🚫 Sem conta", p3:"🛡️ Só storage e tabs", p4:"☁️ Sincronização do Chrome", p5:"🌏 12 idiomas de interface",
-  fb_badge:"🎬 Grátis · Para o Amazon Prime Video", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas para o Prime Video —<br>arraste, redimensione e estilize direto no vídeo.",
-  fbp1:"🌐 Dois idiomas quaisquer", fbp2:"🖱️ Ajuste na tela", fbp3:"🎨 Estilo por linha", fbp4:"🔒 100 % local"
+  e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. Usa só as legendas que cada site já envia para você — nada é mandado a lugar nenhum.",
+  st1:"Adicionar ao Chrome", st2:"Dê play em qualquer um dos quatro", st3:"Escolher dois idiomas", addbtn:"Adicionar ao Chrome", pu_top:"Em cima", pu_bottom:"Embaixo",
+  p1:"🔒 100 % local", p2:"🚫 Sem conta", p3:"🛡️ Permissões mínimas", p4:"☁️ Configuração por site", p5:"🌏 12 idiomas de interface",
+  fb_badge:"🎬 Grátis · Prime Video, YouTube, Netflix e Disney+", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas no Prime Video, YouTube, Netflix e Disney+ —<br>arraste, redimensione e estilize direto no vídeo.",
+  fbp1:"📺 4 serviços", fbp2:"🌐 Dois idiomas quaisquer", fbp3:"🖱️ Ajuste na tela", fbp4:"🔒 100 % local"
 },
 ru: {
-  e1:"🎬 ДЛЯ PRIME VIDEO · БЕСПЛАТНОЕ РАСШИРЕНИЕ CHROME", h1:"Два языка. Один экран.", s1:"Любимые сериалы становятся лучшим уроком языка: оригинал сверху, ваш язык снизу.",
+  e1:"🎬 БЕСПЛАТНОЕ РАСШИРЕНИЕ CHROME", h1:"Два языка. Один экран.", s1:"Любимые сериалы становятся лучшим уроком языка: оригинал сверху, ваш язык снизу.",
   title:"The Long Way Home", ep:"Сезон 1, серия 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Я ждал этого момента всю жизнь.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Не оглядывайся. Мы почти на месте.",
@@ -600,14 +627,14 @@ ru: {
   e3:"🌐 ЛЮБАЯ ПАРА", h3:"Английский × русский. Испанский × русский. Решать вам.", s3:"Выберите любые два языка субтитров из имеющихся у фильма — определяются автоматически при нажатии «Воспроизвести».",
   e4:"🎨 ПРЯМО НА ВИДЕО", h4:"Размер, положение, цвет — как вам удобно.", s4:"Перетаскивайте, крутите колесо для масштаба, правый клик для цветов и прозрачности. Настраивайте во время просмотра, без страницы настроек.",
   l1:"По умолчанию", l2:"Крупнее, выше", l3:"Свои цвета, без рамки", g1:"✋ Перетащить", g2:"🖱️ Колесо — размер", g3:"🎨 Правый клик — цвета",
-  e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Использует только субтитры, которые Amazon и так вам передаёт, — ничего никуда не отправляется.",
-  st1:"Добавить в Chrome", st2:"Включить на Prime Video", st3:"Выбрать два языка", addbtn:"Добавить в Chrome", pu_top:"Сверху", pu_bottom:"Снизу",
-  p1:"🔒 100 % локально", p2:"🚫 Без аккаунта", p3:"🛡️ Только storage и tabs", p4:"☁️ Синхронизация Chrome", p5:"🌏 12 языков интерфейса",
-  fb_badge:"🎬 Бесплатно · Для Amazon Prime Video", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры для Prime Video —<br>перетаскивайте, масштабируйте и оформляйте прямо на видео.",
-  fbp1:"🌐 Любые два языка", fbp2:"🖱️ Настройка на экране", fbp3:"🎨 Стиль каждой строки", fbp4:"🔒 100 % локально"
+  e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Использует только субтитры, которые каждый сайт и так вам передаёт, — ничего никуда не отправляется.",
+  st1:"Добавить в Chrome", st2:"Включите на любом из четырёх", st3:"Выбрать два языка", addbtn:"Добавить в Chrome", pu_top:"Сверху", pu_bottom:"Снизу",
+  p1:"🔒 100 % локально", p2:"🚫 Без аккаунта", p3:"🛡️ Минимум разрешений", p4:"☁️ Настройки для каждого сайта", p5:"🌏 12 языков интерфейса",
+  fb_badge:"🎬 Бесплатно · Prime Video, YouTube, Netflix и Disney+", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры на Prime Video, YouTube, Netflix и Disney+ —<br>перетаскивайте, масштабируйте и оформляйте прямо на видео.",
+  fbp1:"📺 4 сервиса", fbp2:"🌐 Любые два языка", fbp3:"🖱️ Настройка на экране", fbp4:"🔒 100 % локально"
 },
 hi: {
-  e1:"🎬 Prime Video के लिए · मुफ़्त Chrome एक्सटेंशन", h1:"दो भाषाएँ। एक स्क्रीन।", s1:"आपकी पसंदीदा सीरीज़ बन जाए सबसे अच्छी भाषा की क्लास — ऊपर मूल, नीचे आपकी भाषा।",
+  e1:"🎬 मुफ़्त Chrome एक्सटेंशन", h1:"दो भाषाएँ। एक स्क्रीन।", s1:"आपकी पसंदीदा सीरीज़ बन जाए सबसे अच्छी भाषा की क्लास — ऊपर मूल, नीचे आपकी भाषा।",
   title:"The Long Way Home", ep:"सीज़न 1, एपिसोड 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"मैं इस पल का इंतज़ार पूरी ज़िंदगी करता रहा।",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"पीछे मत देखो। हम बस पहुँचने वाले हैं।",
@@ -617,11 +644,11 @@ hi: {
   e3:"🌐 कोई भी जोड़ी", h3:"अंग्रेज़ी × हिन्दी। जापानी × हिन्दी। आपकी मर्ज़ी।", s3:"टाइटल में उपलब्ध सबटाइटल भाषाओं में से कोई भी दो चुनिए — प्ले दबाते ही अपने-आप पहचान।",
   e4:"🎨 सीधे वीडियो पर", h4:"आकार, जगह, रंग — आपके हिसाब से।", s4:"खींचकर हटाइए, स्क्रॉल से आकार बदलिए, राइट-क्लिक से रंग और पारदर्शिता। देखते-देखते ही सेट कीजिए, सेटिंग पेज की ज़रूरत नहीं।",
   l1:"डिफ़ॉल्ट", l2:"बड़ा, ऊपर", l3:"अपने रंग, बिना बॉक्स", g1:"✋ खींचकर जगह बदलें", g2:"🖱️ स्क्रॉल से आकार", g3:"🎨 राइट-क्लिक से रंग",
-  e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सिर्फ़ वे सबटाइटल इस्तेमाल होते हैं जो Amazon पहले से आपको भेजता है — कहीं कुछ नहीं भेजा जाता।",
-  st1:"Chrome में जोड़ें", st2:"Prime Video पर प्ले करें", st3:"दो भाषाएँ चुनें", addbtn:"Chrome में जोड़ें", pu_top:"ऊपर", pu_bottom:"नीचे",
-  p1:"🔒 100% लोकल", p2:"🚫 कोई खाता नहीं", p3:"🛡️ सिर्फ़ storage और tabs", p4:"☁️ Chrome सिंक", p5:"🌏 12 इंटरफ़ेस भाषाएँ",
-  fb_badge:"🎬 मुफ़्त · Amazon Prime Video के लिए", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"Prime Video के लिए दोहरे सबटाइटल —<br>सीधे वीडियो पर खींचिए, आकार बदलिए, स्टाइल कीजिए।",
-  fbp1:"🌐 कोई भी दो भाषाएँ", fbp2:"🖱️ स्क्रीन पर समायोजन", fbp3:"🎨 हर पंक्ति की स्टाइल", fbp4:"🔒 100% लोकल"
+  e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सिर्फ़ वे सबटाइटल इस्तेमाल होते हैं जो हर साइट पहले से आपको भेजती है — कहीं कुछ नहीं भेजा जाता।",
+  st1:"Chrome में जोड़ें", st2:"चारों में से किसी पर प्ले करें", st3:"दो भाषाएँ चुनें", addbtn:"Chrome में जोड़ें", pu_top:"ऊपर", pu_bottom:"नीचे",
+  p1:"🔒 100% लोकल", p2:"🚫 कोई खाता नहीं", p3:"🛡️ न्यूनतम अनुमतियाँ", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 12 इंटरफ़ेस भाषाएँ",
+  fb_badge:"🎬 मुफ़्त · Prime Video, YouTube, Netflix और Disney+", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"Prime Video, YouTube, Netflix और Disney+ पर दोहरे सबटाइटल —<br>सीधे वीडियो पर खींचिए, आकार बदलिए, स्टाइल कीजिए।",
+  fbp1:"📺 4 स्ट्रीमिंग सेवाएँ", fbp2:"🌐 कोई भी दो भाषाएँ", fbp3:"🖱️ स्क्रीन पर समायोजन", fbp4:"🔒 100% लोकल"
 }
 };
 
@@ -737,6 +764,16 @@ function fit() {
   document.querySelectorAll(".tb-btn, .look-l, .tag").forEach((b) => {
     let s = parseFloat(getComputedStyle(b).fontSize);
     while (b.scrollWidth > b.clientWidth + 1 && s > 10) { s -= 1; b.style.fontSize = s + "px"; }
+  });
+  // ウェブストアのカードは、ボタンの訳が長い言語だと拡張名の欄が潰れて4行になる。
+  // 名前欄が2行に収まるまでボタンの文字を縮める（ボタンは1行固定）。
+  document.querySelectorAll(".tb-body").forEach((row) => {
+    const small = row.querySelector("small");
+    const btn = row.querySelector(".tb-btn");
+    if (!small || !btn) return;
+    const lh = parseFloat(getComputedStyle(small).lineHeight) || 14;
+    let s = parseFloat(getComputedStyle(btn).fontSize);
+    while (small.offsetHeight > lh * 2 + 1 && s > 9) { s -= 0.5; btn.style.fontSize = s + "px"; }
   });
 }
 document.fonts.ready.then(() => requestAnimationFrame(fit));
