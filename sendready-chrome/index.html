@@ -673,6 +673,7 @@
     <div class="footer-inner">
       <span>&copy; 2025 SendReady</span>
       <a href="how-to.html" id="foot-howto" data-i18n="nav_howto">How to use</a>
+      <a href="contact.html" id="foot-contact" data-i18n="footer_contact">Contact</a>
       <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">Privacy Policy</a>
       <a href="https://ramune441.github.io/" data-i18n="footer_other">Other products</a>
     </div>
@@ -692,21 +693,22 @@
     });
   </script>
 
-  <script src="i18n-lp.js?v=6"></script>
+  <script src="i18n-lp.js?v=7"></script>
   <script>
-    // 使い方ページのリンクに現在の言語を引き継ぐ
+    // 使い方ページ・問い合わせページのリンクに現在の言語を引き継ぐ
     (function () {
-      function syncHowto() {
+      var PAGES = { "nav-howto": "how-to.html", "foot-howto": "how-to.html", "foot-contact": "contact.html" };
+      function syncLangLinks() {
         var lang = document.documentElement.lang || "en";
-        ["nav-howto", "foot-howto"].forEach(function (id) {
+        Object.keys(PAGES).forEach(function (id) {
           var a = document.getElementById(id);
-          if (a) a.href = "how-to.html?lang=" + encodeURIComponent(lang);
+          if (a) a.href = PAGES[id] + "?lang=" + encodeURIComponent(lang);
         });
       }
       function start() {
-        syncHowto(); // initLP(言語適用)後に実行されるよう DOMContentLoaded 経由
+        syncLangLinks(); // initLP(言語適用)後に実行されるよう DOMContentLoaded 経由
         var sel = document.getElementById("lang-select");
-        if (sel) sel.addEventListener("change", function () { setTimeout(syncHowto, 0); });
+        if (sel) sel.addEventListener("change", function () { setTimeout(syncLangLinks, 0); });
       }
       if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
       else start();

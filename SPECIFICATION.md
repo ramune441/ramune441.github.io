@@ -27,6 +27,8 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/ashiato-maker/store-tile-small.png` `store-tile-marquee.png` | ストア画像 | - | no | プロモーションタイル(440x280)とマーキープロモーションタイル(1400x560)。store-imageと同一のライトモードデザイン。マーキーは左コピー+右実稼働キャプチャ |
 | `/sendready-chrome/` | LP | index | yes | Chrome拡張（SendReady）。`i18n-lp.js` で11言語対応。YouTube埋め込み（`#promo-video`）は `LP_VIDEO_IDS` により表示言語の動画に自動切替 |
 | `/sendready-chrome/how-to.html` | 使い方ガイド | index | no | 操作手順（LPからリンク） |
+| `/sendready-chrome/contact.html` | 問い合わせ | index | yes | 自前フォーム（自己完結型・インライン11言語辞書＋言語セレクター）。拡張の `SR_CONFIG.FEEDBACK_URL`（設定画面の「お問い合わせ」・満足度ゲート）の遷移先。`?lang=` と診断クエリ（`v`/`days`/`uses`/`err`）を受け取り、後者は hidden `diagnostics` に集約して送信 |
+| `/sendready/contact.html` | 転送 | noindex | no | `/sendready-chrome/contact.html` へ meta refresh + JS で転送（クエリ引き継ぎ）。GitHub Pages は 301 を返せない。Android版削除後もストア公開中の拡張が旧 `FEEDBACK_URL` を持つため残す |
 | `/sendready-chrome/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先。診断クエリ（`v`/`lang`/`days`/`uses`/`err`）を hidden `diagnostics` に集約して送信（拡張側は v1.1.6 で対応済み）。詳細欄は**必須** |
 | `/sendready-chrome/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー（英語） |
 | `/sendready-chrome/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、store-images.html と同方式。文言は i18n-lp.js と同期、ar は RTL） |
