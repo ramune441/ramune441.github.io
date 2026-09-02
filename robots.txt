@@ -20,6 +20,7 @@ Disallow: /ripen/fgs-demo/fgs-demo.html
 # アンインストール理由アンケート（拡張の setUninstallURL 専用）はインデックス対象外
 Disallow: /formpilot/uninstall.html
 Disallow: /sendready-chrome/uninstall.html
+Disallow: /subduo/uninstall.html
 Disallow: /ashiato-maker/uninstall.html
 
 # ビルド成果物

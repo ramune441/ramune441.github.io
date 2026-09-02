@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact｜SubDuo</title>
+  <meta name="description" content="Contact form for SubDuo, the dual-subtitle Chrome extension for Prime Video, YouTube, Netflix and Disney+. Send bug reports, feature requests or any question.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/subduo/contact.html">
+  <meta property="og:title" content="Contact｜SubDuo">
+  <meta property="og:description" content="Contact form for SubDuo.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/subduo/contact.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="SubDuo">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap">
+  <style>
+    :root {
+      /* SubDuo: navy + cyan — same palette as privacy-policy.html */
+      --cy: #00A8E1; --cy-deep: #0089B8; --navy: #0F2A3F;
+      --pale: #E6F6FC; --pale-border: #B9E6F5;
+      --bg: #f8fafc; --bg-card: #ffffff; --border: #e2e8f0; --border-light: #cbd5e1;
+      --text: #1e293b; --text-sub: #475569; --text-light: #94a3b8;
+      --red-50: #fef2f2; --red-200: #fecaca;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: var(--cy-deep); text-decoration: none; }
+    a:hover { color: var(--cy); }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(248,250,252,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .nav-inner { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; color: var(--navy); }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    #lang-select { font-family: inherit; font-size: 13px; color: var(--text-sub); background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+    .container { max-width: 680px; margin: 0 auto; padding: 88px 24px 80px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; font-size: 14px; font-weight: 500; color: var(--text-light); transition: color 0.2s; }
+    .back:hover { color: var(--cy-deep); }
+    .page-title { font-size: 28px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .page-desc { font-size: 15px; color: var(--text-sub); margin-bottom: 40px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(15,42,63,0.05); }
+    .field { margin-bottom: 24px; }
+    .field:last-of-type { margin-bottom: 28px; }
+    .field-label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 100px; line-height: 1.6; }
+    .tag-req { background: var(--pale); color: var(--cy-deep); border: 1px solid var(--pale-border); }
+    .tag-opt { background: #f1f5f9; color: var(--text-light); border: 1px solid var(--border); }
+    .field-note { font-size: 12px; color: var(--text-light); margin-top: 6px; }
+    /* フォーム部品のみ。ナビの #lang-select には当てない（当てると width:100% で伸びる） */
+    input[type="email"], #f-type, #f-site, textarea { width: 100%; font-family: inherit; font-size: 15px; color: var(--text); background: #fff; border: 1px solid var(--border-light); border-radius: 10px; padding: 12px 14px; line-height: 1.6; transition: border-color 0.2s, box-shadow 0.2s; }
+    input::placeholder, textarea::placeholder { color: #cbd5e1; }
+    input:focus, #f-type:focus, #f-site:focus, textarea:focus { outline: none; border-color: var(--cy); box-shadow: 0 0 0 3px rgba(0,168,225,0.15); }
+    textarea { min-height: 160px; resize: vertical; }
+    #f-type, #f-site { appearance: none; cursor: pointer; padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; }
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .hp-file { position: absolute; left: -9999px; opacity: 0; width: 0; height: 0; }
+    .file-drop { display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1.5px dashed var(--border-light); border-radius: 10px; padding: 14px 16px; color: var(--text-light); font-size: 14px; transition: border-color 0.2s, background 0.2s; position: relative; }
+    .file-drop:hover, .file-drop.has-file { border-color: var(--cy); background: var(--pale); color: var(--cy-deep); }
+    .file-drop.has-file { border-style: solid; }
+    .file-drop svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .file-drop.has-file .file-drop-text { display: none; }
+    .file-drop-name { font-weight: 600; word-break: break-all; }
+    .file-clear { margin-left: auto; width: 24px; height: 24px; border: none; border-radius: 50%; background: rgba(0,168,225,0.12); color: var(--cy-deep); font-size: 15px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+    .file-clear:hover { background: rgba(0,168,225,0.25); }
+    .submit-btn { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--cy); color: #fff; font-family: inherit; font-size: 15px; font-weight: 700; padding: 15px 32px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(0,168,225,0.25); transition: all 0.2s; }
+    .submit-btn:hover:not(:disabled) { background: var(--cy-deep); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,168,225,0.3); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .submit-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .privacy-note { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 16px; }
+    .alert { display: none; border-radius: 10px; padding: 14px 16px; font-size: 14px; margin-bottom: 20px; }
+    .alert.show { display: block; }
+    .alert-error { background: var(--red-50); border: 1px solid var(--red-200); color: #b91c1c; }
+    .success { display: none; text-align: center; padding: 20px 0; }
+    .success.show { display: block; }
+    .success-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--pale); border: 1px solid var(--pale-border); display: flex; align-items: center; justify-content: center; }
+    .success-icon svg { width: 30px; height: 30px; stroke: var(--cy); stroke-width: 2.5; fill: none; }
+    .success-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .success-desc { font-size: 14px; color: var(--text-sub); margin-bottom: 28px; }
+    .success .btn-back { display: inline-flex; align-items: center; gap: 8px; background: var(--cy); color: #fff; font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 10px; transition: background 0.2s; }
+    .success .btn-back:hover { background: var(--cy-deep); color: #fff; }
+    footer { border-top: 1px solid var(--border); padding: 24px 20px; text-align: center; font-size: 13px; color: var(--text-light); }
+    footer a { color: var(--text-light); margin: 0 12px; transition: color 0.2s; }
+    footer a:hover { color: var(--cy-deep); }
+    @media (max-width: 720px) {
+      .container { padding: 84px 16px 60px; }
+      .card { padding: 28px 20px; border-radius: 14px; }
+      .page-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand"><img src="icons/logo.svg" alt="" width="32" height="32"><span>SubDuo</span></a>
+      <div class="nav-right">
+        <select id="lang-select" aria-label="Language"></select>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <a href="./" class="back" data-i18n="contact_back">← Back to top page</a>
+    <h1 class="page-title" data-i18n="contact_title">Contact</h1>
+    <p class="page-desc" data-i18n="contact_desc">Bug reports, feature requests, questions about the extension — feel free to send them our way.</p>
+
+    <div class="card">
+      <!-- SUCCESS -->
+      <div class="success" id="success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="success-title" data-i18n="contact_success_title">Your message has been sent</h2>
+        <p class="success-desc" data-i18n="contact_success_desc">Thank you for reaching out. We'll review your message and get back to you if a reply is needed.</p>
+        <a href="./" class="btn-back" data-i18n="contact_success_back">Back to top page</a>
+      </div>
+
+      <!-- FORM -->
+      <form id="contact-form" novalidate>
+        <div class="alert alert-error" id="error-box" data-i18n="contact_error" role="alert" aria-live="polite">Sending failed. Please wait a moment and try again.</div>
+
+        <input type="hidden" name="product" value="SubDuo">
+        <input type="hidden" name="diagnostics" id="f-diagnostics">
+        <!-- honeypot (spam trap) -->
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label class="field-label" for="f-email">
+            <span data-i18n="contact_email">Email address</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">Optional</span>
+          </label>
+          <input type="email" id="f-email" name="email" autocomplete="email" data-i18n-ph="contact_email_ph" placeholder="example@example.com">
+          <p class="field-note" data-i18n="contact_email_note">Enter it if you'd like a reply.</p>
+        </div>
+
+        <!-- どの配信サービスの話かは切り分けに直結するので必須。値は英語カノニカル（app フィールド） -->
+        <div class="field">
+          <label class="field-label" for="f-site">
+            <span data-i18n="contact_site">Which service is this about?</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
+          </label>
+          <select id="f-site" name="app" required>
+            <option value="Prime Video">Prime Video</option>
+            <option value="YouTube">YouTube</option>
+            <option value="Netflix">Netflix</option>
+            <option value="Disney+">Disney+</option>
+            <option value="Other" data-i18n="contact_site_other">Other / general question</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-type">
+            <span data-i18n="contact_type">Inquiry type</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
+          </label>
+          <select id="f-type" name="category" required>
+            <option value="Bug Report" data-i18n="contact_type_bug">Bug report</option>
+            <option value="Feature Request" data-i18n="contact_type_feature">Feature request</option>
+            <option value="Other" data-i18n="contact_type_other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-message">
+            <span data-i18n="contact_message">Message</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
+          </label>
+          <!-- maxlength はサーバの content 上限（5000）に合わせる。超えると 400 で弾かれるため -->
+          <textarea id="f-message" name="content" required maxlength="5000" data-i18n-ph="contact_message_ph" placeholder="Please be as specific as you can. For bugs, it helps to include the title you were watching, the two languages you had selected, and what you saw."></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-file">
+            <span data-i18n="contact_file">Attached file (screenshots, videos, etc.)</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">Optional</span>
+          </label>
+          <label class="file-drop" id="file-drop" for="f-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span class="file-drop-text" id="file-drop-text" data-i18n="contact_file_drop">Click to choose a file</span>
+            <span class="file-drop-name" id="file-name"></span>
+            <button type="button" class="file-clear" id="file-clear" hidden aria-label="Remove file">&times;</button>
+          </label>
+          <input type="file" id="f-file" name="attachment" class="hp-file" accept="image/*,video/*,.pdf,.txt">
+          <p class="field-note" data-i18n="contact_file_note">Image, video, PDF, or text — up to 25MB.</p>
+          <p class="field-note" id="file-error" style="color:#b91c1c" hidden data-i18n="contact_file_too_large">The file is too large (max 25MB).</p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span id="submit-label" data-i18n="contact_submit">Send</span>
+        </button>
+        <p class="privacy-note" data-i18n="contact_privacy_note">Your message is used only to respond to your inquiry.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <span>&copy; 2026 SubDuo</span>
+    <a href="privacy-policy.html" id="foot-pp" target="_blank" data-i18n="footer_privacy">Privacy Policy</a>
+    <a href="https://ramune441.github.io/" data-i18n="footer_other">Other products</a>
+  </footer>
+
+  <script>
+    (function () {
+      var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
+      var MAX_FILE_BYTES = 25 * 1024 * 1024;
+
+      var LANG_NAMES = {
+        en: "English", ja: "日本語", zh: "简体中文", "zh-TW": "繁體中文", ko: "한국어", es: "Español",
+        fr: "Français", de: "Deutsch", it: "Italiano", pt: "Português", ru: "Русский", hi: "हिन्दी"
+      };
+
+      var MESSAGES = {
+        en: {
+          footer_privacy: "Privacy Policy", footer_other: "Other products",
+          contact_back: "← Back to top page",
+          contact_title: "Contact",
+          contact_desc: "Bug reports, feature requests, questions about the extension — feel free to send them our way.",
+          contact_optional: "Optional", contact_required: "Required",
+          contact_email: "Email address", contact_email_ph: "example@example.com",
+          contact_email_note: "Enter it if you'd like a reply.",
+          contact_site: "Which service is this about?", contact_site_other: "Other / general question",
+          contact_type: "Inquiry type", contact_type_bug: "Bug report", contact_type_feature: "Feature request", contact_type_other: "Other",
+          contact_message: "Message",
+          contact_message_ph: "Please be as specific as you can. For bugs, it helps to include the title you were watching, the two languages you had selected, and what you saw.",
+          contact_file: "Attached file (screenshots, videos, etc.)", contact_file_drop: "Click to choose a file",
+          contact_file_note: "Image, video, PDF, or text — up to 25MB.", contact_file_too_large: "The file is too large (max 25MB).",
+          contact_submit: "Send", contact_sending: "Sending...",
+          contact_success_title: "Your message has been sent",
+          contact_success_desc: "Thank you for reaching out. We'll review your message and get back to you if a reply is needed.",
+          contact_success_back: "Back to top page",
+          contact_error: "Sending failed. Please wait a moment and try again.",
+          contact_privacy_note: "Your message is used only to respond to your inquiry."
+        },
+        ja: {
+          footer_privacy: "プライバシーポリシー",
+          footer_other: "他のプロダクト",
+          contact_back: "← トップページに戻る",
+          contact_title: "お問い合わせ",
+          contact_desc: "不具合の報告、機能の要望、拡張機能についてのご質問など、お気軽にお送りください。",
+          contact_optional: "任意",
+          contact_required: "必須",
+          contact_email: "メールアドレス",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "返信をご希望の場合はご記入ください。",
+          contact_site: "どのサイトについてですか？",
+          contact_site_other: "その他・全般的な質問",
+          contact_type: "お問い合わせ種別",
+          contact_type_bug: "不具合の報告",
+          contact_type_feature: "機能の要望",
+          contact_type_other: "その他",
+          contact_message: "お問い合わせ内容",
+          contact_message_ph: "できるだけ具体的にご記入ください。不具合の場合は、視聴していた作品名、上段と下段に選んでいた言語、実際にどうなったかをお書きいただけると助かります。",
+          contact_file: "添付ファイル（スクリーンショット・動画など）",
+          contact_file_drop: "クリックしてファイルを選択",
+          contact_file_note: "画像・動画・PDF・テキスト、25MBまで。",
+          contact_file_too_large: "ファイルが大きすぎます（上限25MB）。",
+          contact_submit: "送信する",
+          contact_sending: "送信中…",
+          contact_success_title: "送信が完了しました",
+          contact_success_desc: "お問い合わせありがとうございます。内容を確認のうえ、必要に応じてご連絡いたします。",
+          contact_success_back: "トップページに戻る",
+          contact_error: "送信に失敗しました。時間をおいて、もう一度お試しください。",
+          contact_privacy_note: "いただいた内容は、お問い合わせへの対応にのみ使用します。"
+        },
+        zh: {
+          footer_privacy: "隐私政策",
+          footer_other: "其他产品",
+          contact_back: "← 返回首页",
+          contact_title: "联系我们",
+          contact_desc: "无论是问题反馈、功能建议，还是对扩展程序的疑问，都欢迎告诉我们。",
+          contact_optional: "选填",
+          contact_required: "必填",
+          contact_email: "电子邮箱",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "如需回复，请填写此项。",
+          contact_site: "想咨询哪个网站？",
+          contact_site_other: "其他/一般咨询",
+          contact_type: "咨询类型",
+          contact_type_bug: "问题反馈",
+          contact_type_feature: "功能建议",
+          contact_type_other: "其他",
+          contact_message: "咨询内容",
+          contact_message_ph: "请尽量写得具体一些。如果是问题反馈，请告诉我们当时观看的片名、上行和下行分别选择的语言，以及实际看到的情况。",
+          contact_file: "附件（截图、视频等）",
+          contact_file_drop: "点击选择文件",
+          contact_file_note: "图片、视频、PDF 或文本文件，最大 25MB。",
+          contact_file_too_large: "文件过大（上限 25MB）。",
+          contact_submit: "发送",
+          contact_sending: "发送中…",
+          contact_success_title: "发送成功",
+          contact_success_desc: "感谢您的来信。我们会认真查看，如需回复会再与您联系。",
+          contact_success_back: "返回首页",
+          contact_error: "发送失败。请稍后再试。",
+          contact_privacy_note: "您发送的内容仅用于回复本次咨询。"
+        },
+        "zh-TW": {
+          footer_privacy: "隱私權政策",
+          footer_other: "其他產品",
+          contact_back: "← 返回首頁",
+          contact_title: "聯絡我們",
+          contact_desc: "問題回報、功能建議，或任何關於擴充功能的疑問，都歡迎告訴我們。",
+          contact_optional: "選填",
+          contact_required: "必填",
+          contact_email: "電子郵件",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "需要回覆的話請填寫。",
+          contact_site: "想詢問哪個服務？",
+          contact_site_other: "其他／一般問題",
+          contact_type: "問題類型",
+          contact_type_bug: "問題回報",
+          contact_type_feature: "功能建議",
+          contact_type_other: "其他",
+          contact_message: "訊息內容",
+          contact_message_ph: "請盡量寫得具體一些。如果是問題回報，請一併告訴我們當時觀看的作品、上行與下行選擇的語言，以及畫面上實際看到的狀況。",
+          contact_file: "附加檔案（螢幕截圖、影片等）",
+          contact_file_drop: "按一下選擇檔案",
+          contact_file_note: "圖片、影片、PDF 或文字檔，最大 25MB。",
+          contact_file_too_large: "檔案過大（上限 25MB）。",
+          contact_submit: "送出",
+          contact_sending: "送出中…",
+          contact_success_title: "訊息已送出",
+          contact_success_desc: "感謝您的來信。我們會確認內容，若需要回覆會再與您聯絡。",
+          contact_success_back: "返回首頁",
+          contact_error: "送出失敗。請稍後再試一次。",
+          contact_privacy_note: "您傳送的內容僅用於回覆這次的來信。"
+        },
+        ko: {
+          footer_privacy: "개인정보처리방침",
+          footer_other: "다른 제품",
+          contact_back: "← 메인 페이지로 돌아가기",
+          contact_title: "문의하기",
+          contact_desc: "오류 신고, 기능 요청, 확장 프로그램에 대한 질문 등 편하게 보내 주세요.",
+          contact_optional: "선택",
+          contact_required: "필수",
+          contact_email: "이메일 주소",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "답변을 원하시면 입력해 주세요.",
+          contact_site: "어떤 서비스에 대한 문의인가요?",
+          contact_site_other: "기타 · 일반 문의",
+          contact_type: "문의 유형",
+          contact_type_bug: "오류 신고",
+          contact_type_feature: "기능 요청",
+          contact_type_other: "기타",
+          contact_message: "문의 내용",
+          contact_message_ph: "가능한 한 구체적으로 작성해 주세요. 오류라면 보고 계시던 작품, 위·아래에 선택하신 언어, 화면에 어떻게 표시됐는지를 함께 적어 주시면 도움이 됩니다.",
+          contact_file: "첨부 파일(스크린샷·동영상 등)",
+          contact_file_drop: "클릭하여 파일 선택",
+          contact_file_note: "이미지·동영상·PDF·텍스트, 최대 25MB.",
+          contact_file_too_large: "파일이 너무 큽니다(최대 25MB).",
+          contact_submit: "보내기",
+          contact_sending: "보내는 중…",
+          contact_success_title: "문의를 보냈습니다",
+          contact_success_desc: "문의해 주셔서 감사합니다. 내용을 확인한 뒤 필요한 경우 연락드리겠습니다.",
+          contact_success_back: "메인 페이지로 돌아가기",
+          contact_error: "보내지 못했습니다. 잠시 후 다시 시도해 주세요.",
+          contact_privacy_note: "문의 내용은 답변 목적으로만 사용합니다."
+        },
+        es: {
+          footer_privacy: "Política de privacidad",
+          footer_other: "Otros productos",
+          contact_back: "← Volver a la página principal",
+          contact_title: "Contacto",
+          contact_desc: "Informes de errores, sugerencias de funciones o dudas sobre la extensión: no dudes en escribirnos.",
+          contact_optional: "Opcional",
+          contact_required: "Obligatorio",
+          contact_email: "Correo electrónico",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "Escríbelo si quieres que te respondamos.",
+          contact_site: "¿Sobre qué servicio nos escribes?",
+          contact_site_other: "Otro / consulta general",
+          contact_type: "Tipo de consulta",
+          contact_type_bug: "Informe de error",
+          contact_type_feature: "Sugerencia de función",
+          contact_type_other: "Otro",
+          contact_message: "Mensaje",
+          contact_message_ph: "Cuéntanos con el mayor detalle posible. Si se trata de un error, ayuda mucho indicar el título que estabas viendo, los dos idiomas de subtítulos que tenías seleccionados y qué viste en pantalla.",
+          contact_file: "Archivo adjunto (capturas, vídeos, etc.)",
+          contact_file_drop: "Haz clic para elegir un archivo",
+          contact_file_note: "Imagen, vídeo, PDF o texto — hasta 25MB.",
+          contact_file_too_large: "El archivo es demasiado grande (máx. 25MB).",
+          contact_submit: "Enviar",
+          contact_sending: "Enviando...",
+          contact_success_title: "Tu mensaje se ha enviado",
+          contact_success_desc: "Gracias por escribirnos. Revisaremos tu mensaje y te responderemos si hace falta.",
+          contact_success_back: "Volver a la página principal",
+          contact_error: "No se pudo enviar. Espera un momento e inténtalo de nuevo.",
+          contact_privacy_note: "Tu mensaje se usa únicamente para responder a tu consulta."
+        },
+        fr: {
+          footer_privacy: "Politique de confidentialité",
+          footer_other: "Autres produits",
+          contact_back: "← Retour à la page d'accueil",
+          contact_title: "Contact",
+          contact_desc: "Signalements de bugs, suggestions de fonctionnalités, questions sur l'extension : écrivez-nous sans hésiter.",
+          contact_optional: "Facultatif",
+          contact_required: "Obligatoire",
+          contact_email: "Adresse e-mail",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "Indiquez-la si vous souhaitez une réponse.",
+          contact_site: "De quel service s'agit-il ?",
+          contact_site_other: "Autre / question générale",
+          contact_type: "Type de demande",
+          contact_type_bug: "Signalement de bug",
+          contact_type_feature: "Suggestion de fonctionnalité",
+          contact_type_other: "Autre",
+          contact_message: "Message",
+          contact_message_ph: "Soyez aussi précis que possible. Pour un bug, indiquez le titre que vous regardiez, les deux langues sélectionnées et ce que vous avez vu à l'écran.",
+          contact_file: "Pièce jointe (captures d'écran, vidéos, etc.)",
+          contact_file_drop: "Cliquez pour choisir un fichier",
+          contact_file_note: "Image, vidéo, PDF ou texte — jusqu'à 25 Mo.",
+          contact_file_too_large: "Le fichier est trop volumineux (max. 25 Mo).",
+          contact_submit: "Envoyer",
+          contact_sending: "Envoi en cours...",
+          contact_success_title: "Votre message a été envoyé",
+          contact_success_desc: "Merci de nous avoir contactés. Nous examinerons votre message et vous répondrons si nécessaire.",
+          contact_success_back: "Retour à la page d'accueil",
+          contact_error: "L'envoi a échoué. Veuillez patienter un instant et réessayer.",
+          contact_privacy_note: "Votre message est utilisé uniquement pour répondre à votre demande."
+        },
+        de: {
+          footer_privacy: "Datenschutzerklärung",
+          footer_other: "Weitere Produkte",
+          contact_back: "← Zurück zur Startseite",
+          contact_title: "Kontakt",
+          contact_desc: "Fehlerberichte, Funktionswünsche, Fragen zur Erweiterung – schreiben Sie uns gern.",
+          contact_optional: "Optional",
+          contact_required: "Pflichtfeld",
+          contact_email: "E-Mail-Adresse",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "Bitte angeben, wenn Sie eine Antwort wünschen.",
+          contact_site: "Um welchen Dienst geht es?",
+          contact_site_other: "Sonstiges / allgemeine Frage",
+          contact_type: "Art der Anfrage",
+          contact_type_bug: "Fehlerbericht",
+          contact_type_feature: "Funktionswunsch",
+          contact_type_other: "Sonstiges",
+          contact_message: "Nachricht",
+          contact_message_ph: "Bitte beschreiben Sie Ihr Anliegen möglichst genau. Bei einem Fehler helfen uns der Titel, den Sie gerade angesehen haben, die beiden gewählten Untertitelsprachen und was auf dem Bildschirm zu sehen war.",
+          contact_file: "Anhang (Screenshots, Videos usw.)",
+          contact_file_drop: "Klicken, um eine Datei auszuwählen",
+          contact_file_note: "Bild, Video, PDF oder Text – bis zu 25 MB.",
+          contact_file_too_large: "Die Datei ist zu groß (max. 25 MB).",
+          contact_submit: "Senden",
+          contact_sending: "Wird gesendet…",
+          contact_success_title: "Ihre Nachricht wurde gesendet",
+          contact_success_desc: "Vielen Dank für Ihre Nachricht. Wir sehen sie uns an und melden uns bei Bedarf.",
+          contact_success_back: "Zurück zur Startseite",
+          contact_error: "Senden fehlgeschlagen. Bitte warten Sie kurz und versuchen Sie es erneut.",
+          contact_privacy_note: "Ihre Nachricht wird ausschließlich zur Beantwortung Ihrer Anfrage verwendet."
+        },
+        it: {
+          footer_privacy: "Informativa sulla privacy",
+          footer_other: "Altri prodotti",
+          contact_back: "← Torna alla pagina principale",
+          contact_title: "Contatti",
+          contact_desc: "Segnalazioni di problemi, richieste di nuove funzioni, domande sull'estensione: scrivici pure.",
+          contact_optional: "Facoltativo",
+          contact_required: "Obbligatorio",
+          contact_email: "Indirizzo e-mail",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "Indicalo se desideri una risposta.",
+          contact_site: "Di quale servizio si tratta?",
+          contact_site_other: "Altro / domanda generale",
+          contact_type: "Tipo di richiesta",
+          contact_type_bug: "Segnalazione di un problema",
+          contact_type_feature: "Richiesta di una funzione",
+          contact_type_other: "Altro",
+          contact_message: "Messaggio",
+          contact_message_ph: "Sii il più preciso possibile. Se si tratta di un problema, indica il titolo che stavi guardando, le due lingue scelte e che cosa hai visto sullo schermo.",
+          contact_file: "Allegato (screenshot, video, ecc.)",
+          contact_file_drop: "Clicca per scegliere un file",
+          contact_file_note: "Immagine, video, PDF o testo — fino a 25 MB.",
+          contact_file_too_large: "Il file è troppo grande (max 25 MB).",
+          contact_submit: "Invia",
+          contact_sending: "Invio in corso...",
+          contact_success_title: "Il tuo messaggio è stato inviato",
+          contact_success_desc: "Grazie per averci scritto. Leggeremo il tuo messaggio e, se necessario, ti risponderemo.",
+          contact_success_back: "Torna alla pagina principale",
+          contact_error: "Invio non riuscito. Attendi un momento e riprova.",
+          contact_privacy_note: "Il tuo messaggio viene usato solo per rispondere alla tua richiesta."
+        },
+        pt: {
+          footer_privacy: "Política de privacidade",
+          footer_other: "Outros produtos",
+          contact_back: "← Voltar à página inicial",
+          contact_title: "Contato",
+          contact_desc: "Relatos de erros, sugestões de recursos, dúvidas sobre a extensão: fique à vontade para nos escrever.",
+          contact_optional: "Opcional",
+          contact_required: "Obrigatório",
+          contact_email: "Endereço de e-mail",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "Informe se quiser receber uma resposta.",
+          contact_site: "De qual serviço se trata?",
+          contact_site_other: "Outro / dúvida geral",
+          contact_type: "Tipo de contato",
+          contact_type_bug: "Relato de erro",
+          contact_type_feature: "Sugestão de recurso",
+          contact_type_other: "Outro",
+          contact_message: "Mensagem",
+          contact_message_ph: "Seja o mais específico possível. No caso de erros, informe o título que você estava assistindo, os dois idiomas de legenda selecionados e o que apareceu na tela.",
+          contact_file: "Arquivo anexo (capturas de tela, vídeos etc.)",
+          contact_file_drop: "Clique para escolher um arquivo",
+          contact_file_note: "Imagem, vídeo, PDF ou texto — até 25MB.",
+          contact_file_too_large: "O arquivo é grande demais (máx. 25MB).",
+          contact_submit: "Enviar",
+          contact_sending: "Enviando...",
+          contact_success_title: "Sua mensagem foi enviada",
+          contact_success_desc: "Obrigado pelo contato. Vamos analisar sua mensagem e responder, se for necessário.",
+          contact_success_back: "Voltar à página inicial",
+          contact_error: "Falha no envio. Aguarde um momento e tente novamente.",
+          contact_privacy_note: "Sua mensagem é usada apenas para responder ao seu contato."
+        },
+        ru: {
+          footer_privacy: "Политика конфиденциальности",
+          footer_other: "Другие продукты",
+          contact_back: "← Вернуться на главную",
+          contact_title: "Связаться с нами",
+          contact_desc: "Сообщения об ошибках, предложения новых функций, вопросы о расширении — пишите, будем рады.",
+          contact_optional: "Необязательно",
+          contact_required: "Обязательно",
+          contact_email: "Электронная почта",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "Укажите, если хотите получить ответ.",
+          contact_site: "О каком сервисе идёт речь?",
+          contact_site_other: "Другое / общий вопрос",
+          contact_type: "Тип обращения",
+          contact_type_bug: "Сообщение об ошибке",
+          contact_type_feature: "Предложение новой функции",
+          contact_type_other: "Другое",
+          contact_message: "Сообщение",
+          contact_message_ph: "Опишите всё как можно подробнее. Если это ошибка, укажите, что вы смотрели, какие два языка субтитров были выбраны и что вы увидели на экране.",
+          contact_file: "Вложение (скриншоты, видео и т. п.)",
+          contact_file_drop: "Нажмите, чтобы выбрать файл",
+          contact_file_note: "Изображение, видео, PDF или текст — до 25 МБ.",
+          contact_file_too_large: "Файл слишком большой (не более 25 МБ).",
+          contact_submit: "Отправить",
+          contact_sending: "Отправка...",
+          contact_success_title: "Сообщение отправлено",
+          contact_success_desc: "Спасибо, что написали. Мы прочитаем ваше сообщение и ответим, если потребуется.",
+          contact_success_back: "Вернуться на главную",
+          contact_error: "Не удалось отправить. Подождите немного и попробуйте снова.",
+          contact_privacy_note: "Ваше сообщение используется только для ответа на обращение."
+        },
+        hi: {
+          footer_privacy: "गोपनीयता नीति",
+          footer_other: "अन्य उत्पाद",
+          contact_back: "← मुख्य पेज पर वापस जाएँ",
+          contact_title: "संपर्क करें",
+          contact_desc: "बग की रिपोर्ट, नई सुविधा का सुझाव, एक्सटेंशन से जुड़े सवाल — बेझिझक हमें भेजें।",
+          contact_optional: "वैकल्पिक",
+          contact_required: "आवश्यक",
+          contact_email: "ईमेल पता",
+          contact_email_ph: "example@example.com",
+          contact_email_note: "अगर आप जवाब चाहते हैं तो इसे भरें।",
+          contact_site: "यह किस सेवा के बारे में है?",
+          contact_site_other: "अन्य / सामान्य सवाल",
+          contact_type: "संदेश का प्रकार",
+          contact_type_bug: "बग की रिपोर्ट",
+          contact_type_feature: "सुविधा का सुझाव",
+          contact_type_other: "अन्य",
+          contact_message: "संदेश",
+          contact_message_ph: "कृपया जितना हो सके साफ़-साफ़ लिखें। बग हो तो यह बताना मददगार होगा कि आप कौन-सा टाइटल देख रहे थे, आपने कौन-सी दो भाषाएँ चुनी थीं और स्क्रीन पर क्या दिखा।",
+          contact_file: "संलग्न फ़ाइल (स्क्रीनशॉट, वीडियो आदि)",
+          contact_file_drop: "फ़ाइल चुनने के लिए क्लिक करें",
+          contact_file_note: "इमेज, वीडियो, PDF या टेक्स्ट — अधिकतम 25MB।",
+          contact_file_too_large: "फ़ाइल बहुत बड़ी है (अधिकतम 25MB)।",
+          contact_submit: "भेजें",
+          contact_sending: "भेजा जा रहा है...",
+          contact_success_title: "आपका संदेश भेज दिया गया",
+          contact_success_desc: "संपर्क करने के लिए धन्यवाद। हम आपका संदेश देखेंगे और ज़रूरत होने पर जवाब देंगे।",
+          contact_success_back: "मुख्य पेज पर वापस जाएँ",
+          contact_error: "भेजा नहीं जा सका। कृपया थोड़ी देर बाद फिर से कोशिश करें।",
+          contact_privacy_note: "आपके संदेश का इस्तेमाल केवल आपके सवाल का जवाब देने के लिए किया जाता है।"
+        }
+      };
+
+      var SUPPORTED = Object.keys(MESSAGES);
+
+      function param(name) {
+        try { return (new URLSearchParams(location.search).get(name) || '').trim(); } catch (e) { return ''; }
+      }
+
+      // ?lang=xx > localStorage > ブラウザ言語。拡張は UI 言語を ?lang= で引き継ぐ。
+      // 中国語だけは繁体（zh-TW/HK/MO/Hant）と簡体（それ以外の zh）を書記体系で振り分ける。
+      function normalize(raw) {
+        var s = String(raw || '').toLowerCase();
+        if (!s) return '';
+        if (/^zh(-|$)/.test(s)) return /^zh-(tw|hk|mo|hant)/.test(s) ? 'zh-TW' : 'zh';
+        if (SUPPORTED.indexOf(s) !== -1) return s;
+        var primary = s.split('-')[0];
+        return SUPPORTED.indexOf(primary) !== -1 ? primary : '';
+      }
+      function detectLocale() {
+        var forced = normalize(param('lang'));
+        if (forced) return forced;
+        var saved = null;
+        try { saved = localStorage.getItem('lp_lang'); } catch (e) {}
+        if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+        return normalize(navigator.language || 'en') || 'en';
+      }
+
+      var locale = detectLocale();
+      var msgs = MESSAGES[locale];
+
+      function apply(next) {
+        locale = next;
+        msgs = MESSAGES[locale] || MESSAGES.en;
+        document.documentElement.lang = locale;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (msgs[key] !== undefined) el.textContent = msgs[key];
+        });
+        document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-ph');
+          if (msgs[key] !== undefined) el.setAttribute('placeholder', msgs[key]);
+        });
+        // プライバシーポリシーは英日切替なので、日本語のときだけ ?lang=ja を渡す
+        var pp = document.getElementById('foot-pp');
+        if (pp) pp.href = 'privacy-policy.html' + (locale === 'ja' ? '?lang=ja' : '');
+      }
+
+      var selector = document.getElementById('lang-select');
+      selector.innerHTML = SUPPORTED.map(function (code) {
+        return '<option value="' + code + '">' + (LANG_NAMES[code] || code) + '</option>';
+      }).join('');
+      selector.value = locale;
+      selector.addEventListener('change', function () {
+        try { localStorage.setItem('lp_lang', this.value); } catch (e) {}
+        apply(this.value);
+      });
+      apply(locale);
+
+      // 拡張がクエリで渡す匿名診断（v=バージョン / days=利用日数 / err=最後のエラー）
+      (function () {
+        var parts = [];
+        ['v', 'days', 'err'].forEach(function (k) {
+          var val = param(k).slice(0, 150);
+          if (val) parts.push(k + '=' + val);
+        });
+        document.getElementById('f-diagnostics').value = parts.join(', ');
+      })();
+
+      var form = document.getElementById('contact-form');
+      var success = document.getElementById('success');
+      var errorBox = document.getElementById('error-box');
+      var btn = document.getElementById('submit-btn');
+      var btnLabel = document.getElementById('submit-label');
+      var fileInput = document.getElementById('f-file');
+      var fileDrop = document.getElementById('file-drop');
+      var fileName = document.getElementById('file-name');
+      var fileClear = document.getElementById('file-clear');
+      var fileError = document.getElementById('file-error');
+
+      function syncFileUI() {
+        var f = fileInput.files[0];
+        var tooLarge = !!f && f.size > MAX_FILE_BYTES;
+        fileError.hidden = !tooLarge;
+        if (tooLarge) { fileInput.value = ''; f = null; }
+        fileDrop.classList.toggle('has-file', !!f);
+        fileName.textContent = f ? f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)' : '';
+        fileClear.hidden = !f;
+      }
+      fileInput.addEventListener('change', syncFileUI);
+      fileClear.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        fileInput.value = '';
+        syncFileUI();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        errorBox.classList.remove('show');
+        btn.disabled = true;
+        btnLabel.textContent = msgs.contact_sending;
+
+        var data = new FormData(form);
+        data.set('language', locale);
+
+        fetch(ENDPOINT, { method: 'POST', body: data })
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            if (!json.success) throw new Error(json.message || 'submit failed');
+            form.style.display = 'none';
+            success.classList.add('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          })
+          .catch(function () {
+            errorBox.classList.add('show');
+            btn.disabled = false;
+            btnLabel.textContent = msgs.contact_submit;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>

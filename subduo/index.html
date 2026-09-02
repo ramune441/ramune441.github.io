@@ -772,6 +772,7 @@
   <footer>
     <div class="footer-inner">
       <span>&copy; 2026 SubDuo by Ramune</span>
+      <a href="contact.html" id="foot-contact" data-i18n="footer_contact">Contact</a>
       <a href="privacy-policy.html" id="foot-pp" target="_blank" data-i18n="footer_privacy">Privacy Policy</a>
       <a href="https://ramune441.github.io/" data-i18n="footer_other">Other products</a>
     </div>
@@ -851,12 +852,16 @@
   </script>
   <script src="i18n-lp.js?v=1"></script>
   <script>
-    // pass the current language on to the privacy policy
+    // pass the current language on to the sub-pages
     (function () {
       function sync() {
         var lang = document.documentElement.lang || 'en';
+        // プライバシーポリシーは英日の2言語だけなので、日本語のときにだけ ?lang=ja を渡す
         var a = document.getElementById('foot-pp');
         if (a) a.href = 'privacy-policy.html' + (lang.indexOf('ja') === 0 ? '?lang=ja' : '');
+        // 問い合わせページは LP と同じ12言語
+        var c = document.getElementById('foot-contact');
+        if (c) c.href = 'contact.html?lang=' + encodeURIComponent(lang);
       }
       document.addEventListener('lp:lang', sync);
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sync); else sync();

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SubDuo Uninstall Survey</title>
+  <meta name="description" content="Thank you for trying SubDuo. Please tell us why you uninstalled — it helps us improve.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="SubDuo Uninstall Survey">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="SubDuo">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap">
+  <style>
+    :root {
+      /* SubDuo: navy + cyan — same palette as contact.html / privacy-policy.html */
+      --accent: #00A8E1; --accent-dark: #0089B8; --navy: #0F2A3F;
+      --pale: #E6F6FC; --pale-border: #B9E6F5;
+      --text: #1e293b; --text-sub: #475569; --text-light: #94a3b8;
+      --bg: #f8fafc; --border: #e2e8f0;
+      --red-50: #fef2f2; --red-200: #fecaca;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans Devanagari', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent-dark); text-decoration: none; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .nav-inner { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 17px; color: var(--navy); }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    #lang-select { font-family: inherit; font-size: 13px; color: var(--text-sub); background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+    .container { max-width: 680px; margin: 0 auto; padding: 88px 24px 80px; }
+    .page-title { font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .page-desc { font-size: 15px; color: var(--text-sub); margin-bottom: 40px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(15,42,63,0.04); }
+    .field { margin-bottom: 28px; }
+    .field-label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 100px; line-height: 1.6; }
+    .tag-req { background: var(--pale); color: var(--accent-dark); border: 1px solid var(--pale-border); }
+    .tag-opt { background: #f1f5f9; color: var(--text-light); border: 1px solid var(--border); }
+    .field-note { font-size: 12px; color: var(--text-light); margin-top: 6px; }
+    .check { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 8px; cursor: pointer; font-size: 14px; transition: border-color 0.2s, background 0.2s; }
+    .check:hover { border-color: var(--accent); background: var(--pale); }
+    .check input { width: 18px; height: 18px; margin-top: 4px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
+    .check:has(input:checked) { border-color: var(--accent); background: var(--pale); }
+    input[type="text"], textarea { width: 100%; font-family: inherit; font-size: 15px; color: var(--text); background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px 14px; line-height: 1.6; transition: border-color 0.2s, box-shadow 0.2s; }
+    input::placeholder, textarea::placeholder { color: #cbd5e1; }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,225,0.15); }
+    textarea { min-height: 140px; resize: vertical; }
+    #reason-other-text { margin-top: 8px; }
+    #reason-other-text[hidden] { display: none; }
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .hp-file { position: absolute; left: -9999px; opacity: 0; width: 0; height: 0; }
+    .file-drop { display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 14px 16px; color: var(--text-light); font-size: 14px; transition: border-color 0.2s, background 0.2s; }
+    .file-drop:hover, .file-drop.has-file { border-color: var(--accent); background: var(--pale); color: var(--accent-dark); }
+    .file-drop.has-file { border-style: solid; }
+    .file-drop svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .file-drop.has-file .file-drop-text { display: none; }
+    .file-drop-name { font-weight: 600; word-break: break-all; }
+    .file-clear { margin-left: auto; width: 24px; height: 24px; border: none; border-radius: 50%; background: rgba(0,168,225,0.12); color: var(--accent-dark); font-size: 15px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+    .submit-btn { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--accent); color: #fff; font-family: inherit; font-size: 15px; font-weight: 700; padding: 15px 32px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(0,168,225,0.25); transition: all 0.2s; }
+    .submit-btn:hover:not(:disabled) { background: var(--accent-dark); transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .submit-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .privacy-note { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 16px; }
+    .alert { display: none; border-radius: 10px; padding: 14px 16px; font-size: 14px; margin-bottom: 20px; background: var(--red-50); border: 1px solid var(--red-200); color: #b91c1c; }
+    .alert.show { display: block; }
+    .success { display: none; text-align: center; padding: 20px 0; }
+    .success.show { display: block; }
+    .success-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--pale); border: 1px solid var(--pale-border); display: flex; align-items: center; justify-content: center; }
+    .success-icon svg { width: 30px; height: 30px; stroke: var(--accent); stroke-width: 2.5; fill: none; }
+    .success-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .success-desc { font-size: 14px; color: var(--text-sub); }
+    @media (max-width: 720px) {
+      .container { padding: 84px 16px 60px; }
+      .card { padding: 28px 20px; border-radius: 14px; }
+      .page-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-brand"><img src="icons/logo.svg" alt="" width="32" height="32">SubDuo</span>
+      <select id="lang-select" aria-label="Language"></select>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="page-title" data-i18n="un_title">SubDuo Uninstall Survey</h1>
+    <p class="page-desc" data-i18n="un_desc">Thank you for trying SubDuo. Please tell us why you uninstalled — it helps us improve.</p>
+
+    <div class="card">
+      <div class="success" id="success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="success-title" data-i18n="un_success_title">Thank you for your feedback</h2>
+        <p class="success-desc" data-i18n="un_success_desc">Your response has been sent. We read every submission and use it to improve the product.</p>
+      </div>
+
+      <form id="survey-form" novalidate>
+        <div class="alert" id="error-box" data-i18n="un_error" role="alert" aria-live="polite">Sending failed. Please wait a moment and try again.</div>
+
+        <input type="hidden" name="kind" value="uninstall">
+        <input type="hidden" name="product" value="SubDuo">
+        <input type="hidden" name="language" value="en" id="f-language">
+        <input type="hidden" name="diagnostics" id="f-diagnostics">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <!-- 表示は翻訳するが value は英語カノニカル値のまま。変えると worker が 400 で弾く -->
+        <div class="field">
+          <div class="field-label">
+            <span data-i18n="un_reasons_label">Why did you uninstall? (select all that apply)</span>
+            <span class="tag tag-req" data-i18n="un_required">Required</span>
+          </div>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Didn't know how to use it">
+            <span data-i18n="un_r1">Didn't know how to use it</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="It didn't work properly / had bugs">
+            <span data-i18n="un_r2">It didn't work properly / had bugs</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Not what I expected">
+            <span data-i18n="un_r3">Not what I expected</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="No longer needed">
+            <span data-i18n="un_r4">No longer needed</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Performance issues">
+            <span data-i18n="un_r5">Performance issues</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Switched to another tool">
+            <span data-i18n="un_r6">Switched to another tool</span>
+          </label>
+          <label class="check">
+            <input type="checkbox" name="reasons" value="Other" id="reason-other">
+            <span data-i18n="un_r7">Other</span>
+          </label>
+          <input type="text" id="reason-other-text" name="reasonOther" data-i18n-ph="un_other_ph" placeholder="Please specify" hidden>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-details">
+            <span data-i18n="un_details">Details or feedback</span>
+            <span class="tag tag-req" data-i18n="un_required">Required</span>
+          </label>
+          <textarea id="f-details" name="content" maxlength="5000" data-i18n-ph="un_details_ph" placeholder="Please tell us what happened — what you expected, and what went wrong."></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-file">
+            <span data-i18n="un_file">Attached files (screenshots, videos, etc.)</span>
+            <span class="tag tag-opt" data-i18n="un_optional">Optional</span>
+          </label>
+          <label class="file-drop" id="file-drop" for="f-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span class="file-drop-text" data-i18n="un_file_drop">Click to choose a file</span>
+            <span class="file-drop-name" id="file-name"></span>
+            <button type="button" class="file-clear" id="file-clear" hidden aria-label="Remove file">&times;</button>
+          </label>
+          <input type="file" id="f-file" name="attachment" class="hp-file" accept="image/*,video/*,.pdf,.txt">
+          <p class="field-note" data-i18n="un_file_note">Image, video, PDF, or text — up to 25MB.</p>
+          <p class="field-note" id="file-error" style="color:#b91c1c" hidden data-i18n="un_file_too_large">The file is too large (max 25MB).</p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span id="submit-label" data-i18n="un_submit">Send</span>
+        </button>
+        <p class="privacy-note" data-i18n="un_privacy_note">Your response is used only to improve the product.</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
+      var MAX_FILE_BYTES = 25 * 1024 * 1024;
+
+      var LANG_NAMES = {
+        en: "English", ja: "日本語", zh: "简体中文", "zh-TW": "繁體中文", ko: "한국어", es: "Español",
+        fr: "Français", de: "Deutsch", it: "Italiano", pt: "Português", ru: "Русский", hi: "हिन्दी"
+      };
+
+      var MESSAGES = {
+        en: {
+          un_title: "SubDuo Uninstall Survey",
+          un_desc: "Thank you for trying SubDuo. Please tell us why you uninstalled — it helps us improve.",
+          un_required: "Required", un_optional: "Optional",
+          un_reasons_label: "Why did you uninstall? (select all that apply)",
+          un_r1: "Didn't know how to use it",
+          un_r2: "It didn't work properly / had bugs",
+          un_r3: "Not what I expected",
+          un_r4: "No longer needed",
+          un_r5: "Performance issues",
+          un_r6: "Switched to another tool",
+          un_r7: "Other",
+          un_other_ph: "Please specify",
+          un_details: "Details or feedback",
+          un_details_ph: "Please tell us what happened — what you expected, and what went wrong.",
+          un_file: "Attached files (screenshots, videos, etc.)",
+          un_file_drop: "Click to choose a file",
+          un_file_note: "Image, video, PDF, or text — up to 25MB.",
+          un_file_too_large: "The file is too large (max 25MB).",
+          un_submit: "Send", un_sending: "Sending...",
+          un_success_title: "Thank you for your feedback",
+          un_success_desc: "Your response has been sent. We read every submission and use it to improve the product.",
+          un_error: "Sending failed. Please wait a moment and try again.",
+          un_reasons_required: "Please select at least one reason.",
+          un_details_required: "Please enter some details — it really helps us fix the problem.",
+          un_privacy_note: "Your response is used only to improve the product."
+        },
+        ja: {
+          un_title: "SubDuo アンインストールアンケート",
+          un_desc: "SubDuo をご利用いただきありがとうございました。今後の改善のため、アンインストールの理由をお聞かせください。",
+          un_required: "必須",
+          un_optional: "任意",
+          un_reasons_label: "アンインストールした理由（複数選択可）",
+          un_r1: "使い方がわからなかった",
+          un_r2: "うまく動作しなかった・不具合があった",
+          un_r3: "期待していたものと違った",
+          un_r4: "必要なくなった",
+          un_r5: "動作が重かった",
+          un_r6: "他のツールに乗り換えた",
+          un_r7: "その他",
+          un_other_ph: "具体的にご記入ください",
+          un_details: "詳細・ご意見",
+          un_details_ph: "どのサイトのどの作品で何が起きたか、期待していた動作もあわせてご記入ください。",
+          un_file: "添付ファイル（スクリーンショット・動画など）",
+          un_file_drop: "クリックしてファイルを選択",
+          un_file_note: "画像・動画・PDF・テキスト、25MBまで。",
+          un_file_too_large: "ファイルが大きすぎます（上限25MB）。",
+          un_submit: "送信する",
+          un_sending: "送信中…",
+          un_success_title: "ご協力ありがとうございました",
+          un_success_desc: "回答を送信しました。いただいたご意見にはすべて目を通し、今後の改善に役立てます。",
+          un_error: "送信に失敗しました。時間をおいて、もう一度お試しください。",
+          un_reasons_required: "理由を1つ以上選択してください。",
+          un_details_required: "詳細をご記入ください。問題の解決に役立ちます。",
+          un_privacy_note: "いただいた回答は、今後の改善にのみ使用します。"
+        },
+        zh: {
+          un_title: "SubDuo 卸载问卷",
+          un_desc: "感谢您试用 SubDuo。请告诉我们卸载的原因，这将帮助我们改进。",
+          un_required: "必填",
+          un_optional: "选填",
+          un_reasons_label: "卸载的原因是什么？（可多选）",
+          un_r1: "不知道该怎么用",
+          un_r2: "无法正常工作/出现错误",
+          un_r3: "和预想的不一样",
+          un_r4: "已经不需要了",
+          un_r5: "性能问题（变慢、卡顿）",
+          un_r6: "改用了其他工具",
+          un_r7: "其他",
+          un_other_ph: "请具体说明",
+          un_details: "详细情况或反馈",
+          un_details_ph: "请告诉我们发生了什么：您原本期待的效果，以及实际出现的问题。",
+          un_file: "附件（截图、视频等）",
+          un_file_drop: "点击选择文件",
+          un_file_note: "图片、视频、PDF 或文本文件，最大 25MB。",
+          un_file_too_large: "文件过大（上限 25MB）。",
+          un_submit: "发送",
+          un_sending: "发送中…",
+          un_success_title: "感谢您的反馈",
+          un_success_desc: "您的回答已发送。我们会认真阅读每一份反馈，并用于改进产品。",
+          un_error: "发送失败。请稍后再试。",
+          un_reasons_required: "请至少选择一个原因。",
+          un_details_required: "请填写详细情况，这对我们解决问题很有帮助。",
+          un_privacy_note: "您的回答仅用于改进产品。"
+        },
+        "zh-TW": {
+          un_title: "SubDuo 移除問卷",
+          un_desc: "感謝您使用 SubDuo。可以告訴我們移除的原因嗎？這將幫助我們改進。",
+          un_required: "必填",
+          un_optional: "選填",
+          un_reasons_label: "移除的原因是什麼？（可複選）",
+          un_r1: "不知道怎麼使用",
+          un_r2: "無法正常運作／有錯誤",
+          un_r3: "跟預期的不一樣",
+          un_r4: "已經不需要了",
+          un_r5: "效能問題（變慢、卡住）",
+          un_r6: "改用其他工具了",
+          un_r7: "其他",
+          un_other_ph: "請具體說明",
+          un_details: "詳細情況或意見回饋",
+          un_details_ph: "請告訴我們發生了什麼事：您原本期待的結果，以及實際遇到的狀況。",
+          un_file: "附加檔案（螢幕截圖、影片等）",
+          un_file_drop: "按一下選擇檔案",
+          un_file_note: "圖片、影片、PDF 或文字檔，最大 25MB。",
+          un_file_too_large: "檔案過大（上限 25MB）。",
+          un_submit: "送出",
+          un_sending: "送出中…",
+          un_success_title: "感謝您的意見回饋",
+          un_success_desc: "您的回覆已送出。我們會逐一閱讀，並用於改進產品。",
+          un_error: "送出失敗。請稍後再試一次。",
+          un_reasons_required: "請至少選擇一項原因。",
+          un_details_required: "請填寫詳細情況，這對我們解決問題非常有幫助。",
+          un_privacy_note: "您的回覆僅用於改進產品。"
+        },
+        ko: {
+          un_title: "SubDuo 제거 설문",
+          un_desc: "SubDuo를 사용해 주셔서 감사합니다. 제거하신 이유를 알려 주시면 개선에 큰 도움이 됩니다.",
+          un_required: "필수",
+          un_optional: "선택",
+          un_reasons_label: "제거하신 이유는 무엇인가요? (해당하는 항목 모두 선택)",
+          un_r1: "사용법을 몰랐어요",
+          un_r2: "제대로 작동하지 않거나 오류가 있었어요",
+          un_r3: "기대했던 것과 달랐어요",
+          un_r4: "더 이상 필요하지 않아요",
+          un_r5: "동작이 느리거나 무거웠어요",
+          un_r6: "다른 도구로 바꿨어요",
+          un_r7: "기타",
+          un_other_ph: "이유를 적어 주세요",
+          un_details: "자세한 내용 및 의견",
+          un_details_ph: "어떤 일이 있었는지 알려 주세요. 기대하신 동작과 실제로 겪으신 문제를 함께 적어 주시면 도움이 됩니다.",
+          un_file: "첨부 파일(스크린샷·동영상 등)",
+          un_file_drop: "클릭하여 파일 선택",
+          un_file_note: "이미지·동영상·PDF·텍스트, 최대 25MB.",
+          un_file_too_large: "파일이 너무 큽니다(최대 25MB).",
+          un_submit: "보내기",
+          un_sending: "보내는 중…",
+          un_success_title: "소중한 의견 감사합니다",
+          un_success_desc: "답변을 보냈습니다. 주신 의견은 모두 읽고 제품 개선에 반영하고 있습니다.",
+          un_error: "보내지 못했습니다. 잠시 후 다시 시도해 주세요.",
+          un_reasons_required: "이유를 하나 이상 선택해 주세요.",
+          un_details_required: "자세한 내용을 입력해 주세요. 문제를 해결하는 데 큰 도움이 됩니다.",
+          un_privacy_note: "설문 답변은 제품 개선에만 사용합니다."
+        },
+        es: {
+          un_title: "Encuesta de desinstalación de SubDuo",
+          un_desc: "Gracias por probar SubDuo. Cuéntanos por qué lo has desinstalado: nos ayuda a mejorar.",
+          un_required: "Obligatorio",
+          un_optional: "Opcional",
+          un_reasons_label: "¿Por qué lo has desinstalado? (marca todas las que correspondan)",
+          un_r1: "No sabía cómo usarlo",
+          un_r2: "No funcionaba bien / tenía errores",
+          un_r3: "No era lo que esperaba",
+          un_r4: "Ya no lo necesito",
+          un_r5: "Problemas de rendimiento",
+          un_r6: "Me he pasado a otra herramienta",
+          un_r7: "Otro",
+          un_other_ph: "Indícanos el motivo",
+          un_details: "Detalles o comentarios",
+          un_details_ph: "Cuéntanos qué pasó: qué esperabas y qué salió mal.",
+          un_file: "Archivos adjuntos (capturas, vídeos, etc.)",
+          un_file_drop: "Haz clic para elegir un archivo",
+          un_file_note: "Imagen, vídeo, PDF o texto — hasta 25MB.",
+          un_file_too_large: "El archivo es demasiado grande (máx. 25MB).",
+          un_submit: "Enviar",
+          un_sending: "Enviando...",
+          un_success_title: "Gracias por tus comentarios",
+          un_success_desc: "Tu respuesta se ha enviado. Leemos todas las respuestas y las usamos para mejorar el producto.",
+          un_error: "No se pudo enviar. Espera un momento e inténtalo de nuevo.",
+          un_reasons_required: "Selecciona al menos un motivo.",
+          un_details_required: "Escribe algunos detalles: nos ayudan mucho a solucionar el problema.",
+          un_privacy_note: "Tu respuesta se usa únicamente para mejorar el producto."
+        },
+        fr: {
+          un_title: "Questionnaire de désinstallation de SubDuo",
+          un_desc: "Merci d'avoir essayé SubDuo. Dites-nous pourquoi vous l'avez désinstallé : cela nous aide à améliorer l'extension.",
+          un_required: "Obligatoire",
+          un_optional: "Facultatif",
+          un_reasons_label: "Pourquoi avez-vous désinstallé l'extension ? (plusieurs réponses possibles)",
+          un_r1: "Je ne savais pas comment l'utiliser",
+          un_r2: "Elle ne fonctionnait pas correctement / avait des bugs",
+          un_r3: "Ce n'était pas ce que j'attendais",
+          un_r4: "Je n'en ai plus besoin",
+          un_r5: "Problèmes de performances",
+          un_r6: "J'ai opté pour un autre outil",
+          un_r7: "Autre",
+          un_other_ph: "Précisez le motif",
+          un_details: "Détails ou commentaires",
+          un_details_ph: "Racontez-nous ce qui s'est passé : ce que vous attendiez et ce qui n'a pas fonctionné.",
+          un_file: "Pièces jointes (captures d'écran, vidéos, etc.)",
+          un_file_drop: "Cliquez pour choisir un fichier",
+          un_file_note: "Image, vidéo, PDF ou texte — jusqu'à 25 Mo.",
+          un_file_too_large: "Le fichier est trop volumineux (max. 25 Mo).",
+          un_submit: "Envoyer",
+          un_sending: "Envoi en cours...",
+          un_success_title: "Merci pour votre retour",
+          un_success_desc: "Votre réponse a bien été envoyée. Nous lisons tous les messages et en tenons compte pour améliorer l'extension.",
+          un_error: "L'envoi a échoué. Veuillez patienter un instant et réessayer.",
+          un_reasons_required: "Sélectionnez au moins une raison.",
+          un_details_required: "Ajoutez quelques détails : cela nous aide beaucoup à résoudre le problème.",
+          un_privacy_note: "Votre réponse est utilisée uniquement pour améliorer l'extension."
+        },
+        de: {
+          un_title: "SubDuo – Umfrage zur Deinstallation",
+          un_desc: "Vielen Dank, dass Sie SubDuo ausprobiert haben. Sagen Sie uns bitte kurz, warum Sie die Erweiterung deinstalliert haben – das hilft uns, besser zu werden.",
+          un_required: "Pflichtfeld",
+          un_optional: "Optional",
+          un_reasons_label: "Warum haben Sie die Erweiterung deinstalliert? (Mehrfachauswahl möglich)",
+          un_r1: "Ich wusste nicht, wie man sie benutzt",
+          un_r2: "Sie hat nicht richtig funktioniert / hatte Fehler",
+          un_r3: "Nicht das, was ich erwartet hatte",
+          un_r4: "Ich brauche sie nicht mehr",
+          un_r5: "Leistungsprobleme",
+          un_r6: "Ich nutze jetzt ein anderes Tool",
+          un_r7: "Sonstiges",
+          un_other_ph: "Bitte kurz beschreiben",
+          un_details: "Details oder Feedback",
+          un_details_ph: "Bitte schildern Sie kurz, was passiert ist: was Sie erwartet haben und was nicht funktioniert hat.",
+          un_file: "Anhänge (Screenshots, Videos usw.)",
+          un_file_drop: "Klicken, um eine Datei auszuwählen",
+          un_file_note: "Bild, Video, PDF oder Text – bis zu 25 MB.",
+          un_file_too_large: "Die Datei ist zu groß (max. 25 MB).",
+          un_submit: "Senden",
+          un_sending: "Wird gesendet…",
+          un_success_title: "Vielen Dank für Ihr Feedback",
+          un_success_desc: "Ihre Antwort wurde gesendet. Wir lesen jede Rückmeldung und verbessern damit das Produkt.",
+          un_error: "Senden fehlgeschlagen. Bitte warten Sie kurz und versuchen Sie es erneut.",
+          un_reasons_required: "Bitte wählen Sie mindestens einen Grund aus.",
+          un_details_required: "Bitte schreiben Sie noch ein paar Details – das hilft uns sehr, das Problem zu beheben.",
+          un_privacy_note: "Ihre Antwort wird ausschließlich zur Verbesserung des Produkts verwendet."
+        },
+        it: {
+          un_title: "Sondaggio sulla disinstallazione di SubDuo",
+          un_desc: "Grazie per aver provato SubDuo. Raccontaci perché l'hai disinstallato: ci aiuta a migliorarlo.",
+          un_required: "Obbligatorio",
+          un_optional: "Facoltativo",
+          un_reasons_label: "Perché l'hai disinstallato? (più risposte possibili)",
+          un_r1: "Non ho capito come si usa",
+          un_r2: "Non funzionava correttamente / dava problemi",
+          un_r3: "Non era quello che mi aspettavo",
+          un_r4: "Non mi serve più",
+          un_r5: "Problemi di prestazioni",
+          un_r6: "Sono passato a un altro strumento",
+          un_r7: "Altro",
+          un_other_ph: "Specifica il motivo",
+          un_details: "Dettagli o commenti",
+          un_details_ph: "Raccontaci che cosa è successo e che cosa ti aspettavi invece.",
+          un_file: "Allegati (screenshot, video, ecc.)",
+          un_file_drop: "Clicca per scegliere un file",
+          un_file_note: "Immagine, video, PDF o testo — fino a 25 MB.",
+          un_file_too_large: "Il file è troppo grande (max 25 MB).",
+          un_submit: "Invia",
+          un_sending: "Invio in corso...",
+          un_success_title: "Grazie per il tuo contributo",
+          un_success_desc: "La tua risposta è stata inviata. Leggiamo tutti i messaggi e li usiamo per migliorare il prodotto.",
+          un_error: "Invio non riuscito. Attendi un momento e riprova.",
+          un_reasons_required: "Seleziona almeno un motivo.",
+          un_details_required: "Aggiungi qualche dettaglio: ci aiuta a capire il problema.",
+          un_privacy_note: "La tua risposta viene usata solo per migliorare il prodotto."
+        },
+        pt: {
+          un_title: "Pesquisa de desinstalação do SubDuo",
+          un_desc: "Obrigado por experimentar o SubDuo. Conte por que você desinstalou — isso nos ajuda a melhorar.",
+          un_required: "Obrigatório",
+          un_optional: "Opcional",
+          un_reasons_label: "Por que você desinstalou? (marque todas as que se aplicam)",
+          un_r1: "Não entendi como usar",
+          un_r2: "Não funcionou direito / apresentou erros",
+          un_r3: "Não era o que eu esperava",
+          un_r4: "Não preciso mais",
+          un_r5: "Problemas de desempenho",
+          un_r6: "Mudei para outra ferramenta",
+          un_r7: "Outro",
+          un_other_ph: "Descreva o motivo",
+          un_details: "Detalhes ou comentários",
+          un_details_ph: "Conte o que aconteceu: o que você esperava e o que deu errado.",
+          un_file: "Arquivos anexos (capturas de tela, vídeos etc.)",
+          un_file_drop: "Clique para escolher um arquivo",
+          un_file_note: "Imagem, vídeo, PDF ou texto — até 25MB.",
+          un_file_too_large: "O arquivo é grande demais (máx. 25MB).",
+          un_submit: "Enviar",
+          un_sending: "Enviando...",
+          un_success_title: "Obrigado pelos seus comentários",
+          un_success_desc: "Sua resposta foi enviada. Lemos tudo o que chega e usamos isso para melhorar o produto.",
+          un_error: "Falha no envio. Aguarde um momento e tente novamente.",
+          un_reasons_required: "Selecione pelo menos um motivo.",
+          un_details_required: "Escreva alguns detalhes — isso nos ajuda muito a corrigir o problema.",
+          un_privacy_note: "Sua resposta é usada apenas para melhorar o produto."
+        },
+        ru: {
+          un_title: "Опрос при удалении SubDuo",
+          un_desc: "Спасибо, что попробовали SubDuo. Расскажите, почему вы удалили расширение. Это поможет нам стать лучше.",
+          un_required: "Обязательно",
+          un_optional: "Необязательно",
+          un_reasons_label: "Почему вы удалили расширение? (можно выбрать несколько)",
+          un_r1: "Было непонятно, как им пользоваться",
+          un_r2: "Работало неправильно или с ошибками",
+          un_r3: "Не оправдало ожиданий",
+          un_r4: "Больше не нужно",
+          un_r5: "Проблемы с производительностью",
+          un_r6: "Пользуюсь другим расширением",
+          un_r7: "Другое",
+          un_other_ph: "Уточните, пожалуйста",
+          un_details: "Подробности или отзыв",
+          un_details_ph: "Расскажите, что произошло: чего вы ждали и что пошло не так.",
+          un_file: "Вложения (скриншоты, видео и т. п.)",
+          un_file_drop: "Нажмите, чтобы выбрать файл",
+          un_file_note: "Изображение, видео, PDF или текст — до 25 МБ.",
+          un_file_too_large: "Файл слишком большой (не более 25 МБ).",
+          un_submit: "Отправить",
+          un_sending: "Отправка...",
+          un_success_title: "Спасибо за отзыв",
+          un_success_desc: "Ваш ответ отправлен. Мы читаем все ответы и учитываем их при доработке расширения.",
+          un_error: "Не удалось отправить. Подождите немного и попробуйте снова.",
+          un_reasons_required: "Выберите хотя бы одну причину.",
+          un_details_required: "Добавьте немного подробностей — это очень помогает нам исправить проблему.",
+          un_privacy_note: "Ваш ответ используется только для улучшения расширения."
+        },
+        hi: {
+          un_title: "SubDuo अनइंस्टॉल सर्वे",
+          un_desc: "SubDuo आज़माने के लिए धन्यवाद। कृपया बताएँ कि आपने इसे क्यों अनइंस्टॉल किया — इससे हमें एक्सटेंशन को बेहतर बनाने में मदद मिलती है।",
+          un_required: "आवश्यक",
+          un_optional: "वैकल्पिक",
+          un_reasons_label: "आपने इसे क्यों अनइंस्टॉल किया? (जो भी लागू हो, सब चुनें)",
+          un_r1: "समझ नहीं आया कि इसे कैसे इस्तेमाल करें",
+          un_r2: "ठीक से काम नहीं किया / बग थे",
+          un_r3: "उम्मीद के मुताबिक नहीं निकला",
+          un_r4: "अब ज़रूरत नहीं रही",
+          un_r5: "ब्राउज़र धीमा हो गया",
+          un_r6: "किसी दूसरे टूल का इस्तेमाल शुरू कर दिया",
+          un_r7: "अन्य",
+          un_other_ph: "कृपया संक्षेप में बताएँ",
+          un_details: "विवरण या फ़ीडबैक",
+          un_details_ph: "कृपया बताएँ कि क्या हुआ — आप क्या उम्मीद कर रहे थे और क्या गड़बड़ हुई।",
+          un_file: "संलग्न फ़ाइलें (स्क्रीनशॉट, वीडियो आदि)",
+          un_file_drop: "फ़ाइल चुनने के लिए क्लिक करें",
+          un_file_note: "इमेज, वीडियो, PDF या टेक्स्ट — अधिकतम 25MB।",
+          un_file_too_large: "फ़ाइल बहुत बड़ी है (अधिकतम 25MB)।",
+          un_submit: "भेजें",
+          un_sending: "भेजा जा रहा है...",
+          un_success_title: "आपके फ़ीडबैक के लिए धन्यवाद",
+          un_success_desc: "आपका जवाब भेज दिया गया। हम हर फ़ीडबैक पढ़ते हैं और उसी से उत्पाद को बेहतर बनाते हैं।",
+          un_error: "भेजा नहीं जा सका। कृपया थोड़ी देर बाद फिर से कोशिश करें।",
+          un_reasons_required: "कृपया कम से कम एक कारण चुनें।",
+          un_details_required: "कृपया कुछ विवरण लिखें — इससे समस्या ठीक करने में बहुत मदद मिलती है।",
+          un_privacy_note: "आपके जवाब का इस्तेमाल केवल उत्पाद को बेहतर बनाने के लिए किया जाता है।"
+        }
+      };
+
+      var SUPPORTED = Object.keys(MESSAGES);
+
+      function param(name) {
+        try { return (new URLSearchParams(location.search).get(name) || '').trim(); } catch (e) { return ''; }
+      }
+
+      // 中国語は繁体（zh-TW/HK/MO/Hant）と簡体（それ以外）を書記体系で振り分ける
+      function normalize(raw) {
+        var s = String(raw || '').toLowerCase();
+        if (!s) return '';
+        if (/^zh(-|$)/.test(s)) return /^zh-(tw|hk|mo|hant)/.test(s) ? 'zh-TW' : 'zh';
+        if (SUPPORTED.indexOf(s) !== -1) return s;
+        var primary = s.split('-')[0];
+        return SUPPORTED.indexOf(primary) !== -1 ? primary : '';
+      }
+
+      var msgs = MESSAGES.en;
+      var locale = 'en';
+
+      function apply(next) {
+        locale = next;
+        msgs = MESSAGES[locale] || MESSAGES.en;
+        document.documentElement.lang = locale;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (msgs[key] !== undefined) el.textContent = msgs[key];
+        });
+        document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-ph');
+          if (msgs[key] !== undefined) el.setAttribute('placeholder', msgs[key]);
+        });
+        // 通知メールに出る language は、実際に読んだ言語に合わせる
+        document.getElementById('f-language').value = locale;
+      }
+
+      // 拡張が渡す ?lang= を最優先。無ければブラウザ言語。
+      var initial = normalize(param('lang'));
+      if (!initial) {
+        try {
+          var saved = localStorage.getItem('lp_lang');
+          if (saved && SUPPORTED.indexOf(saved) !== -1) initial = saved;
+        } catch (e) {}
+      }
+      if (!initial) initial = normalize(navigator.language || 'en') || 'en';
+
+      var selector = document.getElementById('lang-select');
+      selector.innerHTML = SUPPORTED.map(function (code) {
+        return '<option value="' + code + '">' + (LANG_NAMES[code] || code) + '</option>';
+      }).join('');
+      selector.value = initial;
+      selector.addEventListener('change', function () { apply(this.value); });
+      apply(initial);
+
+      // 拡張がクエリで渡す匿名診断（v=バージョン / days=利用日数 / err=最後のエラー）。
+      // lang は diagnostics に入れない（language 欄と二重になるため）。
+      (function () {
+        var parts = [];
+        ['v', 'days', 'err'].forEach(function (k) {
+          var val = param(k).slice(0, 150);
+          if (val) parts.push(k + '=' + val);
+        });
+        document.getElementById('f-diagnostics').value = parts.join(', ');
+      })();
+
+      var form = document.getElementById('survey-form');
+      var success = document.getElementById('success');
+      var errorBox = document.getElementById('error-box');
+      var btn = document.getElementById('submit-btn');
+      var btnLabel = document.getElementById('submit-label');
+      var otherBox = document.getElementById('reason-other');
+      var otherText = document.getElementById('reason-other-text');
+      var fileInput = document.getElementById('f-file');
+      var fileDrop = document.getElementById('file-drop');
+      var fileName = document.getElementById('file-name');
+      var fileClear = document.getElementById('file-clear');
+      var fileError = document.getElementById('file-error');
+
+      // 「その他」を選んだときだけ自由記述欄を出す
+      otherBox.addEventListener('change', function () {
+        otherText.hidden = !otherBox.checked;
+        if (otherBox.checked) otherText.focus(); else otherText.value = '';
+      });
+
+      function syncFileUI() {
+        var f = fileInput.files[0];
+        var tooLarge = !!f && f.size > MAX_FILE_BYTES;
+        fileError.hidden = !tooLarge;
+        if (tooLarge) { fileInput.value = ''; f = null; }
+        fileDrop.classList.toggle('has-file', !!f);
+        fileName.textContent = f ? f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)' : '';
+        fileClear.hidden = !f;
+      }
+      fileInput.addEventListener('change', syncFileUI);
+      fileClear.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        fileInput.value = '';
+        syncFileUI();
+      });
+
+      function showError(text) {
+        errorBox.textContent = text;
+        errorBox.classList.add('show');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorBox.classList.remove('show');
+
+        if (!form.querySelectorAll('input[name="reasons"]:checked').length) {
+          showError(msgs.un_reasons_required);
+          return;
+        }
+
+        var details = document.getElementById('f-details');
+        if (!details.value.trim()) {
+          showError(msgs.un_details_required);
+          details.focus();
+          return;
+        }
+
+        btn.disabled = true;
+        btnLabel.textContent = msgs.un_sending;
+
+        fetch(ENDPOINT, { method: 'POST', body: new FormData(form) })
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            if (!json.success) throw new Error(json.message || 'submit failed');
+            form.style.display = 'none';
+            success.classList.add('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          })
+          .catch(function () {
+            showError(msgs.un_error);
+            btn.disabled = false;
+            btnLabel.textContent = msgs.un_submit;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>
