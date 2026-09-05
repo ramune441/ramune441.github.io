@@ -115,6 +115,7 @@
         <div class="alert" id="error-box" data-i18n="contact_error" role="alert" aria-live="polite">送信に失敗しました。時間をおいて、もう一度お試しください。</div>
 
         <input type="hidden" name="product" value="Ashiato Maker">
+        <input type="hidden" name="diagnostics" id="f-diagnostics">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
         <div class="field">
@@ -220,6 +221,23 @@
         var key = el.getAttribute('data-i18n-ph');
         if (msgs[key] !== undefined) el.setAttribute('placeholder', msgs[key]);
       });
+
+      // 拡張機能が問い合わせリンクに付与する匿名診断
+      // (v=バージョン, app=アプリキー, days=利用日数, visits=累計訪問数, runs=実行回数,
+      //  ev=失敗の種別ごとの件数, evLast=最新の失敗からの経過分, evSpan=記録が覆う期間(分))
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var parts = [];
+        ['v', 'days', 'visits', 'runs', 'ev', 'evLast', 'evSpan'].forEach(function (k) {
+          var val = (params.get(k) || '').slice(0, 150);
+          if (val) parts.push(k + '=' + val);
+        });
+        document.getElementById('f-diagnostics').value = parts.join(', ');
+        // アプリキーは「使っているアプリ」の初期値にする（ユーザーは変更できる）
+        var APP_OPTIONS = { pairs: 'Pairs', with: 'With', toukare: '東カレデート', tinder: 'Tinder' };
+        var appValue = APP_OPTIONS[(params.get('app') || '').toLowerCase()];
+        if (appValue) document.getElementById('f-app').value = appValue;
+      })();
 
       var form = document.getElementById('contact-form');
       var success = document.getElementById('success');

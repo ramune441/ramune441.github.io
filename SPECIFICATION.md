@@ -16,7 +16,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/promo[-lang].webm` `promo[-lang].mp4` | 動画 | - | no | プロモ動画 ×11言語（en=無印）。**4K録画（deviceScaleFactor=2）**から生成: webm=1080p VP9(lanczos縮小/33.0s)、mp4=4K H.264+AAC BGM（YouTube用。BGM は旧動画「FormPilot ver2」と同一音源）。**YouTube 公開済み（4K版・タイトル「FormPilot ver2 (言語名)」）**: en=c02Ka-_WdIE / ja=2Caux6fcero / zh=3RzbNsLkw6Q / ko=qqjFaQIk0IQ / es=4eLZeM5lRLo / fr=ljIlLc6FTM8 / de=FhwzRQyPnQo / pt=df5TcuOgLvM / hi=ZSdSh7UxRnc / id=nmI-oOZIHRs / ar=Uue8B-AuAj4（旧1080p版11本は非公開化済み）。各言語のストア掲載情報のプロモ動画欄に `https://www.youtube.com/watch?v=<ID>` を設定（手動） |
 | `/formpilot/images/<lang>/` | ストア画像(翻訳版) | - | no | `store-image-{1..5}.png`(1280x800) + `store-tile-marquee.png`(1400x560) × 10言語。生成元は拡張リポジトリ FormPilot の `store-image-*.html` + `store-i18n.js`(`?lang=` 指定・ar はRTL)。en は `/formpilot/` 直下 |
 | `/ashiato-maker/` | LP | index | yes | Chrome拡張。デモは**実際のPairs画面のキャプチャ**(`pairs-real.png`)＋日本語パネルレプリカ重ね。写真は実会員のため実写真にブラー(blur 9px)をかけた上で撮影 |
-| `/ashiato-maker/contact.html` | 問い合わせ | index | yes | 自前フォーム（自己完結型・インライン11言語辞書）。「使っているアプリ」選択（Pairs/With/東カレデート/Tinder → `app` フィールド）つき |
+| `/ashiato-maker/contact.html` | 問い合わせ | index | yes | 自前フォーム（自己完結型・インライン11言語辞書）。「使っているアプリ」選択（Pairs/With/東カレデート/Tinder → `app` フィールド）つき。拡張がクエリで渡す匿名診断（`v`/`days`/`visits`/`runs`/`ev`/`evLast`/`evSpan`）を hidden `diagnostics` に集約して送信し、`app`（アプリキー）は選択の初期値に反映 |
 | `/ashiato-maker/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（日本語）。`chrome.runtime.setUninstallURL` の遷移先。拡張がクエリで渡す匿名診断（`v`/`days`/`visits`/`runs`）を hidden `diagnostics` に集約して送信。詳細欄は**必須** |
 | `/ashiato-maker/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/ashiato-maker/pairs-real.png` | 画像 | - | no | 実際のPairs検索画面キャプチャ(2400x1500)。会員写真は実写真ぼかし処理。LPのデモ画像に使用 |
