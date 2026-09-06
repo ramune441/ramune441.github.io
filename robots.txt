@@ -7,6 +7,7 @@ Disallow: /formpilot/promo.html
 Disallow: /ashiato-maker/promo.html
 Disallow: /sendready-chrome/promo.html
 Disallow: /ripen/promo.html
+Disallow: /subduo/promo.html
 
 # ストア画像生成用HTMLはインデックス対象外
 Disallow: /sendready-chrome/store-images.html

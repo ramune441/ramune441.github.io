@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920">
+<meta name="robots" content="noindex, nofollow">
+<title>SubDuo Promo Video</title>
+<!--
+  1920x1080 の HTML アニメーション。record-promo.mjs が page.screencast() で録画する。
+  文言は LP の辞書 (i18n-lp.js / LP_MESSAGES) をそのまま使う: promo.html?lang=ja のように開くと
+  initLP() が data-i18n / data-i18n-html を差し替える（英語が DOM 既定）。
+  デモの UI は index.html のプレイヤー / ポップアップ / 右クリックパネルのモックを 1920px 向けに拡大したもの。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Sans+TC:wght@400;500;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cy:#38B6FF;--cy-deep:#00A8E1;--cy-pale:#8FD0FF;--yel:#FFD76A;
+  --bg:#0A0E1A;--bg-2:#0F1830;--bg-3:#141F3B;--navy:#0F2A3F;
+  --card:rgba(255,255,255,.04);--border:rgba(255,255,255,.10);--border-strong:rgba(255,255,255,.18);
+  --text:#E2E8F0;--text-sub:#A3AECB;--text-light:#7C879F;
+}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Inter','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+html[lang="ja"] body{font-family:'Noto Sans JP','Inter',sans-serif}
+html[lang="ko"] body{font-family:'Noto Sans KR','Inter',sans-serif}
+html[lang="zh"] body{font-family:'Noto Sans SC','Inter',sans-serif}
+html[lang="zh-TW"] body{font-family:'Noto Sans TC','Inter',sans-serif}
+html[lang="hi"] body{font-family:'Noto Sans Devanagari','Inter',sans-serif}
+/* Devanagari needs taller line boxes so matras don't clip */
+html[lang="hi"] .itagline,html[lang="hi"] .prob-h,html[lang="hi"] .steps-h,html[lang="hi"] .fhead h2,html[lang="hi"] .cta-ttl,html[lang="hi"] .co-body b{line-height:1.45}
+html[lang="hi"] .eyebrow{letter-spacing:0}
+html[lang="ja"] .prob-h,html[lang="zh"] .prob-h,html[lang="zh-TW"] .prob-h{font-size:56px}
+
+.bg-base{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% -5%,rgba(56,182,255,.16) 0%,transparent 65%),linear-gradient(180deg,#0A0E1A 0%,#0F1830 100%)}
+.bg-glow{position:absolute;width:900px;height:900px;border-radius:50%;bottom:-420px;right:-260px;background:radial-gradient(circle,rgba(255,215,106,.08) 0%,transparent 68%);pointer-events:none}
+
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .7s ease;pointer-events:none}
+.scene.show{opacity:1}
+.eyebrow{font-size:20px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cy);margin-bottom:14px}
+.rise{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.rise.show{opacity:1;transform:translateY(0)}
+
+/* S1 INTRO */
+.intro-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+.iburst{display:flex;align-items:center;gap:30px;opacity:0;transform:scale(.88);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.iburst.show{opacity:1;transform:scale(1)}
+.iburst-icon{width:132px;height:132px;border-radius:30px;box-shadow:0 16px 50px rgba(56,182,255,.35)}
+.iburst-name{font-size:132px;font-weight:900;color:#fff;letter-spacing:-5px;line-height:1;font-family:'Inter',sans-serif}
+.itagline{font-size:52px;font-weight:800;color:#fff;text-align:center;line-height:1.3;max-width:1500px}
+.itagline .accent{color:var(--cy)}
+.svc-row{display:flex;gap:16px}
+.svc{display:inline-flex;align-items:center;gap:12px;font-size:28px;font-weight:800;color:#fff;background:rgba(56,182,255,.08);border:1.5px solid rgba(56,182,255,.3);border-radius:18px;padding:14px 30px;font-family:'Inter',sans-serif}
+.svc i{width:38px;height:38px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:19px;font-weight:900;color:#06121c;flex:none}
+.svc .pv{background:linear-gradient(135deg,#00A8E1,#1FB6FF)}.svc .yt{background:#FF0033;color:#fff}.svc .nf{background:#E50914;color:#fff}.svc .dp{background:linear-gradient(135deg,#1a3fa8,#0a2472);color:#fff}
+
+/* S2 PROBLEM (before/after) */
+.prob-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;padding:0 140px}
+.prob-head{text-align:center}
+.prob-h{font-size:62px;font-weight:900;color:#fff;line-height:1.25;max-width:1560px}
+.prob-cards{display:flex;gap:30px;width:100%;max-width:1520px;transition-delay:.15s}
+.prob-card{flex:1;border-radius:24px;padding:38px 46px;display:flex;flex-direction:column;gap:18px;border:1.5px solid var(--border);background:var(--card)}
+.prob-card.good{border-color:rgba(56,182,255,.45);background:linear-gradient(160deg,rgba(56,182,255,.12),rgba(56,182,255,.03));box-shadow:0 20px 60px rgba(0,168,225,.14)}
+.pcard-title{font-size:22px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-bottom:4px}
+.pcard-title.good{color:var(--cy)}
+.pitem{display:flex;align-items:flex-start;gap:16px;font-size:27px;font-weight:500;color:var(--text-sub);line-height:1.5}
+.pitem::before{content:'✕';color:#f87171;font-weight:800;flex:none}
+.pitem.good{color:var(--text)}.pitem.good::before{content:'✓';color:var(--cy)}
+
+/* S3 STEPS */
+.steps-wrap{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:50px}
+.steps-head{text-align:center}
+.steps-h{font-size:74px;font-weight:900;color:#fff;line-height:1.15}
+.steps-row{display:flex;gap:28px;width:100%;max-width:1620px;padding:0 20px}
+.step-card{flex:1;background:var(--card);border:1.5px solid var(--border);border-radius:24px;padding:38px 36px;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(30px);transition:opacity .5s,transform .5s}
+.step-card.show{opacity:1;transform:translateY(0)}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#00A8E1,#38B6FF);color:#06121c;font-size:28px;font-weight:800;box-shadow:0 4px 20px rgba(56,182,255,.4);font-family:'Inter',sans-serif}
+.step-ttl{font-size:32px;font-weight:800;color:#fff;line-height:1.3}
+.step-desc{font-size:21px;color:var(--text-sub);line-height:1.55}
+
+/* DEMO stage: a browser window that slides left/right */
+.demo-stage{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.demo-stage.show{opacity:1}
+.device{position:absolute;width:1200px;top:172px;left:360px;transition:left .7s cubic-bezier(.16,1,.3,1);border-radius:20px;overflow:hidden;background:#000;box-shadow:0 36px 100px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.1)}
+.device.left{left:80px}.device.right{left:640px}
+.win-bar{height:58px;background:#1c2030;display:flex;align-items:center;gap:10px;padding:0 22px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dot{width:16px;height:16px;border-radius:50%}.dr{background:#ff5f57}.dy{background:#febc2e}.dg{background:#28c840}
+.url{flex:1;height:38px;background:#0f1320;border:1px solid rgba(255,255,255,.1);border-radius:10px;margin-left:16px;display:flex;align-items:center;padding:0 18px;font-size:20px;color:#9aa3bf;font-family:'Inter',sans-serif}
+.ext-ico{width:34px;height:34px;margin-left:14px;border-radius:8px}
+.win-body{position:relative;width:1200px;height:675px;background:#000}
+
+/* player mock (mirrors index.html .player) */
+.player{position:absolute;inset:0;overflow:hidden;text-align:center}
+.pscene{position:absolute;inset:0;background:linear-gradient(180deg,#0b1a33 0%,#1c3a64 34%,#c8683c 60%,#f2a45b 68%,#20304d 68.2%,#0a1424 100%)}
+.pscene::before{content:'';position:absolute;left:50%;top:52%;width:18%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#fff3c2 0%,#ffc46b 45%,rgba(255,150,80,0) 72%);transform:translate(-50%,-50%);filter:blur(2px)}
+.pscene .sea{position:absolute;left:0;right:0;top:68%;bottom:0;background:linear-gradient(180deg,rgba(255,180,100,.35) 0%,rgba(20,40,80,.2) 30%,rgba(5,10,25,.6) 100%)}
+.pscene .glint{position:absolute;left:46.5%;right:46.5%;top:68.5%;height:16%;background:repeating-linear-gradient(180deg,rgba(255,220,150,.5) 0 2px,transparent 2px 7px);filter:blur(.8px);opacity:.55}
+.pscene .hill{position:absolute;bottom:0;background:#060b16}
+.pscene .hill.l{left:-4%;width:42%;height:40%;clip-path:polygon(0 100%,0 42%,12% 30%,24% 38%,33% 22%,45% 34%,58% 20%,70% 36%,84% 28%,100% 44%,100% 100%)}
+.pscene .hill.r{right:-6%;width:46%;height:36%;clip-path:polygon(0 100%,0 48%,10% 36%,22% 42%,36% 24%,50% 34%,62% 18%,75% 30%,88% 26%,100% 40%,100% 100%)}
+.pscene .vignette{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 45%,transparent 45%,rgba(0,0,0,.55) 100%)}
+.p-top{position:absolute;top:0;left:0;right:0;padding:26px 34px;display:flex;align-items:center;gap:22px;color:#fff;text-align:left;background:linear-gradient(180deg,rgba(0,0,0,.55),transparent);font-size:23px}
+.p-top .back{font-size:34px;line-height:1;opacity:.9}
+.p-top .title{font-weight:700}.p-top .ep{font-weight:400;opacity:.75;margin-left:6px}
+.p-ctrl{position:absolute;left:0;right:0;bottom:0;padding:18px 34px 20px;background:linear-gradient(0deg,rgba(0,0,0,.72),transparent);color:#fff;font-size:18px;opacity:0;transition:opacity .4s}
+.p-ctrl.on{opacity:1}
+.p-bar{position:relative;height:6px;background:rgba(255,255,255,.28);border-radius:999px;margin-bottom:14px}
+.p-bar .fill{position:absolute;left:0;top:0;bottom:0;width:63%;background:var(--cy-deep);border-radius:999px}
+.p-bar .knob{position:absolute;left:63%;top:50%;width:18px;height:18px;background:#fff;border-radius:50%;transform:translate(-50%,-50%)}
+.p-row{display:flex;align-items:center;gap:24px}
+.p-row .ico{width:28px;height:28px;fill:#fff;opacity:.92}
+.p-row .time{font-variant-numeric:tabular-nums;opacity:.85;font-family:'Inter',sans-serif}
+.p-row .sp{flex:1}
+.p-row .cc{font-size:14px;font-weight:800;border:1.5px solid #fff;border-radius:4px;padding:0 7px;line-height:1.45;font-family:'Inter',sans-serif}
+
+/* SubDuo overlay (mirrors content.js .subduo-overlay / .subduo-line) */
+.sd{position:absolute;left:4%;right:4%;bottom:14%;display:flex;flex-direction:column;align-items:center;text-align:center;font-size:40px;transition:bottom .9s cubic-bezier(.16,1,.3,1)}
+.sd-box{display:inline-flex;flex-direction:column;max-width:100%;position:relative;transition:outline-color .3s}
+.sd-line{white-space:pre-wrap;line-height:1.25;padding:2px 16px;min-height:1.37em;background:rgba(0,0,0,.55);text-shadow:0 0 4px rgba(0,0,0,.9);font-weight:600;transition:font-size .6s,color .6s,background .6s,opacity .35s}
+.sd-a{color:#fff;border-radius:7px 7px 0 0}
+.sd-b{color:#ffd76a;font-size:.8em;border-radius:0 0 7px 7px}
+.sd.light .sd-line{background:rgba(0,0,0,.22)}
+.sd.big .sd-a{font-size:1.18em}
+/* demo 2: keep the lines clear of the popup on the right */
+.sd.aside{right:36%;font-size:34px}
+.sd.selected .sd-box{outline:3px solid var(--cy);outline-offset:8px;border-radius:4px}
+.sd-toolbar{position:absolute;bottom:calc(100% + 20px);left:50%;transform:translateX(-50%);display:flex;gap:4px;padding:5px;background:rgba(24,24,28,.96);border:1px solid rgba(255,255,255,.2);border-radius:10px;font-size:17px;opacity:0;transition:opacity .3s}
+.sd-toolbar span{color:#fff;padding:5px 14px;border-radius:6px;white-space:nowrap;font-weight:500}
+.sd-toolbar span.on{background:var(--cy);color:#10161a}
+.sd-hint{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:16px;color:#fff;background:rgba(0,0,0,.7);border-radius:8px;padding:4px 14px;opacity:0;transition:opacity .3s}
+.sd.selected .sd-toolbar,.sd.selected .sd-hint{opacity:1}
+.sd-b.off{opacity:0}
+
+/* mouse cursor */
+.cur{position:absolute;width:30px;height:30px;opacity:0;transition:left .9s cubic-bezier(.16,1,.3,1),top .9s cubic-bezier(.16,1,.3,1),opacity .3s;z-index:9;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+
+/* popup mock (mirrors popup.html / popup.css, light theme) */
+.popup{position:absolute;right:14px;top:8px;width:400px;background:#fff;color:#1f2328;border-radius:14px;padding:16px 18px 18px;font-size:16px;text-align:left;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08);line-height:1.5;opacity:0;transform:translateY(-10px);transition:opacity .35s,transform .35s;z-index:8}
+.popup.show{opacity:1;transform:translateY(0)}
+.pu-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.pu-head h4{font-size:21px;font-weight:700;color:#00a8e1;display:flex;align-items:center;font-family:'Inter',sans-serif}
+.pu-site{font-size:12px;font-weight:700;color:#00a8e1;background:rgba(0,168,225,.1);border:1px solid rgba(0,168,225,.3);border-radius:999px;padding:2px 11px;margin-left:10px}
+.pu-toggle{position:relative;width:52px;height:28px;background:#00a8e1;border-radius:14px}
+.pu-toggle::before{content:'';position:absolute;width:22px;height:22px;left:27px;top:3px;background:#fff;border-radius:50%}
+.pu-status{color:#6b7280;font-size:14.5px;margin:0 0 10px}
+.pu-sec{display:flex;align-items:center;gap:6px;margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid #d0d7de;font-size:14.5px;font-weight:700;color:#00a8e1}
+.pu-row{display:flex;flex-direction:column;gap:5px;margin-bottom:12px;position:relative}
+.pu-row label{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15.5px}
+.pu-sel{padding:8px 10px;border:1px solid #d0d7de;border-radius:7px;background:#fff;font-size:16px;display:flex;justify-content:space-between;align-items:center;transition:box-shadow .3s,border-color .3s}
+.pu-sel::after{content:'▾';color:#6b7280;font-size:14px}
+.pu-sel.hi{border-color:#00a8e1;box-shadow:0 0 0 3px rgba(0,168,225,.18)}
+.pu-list{position:absolute;left:0;right:0;top:100%;margin-top:4px;background:#fff;border:1px solid #d0d7de;border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,.22);padding:4px;z-index:3;opacity:0;transition:opacity .25s;pointer-events:none}
+.pu-list.show{opacity:1}
+.pu-list div{padding:7px 12px;border-radius:6px;font-size:16px}
+.pu-list div.hov{background:#e6f6fd;color:#00779f}
+.pu-dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none}
+.pu-dot.a{background:#fff;border:1px solid #9aa1aa}.pu-dot.b{background:#ffd76a}
+.pu-seg{margin-left:auto;display:inline-flex;gap:2px;background:#eef1f5;border-radius:7px;padding:2px}
+.pu-seg span{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:#6b7280;padding:3px 10px;border-radius:5px}
+.pu-seg span.on{background:#fff;color:#1f2328;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.pu-swatch{width:34px;height:22px;border-radius:5px;border:1px solid #d0d7de}
+.pu-range{position:relative;height:5px;background:#d0d7de;border-radius:3px;margin:9px 0 4px}
+.pu-range i{position:absolute;left:0;top:0;bottom:0;background:#00a8e1;border-radius:3px}
+.pu-range b{position:absolute;top:50%;width:16px;height:16px;background:#fff;border:2px solid #00a8e1;border-radius:50%;transform:translate(-50%,-50%)}
+
+/* right-click panel mock (mirrors content.js .subduo-panel) */
+.sd-panel{position:absolute;right:26px;top:24px;z-index:7;min-width:320px;background:rgba(24,24,28,.96);color:#fff;font-size:16.5px;line-height:1.5;border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:12px 16px;text-align:left;box-shadow:0 20px 50px rgba(0,0,0,.5);opacity:0;transform:translateY(-8px);transition:opacity .35s,transform .35s}
+.sd-panel.show{opacity:1;transform:translateY(0)}
+.sd-panel .ph{display:flex;justify-content:space-between;font-weight:700;margin-bottom:8px}
+.sd-panel .ph i{font-style:normal;color:#aaa}
+.sd-panel .ps{font-weight:700;font-size:.92em;color:#8fd0ff;margin:10px 0 2px}
+.sd-panel label{display:flex;align-items:center;gap:12px;margin:8px 0}
+.sd-panel label span:first-child{flex:none}
+.sd-panel .rg{flex:1;height:5px;background:rgba(255,255,255,.3);border-radius:3px;position:relative}
+.sd-panel .rg i{position:absolute;left:0;top:0;bottom:0;background:#8fd0ff;border-radius:3px;transition:width .7s}
+.sd-panel .rg b{position:absolute;top:50%;width:13px;height:13px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);transition:left .7s}
+.sd-panel .val{width:3em;text-align:right;font-variant-numeric:tabular-nums;font-family:'Inter',sans-serif}
+.sd-panel .sw{width:40px;height:24px;border-radius:5px;border:1px solid rgba(255,255,255,.35);margin-left:auto;transition:background .5s}
+.sd-panel .reset{margin-top:10px;text-align:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:7px;padding:6px 10px}
+
+/* annotation pills on the player */
+.anno{position:absolute;z-index:6;background:var(--yel);color:#1a1400;font-size:19px;font-weight:700;padding:7px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.45);white-space:nowrap;opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.anno.show{opacity:1;transform:translateY(0)}
+.anno::after{content:'';position:absolute;width:12px;height:12px;background:var(--yel);transform:rotate(45deg);left:50%;bottom:-5px;margin-left:-6px}
+
+/* CALLOUT */
+.callout{position:absolute;top:50%;width:560px;background:var(--navy);border:1.5px solid rgba(56,182,255,.4);border-radius:24px;padding:44px 50px;opacity:0;transition:opacity .5s,transform .5s;pointer-events:none;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.callout.side-left{left:60px;transform:translateY(calc(-50% + 20px))}
+.callout.side-right{right:60px;transform:translateY(calc(-50% + 20px))}
+.callout.show{opacity:1;transform:translateY(-50%)}
+.co-tag{display:inline-block;font-size:21px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--cy-pale);margin-bottom:16px}
+.co-body{font-size:27px;color:rgba(255,255,255,.74);line-height:1.55}
+.co-body b{display:block;font-size:44px;font-weight:800;color:#fff;line-height:1.22;margin-bottom:16px}
+
+/* S5 FEATURES */
+.feat-scene{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#0F1830,#0A0E1A)}
+.fwrap{display:flex;flex-direction:column;align-items:center;gap:40px;width:1700px}
+.fhead{text-align:center}
+.fhead h2{font-size:70px;font-weight:900;color:#fff;line-height:1.2}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;width:100%}
+.fcard{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px 32px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(22px);transition:opacity .5s,transform .5s;text-align:left}
+.fcard.show{opacity:1;transform:translateY(0)}
+.fcard-ico{width:56px;height:56px;border-radius:14px;background:rgba(56,182,255,.10);border:1px solid rgba(56,182,255,.2);display:flex;align-items:center;justify-content:center;font-size:28px}
+.fcard-ico.y{background:rgba(255,215,106,.10);border-color:rgba(255,215,106,.25)}
+.fcard-ttl{font-size:26px;font-weight:800;color:#fff;line-height:1.3}
+.fcard-txt{font-size:17.5px;color:var(--text-sub);line-height:1.5}
+
+/* S6 CTA */
+.cta-scene{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0B5E8A 0%,#00A8E1 55%,#38B6FF 100%)}
+.cta-inner{display:flex;flex-direction:column;align-items:center;gap:46px}
+.cta-ttl{font-size:92px;font-weight:900;color:#fff;text-align:center;line-height:1.18;max-width:1600px;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.cta-ttl.show{opacity:1;transform:translateY(0)}
+.cta-btn{display:inline-flex;align-items:center;gap:18px;background:#fff;border-radius:20px;padding:26px 60px;box-shadow:0 10px 50px rgba(0,0,0,.28);opacity:0;transform:translateY(18px);transition:opacity .6s .2s,transform .6s .2s}
+.cta-btn.show{opacity:1;transform:translateY(0)}
+.cta-btn svg{width:38px;height:38px;fill:var(--cy-deep)}
+.cta-btn-txt{font-size:36px;font-weight:800;color:#06121c}
+.cta-note{font-size:27px;color:rgba(255,255,255,.85);opacity:0;transition:opacity .5s .4s;text-align:center;max-width:1500px}
+.cta-note.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="bg-base"></div>
+<div class="bg-glow"></div>
+
+<!-- S1 INTRO -->
+<div class="scene" id="s1">
+  <div class="intro-wrap">
+    <div class="iburst" id="ib"><img class="iburst-icon" src="icons/icon128.png" alt="SubDuo"><span class="iburst-name">SubDuo</span></div>
+    <div class="itagline rise" id="it" data-i18n-html="hero_h1">Two languages. One screen.<br><span class='accent'>Turn your streaming nights into language class.</span></div>
+    <div class="svc-row rise" id="ip">
+      <span class="svc"><i class="pv">▶</i>Prime Video</span>
+      <span class="svc"><i class="yt">▶</i>YouTube</span>
+      <span class="svc"><i class="nf">N</i>Netflix</span>
+      <span class="svc"><i class="dp">D</i>Disney+</span>
+    </div>
+  </div>
+</div>
+
+<!-- S2 PROBLEM: before / after -->
+<div class="scene" id="s2">
+  <div class="prob-wrap">
+    <div class="prob-head rise" id="ph2">
+      <div class="eyebrow" data-i18n="tag_compare">Before / After</div>
+      <div class="prob-h" data-i18n="problem_h2">One language at a time. Pause, rewind, look it up, lose the plot.</div>
+    </div>
+    <div class="prob-cards rise" id="pc">
+      <div class="prob-card">
+        <div class="pcard-title" data-i18n="ba_before">Without SubDuo</div>
+        <div class="pitem" data-i18n="ba_b1">One subtitle language at a time</div>
+        <div class="pitem" data-i18n="ba_b2">Pause and switch tracks to check a line</div>
+        <div class="pitem" data-i18n="ba_b3">Rewind to catch what you missed</div>
+        <div class="pitem" data-i18n="ba_b4">Subtitles stuck at one size and position</div>
+      </div>
+      <div class="prob-card good">
+        <div class="pcard-title good" data-i18n="ba_after">With SubDuo</div>
+        <div class="pitem good" data-i18n="ba_a1">Two languages on screen at once, in one clean box</div>
+        <div class="pitem good" data-i18n="ba_a2">Pick any two of the title's subtitle tracks</div>
+        <div class="pitem good" data-i18n="ba_a3">Drag, resize and align them right on the video</div>
+        <div class="pitem good" data-i18n="ba_a4">Color and transparency per line — each site remembers its own setup</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S3 STEPS -->
+<div class="scene" id="s3">
+  <div class="steps-wrap">
+    <div class="steps-head rise" id="sh3"><div class="eyebrow" data-i18n="tag_how">How it works</div><div class="steps-h" data-i18n="flow_h2">Ready in three steps</div></div>
+    <div class="steps-row">
+      <div class="step-card" id="st1"><div class="step-num">1</div><div class="step-ttl" data-i18n="flow1_h3">Install and press play</div><div class="step-desc" data-i18n="flow1_p">Add SubDuo to Chrome and play anything on Prime Video, YouTube, Netflix or Disney+.</div></div>
+      <div class="step-card" id="st2"><div class="step-num">2</div><div class="step-ttl" data-i18n="flow2_h3">Pick two languages</div><div class="step-desc" data-i18n="flow2_p">SubDuo detects the title's subtitle tracks as it plays. Choose one for the top and one for the bottom in the popup.</div></div>
+      <div class="step-card" id="st3"><div class="step-num">3</div><div class="step-ttl" data-i18n="flow3_h3">Watch and adjust</div><div class="step-desc" data-i18n="flow3_p">Both lines appear over the video. Drag to move, scroll to resize, right-click for colors — it remembers everything.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DEMO -->
+<div class="demo-stage" id="ds">
+  <div class="device" id="dev">
+    <div class="win-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><div class="url" id="durl">🔒 primevideo.com</div><img src="icons/icon48.png" class="ext-ico" alt=""></div>
+    <div class="win-body">
+      <div class="player">
+        <div class="pscene"><div class="sea"></div><div class="glint"></div><div class="hill l"></div><div class="hill r"></div><div class="vignette"></div></div>
+        <div class="p-top"><span class="back">‹</span><span class="title" data-i18n="demo_title">The Long Way Home</span><span class="ep" data-i18n="demo_ep">Season 1, Ep. 3</span></div>
+        <div class="sd" id="sd">
+          <div class="sd-toolbar"><span data-i18n="tb_left">Left</span><span class="on" data-i18n="tb_center">Center</span><span data-i18n="tb_right">Right</span></div>
+          <div class="sd-box">
+            <div class="sd-line sd-a" id="sdA">Llevo toda la vida esperando este momento.</div>
+            <div class="sd-line sd-b" id="sdB">I've been waiting for this moment my whole life.</div>
+          </div>
+          <div class="sd-hint" data-i18n="sd_hint">Drag: move / Arrows: nudge / Wheel: resize that line / Right-click: colors</div>
+        </div>
+        <div class="anno" id="an1" style="left:60px;top:330px;" data-i18n="anno_drag">Drag to move</div>
+        <div class="anno" id="an2" style="right:60px;top:330px;" data-i18n="anno_wheel">Scroll to resize a line</div>
+        <div class="p-ctrl" id="pctrl">
+          <div class="p-bar"><div class="fill"></div><div class="knob"></div></div>
+          <div class="p-row">
+            <svg class="ico" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+            <svg class="ico" viewBox="0 0 24 24"><path d="M11 6L6 10H3v4h3l5 4V6zm3 2.5v7a3.5 3.5 0 000-7z"/></svg>
+            <span class="time">42:18 / 1:05:30</span><span class="sp"></span><span class="cc">CC</span>
+            <svg class="ico" viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg>
+          </div>
+        </div>
+
+        <!-- right-click panel (demo 4) -->
+        <div class="sd-panel" id="panel">
+          <div class="ph"><span data-i18n="pn_title">SubDuo display settings</span><i>✕</i></div>
+          <div class="ps" data-i18n="pn_top">Top (subtitle 1)</div>
+          <label><span data-i18n="pn_color">Text color</span><span class="sw" style="background:#ffffff"></span></label>
+          <label><span data-i18n="pn_bg_op">Background transparency</span><span class="rg"><i id="pTopBgI" style="width:25%"></i><b id="pTopBgB" style="left:25%"></b></span><span class="val" id="pTopBgV">25%</span></label>
+          <div class="ps" data-i18n="pn_bottom">Bottom (subtitle 2)</div>
+          <label><span data-i18n="pn_color">Text color</span><span class="sw" id="pBotSw" style="background:#ffd76a"></span></label>
+          <label><span data-i18n="pn_bg_op">Background transparency</span><span class="rg"><i id="pBotBgI" style="width:25%"></i><b id="pBotBgB" style="left:25%"></b></span><span class="val" id="pBotBgV">25%</span></label>
+          <div class="reset" data-i18n="pn_reset">Reset colors &amp; transparency</div>
+        </div>
+      </div>
+
+      <!-- popup (demo 2), drops down from the toolbar icon -->
+      <div class="popup" id="popup">
+        <div class="pu-head"><h4>SubDuo<span class="pu-site" id="puSite">YouTube</span></h4><span class="pu-toggle"></span></div>
+        <p class="pu-status" data-i18n="pu_status">Detected: 6 languages</p>
+        <div class="pu-sec" data-i18n="pu_sec_lang">Languages</div>
+        <div class="pu-row"><label><span class="pu-dot a"></span><span data-i18n="pu_top">Top</span></label><div class="pu-sel" id="selA" data-i18n="pu_lang_a">Español</div></div>
+        <div class="pu-row"><label><span class="pu-dot b"></span><span data-i18n="pu_bottom">Bottom</span></label><div class="pu-sel" id="selB">—</div><div class="pu-list" id="puList"></div></div>
+        <div class="pu-sec"><span data-i18n="pu_sec_app">Appearance</span><span class="pu-seg"><span class="on"><i class="pu-dot a"></i><span data-i18n="pu_top">Top</span></span><span><i class="pu-dot b"></i><span data-i18n="pu_bottom">Bottom</span></span></span></div>
+        <div class="pu-row" style="flex-direction:row;align-items:center;"><label style="flex:1;"><span data-i18n="pu_color">Text color</span></label><span class="pu-swatch" style="background:#ffffff"></span></div>
+        <div class="pu-row" style="margin-bottom:4px;"><label><span data-i18n="pu_size">Text size</span></label><div class="pu-range"><i style="width:33%"></i><b style="left:33%"></b></div></div>
+      </div>
+
+      <svg class="cur" id="cur" viewBox="0 0 24 24"><path d="M5 3l14 9-6 1.5L16 20l-3 1-3-6.5L5 19z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+
+  <div class="callout side-left" id="co1"><div class="co-tag" data-i18n="demo_tab0">Dual subtitles</div><div class="co-body" data-i18n-html="demo_cap0"><b>Two subtitle tracks, one box.</b> The top line is subtitle 1, the bottom line is subtitle 2 — merged into a single frame with no gap.</div></div>
+  <div class="callout side-right" id="co2"><div class="co-tag" data-i18n="demo_tab1">Pick languages</div><div class="co-body" data-i18n-html="demo_cap1"><b>Pick languages in the popup.</b> Every track the title offers is listed, and the badge shows which site you're setting up — each one keeps its own settings.</div></div>
+  <div class="callout side-left" id="co3"><div class="co-tag" data-i18n="demo_tab2">Adjust on screen</div><div class="co-body" data-i18n-html="demo_cap2"><b>Adjust it right on the video.</b> Click to select, drag to move, scroll to resize a line, arrow keys to nudge, one click to align left / center / right.</div></div>
+  <div class="callout side-right" id="co4"><div class="co-tag" data-i18n="demo_tab3">Style each line</div><div class="co-body" data-i18n-html="demo_cap3"><b>Right-click for style.</b> Text color, text transparency and background transparency — each line has its own settings.</div></div>
+</div>
+
+<!-- S5 FEATURES -->
+<div class="scene feat-scene" id="s5">
+  <div class="fwrap">
+    <div class="fhead rise" id="fh"><span class="eyebrow" data-i18n="tag_features">Features</span><h2 data-i18n="features_h2">Small extension, thought through</h2></div>
+    <div class="fgrid">
+      <div class="fcard" id="fc1"><div class="fcard-ico">📺</div><div class="fcard-ttl" data-i18n="feat1_h3">One extension, four services</div><div class="fcard-txt" data-i18n="feat1_p">Prime Video, YouTube, Netflix and Disney+ — the same two-line subtitles and the same controls, everywhere you watch.</div></div>
+      <div class="fcard" id="fc2"><div class="fcard-ico">🎬</div><div class="fcard-ttl" data-i18n="feat2_h3">Any two of the title's languages</div><div class="fcard-txt" data-i18n="feat2_p">Every subtitle track the site provides is detected the moment the video plays — on YouTube, auto-generated subtitles are offered too. Pick one per line, or hide one side.</div></div>
+      <div class="fcard" id="fc3"><div class="fcard-ico">🖱️</div><div class="fcard-ttl" data-i18n="feat3_h3">Adjust on the video</div><div class="fcard-txt" data-i18n="feat3_p">Drag to move, scroll to resize the line under the pointer, arrow keys to nudge, align left, center or right from the toolbar. It scales with fullscreen and steps aside when the control bar appears.</div></div>
+      <div class="fcard" id="fc4"><div class="fcard-ico y">🎨</div><div class="fcard-ttl" data-i18n="feat4_h3">Style each line</div><div class="fcard-txt" data-i18n="feat4_p">Text color, text transparency and background transparency, set separately for the top and bottom lines. Both always share one clean box.</div></div>
+      <div class="fcard" id="fc5"><div class="fcard-ico">☁️</div><div class="fcard-ttl" data-i18n="feat5_h3">Each site remembers its own setup</div><div class="fcard-txt" data-i18n="feat5_p">Big subtitles on YouTube, subtle ones on Netflix — settings are saved per service and synced through your Chrome, so they follow you to any device.</div></div>
+      <div class="fcard" id="fc6"><div class="fcard-ico y">🛡️</div><div class="fcard-ttl" data-i18n="safe1_h3">🔒 100% local</div><div class="fcard-txt" data-i18n="safety_lead">SubDuo has no server. It only reads the subtitle files each site already sends to your browser for the title you're watching.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S6 CTA -->
+<div class="scene cta-scene" id="s6">
+  <div class="cta-inner">
+    <div class="cta-ttl" id="ct" data-i18n="cta_h2">Watch in two languages tonight.</div>
+    <div class="cta-btn" id="cb">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      <span class="cta-btn-txt" data-i18n="cta_btn">Add to Chrome — free</span>
+    </div>
+    <div class="cta-note" id="cn" data-i18n="hero_note">Uses the subtitles each site already provides · No account · Nothing leaves your browser</div>
+  </div>
+</div>
+
+<script src="i18n-lp.js"></script>
+<script>
+// i18n-lp.js の initLP() が DOMContentLoaded で ?lang= を読んで data-i18n を差し替える。
+// ここでは動的に入れ替える文言（字幕キュー・言語名）だけ辞書から引く。
+const $=id=>document.getElementById(id);
+function M(){const l=document.documentElement.lang||'en';return Object.assign({},LP_MESSAGES.en,LP_MESSAGES[l]||{});}
+function cue(n){const m=M();$('sdA').textContent=m['cue'+n+'_a'];$('sdB').textContent=m['cue'+n+'_b'];}
+function buildList(){
+  const m=M();const names=['Español','English','Français','Deutsch','日本語','한국어'].filter(x=>x!==m.pu_lang_a&&x!==m.pu_lang_b);
+  const list=[m.pu_lang_a,m.pu_lang_b,...names].slice(0,6);
+  $('puList').innerHTML=list.map(x=>'<div>'+x+'</div>').join('');
+}
+
+let T=[],t0=0,idx=0,tmr=null;
+function at(ms,fn){T.push([ms,fn])}
+function show(id,v){$(id).classList[v===false?'remove':'add']('show')}
+function devPos(p){$('dev').classList.remove('left','right');if(p)$('dev').classList.add(p)}
+function co(n,v){show('co'+n,v)}
+function hideCos(){[1,2,3,4].forEach(n=>co(n,false))}
+function cur(x,y,on){const c=$('cur');if(x!=null){c.style.left=x+'px';c.style.top=y+'px'}c.style.opacity=on===false?'0':'1'}
+
+function reset(){
+  clearTimeout(tmr);T=[];idx=0;
+  ['s1','s2','s3','s5','s6','ds'].forEach(id=>show(id,false));
+  ['ib','it','ip','ph2','pc','sh3','st1','st2','st3','fh','fc1','fc2','fc3','fc4','fc5','fc6','ct','cb','cn','popup','panel','puList','an1','an2'].forEach(id=>show(id,false));
+  hideCos();devPos(null);
+  const sd=$('sd');sd.className='sd';sd.style.bottom='';
+  $('sdB').classList.remove('off');$('sdB').style.color='';
+  $('pctrl').classList.remove('on');
+  $('selB').classList.remove('hi');$('selB').textContent='—';
+  $('pBotSw').style.background='#ffd76a';
+  ['pTopBg','pBotBg'].forEach(p=>{$(p+'I').style.width='25%';$(p+'B').style.left='25%';$(p+'V').textContent='25%'});
+  $('cur').style.opacity='0';
+  cue(1);buildList();
+}
+
+function buildTimeline(){
+  const m=M();let t=0;
+  // S1 INTRO (3.0s)
+  at(t,()=>show('s1'));at(t+100,()=>show('ib'));at(t+600,()=>show('it'));at(t+1100,()=>show('ip'));
+  at(t+2800,()=>show('s1',false));t+=3000;
+  // S2 BEFORE/AFTER (5.0s)
+  at(t,()=>show('s2'));at(t+150,()=>show('ph2'));at(t+550,()=>show('pc'));at(t+4700,()=>show('s2',false));t+=5000;
+  // S3 STEPS (3.5s)
+  at(t,()=>show('s3'));at(t+150,()=>show('sh3'));
+  ['st1','st2','st3'].forEach((id,i)=>at(t+450+i*280,()=>show(id)));
+  at(t+3200,()=>show('s3',false));t+=3500;
+
+  // DEMO 1: dual subtitles cycling like playback (5.0s) — window right, callout left
+  at(t,()=>{show('ds');devPos('right');$('durl').textContent='🔒 primevideo.com';cue(1)});
+  at(t+300,()=>co(1));
+  at(t+1700,()=>cue(2));at(t+3300,()=>cue(3));
+  at(t+4700,()=>co(1,false));t+=5000;
+
+  // DEMO 2: pick the bottom language in the popup (5.5s) — window left, callout right
+  at(t,()=>{devPos('left');$('durl').textContent='🔒 youtube.com';$('puSite').textContent='YouTube';cue(4);$('sdB').classList.add('off');$('sd').classList.add('aside')});
+  at(t+300,()=>co(2));
+  at(t+700,()=>show('popup'));
+  at(t+1500,()=>{$('selB').classList.add('hi');show('puList')});
+  at(t+1900,()=>$('puList').children[0].classList.add('hov'));
+  at(t+2400,()=>{$('puList').children[0].classList.remove('hov');$('puList').children[1].classList.add('hov')});
+  at(t+3000,()=>{show('puList',false);$('selB').textContent=m.pu_lang_b;$('sdB').classList.remove('off')});
+  at(t+3600,()=>$('selB').classList.remove('hi'));
+  at(t+5200,()=>co(2,false));at(t+5300,()=>show('popup',false));t+=5500;
+
+  // DEMO 3: select, drag, wheel (5.0s) — window right, callout left
+  at(t,()=>{devPos('right');$('durl').textContent='🔒 netflix.com';cue(3);$('sd').classList.remove('aside')}); // cue3 は最短: 拡大しても1行に収まる
+  at(t+300,()=>co(3));
+  at(t+600,()=>{cur(640,540);$('sd').classList.add('selected')});
+  at(t+1300,()=>{$('sd').style.bottom='26%';cur(640,458)});
+  at(t+1500,()=>show('an1'));
+  at(t+2900,()=>{$('sd').classList.add('big');show('an2')});
+  at(t+4700,()=>{co(3,false);show('an1',false);show('an2',false)});
+  at(t+4900,()=>{$('sd').classList.remove('selected');cur(null,null,false)});t+=5000;
+
+  // DEMO 4: right-click panel — bottom color, background transparency (4.5s) — window left, callout right
+  at(t,()=>{devPos('left');$('durl').textContent='🔒 disneyplus.com';cue(2);$('sd').classList.remove('big');$('sd').style.bottom=''});
+  at(t+300,()=>co(4));
+  at(t+600,()=>show('panel'));
+  at(t+1400,()=>{$('pBotSw').style.background='#8fd0ff';$('sdB').style.color='#8fd0ff'});
+  at(t+2500,()=>{['pTopBg','pBotBg'].forEach(p=>{$(p+'I').style.width='65%';$(p+'B').style.left='65%';$(p+'V').textContent='65%'});$('sd').classList.add('light')});
+  at(t+4200,()=>co(4,false));at(t+4400,()=>{show('panel',false);show('ds',false)});t+=4500;
+
+  // S5 FEATURES (3.5s)
+  at(t,()=>show('s5'));at(t+200,()=>show('fh'));
+  ['fc1','fc2','fc3','fc4','fc5','fc6'].forEach((id,i)=>at(t+330+i*110,()=>show(id)));
+  t+=3500;
+  // S6 CTA (3.5s)
+  at(t,()=>{show('s5',false);show('s6')});at(t+200,()=>show('ct'));at(t+550,()=>show('cb'));at(t+850,()=>show('cn'));
+}
+
+function run(){if(idx>=T.length)return;const[d,fn]=T[idx];const w=Math.max(0,d-(Date.now()-t0));tmr=setTimeout(()=>{fn();idx++;run()},w)}
+function start(){reset();buildTimeline();idx=0;t0=Date.now();run()}
+// initLP (DOMContentLoaded) の後に開始する。録画側は start() を呼び直してタイムラインを揃える。
+window.addEventListener('load',()=>start());
+</script>
+</body>
+</html>
