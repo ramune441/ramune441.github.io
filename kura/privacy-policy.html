@@ -90,6 +90,7 @@
       <li data-i18n="pp_s1_li1">顔の検出・人物ごとのまとめ、写っている内容の分類、ブレや似た写真の判定は、Google ML Kit などを用いてすべて端末内で処理します。</li>
       <li data-i18n="pp_s1_li2">解析の結果は端末内のデータベースに保存し、外部へ送信しません。</li>
       <li data-i18n="pp_s1_li3">顔の情報は同じ人物の写真をまとめるためだけに使い、個人の特定（誰であるかの照合）には使いません。</li>
+      <li data-i18n="pp_s1_li4">Google ML Kit は、機能の改善と不具合の把握のため、端末の機種・OS、アプリの情報、処理時間などの性能データ、端末の識別子を Google に送信します。写真や解析結果は送信されません。</li>
     </ul>
 
     <h2><span class="num">2.</span><span data-i18n="pp_h2">Google アカウントでのサインイン</span></h2>
@@ -126,13 +127,13 @@
 
     <h2><span class="num">7.</span><span data-i18n="pp_h7">本アプリが収集しない情報</span></h2>
     <ul>
-      <li data-i18n="pp_s7_li1">広告ID、端末識別子</li>
+      <li data-i18n="pp_s7_li1">広告ID</li>
       <li data-i18n="pp_s7_li2">連絡先、通話履歴、閲覧履歴</li>
       <li data-i18n="pp_s7_li3">現在地（本アプリは位置情報の権限を使いません。写真に記録された撮影場所のみを扱います）</li>
-      <li data-i18n="pp_s7_li4">利用状況の解析データ（広告 SDK・アナリティクス・トラッキングは一切使用していません）</li>
+      <li data-i18n="pp_s7_li4">利用状況の解析データ（広告 SDK・アナリティクス・トラッキングは使用していません。ML Kit が送る診断データは第1項のとおりです）</li>
     </ul>
 
-    <h2><span class="num">8.</span><span data-i18n="pp_h8">データの保存期間と削除</span></h2>
+    <h2 id="delete"><span class="num">8.</span><span data-i18n="pp_h8">データの保存期間と削除</span></h2>
     <ul>
       <li data-i18n="pp_s8_li1">端末内のデータ（解析結果や設定）は、本アプリをアンインストールするか、Android の「設定 &gt; アプリ &gt; Kura &gt; ストレージ &gt; データを消去」で削除できます。端末の写真そのものは削除されません。</li>
       <li data-i18n="pp_s8_li2">クラウドのデータは、アプリの「クラウド」画面の一番下にある「アカウントを削除」から、バックアップしたすべてのファイルと共有リンクを削除できます。</li>
