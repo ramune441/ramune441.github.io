@@ -10,7 +10,7 @@
 /* Generator for Chrome Web Store assets. Screenshot each #id element with Puppeteer (record-store.mjs).
    ?lang=xx swaps all text (en = DOM default). Colors mirror the LP (index.html).
    Story of the 5 shots: 1 hook (full-bleed scene, 5 services) → 2 pain/solution (before/after)
-   → 3 look up a word + vocabulary → 4 any language pair → 5 zero friction (3 steps + trust). */
+   → 3 look up a word (double-click) + vocabulary → 4 any language pair → 5 zero friction (3 steps + trust). */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#3a3f52; -webkit-font-smoothing:antialiased; padding:40px 0;
   font-family:'Inter','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans TC','Noto Sans Devanagari','Segoe UI',sans-serif; }
@@ -106,8 +106,14 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .sd.only .sd-a { border-radius:.18em; }
 .sd.nobg .sd-line { background:transparent; text-shadow:0 0 8px rgba(0,0,0,1), 0 2px 6px rgba(0,0,0,.9); }
 .sd.big { font-size:48px; }
-/* the word the viewer Alt+clicked (mirrors .subduo-w-sel) */
-.sd-line mark { background:var(--cy); color:#06121c; text-shadow:none; border-radius:.14em; padding:0 .12em; box-shadow:0 0 0 .08em var(--cy); }
+/* the word the viewer double-clicked (mirrors .subduo-w-sel) */
+.sd-line mark { position:relative; background:var(--cy); color:#06121c; text-shadow:none; border-radius:.14em; padding:0 .12em; box-shadow:0 0 0 .08em var(--cy); }
+/* mouse pointer on the looked-up word, with two rings = double-click (appended to <mark> by JS) */
+.dbl { position:absolute; left:82%; top:74%; width:0; height:0; pointer-events:none; }
+.dbl i { position:absolute; left:0; top:0; border-radius:50%; border:2px solid #fff; transform:translate(-50%,-50%); opacity:.9; box-shadow:0 0 6px rgba(0,0,0,.6); }
+.dbl i:nth-child(1) { width:22px; height:22px; }
+.dbl i:nth-child(2) { width:40px; height:40px; opacity:.5; }
+.dbl svg { position:absolute; left:-3px; top:-2px; width:26px; height:34px; filter:drop-shadow(0 2px 3px rgba(0,0,0,.7)); }
 .p-top { position:absolute; top:0; left:0; right:0; padding:2.8% 3.4%; display:flex; align-items:center; gap:2.6%; color:#fff; text-align:left; z-index:3; }
 .p-top .back { font-size:1.5em; line-height:1; opacity:.9; }
 .p-top .title { font-weight:700; }
@@ -145,10 +151,10 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .lk-row .frame .p-top { font-size:15px; }
 /* keyboard hint on the player */
 .kb { position:absolute; right:18px; top:14px; z-index:5; display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:#dbe4f5;
-  background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.2); border-radius:100px; padding:6px 14px 6px 8px; backdrop-filter:blur(4px); }
-.kb kbd { font:800 13px/1 'Inter',sans-serif; color:#06121c; background:#e9eef7; border-radius:6px; padding:5px 8px; box-shadow:0 2px 0 #9aa6bd; }
+  background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.2); border-radius:100px; padding:6px 14px 6px 12px; backdrop-filter:blur(4px); }
+.kb svg { width:14px; height:18px; }
 /* explanation card (mirrors .subduo-card, scaled ×1.5) */
-.card { position:absolute; left:50%; bottom:31%; transform:translateX(-50%); z-index:6; width:460px; text-align:left;
+.card { position:absolute; left:50%; bottom:31%; transform:translateX(-50%); z-index:6; width:max-content; min-width:460px; max-width:620px; text-align:left;
   background:rgba(24,24,28,.97); color:#fff; border:1px solid rgba(255,255,255,.22); border-radius:12px; padding:15px 18px;
   box-shadow:0 24px 60px rgba(0,0,0,.6); font-size:19px; line-height:1.5; }
 .card::after { content:''; position:absolute; left:50%; bottom:-11px; width:20px; height:20px; transform:translateX(-50%) rotate(45deg);
@@ -159,7 +165,8 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .card-speak { color:#c9ced6; font-size:18px; line-height:1; }
 .card-pron { color:#c9ced6; font-size:17px; }
 .card-acts { display:flex; align-items:center; gap:8px; flex:none; }
-.card-save { font-size:16px; font-weight:700; color:#10161a; background:#38b6ff; border:1px solid #38b6ff; border-radius:999px; padding:3px 13px; white-space:nowrap; }
+.card-save, .card-ask { font-size:16px; font-weight:700; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:999px; padding:3px 13px; white-space:nowrap; }
+.card-save { color:#10161a; background:#38b6ff; border-color:#38b6ff; }
 .card-close { color:#aaa; font-size:19px; padding:0 4px; }
 .card p { margin:0 0 6px; }
 .card-meaning { font-weight:700; }
@@ -168,14 +175,14 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 /* vocabulary page (mirrors vocab.html, dark scheme) */
 /* same height as the player; the list is longer than the box and fades out at the bottom (it is a scrolling page) */
 .vb { width:394px; height:405px; background:#16181c; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:18px 18px 0; color:#e6e6e6; text-align:left;
-  box-shadow:0 30px 80px rgba(0,0,0,.55); display:flex; flex-direction:column; gap:10px; overflow:hidden; font-size:15px; position:relative; }
+  box-shadow:0 30px 80px rgba(0,0,0,.55); display:flex; flex-direction:column; gap:8px; overflow:hidden; font-size:15px; position:relative; }
 .vb::after { content:''; position:absolute; left:0; right:0; bottom:0; height:48px; background:linear-gradient(180deg, rgba(22,24,28,0), #16181c 85%); pointer-events:none; }
 .vb-head { display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; padding-bottom:10px; border-bottom:1px solid #3a3f46; }
 .vb-head h2 { font-size:20px; font-weight:800; color:#00a8e1; }
 .vb-head h2 span { color:#e6e6e6; font-weight:700; }
 .vb-count { color:#9aa1aa; font-size:13px; margin-right:auto; }
 .vb-search { width:100%; padding:7px 11px; border:1px solid #3a3f46; border-radius:7px; background:#16181c; color:#9aa1aa; font-size:14px; }
-.ve { padding:12px 14px; border:1px solid #3a3f46; border-radius:11px; background:#1e2126; }
+.ve { padding:11px 14px; border:1px solid #3a3f46; border-radius:11px; background:#1e2126; }
 .ve.hi { border-color:rgba(0,168,225,.7); box-shadow:0 0 0 3px rgba(0,168,225,.18); }
 .ve-head { display:flex; align-items:baseline; gap:8px; margin-bottom:5px; }
 .ve-phrase { font-size:18px; font-weight:800; }
@@ -360,27 +367,29 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
   </div>
 </div>
 
-<!-- ════ IMG 3 · Look up a word (Alt+click) and keep it in the vocabulary list ════ -->
+<!-- ════ IMG 3 · Look up a word (double-click) and keep it in the vocabulary list ════ -->
+<!-- The card is the v1.6 default state: on-device translation + the scene's own line as the example, "Ask AI" beside Save.
+     The example line/translation (.ex-a / .ex-b) are copied from cue3_a / cue3_b by JS. -->
 <div class="si" id="img3" style="padding-left:40px;padding-right:40px;gap:24px;">
   <div class="glow" style="left:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap">
     <div class="eyebrow" data-i="e3">📖 TAP A WORD, LEARN IT</div>
-    <h1 data-i="h3">Alt+click a word. Get the meaning. Keep it.</h1>
-    <p data-i="s3">Meaning, pronunciation and an example in your language, right on the video — playback pauses for you. One tap saves it to your vocabulary list.</p>
+    <h1 data-i="h3">Double-click a word. Know it. Keep it.</h1>
+    <p data-i="s3">An instant on-device translation, with the scene's own line as the example — playback pauses for you. Want more? Ask AI. One click saves it to your vocabulary.</p>
   </div>
   <div class="lk-row">
     <div class="frame">
       <div class="scene rain"><div class="lamp" style="left:18%;top:30%;width:150px;height:150px;background:radial-gradient(circle,rgba(255,200,120,.75),rgba(255,200,120,0) 70%);"></div><div class="lamp" style="left:70%;top:24%;width:100px;height:100px;background:radial-gradient(circle,rgba(150,220,255,.7),rgba(150,220,255,0) 70%);"></div><div class="vig"></div><div class="grain"></div></div>
       <div class="p-top"><span class="back">‹</span><span class="title" data-i="title">The Long Way Home</span><span class="ep" data-i="ep">Season 1, Ep. 3</span></div>
-      <div class="kb"><kbd>Alt</kbd><span>+</span><span data-i="kb">click</span></div>
+      <div class="kb"><svg viewBox="0 0 26 34"><path d="M2 2v26l7-6.5 4.6 10 4-1.8-4.6-9.8H22z" fill="#fff" stroke="#06121c" stroke-width="1.6" stroke-linejoin="round"/></svg><span data-i="kb">Double-click</span></div>
       <div class="card">
         <div class="card-head">
-          <div class="card-title"><span class="card-phrase" data-i="c_phrase">escapar</span><span class="card-speak">🔊</span><span class="card-pron" data-i="c_pron">/es.kaˈpaɾ/</span></div>
-          <div class="card-acts"><span class="card-save" data-i="c_save">★ Saved</span><span class="card-close">✕</span></div>
+          <div class="card-title"><span class="card-phrase" data-i="c_phrase">escapar</span><span class="card-speak">🔊</span></div>
+          <div class="card-acts"><span class="card-ask" data-i="c_ask">Ask AI</span><span class="card-save" data-i="c_save">★ Saved</span><span class="card-close">✕</span></div>
         </div>
         <p class="card-meaning" data-i="c_meaning">to escape, to get away</p>
-        <p class="card-example"><span data-i="c_ex">Nadie puede escapar del pasado.</span><span class="card-example-tr" data-i="c_ex_tr">No one can escape the past.</span></p>
+        <p class="card-example"><span class="ex-a"></span><span class="card-example-tr ex-b"></span></p>
       </div>
       <div class="sd"><div class="sd-box">
         <div class="sd-line sd-a" data-i="cue3_a">No puedes <mark>escapar</mark> de la marea.</div>
@@ -390,9 +399,9 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
     <div class="vb">
       <div class="vb-head"><h2>SubDuo <span data-i="v_title">Vocabulary</span></h2><span class="vb-count" data-i="v_count">Saved: 3</span><div class="vb-search" data-i="v_search">Search</div></div>
       <div class="ve hi">
-        <div class="ve-head"><span class="ve-phrase" data-i="c_phrase">escapar</span><span class="ve-speak">🔊</span><span class="ve-pron" data-i="c_pron">/es.kaˈpaɾ/</span><span class="ve-lang" data-i="v_lang">Spanish</span></div>
+        <div class="ve-head"><span class="ve-phrase" data-i="c_phrase">escapar</span><span class="ve-speak">🔊</span><span class="ve-lang" data-i="v_lang">Spanish</span></div>
         <p class="ve-meaning" data-i="c_meaning">to escape, to get away</p>
-        <p class="ve-ex"><span data-i="c_ex">Nadie puede escapar del pasado.</span><span class="tr" data-i="c_ex_tr">No one can escape the past.</span></p>
+        <p class="ve-ex"><span class="ex-a"></span><span class="tr ex-b"></span></p>
       </div>
       <div class="ve">
         <div class="ve-head"><span class="ve-phrase" data-i="v2_p">marea</span><span class="ve-speak">🔊</span><span class="ve-pron" data-i="v2_pr">/maˈɾe.a/</span><span class="ve-lang" data-i="v_lang">Spanish</span></div>
@@ -427,7 +436,7 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
   <div class="cap">
     <div class="eyebrow" data-i="e5">⚡ READY IN 30 SECONDS</div>
     <h1 data-i="h5">Install. Play. Done.</h1>
-    <p data-i="s5">No account, completely free. Subtitles never leave your browser — only a word you look up is sent, to fetch its meaning.</p>
+    <p data-i="s5">No account, completely free. Subtitles never leave your browser, and words are translated on your device — a word is sent only when you tap “Ask AI”.</p>
   </div>
   <div class="steps">
     <div class="step">
@@ -464,7 +473,7 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
       <div class="st-row"><span class="num">3</span><span class="st" data-i="st3">Pick two languages</span></div>
     </div>
   </div>
-  <div class="pills"><span class="pill" data-i="p1">🚫 No account, no tracking</span><span class="pill" data-i="p2">📺 5 streaming services</span><span class="pill" data-i="p3">🎨 Drag, resize, recolor on screen</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 12 UI languages</span></div>
+  <div class="pills"><span class="pill" data-i="p1">🚫 No account, no tracking</span><span class="pill" data-i="p2">📺 5 streaming services</span><span class="pill" data-i="p3">🎨 Drag, resize, recolor on screen</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 Pick from 12 display languages</span></div>
 </div>
 
 <!-- ════ SMALL PROMO TILE (440x280, en only) ════ -->
@@ -482,8 +491,8 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
     <div class="fb-brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
     <div class="fb-badge" data-i="fb_badge">🎬 Free · Prime Video, YouTube, Netflix, Disney+ &amp; TED</div>
     <div class="fb-title" data-i="fb_title">Two languages.<br><em>One screen.</em></div>
-    <div class="fb-sub" data-i="fb_sub">Dual subtitles on five streaming services. Alt+click any word for its meaning, save it to your vocabulary.</div>
-    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">📺 5 streaming services</span><span class="fb-pill" data-i="fbp2">🌐 Any two languages</span><span class="fb-pill" data-i="fbp3">📖 Alt+click to look up</span><span class="fb-pill" data-i="fbp4">🖱️ Adjust on screen</span></div>
+    <div class="fb-sub" data-i="fb_sub">Dual subtitles on five streaming services. Double-click any word for its meaning, save it to your vocabulary.</div>
+    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">📺 5 streaming services</span><span class="fb-pill" data-i="fbp2">🌐 Any two languages</span><span class="fb-pill" data-i="fbp3">📖 Double-click to look up</span><span class="fb-pill" data-i="fbp4">🖱️ Adjust on screen</span></div>
   </div>
   <div class="fb-right">
     <div class="frame">
@@ -518,17 +527,17 @@ ja: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"潮からは逃げられない。",
   e2:"🎯 もう、聞き逃さない", h2:"止めない。戻さない。切り替えない。", s2:"わからない一行は、下の段をちらっと見るだけ。作品の流れを止めずに観られます。",
   bl:"これまで", al:"SubDuo なら", bc1:"⏸ 止める", bc2:"⟲ 10秒戻す", bc3:"🔁 字幕を切り替える", bc4:"😩 話を見失う", ac:"▶ そのまま観続ける",
-  e3:"📖 わからない語は、その場で", h3:"Alt＋クリックで意味。そのまま単語帳へ。", s3:"語の意味・発音・例文を日本語で、動画の上に表示。再生は自動で一時停止。ワンクリックで単語帳に保存できます。",
-  kb:"クリック", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ 保存済み", c_meaning:"〜より速く走る、〜から逃げ切る", c_ex:"He tried to outrun the storm.", c_ex_tr:"彼は嵐から逃げ切ろうとした。",
+  e3:"📖 わからない語は、その場で", h3:"ダブルクリックで意味。そのまま単語帳へ。", s3:"端末内の翻訳で意味をすぐ表示し、その場面のセリフを例文に。再生は自動で一時停止。もっと知りたいときは「AIに聞く」、ワンクリックで単語帳へ。",
+  kb:"ダブルクリック", c_phrase:"outrun", c_ask:"AIに聞く", c_save:"★ 保存済み", c_meaning:"〜より速く走る、〜から逃げ切る",
   v_title:"単語帳", v_count:"保存: 3 件", v_search:"検索", v_lang:"英語",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"潮、潮の満ち引き", v2_e:"The tide is coming in.", v2_t:"潮が満ちてきている。",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"（難しいことを）やり遂げる", v3_e:"She pulled off a win.", v3_t:"彼女は勝利をもぎ取った。",
   e4:"🌐 組み合わせは自由", h4:"英語×日本語も、韓国語×日本語も。", s4:"作品に用意された字幕から、上段と下段に好きな言語を1つずつ。再生すれば自動で検出します。",
-  e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕はブラウザの外に出ません。送るのは、解説を引くために選んだ語句だけです。",
+  e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕はブラウザの外に出ず、語の訳も端末内で。外部に送るのは「AIに聞く」を押した語句だけです。",
   st1:"Chrome に追加", st2:"5サービスのどれかで再生", st3:"言語を2つ選ぶ", addbtn:"Chrome に追加", pu_top:"上段", pu_bottom:"下段",
-  p1:"🚫 アカウント不要・追跡なし", p2:"📺 5つの配信サービス", p3:"🎨 画面上でドラッグ・拡大・色変更", p4:"☁️ サイトごとの設定・同期", p5:"🌏 UI は12言語",
-  fb_badge:"🎬 無料 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video・YouTube・Netflix・Disney+・TED の二言語字幕。Alt＋クリックで語句の意味を表示、そのまま単語帳へ。",
-  fbp1:"📺 5つの配信サービス", fbp2:"🌐 好きな2言語", fbp3:"📖 Alt＋クリックで解説", fbp4:"🖱️ 画面上で調整"
+  p1:"🚫 アカウント不要・追跡なし", p2:"📺 5つの配信サービス", p3:"🎨 画面上でドラッグ・拡大・色変更", p4:"☁️ サイトごとの設定・同期", p5:"🌏 表示は12言語から選べる",
+  fb_badge:"🎬 無料 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video・YouTube・Netflix・Disney+・TED の二言語字幕。語をダブルクリックで意味を表示、そのまま単語帳へ。",
+  fbp1:"📺 5つの配信サービス", fbp2:"🌐 好きな2言語", fbp3:"📖 ダブルクリックで解説", fbp4:"🖱️ 画面上で調整"
 },
 zh: {
   e1:"🎬 免费 Chrome 扩展", h1:"两种语言，同一屏幕。", s1:"你爱看的剧，就是最好的语言课 —— 上行原文，下行母语。",
@@ -538,17 +547,17 @@ zh: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"你跑不过潮水。",
   e2:"🎯 再也不漏掉一句", h2:"不暂停。不倒回。不切换。", s2:"没听清？瞄一眼下行，继续看 —— 剧情不会中断。",
   bl:"以前", al:"有了 SubDuo", bc1:"⏸ 暂停", bc2:"⟲ 倒回 10 秒", bc3:"🔁 切换字幕", bc4:"😩 跟丢剧情", ac:"▶ 继续看下去",
-  e3:"📖 生词，当场解决", h3:"Alt+点击查词义，一键存入生词本。", s3:"词义、发音和例句，用中文直接显示在视频上，播放自动暂停。点一下即可存入生词本。",
-  kb:"点击", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ 已保存", c_meaning:"跑得比…快；甩开", c_ex:"He tried to outrun the storm.", c_ex_tr:"他试图甩开暴风雨。",
+  e3:"📖 生词，当场解决", h3:"双击查词义，一键存入生词本。", s3:"设备端翻译即时显示词义，并以该场景的台词作例句，播放自动暂停。想了解更多？点“询问 AI”。点一下即可存入生词本。",
+  kb:"双击", c_phrase:"outrun", c_ask:"询问 AI", c_save:"★ 已保存", c_meaning:"跑得比…快；甩开",
   v_title:"生词本", v_count:"已保存: 3", v_search:"搜索", v_lang:"英语",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"潮水，潮汐", v2_e:"The tide is coming in.", v2_t:"潮水正在上涨。",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"（成功）做成，办到", v3_e:"She pulled off a win.", v3_t:"她成功赢得了比赛。",
   e4:"🌐 任意组合", h4:"英语×中文，日语×中文，随你搭配。", s4:"从影片自带的字幕中，为上行和下行各选一种语言 —— 按下播放即自动检测。",
-  e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。字幕不会离开浏览器 —— 只有你查询的词语会被发送，用于获取释义。",
+  e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。字幕不会离开浏览器，词语也在设备上翻译 —— 只有点“询问 AI”时才会发送该词语。",
   st1:"添加至 Chrome", st2:"在五个平台任一播放", st3:"选择两种语言", addbtn:"添加至 Chrome", pu_top:"上行", pu_bottom:"下行",
-  p1:"🚫 无需账号、不追踪", p2:"📺 5 个流媒体平台", p3:"🎨 屏幕上拖动、缩放、改色", p4:"☁️ 按网站保存并同步", p5:"🌏 12 种界面语言",
-  fb_badge:"🎬 免费 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的双语字幕。Alt+点击查词义，一键存入生词本。",
-  fbp1:"📺 5 个流媒体平台", fbp2:"🌐 任选两种语言", fbp3:"📖 Alt+点击查词", fbp4:"🖱️ 屏幕上调整"
+  p1:"🚫 无需账号、不追踪", p2:"📺 5 个流媒体平台", p3:"🎨 屏幕上拖动、缩放、改色", p4:"☁️ 按网站保存并同步", p5:"🌏 12 种显示语言任选",
+  fb_badge:"🎬 免费 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的双语字幕。双击查词义，一键存入生词本。",
+  fbp1:"📺 5 个流媒体平台", fbp2:"🌐 任选两种语言", fbp3:"📖 双击查词", fbp4:"🖱️ 屏幕上调整"
 },
 "zh-TW": {
   e1:"🎬 免費 Chrome 擴充功能", h1:"兩種語言，同一畫面。", s1:"你愛看的劇，就是最好的語言課 —— 上排原文，下排母語。",
@@ -558,17 +567,17 @@ zh: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"你跑不過潮水。",
   e2:"🎯 再也不漏掉一句", h2:"不暫停。不倒帶。不切換。", s2:"沒聽清楚？瞄一眼下排，繼續看 —— 劇情不會中斷。",
   bl:"以前", al:"有了 SubDuo", bc1:"⏸ 暫停", bc2:"⟲ 倒帶 10 秒", bc3:"🔁 切換字幕", bc4:"😩 跟丟劇情", ac:"▶ 繼續看下去",
-  e3:"📖 生字，當場解決", h3:"Alt+點擊查字義，一鍵存入單字本。", s3:"字義、發音與例句，用中文直接顯示在影片上，播放自動暫停。點一下即可存入單字本。",
-  kb:"點擊", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ 已儲存", c_meaning:"跑得比…快；甩開", c_ex:"He tried to outrun the storm.", c_ex_tr:"他試圖甩開暴風雨。",
+  e3:"📖 生字，當場解決", h3:"雙擊查字義，一鍵存入單字本。", s3:"裝置端翻譯即時顯示字義，並以該場景的台詞作例句，播放自動暫停。想了解更多？按「詢問 AI」。點一下即可存入單字本。",
+  kb:"雙擊", c_phrase:"outrun", c_ask:"詢問 AI", c_save:"★ 已儲存", c_meaning:"跑得比…快；甩開",
   v_title:"單字本", v_count:"已儲存: 3", v_search:"搜尋", v_lang:"英文",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"潮水，潮汐", v2_e:"The tide is coming in.", v2_t:"潮水正在上漲。",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"（成功）辦到，做成", v3_e:"She pulled off a win.", v3_t:"她成功贏得了比賽。",
   e4:"🌐 任意組合", h4:"英文×中文，日文×中文，隨你搭配。", s4:"從影片內建的字幕中，為上排與下排各選一種語言 —— 按下播放即自動偵測。",
-  e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。字幕不會離開瀏覽器 —— 只有你查詢的字詞會被傳送，用於取得解釋。",
+  e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。字幕不會離開瀏覽器，字詞也在裝置上翻譯 —— 只有按「詢問 AI」時才會傳送該字詞。",
   st1:"加到 Chrome", st2:"在五個平台任一播放", st3:"選擇兩種語言", addbtn:"加到 Chrome", pu_top:"上排", pu_bottom:"下排",
-  p1:"🚫 不需帳號、不追蹤", p2:"📺 5 個串流平台", p3:"🎨 畫面上拖曳、縮放、改色", p4:"☁️ 依網站保存並同步", p5:"🌏 12 種介面語言",
-  fb_badge:"🎬 免費 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的雙語字幕。Alt+點擊查字義，一鍵存入單字本。",
-  fbp1:"📺 5 個串流平台", fbp2:"🌐 任選兩種語言", fbp3:"📖 Alt+點擊查字", fbp4:"🖱️ 畫面上調整"
+  p1:"🚫 不需帳號、不追蹤", p2:"📺 5 個串流平台", p3:"🎨 畫面上拖曳、縮放、改色", p4:"☁️ 依網站保存並同步", p5:"🌏 12 種顯示語言任選",
+  fb_badge:"🎬 免費 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的雙語字幕。雙擊查字義，一鍵存入單字本。",
+  fbp1:"📺 5 個串流平台", fbp2:"🌐 任選兩種語言", fbp3:"📖 雙擊查字", fbp4:"🖱️ 畫面上調整"
 },
 ko: {
   e1:"🎬 무료 Chrome 확장 프로그램", h1:"두 언어를 한 화면에.", s1:"좋아하는 작품이 최고의 어학 교재로 — 위에는 원어, 아래에는 내 언어.",
@@ -578,17 +587,17 @@ ko: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"밀물보다 빨리 달릴 순 없어.",
   e2:"🎯 한 줄도 놓치지 않게", h2:"멈추지 않고. 되감지 않고. 바꾸지 않고.", s2:"못 알아들었나요? 아래 줄을 슬쩍 보고 계속 보세요 — 이야기는 멈추지 않습니다.",
   bl:"지금까지", al:"SubDuo라면", bc1:"⏸ 멈춤", bc2:"⟲ 10초 되감기", bc3:"🔁 자막 전환", bc4:"😩 줄거리 놓침", ac:"▶ 그대로 계속 보기",
-  e3:"📖 모르는 단어는 그 자리에서", h3:"Alt+클릭으로 뜻을 보고, 단어장에 담기.", s3:"뜻·발음·예문을 한국어로 영상 위에 바로 표시하고, 재생은 자동으로 멈춥니다. 한 번 눌러 단어장에 저장하세요.",
-  kb:"클릭", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ 저장됨", c_meaning:"…보다 빨리 달리다, 따돌리다", c_ex:"He tried to outrun the storm.", c_ex_tr:"그는 폭풍을 따돌리려 했다.",
+  e3:"📖 모르는 단어는 그 자리에서", h3:"더블클릭으로 뜻을 보고, 단어장에 담기.", s3:"기기 내 번역으로 뜻을 바로 보여 주고, 그 장면의 대사를 예문으로. 재생은 자동으로 멈춥니다. 더 알고 싶다면 'AI에게 묻기', 한 번 눌러 단어장에 저장하세요.",
+  kb:"더블클릭", c_phrase:"outrun", c_ask:"AI에게 묻기", c_save:"★ 저장됨", c_meaning:"…보다 빨리 달리다, 따돌리다",
   v_title:"단어장", v_count:"저장됨: 3", v_search:"검색", v_lang:"영어",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"조수, 밀물과 썰물", v2_e:"The tide is coming in.", v2_t:"밀물이 들어오고 있다.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"(어려운 일을) 해내다", v3_e:"She pulled off a win.", v3_t:"그녀는 승리를 따냈다.",
   e4:"🌐 조합은 자유", h4:"영어×한국어도, 일본어×한국어도.", s4:"작품에 있는 자막 중 위와 아래에 원하는 언어를 하나씩 — 재생하면 자동으로 감지합니다.",
-  e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. 자막은 브라우저 밖으로 나가지 않습니다 — 전송되는 것은 뜻을 찾기 위해 고른 단어뿐입니다.",
+  e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. 자막은 브라우저 밖으로 나가지 않고 단어도 기기에서 번역합니다 — 'AI에게 묻기'를 누를 때만 그 단어가 전송됩니다.",
   st1:"Chrome에 추가", st2:"다섯 서비스 중 아무거나 재생", st3:"언어 두 개 선택", addbtn:"Chrome에 추가", pu_top:"위", pu_bottom:"아래",
-  p1:"🚫 계정 불필요 · 추적 없음", p2:"📺 5개 스트리밍 서비스", p3:"🎨 화면에서 드래그·크기·색상", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 12개 언어 UI",
-  fb_badge:"🎬 무료 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video·YouTube·Netflix·Disney+·TED 이중 자막. Alt+클릭으로 단어 뜻을 보고 단어장에 저장.",
-  fbp1:"📺 5개 스트리밍 서비스", fbp2:"🌐 원하는 두 언어", fbp3:"📖 Alt+클릭으로 단어 뜻", fbp4:"🖱️ 화면에서 조절"
+  p1:"🚫 계정 불필요 · 추적 없음", p2:"📺 5개 스트리밍 서비스", p3:"🎨 화면에서 드래그·크기·색상", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 표시 언어 12개 중 선택",
+  fb_badge:"🎬 무료 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video·YouTube·Netflix·Disney+·TED 이중 자막. 더블클릭으로 단어 뜻을 보고 단어장에 저장.",
+  fbp1:"📺 5개 스트리밍 서비스", fbp2:"🌐 원하는 두 언어", fbp3:"📖 더블클릭으로 단어 뜻", fbp4:"🖱️ 화면에서 조절"
 },
 es: {
   e1:"🎬 EXTENSIÓN GRATUITA DE CHROME", h1:"Dos idiomas. Una pantalla.", s1:"Tus series favoritas, tu mejor clase de idiomas: el original arriba, el tuyo abajo.",
@@ -598,17 +607,17 @@ es: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"No puedes escapar de la marea.",
   e2:"🎯 NO TE PIERDAS NI UNA FRASE", h2:"Sin pausar. Sin rebobinar. Sin cambiar.", s2:"¿No lo pillaste? Mira la segunda línea y sigue viendo: la historia no se detiene.",
   bl:"ANTES", al:"CON SUBDUO", bc1:"⏸ Pausar", bc2:"⟲ Atrás 10 s", bc3:"🔁 Cambiar subtítulos", bc4:"😩 Perder el hilo", ac:"▶ Seguir viendo",
-  e3:"📖 UNA PALABRA, AL INSTANTE", h3:"Alt+clic en una palabra. Su significado. Guárdala.", s3:"Significado, pronunciación y un ejemplo en tu idioma, sobre el vídeo: la reproducción se pausa sola. Un toque y queda en tu vocabulario.",
-  kb:"clic", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ Guardado", c_meaning:"correr más rápido que; escapar de", c_ex:"He tried to outrun the storm.", c_ex_tr:"Intentó escapar de la tormenta.",
+  e3:"📖 UNA PALABRA, AL INSTANTE", h3:"Doble clic en una palabra. Su significado. Guárdala.", s3:"Traducción al instante en tu dispositivo, con la frase de la escena como ejemplo; la reproducción se pausa sola. ¿Quieres más? Pregunta a la IA. Un clic y queda en tu vocabulario.",
+  kb:"Doble clic", c_phrase:"outrun", c_ask:"Preguntar a la IA", c_save:"★ Guardado", c_meaning:"correr más rápido que; escapar de",
   v_title:"Vocabulario", v_count:"Guardadas: 3", v_search:"Buscar", v_lang:"Inglés",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"marea", v2_e:"The tide is coming in.", v2_t:"La marea está subiendo.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"lograr, conseguir (algo difícil)", v3_e:"She pulled off a win.", v3_t:"Ella logró la victoria.",
   e4:"🌐 LA PAREJA QUE QUIERAS", h4:"Inglés × español. Francés × español. Tú decides.", s4:"Elige dos de los idiomas de subtítulos que ofrece el título: se detectan solos al pulsar reproducir.",
-  e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Los subtítulos no salen de tu navegador: solo se envía la palabra que consultas, para obtener su significado.",
+  e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Los subtítulos no salen de tu navegador y las palabras se traducen en tu dispositivo: solo se envía una palabra si pulsas «Preguntar a la IA».",
   st1:"Añadir a Chrome", st2:"Reproduce en cualquiera de los cinco", st3:"Elegir dos idiomas", addbtn:"Añadir a Chrome", pu_top:"Arriba", pu_bottom:"Abajo",
-  p1:"🚫 Sin cuenta ni rastreo", p2:"📺 5 servicios de streaming", p3:"🎨 Mueve, redimensiona y colorea en pantalla", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 12 idiomas de interfaz",
-  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ y TED", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles en cinco servicios de streaming. Alt+clic en cualquier palabra y guárdala en tu vocabulario.",
-  fbp1:"📺 5 servicios", fbp2:"🌐 Dos idiomas cualesquiera", fbp3:"📖 Alt+clic para consultar", fbp4:"🖱️ Ajuste en pantalla"
+  p1:"🚫 Sin cuenta ni rastreo", p2:"📺 5 servicios de streaming", p3:"🎨 Mueve, redimensiona y colorea en pantalla", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 12 idiomas de interfaz a elegir",
+  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ y TED", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles en cinco servicios de streaming. Doble clic en cualquier palabra y guárdala en tu vocabulario.",
+  fbp1:"📺 5 servicios", fbp2:"🌐 Dos idiomas cualesquiera", fbp3:"📖 Doble clic para consultar", fbp4:"🖱️ Ajuste en pantalla"
 },
 fr: {
   e1:"🎬 EXTENSION CHROME GRATUITE", h1:"Deux langues. Un seul écran.", s1:"Vos séries préférées deviennent votre meilleur cours de langue : l'original en haut, la vôtre en bas.",
@@ -618,17 +627,17 @@ fr: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"On ne peut pas fuir la marée.",
   e2:"🎯 NE RATEZ PLUS UNE RÉPLIQUE", h2:"Sans pause. Sans retour. Sans changement.", s2:"Pas compris ? Un coup d'œil à la seconde ligne et vous continuez : l'histoire ne s'arrête jamais.",
   bl:"AVANT", al:"AVEC SUBDUO", bc1:"⏸ Pause", bc2:"⟲ Retour 10 s", bc3:"🔁 Changer de sous-titres", bc4:"😩 Perdre le fil", ac:"▶ Continuer à regarder",
-  e3:"📖 UN MOT ? RÉPONSE IMMÉDIATE", h3:"Alt+clic sur un mot. Son sens. Gardez-le.", s3:"Sens, prononciation et exemple dans votre langue, directement sur la vidéo : la lecture se met en pause. Un clic et le mot rejoint votre vocabulaire.",
-  kb:"clic", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ Enregistré", c_meaning:"distancer, échapper à", c_ex:"He tried to outrun the storm.", c_ex_tr:"Il a tenté d'échapper à la tempête.",
+  e3:"📖 UN MOT ? RÉPONSE IMMÉDIATE", h3:"Double-clic sur un mot. Son sens. Gardez-le.", s3:"Traduction instantanée sur votre appareil, avec la réplique de la scène comme exemple ; la lecture se met en pause. Envie d'en savoir plus ? Demandez à l'IA. Un clic et le mot rejoint votre vocabulaire.",
+  kb:"Double-clic", c_phrase:"outrun", c_ask:"Demander à l’IA", c_save:"★ Enregistré", c_meaning:"distancer, échapper à",
   v_title:"Vocabulaire", v_count:"Enregistrés : 3", v_search:"Rechercher", v_lang:"Anglais",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"marée", v2_e:"The tide is coming in.", v2_t:"La marée monte.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"réussir (un coup difficile)", v3_e:"She pulled off a win.", v3_t:"Elle a décroché la victoire.",
   e4:"🌐 LA PAIRE DE VOTRE CHOIX", h4:"Anglais × français. Espagnol × français. À vous de voir.", s4:"Choisissez deux des langues de sous-titres du titre : détectées automatiquement dès la lecture.",
-  e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Les sous-titres ne quittent pas votre navigateur : seul le mot que vous consultez est envoyé, pour en obtenir le sens.",
+  e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Les sous-titres ne quittent pas votre navigateur et les mots sont traduits sur votre appareil : un mot n'est envoyé que si vous touchez « Demander à l’IA ».",
   st1:"Ajouter à Chrome", st2:"Lancez sur l'un des cinq", st3:"Choisir deux langues", addbtn:"Ajouter à Chrome", pu_top:"Haut", pu_bottom:"Bas",
-  p1:"🚫 Sans compte ni suivi", p2:"📺 5 services de streaming", p3:"🎨 Déplacez, redimensionnez, colorez à l'écran", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 12 langues d'interface",
-  fb_badge:"🎬 Gratuit · Prime Video, YouTube, Netflix, Disney+ et TED", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres sur cinq services de streaming. Alt+clic sur un mot pour son sens, puis dans votre vocabulaire.",
-  fbp1:"📺 5 services", fbp2:"🌐 Deux langues au choix", fbp3:"📖 Alt+clic pour chercher", fbp4:"🖱️ Réglage à l'écran"
+  p1:"🚫 Sans compte ni suivi", p2:"📺 5 services de streaming", p3:"🎨 Déplacez, redimensionnez, colorez à l'écran", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 12 langues d'affichage au choix",
+  fb_badge:"🎬 Gratuit · Prime Video, YouTube, Netflix, Disney+ et TED", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres sur cinq services de streaming. Double-clic sur un mot pour son sens, puis dans votre vocabulaire.",
+  fbp1:"📺 5 services", fbp2:"🌐 Deux langues au choix", fbp3:"📖 Double-clic pour chercher", fbp4:"🖱️ Réglage à l'écran"
 },
 de: {
   e1:"🎬 KOSTENLOSE CHROME-ERWEITERUNG", h1:"Zwei Sprachen. Ein Bildschirm.", s1:"Deine Lieblingsserien werden zum besten Sprachkurs – Original oben, deine Sprache unten.",
@@ -638,17 +647,17 @@ de: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"Der Flut läuft man nicht davon.",
   e2:"🎯 KEINE ZEILE MEHR VERPASSEN", h2:"Kein Pausieren. Kein Zurückspulen. Kein Umschalten.", s2:"Nicht verstanden? Ein Blick auf die zweite Zeile, und du schaust weiter – die Geschichte läuft.",
   bl:"VORHER", al:"MIT SUBDUO", bc1:"⏸ Pause", bc2:"⟲ 10 s zurück", bc3:"🔁 Untertitel wechseln", bc4:"😩 Den Faden verlieren", ac:"▶ Einfach weiterschauen",
-  e3:"📖 WORT ANTIPPEN, VERSTEHEN", h3:"Alt+Klick auf ein Wort. Bedeutung. Merken.", s3:"Bedeutung, Aussprache und Beispiel in deiner Sprache, direkt auf dem Video – die Wiedergabe pausiert von selbst. Ein Klick speichert es in deinen Vokabeln.",
-  kb:"Klick", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ Gespeichert", c_meaning:"davonlaufen, entkommen", c_ex:"He tried to outrun the storm.", c_ex_tr:"Er versuchte, dem Sturm zu entkommen.",
+  e3:"📖 WORT ANTIPPEN, VERSTEHEN", h3:"Doppelklick auf ein Wort. Bedeutung. Merken.", s3:"Sofortige Übersetzung auf deinem Gerät, mit der Zeile aus der Szene als Beispiel – die Wiedergabe pausiert von selbst. Mehr wissen? KI fragen. Ein Klick speichert es in deinen Vokabeln.",
+  kb:"Doppelklick", c_phrase:"outrun", c_ask:"KI fragen", c_save:"★ Gespeichert", c_meaning:"davonlaufen, entkommen",
   v_title:"Vokabeln", v_count:"Gespeichert: 3", v_search:"Suchen", v_lang:"Englisch",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"Gezeiten, Flut", v2_e:"The tide is coming in.", v2_t:"Die Flut kommt.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"(etwas Schwieriges) schaffen", v3_e:"She pulled off a win.", v3_t:"Sie hat den Sieg geschafft.",
   e4:"🌐 JEDES PAAR, DAS DU WILLST", h4:"Englisch × Deutsch. Spanisch × Deutsch. Du entscheidest.", s4:"Wähle zwei der Untertitelsprachen des Titels – automatisch erkannt, sobald du auf Play drückst.",
-  e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Untertitel verlassen deinen Browser nicht – gesendet wird nur das Wort, das du nachschlägst, um seine Bedeutung zu holen.",
+  e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Untertitel verlassen deinen Browser nicht, Wörter werden auf deinem Gerät übersetzt – ein Wort wird nur gesendet, wenn du „KI fragen“ tippst.",
   st1:"Zu Chrome hinzufügen", st2:"Auf einem der fünf abspielen", st3:"Zwei Sprachen wählen", addbtn:"Hinzufügen", pu_top:"Oben", pu_bottom:"Unten",
-  p1:"🚫 Kein Konto, kein Tracking", p2:"📺 5 Streaming-Dienste", p3:"🎨 Verschieben, skalieren, färben – auf dem Bild", p4:"☁️ Einstellungen pro Seite", p5:"🌏 12 Oberflächensprachen",
-  fb_badge:"🎬 Kostenlos · Prime Video, YouTube, Netflix, Disney+ &amp; TED", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel auf fünf Streaming-Diensten. Alt+Klick auf ein Wort zeigt die Bedeutung, ein Klick speichert es.",
-  fbp1:"📺 5 Dienste", fbp2:"🌐 Zwei beliebige Sprachen", fbp3:"📖 Alt+Klick zum Nachschlagen", fbp4:"🖱️ Auf dem Bild anpassen"
+  p1:"🚫 Kein Konto, kein Tracking", p2:"📺 5 Streaming-Dienste", p3:"🎨 Verschieben, skalieren, färben – auf dem Bild", p4:"☁️ Einstellungen pro Seite", p5:"🌏 12 Anzeigesprachen zur Wahl",
+  fb_badge:"🎬 Kostenlos · Prime Video, YouTube, Netflix, Disney+ &amp; TED", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel auf fünf Streaming-Diensten. Doppelklick auf ein Wort zeigt die Bedeutung, ein Klick speichert es.",
+  fbp1:"📺 5 Dienste", fbp2:"🌐 Zwei beliebige Sprachen", fbp3:"📖 Doppelklick zum Nachschlagen", fbp4:"🖱️ Auf dem Bild anpassen"
 },
 it: {
   e1:"🎬 ESTENSIONE CHROME GRATUITA", h1:"Due lingue. Uno schermo.", s1:"Le tue serie preferite diventano la tua miglior lezione di lingua: l'originale sopra, la tua sotto.",
@@ -658,17 +667,17 @@ it: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"Non puoi sfuggire alla marea.",
   e2:"🎯 NON PERDERE PIÙ UNA BATTUTA", h2:"Niente pause. Niente riavvolgimenti. Niente cambi.", s2:"Non l'hai capita? Un'occhiata alla seconda riga e continui a guardare: la storia non si ferma.",
   bl:"PRIMA", al:"CON SUBDUO", bc1:"⏸ Pausa", bc2:"⟲ Indietro 10 s", bc3:"🔁 Cambia sottotitoli", bc4:"😩 Perdi il filo", ac:"▶ Continua a guardare",
-  e3:"📖 UNA PAROLA, SUBITO CHIARA", h3:"Alt+clic su una parola. Il significato. Tienila.", s3:"Significato, pronuncia ed esempio nella tua lingua, direttamente sul video: la riproduzione si mette in pausa. Un clic e finisce nel tuo vocabolario.",
-  kb:"clic", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ Salvato", c_meaning:"correre più veloce di, sfuggire a", c_ex:"He tried to outrun the storm.", c_ex_tr:"Ha cercato di sfuggire alla tempesta.",
+  e3:"📖 UNA PAROLA, SUBITO CHIARA", h3:"Doppio clic su una parola. Il significato. Tienila.", s3:"Traduzione istantanea sul tuo dispositivo, con la battuta della scena come esempio: la riproduzione si mette in pausa. Vuoi saperne di più? Chiedi all'IA. Un clic e finisce nel tuo vocabolario.",
+  kb:"Doppio clic", c_phrase:"outrun", c_ask:"Chiedi all’IA", c_save:"★ Salvato", c_meaning:"correre più veloce di, sfuggire a",
   v_title:"Vocabolario", v_count:"Salvate: 3", v_search:"Cerca", v_lang:"Inglese",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"marea", v2_e:"The tide is coming in.", v2_t:"La marea sta salendo.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"riuscire in (qualcosa di difficile)", v3_e:"She pulled off a win.", v3_t:"Ha strappato la vittoria.",
   e4:"🌐 LA COPPIA CHE VUOI", h4:"Inglese × italiano. Spagnolo × italiano. Decidi tu.", s4:"Scegli due delle lingue dei sottotitoli del titolo: rilevate in automatico appena premi play.",
-  e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. I sottotitoli non lasciano il browser: viene inviata solo la parola che cerchi, per ottenerne il significato.",
+  e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. I sottotitoli non lasciano il browser e le parole si traducono sul dispositivo: una parola viene inviata solo se tocchi «Chiedi all’IA».",
   st1:"Aggiungi a Chrome", st2:"Riproduci su uno dei cinque", st3:"Scegli due lingue", addbtn:"Aggiungi a Chrome", pu_top:"Sopra", pu_bottom:"Sotto",
-  p1:"🚫 Nessun account, nessun tracciamento", p2:"📺 5 servizi di streaming", p3:"🎨 Sposta, ridimensiona, colora sullo schermo", p4:"☁️ Impostazioni per sito", p5:"🌏 12 lingue dell'interfaccia",
-  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli su cinque servizi di streaming. Alt+clic su una parola per il significato, poi nel tuo vocabolario.",
-  fbp1:"📺 5 servizi", fbp2:"🌐 Due lingue qualsiasi", fbp3:"📖 Alt+clic per cercare", fbp4:"🖱️ Regola sullo schermo"
+  p1:"🚫 Nessun account, nessun tracciamento", p2:"📺 5 servizi di streaming", p3:"🎨 Sposta, ridimensiona, colora sullo schermo", p4:"☁️ Impostazioni per sito", p5:"🌏 12 lingue di visualizzazione a scelta",
+  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli su cinque servizi di streaming. Doppio clic su una parola per il significato, poi nel tuo vocabolario.",
+  fbp1:"📺 5 servizi", fbp2:"🌐 Due lingue qualsiasi", fbp3:"📖 Doppio clic per cercare", fbp4:"🖱️ Regola sullo schermo"
 },
 pt: {
   e1:"🎬 EXTENSÃO GRATUITA DO CHROME", h1:"Dois idiomas. Uma tela.", s1:"Suas séries favoritas viram a melhor aula de idiomas: o original em cima, o seu embaixo.",
@@ -678,17 +687,17 @@ pt: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"Não dá para fugir da maré.",
   e2:"🎯 NUNCA MAIS PERCA UMA FALA", h2:"Sem pausar. Sem voltar. Sem trocar.", s2:"Não pegou? Dê uma olhada na segunda linha e continue assistindo — a história não para.",
   bl:"ANTES", al:"COM O SUBDUO", bc1:"⏸ Pausar", bc2:"⟲ Voltar 10 s", bc3:"🔁 Trocar legenda", bc4:"😩 Perder o fio", ac:"▶ Continuar assistindo",
-  e3:"📖 UMA PALAVRA, NA HORA", h3:"Alt+clique numa palavra. O significado. Guarde.", s3:"Significado, pronúncia e exemplo no seu idioma, direto no vídeo — a reprodução pausa sozinha. Um toque e a palavra vai para o seu vocabulário.",
-  kb:"clique", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ Salvo", c_meaning:"correr mais rápido que; escapar de", c_ex:"He tried to outrun the storm.", c_ex_tr:"Ele tentou escapar da tempestade.",
+  e3:"📖 UMA PALAVRA, NA HORA", h3:"Clique duplo numa palavra. O significado. Guarde.", s3:"Tradução instantânea no seu dispositivo, com a fala da cena como exemplo — a reprodução pausa sozinha. Quer saber mais? Pergunte à IA. Um clique e a palavra vai para o seu vocabulário.",
+  kb:"Clique duplo", c_phrase:"outrun", c_ask:"Perguntar à IA", c_save:"★ Salvo", c_meaning:"correr mais rápido que; escapar de",
   v_title:"Vocabulário", v_count:"Salvas: 3", v_search:"Pesquisar", v_lang:"Inglês",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"maré", v2_e:"The tide is coming in.", v2_t:"A maré está subindo.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"conseguir (algo difícil)", v3_e:"She pulled off a win.", v3_t:"Ela conseguiu a vitória.",
   e4:"🌐 O PAR QUE VOCÊ QUISER", h4:"Inglês × português. Espanhol × português. Você escolhe.", s4:"Escolha dois dos idiomas de legenda que o título oferece — detectados automaticamente ao apertar o play.",
-  e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. As legendas não saem do seu navegador — só a palavra que você consulta é enviada, para buscar o significado.",
+  e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. As legendas não saem do seu navegador e as palavras são traduzidas no seu dispositivo — uma palavra só é enviada quando você toca em “Perguntar à IA”.",
   st1:"Adicionar ao Chrome", st2:"Dê play em qualquer um dos cinco", st3:"Escolher dois idiomas", addbtn:"Adicionar ao Chrome", pu_top:"Em cima", pu_bottom:"Embaixo",
-  p1:"🚫 Sem conta, sem rastreamento", p2:"📺 5 serviços de streaming", p3:"🎨 Arraste, redimensione e colora na tela", p4:"☁️ Configuração por site", p5:"🌏 12 idiomas de interface",
-  fb_badge:"🎬 Grátis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas em cinco serviços de streaming. Alt+clique em qualquer palavra e salve no seu vocabulário.",
-  fbp1:"📺 5 serviços", fbp2:"🌐 Dois idiomas quaisquer", fbp3:"📖 Alt+clique para consultar", fbp4:"🖱️ Ajuste na tela"
+  p1:"🚫 Sem conta, sem rastreamento", p2:"📺 5 serviços de streaming", p3:"🎨 Arraste, redimensione e colora na tela", p4:"☁️ Configuração por site", p5:"🌏 12 idiomas de exibição à escolha",
+  fb_badge:"🎬 Grátis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas em cinco serviços de streaming. Clique duplo em qualquer palavra e salve no seu vocabulário.",
+  fbp1:"📺 5 serviços", fbp2:"🌐 Dois idiomas quaisquer", fbp3:"📖 Clique duplo para consultar", fbp4:"🖱️ Ajuste na tela"
 },
 ru: {
   e1:"🎬 БЕСПЛАТНОЕ РАСШИРЕНИЕ CHROME", h1:"Два языка. Один экран.", s1:"Любимые сериалы становятся лучшим уроком языка: оригинал сверху, ваш язык снизу.",
@@ -698,17 +707,17 @@ ru: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"От прилива не убежишь.",
   e2:"🎯 НЕ ПРОПУСКАЙТЕ НИ СТРОЧКИ", h2:"Без пауз. Без перемотки. Без переключений.", s2:"Не расслышали? Взгляните на вторую строку и смотрите дальше — история не останавливается.",
   bl:"РАНЬШЕ", al:"С SUBDUO", bc1:"⏸ Пауза", bc2:"⟲ Назад на 10 с", bc3:"🔁 Сменить субтитры", bc4:"😩 Потерять нить", ac:"▶ Просто смотреть дальше",
-  e3:"📖 СЛОВО — СРАЗУ ПОНЯТНО", h3:"Alt+клик по слову. Значение. В словарь.", s3:"Значение, произношение и пример на вашем языке прямо на видео — воспроизведение само ставится на паузу. Один клик — и слово в вашем словаре.",
-  kb:"клик", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ Сохранено", c_meaning:"обогнать, убежать от", c_ex:"He tried to outrun the storm.", c_ex_tr:"Он пытался убежать от бури.",
+  e3:"📖 СЛОВО — СРАЗУ ПОНЯТНО", h3:"Двойной клик по слову. Значение. В словарь.", s3:"Мгновенный перевод прямо на устройстве, а примером служит реплика из сцены — воспроизведение само ставится на паузу. Хотите подробнее? Спросите ИИ. Один клик — и слово в вашем словаре.",
+  kb:"Двойной клик", c_phrase:"outrun", c_ask:"Спросить ИИ", c_save:"★ Сохранено", c_meaning:"обогнать, убежать от",
   v_title:"Словарь", v_count:"Сохранено: 3", v_search:"Поиск", v_lang:"Английский",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"прилив, отлив", v2_e:"The tide is coming in.", v2_t:"Начинается прилив.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"справиться, провернуть", v3_e:"She pulled off a win.", v3_t:"Она вырвала победу.",
   e4:"🌐 ЛЮБАЯ ПАРА", h4:"Английский × русский. Испанский × русский. Решать вам.", s4:"Выберите любые два языка субтитров из имеющихся у фильма — определяются автоматически при нажатии «Воспроизвести».",
-  e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Субтитры не покидают браузер — отправляется только слово, которое вы ищете, чтобы получить его значение.",
+  e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Субтитры не покидают браузер, слова переводятся на устройстве — слово отправляется, только если вы нажмёте «Спросить ИИ».",
   st1:"Добавить в Chrome", st2:"Включите на любом из пяти", st3:"Выбрать два языка", addbtn:"Добавить в Chrome", pu_top:"Сверху", pu_bottom:"Снизу",
-  p1:"🚫 Без аккаунта и слежки", p2:"📺 5 стриминговых сервисов", p3:"🎨 Перетаскивайте, масштабируйте, красьте на экране", p4:"☁️ Настройки для каждого сайта", p5:"🌏 12 языков интерфейса",
-  fb_badge:"🎬 Бесплатно · Prime Video, YouTube, Netflix, Disney+ и TED", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры на пяти стриминговых сервисах. Alt+клик по слову покажет значение и сохранит его в словарь.",
-  fbp1:"📺 5 сервисов", fbp2:"🌐 Любые два языка", fbp3:"📖 Alt+клик — значение", fbp4:"🖱️ Настройка на экране"
+  p1:"🚫 Без аккаунта и слежки", p2:"📺 5 стриминговых сервисов", p3:"🎨 Перетаскивайте, масштабируйте, красьте на экране", p4:"☁️ Настройки для каждого сайта", p5:"🌏 12 языков интерфейса на выбор",
+  fb_badge:"🎬 Бесплатно · Prime Video, YouTube, Netflix, Disney+ и TED", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры на пяти стриминговых сервисах. Двойной клик по слову покажет значение и сохранит его в словарь.",
+  fbp1:"📺 5 сервисов", fbp2:"🌐 Любые два языка", fbp3:"📖 Двойной клик — значение", fbp4:"🖱️ Настройка на экране"
 },
 hi: {
   e1:"🎬 मुफ़्त Chrome एक्सटेंशन", h1:"दो भाषाएँ। एक स्क्रीन।", s1:"आपकी पसंदीदा सीरीज़ बन जाए सबसे अच्छी भाषा की क्लास — ऊपर मूल, नीचे आपकी भाषा।",
@@ -718,17 +727,17 @@ hi: {
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"ज्वार से भागकर नहीं बच सकते।",
   e2:"🎯 अब कोई पंक्ति नहीं छूटेगी", h2:"न रोकना। न पीछे जाना। न बदलना।", s2:"समझ नहीं आया? नीचे की पंक्ति पर नज़र डालिए और देखते रहिए — कहानी रुकती नहीं।",
   bl:"पहले", al:"SubDuo के साथ", bc1:"⏸ रोकें", bc2:"⟲ 10 सेकंड पीछे", bc3:"🔁 सबटाइटल बदलें", bc4:"😩 कहानी छूट जाए", ac:"▶ बस देखते रहिए",
-  e3:"📖 शब्द पर टैप, अर्थ तुरंत", h3:"Alt+क्लिक करें। अर्थ देखें। सहेज लें।", s3:"अर्थ, उच्चारण और उदाहरण आपकी भाषा में, सीधे वीडियो पर — प्लेबैक अपने-आप रुक जाता है। एक क्लिक में शब्दकोश में सहेजें।",
-  kb:"क्लिक", c_phrase:"outrun", c_pron:"/ˌaʊtˈrʌn/", c_save:"★ सहेजा गया", c_meaning:"से तेज़ दौड़ना, से बच निकलना", c_ex:"He tried to outrun the storm.", c_ex_tr:"उसने तूफ़ान से बच निकलने की कोशिश की।",
+  e3:"📖 शब्द पर टैप, अर्थ तुरंत", h3:"डबल-क्लिक करें। अर्थ देखें। सहेज लें।", s3:"डिवाइस पर ही तुरंत अनुवाद, और उसी दृश्य का संवाद उदाहरण के रूप में — प्लेबैक अपने-आप रुक जाता है। और जानना है? AI से पूछें। एक क्लिक में शब्दकोश में सहेजें।",
+  kb:"डबल-क्लिक", c_phrase:"outrun", c_ask:"AI से पूछें", c_save:"★ सहेजा गया", c_meaning:"से तेज़ दौड़ना, से बच निकलना",
   v_title:"शब्दकोश", v_count:"सहेजे गए: 3", v_search:"खोजें", v_lang:"अंग्रेज़ी",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"ज्वार", v2_e:"The tide is coming in.", v2_t:"ज्वार चढ़ रहा है।",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"(कठिन काम) कर दिखाना", v3_e:"She pulled off a win.", v3_t:"उसने जीत हासिल कर ली।",
   e4:"🌐 कोई भी जोड़ी", h4:"अंग्रेज़ी × हिन्दी। जापानी × हिन्दी। आपकी मर्ज़ी।", s4:"टाइटल में उपलब्ध सबटाइटल भाषाओं में से कोई भी दो चुनिए — प्ले दबाते ही अपने-आप पहचान।",
-  e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सबटाइटल आपके ब्राउज़र से बाहर नहीं जाते — सिर्फ़ वह शब्द भेजा जाता है जिसका अर्थ आप देखते हैं।",
+  e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सबटाइटल आपके ब्राउज़र से बाहर नहीं जाते और शब्दों का अनुवाद डिवाइस पर होता है — शब्द तभी भेजा जाता है जब आप “AI से पूछें” दबाते हैं।",
   st1:"Chrome में जोड़ें", st2:"पाँचों में से किसी पर प्ले करें", st3:"दो भाषाएँ चुनें", addbtn:"Chrome में जोड़ें", pu_top:"ऊपर", pu_bottom:"नीचे",
-  p1:"🚫 कोई खाता नहीं, कोई ट्रैकिंग नहीं", p2:"📺 5 स्ट्रीमिंग सेवाएँ", p3:"🎨 स्क्रीन पर खींचें, आकार और रंग बदलें", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 12 इंटरफ़ेस भाषाएँ",
-  fb_badge:"🎬 मुफ़्त · Prime Video, YouTube, Netflix, Disney+ और TED", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"पाँच स्ट्रीमिंग सेवाओं पर दोहरे सबटाइटल। किसी भी शब्द पर Alt+क्लिक से अर्थ, और शब्दकोश में सहेजें।",
-  fbp1:"📺 5 स्ट्रीमिंग सेवाएँ", fbp2:"🌐 कोई भी दो भाषाएँ", fbp3:"📖 Alt+क्लिक से अर्थ", fbp4:"🖱️ स्क्रीन पर समायोजन"
+  p1:"🚫 कोई खाता नहीं, कोई ट्रैकिंग नहीं", p2:"📺 5 स्ट्रीमिंग सेवाएँ", p3:"🎨 स्क्रीन पर खींचें, आकार और रंग बदलें", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 12 प्रदर्शन भाषाओं में से चुनें",
+  fb_badge:"🎬 मुफ़्त · Prime Video, YouTube, Netflix, Disney+ और TED", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"पाँच स्ट्रीमिंग सेवाओं पर दोहरे सबटाइटल। किसी भी शब्द पर डबल-क्लिक से अर्थ, और शब्दकोश में सहेजें।",
+  fbp1:"📺 5 स्ट्रीमिंग सेवाएँ", fbp2:"🌐 कोई भी दो भाषाएँ", fbp3:"📖 डबल-क्लिक से अर्थ", fbp4:"🖱️ स्क्रीन पर समायोजन"
 }
 };
 
@@ -762,6 +771,15 @@ if (dict) {
   document.documentElement.lang = lang;
 }
 if (["ja", "zh", "zh-TW", "ko", "hi"].includes(lang)) document.body.classList.add("nolat");
+
+// IMG 3: the card's example is the line the word came from (top line + the bottom line as its translation)
+const cue3 = document.querySelector("#img3 .sd");
+const cue3a = cue3.querySelector(".sd-a").textContent, cue3b = cue3.querySelector(".sd-b").textContent;
+document.querySelectorAll("#img3 .ex-a").forEach((el) => { el.textContent = cue3a; });
+document.querySelectorAll("#img3 .ex-b").forEach((el) => { el.textContent = cue3b; });
+// pointer + double-click rings on the looked-up word
+cue3.querySelector("mark").insertAdjacentHTML("beforeend",
+  '<span class="dbl"><i></i><i></i><svg viewBox="0 0 26 34"><path d="M2 2v26l7-6.5 4.6 10 4-1.8-4.6-9.8H22z" fill="#fff" stroke="#06121c" stroke-width="1.6" stroke-linejoin="round"/></svg></span>');
 
 // IMG 4 cards
 const pairs = PAIRS[lang] || PAIRS.en;
