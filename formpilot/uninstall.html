@@ -184,11 +184,12 @@
       var MSG = {"sending":"Sending...","submit":"Send","error":"Sending failed. Please wait a moment and try again.","reasonsRequired":"Please select at least one reason.","detailsRequired":"Please enter some details — it really helps us fix the problem."};
 
       // Anonymous diagnostics passed by the extension via setUninstallURL
-      // (v=version, lang=UI language, days=days installed, fills=total fills, err=last error)
+      // (v=version, lang=UI language, days=days installed, fills=total fills,
+      //  profile=1 if a profile has data, opened=popup opens, err=last error)
       (function () {
         var params = new URLSearchParams(location.search);
         var parts = [];
-        ['v', 'days', 'fills', 'err'].forEach(function (k) {
+        ['v', 'days', 'fills', 'profile', 'opened', 'err'].forEach(function (k) {
           var val = (params.get(k) || '').slice(0, 150);
           if (val) parts.push(k + '=' + val);
         });

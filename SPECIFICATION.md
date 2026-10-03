@@ -10,7 +10,7 @@ Chrome拡張機能・Androidアプリ・WebサービスのLP/プライバシー�
 | `/formpilot/` | LP | index | yes | Chrome拡張。`i18n-lp.js` で11言語対応。YouTube埋め込み（`#promo-video`）は `LP_VIDEO_IDS` により表示言語の動画に自動切替 |
 | `/formpilot/guide.html` | 使い方ガイド | index | yes | 操作手順 |
 | `/formpilot/contact.html` | 問い合わせ | index | yes | 自前フォーム（下記「問い合わせフォーム基盤」参照）。`i18n-lp.js` で11言語対応 |
-| `/formpilot/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先。拡張がクエリで渡す匿名診断（`v`/`lang`/`days`/`fills`/`err`）を hidden `diagnostics` に集約して送信し、`lang` は hidden `language` にも反映。詳細欄は**必須** |
+| `/formpilot/uninstall.html` | アンケート | noindex | no | アンインストール理由アンケート（英語）。`chrome.runtime.setUninstallURL` の遷移先。拡張がクエリで渡す匿名診断（`v`/`lang`/`days`/`fills`/`profile`/`opened`/`err`。`profile`/`opened` は拡張 v1.2.5 から）を hidden `diagnostics` に集約して送信し、`lang` は hidden `language` にも反映。詳細欄は**必須** |
 | `/formpilot/privacy-policy.html` | 規約 | index | yes | プライバシーポリシー |
 | `/formpilot/promo.html` | 動画用 | noindex | no | 録画専用。`?lang=` で11言語対応（en=DOM既定、sendready-chrome/promo.html と同方式。文言は i18n-lp.js と同期、デモの人物・住所も言語別、ar は RTL） |
 | `/formpilot/promo[-lang].webm` `promo[-lang].mp4` | 動画 | - | no | プロモ動画 ×11言語（en=無印）。**4K録画（deviceScaleFactor=2）**から生成: webm=1080p VP9(lanczos縮小/33.0s)、mp4=4K H.264+AAC BGM（YouTube用。BGM は旧動画「FormPilot ver2」と同一音源）。**YouTube 公開済み（4K版・タイトル「FormPilot ver2 (言語名)」）**: en=c02Ka-_WdIE / ja=2Caux6fcero / zh=3RzbNsLkw6Q / ko=qqjFaQIk0IQ / es=4eLZeM5lRLo / fr=ljIlLc6FTM8 / de=FhwzRQyPnQo / pt=df5TcuOgLvM / hi=ZSdSh7UxRnc / id=nmI-oOZIHRs / ar=Uue8B-AuAj4（旧1080p版11本は非公開化済み）。各言語のストア掲載情報のプロモ動画欄に `https://www.youtube.com/watch?v=<ID>` を設定（手動） |
