@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Kura Store Images</title>
+<!--
+  Kura（Android）の Google Play 掲載画像。record-store-i18n.mjs が要素ごとにスクショして
+  images/store/<lang>/ に書き出す:
+    #fg → store-image-feature.png (1024x500)
+    #p1-#p5 → store-image-1..5.png（携帯電話 1080x1920）
+    #t1-#t5 → store-image-tablet-1..5.png（タブレット 1080x1920 縦。7インチ・10インチ両方の枠に使える）
+  ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id（en が既定）。
+  画面の中の言葉はアプリの strings.xml から（store-images-app-strings.js、store-images-strings.mjs で生成）、
+  キャプションだけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
+  5枚の流れ: 写真タブ（アルバム・場所は説明文で）→ スワイプで仕分け（連写のベストを横に添える）→ 容量を食うもの（端末内で解析）→ {vault} に写真を隠す → 写真も動画も月額いくらでバックアップ（料金の画面）。
+  フィーチャーグラフィックは写真管理アプリとして見せる（写真タブの画面＋ライブラリ・片付け・金庫・バックアップの4点）。
+  写真は Unsplash License（picsum.photos 経由）。撮影者は images/photos/CREDITS.txt。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=block">
+<style>
+@font-face { font-family:'Geist'; font-weight:400; src:url('fonts/geist_regular.ttf'); }
+@font-face { font-family:'Geist'; font-weight:500; src:url('fonts/geist_medium.ttf'); }
+@font-face { font-family:'Geist'; font-weight:600; src:url('fonts/geist_semibold.ttf'); }
+@font-face { font-family:'Geist'; font-weight:700; src:url('fonts/geist_bold.ttf'); }
+@font-face { font-family:'Geist'; font-weight:800; src:url('fonts/geist_bold.ttf'); }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --cjk: 'Noto Sans JP';
+  --ui: 'Geist', var(--cjk), 'Roboto', sans-serif;
+  /* ui/theme/Palette.kt, light scheme */
+  --primary:#236B46; --onPrimary:#FFFFFF; --primaryC:#D6E8DC; --onPrimaryC:#0B3B24; --inversePrimary:#8FCBA6;
+  --secondary:#57534B; --secondaryC:#E7E3DA; --onSecondaryC:#25231F;
+  --tertiary:#8A5A13; --tertiaryC:#F4E2C6; --onTertiaryC:#2E1B00;
+  --error:#B3261E; --errorC:#F9DEDA; --onErrorC:#410E0B;
+  --bg:#F6F5F1; --on:#1B1B19; --onVar:#5F5D57;
+  --cLow:#EFEEE9; --c:#EAE8E2; --cHigh:#E4E2DB; --cHighest:#DEDCD5;
+  --outline:#8E8B84; --outlineVar:#D6D3CB;
+  --onPhoto:rgba(0,0,0,.55);
+}
+body { background:#2a2d2b; font-family:var(--ui); -webkit-font-smoothing:antialiased; padding:40px 0; }
+.mi, .mo { font-family:'Material Icons'; font-weight:normal; font-style:normal; line-height:1; letter-spacing:normal;
+  text-transform:none; display:inline-block; white-space:nowrap; direction:ltr; font-feature-settings:'liga'; -webkit-font-feature-settings:'liga'; }
+.mo { font-family:'Material Icons Outlined'; }
+
+/* ═════════ canvases ═════════ */
+.shot { position:relative; overflow:hidden; margin:0 auto 60px; background:var(--primary); color:#fff; }
+.shot.phone { width:1080px; height:1920px; }
+.shot.tablet { width:1080px; height:1920px; }
+.roof { position:absolute; pointer-events:none; }
+.cap h1 { font-weight:800; letter-spacing:-.025em; line-height:1.1; color:#fff; }
+.cap p { font-weight:500; line-height:1.34; color:#CDEBD7; }
+body.cjk .cap h1 { letter-spacing:-.01em; line-height:1.22; }
+/* CJK captions break only at punctuation and spaces, never mid-word ("見つけ/る"); fit() shrinks what won't fit. */
+body.cjk .cap h1, body.cjk .cap p, body.cjk #fg h1 { word-break:keep-all; }
+.phone .cap, .tablet .cap { position:absolute; left:70px; right:70px; top:92px; height:330px; text-align:center;
+  display:flex; flex-direction:column; justify-content:center; gap:22px; }
+.phone .cap h1, .tablet .cap h1 { font-size:84px; }
+.phone .cap p, .tablet .cap p { font-size:38px; }
+
+/* the device */
+.device { position:absolute; background:#111210; box-shadow:0 40px 90px rgba(0,0,0,.35), 0 0 0 2px rgba(255,255,255,.06); }
+.phone .device { left:206px; top:476px; width:668px; padding:14px; border-radius:66px; }
+.phone .device .glass { border-radius:52px; }
+.tablet .device { left:72px; top:470px; padding:18px; border-radius:46px; }
+.tablet .device .glass { border-radius:28px; }
+.glass { overflow:hidden; position:relative; }
+.cam { position:absolute; width:22px; height:22px; border-radius:50%; background:#0b0b0a; left:50%; top:22px; transform:translateX(-50%); z-index:9;
+  box-shadow:inset 0 0 0 3px #1c1d1b; }
+.tablet .cam { top:-13px; width:9px; height:9px; box-shadow:none; background:#262724; }
+.tablet .glass { overflow:visible; }
+.tablet .scr { border-radius:28px; }
+
+/* ═════════ app screens (in dp) ═════════ */
+.scr { background:var(--bg); color:var(--on); display:flex; flex-direction:column; overflow:hidden; position:relative; font-family:var(--ui); }
+.sb { height:32px; flex:none; display:flex; align-items:center; justify-content:space-between; padding:0 22px 0 26px; font-size:14px; font-weight:500; }
+.sb .ic { display:flex; gap:4px; align-items:center; }
+.sb .ic i { font-size:16px; }
+.body { flex:1; min-height:0; overflow:hidden; position:relative; }
+.nav { flex:none; background:var(--bg); border-top:1px solid rgba(214,211,203,.6); }
+.nav .row { height:68px; display:flex; }
+.nav .it { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; padding-top:10px; }
+.nav .pill { width:60px; height:32px; border-radius:16px; display:flex; align-items:center; justify-content:center; color:var(--onVar); }
+.nav .pill i { font-size:24px; }
+.nav .it.on .pill { background:var(--primaryC); color:var(--onPrimaryC); }
+.nav .lb { font-size:12px; line-height:16px; font-weight:500; letter-spacing:.2px; color:var(--onVar); white-space:nowrap; max-width:100%; overflow:hidden; padding:0 2px; }
+.nav .it.on .lb { color:var(--on); font-weight:600; }
+.gest { height:22px; display:flex; align-items:center; justify-content:center; }
+.gest b { width:108px; height:4px; border-radius:2px; background:#1B1B19; opacity:.85; }
+
+.th { position:relative; height:80px; flex:none; }
+.th.sub { height:96px; }
+.th .tt { position:absolute; left:20px; bottom:13px; right:120px; }
+.th h2 { font-size:30px; line-height:36px; font-weight:700; letter-spacing:-.6px; white-space:nowrap; }
+.th .st { font-size:14px; line-height:20px; font-weight:500; color:var(--onVar); margin-top:2px; }
+.acts { position:absolute; right:8px; top:6px; display:flex; }
+.acts i, .sbar .acts i { width:48px; height:48px; display:flex; align-items:center; justify-content:center; font-size:24px; color:var(--on); }
+.sbar { height:64px; flex:none; display:flex; align-items:center; padding:0 8px 0 4px; gap:4px; position:relative; }
+.sbar > i { width:48px; height:48px; display:flex; align-items:center; justify-content:center; font-size:24px; }
+.sbar h3 { font-size:20px; line-height:26px; font-weight:600; letter-spacing:-.3px; white-space:nowrap; }
+.sbar .st { font-size:13px; line-height:18px; color:var(--onVar); font-weight:500; }
+
+.lbl { height:44px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; }
+.lbl span { font-size:16px; line-height:22px; font-weight:700; letter-spacing:-.15px; }
+.lbl em { font-style:normal; color:var(--primary); font-size:14px; font-weight:500; }
+.panel { background:var(--cLow); border-radius:24px; padding:16px 18px; }
+.hscroll { display:flex; gap:10px; padding:0 16px; overflow:hidden; }
+
+.card { position:relative; flex:none; border-radius:18px; overflow:hidden; background:var(--cHigh); }
+.card > img, .ph { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.card .scrim { position:absolute; left:0; right:0; bottom:0; height:62%; background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.62)); }
+.card .tx { position:absolute; left:12px; right:10px; bottom:10px; color:#fff; }
+.card .tx b { display:block; font-size:14px; line-height:20px; font-weight:600; letter-spacing:-.05px; overflow:hidden; text-overflow:ellipsis;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.card .tx small { display:block; font-size:12px; line-height:16px; font-weight:500; letter-spacing:.2px; opacity:.82; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.card .disc { position:absolute; left:8px; top:8px; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.card .disc i { font-size:16px; }
+
+.chips { padding:2px 16px 6px; display:flex; flex-direction:column; gap:8px; }
+.chips div { display:flex; gap:8px; }
+.chip { height:32px; border-radius:16px; border:1px solid var(--outlineVar); display:inline-flex; align-items:center; gap:6px; padding:0 14px;
+  font-size:14px; font-weight:500; color:var(--onVar); white-space:nowrap; background:var(--bg); }
+.chip i { font-size:18px; }
+.chip.dd { padding-right:8px; }
+/* a piece of an app screen laid over the canvas, beside the phone (shot 2: the burst strip) */
+.callout { position:absolute; z-index:5; background:var(--bg); color:var(--on); font-family:var(--ui); border-radius:24px; padding:14px;
+  box-shadow:0 30px 70px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.04); display:flex; flex-direction:column; gap:10px; }
+.callout .hd { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; }
+.callout .hd i { font-size:18px; color:var(--primary); }
+.callout .hd small { margin-left:auto; font-size:12px; font-weight:500; color:var(--onVar); white-space:nowrap; }
+#fg .device { left:668px; top:44px; width:316px; padding:8px; border-radius:38px; }
+#fg .device .glass { border-radius:30px; }
+#fg .cam { width:10px; height:10px; top:10px; box-shadow:none; }
+
+.mh { font-size:22px; line-height:28px; font-weight:700; letter-spacing:-.4px; padding:14px 16px 2px; }
+.dh { height:42px; display:flex; align-items:center; padding:0 10px 0 16px; gap:8px; }
+.dh b { font-size:14px; font-weight:600; flex:1; }
+.dh small { font-size:12px; color:var(--onVar); font-weight:500; }
+.dh i { font-size:22px; color:var(--outline); }
+.grid { display:grid; gap:2px; }
+.cell { position:relative; aspect-ratio:1; overflow:hidden; background:var(--cHigh); }
+.cell img { width:100%; height:100%; object-fit:cover; display:block; }
+.cell .cl { position:absolute; right:5px; bottom:5px; color:#fff; font-size:15px; filter:drop-shadow(0 0 2px rgba(0,0,0,.6)); }
+.cell .vd { position:absolute; right:5px; top:5px; color:#fff; font-size:11px; font-weight:600; display:flex; align-items:center; gap:1px;
+  text-shadow:0 0 3px rgba(0,0,0,.7); }
+.cell .vd i { font-size:14px; filter:drop-shadow(0 0 2px rgba(0,0,0,.6)); }
+
+.meter { height:6px; border-radius:3px; background:var(--cHighest); overflow:hidden; }
+.meter b { display:block; height:100%; border-radius:3px; background:var(--primary); }
+.big .l { font-size:14px; line-height:20px; font-weight:500; color:var(--onVar); white-space:nowrap; }
+.big .v { font-size:40px; line-height:46px; font-weight:700; letter-spacing:-1px; }
+.big .s { font-size:14px; line-height:20px; color:var(--onVar); }
+.share { display:flex; gap:3px; height:8px; border-radius:4px; overflow:hidden; }
+.legend { display:flex; flex-wrap:wrap; gap:6px 16px; }
+.legend span { display:flex; align-items:center; gap:6px; font-size:12px; font-weight:500; color:var(--onVar); }
+.legend span b { color:var(--on); font-weight:500; }
+.legend span i { width:8px; height:8px; border-radius:50%; display:block; }
+
+/* swipe */
+.deck { position:relative; flex:1; min-height:0; }
+.mcard { position:absolute; inset:0; border-radius:24px; overflow:hidden; background:#000; }
+.mcard img { width:100%; height:100%; object-fit:cover; display:block; }
+.seal { position:absolute; top:28px; padding:4px; border-radius:10px; background:rgba(255,255,255,.92); border:2.5px solid; }
+.seal span { display:block; border:1px solid; border-radius:7px; padding:2px 14px; font-size:26px; line-height:32px; font-weight:700; letter-spacing:2px; }
+.meta { text-align:center; font-size:14px; line-height:20px; font-weight:500; color:var(--onVar); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.dbar { display:flex; justify-content:center; align-items:flex-end; gap:18px; }
+.ra { display:flex; flex-direction:column; align-items:center; gap:6px; }
+.ra .o { border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.ra small { font-size:13px; line-height:18px; font-weight:500; color:var(--onVar); white-space:nowrap; }
+.hint { text-align:center; font-size:12px; line-height:17px; color:var(--onVar); }
+.pillw { display:inline-block; font-size:12px; line-height:16px; font-weight:500; letter-spacing:.2px; padding:3px 9px; border-radius:99px; white-space:nowrap; }
+
+/* burst */
+.strip { display:flex; gap:6px; padding:0 2px; }
+.sth { position:relative; width:64px; height:64px; border-radius:10px; overflow:hidden; background:var(--cHigh); flex:none; }
+.sth .ph { transform-origin:center; }
+.sth.f::after { content:''; position:absolute; inset:0; border:2.5px solid var(--primary); border-radius:10px; }
+.mb { position:absolute; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.mb i { font-size:13px; }
+.qc { height:32px; border-radius:16px; border:1px solid var(--outlineVar); background:var(--cLow); display:inline-flex; align-items:center; gap:6px;
+  padding:0 12px 0 10px; font-size:14px; font-weight:500; white-space:nowrap; }
+.qc i { font-size:16px; color:var(--primary); }
+
+/* cloud */
+.stack { display:flex; flex-direction:column; gap:16px; padding:4px 16px 24px; }
+.sec .lbl { padding:0 4px; }
+.plan { display:flex; align-items:center; gap:12px; padding:13px 16px; border-radius:18px; background:var(--bg); border:1.5px solid transparent; }
+.plan.cur { border:2px solid var(--primary); }
+.plan .n { flex:1; }
+.plan .n b { display:block; font-size:16px; line-height:22px; font-weight:600; }
+.plan .n small { display:block; font-size:13px; line-height:18px; color:var(--onVar); }
+.plan .p { font-size:14px; font-weight:500; color:var(--onVar); white-space:nowrap; }
+.plan.cur .p { color:var(--primary); font-weight:600; }
+.plan i { font-size:22px; color:var(--primary); }
+.tbtn { color:var(--primary); font-size:14px; font-weight:500; padding:4px 0 0; }
+.sw { display:flex; align-items:center; gap:14px; }
+.sw .n { flex:1; }
+.sw .n b { display:block; font-size:16px; line-height:24px; font-weight:400; }
+.sw .n small { display:block; font-size:12px; line-height:17px; color:var(--onVar); }
+.switch { width:52px; height:32px; border-radius:16px; background:var(--primary); position:relative; flex:none; }
+.switch b { position:absolute; right:4px; top:4px; width:24px; height:24px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; }
+.switch b i { font-size:16px; color:var(--primary); }
+.okline { display:flex; gap:8px; align-items:center; font-size:14px; line-height:20px; color:var(--onVar); }
+.okline i { font-size:20px; color:var(--primary); }
+
+/* ═════════ feature graphic ═════════ */
+#fg { width:1024px; height:500px; }
+/* The feature graphic sells what Kura does: four feature cards lead, the backup card carries the price. */
+#fg .left { position:absolute; left:48px; top:40px; bottom:40px; width:590px; display:flex; flex-direction:column; gap:22px; }
+#fg .brand { display:flex; align-items:center; gap:16px; }
+#fg .brand svg { width:66px; height:66px; border-radius:17px; box-shadow:0 0 0 2px rgba(255,255,255,.18); flex:none; }
+#fg .brand b { display:block; font-size:44px; line-height:1; font-weight:700; letter-spacing:-1.2px; }
+#fg .brand > div { flex:1; min-width:0; }
+#fg .brand small { display:block; font-size:18px; font-weight:500; color:#CDEBD7; margin-top:7px; white-space:nowrap; overflow:hidden; }
+#fg .feats { flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:14px; }
+#fg .ft { border-radius:22px; padding:16px 18px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
+  display:flex; flex-direction:column; justify-content:center; gap:4px; overflow:hidden; }
+#fg .ft i { width:40px; height:40px; border-radius:50%; background:var(--inversePrimary); color:var(--onPrimaryC); font-size:22px;
+  display:flex; align-items:center; justify-content:center; margin-bottom:6px; }
+#fg .ft b { font-size:25px; line-height:1.15; font-weight:700; letter-spacing:-.4px; }
+#fg .ft small { font-size:16px; line-height:1.3; font-weight:500; color:#CDEBD7; }
+#fg .ft.hi { background:#fff; border-color:#fff; color:var(--primary); box-shadow:0 18px 40px rgba(0,0,0,.25); }
+#fg .ft.hi i { background:var(--primary); color:#fff; }
+#fg .ft.hi small { color:var(--onVar); }
+body.cjk #fg .ft b { letter-spacing:0; word-break:keep-all; }
+
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="store-images-app-strings.js"></script>
+<script src="store-images-i18n.js"></script>
+<script>
+const CAP = window.STORE_I18N;
+
+// ─────────────── language ───────────────
+const L = new URLSearchParams(location.search).get('lang') || 'en';
+// Folder codes (images/store/<lang>) → the locale for dates, plurals and numbers.
+const LOC = { zh:'zh-CN', pt:'pt-BR' }[L] || L;
+const A = APP_STRINGS[L], EN = APP_STRINGS.en, C = CAP[L];
+document.documentElement.lang = LOC;
+const CJK = { ja:'Noto Sans JP', zh:'Noto Sans SC', 'zh-TW':'Noto Sans TC', ko:'Noto Sans KR' }[L];
+if (CJK) {
+  document.body.classList.add('cjk');
+  document.documentElement.style.setProperty('--cjk', `'${CJK}'`);
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = `https://fonts.googleapis.com/css2?family=${CJK.replace(/ /g, '+')}:wght@400;500;600;700;800&display=block`;
+  document.head.appendChild(link);
+}
+const fmt = (s, a) => { let i = 0; return s.replace(/%(\d+)\$[ds]|%[ds]/g, (m, p) => String(p ? a[p - 1] : a[i++])); };
+const t = (k, ...a) => fmt(A[k] ?? EN[k], a);
+const pl = (k, n, ...a) => { const f = A[k] ?? EN[k]; return fmt(f[new Intl.PluralRules(LOC).select(n)] ?? f.other, [n, ...a]); };
+// domain/ByteFormat.kt: decimal units, Locale.US, one decimal under 100.
+const bytes = gb => { let v = gb * 1e9, u = -1; const U = ['KB','MB','GB','TB']; while (v >= 1000 && u < 3) { v /= 1000; u++; }
+  return (v >= 100 ? v.toFixed(0) : v.toFixed(1)) + ' ' + U[u]; };
+const D = (y, m, d, h = 12, mi = 0, s = 0) => new Date(y, m - 1, d, h, mi, s);
+const TODAY = D(2026, 9, 28);
+const df = (o, d) => new Intl.DateTimeFormat(LOC, o).format(d);
+const monthTitle = (y, m) => df({ year:'numeric', month:'long' }, D(y, m, 1));
+const shortMonth = (y, m) => df({ year:'numeric', month:'short' }, D(y, m, 1));
+const dayTitle = d => { const diff = Math.round((TODAY - d) / 864e5);
+  return diff === 0 ? t('day_today') : diff === 1 ? t('day_yesterday') : df({ weekday:'short', month:'short', day:'numeric' }, d); };
+const P = n => `images/photos/${n}.jpg`;
+// Plan prices (Play: USD $0.99 / $4.99 / $9.99, Japan ¥160 / ¥780 / ¥1,580). Other countries pay Play's conversion,
+// which is not known here, so they see the USD price written with the currency code.
+const price = usd => L === 'ja' ? { .99:'¥160', 4.99:'¥780', 9.99:'¥1,580' }[usd]
+  : L === 'en' ? '$' + usd.toFixed(2)
+  : new Intl.NumberFormat(LOC, { style:'currency', currency:'USD', currencyDisplay:'code' }).format(usd);
+const priced = s => s.replace('{p1}', price(.99)).replace('{p2}', price(4.99)).replace('{p3}', price(9.99));
+// {vault} = the app's own name for the vault (lib_vault: Private / プライベート / Tresor …), so a rename in the app carries over.
+// A size never splits from its unit across lines ("500 GB").
+const fill = s => priced(s).replace(/\{vault\}/g, t('lib_vault')).replace(/(\d) (GB|TB|Go|To|ГБ|ТБ)/g, '$1 $2');
+// "Keep what matters.<br>Clear the rest." — the tagline breaks after its first clause, in every language.
+// A full stop inside the line wins ("Behalte, was zählt.<br>Räum…"); otherwise the first comma (ja, ko, zh).
+const twoLines = s => /^.+?[.。!！?？]\s*\S/u.test(s)
+  ? s.replace(/^(.+?[.。!！?？])\s*(?=\S)/u, '$1<br>')
+  : s.replace(/^(.+?[、，,])\s*(?=\S)/u, '$1<br>');
+const mi = (n, cls = 'mi', st = '') => `<i class="${cls}" style="${st}">${n}</i>`;
+
+// ─────────────── the icon (res/drawable/ic_launcher_foreground.xml on @color/brand) ───────────────
+const ICON_SVG = (vb = '0 0 108 108') => `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg">
+  <rect x="-20" y="-20" width="148" height="148" fill="#236B46"/>
+  <path d="M27,45 Q31,44.5 35,42 L54,30 L73,42 Q77,44.5 81,45" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="rotate(8 56 60)"><path fill="#fff" fill-opacity=".5" d="M43.5,47 h25 a3.5,3.5 0 0 1 3.5,3.5 v19 a3.5,3.5 0 0 1 -3.5,3.5 h-25 a3.5,3.5 0 0 1 -3.5,-3.5 v-19 a3.5,3.5 0 0 1 3.5,-3.5 z"/></g>
+  <path fill="#fff" d="M39.5,50 h29 a3.5,3.5 0 0 1 3.5,3.5 v21 a3.5,3.5 0 0 1 -3.5,3.5 h-29 a3.5,3.5 0 0 1 -3.5,-3.5 v-21 a3.5,3.5 0 0 1 3.5,-3.5 z"/>
+  <path fill="#236B46" d="M40.5,74 L50.5,62.5 L56.5,69 L61,64.5 L67.5,74 z"/>
+  <path fill="#236B46" d="M59.3,57 a3.2,3.2 0 1 0 6.4,0 a3.2,3.2 0 1 0 -6.4,0 z"/>
+</svg>`;
+// The roof alone, as a faint watermark behind the captions.
+const ROOF = (w, st) => `<svg class="roof" style="${st}" width="${w}" viewBox="25 27 58 20"><path d="M27,45 Q31,44.5 35,42 L54,30 L73,42 Q77,44.5 81,45"
+  fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+// ─────────────── shared app chrome ───────────────
+const statusBar = () => `<div class="sb"><span>10:24</span><span class="ic">${mi('signal_cellular_alt')}${mi('wifi')}${mi('battery_full')}</span></div>`;
+const navBar = on => {
+  const items = [['photo', t('tab_library')], ['collections_bookmark', t('tab_collections')], ['cleaning_services', t('tab_sort')], ['settings', t('settings_title')]];
+  return `<div class="nav"><div class="row">${items.map(([ic, lb], i) =>
+    `<div class="it ${i === on ? 'on' : ''}"><div class="pill">${mi(ic, i === on ? 'mi' : 'mo')}</div><div class="lb">${lb}</div></div>`).join('')}</div>
+    <div class="gest"><b></b></div></div>`;
+};
+const gestOnly = () => `<div class="gest"><b></b></div>`;
+const tabHeader = (title, sub, acts) => `<div class="th ${sub ? 'sub' : ''}"><div class="tt"><h2>${title}</h2>${sub ? `<div class="st">${sub}</div>` : ''}</div>
+  <div class="acts">${acts.map(a => mi(a, 'mo')).join('')}</div></div>`;
+const screenBar = (title, sub, acts = []) => `<div class="sbar">${mi('arrow_back')}<div><h3>${title}</h3>${sub ? `<div class="st">${sub}</div>` : ''}</div>
+  ${acts.length ? `<div class="acts" style="top:8px">${acts.map(a => mi(a, 'mo')).join('')}</div>` : ''}</div>`;
+const label = (text, action) => `<div class="lbl"><span>${text}</span>${action ? `<em>${action}</em>` : ''}</div>`;
+const photoCard = ({ src, title, detail, w, h, icon, tone, style = '' }) => `<div class="card" style="width:${w}px;height:${h}px">
+  <img class="ph" src="${P(src)}" style="${style}"><div class="scrim"></div>
+  ${icon ? `<div class="disc" style="background:var(--${tone}C);color:var(--on${tone[0].toUpperCase() + tone.slice(1)}C)">${mi(icon, 'mo')}</div>` : ''}
+  <div class="tx"><b>${title}</b>${detail ? `<small>${detail}</small>` : ''}</div></div>`;
+const meter = f => `<div class="meter"><b style="width:${f * 100}%"></b></div>`;
+const roundAction = (icon, lb, size, bg, fg, border = '') => `<div class="ra"><div class="o" style="width:${size}px;height:${size}px;background:${bg};color:${fg};${border}">
+  ${mi(icon, 'mi', `font-size:${size * .42}px`)}</div><small>${lb}</small></div>`;
+const decisionBar = info => `<div class="dbar">
+  ${roundAction('undo', t('swipe_undo'), 48, 'var(--cHigh)', 'var(--onVar)')}
+  ${roundAction('close', t('swipe_trash'), 70, 'var(--bg)', 'var(--error)', 'border:1.5px solid rgba(179,38,30,.7);')}
+  ${roundAction('check', t('swipe_keep'), 70, 'var(--primary)', '#fff')}
+  ${info ? `<div style="width:40px;height:70px;display:flex;align-items:center;justify-content:center;color:var(--onVar)">${mi('info', 'mo', 'font-size:20px')}</div>` : ''}</div>`;
+const seal = (word, ink, side, tilt, st = '') => `<div class="seal" style="${side}:28px;border-color:${ink};color:${ink};transform:rotate(${tilt}deg);${st}">
+  <span style="border-color:${ink}99">${word.toLocaleUpperCase(LOC)}</span></div>`;
+
+// ─────────────── the burst strip (tidy/BurstPicker.kt), laid beside the swipe screen ───────────────
+function burstCallout() {
+  // One burst of the same dog: each frame a slightly different crop, the way a burst drifts.
+  const frames = ['transform:scale(1.14) translate(-3%,2%)', 'transform:scale(1.02)', 'transform:scale(1.1) translate(4%,-2%);filter:brightness(.9)',
+    'transform:scale(1.16) translate(-2%,-3%)', 'transform:scale(1.08) translate(2%,3%);filter:blur(1.2px)'];
+  const dec = [-1, 0, -1, 0, -1]; // trashed / open
+  return `<div class="hd">${mi('burst_mode', 'mo')}${t('session_similar')}<small>${t('burst_tally_short', 3, 2)}</small></div>
+    <div class="strip">${frames.map((f, i) => `<div class="sth ${i === 1 ? 'f' : ''}"><img class="ph" src="${P('p237')}" style="${f};${dec[i] < 0 ? 'opacity:.35' : ''}">
+      ${dec[i] < 0 ? `<div class="mb" style="background:var(--error);color:#fff;left:22px;top:22px">${mi('close')}</div>` : ''}
+      ${i === 1 ? `<div class="mb" style="background:var(--secondaryC);color:var(--onSecondaryC);left:3px;top:3px">${mi('auto_awesome')}</div>` : ''}</div>`).join('')}</div>
+    <div><span class="qc">${mi('auto_awesome')}${t('burst_keep_best_rest')}</span></div>`;
+}
+
+// ─────────────── the library the screens show ───────────────
+const POOL = ['p110','p1025','p164','p431','p509','p419','p13','p106','p292','p392','p124','p200','p49','p360','p237','p434','p525','p28','p429',
+  'p517','p235','p369','p163','p77','p512','p152','p450','p199','p288','p401','p323','p493','p10','p169','p565','p437','p225','p507','p287','p102',
+  'p516','p128','p436','p488','p558','p165','p215','p327','p400','p54','p519','p553','p381','p159','p433','p219'];
+const DAYS = [ // [date, count, size in GB]
+  [D(2026, 9, 28), 3, .0214], [D(2026, 9, 27), 6, .0561], [D(2026, 9, 25), 5, .1872], [D(2026, 9, 22), 8, .0724],
+  [D(2026, 9, 19), 7, .0643], [D(2026, 9, 14), 9, .2391], [D(2026, 9, 12), 6, .0512],
+];
+const VIDEOS = { 4:'0:24', 13:'1:08', 27:'0:11' };
+function libraryGrid(cols) {
+  let k = 0, html = `<div class="mh">${monthTitle(2026, 9)}</div>`;
+  DAYS.forEach(([d, n, gb], di) => {
+    html += `<div class="dh"><b>${dayTitle(d)}</b><small>${bytes(gb)}</small>${mi('radio_button_unchecked', 'mo')}</div><div class="grid" style="grid-template-columns:repeat(${cols},1fr)">`;
+    for (let i = 0; i < n; i++, k++) {
+      const v = VIDEOS[k];
+      html += `<div class="cell"><img src="${P(POOL[k % POOL.length])}">
+        ${v ? `<span class="vd">${mi('play_arrow')}${v}</span>` : ''}${di > 0 ? `<i class="mi cl">cloud_done</i>` : ''}</div>`;
+    }
+    html += `</div>`;
+  });
+  return html;
+}
+
+// ─────────────── the screens ───────────────
+const SCREENS = {
+  photos: ({ cols }) => `${statusBar()}
+    ${tabHeader(t('tab_library'), pl('stats_items', 12480), ['grid_view', 'search'])}
+    <div class="body">
+      <div class="chips">
+        <div><span class="chip dd">${mi('date_range', 'mo')}${t('filter_date_range')}${mi('arrow_drop_down')}</span><span class="chip">${mi('favorite_border', 'mo')}${t('lib_favorites')}</span></div>
+        <div><span class="chip">${t('kind_photo')}</span><span class="chip">${t('kind_video')}</span><span class="chip">${t('kind_screenshot')}</span></div>
+      </div>
+      ${label(t('memories_title'))}
+      <div class="hscroll">
+        ${photoCard({ src:'p49', title:t('session_today'), detail:`2025 · ${pl('stats_items', 23)}`, w:124, h:172 })}
+        ${photoCard({ src:'p419', title:t('session_today'), detail:`2024 · ${pl('stats_items', 41)}`, w:124, h:172 })}
+        ${photoCard({ src:'p512', title:t('session_today'), detail:`2023 · ${pl('stats_items', 9)}`, w:124, h:172 })}
+        ${photoCard({ src:'p164', title:monthTitle(2024, 9), detail:pl('stats_items', 86), w:124, h:172 })}
+        ${photoCard({ src:'p525', title:monthTitle(2023, 9), detail:pl('stats_items', 57), w:124, h:172 })}
+        ${photoCard({ src:'p507', title:monthTitle(2022, 9), detail:pl('stats_items', 33), w:124, h:172 })}
+        ${photoCard({ src:'p392', title:monthTitle(2021, 9), detail:pl('stats_items', 28), w:124, h:172 })}
+        ${photoCard({ src:'p434', title:monthTitle(2020, 9), detail:pl('stats_items', 14), w:124, h:172 })}
+      </div>
+      ${libraryGrid(cols)}
+    </div>${navBar(0)}`,
+
+  swipe: () => `${statusBar()}${screenBar(t('session_today'), t('swipe_progress', 3, 24))}
+    <div style="padding:0 20px">${meter(3 / 24)}</div>
+    <div class="body" style="display:flex;flex-direction:column;gap:12px;padding:12px 16px 16px">
+      <div class="deck">
+        <div class="mcard" style="transform:translateY(12px) scale(.95);left:10px;right:10px"><img src="${P('p509')}"></div>
+        <div class="mcard" style="transform:translateX(64px) rotate(3.4deg);box-shadow:0 12px 34px rgba(0,0,0,.25)"><img src="${P('p1025')}" style="object-position:50% 40%">
+          ${seal(t('swipe_keep'), '#236B46', 'left', -9)}</div>
+      </div>
+      <div class="meta">${t('kind_photo')} · ${bytes(.0042)} · ${df({ year:'numeric', month:'short', day:'numeric' }, D(2023, 9, 28))}</div>
+      ${decisionBar(false)}
+      <div class="hint">${t('swipe_hint')}</div>
+    </div>${gestOnly()}`,
+
+  tidy: ({ w }) => {
+    const sessions = [
+      ['p28', t('session_all'), t('session_count', 12480, bytes(48.6)), 'photo_library', 'secondary'],
+      ['p49', t('session_today'), t('session_count', 24, bytes(.093)), 'history', 'secondary'],
+      ['p431', t('session_dup'), t('session_count', 318, bytes(1.9)), 'content_copy', 'primary'],
+      ['p237', t('session_similar'), t('session_count', 1204, bytes(5.7)), 'burst_mode', 'primary'],
+      ['p553', t('session_blurry'), t('session_count', 162, bytes(.61)), 'blur_on', 'tertiary', 'filter:blur(2.6px);transform:scale(1.08)'],
+      ['p509', t('session_large'), t('session_count', 47, bytes(6.4)), 'sd_card', 'tertiary'],
+      ['p401', t('session_motion'), t('session_count', 389, bytes(2.3)), 'motion_photos_on', 'tertiary'],
+      ['p165', t('session_old_screenshots'), t('session_count', 540, bytes(.82)), 'screenshot', 'tertiary'],
+    ];
+    const months = [[2026, 9, 'p110', 44, .161], [2026, 8, 'p124', 312, 2.1], [2026, 7, 'p199', 486, 3.4], [2026, 6, 'p152', 205, 1.2],
+      [2026, 5, 'p288', 190, .98], [2026, 4, 'p106', 233, 1.4], [2026, 3, 'p565', 168, .77], [2026, 2, 'p225', 121, .55]];
+    const folders = [['Camera', 'p323', 9812, 41.2], ['Screenshots', 'p165', 1630, 2.5], ['WhatsApp Images', 'p429', 702, .88], ['Download', 'p517', 211, 1.6],
+      ['Instagram', 'p488', 125, .31]];
+    return `${statusBar()}${tabHeader(t('tab_sort'), null, ['refresh'])}
+    <div class="body">
+      <div style="padding:4px 16px"><div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:14px">
+        <div class="big"><div class="l">${t('tidy_library')}</div><div class="v">${bytes(48.6)}</div><div class="s">${pl('stats_items', 12480)}</div></div>
+        <div class="share"><b style="flex:31.2;background:var(--primary)"></b><b style="flex:14.9;background:var(--tertiary)"></b><b style="flex:2.5;background:var(--outline)"></b></div>
+        <div class="legend"><span><i style="background:var(--primary)"></i>${t('kind_photo')} <b>${bytes(31.2)}</b></span>
+          <span><i style="background:var(--tertiary)"></i>${t('kind_video')} <b>${bytes(14.9)}</b></span>
+          <span><i style="background:var(--outline)"></i>${t('kind_screenshot')} <b>${bytes(2.5)}</b></span></div>
+      </div></div>
+      <div style="height:8px"></div>${label(t('home_sessions'))}
+      <div class="hscroll"><div style="display:flex;gap:10px;transform:translateX(${w > 600 ? 0 : -308}px)">
+        ${sessions.map(([src, title, detail, icon, tone, st]) => photoCard({ src, title, detail, icon, tone, w:156, h:196, style:st || '' })).join('')}
+      </div></div>
+      <div style="height:16px"></div>${label(t('home_by_month'), t('see_all'))}
+      <div class="hscroll">${months.map(([y, m, src, n, gb]) => photoCard({ src, title:shortMonth(y, m), detail:`${n} · ${bytes(gb)}`, w:128, h:128 })).join('')}</div>
+      <div style="height:16px"></div>${label(t('home_by_folder'), t('see_all'))}
+      <div class="hscroll">${folders.map(([name, src, n, gb]) => photoCard({ src, title:name, detail:`${n} · ${bytes(gb)}`, w:128, h:128 })).join('')}</div>
+      <div style="height:16px"></div>
+      <div style="padding:0 16px"><div class="panel" style="padding:14px 18px;display:flex;align-items:center;gap:14px;color:var(--error)">
+        ${mi('delete', 'mo', 'font-size:22px')}<span style="flex:1;font-size:16px;line-height:24px;color:var(--on)">${t('trash_title')}</span>
+        <span style="font-size:14px;font-weight:500">57 · ${bytes(1.2)}</span>${mi('keyboard_arrow_right', 'mi', 'font-size:20px;color:var(--outline)')}</div></div>
+    </div>${navBar(2)}`;
+  },
+
+  vault: ({ cols }) => {
+    const pool = ['p225','p163','p360','p1025','p429','p437','p106','p493','p102','p152','p400','p169','p431','p488','p292','p517','p200','p219','p159','p13'];
+    const days = [[D(2026, 9, 26), 4], [D(2026, 9, 18), 6], [D(2026, 8, 30), 5], [D(2026, 8, 12), 7]];
+    let k = 0, grid = '';
+    days.forEach(([d, n], di) => {
+      if (di === 0) grid += `<div class="mh">${monthTitle(2026, 9)}</div>`;
+      if (di === 2) grid += `<div class="mh">${monthTitle(2026, 8)}</div>`;
+      grid += `<div class="dh"><b>${dayTitle(d)}</b>${mi('radio_button_unchecked', 'mo')}</div><div class="grid" style="grid-template-columns:repeat(${cols},1fr)">`;
+      for (let i = 0; i < n; i++, k++) grid += `<div class="cell"><img src="${P(pool[k % pool.length])}"></div>`;
+      grid += '</div>';
+    });
+    return `${statusBar()}${screenBar(t('lib_vault'), pl('stats_items', 38), ['grid_view'])}
+    <div class="body">
+      <div style="padding:4px 16px 12px"><div class="panel" style="padding:14px 18px"><div class="okline">${mi('cloud_done')}<span style="flex:1">${t('vault_backup_on_short')}</span>${mi('info', 'mo', 'font-size:20px;color:var(--onVar)')}</div></div></div>
+      <div class="hscroll">${[['p360', C.vaultAlbums[0], 26], ['p1025', C.vaultAlbums[1], 12]].map(([src, title, n]) => photoCard({ src, title, detail:pl('stats_items', n), w:168, h:118 })).join('')}</div>
+      ${grid}
+    </div>${gestOnly()}`;
+  },
+
+  cloud: () => {
+    const plan = (name, gb, usd, cur) => `<div class="plan ${cur ? 'cur' : ''}"><div class="n"><b>${name}</b><small>${bytes(gb)}</small></div>
+      <span class="p">${cur ? t('plan_current') : t('cloud_per_month', price(usd))}</span>${cur ? mi('check_circle') : ''}</div>`;
+    const infoLabel = text => `<div class="lbl"><span style="display:flex;align-items:center;gap:6px">${text}${mi('info', 'mo', 'font-size:18px;color:var(--onVar)')}</span></div>`;
+    return `${statusBar()}${screenBar(t('cloud_title'))}
+    <div class="body"><div class="stack">
+      <div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+        <div class="big"><div class="l">${t('plan_plus')} · ${bytes(100)}</div><div class="v">${bytes(38.2)}</div></div>${meter(38.2 / 100)}</div>
+      <div class="sec">${infoLabel(t('cloud_plan_title'))}<div class="panel" style="display:flex;flex-direction:column;gap:8px;padding:10px">
+        ${plan(t('plan_plus'), 100, .99, true)}${plan(t('plan_standard'), 500, 4.99)}${plan(t('plan_pro'), 1000, 9.99)}
+        <div class="tbtn" style="padding:6px 8px 4px">${t('plan_manage')}</div></div></div>
+      <div class="sec">${label(t('backup_status_title'))}<div class="panel" style="display:flex;flex-direction:column;gap:14px">
+        <div class="sw"><div class="n"><b>${t('settings_auto_backup')}</b><small>${t('settings_auto_backup_hint')}</small></div><div class="switch"><b>${mi('check')}</b></div></div>
+        <div class="okline">${mi('cloud_done')}<span>${t('backup_status_all_done')}</span></div></div></div>
+      <div class="sec">${infoLabel(t('cloud_sync_title'))}<div class="panel"><div class="okline">${mi('smartphone', 'mo')}<span>${t('cloud_only_none')}</span></div></div></div>
+    </div></div>${gestOnly()}`;
+  },
+};
+
+// ─────────────── assembling the canvases ───────────────
+const SHOTS = [
+  ['photos', twoLines(t('brand_tagline')), C.s1],
+  ['swipe', C.h2, C.s2, burstCallout],
+  ['tidy', C.h3, C.s3],
+  ['vault', fill(C.h4), fill(C.s4)],
+  ['cloud', fill(C.h5), fill(C.s5)],
+];
+const PHONE = { w:400, h:866, cols:4, zoom:1.6 };
+const TABLET = { w:800, h:1180, cols:6, zoom:1.125 };
+const screen = (name, f) => `<div class="glass" style="width:${f.w * f.zoom}px;height:${f.h * f.zoom}px"><div class="cam"></div>
+  <div class="scr" style="zoom:${f.zoom};width:${f.w}px;height:${f.h}px">${SCREENS[name](f)}</div></div>`;
+
+let html = '';
+html += `<section class="shot" id="fg">
+  ${ROOF(900, 'left:420px;top:-60px')}
+  <div class="left">
+    <div class="brand">${ICON_SVG('16 16 76 76')}<div><b>${t('app_name')}</b><small>${t('brand_tagline')}</small></div></div>
+    <div class="feats">
+      <div class="ft">${mi('photo_library')}<b>${C.f1t}</b><small>${C.f1s}</small></div>
+      <div class="ft">${mi('cleaning_services')}<b>${C.f2t}</b><small>${C.f2s}</small></div>
+      <div class="ft">${mi('lock')}<b>${fill(C.f3t)}</b><small>${fill(C.f3s)}</small></div>
+      <div class="ft hi">${mi('cloud_done')}<b>${fill(C.f4t)}</b><small>${C.f4s}</small></div>
+    </div>
+  </div>
+  <div class="device">${screen('photos', { w:400, h:866, cols:4, zoom:.75 })}</div>
+</section>`;
+const callout = (extra, st) => extra ? `<div class="callout" style="${st}">${extra()}</div>` : '';
+SHOTS.forEach(([name, h, s, extra], i) => {
+  html += `<section class="shot phone" id="p${i + 1}">${ROOF(1300, 'left:-110px;top:40px')}
+    <div class="cap"><h1>${h}</h1><p>${s}</p></div>
+    <div class="device">${screen(name, PHONE)}</div>${callout(extra, 'zoom:1.5;left:27px;top:853px')}</section>`;
+});
+SHOTS.forEach(([name, h, s, extra], i) => {
+  html += `<section class="shot tablet" id="t${i + 1}">${ROOF(1300, 'left:-110px;top:40px')}
+    <div class="cap"><h1>${h}</h1><p>${s}</p></div>
+    <div class="device">${screen(name, TABLET)}</div>${callout(extra, 'zoom:1.4;left:26px;top:960px')}</section>`;
+});
+document.getElementById('stage').innerHTML = html;
+
+// Captions shrink until they fit their box, so no language overflows.
+function fit(box) {
+  const h1 = box.querySelector('h1'), p = box.querySelector('p');
+  let s1 = parseFloat(getComputedStyle(h1).fontSize), s2 = p ? parseFloat(getComputedStyle(p).fontSize) : 0;
+  const used = () => [...box.children].reduce((a, c) => a + c.offsetHeight, 0) + parseFloat(getComputedStyle(box).rowGap) * (box.children.length - 1);
+  const wide = () => h1.scrollWidth > box.clientWidth + 1 || (p && p.scrollWidth > box.clientWidth + 1);
+  for (let n = 0; n < 40 && (used() > box.clientHeight || wide()); n++) {
+    s1 *= .96; h1.style.fontSize = s1 + 'px';
+    if (p) { s2 = Math.max(s2 * .975, 22); p.style.fontSize = s2 + 'px'; }
+  }
+}
+// Tab labels shrink to 9sp to stay on one line (NavBar.kt); screen-bar titles likewise.
+function shrink(el, min) {
+  let s = parseFloat(getComputedStyle(el).fontSize);
+  while (el.scrollWidth > el.clientWidth + 0.5 && s > min) { s -= .5; el.style.fontSize = s + 'px'; }
+}
+window.READY = (async () => {
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(im => im.complete ? 0 : new Promise(r => { im.onload = im.onerror = r; })));
+  await new Promise(r => setTimeout(r, 300));
+  document.querySelectorAll('.nav .lb').forEach(el => shrink(el, 9));
+  document.querySelectorAll('.th h2').forEach(el => { el.style.overflow = 'hidden'; shrink(el, 20); });
+  document.querySelectorAll('.cap').forEach(fit);
+  // Feature cards: shrink a long title (and its line) until the card holds it; the tagline stays on one line.
+  document.querySelectorAll('#fg .ft').forEach(ft => {
+    const b = ft.querySelector('b'), sm = ft.querySelector('small');
+    for (let s = 25, t2 = 16; (ft.scrollHeight > ft.clientHeight || b.scrollWidth > b.clientWidth) && s > 15; s -= 1, t2 = Math.max(13, t2 - .4)) {
+      b.style.fontSize = s + 'px'; sm.style.fontSize = t2 + 'px';
+    }
+  });
+  const tag = document.querySelector('#fg .brand small');
+  for (let s = 18; tag.scrollWidth > tag.clientWidth && s > 12; s -= .5) tag.style.fontSize = s + 'px';
+  return true;
+})();
+</script>
+</body>
+</html>

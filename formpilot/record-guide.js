@@ -1,5 +1,7 @@
 // Record guide-demo.html (context-menu how-to animation) into
-// guide-demo-{lang}.webm for each language.
+// guide-demo-{lang}.mp4 (H.264, plays everywhere) + guide-demo-{lang}-poster.jpg
+// for each language. Run `node guide-shots.js` first so the menu/toast
+// strings in guide-demo.html match the extension.
 //
 //   node record-guide.js                 -> all 11 languages
 //   node record-guide.js ja en           -> selected languages
@@ -19,6 +21,7 @@ const FRAME_MS = 1000 / FPS;
 const DURATION_SEC = 23;
 const ALL_LANGS = ['en', 'ja', 'zh', 'ko', 'es', 'fr', 'de', 'pt', 'hi', 'id', 'ar'];
 const PROBE_TIMES = [2.2, 4.5, 6.3, 8.0, 9.8, 12.0, 15.5, 18.2, 20.7, 22.5];
+const POSTER_SEC = 6.3; // menus open, profile about to be picked
 
 const args = process.argv.slice(2);
 const probeMode = args.includes('--probe');
@@ -147,11 +150,8 @@ async function shot(page) {
   }
 
   for (const lang of targets) {
-    const output = path.join(__dirname, `guide-demo-${lang}.webm`);
-    if (fs.existsSync(output)) {
-      console.log(`Skipping ${lang} (${path.basename(output)} already exists)`);
-      continue;
-    }
+    const output = path.join(__dirname, `guide-demo-${lang}.mp4`);
+    const poster = path.join(__dirname, `guide-demo-${lang}-poster.jpg`);
 
     const framesDir = path.join(__dirname, '_frames_guide');
     if (fs.existsSync(framesDir)) fs.rmSync(framesDir, { recursive: true });
@@ -176,19 +176,23 @@ async function shot(page) {
 
     const cmd = [
       `"${FFMPEG}"`,
-      '-y',
+      '-y -loglevel error',
       `-framerate ${FPS}`,
       `-i "${path.join(framesDir, 'frame_%05d.png')}"`,
-      '-c:v libvpx-vp9',
-      '-b:v 1M',
-      '-crf 34',
+      '-c:v libx264',
+      '-profile:v high',
+      '-preset slow',
+      '-crf 26',
       '-pix_fmt yuv420p',
+      '-movflags +faststart',
       `-s ${WIDTH}x${HEIGHT}`,
       `"${output}"`,
     ].join(' ');
     execSync(cmd, { stdio: 'inherit', timeout: 600000 });
+    const posterFrame = path.join(framesDir, `frame_${String(Math.round(POSTER_SEC * FPS)).padStart(5, '0')}.png`);
+    execSync(`"${FFMPEG}" -y -loglevel error -i "${posterFrame}" -q:v 3 "${poster}"`, { stdio: 'inherit' });
     fs.rmSync(framesDir, { recursive: true, force: true });
-    console.log(`  Done: ${output}`);
+    console.log(`  Done: ${path.basename(output)} + ${path.basename(poster)}`);
   }
 
   console.log('\nAll done.');

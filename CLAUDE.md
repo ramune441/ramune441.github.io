@@ -159,6 +159,25 @@ promo.html 内 `buildTimeline()` の `t += ` を合計し、最後のシーン�
 
 ---
 
+## FormPilot 使い方ガイド (guide.html)
+
+画面画像・ボタン名・デモ動画はすべて拡張の実物（`MyProduct/formpilot` の popup.html / popup.css / i18n.js）から生成する。手で書き換えない。
+
+- `guide-shots/{lang}/*.webp` — 実物のポップアップを言語別に撮影したもの（番号バッジ込み）
+- `guide-ui.js` — i18n-lp.js の `{ui:キー}` を埋める拡張側の表記（ガイドと LP の両方で使う。両ページで i18n-lp.js より先に読み込む）
+- `guide-demo-{lang}.mp4` / `-poster.jpg` — guide-demo.html を録画した右クリックメニューの動画
+
+拡張の UI や文言を変えたら、`formpilot/` で次を実行してコミットする（puppeteer-core と ffmpeg-static が必要）:
+
+```bash
+node guide-shots.js     # guide-ui.js・スクショ・guide.html/index.html の既定文・guide-demo.html の文言を更新
+node record-guide.js    # 動画とポスターを全11言語で再録画（約30分）
+```
+
+ガイドや LP の文言で拡張のボタン名・タブ名に触れるときは、直接書かずに `{ui:btn_save}` のように i18n.js のキーで書く。
+
+---
+
 ## LP（ランディングページ）の作り方
 
 ### 共通構成

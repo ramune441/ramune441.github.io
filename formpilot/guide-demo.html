@@ -32,13 +32,14 @@
   .caption .green { color: #059669; }
 
   /* BROWSER WINDOW */
+  /* Not overflow:hidden — the context menus are native menus and may extend
+     past the window edge, as they do in Chrome */
   .browser {
     position: absolute; left: 50%; top: 190px; transform: translateX(-50%);
     width: 1240px; height: 800px; background: #fff; border-radius: 18px;
     box-shadow: 0 30px 80px rgba(6,78,59,0.18), 0 6px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
   }
-  .chrome-bar { height: 64px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
+  .chrome-bar { height: 64px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; border-radius: 18px 18px 0 0; display: flex; align-items: center; gap: 14px; padding: 0 24px; }
   .dot { width: 16px; height: 16px; border-radius: 50%; }
   .url { flex: 1; margin-left: 12px; background: #fff; border: 1px solid #e2e8f0; border-radius: 999px; height: 38px; display: flex; align-items: center; padding: 0 20px; font-size: 17px; color: #64748b; }
 
@@ -52,16 +53,30 @@
     display: flex; align-items: center; padding: 0 18px; font-size: 20px; color: #0f172a;
     background: #fff; transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
   }
-  .finput.filled { border-color: #10b981; background: #f0fdf4; box-shadow: 0 0 0 4px rgba(16,185,129,0.15); }
+  /* Filled-field highlight: content.js .formpilot-filled, scaled 1.5x */
+  @keyframes fp-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(76,175,80,0.6); }
+    50%  { box-shadow: 0 0 0 9px rgba(76,175,80,0); }
+    100% { box-shadow: 0 0 6px rgba(76,175,80,0.4); }
+  }
+  @keyframes fp-flash {
+    0%   { background-color: rgba(76,175,80,0.25); }
+    100% { background-color: #fff; }
+  }
+  .finput.filled {
+    outline: 3px solid #4caf50; outline-offset: 2px; box-shadow: 0 0 6px rgba(76,175,80,0.4);
+    animation: fp-pulse 0.5s ease-out, fp-flash 0.8s ease-out forwards;
+  }
   .finput .ph { color: #cbd5e1; }
   .frow { display: flex; gap: 24px; }
   .frow .field { flex: 1; }
   .sel-caret { margin-left: auto; color: #94a3b8; font-size: 14px; }
 
   /* CONTEXT MENUS */
+  /* Widths follow the content; layoutMenus() cascades each submenu off its row */
   .ctx {
     position: absolute; background: #fff; border: 1px solid #d1d5db; border-radius: 10px;
-    box-shadow: 0 14px 40px rgba(0,0,0,0.22); padding: 8px 0; width: 300px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.22); padding: 8px 0; min-width: 300px;
     font-size: 20px; color: #374151; opacity: 0; transform: scale(0.96);
     transform-origin: top left; transition: opacity 0.18s ease, transform 0.18s ease;
     z-index: 40;
@@ -139,25 +154,26 @@
     <!-- toast lives inside the browser window -->
     <div class="toast" id="toast"></div>
 
-    <!-- cascading context menus (positions relative to browser) -->
-    <div class="ctx" id="m1" style="left:240px; top:300px;">
+    <!-- cascading context menus (positions relative to browser, set by layoutMenus).
+         Chrome groups an extension's items under its name (manifest appName). -->
+    <div class="ctx" id="m1">
       <div class="ci dim" data-i18n="ctx_back">Back</div>
       <div class="ci dim" data-i18n="ctx_reload">Reload</div>
       <div class="ci dim" data-i18n="ctx_save">Save as...</div>
       <div class="csep"></div>
-      <div class="ci" id="m1-fp"><span class="cbrand"><img src="icons/icon48.png" alt="">FormPilot</span><span class="carrow">&#9654;</span></div>
+      <div class="ci" id="m1-fp"><span class="cbrand"><img src="icons/icon48.png" alt=""><span id="m1-fp-name">FormPilot - AI Form Autofill</span></span><span class="carrow">&#9654;</span></div>
       <div class="csep"></div>
       <div class="ci dim" data-i18n="ctx_inspect">Inspect</div>
     </div>
-    <div class="ctx" id="m2" style="left:528px; top:414px; width:360px;">
-      <div class="ci" id="m2-fill"><span data-i18n="menu_fill_with">Fill with profile</span><span class="carrow">&#9654;</span></div>
-      <div class="ci" id="m2-restore"><span data-i18n="menu_restore">Restore</span><span class="carrow">&#9654;</span></div>
+    <div class="ctx" id="m2">
+      <div class="ci" id="m2-fill"><span id="m2-fill-label">Fill with profile</span><span class="carrow">&#9654;</span></div>
+      <div class="ci" id="m2-restore"><span id="m2-restore-label">Restore</span><span class="carrow">&#9654;</span></div>
     </div>
-    <div class="ctx" id="m3" style="left:876px; top:428px; width:340px;">
-      <div class="ci" id="m3-p1">&#10003; <span data-i18n="prof1">Alex Johnson</span></div>
+    <div class="ctx" id="m3">
+      <div class="ci" id="m3-p1">&#10003; <span data-i18n="prof1">John Smith</span></div>
       <div class="ci" id="m3-p2"><span data-i18n="prof2">Work</span></div>
     </div>
-    <div class="ctx" id="m4" style="left:876px; top:482px; width:340px;">
+    <div class="ctx" id="m4">
       <div class="ci" id="m4-e1"><span data-i18n="entry1">Checkout — Mar 1</span></div>
       <div class="ci" id="m4-e2"><span data-i18n="entry2">Draft</span></div>
     </div>
@@ -176,7 +192,27 @@
 <script>
 // ── i18n ─────────────────────────────────────────────────────────────
 // English is the DOM default. Open guide-demo.html?lang=ja etc. to record
-// a localized video. Menu/toast wording mirrors the extension's i18n.js.
+// a localized video. I18N holds the demo's own wording (page, captions);
+// everything FormPilot itself shows (menu items, toasts) comes from UI below.
+
+// UI: the extension's own strings (i18n.js / _locales appName).
+// Generated by `node guide-shots.js` — do not edit by hand.
+/* ui-strings:start */
+const UI = {
+en: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"Fill with profile","menu_restore":"Restore","status_analyzing":"Analyzing form with AI...","status_filled":"Filled {0} field(s)","status_restored":"Restored \"{0}\" ({1} fields)"},
+ja: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"プロフィールを選んで入力","menu_restore":"復元","status_analyzing":"AIでフォームを解析中...","status_filled":"{0}件のフィールドを入力しました","status_restored":"「{0}」を復元しました（{1}件）"},
+zh: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"选择资料填充","menu_restore":"恢复","status_analyzing":"AI正在分析表单...","status_filled":"已填充{0}个字段","status_restored":"已恢复\"{0}\"（{1}个字段）"},
+ko: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"프로필 선택하여 입력","menu_restore":"복원","status_analyzing":"AI로 폼을 분석 중...","status_filled":"{0}개 필드를 입력했습니다","status_restored":"\"{0}\" 복원 완료 ({1}개 필드)"},
+es: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"Rellenar con perfil","menu_restore":"Restaurar","status_analyzing":"Analizando formulario con IA...","status_filled":"{0} campo(s) rellenado(s)","status_restored":"\"{0}\" restaurado ({1} campos)"},
+fr: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"Remplir avec un profil","menu_restore":"Restaurer","status_analyzing":"Analyse du formulaire par IA...","status_filled":"{0} champ(s) rempli(s)","status_restored":"\"{0}\" restauré ({1} champs)"},
+de: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"Mit Profil ausfüllen","menu_restore":"Wiederherstellen","status_analyzing":"Formular wird mit KI analysiert...","status_filled":"{0} Feld(er) ausgefüllt","status_restored":"\"{0}\" wiederhergestellt ({1} Felder)"},
+pt: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"Preencher com perfil","menu_restore":"Restaurar","status_analyzing":"Analisando formulário com IA...","status_filled":"{0} campo(s) preenchido(s)","status_restored":"\"{0}\" restaurado ({1} campos)"},
+hi: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"प्रोफ़ाइल चुनकर भरें","menu_restore":"पुनर्स्थापित करें","status_analyzing":"AI से फ़ॉर्म का विश्लेषण हो रहा है...","status_filled":"{0} फ़ील्ड भरे गए","status_restored":"\"{0}\" पुनर्स्थापित ({1} फ़ील्ड)"},
+id: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"Isi dengan profil","menu_restore":"Pulihkan","status_analyzing":"Menganalisis formulir dengan AI...","status_filled":"{0} bidang terisi","status_restored":"\"{0}\" dipulihkan ({1} bidang)"},
+ar: {"appName":"FormPilot - AI Form Autofill","menu_fill_with":"الملء باستخدام ملف تعريف","menu_restore":"استعادة","status_analyzing":"جاري تحليل النموذج بالذكاء الاصطناعي...","status_filled":"تم ملء {0} حقل/حقول","status_restored":"تم استعادة \"{0}\" ({1} حقل)"}
+};
+/* ui-strings:end */
+
 const I18N = {
 
 ja: {
@@ -184,12 +220,8 @@ form_title:"会員登録",
 lbl_name:"氏名", lbl_email:"メールアドレス", lbl_phone:"電話番号", lbl_addr:"住所", lbl_country:"国",
 v_name:"山田 太郎", v_email:"taro@example.com", v_phone:"090-1234-5678", v_addr:"東京都新宿区西新宿1-2-3", v_country:"日本", v_select:"選択してください",
 ctx_back:"戻る", ctx_reload:"再読み込み", ctx_save:"名前を付けて保存...", ctx_inspect:"検証",
-menu_fill_with:"プロフィールを選んで入力", menu_restore:"復元",
 prof1:"山田 太郎", prof2:"仕事用",
 entry1:"注文フォーム — 3/1", entry2:"下書き",
-toast_analyzing:"FormPilot: AIでフォームを解析中...",
-toast_filled:"FormPilot: 5件のフィールドを入力しました",
-toast_restored:"FormPilot: 「注文フォーム — 3/1」を復元しました（5件）",
 cap1:"フォームのあるページで<span class=\"green\">右クリック</span>",
 cap2:"<span class=\"green\">プロフィールを選ぶ</span>だけ",
 cap3:"AIが<span class=\"green\">全項目に自動入力</span>",
@@ -202,12 +234,8 @@ form_title:"注册",
 lbl_name:"姓名", lbl_email:"邮箱", lbl_phone:"电话", lbl_addr:"地址", lbl_country:"国家",
 v_name:"李伟", v_email:"liwei@example.com", v_phone:"138-0013-8000", v_addr:"北京市朝阳区建国路88号", v_country:"中国", v_select:"请选择",
 ctx_back:"返回", ctx_reload:"重新加载", ctx_save:"另存为...", ctx_inspect:"检查",
-menu_fill_with:"选择资料填充", menu_restore:"恢复",
 prof1:"李伟", prof2:"工作",
 entry1:"结账表单 — 3/1", entry2:"草稿",
-toast_analyzing:"FormPilot: AI正在分析表单...",
-toast_filled:"FormPilot: 已填充5个字段",
-toast_restored:"FormPilot: 已恢复\"结账表单 — 3/1\"（5个字段）",
 cap1:"在有表单的页面上<span class=\"green\">点击右键</span>",
 cap2:"只需<span class=\"green\">选择一个资料</span>",
 cap3:"AI<span class=\"green\">自动填充所有字段</span>",
@@ -220,12 +248,8 @@ form_title:"회원가입",
 lbl_name:"이름", lbl_email:"이메일", lbl_phone:"전화번호", lbl_addr:"주소", lbl_country:"국가",
 v_name:"김민준", v_email:"minjun@example.com", v_phone:"010-1234-5678", v_addr:"서울특별시 강남구 테헤란로 123", v_country:"대한민국", v_select:"선택하세요",
 ctx_back:"뒤로", ctx_reload:"새로고침", ctx_save:"다른 이름으로 저장...", ctx_inspect:"검사",
-menu_fill_with:"프로필 선택하여 입력", menu_restore:"복원",
 prof1:"김민준", prof2:"업무용",
 entry1:"주문 양식 — 3/1", entry2:"임시저장",
-toast_analyzing:"FormPilot: AI로 폼을 분석 중...",
-toast_filled:"FormPilot: 5개 필드를 입력했습니다",
-toast_restored:"FormPilot: \"주문 양식 — 3/1\" 복원 완료 (5개 필드)",
 cap1:"폼이 있는 페이지에서 <span class=\"green\">우클릭</span>",
 cap2:"<span class=\"green\">프로필만 선택</span>하면 끝",
 cap3:"AI가 <span class=\"green\">모든 필드를 자동 입력</span>",
@@ -238,12 +262,8 @@ form_title:"Registro",
 lbl_name:"Nombre completo", lbl_email:"Email", lbl_phone:"Teléfono", lbl_addr:"Dirección", lbl_country:"País",
 v_name:"Javier Morales", v_email:"javier@example.com", v_phone:"+34 612 345 678", v_addr:"Calle Mayor 12, Madrid", v_country:"España", v_select:"Seleccionar...",
 ctx_back:"Atrás", ctx_reload:"Recargar", ctx_save:"Guardar como...", ctx_inspect:"Inspeccionar",
-menu_fill_with:"Rellenar con perfil", menu_restore:"Restaurar",
 prof1:"Javier Morales", prof2:"Trabajo",
 entry1:"Pedido — 1 mar", entry2:"Borrador",
-toast_analyzing:"FormPilot: Analizando formulario con IA...",
-toast_filled:"FormPilot: 5 campo(s) rellenado(s)",
-toast_restored:"FormPilot: \"Pedido — 1 mar\" restaurado (5 campos)",
 cap1:"<span class=\"green\">Clic derecho</span> en cualquier página con formulario",
 cap2:"Solo <span class=\"green\">elige un perfil</span>",
 cap3:"La IA <span class=\"green\">rellena todos los campos</span>",
@@ -256,12 +276,8 @@ form_title:"Inscription",
 lbl_name:"Nom complet", lbl_email:"E-mail", lbl_phone:"Téléphone", lbl_addr:"Adresse", lbl_country:"Pays",
 v_name:"Lucas Martin", v_email:"lucas@example.com", v_phone:"06 12 34 56 78", v_addr:"12 rue de la Paix, Paris", v_country:"France", v_select:"Sélectionner...",
 ctx_back:"Retour", ctx_reload:"Actualiser", ctx_save:"Enregistrer sous...", ctx_inspect:"Inspecter",
-menu_fill_with:"Remplir avec un profil", menu_restore:"Restaurer",
 prof1:"Lucas Martin", prof2:"Travail",
 entry1:"Commande — 1 mars", entry2:"Brouillon",
-toast_analyzing:"FormPilot : Analyse du formulaire par IA...",
-toast_filled:"FormPilot : 5 champ(s) rempli(s)",
-toast_restored:"FormPilot : « Commande — 1 mars » restauré (5 champs)",
 cap1:"<span class=\"green\">Clic droit</span> sur une page avec formulaire",
 cap2:"<span class=\"green\">Choisissez un profil</span>, c'est tout",
 cap3:"L'IA <span class=\"green\">remplit tous les champs</span>",
@@ -274,12 +290,8 @@ form_title:"Registrierung",
 lbl_name:"Name", lbl_email:"E-Mail", lbl_phone:"Telefon", lbl_addr:"Adresse", lbl_country:"Land",
 v_name:"Lukas Becker", v_email:"lukas@example.com", v_phone:"0151 2345678", v_addr:"Hauptstraße 12, 10115 Berlin", v_country:"Deutschland", v_select:"Auswählen...",
 ctx_back:"Zurück", ctx_reload:"Neu laden", ctx_save:"Speichern unter...", ctx_inspect:"Untersuchen",
-menu_fill_with:"Mit Profil ausfüllen", menu_restore:"Wiederherstellen",
 prof1:"Lukas Becker", prof2:"Arbeit",
 entry1:"Bestellung — 1. März", entry2:"Entwurf",
-toast_analyzing:"FormPilot: Formular wird mit KI analysiert...",
-toast_filled:"FormPilot: 5 Feld(er) ausgefüllt",
-toast_restored:"FormPilot: „Bestellung — 1. März“ wiederhergestellt (5 Felder)",
 cap1:"<span class=\"green\">Rechtsklick</span> auf jeder Seite mit Formular",
 cap2:"Einfach <span class=\"green\">Profil auswählen</span>",
 cap3:"KI <span class=\"green\">füllt alle Felder aus</span>",
@@ -292,12 +304,8 @@ form_title:"Cadastro",
 lbl_name:"Nome completo", lbl_email:"E-mail", lbl_phone:"Telefone", lbl_addr:"Endereço", lbl_country:"País",
 v_name:"Lucas Oliveira", v_email:"lucas@example.com", v_phone:"(11) 91234-5678", v_addr:"Av. Paulista 1000, São Paulo", v_country:"Brasil", v_select:"Selecionar...",
 ctx_back:"Voltar", ctx_reload:"Recarregar", ctx_save:"Salvar como...", ctx_inspect:"Inspecionar",
-menu_fill_with:"Preencher com perfil", menu_restore:"Restaurar",
 prof1:"Lucas Oliveira", prof2:"Trabalho",
 entry1:"Pedido — 1 mar", entry2:"Rascunho",
-toast_analyzing:"FormPilot: Analisando formulário com IA...",
-toast_filled:"FormPilot: 5 campo(s) preenchido(s)",
-toast_restored:"FormPilot: \"Pedido — 1 mar\" restaurado (5 campos)",
 cap1:"<span class=\"green\">Clique direito</span> em qualquer página com formulário",
 cap2:"Basta <span class=\"green\">escolher um perfil</span>",
 cap3:"A IA <span class=\"green\">preenche todos os campos</span>",
@@ -310,12 +318,8 @@ form_title:"पंजीकरण",
 lbl_name:"पूरा नाम", lbl_email:"ईमेल", lbl_phone:"फ़ोन", lbl_addr:"पता", lbl_country:"देश",
 v_name:"अर्जुन शर्मा", v_email:"arjun@example.com", v_phone:"+91 98765 43210", v_addr:"123 एमजी रोड, नई दिल्ली", v_country:"भारत", v_select:"चुनें...",
 ctx_back:"वापस", ctx_reload:"रीलोड करें", ctx_save:"इस रूप में सहेजें...", ctx_inspect:"निरीक्षण",
-menu_fill_with:"प्रोफ़ाइल चुनकर भरें", menu_restore:"पुनर्स्थापित करें",
 prof1:"अर्जुन शर्मा", prof2:"कार्य",
 entry1:"ऑर्डर फ़ॉर्म — 1 मार्च", entry2:"ड्राफ़्ट",
-toast_analyzing:"FormPilot: AI से फ़ॉर्म का विश्लेषण हो रहा है...",
-toast_filled:"FormPilot: 5 फ़ील्ड भरे गए",
-toast_restored:"FormPilot: \"ऑर्डर फ़ॉर्म — 1 मार्च\" पुनर्स्थापित (5 फ़ील्ड)",
 cap1:"फ़ॉर्म वाले पेज पर <span class=\"green\">राइट-क्लिक करें</span>",
 cap2:"बस <span class=\"green\">प्रोफ़ाइल चुनें</span>",
 cap3:"AI <span class=\"green\">हर फ़ील्ड भर देता है</span>",
@@ -328,12 +332,8 @@ form_title:"Pendaftaran",
 lbl_name:"Nama Lengkap", lbl_email:"Email", lbl_phone:"Telepon", lbl_addr:"Alamat", lbl_country:"Negara",
 v_name:"Budi Santoso", v_email:"budi@example.com", v_phone:"0812-3456-7890", v_addr:"Jl. Sudirman No. 25, Jakarta", v_country:"Indonesia", v_select:"Pilih...",
 ctx_back:"Kembali", ctx_reload:"Muat ulang", ctx_save:"Simpan sebagai...", ctx_inspect:"Inspeksi",
-menu_fill_with:"Isi dengan profil", menu_restore:"Pulihkan",
 prof1:"Budi Santoso", prof2:"Kerja",
 entry1:"Formulir pesanan — 1 Mar", entry2:"Draf",
-toast_analyzing:"FormPilot: Menganalisis formulir dengan AI...",
-toast_filled:"FormPilot: 5 bidang terisi",
-toast_restored:"FormPilot: \"Formulir pesanan — 1 Mar\" dipulihkan (5 bidang)",
 cap1:"<span class=\"green\">Klik kanan</span> di halaman mana pun yang berisi formulir",
 cap2:"Cukup <span class=\"green\">pilih profil</span>",
 cap3:"AI <span class=\"green\">mengisi semua bidang</span>",
@@ -346,12 +346,8 @@ form_title:"التسجيل",
 lbl_name:"الاسم الكامل", lbl_email:"البريد الإلكتروني", lbl_phone:"الهاتف", lbl_addr:"العنوان", lbl_country:"الدولة",
 v_name:"عمر الخالد", v_email:"omar@example.com", v_phone:"050 123 4567", v_addr:"شارع الملك فهد 12، الرياض", v_country:"السعودية", v_select:"اختر...",
 ctx_back:"رجوع", ctx_reload:"إعادة تحميل", ctx_save:"حفظ باسم...", ctx_inspect:"فحص",
-menu_fill_with:"الملء باستخدام ملف تعريف", menu_restore:"استعادة",
 prof1:"عمر الخالد", prof2:"العمل",
 entry1:"نموذج الطلب — 1 مارس", entry2:"مسودة",
-toast_analyzing:"FormPilot: جاري تحليل النموذج بالذكاء الاصطناعي...",
-toast_filled:"FormPilot: تم ملء 5 حقول",
-toast_restored:"FormPilot: تم استعادة \"نموذج الطلب — 1 مارس\" (5 حقول)",
 cap1:"<span class=\"green\">انقر بزر الفأرة الأيمن</span> على أي صفحة بها نموذج",
 cap2:"فقط <span class=\"green\">اختر ملف تعريف</span>",
 cap3:"الذكاء الاصطناعي <span class=\"green\">يملأ كل الحقول</span>",
@@ -364,9 +360,7 @@ end_tag:"دائمًا على بُعد نقرة يمنى واحدة."
 const EN = {
   v_name:"John Smith", v_email:"john@example.com", v_phone:"+1 (555) 123-4567",
   v_addr:"123 Main St, New York, NY", v_country:"United States", v_select:"Select...",
-  toast_analyzing:"FormPilot: Analyzing form with AI...",
-  toast_filled:"FormPilot: Filled 5 field(s)",
-  toast_restored:"FormPilot: Restored \"Checkout — Mar 1\" (5 fields)",
+  prof1:"John Smith", entry1:"Checkout — Mar 1",
   cap1:"<span class=\"green\">Right-click</span> on any page with a form",
   cap2:"Just <span class=\"green\">pick a profile</span>",
   cap3:"AI <span class=\"green\">fills every field</span>",
@@ -384,6 +378,23 @@ if (I18N[LANG]) {
     if (M[k] !== undefined) el.innerHTML = M[k];
   });
 }
+
+// Same placeholder substitution as the extension's t()
+const U = UI[LANG] || UI.en;
+function ut(key, ...args) {
+  let s = U[key];
+  args.forEach((a, i) => { s = s.replace(`{${i}}`, a); });
+  return s;
+}
+// Toast text exactly as background.js builds it (fill toast carries the elapsed time)
+const TOASTS = {
+  analyzing: 'FormPilot: ' + ut('status_analyzing'),
+  filled: 'FormPilot: ' + ut('status_filled', '5') + ' (2.31s)',
+  restored: 'FormPilot: ' + ut('status_restored', M.entry1, '5'),
+};
+document.getElementById('m1-fp-name').textContent = U.appName;
+document.getElementById('m2-fill-label').textContent = U.menu_fill_with;
+document.getElementById('m2-restore-label').textContent = U.menu_restore;
 
 // ── helpers ──────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
@@ -408,7 +419,7 @@ function menu(id, on) { $(id).classList.toggle('show', !!on); }
 function hover(id, on) { $(id).classList.toggle('hover', on !== false); }
 function toast(kind, key) {
   const t = $('toast');
-  t.className = 'toast ' + kind; t.textContent = M[key];
+  t.className = 'toast ' + kind; t.textContent = TOASTS[key];
   void t.offsetWidth; t.classList.add('show');
 }
 function hideToast() { $('toast').classList.remove('show'); }
@@ -427,15 +438,46 @@ function clearForm() {
 
 // Browser window offset (stage coords): left = (1920-1240)/2 = 340, top = 190
 const BX = 340, BY = 190;
-// First right-click point (in browser coords) — menus are anchored at 240,300
-const CLICK1 = { x: BX + 240, y: BY + 300 };
-const FP_ITEM = { x: BX + 380, y: BY + 448 };   // "FormPilot" row in m1
-const FILL_ITEM = { x: BX + 700, y: BY + 442 }; // "Fill with profile" row in m2
-const REST_ITEM = { x: BX + 700, y: BY + 496 }; // "Restore" row in m2
-const PROF1 = { x: BX + 1010, y: BY + 456 };    // first profile in m3
-const ENTRY1 = { x: BX + 1010, y: BY + 510 };   // first entry in m4
+// First right-click point (in browser coords) — m1 opens here
+const MENU_X = 240, MENU_Y = 300;
+const CLICK1 = { x: BX + MENU_X, y: BY + MENU_Y };
+let FP_ITEM, FILL_ITEM, REST_ITEM, PROF1, ENTRY1;
+
+// Menu widths depend on the language, so cascade each submenu off the row
+// that opens it (offset* ignores the menus' show/hide scale transform) and
+// aim the cursor at the rows' actual positions
+function layoutMenus() {
+  const place = (menuId, x, y) => { const m = $(menuId); m.style.left = x + 'px'; m.style.top = y + 'px'; };
+  const PAD = 8, OVERLAP = 10;
+  // Freeze each menu at its width with bold (hovered) rows, so a hover never
+  // widens the menu out from under its submenu
+  document.querySelectorAll('.ctx').forEach(m => {
+    const rows = m.querySelectorAll('.ci:not(.dim)');
+    m.style.width = '';
+    rows.forEach(r => r.classList.add('hover'));
+    m.style.width = m.offsetWidth + 'px';
+    rows.forEach(r => r.classList.remove('hover'));
+  });
+  const rowTarget = (menuId, rowId) => {
+    const m = $(menuId), r = $(rowId);
+    return { x: BX + m.offsetLeft + Math.min(r.offsetWidth * 0.55, 200), y: BY + m.offsetTop + r.offsetTop + r.offsetHeight / 2 };
+  };
+  place('m1', MENU_X, MENU_Y);
+  const m1 = $('m1');
+  place('m2', m1.offsetLeft + m1.offsetWidth - OVERLAP, m1.offsetTop + $('m1-fp').offsetTop - PAD);
+  const m2 = $('m2');
+  const subX = m2.offsetLeft + m2.offsetWidth - OVERLAP;
+  place('m3', subX, m2.offsetTop + $('m2-fill').offsetTop - PAD);
+  place('m4', subX, m2.offsetTop + $('m2-restore').offsetTop - PAD);
+  FP_ITEM = rowTarget('m1', 'm1-fp');
+  FILL_ITEM = rowTarget('m2', 'm2-fill');
+  REST_ITEM = rowTarget('m2', 'm2-restore');
+  PROF1 = rowTarget('m3', 'm3-p1');
+  ENTRY1 = rowTarget('m4', 'm4-e1');
+}
 
 function buildTimeline() {
+  layoutMenus();
   timeline = [];
   let t = 300;
 
@@ -458,7 +500,7 @@ function buildTimeline() {
     hover('m1-fp', false); hover('m2-fill', false); hover('m3-p1', false);
     moveCursor(BX + 900, BY + 720, 700);
   }]);
-  timeline.push([t + 6900, () => toast('info', 'toast_analyzing')]);
+  timeline.push([t + 6900, () => toast('info', 'analyzing')]);
   timeline.push([t + 7600, () => showCap('cap3')]);
   timeline.push([t + 8300, () => fill('f1', 'v_name')]);
   timeline.push([t + 8750, () => fill('f2', 'v_email')]);
@@ -466,7 +508,7 @@ function buildTimeline() {
   timeline.push([t + 9650, () => fill('f5', 'v_country')]);
   timeline.push([t + 10100, () => fill('f4', 'v_addr')]);
   timeline.push([t + 10700, () => { hideToast(); }]);
-  timeline.push([t + 11000, () => toast('success', 'toast_filled')]);
+  timeline.push([t + 11000, () => toast('success', 'filled')]);
 
   // ── Part 2: restore ──
   const r = t + 13200;
@@ -490,7 +532,7 @@ function buildTimeline() {
     fill('f1', 'v_name'); fill('f2', 'v_email'); fill('f3', 'v_phone');
     fill('f5', 'v_country'); fill('f4', 'v_addr');
   }]);
-  timeline.push([r + 6200, () => toast('success', 'toast_restored')]);
+  timeline.push([r + 6200, () => toast('success', 'restored')]);
 
   // ── End card ──
   timeline.push([r + 8300, () => { $('endcard').style.opacity = '1'; }]);
