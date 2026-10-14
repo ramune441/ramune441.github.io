@@ -26,7 +26,8 @@
 - 注意: ストア画像のあふれ判定に scrollHeight を使わない（overflow:hidden でも装飾のはみ出しを含む）。装飾を除いて判定する。
 
 ## ストアへの反映（手動）
-- Chrome ウェブストアの掲載情報（説明・プロモ動画 URL）と Play Console の掲載情報は、サインイン済みの Chrome プロファイル `C:\Users\Warlo\cws-profile` から言語タブごとに貼る。審査中は保存できない（⋮ → 審査をキャンセル → 保存 → 再提出）。
+- Chrome ウェブストアの掲載情報（説明・プロモ動画 URL）・Play Console の掲載情報・YouTube Studio の動画のタイトルと説明は、サインイン済みの Chrome プロファイル `C:\Users\Warlo\cws-profile` から貼る（`--remote-debugging-port` 付きで起動すれば puppeteer-core で自動化できる）。審査中のストア掲載情報は保存できない（⋮ → 審査をキャンセル → 保存 → 再提出）。
+- 注意: 自動化でウィンドウが隠れていると要素のクリック（scrollIntoView）が終わらない。クリックは DOM の `click()` で行う。YouTube Studio のタイトル欄は Ctrl+A で全選択されず、旧タイトルの前に追記されたまま保存されたことがある。Range で全選択して消し、空になったのを確かめてから入力する。
 
 ## 新しいプロダクトを足すとき
 1. `<product>/` に LP・プライバシーポリシーを作る（構成は product.md）。

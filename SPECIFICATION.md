@@ -18,7 +18,6 @@ Ramune の Chrome 拡張・Android アプリ・Web サービスの LP・使い�
 
 ## 残タスク
 - SubDuo LP を拡張 v1.3 に追従させる（対応 5 サービス・Alt+クリックの語句解説・「調べた語句だけ送る」）。
-- SendReady の YouTube 11 本のタイトル・説明文を `sendready-chrome/youtube.json` に差し替える。
 - Search Console で SendReady LP の fr / de / ko / zh / id / hi / ar のインデックス登録をリクエストする（en・ja・es・pt はリクエスト済み。1 日の上限があるので数件ずつ）。
 - Search Console の `sitemap.xml` が「取得できませんでした」のままなら原因を調べる（公開 URL は 200 で返る）。
 - Kura の LP を作り、ポータルと sitemap に載せる。
