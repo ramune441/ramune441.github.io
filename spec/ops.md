@@ -9,7 +9,8 @@
 | GitHub Pages | ホスティング | なし | 1 リポジトリ 1 サイト。301 不可 |
 | Cloudflare Workers `contact-api`（実装 `C:\Users\Warlo\MyProduct\Website\contact-api\`） | フォーム受信 → warload57@gmail.com へ通知（差出人 `contact@suredon.com`）、添付は R2 に置きリンクを送る | Cloudflare API トークン（グローバル CLAUDE.md） | 無料枠 10 万 req/日。メール 5MiB |
 | Google Analytics 4 / Google 広告 | 計測 | gtag.js | — |
-| Google Search Console / Bing Webmaster Tools | 検索の計測・URL 送信 | meta タグ（Bing は `BingSiteAuth.xml` も） | Bing の URL 送信は 1 日 100 件 |
+| Google Search Console / Bing Webmaster Tools | 検索の計測・URL 送信 | meta タグ（Bing は `BingSiteAuth.xml` も） | Bing の URL 送信は 1 日 100 件。Search Console のインデックス登録リクエストは 1 日数件で上限 |
+| IndexNow（`https://api.indexnow.org/indexnow`、Bing・Yandex 等へ通知） | 更新した URL の通知 | ルートのキーファイル `9eefbdc8fcbeed0e98d72998716f8861.txt`（中身はキーそのもの。消すと送信できない） | POST `{host, key, keyLocation, urlList}` |
 | Google Fonts | Noto Sans JP / Inter | — | — |
 | YouTube（チャンネル Just One More Animal） | プロモ動画の公開 | 手動サインイン | — |
 
