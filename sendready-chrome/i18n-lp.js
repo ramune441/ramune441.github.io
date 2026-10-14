@@ -5,6 +5,8 @@ const LP_MESSAGES = {
 
 // ── English ─────────────────────────────────────────────────────────
 en: {
+seo_title: "SendReady — AI Rewrite, Reply Generator & Text Expander for Chrome (Free)",
+seo_desc: "Free Chrome extension: select text in Gmail, Outlook, Slack or any field and AI rewrites it — more polite, grammar fixed, translated or summarized — or drafts the reply. Plus a text expander for snippets.",
 lp_tag_video: "Video",
 lp_tag_how: "How it works",
 lp_tag_demo: "See it in action",
@@ -24,7 +26,7 @@ trig_h: "Keyboard triggers (set a style, too)",
 nav_cta: "Add to Chrome",
 hero_badge: "100% Free · Chrome Extension",
 hero_h1: "Before you hit send,<br><span class='accent'>let AI polish it in one tap.</span>",
-hero_desc: "Email, chat, social — in any text field, AI turns what you select or type into polished, translated, summarized text or a ready reply. Your go-to snippets expand instantly, too.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn — in any text field, select your text and AI rewrites it: more polite, grammar fixed, translated or summarized. It drafts replies to emails and chats, and works as a text expander for your snippets, too.",
 hero_cta: "Add to Chrome (Free)",
 hero_ghost: "See features ↓",
 hero_note: "Installs in 30 seconds · No sign-up · 50 free AI runs/day",
@@ -120,6 +122,8 @@ footer_other: "Other products",
 
 // ── 日本語 ──────────────────────────────────────────────────────────
 ja: {
+seo_title: "敬語・ビジネスメールをAIで書き換え｜返信作成・定型文のChrome拡張 SendReady（無料）",
+seo_desc: "Gmail・Outlook・Slack・Chatworkなど、どの入力欄でも文章を選ぶだけでAIが敬語に言い換え、誤字脱字を校正、翻訳・要約、返信文まで作成。よく使う定型文はトリガー＋Tabで即入力。無料・登録不要のChrome拡張機能です。",
 lp_tag_video: "動画",
 lp_tag_how: "仕組み",
 lp_tag_demo: "実際の動作",
@@ -139,7 +143,7 @@ trig_h: "キーボードのトリガー(文体も指定できる)",
 nav_cta: "Chromeに追加",
 hero_badge: "完全無料 · Chrome拡張",
 hero_h1: "その一文、送る前に。<br><span class='accent'>AIがワンタップで整える。</span>",
-hero_desc: "メール・チャット・SNS。どんな入力欄でも、選択した文章や入力中のテキストをAIが丁寧語・翻訳・要約・返信に変換。よく使う定型文もトリガーで一瞬で展開します。",
+hero_desc: "Gmail・Slack・Chatworkなど、どんな入力欄でも。選んだ文章をAIが敬語に言い換え、誤字脱字を直し、翻訳・要約し、ビジネスメールの返信まで作成します。よく使う定型文もトリガーで一瞬で入力。",
 hero_cta: "Chromeに追加する（無料）",
 hero_ghost: "機能を見る ↓",
 hero_note: "30秒でインストール完了 · 登録不要 · AI変換は1日50回まで無料",
@@ -235,6 +239,8 @@ footer_other: "ほかのプロダクト",
 
 // ── 中文 ────────────────────────────────────────────────────────────
 zh: {
+seo_title: "SendReady — AI 改写润色、邮件回复生成与文本扩展 Chrome 扩展（免费）",
+seo_desc: "免费 Chrome 扩展：在 Gmail、Outlook、Slack 或任意输入框选中文字，AI 即可改写润色、变得更礼貌、纠正错别字、翻译、总结或生成回复。还能用快捷短语即刻插入常用文本。",
 lp_tag_video: "视频",
 lp_tag_how: "工作原理",
 lp_tag_demo: "实际演示",
@@ -254,7 +260,7 @@ trig_h: "键盘触发(也能指定文体)",
 nav_cta: "添加到 Chrome",
 hero_badge: "100% 免费 · Chrome 扩展",
 hero_h1: "点击发送前，<br><span class='accent'>让 AI 一键润色。</span>",
-hero_desc: "邮件、聊天、社交平台——在任何文本框里，AI 都能把你选中或输入的文字润色、翻译、总结，或生成一条现成回复。常用短语也能即刻展开。",
+hero_desc: "Gmail、Outlook、Slack、LinkedIn——在任何输入框里，选中文字，AI 就帮你改写润色：更礼貌、纠正错别字、翻译或总结。还能一键生成邮件和聊天回复，并用快捷短语即刻插入常用文本。",
 hero_cta: "添加到 Chrome（免费）",
 hero_ghost: "查看功能 ↓",
 hero_note: "30 秒完成安装 · 无需注册 · 每天 50 次免费 AI 调用",
@@ -350,6 +356,8 @@ footer_other: "其他产品",
 
 // ── 한국어 ──────────────────────────────────────────────────────────
 ko: {
+seo_title: "SendReady — AI 문장 다듬기·맞춤법 교정·이메일 답장·상용구 크롬 확장 (무료)",
+seo_desc: "무료 크롬 확장 프로그램: Gmail, Outlook, Slack 등 어떤 입력란에서든 텍스트를 선택하면 AI가 문장을 다듬고, 정중한 존댓말로 바꾸고, 맞춤법을 교정하고, 번역·요약하고, 답장을 작성합니다. 상용구도 단축어로 즉시 입력.",
 lp_tag_video: "영상",
 lp_tag_how: "작동 방식",
 lp_tag_demo: "실제 동작",
@@ -369,7 +377,7 @@ trig_h: "키보드 트리거(문체도 지정)",
 nav_cta: "Chrome에 추가",
 hero_badge: "100% 무료 · Chrome 확장 프로그램",
 hero_h1: "보내기 전에,<br><span class='accent'>AI가 한 번에 다듬어 드립니다.</span>",
-hero_desc: "이메일, 채팅, SNS — 어떤 입력창에서든 선택하거나 입력한 텍스트를 AI가 다듬고, 번역하고, 요약하고, 답장으로 바꿔 줍니다. 자주 쓰는 문구도 즉시 펼쳐집니다.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn — 어떤 입력란에서든 텍스트를 선택하면 AI가 문장을 다듬어 줍니다. 정중한 존댓말, 맞춤법 교정, 번역, 요약까지. 이메일·채팅 답장도 써 주고, 자주 쓰는 상용구는 단축어로 즉시 입력됩니다.",
 hero_cta: "Chrome에 추가 (무료)",
 hero_ghost: "기능 보기 ↓",
 hero_note: "30초면 설치 완료 · 가입 불필요 · AI 변환 하루 50회 무료",
@@ -465,6 +473,8 @@ footer_other: "다른 제품",
 
 // ── Español ─────────────────────────────────────────────────────────
 es: {
+seo_title: "SendReady — Reescribir textos con IA, responder correos y expansor de texto (gratis)",
+seo_desc: "Extensión gratuita para Chrome: selecciona texto en Gmail, Outlook, Slack o cualquier campo y la IA lo reescribe, lo hace formal, corrige la ortografía, traduce, resume o redacta la respuesta. Incluye plantillas de texto.",
 lp_tag_video: "Vídeo",
 lp_tag_how: "Cómo funciona",
 lp_tag_demo: "Míralo en acción",
@@ -484,7 +494,7 @@ trig_h: "Disparadores de teclado (también fijan el estilo)",
 nav_cta: "Añadir a Chrome",
 hero_badge: "100% gratis · Extensión de Chrome",
 hero_h1: "Antes de pulsar enviar,<br><span class='accent'>deja que la IA lo pula en un toque.</span>",
-hero_desc: "Correo, chat, redes sociales: en cualquier campo de texto, la IA convierte lo que seleccionas o escribes en un texto pulido, traducido, resumido o una respuesta lista. Y tus frases habituales se expanden al instante.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn: en cualquier campo de texto, selecciona lo que escribiste y la IA lo reescribe —más formal y cortés, sin faltas, traducido o resumido—. También responde correos por ti y funciona como expansor de texto para tus plantillas.",
 hero_cta: "Añadir a Chrome (gratis)",
 hero_ghost: "Ver funciones ↓",
 hero_note: "Se instala en 30 segundos · Sin registro · 50 usos de IA gratis al día",
@@ -580,6 +590,8 @@ footer_other: "Otros productos",
 
 // ── Français ────────────────────────────────────────────────────────
 fr: {
+seo_title: "SendReady — Reformuler un texte avec l'IA, répondre aux e-mails, expanseur de texte (gratuit)",
+seo_desc: "Extension Chrome gratuite : sélectionnez un texte dans Gmail, Outlook, Slack ou n'importe quel champ, l'IA le reformule, le rend poli, corrige l'orthographe, traduit, résume ou rédige la réponse. Avec modèles de texte.",
 lp_tag_video: "Vidéo",
 lp_tag_how: "Comment ça marche",
 lp_tag_demo: "En action",
@@ -599,7 +611,7 @@ trig_h: "Déclencheurs clavier (et le style aussi)",
 nav_cta: "Ajouter à Chrome",
 hero_badge: "100 % gratuit · Extension Chrome",
 hero_h1: "Avant d'envoyer,<br><span class='accent'>laissez l'IA peaufiner en un clic.</span>",
-hero_desc: "E-mail, chat, réseaux sociaux — dans n'importe quel champ de texte, l'IA transforme ce que vous sélectionnez ou tapez en texte soigné, traduit, résumé ou en réponse prête à l'emploi. Vos formules favorites s'insèrent aussi en un instant.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn — dans n'importe quel champ, sélectionnez votre texte et l'IA le reformule : plus poli, sans fautes, traduit ou résumé. Elle rédige aussi vos réponses aux e-mails, et vos modèles de texte s'insèrent d'un raccourci.",
 hero_cta: "Ajouter à Chrome (gratuit)",
 hero_ghost: "Voir les fonctionnalités ↓",
 hero_note: "Installé en 30 secondes · Sans inscription · 50 actions IA gratuites/jour",
@@ -695,6 +707,8 @@ footer_other: "Autres produits",
 
 // ── Deutsch ─────────────────────────────────────────────────────────
 de: {
+seo_title: "SendReady — Text umschreiben mit KI, E-Mail-Antworten & Textbausteine (kostenlos)",
+seo_desc: "Kostenlose Chrome-Erweiterung: Text in Gmail, Outlook, Slack oder jedem Feld markieren – die KI formuliert ihn um, macht ihn höflicher, korrigiert Rechtschreibung, übersetzt, fasst zusammen oder schreibt die Antwort. Mit Textbausteinen.",
 lp_tag_video: "Video",
 lp_tag_how: "So funktioniert's",
 lp_tag_demo: "In Aktion",
@@ -714,7 +728,7 @@ trig_h: "Tastatur-Trigger (auch mit Stil)",
 nav_cta: "Zu Chrome hinzufügen",
 hero_badge: "100 % kostenlos · Chrome-Erweiterung",
 hero_h1: "Bevor du auf Senden klickst,<br><span class='accent'>lass die KI es mit einem Tippen perfektionieren.</span>",
-hero_desc: "E-Mail, Chat, Social Media – in jedem Textfeld verwandelt die KI deine markierte oder getippte Eingabe in geschliffenen, übersetzten, zusammengefassten Text oder eine fertige Antwort. Auch deine liebsten Textbausteine erscheinen sofort.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn – in jedem Textfeld: Text markieren, und die KI schreibt ihn um – höflicher, ohne Rechtschreibfehler, übersetzt oder zusammengefasst. Sie formuliert E-Mail-Antworten für dich, und Textbausteine fügst du per Kürzel ein.",
 hero_cta: "Zu Chrome hinzufügen (kostenlos)",
 hero_ghost: "Funktionen ansehen ↓",
 hero_note: "In 30 Sekunden installiert · Keine Anmeldung · 50 KI-Durchläufe/Tag gratis",
@@ -810,6 +824,8 @@ footer_other: "Weitere Produkte",
 
 // ── Português ───────────────────────────────────────────────────────
 pt: {
+seo_title: "SendReady — Reescrever texto com IA, responder e-mails e expansor de texto (grátis)",
+seo_desc: "Extensão grátis para Chrome: selecione um texto no Gmail, Outlook, Slack ou qualquer campo e a IA reescreve, deixa formal, corrige erros, traduz, resume ou escreve a resposta. Com modelos de texto.",
 lp_tag_video: "Vídeo",
 lp_tag_how: "Como funciona",
 lp_tag_demo: "Veja em ação",
@@ -829,7 +845,7 @@ trig_h: "Gatilhos de teclado (também definem o estilo)",
 nav_cta: "Adicionar ao Chrome",
 hero_badge: "100% Grátis · Extensão do Chrome",
 hero_h1: "Antes de enviar,<br><span class='accent'>deixe a IA dar o acabamento com um toque.</span>",
-hero_desc: "E-mail, chat, redes sociais — em qualquer campo de texto, a IA transforma o que você seleciona ou digita em texto polido, traduzido, resumido ou numa resposta pronta. Seus atalhos favoritos também se expandem na hora.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn — em qualquer campo de texto, selecione o que escreveu e a IA reescreve: mais formal e educado, sem erros, traduzido ou resumido. Ela também responde e-mails por você, e seus modelos de texto entram com um atalho.",
 hero_cta: "Adicionar ao Chrome (Grátis)",
 hero_ghost: "Ver recursos ↓",
 hero_note: "Instala em 30 segundos · Sem cadastro · 50 usos de IA grátis/dia",
@@ -925,6 +941,8 @@ footer_other: "Outros produtos",
 
 // ── हिन्दी ──────────────────────────────────────────────────────────
 hi: {
+seo_title: "SendReady — AI पुनर्लेखन, ईमेल जवाब और टेक्स्ट एक्सपैंडर Chrome एक्सटेंशन (मुफ़्त)",
+seo_desc: "मुफ़्त Chrome एक्सटेंशन: Gmail, Outlook, Slack या किसी भी फ़ील्ड में टेक्स्ट चुनें और AI उसे दोबारा लिखे, विनम्र बनाए, व्याकरण सुधारे, अनुवाद व सारांश करे या जवाब तैयार करे। स्निपेट भी।",
 lp_tag_video: "वीडियो",
 lp_tag_how: "यह कैसे काम करता है",
 lp_tag_demo: "इसे क्रिया में देखें",
@@ -944,7 +962,7 @@ trig_h: "कीबोर्ड ट्रिगर (शैली भी तय)",
 nav_cta: "Chrome में जोड़ें",
 hero_badge: "100% मुफ़्त · Chrome एक्सटेंशन",
 hero_h1: "भेजने से पहले,<br><span class='accent'>AI से एक टैप में सुधारें।</span>",
-hero_desc: "ईमेल, चैट, सोशल — किसी भी टेक्स्ट फ़ील्ड में, AI आपके चुने या टाइप किए टेक्स्ट को पॉलिश, अनुवादित, सारांशित टेक्स्ट या तैयार जवाब में बदल देता है। आपके पसंदीदा स्निपेट भी तुरंत फैल जाते हैं।",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn — किसी भी टेक्स्ट फ़ील्ड में टेक्स्ट चुनें और AI उसे दोबारा लिख दे: ज़्यादा विनम्र, व्याकरण सुधार के साथ, अनुवादित या सारांशित। यह ईमेल और चैट के जवाब भी लिखता है, और स्निपेट के लिए टेक्स्ट एक्सपैंडर का काम करता है।",
 hero_cta: "Chrome में जोड़ें (मुफ़्त)",
 hero_ghost: "फ़ीचर देखें ↓",
 hero_note: "30 सेकंड में इंस्टॉल · साइन-अप नहीं · रोज़ 50 मुफ़्त AI रन",
@@ -1040,6 +1058,8 @@ footer_other: "अन्य प्रोडक्ट",
 
 // ── Indonesia ───────────────────────────────────────────────────────
 id: {
+seo_title: "SendReady — Tulis ulang & parafrase AI, balas email, template teks untuk Chrome (gratis)",
+seo_desc: "Ekstensi Chrome gratis: pilih teks di Gmail, Outlook, Slack, atau kolom mana pun, lalu AI menulis ulang, membuat formal dan sopan, memperbaiki salah ketik, menerjemahkan, meringkas, atau menyusun balasan. Plus template teks.",
 lp_tag_video: "Video",
 lp_tag_how: "Cara kerja",
 lp_tag_demo: "Lihat langsung",
@@ -1059,7 +1079,7 @@ trig_h: "Pemicu keyboard (sekaligus atur gaya)",
 nav_cta: "Tambahkan ke Chrome",
 hero_badge: "100% Gratis · Ekstensi Chrome",
 hero_h1: "Sebelum menekan kirim,<br><span class='accent'>biarkan AI menyempurnakannya dalam satu ketukan.</span>",
-hero_desc: "Email, chat, media sosial — di kolom teks mana pun, AI mengubah teks yang kamu pilih atau ketik menjadi teks yang rapi, diterjemahkan, diringkas, atau balasan siap pakai. Teks andalanmu juga langsung muncul.",
+hero_desc: "Gmail, Outlook, Slack, LinkedIn — di kolom teks mana pun, pilih teksmu dan AI menulis ulang: lebih sopan dan formal, tanpa salah ketik, diterjemahkan, atau diringkas. AI juga membalas email untukmu, dan template teks muncul cukup dengan pemicu.",
 hero_cta: "Tambahkan ke Chrome (Gratis)",
 hero_ghost: "Lihat fitur ↓",
 hero_note: "Terpasang dalam 30 detik · Tanpa daftar · 50 proses AI gratis/hari",
@@ -1155,6 +1175,8 @@ footer_other: "Produk lainnya",
 
 // ── العربية (RTL) ───────────────────────────────────────────────────
 ar: {
+seo_title: "SendReady — إعادة صياغة النص بالذكاء الاصطناعي والرد على البريد وقوالب نصية (مجاني)",
+seo_desc: "إضافة Chrome مجانية: حدّد نصًا في Gmail أو Outlook أو Slack أو أي حقل، فيعيد الذكاء الاصطناعي صياغته، ويجعله مهذبًا، ويصحح الأخطاء، ويترجم ويلخص، أو يكتب الرد. مع قوالب نصية.",
 lp_tag_video: "فيديو",
 lp_tag_how: "كيف يعمل",
 lp_tag_demo: "شاهده عمليًا",
@@ -1174,7 +1196,7 @@ trig_h: "مُشغّلات لوحة المفاتيح (وتحدّد الأسلوب
 nav_cta: "أضِف إلى Chrome",
 hero_badge: "مجاني 100% · إضافة Chrome",
 hero_h1: "قبل أن تضغط إرسال،<br><span class='accent'>دع الذكاء الاصطناعي يصقله بنقرة واحدة.</span>",
-hero_desc: "بريد، محادثة، تواصل اجتماعي — في أي حقل نصي، يحوّل الذكاء الاصطناعي ما تحدده أو تكتبه إلى نص مصقول أو مترجم أو ملخّص أو ردّ جاهز. كما تتوسّع مقاطعك المفضّلة فورًا.",
+hero_desc: "Gmail وOutlook وSlack وLinkedIn — في أي حقل نصي، حدّد نصك فيعيد الذكاء الاصطناعي صياغته: أكثر تهذيبًا، بلا أخطاء، مترجمًا أو ملخّصًا. ويكتب ردود البريد والمحادثات نيابةً عنك، وتُدرج قوالبك النصية باختصار واحد.",
 hero_cta: "أضِف إلى Chrome (مجانًا)",
 hero_ghost: "اطّلِع على المزايا ↓",
 hero_note: "يُثبَّت في 30 ثانية · بلا تسجيل · 50 تشغيلًا مجانيًا للذكاء الاصطناعي يوميًا",
@@ -1283,8 +1305,24 @@ const LP_VIDEO_IDS = {
 };
 
 // ── Detect Locale ───────────────────────────────────────────────────
+// 言語別の静的ページ（/sendready-chrome/<lang>/、build-lang-pages.mjs が生成）は
+// <html data-lp-lang> で言語が決まっており、本文も生成済み。実行時に訳し直さない
+// （クローラが英語ブラウザ扱いで描画しても、その言語の本文のまま索引させるため）。
+function fixedLPLocale() {
+  var l = document.documentElement.getAttribute("data-lp-lang");
+  return l && LP_MESSAGES[l] ? l : null;
+}
+
+// 言語 → その言語の LP の URL（en はルート）。data-lp-base は LP ルートへの相対パス
+function lpPageURL(locale) {
+  var base = document.documentElement.getAttribute("data-lp-base");
+  return base + (locale === "en" ? "" : locale + "/");
+}
+
 function detectLPLocale() {
   const supported = Object.keys(LP_MESSAGES);
+  const fixed = fixedLPLocale();
+  if (fixed) return fixed;
   // URL の ?lang=xx を最優先(拡張機能がアプリの言語を引き継いで開くため)
   const q = (function(){ try { return (new URLSearchParams(location.search).get("lang") || "").toLowerCase(); } catch (e) { return ""; } })();
   if (q && supported.includes(q)) return q;
@@ -1318,12 +1356,21 @@ function applyLPTranslations(locale) {
     var src = "https://www.youtube.com/embed/" + vid;
     if (vf.getAttribute("src") !== src) vf.setAttribute("src", src);
   }
+
+  // ウェブストアへのリンクに表示言語を付ける（ストアの流入元で LP の言語別に見分ける）
+  document.querySelectorAll('a[href*="chromewebstore.google.com/detail/"]').forEach(function (a) {
+    try {
+      var u = new URL(a.href);
+      u.searchParams.set("utm_campaign", locale);
+      a.href = u.toString();
+    } catch (e) {}
+  });
 }
 
 // ── Init ────────────────────────────────────────────────────────────
 function initLP() {
   var locale = detectLPLocale();
-  applyLPTranslations(locale);
+  if (!fixedLPLocale()) applyLPTranslations(locale);
 
   var selector = document.getElementById("lang-select");
   if (selector) {
@@ -1336,6 +1383,11 @@ function initLP() {
     selector.addEventListener("change", function () {
       var newLocale = this.value;
       try { localStorage.setItem("lp_lang", newLocale); } catch (e) {}
+      // LP は言語ごとに URL を持つので、その言語のページへ移る（使い方ページはその場で切替）
+      if (document.documentElement.hasAttribute("data-lp-base")) {
+        location.href = lpPageURL(newLocale);
+        return;
+      }
       applyLPTranslations(newLocale);
       this.value = newLocale;
     });

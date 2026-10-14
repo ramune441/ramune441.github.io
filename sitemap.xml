@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ramune441.github.io/</loc>
     <lastmod>2026-06-15</lastmod>
@@ -51,12 +51,206 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- sendready-lp:start（sendready-chrome/build-lang-pages.mjs が生成） -->
   <url>
     <loc>https://ramune441.github.io/sendready-chrome/</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
   </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/ja/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/zh/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/ko/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/es/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/fr/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/de/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/pt/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/hi/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/id/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/sendready-chrome/ar/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/sendready-chrome/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/sendready-chrome/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/sendready-chrome/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/sendready-chrome/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/sendready-chrome/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/sendready-chrome/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/sendready-chrome/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/sendready-chrome/pt/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/sendready-chrome/hi/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/sendready-chrome/id/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/sendready-chrome/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/sendready-chrome/"/>
+  </url>
+  <!-- sendready-lp:end -->
   <url>
     <loc>https://ramune441.github.io/sendready-chrome/contact.html</loc>
     <lastmod>2026-08-31</lastmod>

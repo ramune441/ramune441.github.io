@@ -1,0 +1,47 @@
+{
+  "_": "YouTube の SendReady プロモ動画（言語別11本・動画IDは i18n-lp.js の LP_VIDEO_IDS）のタイトルと説明文。YouTube Studio で各動画の「詳細」に貼る。タイトルは100文字以内、検索される語句を先頭に置く。リンクの utm_source=youtube でストアの流入元を見分ける。",
+  "en": {
+    "title": "AI Rewrite & Reply in Any Text Field — Free Chrome Extension (Text Expander too) | SendReady",
+    "description": "Select text in Gmail, Outlook, Slack, LinkedIn or any website and let AI rewrite it on the spot — more polite, more professional, grammar fixed, translated or summarized. Select a message you received and SendReady drafts the reply. Type ;sig + Tab to insert your saved snippets.\nFree · No account · 50 AI runs/day · Only the text you pick is sent.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=en\n🌐 https://ramune441.github.io/sendready-chrome/\n#AIwriting #ChromeExtension #Gmail #TextExpander #Productivity"
+  },
+  "ja": {
+    "title": "敬語・ビジネスメールをAIで一発変換｜返信作成・定型文のChrome拡張【無料】SendReady",
+    "description": "Gmail・Outlook・Slack・Chatwork など、どの入力欄でも文章を選んでアイコンを押すだけ。AIが敬語に言い換え、誤字脱字を直し、翻訳・要約し、受け取ったメッセージへの返信まで作ります。「;ose」+ Tab で「お世話になっております。」などの定型文も一瞬で入力。\n無料・登録不要・AI変換は1日50回まで・送るのは選んだ文章だけ。\n▶ Chrome ウェブストア: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=ja\n🌐 https://ramune441.github.io/sendready-chrome/ja/\n#敬語 #ビジネスメール #Chrome拡張 #業務効率化 #AI"
+  },
+  "zh": {
+    "title": "在任意输入框用 AI 改写润色、生成邮件回复｜免费 Chrome 扩展 SendReady",
+    "description": "在 Gmail、Outlook、Slack、LinkedIn 或任意网站选中文字，点一下图标，AI 就地改写：更礼貌、更专业、纠正错别字、翻译或总结。选中收到的消息，SendReady 帮你写好回复。输入 ;sig + Tab 即可插入常用快捷短语。\n免费 · 无需注册 · AI 每天 50 次 · 只发送你选中的文字。\n▶ Chrome 应用商店: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=zh\n🌐 https://ramune441.github.io/sendready-chrome/zh/\n#AI写作 #Chrome扩展 #效率工具 #邮件回复"
+  },
+  "ko": {
+    "title": "어디서나 AI로 문장 다듬기·맞춤법 교정·이메일 답장｜무료 크롬 확장 SendReady",
+    "description": "Gmail, Outlook, Slack, LinkedIn 등 어떤 웹사이트에서든 텍스트를 선택하고 아이콘을 누르면, AI가 그 자리에서 문장을 다듬어 줍니다. 정중한 존댓말, 맞춤법 교정, 번역, 요약까지. 받은 메시지를 선택하면 답장도 써 줍니다. ;sig + Tab으로 상용구도 즉시 입력.\n무료 · 가입 불필요 · AI 하루 50회 · 선택한 텍스트만 전송.\n▶ Chrome 웹 스토어: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=ko\n🌐 https://ramune441.github.io/sendready-chrome/ko/\n#AI글쓰기 #크롬확장 #맞춤법 #업무효율"
+  },
+  "es": {
+    "title": "Reescribir textos con IA y responder correos — Extensión gratis para Chrome | SendReady",
+    "description": "Selecciona un texto en Gmail, Outlook, Slack, LinkedIn o cualquier web y la IA lo reescribe al instante: más formal y cortés, sin faltas, traducido o resumido. Selecciona el mensaje recibido y SendReady redacta la respuesta. Escribe ;sig + Tab para insertar tus plantillas.\nGratis · Sin registro · 50 usos de IA al día · Solo se envía el texto que eliges.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=es\n🌐 https://ramune441.github.io/sendready-chrome/es/\n#IA #ExtensionChrome #Gmail #Productividad"
+  },
+  "fr": {
+    "title": "Reformuler un texte avec l'IA et répondre aux e-mails — Extension Chrome gratuite | SendReady",
+    "description": "Sélectionnez un texte dans Gmail, Outlook, Slack, LinkedIn ou n'importe quel site : l'IA le reformule sur place — plus poli, sans fautes, traduit ou résumé. Sélectionnez le message reçu et SendReady rédige la réponse. Tapez ;sig + Tab pour insérer vos modèles de texte.\nGratuit · Sans inscription · 50 utilisations IA par jour · Seul le texte choisi est envoyé.\n▶ Chrome Web Store : https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=fr\n🌐 https://ramune441.github.io/sendready-chrome/fr/\n#IA #ExtensionChrome #Gmail #Productivité"
+  },
+  "de": {
+    "title": "Text umschreiben mit KI & E-Mails beantworten — kostenlose Chrome-Erweiterung | SendReady",
+    "description": "Text in Gmail, Outlook, Slack, LinkedIn oder auf jeder Website markieren – die KI formuliert ihn sofort um: höflicher, ohne Rechtschreibfehler, übersetzt oder zusammengefasst. Eingegangene Nachricht markieren, und SendReady schreibt die Antwort. Mit ;sig + Tab fügst du Textbausteine ein.\nKostenlos · Ohne Anmeldung · 50 KI-Aufrufe pro Tag · Gesendet wird nur der markierte Text.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=de\n🌐 https://ramune441.github.io/sendready-chrome/de/\n#KI #ChromeErweiterung #Gmail #Produktivität"
+  },
+  "pt": {
+    "title": "Reescrever texto com IA e responder e-mails — Extensão grátis para Chrome | SendReady",
+    "description": "Selecione um texto no Gmail, Outlook, Slack, LinkedIn ou qualquer site e a IA reescreve na hora: mais formal e educado, sem erros, traduzido ou resumido. Selecione a mensagem recebida e o SendReady escreve a resposta. Digite ;sig + Tab para inserir seus modelos de texto.\nGrátis · Sem cadastro · 50 usos de IA por dia · Só o texto escolhido é enviado.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=pt\n🌐 https://ramune441.github.io/sendready-chrome/pt/\n#IA #ExtensaoChrome #Gmail #Produtividade"
+  },
+  "hi": {
+    "title": "किसी भी टेक्स्ट बॉक्स में AI से पुनर्लेखन और ईमेल जवाब — मुफ़्त Chrome एक्सटेंशन | SendReady",
+    "description": "Gmail, Outlook, Slack, LinkedIn या किसी भी वेबसाइट पर टेक्स्ट चुनें और AI उसे वहीं दोबारा लिख दे — ज़्यादा विनम्र, व्याकरण सुधार के साथ, अनुवादित या सारांशित। आया हुआ संदेश चुनें और SendReady जवाब लिख देगा। ;sig + Tab से स्निपेट तुरंत डालें।\nमुफ़्त · कोई साइन-अप नहीं · रोज़ 50 AI उपयोग · सिर्फ़ चुना हुआ टेक्स्ट भेजा जाता है।\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=hi\n🌐 https://ramune441.github.io/sendready-chrome/hi/\n#AI #ChromeExtension #Gmail #Productivity"
+  },
+  "id": {
+    "title": "Tulis ulang teks & balas email dengan AI di kolom mana pun — Ekstensi Chrome gratis | SendReady",
+    "description": "Pilih teks di Gmail, Outlook, Slack, LinkedIn, atau situs mana pun, dan AI menulis ulang di tempat: lebih sopan dan formal, tanpa salah ketik, diterjemahkan, atau diringkas. Pilih pesan yang masuk dan SendReady menyusun balasannya. Ketik ;sig + Tab untuk menyisipkan template teks.\nGratis · Tanpa daftar · 50 kali AI per hari · Hanya teks yang dipilih yang dikirim.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=id\n🌐 https://ramune441.github.io/sendready-chrome/id/\n#AI #EkstensiChrome #Gmail #Produktivitas"
+  },
+  "ar": {
+    "title": "إعادة صياغة النص والرد على البريد بالذكاء الاصطناعي في أي حقل — إضافة Chrome مجانية | SendReady",
+    "description": "حدّد نصًا في Gmail أو Outlook أو Slack أو LinkedIn أو أي موقع، فيعيد الذكاء الاصطناعي صياغته في مكانه: أكثر تهذيبًا، بلا أخطاء، مترجمًا أو ملخّصًا. حدّد الرسالة الواردة ويكتب SendReady الرد. اكتب ;sig ثم Tab لإدراج قوالبك النصية.\nمجاني · بدون تسجيل · 50 استخدامًا للذكاء الاصطناعي يوميًا · لا يُرسل إلا النص الذي تختاره.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=ar\n🌐 https://ramune441.github.io/sendready-chrome/ar/\n#ذكاء_اصطناعي #إضافة_كروم #Gmail #إنتاجية"
+  }
+}
