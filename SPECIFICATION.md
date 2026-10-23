@@ -10,7 +10,7 @@ Ramune の Chrome 拡張・Android アプリ・Web サービスの LP・使い�
 
 ## 約束しないこと
 - 外部ドメインで運用するプロダクト（Charmly = `charm-ly.com` など）のページ。ポータルのカードと JSON-LD だけ持つ。
-- ストアのデベロッパーコンソール・YouTube Studio への反映。素材と原稿を置くだけで、反映は手動（サインインが要る）。
+- Kura 以外のストア掲載と YouTube Studio への自動反映。Kura は認証済み Android Publisher API で、検証した掲載文と画像を反映できる。
 
 ## 既知の限界
 - GitHub Pages は 301 を返せない。移転は meta refresh＋JS の転送ページで代用する。

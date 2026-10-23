@@ -356,6 +356,13 @@ function burstCallout() {
     <div><span class="qc">${mi('auto_awesome')}${t('burst_keep_best_rest')}</span></div>`;
 }
 
+function privateCallout() {
+  return `<div style="display:flex;flex-direction:column;align-items:center;gap:12px;max-width:210px;text-align:center;padding:12px 8px">
+    ${mi('lock', 'mo', 'font-size:44px;color:var(--primary)')}
+    <b style="font-size:18px;line-height:1.4">${t('vault_locked')}</b>
+    <span class="qc">${t('vault_unlock')}</span></div>`;
+}
+
 // ─────────────── the library the screens show ───────────────
 const POOL = ['p110','p1025','p164','p431','p509','p419','p13','p106','p292','p392','p124','p200','p49','p360','p237','p434','p525','p28','p429',
   'p517','p235','p369','p163','p77','p512','p152','p450','p199','p288','p401','p323','p493','p10','p169','p565','p437','p225','p507','p287','p102',
@@ -496,7 +503,7 @@ const SHOTS = [
   ['photos', twoLines(t('brand_tagline')), C.s1],
   ['swipe', C.h2, C.s2, burstCallout],
   ['tidy', C.h3, C.s3],
-  ['vault', fill(C.h4), fill(C.s4)],
+  ['vault', t('intro_private_title'), t('intro_private_text', t('lib_vault')), privateCallout],
   ['cloud', fill(C.h5), fill(C.s5)],
 ];
 const PHONE = { w:400, h:866, cols:4, zoom:1.6 };
@@ -512,8 +519,8 @@ html += `<section class="shot" id="fg">
     <div class="feats">
       <div class="ft">${mi('photo_library')}<b>${C.f1t}</b><small>${C.f1s}</small></div>
       <div class="ft">${mi('cleaning_services')}<b>${C.f2t}</b><small>${C.f2s}</small></div>
-      <div class="ft">${mi('lock')}<b>${fill(C.f3t)}</b><small>${fill(C.f3s)}</small></div>
-      <div class="ft hi">${mi('cloud_done')}<b>${fill(C.f4t)}</b><small>${C.f4s}</small></div>
+      <div class="ft hi">${mi('lock')}<b>${fill(C.f3t)}</b><small>${fill(C.f3s)}</small></div>
+      <div class="ft">${mi('cloud_done')}<b>${fill(C.f4t)}</b><small>${C.f4s}</small></div>
     </div>
   </div>
   <div class="device">${screen('photos', { w:400, h:866, cols:4, zoom:.75 })}</div>
