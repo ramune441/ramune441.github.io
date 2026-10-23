@@ -316,7 +316,7 @@ const meter = f => `<div class="meter"><b style="width:${f * 100}%"></b></div>`;
 const roundAction = (icon, lb, size, bg, fg, border = '') => `<div class="ra"><div class="o" style="width:${size}px;height:${size}px;background:${bg};color:${fg};${border}">
   ${mi(icon, 'mi', `font-size:${size * .42}px`)}</div><small>${lb}</small></div>`;
 const decisionBar = info => `<div class="dbar">
-  ${roundAction('undo', t('swipe_undo'), 48, 'var(--cHigh)', 'var(--onVar)')}
+  ${roundAction('undo', t('undo'), 48, 'var(--cHigh)', 'var(--onVar)')}
   ${roundAction('close', t('swipe_trash'), 70, 'var(--bg)', 'var(--error)', 'border:1.5px solid rgba(179,38,30,.7);')}
   ${roundAction('check', t('swipe_keep'), 70, 'var(--primary)', '#fff')}
   ${info ? `<div style="width:40px;height:70px;display:flex;align-items:center;justify-content:center;color:var(--onVar)">${mi('info', 'mo', 'font-size:20px')}</div>` : ''}</div>`;
@@ -410,7 +410,7 @@ const SCREENS = {
       [2026, 5, 'p288', 190, .98], [2026, 4, 'p106', 233, 1.4], [2026, 3, 'p565', 168, .77], [2026, 2, 'p225', 121, .55]];
     const folders = [['Camera', 'p323', 9812, 41.2], ['Screenshots', 'p165', 1630, 2.5], ['WhatsApp Images', 'p429', 702, .88], ['Download', 'p517', 211, 1.6],
       ['Instagram', 'p488', 125, .31]];
-    return `${statusBar()}${tabHeader(t('tab_sort'), null, ['refresh'])}
+    return `${statusBar()}${tabHeader(t('tab_sort'), null, ['delete'])}
     <div class="body">
       <div style="padding:4px 16px"><div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:14px">
         <div class="big"><div class="l">${t('tidy_library')}</div><div class="v">${bytes(48.6)}</div><div class="s">${pl('stats_items', 12480)}</div></div>
@@ -457,17 +457,16 @@ const SCREENS = {
     const plan = (name, gb, usd, cur) => `<div class="plan ${cur ? 'cur' : ''}"><div class="n"><b>${name}</b><small>${bytes(gb)}</small></div>
       <span class="p">${cur ? t('plan_current') : t('cloud_per_month', price(usd))}</span>${cur ? mi('check_circle') : ''}</div>`;
     const infoLabel = text => `<div class="lbl"><span style="display:flex;align-items:center;gap:6px">${text}${mi('info', 'mo', 'font-size:18px;color:var(--onVar)')}</span></div>`;
-    return `${statusBar()}${screenBar(t('cloud_title'))}
+    return `${statusBar()}${screenBar(t('storage_title'))}
     <div class="body"><div class="stack">
       <div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
         <div class="big"><div class="l">${t('plan_plus')} · ${bytes(100)}</div><div class="v">${bytes(38.2)}</div></div>${meter(38.2 / 100)}</div>
-      <div class="sec">${infoLabel(t('cloud_plan_title'))}<div class="panel" style="display:flex;flex-direction:column;gap:8px;padding:10px">
+      <div class="sec"><div class="panel" style="display:flex;flex-direction:column;gap:8px;padding:10px">
         ${plan(t('plan_plus'), 100, .99, true)}${plan(t('plan_standard'), 500, 4.99)}${plan(t('plan_pro'), 1000, 9.99)}
-        <div class="tbtn" style="padding:6px 8px 4px">${t('plan_manage')}</div></div></div>
-      <div class="sec">${label(t('backup_status_title'))}<div class="panel" style="display:flex;flex-direction:column;gap:14px">
+        <div class="tbtn" style="padding:6px 8px 4px">${t('plan_cancel')}</div></div></div>
+      <div class="sec">${label(t('cloud_title'))}<div class="panel" style="display:flex;flex-direction:column;gap:14px">
         <div class="sw"><div class="n"><b>${t('settings_auto_backup')}</b><small>${t('settings_auto_backup_hint')}</small></div><div class="switch"><b>${mi('check')}</b></div></div>
-        <div class="okline">${mi('cloud_done')}<span>${t('backup_status_all_done')}</span></div></div></div>
-      <div class="sec">${infoLabel(t('cloud_sync_title'))}<div class="panel"><div class="okline">${mi('smartphone', 'mo')}<span>${t('cloud_only_none')}</span></div></div></div>
+        <div class="okline">${mi('cloud_done')}<span>${t('backup_done_title')}</span></div></div></div>
     </div></div>${gestOnly()}`;
   },
 };
