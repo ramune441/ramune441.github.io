@@ -55,9 +55,9 @@ Play へは片付けを先に見せる順 **2 → 3 → 1 → 4 → 5** で上�
 cd kura
 node store-images-strings.mjs      # Kura リポジトリの strings.xml → store-images-app-strings.js
 npm init -y && npm install puppeteer
-node record-store-i18n.mjs         # 12 言語 × 11 枚と icons/icon512.png を書き出し（ja en のように言語を絞れる）
+node record-store-i18n.mjs         # 18 言語 × 11 枚と icons/icon512.png を書き出し（ja en のように言語を絞れる）
 rm -rf node_modules package.json package-lock.json
 ```
-テンプレ: `store-images.html`（画面とレイアウト） / `store-images-i18n.js`（キャプション 12 言語）。
+テンプレ: `store-images.html`（画面とレイアウト） / `store-images-i18n.js`（キャプション 18 言語）。
 `store-images.html?lang=xx` をブラウザで開くと各言語をプレビューできる。
 `record-store-i18n.mjs` は `.gitignore` の `record-*.mjs` に当たるので、無ければ作り直す。
