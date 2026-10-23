@@ -17,6 +17,7 @@ const res = path.join(repo, 'app/src/main/res');
 const DIRS = {
   en: 'values', ja: 'values-ja', zh: 'values-b+zh+Hans', 'zh-TW': 'values-b+zh+Hant', ko: 'values-ko',
   es: 'values-es', fr: 'values-fr', de: 'values-de', pt: 'values-pt', it: 'values-it', ru: 'values-ru', id: 'values-in',
+  hi: 'values-hi', tr: 'values-tr', vi: 'values-vi', th: 'values-th', pl: 'values-pl', ar: 'values-ar',
 };
 
 const unescape = s => s

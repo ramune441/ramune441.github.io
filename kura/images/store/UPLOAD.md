@@ -1,10 +1,10 @@
 # Kura ストア画像 — Play Console 掲載手順
 
-各言語 11 枚。アイコンは全言語共通で `kura/icons/icon512.png`（512×512）。
+各言語 11 枚（18 言語）。アイコンは全言語共通で `kura/icons/icon512.png`（512×512）。
 
 ```
 images/store/
-  en/  ja/  zh/  zh-TW/  ko/  es/  fr/  de/  pt/  it/  ru/  id/
+  en/  ja/  zh/  zh-TW/  ko/  es/  fr/  de/  pt/  it/  ru/  id/  hi/  tr/  vi/  th/  pl/  ar/
     store-image-feature.png          ← フィーチャー グラフィック（1024×500）
     store-image-1.png … 5.png        ← 携帯電話版のスクリーンショット（1080×1920）
     store-image-tablet-1.png … 5.png ← 7 インチと 10 インチのタブレット版スクリーンショット（1080×1920）
@@ -41,6 +41,12 @@ Play へは片付けを先に見せる順 **2 → 3 → 1 → 4 → 5** で上�
 | it | イタリア語 – it-IT |
 | ru | ロシア語 – ru-RU |
 | id | インドネシア語 – id |
+| hi | ヒンディー語 – hi-IN |
+| tr | トルコ語 – tr-TR |
+| vi | ベトナム語 – vi |
+| th | タイ語 – th |
+| pl | ポーランド語 – pl-PL |
+| ar | アラビア語 – ar（画面の中は右から左。振り分けのボタンはアプリと同じく左右を固定） |
 
 ## 再生成
 

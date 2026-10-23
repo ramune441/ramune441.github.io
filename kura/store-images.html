@@ -56,6 +56,10 @@ body { background:#2a2d2b; font-family:var(--ui); -webkit-font-smoothing:antiali
 body.cjk .cap h1 { letter-spacing:-.01em; line-height:1.22; }
 /* CJK captions break only at punctuation and spaces, never mid-word ("見つけ/る"); fit() shrinks what won't fit. */
 body.cjk .cap h1, body.cjk .cap p, body.cjk #fg h1 { word-break:keep-all; }
+/* Arabic, Hindi and Thai letters join or stack: no tracking, as in the app (ui/theme/Type.kt). */
+body.untracked *:not(.mi):not(.mo) { letter-spacing:0 !important; }
+/* Arabic reads right to left inside the phone and in the words; the frames stay where they are. */
+body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
 .phone .cap, .tablet .cap { position:absolute; left:70px; right:70px; top:92px; height:330px; text-align:center;
   display:flex; flex-direction:column; justify-content:center; gap:22px; }
 .phone .cap h1, .tablet .cap h1 { font-size:84px; }
@@ -167,6 +171,8 @@ body.cjk .cap h1, body.cjk .cap p, body.cjk #fg h1 { word-break:keep-all; }
 .seal span { display:block; border:1px solid; border-radius:7px; padding:2px 14px; font-size:26px; line-height:32px; font-weight:700; letter-spacing:2px; }
 .meta { text-align:center; font-size:14px; line-height:20px; font-weight:500; color:var(--onVar); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .dbar { display:flex; justify-content:center; align-items:flex-end; gap:18px; }
+/* As in the app: keep is a swipe to the right, so its button stays on the right in Arabic too. */
+.dbar { direction:ltr; }
 .ra { display:flex; flex-direction:column; align-items:center; gap:6px; }
 .ra .o { border-radius:50%; display:flex; align-items:center; justify-content:center; }
 .ra small { font-size:13px; line-height:18px; font-weight:500; color:var(--onVar); white-space:nowrap; }
@@ -239,7 +245,8 @@ const CAP = window.STORE_I18N;
 // ─────────────── language ───────────────
 const L = new URLSearchParams(location.search).get('lang') || 'en';
 // Folder codes (images/store/<lang>) → the locale for dates, plurals and numbers.
-const LOC = { zh:'zh-CN', pt:'pt-BR' }[L] || L;
+// Thai dates in the Gregorian years the app shows, not the Buddhist era a browser picks for th.
+const LOC = { zh:'zh-CN', pt:'pt-BR', th:'th-TH-u-ca-gregory' }[L] || L;
 const A = APP_STRINGS[L], EN = APP_STRINGS.en, C = CAP[L];
 document.documentElement.lang = LOC;
 const CJK = { ja:'Noto Sans JP', zh:'Noto Sans SC', 'zh-TW':'Noto Sans TC', ko:'Noto Sans KR' }[L];
@@ -251,6 +258,19 @@ if (CJK) {
   link.href = `https://fonts.googleapis.com/css2?family=${CJK.replace(/ /g, '+')}:wght@400;500;600;700;800&display=block`;
   document.head.appendChild(link);
 }
+// Scripts Geist does not draw: their Noto face, through the same fallback slot as CJK.
+const SCRIPT = { hi:'Noto Sans Devanagari', th:'Noto Sans Thai', ar:'Noto Sans Arabic' }[L];
+if (SCRIPT) {
+  document.body.classList.add('untracked');
+  document.documentElement.style.setProperty('--cjk', `'${SCRIPT}'`);
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = `https://fonts.googleapis.com/css2?family=${SCRIPT.replace(/ /g, '+')}:wght@400;500;600;700;800&display=block`;
+  document.head.appendChild(link);
+}
+if (L === 'ar') document.body.classList.add('rtl');
+// Which way the start of a row lies, for strips shifted by hand (a transform is not mirrored).
+const START = L === 'ar' ? -1 : 1;
 const fmt = (s, a) => { let i = 0; return s.replace(/%(\d+)\$[ds]|%[ds]/g, (m, p) => String(p ? a[p - 1] : a[i++])); };
 const t = (k, ...a) => fmt(A[k] ?? EN[k], a);
 const pl = (k, n, ...a) => { const f = A[k] ?? EN[k]; return fmt(f[new Intl.PluralRules(LOC).select(n)] ?? f.other, [n, ...a]); };
@@ -420,7 +440,7 @@ const SCREENS = {
           <span><i style="background:var(--outline)"></i>${t('kind_screenshot')} <b>${bytes(2.5)}</b></span></div>
       </div></div>
       <div style="height:8px"></div>${label(t('home_sessions'))}
-      <div class="hscroll"><div style="display:flex;gap:10px;transform:translateX(${w > 600 ? 0 : -308}px)">
+      <div class="hscroll"><div style="display:flex;gap:10px;transform:translateX(${w > 600 ? 0 : -308 * START}px)">
         ${sessions.map(([src, title, detail, icon, tone, st]) => photoCard({ src, title, detail, icon, tone, w:156, h:196, style:st || '' })).join('')}
       </div></div>
       <div style="height:16px"></div>${label(t('home_by_month'), t('see_all'))}
