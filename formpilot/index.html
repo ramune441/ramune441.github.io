@@ -44,7 +44,7 @@
     "operatingSystem": "Chrome",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "author": { "@type": "Person", "name": "Ramune" },
-    "softwareVersion": "1.0.0",
+    "softwareVersion": "1.3.0",
     "browserRequirements": "Google Chrome"
   }
   </script>
@@ -430,7 +430,7 @@
         <article class="feat-card">
           <div class="feat-icon">&#128295;</div>
           <h3 data-i18n="feat3_h3">カスタムフィールド</h3>
-          <p data-i18n="feat3_p">フリガナ・部署名・社員番号など、標準項目にないフィールドも追加可能。1プロフィールあたり最大20個。</p>
+          <p data-i18n="feat3_p">社員番号・会員番号など、標準項目にないフィールドも追加可能。1プロフィールあたり最大50個。</p>
         </article>
         <article class="feat-card">
           <div class="feat-icon">&#127760;</div>
@@ -446,6 +446,21 @@
           <div class="feat-icon">&#127769;</div>
           <h3 data-i18n="feat6_h3">広告・追跡なし</h3>
           <p data-i18n="feat6_p">広告・アナリティクス・トラッキング一切なし。純粋な生産性ツールとして設計されています。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#9000;&#65039;</div>
+          <h3 data-i18n="feat7_h3">プロフィールごとのショートカット</h3>
+          <p data-i18n="feat7_p">プロフィールごとにキーを割り当て（初期値は Alt+Shift+1、2、3…）、ポップアップを開かずにキーひとつで入力。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#129513;</div>
+          <h3 data-i18n="feat8_h3">埋め込みフォームにも対応</h3>
+          <p data-i18n="feat8_p">iframe で埋め込まれたフォーム（Google フォームなど）や、Web Components で作られた入力欄にも入力します。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon">&#128292;</div>
+          <h3 data-i18n="feat9_h3">言語・国に合わせて整形</h3>
+          <p data-i18n="feat9_p">氏名の順序、フリガナ・ローマ字、電話番号・郵便番号の書式、日付・和暦、国名・都道府県を、フォームに合わせて入力。</p>
         </article>
       </div>
     </div>
@@ -589,8 +604,8 @@
     </div>
   </footer>
 
-  <script src="guide-ui.js?v=20261003"></script>
-  <script src="i18n-lp.js?v=20261003"></script>
+  <script src="guide-ui.js?v=20261026"></script>
+  <script src="i18n-lp.js?v=20261026"></script>
   <script>
     // FAQ accordion
     document.querySelectorAll('.faq-q').forEach(function(btn) {

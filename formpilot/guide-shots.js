@@ -8,7 +8,7 @@
 //   3. guide.html, index.html
 //                       — the built-in (Japanese) text of the guide_* elements
 //                         and of every element that names a UI label
-//   4. guide-shots/{lang}/{profile,run,saved,settings}.webp
+//   4. guide-shots/{lang}/{profile,run,saved,settings,shortcut}.webp
 //                       — screenshots of the real popup.html / popup.css,
 //                         rendered with sample data and numbered badges
 //
@@ -135,17 +135,17 @@ function syncPageDefaults(uiTable) {
 // ── 4. Popup screenshots ─────────────────────────────────────────────
 // Sample person per language (same people as the demo video)
 const SAMPLE = {
-  en: { first: 'John', last: 'Smith', email: 'john@example.com', phone: '+1 555-123-4567', country: 'United States', addr1: '123 Main St', addr2: 'Apt 4B', city: 'New York', state: 'NY', postal: '10001', company: 'Acme Inc.', custom: [['LinkedIn', 'linkedin.com/in/johnsmith'], ['Department', 'Sales']], prof1: 'John Smith', prof2: 'Work', entry1: 'Checkout — Mar 1', entry2: 'Draft' },
-  ja: { first: '太郎', last: '山田', email: 'taro@example.com', phone: '090-1234-5678', country: '日本', addr1: '西新宿1-2-3', addr2: '', city: '新宿区', state: '東京都', postal: '160-0023', company: '株式会社サンプル', custom: [['フリガナ', 'ヤマダ タロウ'], ['部署', '営業部']], prof1: '山田 太郎', prof2: '仕事用', entry1: '注文フォーム — 3/1', entry2: '下書き' },
-  zh: { first: '伟', last: '李', email: 'liwei@example.com', phone: '138-0013-8000', country: '中国', addr1: '建国路88号', addr2: '', city: '朝阳区', state: '北京市', postal: '100022', company: '示例科技有限公司', custom: [['拼音', 'Li Wei'], ['部门', '销售部']], prof1: '李伟', prof2: '工作', entry1: '结账表单 — 3/1', entry2: '草稿' },
-  ko: { first: '민준', last: '김', email: 'minjun@example.com', phone: '010-1234-5678', country: '대한민국', addr1: '테헤란로 123', addr2: '', city: '강남구', state: '서울특별시', postal: '06234', company: '(주)샘플', custom: [['영문 이름', 'Minjun Kim'], ['부서', '영업부']], prof1: '김민준', prof2: '업무용', entry1: '주문 양식 — 3/1', entry2: '임시저장' },
-  es: { first: 'Javier', last: 'Morales', email: 'javier@example.com', phone: '+34 612 345 678', country: 'España', addr1: 'Calle Mayor 12', addr2: '3º B', city: 'Madrid', state: 'Madrid', postal: '28013', company: 'Ejemplo S.L.', custom: [['LinkedIn', 'linkedin.com/in/javiermorales'], ['Departamento', 'Ventas']], prof1: 'Javier Morales', prof2: 'Trabajo', entry1: 'Pedido — 1 mar', entry2: 'Borrador' },
-  fr: { first: 'Lucas', last: 'Martin', email: 'lucas@example.com', phone: '06 12 34 56 78', country: 'France', addr1: '12 rue de la Paix', addr2: '', city: 'Paris', state: 'Île-de-France', postal: '75002', company: 'Exemple SARL', custom: [['LinkedIn', 'linkedin.com/in/lucasmartin'], ['Service', 'Ventes']], prof1: 'Lucas Martin', prof2: 'Travail', entry1: 'Commande — 1 mars', entry2: 'Brouillon' },
-  de: { first: 'Lukas', last: 'Becker', email: 'lukas@example.com', phone: '0151 2345678', country: 'Deutschland', addr1: 'Hauptstraße 12', addr2: '', city: 'Berlin', state: 'Berlin', postal: '10115', company: 'Beispiel GmbH', custom: [['LinkedIn', 'linkedin.com/in/lukasbecker'], ['Abteilung', 'Vertrieb']], prof1: 'Lukas Becker', prof2: 'Arbeit', entry1: 'Bestellung — 1. März', entry2: 'Entwurf' },
-  pt: { first: 'Lucas', last: 'Oliveira', email: 'lucas@example.com', phone: '(11) 91234-5678', country: 'Brasil', addr1: 'Av. Paulista 1000', addr2: 'Apto 52', city: 'São Paulo', state: 'SP', postal: '01310-100', company: 'Exemplo Ltda.', custom: [['LinkedIn', 'linkedin.com/in/lucasoliveira'], ['Departamento', 'Vendas']], prof1: 'Lucas Oliveira', prof2: 'Trabalho', entry1: 'Pedido — 1 mar', entry2: 'Rascunho' },
-  hi: { first: 'अर्जुन', last: 'शर्मा', email: 'arjun@example.com', phone: '+91 98765 43210', country: 'भारत', addr1: '123 एमजी रोड', addr2: '', city: 'नई दिल्ली', state: 'दिल्ली', postal: '110001', company: 'उदाहरण प्रा. लि.', custom: [['LinkedIn', 'linkedin.com/in/arjunsharma'], ['विभाग', 'बिक्री']], prof1: 'अर्जुन शर्मा', prof2: 'कार्य', entry1: 'ऑर्डर फ़ॉर्म — 1 मार्च', entry2: 'ड्राफ़्ट' },
-  id: { first: 'Budi', last: 'Santoso', email: 'budi@example.com', phone: '0812-3456-7890', country: 'Indonesia', addr1: 'Jl. Sudirman No. 25', addr2: '', city: 'Jakarta Pusat', state: 'DKI Jakarta', postal: '10220', company: 'PT Contoh', custom: [['LinkedIn', 'linkedin.com/in/budisantoso'], ['Departemen', 'Penjualan']], prof1: 'Budi Santoso', prof2: 'Kerja', entry1: 'Formulir pesanan — 1 Mar', entry2: 'Draf' },
-  ar: { first: 'عمر', last: 'الخالد', email: 'omar@example.com', phone: '050 123 4567', country: 'السعودية', addr1: 'شارع الملك فهد 12', addr2: '', city: 'الرياض', state: 'منطقة الرياض', postal: '12211', company: 'شركة المثال', custom: [['LinkedIn', 'linkedin.com/in/omaralkhaled'], ['القسم', 'المبيعات']], prof1: 'عمر الخالد', prof2: 'العمل', entry1: 'نموذج الطلب — 1 مارس', entry2: 'مسودة' },
+  en: { first: 'John', last: 'Smith', email: 'john@example.com', phone: '+1 555-123-4567', country: 'United States', addr1: '123 Main St', addr2: 'Apt 4B', city: 'New York', state: 'NY', postal: '10001', company: 'Acme Inc.', custom: [['LinkedIn', 'linkedin.com/in/johnsmith'], ['Employee ID', 'A-1024']], dept: 'Sales', prof1: 'John Smith', prof2: 'Work', entry1: 'Checkout — Mar 1', entry2: 'Draft' },
+  ja: { first: '太郎', last: '山田', email: 'taro@example.com', phone: '090-1234-5678', country: '日本', addr1: '西新宿1-2-3', addr2: '', city: '新宿区', state: '東京都', postal: '160-0023', company: '株式会社サンプル', custom: [['LinkedIn', 'linkedin.com/in/taroyamada'], ['社員番号', 'A-1024']], dept: '営業部', kana: ['ヤマダ', 'タロウ'], prof1: '山田 太郎', prof2: '仕事用', entry1: '注文フォーム — 3/1', entry2: '下書き' },
+  zh: { first: '伟', last: '李', email: 'liwei@example.com', phone: '138-0013-8000', country: '中国', addr1: '建国路88号', addr2: '', city: '朝阳区', state: '北京市', postal: '100022', company: '示例科技有限公司', custom: [['拼音', 'Li Wei'], ['工号', 'A-1024']], dept: '销售部', prof1: '李伟', prof2: '工作', entry1: '结账表单 — 3/1', entry2: '草稿' },
+  ko: { first: '민준', last: '김', email: 'minjun@example.com', phone: '010-1234-5678', country: '대한민국', addr1: '테헤란로 123', addr2: '', city: '강남구', state: '서울특별시', postal: '06234', company: '(주)샘플', custom: [['영문 이름', 'Minjun Kim'], ['사번', 'A-1024']], dept: '영업부', prof1: '김민준', prof2: '업무용', entry1: '주문 양식 — 3/1', entry2: '임시저장' },
+  es: { first: 'Javier', last: 'Morales', email: 'javier@example.com', phone: '+34 612 345 678', country: 'España', addr1: 'Calle Mayor 12', addr2: '3º B', city: 'Madrid', state: 'Madrid', postal: '28013', company: 'Ejemplo S.L.', custom: [['LinkedIn', 'linkedin.com/in/javiermorales'], ['Nº de empleado', 'A-1024']], dept: 'Ventas', prof1: 'Javier Morales', prof2: 'Trabajo', entry1: 'Pedido — 1 mar', entry2: 'Borrador' },
+  fr: { first: 'Lucas', last: 'Martin', email: 'lucas@example.com', phone: '06 12 34 56 78', country: 'France', addr1: '12 rue de la Paix', addr2: '', city: 'Paris', state: 'Île-de-France', postal: '75002', company: 'Exemple SARL', custom: [['LinkedIn', 'linkedin.com/in/lucasmartin'], ['Matricule', 'A-1024']], dept: 'Ventes', prof1: 'Lucas Martin', prof2: 'Travail', entry1: 'Commande — 1 mars', entry2: 'Brouillon' },
+  de: { first: 'Lukas', last: 'Becker', email: 'lukas@example.com', phone: '0151 2345678', country: 'Deutschland', addr1: 'Hauptstraße 12', addr2: '', city: 'Berlin', state: 'Berlin', postal: '10115', company: 'Beispiel GmbH', custom: [['LinkedIn', 'linkedin.com/in/lukasbecker'], ['Personalnummer', 'A-1024']], dept: 'Vertrieb', prof1: 'Lukas Becker', prof2: 'Arbeit', entry1: 'Bestellung — 1. März', entry2: 'Entwurf' },
+  pt: { first: 'Lucas', last: 'Oliveira', email: 'lucas@example.com', phone: '(11) 91234-5678', country: 'Brasil', addr1: 'Av. Paulista 1000', addr2: 'Apto 52', city: 'São Paulo', state: 'SP', postal: '01310-100', company: 'Exemplo Ltda.', custom: [['LinkedIn', 'linkedin.com/in/lucasoliveira'], ['Matrícula', 'A-1024']], dept: 'Vendas', prof1: 'Lucas Oliveira', prof2: 'Trabalho', entry1: 'Pedido — 1 mar', entry2: 'Rascunho' },
+  hi: { first: 'अर्जुन', last: 'शर्मा', email: 'arjun@example.com', phone: '+91 98765 43210', country: 'भारत', addr1: '123 एमजी रोड', addr2: '', city: 'नई दिल्ली', state: 'दिल्ली', postal: '110001', company: 'उदाहरण प्रा. लि.', custom: [['LinkedIn', 'linkedin.com/in/arjunsharma'], ['कर्मचारी आईडी', 'A-1024']], dept: 'बिक्री', prof1: 'अर्जुन शर्मा', prof2: 'कार्य', entry1: 'ऑर्डर फ़ॉर्म — 1 मार्च', entry2: 'ड्राफ़्ट' },
+  id: { first: 'Budi', last: 'Santoso', email: 'budi@example.com', phone: '0812-3456-7890', country: 'Indonesia', addr1: 'Jl. Sudirman No. 25', addr2: '', city: 'Jakarta Pusat', state: 'DKI Jakarta', postal: '10220', company: 'PT Contoh', custom: [['LinkedIn', 'linkedin.com/in/budisantoso'], ['ID Karyawan', 'A-1024']], dept: 'Penjualan', prof1: 'Budi Santoso', prof2: 'Kerja', entry1: 'Formulir pesanan — 1 Mar', entry2: 'Draf' },
+  ar: { first: 'عمر', last: 'الخالد', email: 'omar@example.com', phone: '050 123 4567', country: 'السعودية', addr1: 'شارع الملك فهد 12', addr2: '', city: 'الرياض', state: 'منطقة الرياض', postal: '12211', company: 'شركة المثال', custom: [['LinkedIn', 'linkedin.com/in/omaralkhaled'], ['الرقم الوظيفي', 'A-1024']], dept: 'المبيعات', prof1: 'عمر الخالد', prof2: 'العمل', entry1: 'نموذج الطلب — 1 مارس', entry2: 'مسودة' },
 };
 
 const at = (y, mo, d, h, mi) => new Date(y, mo - 1, d, h, mi);
@@ -159,16 +159,17 @@ function storageFor(lang, t, { withEntries }) {
       activePresetId: 'p1',
       presets: {
         p1: {
-          name: s.prof1, createdAt: at(2026, 1, 10, 9, 0).toISOString(), updatedAt: at(2026, 2, 1, 9, 0).toISOString(),
+          name: s.prof1, shortcut: 'Alt+Shift+1', createdAt: at(2026, 1, 10, 9, 0).toISOString(), updatedAt: at(2026, 2, 1, 9, 0).toISOString(),
           data: {
             firstName: s.first, lastName: s.last, email: s.email, phone: s.phone,
             country: s.country, addressLine1: s.addr1, addressLine2: s.addr2, city: s.city, state: s.state, postalCode: s.postal,
-            company: s.company, gender: 'Male', birthYear: '1990', birthMonth: '4', birthDay: '12',
+            ...(s.kana ? { lastNameKana: s.kana[0], firstNameKana: s.kana[1] } : {}),
+            company: s.company, department: s.dept, gender: 'Male', birthYear: '1990', birthMonth: '4', birthDay: '12',
             customFields: s.custom.map(([key, value]) => ({ key, value })),
           },
         },
         p2: {
-          name: s.prof2, createdAt: at(2026, 1, 11, 9, 0).toISOString(), updatedAt: at(2026, 1, 11, 9, 0).toISOString(),
+          name: s.prof2, shortcut: 'Alt+Shift+2', createdAt: at(2026, 1, 11, 9, 0).toISOString(), updatedAt: at(2026, 1, 11, 9, 0).toISOString(),
           data: { firstName: s.first, lastName: s.last, email: 'work.' + s.email, company: s.company },
         },
       },
@@ -349,6 +350,24 @@ async function shotsFor(browser, lang, t) {
   const bottom = await page.evaluate(() => document.querySelector('.run-preset-selector').getBoundingClientRect().bottom + 14);
   await shoot(page, path.join(outDir, 'settings.webp'), { x: 0, y: 0, width: POPUP_W, height: Math.ceil(bottom) });
   await page.close();
+
+  // shortcut: the Shortcut group of the Profile tab, cut out with its neighbours
+  page = await openPopup(browser, lang, storageFor(lang, t, { withEntries: false }));
+  await page.click('.tab[data-tab="profile"]');
+  await page.mouse.move(1, 1);
+  await expandToContent(page);
+  await addBadges(page, [
+    { sel: '#shortcut-display', n: 1, side: 'left' },
+    { sel: '#shortcut-record-btn', n: 2, side: 'corner' },
+    { sel: '#shortcut-clear-btn', n: 3, side: 'corner' },
+  ], rtl);
+  const box = await page.evaluate(() => {
+    const r = document.querySelector('.shortcut-group').getBoundingClientRect();
+    return { top: r.top + window.scrollY, bottom: r.bottom + window.scrollY };
+  });
+  const top = Math.max(0, Math.floor(box.top - 56));
+  await shoot(page, path.join(outDir, 'shortcut.webp'), { x: 0, y: top, width: POPUP_W, height: Math.ceil(box.bottom + 20 - top) });
+  await page.close();
 }
 
 (async () => {
@@ -368,7 +387,7 @@ async function shotsFor(browser, lang, t) {
   try {
     for (const lang of targets) {
       await shotsFor(browser, lang, makeT(messages, lang));
-      console.log(`  ${lang}: 4 screenshots`);
+      console.log(`  ${lang}: 5 screenshots`);
     }
   } finally {
     await browser.close();

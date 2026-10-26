@@ -12,12 +12,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>使い方ガイド｜FormPilot</title>
-  <meta name="description" content="FormPilotの使い方ガイド。プロフィール作成、フォーム自動入力の操作手順、カスタムフィールドの追加方法を実際の画面で解説します。">
+  <meta name="description" content="FormPilotの使い方ガイド。プロフィール作成、フォーム自動入力の操作手順、カスタムフィールドの追加、プロフィールごとのショートカットキーの設定を実際の画面で解説します。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ramune441.github.io/formpilot/guide.html">
 
   <meta property="og:title" content="使い方ガイド｜FormPilot">
-  <meta property="og:description" content="FormPilotの使い方ガイド。プロフィール作成、フォーム自動入力の操作手順、カスタムフィールドの追加方法を解説します。">
+  <meta property="og:description" content="FormPilotの使い方ガイド。プロフィール作成、フォーム自動入力の操作手順、カスタムフィールドの追加、ショートカットキーの設定を解説します。">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://ramune441.github.io/formpilot/guide.html">
   <meta property="og:image" content="https://ramune441.github.io/formpilot/store-image-1.png">
@@ -145,8 +145,8 @@
           <p data-i18n="guide_s1_p">自動入力に使う情報をプロフィールとして登録します。一度保存すれば、あらゆるフォームで使い回せます。</p>
           <ul class="desc-list">
             <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s1_d1"><strong>プロフィールの切替・追加</strong><br>「編集中」の横のドロップダウンで、編集するプロフィールを切り替えます。「+」で新しいプロフィールを追加できます（最大10個）。「コピー」で別のプロフィールの内容を写せます。</div></li>
-            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s1_d2"><strong>基本情報を入力</strong><br>名前・メール・電話番号・住所・会社名・性別・生年月日を入力します（年齢は生年月日から自動計算）。必要な項目だけ入力すればOKです。</div></li>
-            <li class="desc-item"><span class="desc-num">3</span><div class="desc-text" data-i18n-html="guide_s1_d3"><strong>追加フィールド</strong><br>「+ 追加」で、フリガナ・部署名・SNSアカウントなど上にない項目を追加できます。1プロフィールあたり最大50個。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s1_d2"><strong>基本情報を入力</strong><br>名前・フリガナ・メール・電話番号・住所・会社名・部署・役職・ウェブサイト・性別・生年月日を入力します（年齢は生年月日から自動計算）。必要な項目だけ入力すればOKです。</div></li>
+            <li class="desc-item"><span class="desc-num">3</span><div class="desc-text" data-i18n-html="guide_s1_d3"><strong>追加フィールド</strong><br>「+ 追加」で、社員番号・会員番号・SNSアカウントなど上にない項目を追加できます。1プロフィールあたり最大50個。</div></li>
             <li class="desc-item"><span class="desc-num">4</span><div class="desc-text" data-i18n-html="guide_s1_d4"><strong>保存</strong><br>「保存」ボタンで保存します。入力内容はすべてブラウザ内にローカル保存されます。</div></li>
           </ul>
         </div>
@@ -228,6 +228,26 @@
       </div>
     </div>
 
+    <!-- 6. KEYBOARD SHORTCUTS -->
+    <div class="section">
+      <h2 class="section-title" data-i18n="guide_s6_title">キーボードショートカット</h2>
+      <div class="guide-row">
+        <div class="shot-wrap">
+          <img class="shot" data-guide-shot="shortcut" src="guide-shots/ja/shortcut.webp" width="360" alt="FormPilot ポップアップのショートカット設定" loading="lazy">
+        </div>
+        <div class="guide-desc">
+          <h3 data-i18n="guide_s6_h3">プロフィールごとのキーで、すぐに入力</h3>
+          <p data-i18n="guide_s6_p">プロフィールごとにショートカットキーを割り当てられます。フォームのあるページでそのキーを押すと、ポップアップを開かずにそのプロフィールでAI自動入力を実行します。</p>
+          <ul class="desc-list">
+            <li class="desc-item"><span class="desc-num">1</span><div class="desc-text" data-i18n-html="guide_s6_d1"><strong>ショートカット</strong><br>「プロフィール」タブで、編集中のプロフィールのキーを設定します。初期値は作成順に Alt+Shift+1〜9、10個目は 0。「未設定」はキーがない状態です。</div></li>
+            <li class="desc-item"><span class="desc-num">2</span><div class="desc-text" data-i18n-html="guide_s6_d2"><strong>変更</strong><br>押してから、使いたいキーを同時に押します。Ctrl・Alt・Cmd・無変換・変換のどれか＋好きなキー（英字・数字・記号・矢印・Fキーなど。Shift も足せます）。押した時点で保存され、Esc で取り消せます。</div></li>
+            <li class="desc-item"><span class="desc-num">3</span><div class="desc-text" data-i18n-html="guide_s6_d3"><strong>解除</strong><br>このプロフィールのショートカットを外します。</div></li>
+          </ul>
+          <p class="note" data-i18n="guide_s6_note">Esc・Tab と、Ctrl+Tab・Ctrl+T などブラウザが先に処理するキーは使えません。同じ組み合わせは1つのプロフィールにだけ登録できます。Ctrl+C など多くのサイトが使う組み合わせは、注意を表示したうえで登録します。Chrome 自体のページと Chrome ウェブストアでは動きません。</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer>
@@ -236,7 +256,7 @@
     <a href="contact.html" data-i18n="footer_contact">お問い合わせ</a>
   </footer>
 
-  <script src="guide-ui.js?v=20261003"></script>
-  <script src="i18n-lp.js?v=20261003"></script>
+  <script src="guide-ui.js?v=20261026"></script>
+  <script src="i18n-lp.js?v=20261026"></script>
 </body>
 </html>
