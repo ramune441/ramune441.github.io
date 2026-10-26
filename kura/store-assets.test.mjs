@@ -8,10 +8,14 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const listing = JSON.parse(fs.readFileSync(path.join(here,'store-listing.json'),'utf8'));
 const context = {window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(here,'store-images-app-strings.js'),'utf8'), context);
+vm.runInNewContext(fs.readFileSync(path.join(here,'store-images-i18n.js'),'utf8'), context);
 const strings = context.window.APP_STRINGS;
 
 test('every app language has listing copy and keeps private promotion in sync',()=>{
+  const requested = 'en es ja pt de fr ko id zh-TW hi zh vi it ar tr pl th nl ru bn'.split(' ').sort();
+  assert.deepEqual(Object.keys(listing.locales).sort(),requested);
   assert.deepEqual(Object.keys(listing.locales).sort(),Object.keys(strings).sort());
+  assert.deepEqual(Object.keys(listing.locales).sort(),Object.keys(context.window.STORE_I18N).sort());
   for (const [lang, entry] of Object.entries(listing.locales)) {
     const a = strings[lang];
     assert.equal(entry.privateCopy.title,a.intro_private_title,lang);
@@ -31,8 +35,29 @@ test('Play titles, summaries and descriptions stay within their character limits
 test('Private is the second screenshot and regional listings share one source',()=>{
   assert.deepEqual(listing.screenshotOrder,[2,4,3,1,5]);
   const languages = Object.values(listing.locales).flatMap(l=>l.playLanguages);
-  assert.equal(languages.length,20);
-  assert.equal(new Set(languages).size,20);
+  assert.equal(languages.length,22);
+  assert.equal(new Set(languages).size,22);
   assert.deepEqual(listing.locales.es.playLanguages,['es-ES','es-419']);
   assert.deepEqual(listing.locales.pt.playLanguages,['pt-BR','pt-PT']);
+  assert.deepEqual(listing.locales.nl.playLanguages,['nl-NL']);
+  assert.deepEqual(listing.locales.bn.playLanguages,['bn-BD']);
+});
+test('all captions have the full translated template without missing placeholders',()=>{
+  const captions = context.window.STORE_I18N;
+  const tokens = text => [...text.matchAll(/\{[a-z0-9]+\}/g)].map(m=>m[0]).sort();
+  for (const [language, copy] of Object.entries(captions)) {
+    assert.deepEqual(Object.keys(copy).sort(),Object.keys(captions.en).sort(),language);
+    for (const [key, value] of Object.entries(copy)) {
+      if (Array.isArray(value)) {
+        assert.equal(value.length,2,language);
+        assert.ok(value.every(v=>v.trim()),language);
+      } else {
+        assert.ok(value.trim(),`${language}.${key}`);
+        // Existing Japanese prices are in yen; Arabic names Private directly.
+        if (language === 'nl' || language === 'bn') {
+          assert.deepEqual(tokens(value),tokens(captions.en[key]),`${language}.${key}`);
+        }
+      }
+    }
+  }
 });

@@ -1,4 +1,4 @@
-// store-images-i18n — Kura ストア画像のキャプション（18 言語）
+// store-images-i18n — Kura ストア画像のキャプション（20 言語）
 // アプリ画面の中の言葉はここに無い: store-images-app-strings.js（アプリの strings.xml から生成）を使う。
 // プライベートの見出し・説明も、アプリの intro_private_title / intro_private_text を使う。
 // 見出し1枚目とフィーチャーグラフィックの題はアプリのタグライン（brand_tagline）そのもの。
@@ -6,6 +6,42 @@
 // f1t…f4s はフィーチャーグラフィックの機能カード（題／一行）。vaultAlbums は金庫の中のアルバム名。
 // {vault} はアプリの金庫の名前（lib_vault）。{p1}{p2}{p3} はプランの月額（store-images.html が入れる。ja は円で書き切る）。
 window.STORE_I18N = {
+nl: {
+  f1t:"Fotobibliotheek",
+  f1s:"Albums, plaatsen, herinneringen",
+  f2t:"Slim opruimen",
+  f2s:"Duplicaten, onscherp, grote bestanden",
+  f3t:"Foto’s verbergen",
+  f3s:"In {vault}, achter je schermvergrendeling",
+  f4t:"Back-up vanaf {p1}/mnd",
+  f4s:"Foto’s en video’s in volledige kwaliteit",
+  s1:"Foto’s, albums en plaatsen in één snelle bibliotheek.",
+  h2:"Veeg om te sorteren",
+  s2:"Rechts om te bewaren, links om weg te gooien. Bewaar bij een reeks met één tik alleen de beste foto.",
+  h3:"Vind wat ruimte inneemt",
+  s3:"Duplicaten, vergelijkbare en onscherpe foto’s en grote bestanden — gevonden op je telefoon, zonder upload.",
+  h5:"Back-up van foto’s en video’s vanaf {p1}/mnd",
+  s5:"Originelen, zonder hercompressie. 100 GB {p1} · 500 GB {p2} · 1 TB {p3} per maand.",
+  vaultAlbums:["Persoonlijk","Huisdieren"],
+},
+bn: {
+  f1t:"ছবির লাইব্রেরি",
+  f1s:"অ্যালবাম, স্থান, স্মৃতি",
+  f2t:"সহজে গুছিয়ে নিন",
+  f2s:"একই ও ঝাপসা ছবি, বড় ফাইল",
+  f3t:"ছবি লুকান",
+  f3s:"স্ক্রিন লকের আড়ালে {vault} অংশে",
+  f4t:"মাসে {p1} থেকে ব্যাকআপ",
+  f4s:"আসল মানে ছবি ও ভিডিও",
+  s1:"একটি দ্রুত লাইব্রেরিতে ছবি, অ্যালবাম ও স্থান।",
+  h2:"সোয়াইপ করে সাজান",
+  s2:"রাখতে ডানে, ফেলতে বাঁয়ে। একটানা তোলা ছবির মধ্যে এক ট্যাপে শুধু সেরাটি রাখুন।",
+  h3:"কী জায়গা নিচ্ছে দেখুন",
+  s3:"হুবহু এক, একই রকম ও ঝাপসা ছবি এবং বড় ফাইল — ফোনেই খুঁজে পাওয়া যায়, আপলোড হয় না।",
+  h5:"মাসে {p1} থেকে ছবি ও ভিডিওর ব্যাকআপ",
+  s5:"আসল ফাইল, আবার কমপ্রেস নয়। মাসে 100 GB {p1} · 500 GB {p2} · 1 TB {p3}।",
+  vaultAlbums:["নিজের","পোষ্য"],
+},
 en: {
   f1t:"Photo library",
   f1s:"Albums, places, memories",

@@ -10,7 +10,7 @@
     #fg → store-image-feature.png (1024x500)
     #p1-#p5 → store-image-1..5.png（携帯電話 1080x1920）
     #t1-#t5 → store-image-tablet-1..5.png（タブレット 1080x1920 縦。7インチ・10インチ両方の枠に使える）
-  ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id（en が既定）。
+  ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id hi tr vi th pl ar nl bn（en が既定）。
   画面の中の言葉はアプリの strings.xml から（store-images-app-strings.js、store-images-strings.mjs で生成）、
   キャプションだけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
   5枚の流れ: 写真タブ（アルバム・場所は説明文で）→ スワイプで仕分け（連写のベストを横に添える）→ 容量を食うもの（端末内で解析）→ {vault} に写真を隠す → 写真も動画も月額いくらでバックアップ（料金の画面）。
@@ -56,7 +56,7 @@ body { background:#2a2d2b; font-family:var(--ui); -webkit-font-smoothing:antiali
 body.cjk .cap h1 { letter-spacing:-.01em; line-height:1.22; }
 /* CJK captions break only at punctuation and spaces, never mid-word ("見つけ/る"); fit() shrinks what won't fit. */
 body.cjk .cap h1, body.cjk .cap p, body.cjk #fg h1 { word-break:keep-all; }
-/* Arabic, Hindi and Thai letters join or stack: no tracking, as in the app (ui/theme/Type.kt). */
+/* Arabic, Hindi, Thai and Bengali letters join or stack: no tracking, as in the app. */
 body.untracked *:not(.mi):not(.mo) { letter-spacing:0 !important; }
 /* Arabic reads right to left inside the phone and in the words; the frames stay where they are. */
 body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
@@ -259,7 +259,7 @@ if (CJK) {
   document.head.appendChild(link);
 }
 // Scripts Geist does not draw: their Noto face, through the same fallback slot as CJK.
-const SCRIPT = { hi:'Noto Sans Devanagari', th:'Noto Sans Thai', ar:'Noto Sans Arabic' }[L];
+const SCRIPT = { hi:'Noto Sans Devanagari', th:'Noto Sans Thai', ar:'Noto Sans Arabic', bn:'Noto Sans Bengali' }[L];
 if (SCRIPT) {
   document.body.classList.add('untracked');
   document.documentElement.style.setProperty('--cjk', `'${SCRIPT}'`);

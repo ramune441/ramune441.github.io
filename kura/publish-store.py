@@ -49,7 +49,7 @@ def validate_local(data):
                 with Image.open(image) as png:
                     assert png.mode == 'RGB', (image,png.mode)
                     assert png.size == ((1024,500) if typ=='featureGraphic' else (1080,1920)), (image,png.size)
-    assert len(codes)==20 and len(set(codes))==20
+    assert len(codes)==len(set(codes)), 'Duplicate Play language'
 
 def verify_edit(client, edit, data):
     actual = {item['language']:item for item in request(client,'GET',f'{API}/{edit}/listings')['listings']}
@@ -70,7 +70,10 @@ def main():
     args = parser.parse_args()
     data = json.loads((HERE/'store-listing.json').read_text(encoding='utf-8'))
     validate_local(data)
-    print('Local validation passed: 18 locales, 20 Play listings, 320 image placements',flush=True)
+    listing_count = sum(len(entry['playLanguages']) for entry in data['locales'].values())
+    image_count = sum(len(assets(lang,data['screenshotOrder'],typ)) * len(entry['playLanguages'])
+                      for lang,entry in data['locales'].items() for typ in TYPES)
+    print(f'Local validation passed: {len(data["locales"])} locales, {listing_count} Play listings, {image_count} image placements',flush=True)
     if not (args.publish or args.verify): return
     client = session()
     edit = request(client,'POST',API,json={})['id']
