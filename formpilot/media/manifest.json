@@ -1,0 +1,362 @@
+{
+  "en": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 872802,
+      "sha256": "34738dd119e7c64d3b82ab76a38c52eaf41362afe33a50dbfcaab3aa2d0ced44"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 533188,
+      "sha256": "60a921de8f6d953a46ecaeedc320c651ed1dfe885efb0b4c27d009c5ac2b2dc1"
+    }
+  },
+  "ja": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 893000,
+      "sha256": "1444bdbeada959e4697cc4a342e7d26bf0b8b6f52adea7576b5b16a2bb858810"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 601558,
+      "sha256": "12b86c543db6926a8160fb435658bc2f0215704f492cbdf00e09628678993af8"
+    }
+  },
+  "ar": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 778756,
+      "sha256": "e4d2048009a25d340db79f8435963be58c2ae36573d7e6af6d77a276b0cc9f74"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 525497,
+      "sha256": "4e344d2502ad8378c57ead6397def62f905e71f631c8505efeaf991570db726f"
+    }
+  },
+  "zh": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 853290,
+      "sha256": "1ff835f7b5d2f54b7ce1409260abbef37a780366e2316fa3ed596f6c295903dd"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 548220,
+      "sha256": "4024a8a074b3056ee9b362f2a77314f6bd52d650deafa60be3ddac29d80d5815"
+    }
+  },
+  "zh-Hant": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 871409,
+      "sha256": "572e9532163f7ca294818e7cf072ce557c126422b52a4b53e8b2d514d734f55b"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 516928,
+      "sha256": "0649d2bd6399479ba1a7e5887907eb404325ee9b38a7d0c1d09e54d4ad247455"
+    }
+  },
+  "ko": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 859601,
+      "sha256": "af4ca726d2c44b7c658b0620e110e012dc3faa968e8c6792bfe05f244cded7a7"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 551906,
+      "sha256": "f4b6a84e266d5628ef9b0d40fdd849d6e6b411f72edd45ba69f2d9f5f631df47"
+    }
+  },
+  "es": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 928946,
+      "sha256": "834310f1dc3471b4a29b205a57edb1892eb362b72007007bb3e4eda047cd716e"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 610743,
+      "sha256": "13e5b3ae79ac4b0c05287fa5fec20f3749f94d2f53a9b1be4e140c1a176fd7b2"
+    }
+  },
+  "fr": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 904551,
+      "sha256": "7d99928150f2c32f71c7e40717bf05400dabc18d5b98ef17559310c6e5842986"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 650874,
+      "sha256": "80ebc0bbc92cf76b86041f13532d64eb8d3d88f37d51b19013c24306ac87fa7c"
+    }
+  },
+  "de": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 914752,
+      "sha256": "ae160f8e842044b84b06b4da570ac2b0d933ea417d0e1a20f3415dbf2fc003d7"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 632077,
+      "sha256": "b54db4aad43b11e974138a764913a933baa6788c415ac66357178b6ba46b4040"
+    }
+  },
+  "pt": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 896296,
+      "sha256": "9799860f8153aa00a2f0978db336a2bf6d136c091933a1a61d91f007c8c2f563"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 631157,
+      "sha256": "4aa90bc7133d5e99e0e38ad40203bddd3f9be163eafea28d0263c2824336fa35"
+    }
+  },
+  "hi": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 863157,
+      "sha256": "8a2a8e2ce958c9994f19934a0de1079fa59f58894a4b5a4156fa81797bb3ba48"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 592665,
+      "sha256": "04ae34ed245b62695b98baab3d22ce284d9f82080853f270e91c3daa364cc473"
+    }
+  },
+  "id": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 897869,
+      "sha256": "e6f5f34b21dffeb8f3e5e2b9d0f7170a72756442acce8a2182ad2bff4eb40fdc"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 587707,
+      "sha256": "1fd9e11298d7aa06fc9965fc2e52cd4810ccdadf69243686ce26d16f281c0717"
+    }
+  },
+  "vi": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 907804,
+      "sha256": "769b0ecbc89eb3cf00c53843776e501766d561ac24f015dd54369149067fe602"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 558166,
+      "sha256": "f8f3434f39e583a37549390952cdd80f1853693c2ea73c02dff9dd88426709c2"
+    }
+  },
+  "it": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 858988,
+      "sha256": "3014e6172fa428b87bc1bec6ecaa7d0ec132e49602d899bdd4e729c9bbe91c31"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 540185,
+      "sha256": "5bb3092f8da068f5c33d260ce8c88cedabd24ad1e6b648a77cd1877bd78d84ac"
+    }
+  },
+  "tr": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 854925,
+      "sha256": "ea5ca996e4e4474d66336c331e1b8cd2c5e59d808f0d4088f05ca6ee53f17622"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 544488,
+      "sha256": "cf985c1b4ced529d516221a79a3326f311db93f82f28d684fdea1bdf6b36503b"
+    }
+  },
+  "pl": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 891817,
+      "sha256": "e5205e7b0f2bfcec17e45422d7dfa92008138f18ce68d2b37134a3428c5942dc"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 565832,
+      "sha256": "df29d22907aabe3b9636ae723cfb67d7915781823cc25f52559072f7188c867f"
+    }
+  },
+  "th": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 926359,
+      "sha256": "97c20d866723492842a4eb58af93095a9506640353361d7ea33d6b27c411c228"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 559384,
+      "sha256": "83877d1ea3f9a9d2503577dbe86839c0db8ff7a2c70d3f3087e34c1a8bb2f335"
+    }
+  },
+  "nl": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 907397,
+      "sha256": "77a68ce4c88990357730cdd1b6570994cf76f93024a762a53f5c8f7a3e32da59"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 600241,
+      "sha256": "acadb070dbb441dc49a962fd56b10160dadd37cff58aa5c08d5500de4f6d25ef"
+    }
+  },
+  "ru": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 910151,
+      "sha256": "5abb5980b9e1c98a595bbc18388f9e9be1c784de3e5dc85c93d57582deb18082"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 613595,
+      "sha256": "1a5e2ae954ad0a94684a51fd5dea2361131052dad51534a28d4a9611f8fe4b46"
+    }
+  },
+  "bn": {
+    "promo": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28.4,
+      "bytes": 932392,
+      "sha256": "a071891a82fd26d8594d9472122df8e6a3d6a2696706958ed2c94fa117d86b6d"
+    },
+    "tutorial": {
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "duration": 28,
+      "bytes": 618046,
+      "sha256": "bb8493795621b36b9411d3247a02a0953c4c8eb081fe823ecd59e62158e85f74"
+    }
+  }
+}

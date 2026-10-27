@@ -1,30 +1,14 @@
-// Keep the usage guide (guide.html) and the LP in step with the extension's
-// real UI. Reads the FormPilot extension source and, for every language:
-//
-//   1. guide-ui.js      — the popup/menu labels that texts in i18n-lp.js
-//                         reference as {ui:key} (filled in at runtime)
-//   2. guide-demo.html  — the menu/toast strings between the ui-strings markers
-//                         (record the video afterwards with record-guide.js)
-//   3. guide.html, index.html
-//                       — the built-in (Japanese) text of the guide_* elements
-//                         and of every element that names a UI label
-//   4. guide-shots/{lang}/{profile,run,saved,settings,shortcut}.webp
-//                       — screenshots of the real popup.html / popup.css,
-//                         rendered with sample data and numbered badges
-//
-//   node guide-shots.js              -> all 11 languages
-//   node guide-shots.js ja en        -> selected languages (steps 1-3 always run for all)
-//   FORMPILOT_EXT=<dir> node guide-shots.js   (default: ../../formpilot)
-//
-// Needs puppeteer-core (same setup as record-guide.js).
+// Generate 20-language screenshots and UI labels from the real extension.
+// Run build-site.js afterwards; FORMPILOT_EXT overrides the sibling source path.
 const puppeteer = require('puppeteer-core');
 const path = require('path');
 const fs = require('fs');
 const vm = require('vm');
 
 const EXT_DIR = path.resolve(process.env.FORMPILOT_EXT || path.join(__dirname, '..', '..', 'formpilot'));
-const ALL_LANGS = ['en', 'ja', 'zh', 'ko', 'es', 'fr', 'de', 'pt', 'hi', 'id', 'ar'];
-const LOCALE_DIRS = { zh: 'zh_CN', pt: 'pt_BR' }; // _locales folder names
+const { locales: ALL_LANGS, sample } = require(path.join(EXT_DIR, 'scripts/build-store-assets'));
+const STORE_COPY = require(path.join(EXT_DIR, 'store/content'));
+const LOCALE_DIRS = { zh: 'zh_CN', 'zh-Hant': 'zh_TW', pt: 'pt_BR' }; // _locales folder names
 const BCP47 = { en: 'en-US', ja: 'ja-JP', zh: 'zh-CN', ko: 'ko-KR', es: 'es-ES', fr: 'fr-FR', de: 'de-DE', pt: 'pt-BR', hi: 'hi-IN', id: 'id-ID', ar: 'ar' };
 const POPUP_W = 400, POPUP_H = 580; // popup.css body size
 const TAB_URL = 'https://example.com/signup'; // same page as the demo video
@@ -59,14 +43,8 @@ function makeT(messages, lang) {
 }
 
 // ── 1. guide-ui.js ───────────────────────────────────────────────────
-// The LP_MESSAGES part of i18n-lp.js (the code below it isn't message text)
-function readLPMessagesSource() {
-  return fs.readFileSync(path.join(__dirname, 'i18n-lp.js'), 'utf8').split('// ── Locale Detection')[0];
-}
-
 function writeGuideUI(messages) {
-  const lp = readLPMessagesSource();
-  const keys = [...new Set([...lp.matchAll(/\{ui:(\w+)\}/g)].map(m => m[1]))].sort();
+  const keys = Object.keys(messages.en).sort();
   const table = {};
   for (const lang of ALL_LANGS) {
     table[lang] = {};
@@ -102,52 +80,14 @@ function syncDemoStrings(messages) {
   console.log('guide-demo.html: menu/toast strings synced');
 }
 
-// ── 3. Built-in (Japanese) text of the pages, for no-JS readers / crawlers ──
-// guide.html: every guide_* element. index.html: elements whose text names a
-// UI label ({ui:key}), so the LP never shows a stale button name either.
-function syncPageDefaults(uiTable) {
-  const ctx = vm.createContext({});
-  vm.runInContext(readLPMessagesSource().replace(/const LP_MESSAGES\s*=/, 'globalThis.M ='), ctx);
-  const ja = ctx.M.ja;
-  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const fillText = s => s.replace(/\{ui:(\w+)\}/g, (m, k) => uiTable.ja[k]);
-  const fillHtml = s => s.replace(/\{ui:(\w+)\}/g, (m, k) => esc(uiTable.ja[k]));
-  const withUI = Object.keys(ja).filter(k => ja[k].includes('{ui:'));
-  const pages = [
-    ['guide.html', [...new Set([...Object.keys(ja).filter(k => k.startsWith('guide_')), ...withUI])]],
-    ['index.html', withUI],
-  ];
-
-  for (const [name, keys] of pages) {
-    const file = path.join(__dirname, name);
-    let html = fs.readFileSync(file, 'utf8');
-    const re = new RegExp(`(<(\\w+)\\b[^>]*\\bdata-i18n(-html)?="(${keys.join('|')})"[^>]*>)([\\s\\S]*?)(<\\/\\2>)`, 'g');
-    let n = 0;
-    html = html.replace(re, (all, open, tag, isHtml, key, inner, close) => {
-      n++;
-      return open + (isHtml ? fillHtml(ja[key]) : esc(fillText(ja[key]))) + close;
-    });
-    fs.writeFileSync(file, html);
-    console.log(`${name}: ${n} elements synced to the Japanese text`);
-  }
-}
-
 // ── 4. Popup screenshots ─────────────────────────────────────────────
 // Sample person per language (same people as the demo video)
-const SAMPLE = {
-  en: { first: 'John', last: 'Smith', email: 'john@example.com', phone: '+1 555-123-4567', country: 'United States', addr1: '123 Main St', addr2: 'Apt 4B', city: 'New York', state: 'NY', postal: '10001', company: 'Acme Inc.', custom: [['LinkedIn', 'linkedin.com/in/johnsmith'], ['Employee ID', 'A-1024']], dept: 'Sales', prof1: 'John Smith', prof2: 'Work', entry1: 'Checkout — Mar 1', entry2: 'Draft' },
-  ja: { first: '太郎', last: '山田', email: 'taro@example.com', phone: '090-1234-5678', country: '日本', addr1: '西新宿1-2-3', addr2: '', city: '新宿区', state: '東京都', postal: '160-0023', company: '株式会社サンプル', custom: [['LinkedIn', 'linkedin.com/in/taroyamada'], ['社員番号', 'A-1024']], dept: '営業部', kana: ['ヤマダ', 'タロウ'], prof1: '山田 太郎', prof2: '仕事用', entry1: '注文フォーム — 3/1', entry2: '下書き' },
-  zh: { first: '伟', last: '李', email: 'liwei@example.com', phone: '138-0013-8000', country: '中国', addr1: '建国路88号', addr2: '', city: '朝阳区', state: '北京市', postal: '100022', company: '示例科技有限公司', custom: [['拼音', 'Li Wei'], ['工号', 'A-1024']], dept: '销售部', prof1: '李伟', prof2: '工作', entry1: '结账表单 — 3/1', entry2: '草稿' },
-  ko: { first: '민준', last: '김', email: 'minjun@example.com', phone: '010-1234-5678', country: '대한민국', addr1: '테헤란로 123', addr2: '', city: '강남구', state: '서울특별시', postal: '06234', company: '(주)샘플', custom: [['영문 이름', 'Minjun Kim'], ['사번', 'A-1024']], dept: '영업부', prof1: '김민준', prof2: '업무용', entry1: '주문 양식 — 3/1', entry2: '임시저장' },
-  es: { first: 'Javier', last: 'Morales', email: 'javier@example.com', phone: '+34 612 345 678', country: 'España', addr1: 'Calle Mayor 12', addr2: '3º B', city: 'Madrid', state: 'Madrid', postal: '28013', company: 'Ejemplo S.L.', custom: [['LinkedIn', 'linkedin.com/in/javiermorales'], ['Nº de empleado', 'A-1024']], dept: 'Ventas', prof1: 'Javier Morales', prof2: 'Trabajo', entry1: 'Pedido — 1 mar', entry2: 'Borrador' },
-  fr: { first: 'Lucas', last: 'Martin', email: 'lucas@example.com', phone: '06 12 34 56 78', country: 'France', addr1: '12 rue de la Paix', addr2: '', city: 'Paris', state: 'Île-de-France', postal: '75002', company: 'Exemple SARL', custom: [['LinkedIn', 'linkedin.com/in/lucasmartin'], ['Matricule', 'A-1024']], dept: 'Ventes', prof1: 'Lucas Martin', prof2: 'Travail', entry1: 'Commande — 1 mars', entry2: 'Brouillon' },
-  de: { first: 'Lukas', last: 'Becker', email: 'lukas@example.com', phone: '0151 2345678', country: 'Deutschland', addr1: 'Hauptstraße 12', addr2: '', city: 'Berlin', state: 'Berlin', postal: '10115', company: 'Beispiel GmbH', custom: [['LinkedIn', 'linkedin.com/in/lukasbecker'], ['Personalnummer', 'A-1024']], dept: 'Vertrieb', prof1: 'Lukas Becker', prof2: 'Arbeit', entry1: 'Bestellung — 1. März', entry2: 'Entwurf' },
-  pt: { first: 'Lucas', last: 'Oliveira', email: 'lucas@example.com', phone: '(11) 91234-5678', country: 'Brasil', addr1: 'Av. Paulista 1000', addr2: 'Apto 52', city: 'São Paulo', state: 'SP', postal: '01310-100', company: 'Exemplo Ltda.', custom: [['LinkedIn', 'linkedin.com/in/lucasoliveira'], ['Matrícula', 'A-1024']], dept: 'Vendas', prof1: 'Lucas Oliveira', prof2: 'Trabalho', entry1: 'Pedido — 1 mar', entry2: 'Rascunho' },
-  hi: { first: 'अर्जुन', last: 'शर्मा', email: 'arjun@example.com', phone: '+91 98765 43210', country: 'भारत', addr1: '123 एमजी रोड', addr2: '', city: 'नई दिल्ली', state: 'दिल्ली', postal: '110001', company: 'उदाहरण प्रा. लि.', custom: [['LinkedIn', 'linkedin.com/in/arjunsharma'], ['कर्मचारी आईडी', 'A-1024']], dept: 'बिक्री', prof1: 'अर्जुन शर्मा', prof2: 'कार्य', entry1: 'ऑर्डर फ़ॉर्म — 1 मार्च', entry2: 'ड्राफ़्ट' },
-  id: { first: 'Budi', last: 'Santoso', email: 'budi@example.com', phone: '0812-3456-7890', country: 'Indonesia', addr1: 'Jl. Sudirman No. 25', addr2: '', city: 'Jakarta Pusat', state: 'DKI Jakarta', postal: '10220', company: 'PT Contoh', custom: [['LinkedIn', 'linkedin.com/in/budisantoso'], ['ID Karyawan', 'A-1024']], dept: 'Penjualan', prof1: 'Budi Santoso', prof2: 'Kerja', entry1: 'Formulir pesanan — 1 Mar', entry2: 'Draf' },
-  ar: { first: 'عمر', last: 'الخالد', email: 'omar@example.com', phone: '050 123 4567', country: 'السعودية', addr1: 'شارع الملك فهد 12', addr2: '', city: 'الرياض', state: 'منطقة الرياض', postal: '12211', company: 'شركة المثال', custom: [['LinkedIn', 'linkedin.com/in/omaralkhaled'], ['الرقم الوظيفي', 'A-1024']], dept: 'المبيعات', prof1: 'عمر الخالد', prof2: 'العمل', entry1: 'نموذج الطلب — 1 مارس', entry2: 'مسودة' },
-};
+const SAMPLE = {};
 
+for (const lang of ALL_LANGS) {
+ const p=sample(lang).profile,c=STORE_COPY[lang];
+ SAMPLE[lang]={first:p.firstName,last:p.lastName,email:p.email,phone:p.phone,country:p.country,addr1:p.addressLine1,addr2:p.addressLine2,city:p.city,state:p.state,postal:p.postalCode,company:p.company,custom:p.customFields.map(v=>[v.key,v.value]),dept:p.department,prof1:c.personal,prof2:c.work,entry1:c.saved,entry2:c.work,...(p.lastNameKana?{kana:[p.lastNameKana,p.firstNameKana]}:{})};
+}
 const at = (y, mo, d, h, mi) => new Date(y, mo - 1, d, h, mi);
 const fieldsOf = n => Object.fromEntries(Array.from({ length: n }, (_, i) => [`field${i}`, 'x']));
 
@@ -160,13 +100,7 @@ function storageFor(lang, t, { withEntries }) {
       presets: {
         p1: {
           name: s.prof1, shortcut: 'Alt+Shift+1', createdAt: at(2026, 1, 10, 9, 0).toISOString(), updatedAt: at(2026, 2, 1, 9, 0).toISOString(),
-          data: {
-            firstName: s.first, lastName: s.last, email: s.email, phone: s.phone,
-            country: s.country, addressLine1: s.addr1, addressLine2: s.addr2, city: s.city, state: s.state, postalCode: s.postal,
-            ...(s.kana ? { lastNameKana: s.kana[0], firstNameKana: s.kana[1] } : {}),
-            company: s.company, department: s.dept, gender: 'Male', birthYear: '1990', birthMonth: '4', birthDay: '12',
-            customFields: s.custom.map(([key, value]) => ({ key, value })),
-          },
+          data: JSON.parse(JSON.stringify(sample(lang).profile)),
         },
         p2: {
           name: s.prof2, shortcut: 'Alt+Shift+2', createdAt: at(2026, 1, 11, 9, 0).toISOString(), updatedAt: at(2026, 1, 11, 9, 0).toISOString(),
@@ -174,7 +108,7 @@ function storageFor(lang, t, { withEntries }) {
         },
       },
     },
-    lastRunResult: { message: t('status_filled', '9') + ' (2.31s)', type: 'success', timestamp: at(2026, 3, 1, 14, 5).getTime() },
+    lastRunResult: { message: t('status_filled', String(require(path.join(EXT_DIR,'store/build-report.json')).locales.find(r=>r.locale===lang).filled)), type: 'success', timestamp: at(2026, 3, 1, 14, 5).getTime() },
     siteProfiles: {},
   };
   if (withEntries) {
@@ -227,7 +161,7 @@ async function openPopup(browser, lang, store) {
   const page = await browser.newPage();
   await page.setViewport({ width: POPUP_W, height: POPUP_H, deviceScaleFactor: 2 });
   const cdp = await page.createCDPSession();
-  await cdp.send('Emulation.setLocaleOverride', { locale: BCP47[lang] });
+  await cdp.send('Emulation.setLocaleOverride', { locale: BCP47[lang] || lang });
   await installChromeStub(page, store);
   const url = 'file:///' + path.join(EXT_DIR, 'popup.html').replace(/\\/g, '/');
   await page.goto(url, { waitUntil: 'load' });
@@ -370,14 +304,14 @@ async function shotsFor(browser, lang, t) {
   await page.close();
 }
 
-(async () => {
+async function main() {
   if (!fs.existsSync(path.join(EXT_DIR, 'popup.html'))) {
     throw new Error(`FormPilot extension not found at ${EXT_DIR} (set FORMPILOT_EXT)`);
   }
   const messages = loadExtensionStrings();
   const uiTable = writeGuideUI(messages);
   syncDemoStrings(messages);
-  syncPageDefaults(uiTable);
+  // Public pages are generated by build-site.js.
 
   const browser = await puppeteer.launch({
     headless: 'shell',
@@ -392,5 +326,7 @@ async function shotsFor(browser, lang, t) {
   } finally {
     await browser.close();
   }
-  console.log('Done. Re-record the video with: node record-guide.js');
-})().catch(e => { console.error(e); process.exit(1); });
+  console.log('Done. Rebuild the public pages with: node build-site.js');
+}
+if(require.main===module)main().catch(e=>{console.error(e);process.exitCode=1;});
+module.exports={openPopup,storageFor,makeT,loadExtensionStrings,EXT_DIR};

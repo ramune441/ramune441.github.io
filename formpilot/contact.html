@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QPZE2JTLP"></script>
@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ｜FormPilot</title>
-  <meta name="description" content="FormPilotへのお問い合わせフォーム。不具合のご報告、機能のご要望、使い方のご質問などをお送りいただけます。">
+  <title>FormPilot · Contact</title>
+  <meta name="description" content="Bug reports, feature requests, questions about how to use FormPilot — feel free to send them our way.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ramune441.github.io/formpilot/contact.html">
 
@@ -166,7 +166,7 @@
       .page-title { font-size: 24px; }
     }
   </style>
-</head>
+<script defer src="site-data.js?v=222b5a2a3705"></script><script defer src="i18n-lp.js?v=5f7fc9c6d8e6"></script></head>
 <body>
 
   <nav class="nav">
@@ -178,8 +178,8 @@
 
   <div class="container">
     <a href="./" class="back" data-i18n="guide_back">&larr; トップページに戻る</a>
-    <h1 class="page-title" data-i18n="contact_title">お問い合わせ</h1>
-    <p class="page-desc" data-i18n="contact_desc">不具合のご報告、機能のご要望、使い方のご質問など、お気軽にお送りください。</p>
+    <h1 class="page-title" data-i18n="contact_title">Contact</h1><p><label>🌐 <select id="lang-select" aria-label="Language"><option value="en">English</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="zh-Hant">繁體中文</option><option value="ko">한국어</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="hi">हिन्दी</option><option value="id">Indonesia</option><option value="ar">العربية</option><option value="vi">Tiếng Việt</option><option value="it">Italiano</option><option value="tr">Türkçe</option><option value="pl">Polski</option><option value="th">ไทย</option><option value="nl">Nederlands</option><option value="ru">Русский</option><option value="bn">বাংলা</option></select></label></p>
+    <p class="page-desc" data-i18n="contact_desc">Bug reports, feature requests, questions about how to use FormPilot — feel free to send them our way.</p>
 
     <div class="card">
       <!-- SUCCESS -->
@@ -187,14 +187,14 @@
         <div class="success-icon">
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
         </div>
-        <h2 class="success-title" data-i18n="contact_success_title">送信が完了しました</h2>
-        <p class="success-desc" data-i18n="contact_success_desc">お問い合わせありがとうございます。内容を確認のうえ、必要に応じてご連絡いたします。</p>
-        <a href="./" class="btn-back" data-i18n="contact_success_back">トップページに戻る</a>
+        <h2 class="success-title" data-i18n="contact_success_title">Your message has been sent</h2>
+        <p class="success-desc" data-i18n="contact_success_desc">Thank you for reaching out. We&#39;ll review your message and get back to you if a reply is needed.</p>
+        <a href="./" class="btn-back" data-i18n="contact_success_back">Back to top page</a>
       </div>
 
       <!-- FORM -->
       <form id="contact-form" novalidate>
-        <div class="alert alert-error" id="error-box" data-i18n="contact_error" role="alert" aria-live="polite">送信に失敗しました。時間をおいて、もう一度お試しください。</div>
+        <div class="alert alert-error" id="error-box" data-i18n="contact_error" role="alert" aria-live="polite">Sending failed. Please wait a moment and try again.</div>
 
         <input type="hidden" name="product" value="FormPilot">
         <!-- honeypot (spam trap) -->
@@ -202,65 +202,64 @@
 
         <div class="field">
           <label class="field-label" for="f-email">
-            <span data-i18n="contact_email">メールアドレス</span>
-            <span class="tag tag-opt" data-i18n="contact_optional">任意</span>
+            <span data-i18n="contact_email">Email address</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">Optional</span>
           </label>
           <input type="email" id="f-email" name="email" autocomplete="email" data-i18n-ph="contact_email_ph" placeholder="example@example.com">
-          <p class="field-note" data-i18n="contact_email_note">ご返信をご希望の場合はご記入ください。</p>
+          <p class="field-note" data-i18n="contact_email_note">Enter it if you&#39;d like a reply.</p>
         </div>
 
         <div class="field">
           <label class="field-label" for="f-type">
-            <span data-i18n="contact_type">お問い合わせ種別</span>
-            <span class="tag tag-req" data-i18n="contact_required">必須</span>
+            <span data-i18n="contact_type">Inquiry type</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
           </label>
           <select id="f-type" name="category" required>
-            <option value="Bug Report" data-i18n="contact_type_bug">不具合の報告</option>
-            <option value="Feature Request" data-i18n="contact_type_feature">機能の要望</option>
-            <option value="Other" data-i18n="contact_type_other">その他</option>
+            <option value="Bug Report" data-i18n="contact_type_bug">Bug report</option>
+            <option value="Feature Request" data-i18n="contact_type_feature">Feature request</option>
+            <option value="Other" data-i18n="contact_type_other">Other</option>
           </select>
         </div>
 
         <div class="field">
           <label class="field-label" for="f-message">
-            <span data-i18n="contact_message">お問い合わせ内容</span>
-            <span class="tag tag-req" data-i18n="contact_required">必須</span>
+            <span data-i18n="contact_message">Message</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
           </label>
           <textarea id="f-message" name="content" required data-i18n-ph="contact_message_ph" placeholder="できるだけ具体的にご記入ください。不具合の場合は、発生したサイトや操作手順をお書きいただけると助かります。"></textarea>
         </div>
 
         <div class="field">
           <label class="field-label" for="f-file">
-            <span data-i18n="contact_file">添付ファイル（スクリーンショット・動画など）</span>
-            <span class="tag tag-opt" data-i18n="contact_optional">任意</span>
+            <span data-i18n="contact_file">Attached file (screenshots, videos, etc.)</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">Optional</span>
           </label>
           <label class="file-drop" id="file-drop" for="f-file">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            <span class="file-drop-text" id="file-drop-text" data-i18n="contact_file_drop">クリックしてファイルを選択</span>
+            <span class="file-drop-text" id="file-drop-text" data-i18n="contact_file_drop">Click to choose a file</span>
             <span class="file-drop-name" id="file-name"></span>
             <button type="button" class="file-clear" id="file-clear" hidden aria-label="Remove file">&times;</button>
           </label>
           <input type="file" id="f-file" name="attachment" class="hp-file" accept="image/*,video/*,.pdf,.txt">
-          <p class="field-note" data-i18n="contact_file_note">画像・動画・PDF・テキスト、最大25MBまで。</p>
-          <p class="field-note" id="file-error" style="color:#b91c1c" hidden data-i18n="contact_file_too_large">ファイルが大きすぎます（最大25MB）。</p>
+          <p class="field-note" data-i18n="contact_file_note">Image, video, PDF, or text — up to 25MB.</p>
+          <p class="field-note" id="file-error" style="color:#b91c1c" hidden data-i18n="contact_file_too_large">The file is too large (max 25MB).</p>
         </div>
 
         <button type="submit" class="submit-btn" id="submit-btn">
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span id="submit-label" data-i18n="contact_submit">送信する</span>
+          <span id="submit-label" data-i18n="contact_submit">Send</span>
         </button>
-        <p class="privacy-note" data-i18n="contact_privacy_note">送信された内容は、お問い合わせへの対応のみに使用します。</p>
+        <p class="privacy-note" data-i18n="contact_privacy_note">Your message is used only to respond to your inquiry.</p>
       </form>
     </div>
   </div>
 
   <footer>
-    <span>&copy; 2025 FormPilot</span>
-    <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">プライバシーポリシー</a>
-    <a href="guide.html" data-i18n="footer_guide">使い方ガイド</a>
+    <span>&copy; 2026 FormPilot</span>
+    <a href="privacy-policy.html" target="_blank" data-i18n="footer_privacy">Privacy Policy</a>
+    <a href="guide.html" data-i18n="footer_guide">User Guide</a>
   </footer>
 
-  <script src="i18n-lp.js?v=20261026c"></script>
   <script>
     (function () {
       var ENDPOINT = 'https://contact-api.warload57.workers.dev/';

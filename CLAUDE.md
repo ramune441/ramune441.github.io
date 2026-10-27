@@ -159,22 +159,17 @@ promo.html 内 `buildTimeline()` の `t += ` を合計し、最後のシーン�
 
 ---
 
-## FormPilot 使い方ガイド (guide.html)
+## FormPilot の説明資料
 
-画面画像・ボタン名・デモ動画はすべて拡張の実物（`MyProduct/formpilot` の popup.html / popup.css / i18n.js）から生成する。手で書き換えない。
+LP・使い方・プライバシー説明は、拡張と同じ20言語のHTMLを生成する。ボタン名・説明・画面は拡張の実物から取り込み、生成HTMLを直接編集しない。
 
-- `guide-shots/{lang}/*.webp` — 実物のポップアップを言語別に撮影したもの（番号バッジ込み）
-- `guide-ui.js` — i18n-lp.js の `{ui:キー}` を埋める拡張側の表記（ガイドと LP の両方で使う。両ページで i18n-lp.js より先に読み込む）
-- `guide-demo-{lang}.mp4` / `-poster.jpg` — guide-demo.html を録画した右クリックメニューの動画
-
-拡張の UI や文言を変えたら、`formpilot/` で次を実行してコミットする（puppeteer-core と ffmpeg-static が必要）:
-
-```bash
-node guide-shots.js     # guide-ui.js・スクショ・guide.html/index.html の既定文・guide-demo.html の文言を更新
-node record-guide.js    # 動画とポスターを全11言語で再録画（約30分）
-```
-
-ガイドや LP の文言で拡張のボタン名・タブ名に触れるときは、直接書かずに `{ui:btn_save}` のように i18n.js のキーで書く。
+- 追加のWeb用文言: formpilot/translations*.js
+- 機能文・操作名・画像: 同階層のFormPilot拡張のストア資料とi18n.js。別配置はFORMPILOT_EXTで指定する
+- チュートリアル: 入力前後の実画面を切り替える端末内サンプル。AI呼び出し・フォーム送信をしない
+- 生成: node formpilot/guide-shots.js → node formpilot/build-site.js
+- 動画: node formpilot/build-videos.js → node formpilot/build-site.js。20言語各2本のMP4・字幕・ポスターを生成し、LPとガイドから同じ言語で再生する
+- 検証: node --test formpilot/site.test.js formpilot/media.test.js → node formpilot/verify-site.js（20言語×4ページ×PC/スマートフォン、キーボード・画像・動画再生・字幕も確認）
+- 生成した言語ページ・画面・共有JS/CSSをコミットし、公開後は本番の内容と照合する
 
 ---
 

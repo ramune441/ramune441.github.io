@@ -6,30 +6,11 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://ramune441.github.io/formpilot/</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ramune441.github.io/formpilot/guide.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
   <url>
     <loc>https://ramune441.github.io/formpilot/contact.html</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://ramune441.github.io/formpilot/privacy-policy.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 
   <url>
@@ -313,4 +294,64 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url><loc>https://ramune441.github.io/formpilot/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ja/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ja/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ja/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/zh/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/zh/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/zh/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/zh-Hant/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/zh-Hant/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/zh-Hant/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ko/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ko/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ko/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/es/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/es/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/es/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/fr/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/fr/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/fr/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/de/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/de/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/de/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/pt/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/pt/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/pt/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/hi/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/hi/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/hi/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/id/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/id/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/id/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ar/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ar/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ar/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/vi/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/vi/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/vi/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/it/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/it/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/it/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/tr/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/tr/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/tr/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/pl/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/pl/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/pl/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/th/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/th/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/th/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/nl/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/nl/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/nl/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ru/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ru/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/ru/privacy-policy.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/bn/</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/bn/guide.html</loc></url>
+  <url><loc>https://ramune441.github.io/formpilot/bn/privacy-policy.html</loc></url>
 </urlset>

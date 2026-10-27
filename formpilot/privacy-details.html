@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QPZE2JTLP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4QPZE2JTLP');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy｜FormPilot</title>
+  <meta name="description" content="Privacy policy for the FormPilot Chrome extension. Explains where profile data is stored, what is sent to the AI service, and how external transmission is handled.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ramune441.github.io/formpilot/privacy-policy.html">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f8fafc; color: #1e293b; line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #059669; }
+    .container { max-width: 700px; margin: 0 auto; padding: 60px 20px 80px; }
+    .back {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 32px; font-size: 14px; font-weight: 500;
+      color: #64748b; text-decoration: none; transition: color 0.2s;
+    }
+    .back:hover { color: #059669; }
+    h1 { font-size: 28px; font-weight: 800; color: #1e293b; margin-bottom: 8px; }
+    .updated { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; color: #1e293b; margin-top: 40px; margin-bottom: 16px; }
+    h3 { font-size: 16px; font-weight: 700; color: #1e293b; margin-top: 24px; margin-bottom: 8px; }
+    p, li { font-size: 15px; color: #475569; margin-bottom: 12px; }
+    ul { padding-left: 24px; }
+    strong { color: #1e293b; font-weight: 700; }
+    code {
+      background: #e2e8f0; padding: 2px 6px; border-radius: 4px;
+      font-size: 13px; color: #334155;
+    }
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 24px 20px; text-align: center;
+      font-size: 13px; color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="./" class="back">&larr; Back to FormPilot</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: October 27, 2026</p>
+
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy describes how the Chrome extension "FormPilot" (the "Extension"), provided by the developer Ramune (the "Developer"), handles user information.</p>
+
+    <h2>2. Information We Handle</h2>
+    <p>To provide its features, the Extension may collect and use the following information.</p>
+
+    <h3>(1) Profile information you enter</h3>
+    <ul>
+      <li>Personal information such as your name, email address, phone number, and address</li>
+      <li>Any custom fields you choose to add</li>
+    </ul>
+    <p>This information is used solely to auto-fill web forms.</p>
+
+    <h3>(2) Form information on websites</h3>
+    <ul>
+      <li>The structure of form elements on the page you are viewing (input, select, textarea) — labels, attributes, and field types</li>
+      <li>Form values you capture when you use the "Save Current Form" feature</li>
+    </ul>
+    <p>Form structure information is used only to determine field types when the AI auto-fill feature runs.</p>
+
+    <h3>(3) Information stored locally</h3>
+    <ul>
+      <li>Profile information you have registered</li>
+      <li>Form data saved per website</li>
+      <li>Settings (language, theme)</li>
+      <li>A randomly generated device identifier used for usage limiting and abuse prevention</li>
+    </ul>
+    <p>This information is stored only on your device using the Chrome Storage API (<code>chrome.storage.local</code>).</p>
+
+    <h2>3. Purpose of Use</h2>
+    <p>We use the information collected only for the following purposes.</p>
+    <ul>
+      <li>Providing the web form auto-fill feature</li>
+      <li>Restoring saved form data</li>
+      <li>Automatic detection of form field types using AI</li>
+      <li>Saving and restoring user settings</li>
+      <li>Preventing abuse and enforcing daily usage limits</li>
+    </ul>
+
+    <h2>4. Transmission to External Services</h2>
+    <p>When you use the AI auto-fill feature, the Extension sends the form's structure information (HTML metadata such as labels, attributes, and field types) to the Developer's proxy server, hosted on Cloudflare Workers, which forwards it to the Google Gemini API for analysis.</p>
+    <p><strong>Important: Saved profile values are NOT included in AI analysis requests.</strong> Form labels, attributes, field types and custom field names are transmitted; saved profile values are not included.</p>
+    <p>A randomly generated device identifier is also sent with each request to enforce usage limits and prevent abuse. The proxy also receives the request IP address. Usage counters, abuse records and server logs are handled separately from local profile values. Uninstalling does not automatically delete these server records.</p>
+    <p>When you uninstall the Extension, Chrome opens our uninstall survey page. Its address carries anonymous usage diagnostics: the Extension version, UI language, days since installation, number of successful auto-fills, whether any profile contains data (yes or no only — never the profile contents), the number of times the popup was opened, and a short description of the last error (up to 120 characters). These diagnostics are part of the survey URL and may be processed when the page is loaded, including by website analytics. Sending the survey is optional. Profile values are not included in this query.</p>
+    <p>The public website uses Google Analytics. The contact form and optional survey send submitted messages, optional email and attachments to the developer through a separate contact service.</p>
+
+    <h2>5. Disclosure to Third Parties</h2>
+    <p>We will not disclose the information collected to third parties except in the following cases.</p>
+    <ul>
+      <li>When required by law</li>
+      <li>When you have given your explicit consent</li>
+    </ul>
+
+    <h2>6. Third-Party Services</h2>
+    <p>The Extension uses the <strong>Google Gemini API</strong> (accessed via the Developer's Cloudflare Workers proxy) for form field type detection. The public website also uses Google Analytics and may load Google Fonts. Contact submissions use the developer's Cloudflare contact service.</p>
+
+    <h2>7. Permissions</h2>
+    <p>The Extension uses the following Chrome permissions.</p>
+    <ul>
+      <li><strong>storage</strong>: To save your profile information, per-site form data, and settings</li>
+      <li><strong>activeTab</strong>: To detect form fields on the current tab and perform auto-fill</li>
+      <li><strong>scripting</strong>: To run the form detection and fill logic on the current page</li><li><strong>contextMenus</strong>: To provide profile filling and saved-input restoration in the right-click menu</li><li><strong>Host permissions</strong>: To access supported page and embedded-form fields and communicate with the AI proxy</li>
+    </ul>
+    <p>These permissions are the minimum necessary to provide the Extension's features.</p>
+
+    <h2>8. Data Storage</h2>
+    <p>Saved profiles, forms and settings are stored locally and removed when the extension is uninstalled. Server usage counters and abuse records are separate. Contact submissions and website analytics are handled as described above.</p>
+
+    <h2>9. Contact</h2>
+    <p>For inquiries regarding this policy, please contact us using the form below.</p>
+    <p>Contact form: <a href="contact.html">here</a></p>
+
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>This policy may be revised as needed in response to changes in laws or the service. Any updated policy will be published promptly on this page.</p>
+  </div>
+
+  <footer>
+    &copy; 2026 FormPilot
+  </footer>
+</body>
+</html>

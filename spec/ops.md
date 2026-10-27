@@ -19,10 +19,15 @@
 | 対象 | 実行 | 生成物 |
 |---|---|---|
 | SendReady LP の言語別ページ | `cd sendready-chrome && node build-lang-pages.mjs`（Node だけで動く） | `sendready-chrome/<lang>/index.html`、ルート `index.html` の SEO ブロック、`sitemap.xml` の SendReady LP 部分 |
-| FormPilot 使い方ガイド | `cd formpilot && node guide-shots.js && node record-guide.js`（puppeteer-core・ffmpeg-static が必要。録画は約 30 分） | `guide-ui.js`・`guide-shots/<lang>/`・`guide-demo-<lang>.mp4` |
+| FormPilot の公開資料 | `node formpilot/guide-shots.js` → `node formpilot/build-site.js`（puppeteer-core と Chrome、同階層の FormPilot 拡張ソースが必要。別配置は `FORMPILOT_EXT`） | 20言語の実画面・LP・ガイド・プライバシー説明、共通問い合わせ翻訳、サイトマップ |
+| FormPilot の動画 | 上記の画像生成後に `node formpilot/build-videos.js` → `node formpilot/build-site.js` | 20言語各2本のMP4・WebVTT・ポスター、再生ページと動画の検証情報 |
 | SubDuo ストア画像・動画 | `node record-store.mjs [lang…]` / `record-promo.mjs` | `subduo/images/`・`promo[-lang].webm` |
 | Kura ストア画像 | `node kura/store-images-strings.mjs` → `node kura/render-store-images.mjs`（puppeteer-core と Chrome が必要） | `kura/images/store/<lang>/` |
 - SendReady LP の文言は `sendready-chrome/i18n-lp.js` を直してから生成する。生成ページを手で直すと次の生成で消える。
+- FormPilot は生成後に `node --test formpilot/site.test.js formpilot/media.test.js` と `node formpilot/verify-site.js` を通す。後者は20言語のPC・390px画面、キーボード、言語移動、画像、動画の再生・シーク・字幕、フォーム送信が発生しないことを一時Chromeで確認する。
+- 動画生成にはFFmpeg・FFprobeを使う。実行ファイルは `FFMPEG_PATH` / `FFPROBE_PATH`、または `FORMPILOT_MEDIA_TOOLS` 配下の `ffmpeg-static` / `ffprobe-static` を使用し、生成フレームはOSの一時フォルダーに置く。
+- FormPilot の機能文は拡張の `store/content.js`、操作名・説明は `i18n.js`、ストア画像は `store/images/` から取り込む。追加のWeb用翻訳だけをこのリポジトリで管理し、生成物もコミットする。
+- 公開はmasterへのpush後、GitHub Pagesのビルド完了と本番の言語ページ・共有JS/CSS・代表画像を照合する。push成功だけでは公開完了にしない。
 - 注意: 録画ページの描画を 4K にするとき、`deviceScaleFactor=2` では `page.screencast()` が CSS px のまま 1080p で撮れる。SubDuo は 3840x2160 ビューポート＋ `html{zoom:2}` で撮る。録画の実時間がずれるので、実測係数（wall-clock ÷ raw 実尺）で setpts して尺を合わせる。録画の基本手順はプロジェクトの CLAUDE.md。
 - 注意: ストア画像のあふれ判定に scrollHeight を使わない（overflow:hidden でも装飾のはみ出しを含む）。装飾を除いて判定する。
 

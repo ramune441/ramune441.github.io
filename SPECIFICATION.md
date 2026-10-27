@@ -6,7 +6,7 @@ Ramune の Chrome 拡張・Android アプリ・Web サービスの LP・使い�
 - インデックス対象ページは title・description・canonical・OGP・JSON-LD を持ち、sitemap.xml に載せる。録画用・画像生成用・アンケートは noindex で robots.txt でも除外する。
 - 問い合わせとアンインストールアンケートはすべて自前フォーム＋ Worker `contact-api` で受ける（Google フォームは使わない）。
 - 拡張が渡す匿名診断クエリはアンケートの hidden 欄に集約して送り、それ以外の個人情報は集めない。
-- LP の文言は各プロダクトの `i18n-lp.js` を正とし、HTML の既定文（英語）や生成ページはそこから作る。
+- LP の文言は各プロダクトの翻訳辞書を正とし、HTML の既定文と生成ページを一致させる。FormPilot の文言・画面は拡張の資料と共通化する（product.md）。
 
 ## 約束しないこと
 - 外部ドメインで運用するプロダクト（Charmly = `charm-ly.com` など）のページ。ポータルのカードと JSON-LD だけ持つ。

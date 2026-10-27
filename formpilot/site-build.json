@@ -1,0 +1,26 @@
+{
+  "extensionVersion": "1.4.0",
+  "locales": [
+    "en",
+    "ja",
+    "zh",
+    "zh-Hant",
+    "ko",
+    "es",
+    "fr",
+    "de",
+    "pt",
+    "hi",
+    "id",
+    "ar",
+    "vi",
+    "it",
+    "tr",
+    "pl",
+    "th",
+    "nl",
+    "ru",
+    "bn"
+  ],
+  "pages": 60
+}
