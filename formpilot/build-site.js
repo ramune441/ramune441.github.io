@@ -16,7 +16,7 @@ function render(lang,page){
  const fill=s=>s.replace('{fill}',u.btn_ai_autofill);
  const title=page==='guide.html'?l.guide:page==='privacy-policy.html'?l.privacy:c.slides[0][0];
  const description=page==='guide.html'?l.guide+'。'+c.steps.map(fill).join(' ')+' '+l.desktopAnswer:page==='privacy-policy.html'?l.privacy+'。'+c.privacy+' '+deletion:c.intro+' '+c.features[0]+' '+c.features[2];
- const a=(page,text)=>`<a href="${url(lang,page)}">${esc(text)}</a>`;
+ const a=(page,text)=>`<a href="${page==='contact.html'?asset+'contact.html?lang='+lang:url(lang,page)}">${esc(text)}</a>`;
  const guideImage=kind=>`${asset}guide-shots/${lang}/${kind}.webp?v=${hash(path.join(root,'guide-shots',lang,kind+'.webp'))}`;
  const shot=(kind,label)=>`<details class="screenshot"><summary>${esc(label)} · FormPilot</summary><a href="${guideImage(kind)}"><img src="${guideImage(kind)}" alt="${esc(label)}" loading="lazy" width="400"></a></details>`;
  const p=s=>`<p>${esc(s)}</p>`,kbd=s=>`<kbd>${esc(s)}</kbd>`;

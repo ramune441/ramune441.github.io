@@ -32,6 +32,7 @@ const server=http.createServer((req,res)=>{let file=path.resolve(root,'.'+decode
       await page.focus('[data-demo=reset]');await page.keyboard.press('Space');assert.ok((await page.$eval('[data-demo-image]',el=>el.src)).endsWith('/before.png'));
       if(kind==='guide.html'){await page.click('.screenshot summary');assert.equal(await page.$eval('.screenshot',el=>el.open),true);}
      }
+     if(kind==='privacy-policy.html'&&width===1280){const href=await page.$eval('main a[href*="contact"]',el=>el.href);assert.equal(new URL(href).pathname,'/formpilot/contact.html');await page.goto(href,{waitUntil:'networkidle0'});assert.equal(await page.$eval('html',el=>el.lang),locale);}
      if(['en','ja','ar','zh-Hant','th','bn'].includes(locale)&&kind==='index.html'){await page.screenshot({path:path.join(out,`${locale}-${width}-tutorial.png`)});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,`${locale}-${width}.png`)});}
      reports.push({locale,kind,width,ok:true});
     }

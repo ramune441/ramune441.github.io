@@ -20,6 +20,9 @@ test('every translated page is pre-rendered with its own canonical, 20 language 
   assert.ok(html.includes('<meta name="robots" content="index, follow">'));
   if(lang==='ja'){const description=html.match(/<meta name="description" content="([^"]+)"/)[1];assert.ok(description.length>=120&&description.length<=160,description.length);}
   assert.ok(!/\{ui:|undefined|AI in 3 seconds|Zero input errors/.test(html),file);
+  for(const link of html.matchAll(/<a\b[^>]*href="(\/formpilot\/[^\"]*)"/g)){
+   let target=path.join(root,new URL(link[1],'https://ramune441.github.io').pathname.slice('/formpilot/'.length));if(fs.existsSync(target)&&fs.statSync(target).isDirectory())target=path.join(target,'index.html');assert.ok(fs.existsSync(target),`${lang}/${page}: ${link[1]}`);
+  }
   for(const match of html.matchAll(/(?:src|href)="(\/formpilot\/(?:guide-shots|screens)\/[^"]+)"/g))assert.ok(fs.existsSync(path.join(root,match[1].split('?')[0].slice('/formpilot/'.length))),match[1]);
   if(page==='guide.html'){
    for(const label of [ui[lang].btn_save,ui[lang].btn_restore,ui[lang].btn_change_shortcut,ui[lang].shortcut_rule_never])assert.ok(html.includes(label.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')),`${lang}: ${label}`);
