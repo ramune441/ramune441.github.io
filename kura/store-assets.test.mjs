@@ -42,6 +42,14 @@ test('Private is the second screenshot and regional listings share one source',(
   assert.deepEqual(listing.locales.nl.playLanguages,['nl-NL']);
   assert.deepEqual(listing.locales.bn.playLanguages,['bn-BD']);
 });
+test('each language has only the feature graphic and the phone screenshots',()=>{
+  // The web store lists every form factor's screenshots together; tablet copies would show the same art three times.
+  const expected = ['store-image-feature.png',...listing.screenshotOrder.map(n=>`store-image-${n}.png`)].sort();
+  for (const lang of Object.keys(listing.locales)) {
+    const files = fs.readdirSync(path.join(here,'images/store',lang)).filter(f=>f.endsWith('.png')).sort();
+    assert.deepEqual(files,expected,lang);
+  }
+});
 test('all captions have the full translated template without missing placeholders',()=>{
   const captions = context.window.STORE_I18N;
   const tokens = text => [...text.matchAll(/\{[a-z0-9]+\}/g)].map(m=>m[0]).sort();

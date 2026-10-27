@@ -1,25 +1,26 @@
 # Kura ストア画像 — Play Console 掲載手順
 
-各言語 11 枚（20 言語）。アイコンは全言語共通で `kura/icons/icon512.png`（512×512）。
+各言語 6 枚（20 言語）。アイコンは全言語共通で `kura/icons/icon512.png`（512×512）。
 
 ```
 images/store/
   en/  ja/  zh/  zh-TW/  ko/  es/  fr/  de/  pt/  it/  ru/  id/  hi/  tr/  vi/  th/  pl/  ar/  nl/  bn/
     store-image-feature.png          ← フィーチャー グラフィック（1024×500）
     store-image-1.png … 5.png        ← 携帯電話版のスクリーンショット（1080×1920）
-    store-image-tablet-1.png … 5.png ← 7 インチと 10 インチのタブレット版スクリーンショット（1080×1920）
 ```
+
+タブレット（7 インチ・10 インチ）のスクリーンショットは**登録しない**。Web のストアは全種類を 1 列に並べるので、携帯電話版と同じ絵が 3 回繰り返して見える（15 枚）。タブレットでは携帯電話版が出る。
 
 すべてアルファ無しの RGB PNG（Play の指定どおり）。
 
 5枚の中身: 1 写真（ライブラリ）/ 2 スワイプで仕分け＋連写のベスト / 3 容量を食うもの / 4 プライベート（金庫）に写真を隠す / 5 容量の画面（料金）とバックアップ。
-Play へは **2 → 4 → 3 → 1 → 5** の順で上げ、片付けに続いて写真を隠せることを伝える（携帯電話・タブレットとも）。順序と掲載文・22 掲載先の対応は `kura/store-listing.json` を正とする。
+Play へは **2 → 4 → 3 → 1 → 5** の順で上げ、片付けに続いて写真を隠せることを伝える。順序と掲載文・22 掲載先の対応は `kura/store-listing.json` を正とする。
 
 ## API での反映
 
 1. `node kura/store-images-strings.mjs` でアプリの翻訳を取り込み、`node kura/render-store-images.mjs` で全言語を生成する（`npm install --no-save puppeteer-core` と Chrome が必要）。
 2. `node --test kura/store-assets.test.mjs` と `python kura/publish-store.py` を実行し、文言の一致・文字数・RGB・解像度を検証する。
-3. `python kura/publish-store.py --publish` で掲載文と画像を同じ edit 内で検証して反映し、`--verify` で掲載文・画像の SHA-256 と並び順を読み戻して照合する。
+3. `python kura/publish-store.py --publish` で掲載文と画像を同じ edit 内で検証して反映し（タブレット枠は空にする）、`--verify` で掲載文・画像の SHA-256 と並び順、タブレット枠が空であることを読み戻して照合する。
 
 認証鍵は `GOOGLE_APPLICATION_CREDENTIALS` または `~/.kura/play-service-account.json`。鍵はリポジトリへ置かない。画像・文言を確認してから送信し、審査中の場合はその審査を自動取消しせず停止する。
 
@@ -30,7 +31,7 @@ Play へは **2 → 4 → 3 → 1 → 5** の順で上げ、片付けに続い�
 3. **アプリのアイコン**（既定の言語だけ）→ `kura/icons/icon512.png`
 4. **フィーチャー グラフィック** → `<lang>/store-image-feature.png`
 5. **携帯電話版のスクリーンショット** → 上記の順で追加（並び順が表示順）
-6. **7 インチ タブレット**と **10 インチ タブレット**のスクリーンショット → どちらにも上記と同じ順で
+6. **7 インチ タブレット**と **10 インチ タブレット**のスクリーンショット → 空のまま（あれば消す）
 7. ページ下部の**保存**
 
 ## Console の言語コード対応
@@ -65,7 +66,7 @@ Play へは **2 → 4 → 3 → 1 → 5** の順で上げ、片付けに続い�
 cd kura
 node store-images-strings.mjs      # Kura リポジトリの strings.xml → store-images-app-strings.js
 npm install --no-save puppeteer-core
-node render-store-images.mjs       # 20 言語 × 11 枚を書き出し（nl bn のように言語を絞れる）
+node render-store-images.mjs       # 20 言語 × 6 枚を書き出し（nl bn のように言語を絞れる）
 ```
 テンプレ: `store-images.html`（画面とレイアウト） / `store-images-i18n.js`（キャプション 20 言語）。
 `store-images.html?lang=xx` をブラウザで開くと各言語をプレビューできる。

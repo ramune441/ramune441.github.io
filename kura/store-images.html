@@ -9,7 +9,6 @@
   images/store/<lang>/ に書き出す:
     #fg → store-image-feature.png (1024x500)
     #p1-#p5 → store-image-1..5.png（携帯電話 1080x1920）
-    #t1-#t5 → store-image-tablet-1..5.png（タブレット 1080x1920 縦。7インチ・10インチ両方の枠に使える）
   ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id hi tr vi th pl ar nl bn（en が既定）。
   画面の中の言葉はアプリの strings.xml から（store-images-app-strings.js、store-images-strings.mjs で生成）、
   キャプションだけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
@@ -49,7 +48,6 @@ body { background:#2a2d2b; font-family:var(--ui); -webkit-font-smoothing:antiali
 /* ═════════ canvases ═════════ */
 .shot { position:relative; overflow:hidden; margin:0 auto 60px; background:var(--primary); color:#fff; }
 .shot.phone { width:1080px; height:1920px; }
-.shot.tablet { width:1080px; height:1920px; }
 .roof { position:absolute; pointer-events:none; }
 .cap h1 { font-weight:800; letter-spacing:-.025em; line-height:1.1; color:#fff; }
 .cap p { font-weight:500; line-height:1.34; color:#CDEBD7; }
@@ -60,23 +58,18 @@ body.cjk .cap h1, body.cjk .cap p, body.cjk #fg h1 { word-break:keep-all; }
 body.untracked *:not(.mi):not(.mo) { letter-spacing:0 !important; }
 /* Arabic reads right to left inside the phone and in the words; the frames stay where they are. */
 body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
-.phone .cap, .tablet .cap { position:absolute; left:70px; right:70px; top:92px; height:330px; text-align:center;
+.phone .cap { position:absolute; left:70px; right:70px; top:92px; height:330px; text-align:center;
   display:flex; flex-direction:column; justify-content:center; gap:22px; }
-.phone .cap h1, .tablet .cap h1 { font-size:84px; }
-.phone .cap p, .tablet .cap p { font-size:38px; }
+.phone .cap h1 { font-size:84px; }
+.phone .cap p { font-size:38px; }
 
 /* the device */
 .device { position:absolute; background:#111210; box-shadow:0 40px 90px rgba(0,0,0,.35), 0 0 0 2px rgba(255,255,255,.06); }
 .phone .device { left:206px; top:476px; width:668px; padding:14px; border-radius:66px; }
 .phone .device .glass { border-radius:52px; }
-.tablet .device { left:72px; top:470px; padding:18px; border-radius:46px; }
-.tablet .device .glass { border-radius:28px; }
 .glass { overflow:hidden; position:relative; }
 .cam { position:absolute; width:22px; height:22px; border-radius:50%; background:#0b0b0a; left:50%; top:22px; transform:translateX(-50%); z-index:9;
   box-shadow:inset 0 0 0 3px #1c1d1b; }
-.tablet .cam { top:-13px; width:9px; height:9px; box-shadow:none; background:#262724; }
-.tablet .glass { overflow:visible; }
-.tablet .scr { border-radius:28px; }
 
 /* ═════════ app screens (in dp) ═════════ */
 .scr { background:var(--bg); color:var(--on); display:flex; flex-direction:column; overflow:hidden; position:relative; font-family:var(--ui); }
@@ -507,7 +500,6 @@ const SHOTS = [
   ['cloud', fill(C.h5), fill(C.s5)],
 ];
 const PHONE = { w:400, h:866, cols:4, zoom:1.6 };
-const TABLET = { w:800, h:1180, cols:6, zoom:1.125 };
 const screen = (name, f) => `<div class="glass" style="width:${f.w * f.zoom}px;height:${f.h * f.zoom}px"><div class="cam"></div>
   <div class="scr" style="zoom:${f.zoom};width:${f.w}px;height:${f.h}px">${SCREENS[name](f)}</div></div>`;
 
@@ -530,11 +522,6 @@ SHOTS.forEach(([name, h, s, extra], i) => {
   html += `<section class="shot phone" id="p${i + 1}">${ROOF(1300, 'left:-110px;top:40px')}
     <div class="cap"><h1>${h}</h1><p>${s}</p></div>
     <div class="device">${screen(name, PHONE)}</div>${callout(extra, 'zoom:1.5;left:27px;top:853px')}</section>`;
-});
-SHOTS.forEach(([name, h, s, extra], i) => {
-  html += `<section class="shot tablet" id="t${i + 1}">${ROOF(1300, 'left:-110px;top:40px')}
-    <div class="cap"><h1>${h}</h1><p>${s}</p></div>
-    <div class="device">${screen(name, TABLET)}</div>${callout(extra, 'zoom:1.4;left:26px;top:960px')}</section>`;
 });
 document.getElementById('stage').innerHTML = html;
 

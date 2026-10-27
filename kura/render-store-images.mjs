@@ -35,11 +35,11 @@ try {
     if (errors.length || problems.length) throw new Error(`${lang}: ${[...errors,...problems].join('; ')}`);
     const dir = path.join(here,'images/store',lang);
     await fs.mkdir(dir,{recursive:true});
-    for (const [selector,name] of [['#fg','store-image-feature.png'],...Array.from({length:5},(_,i)=>['#p'+(i+1),`store-image-${i+1}.png`]),...Array.from({length:5},(_,i)=>['#t'+(i+1),`store-image-tablet-${i+1}.png`])]) {
+    for (const [selector,name] of [['#fg','store-image-feature.png'],...Array.from({length:5},(_,i)=>['#p'+(i+1),`store-image-${i+1}.png`])]) {
       await (await page.$(selector)).screenshot({path:path.join(dir,name),omitBackground:false});
     }
     report[lang] = await page.evaluate(() => ({privateTitle:document.querySelector('#p4 h1').textContent,privateText:document.querySelector('#p4 .cap p').textContent,fonts:document.fonts.status}));
-    console.log(`${lang}: 11 images verified`);
+    console.log(`${lang}: 6 images verified`);
     await page.close();
   }
   await fs.mkdir(path.join(here,'../_probe'),{recursive:true});

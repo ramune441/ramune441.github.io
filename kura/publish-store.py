@@ -15,7 +15,9 @@ from PIL import Image
 HERE = Path(__file__).resolve().parent
 API = 'https://androidpublisher.googleapis.com/androidpublisher/v3/applications/app.kura.photos/edits'
 UPLOAD = 'https://androidpublisher.googleapis.com/upload/androidpublisher/v3/applications/app.kura.photos/edits'
-TYPES = {'phoneScreenshots':'store-image-{}.png', 'sevenInchScreenshots':'store-image-tablet-{}.png', 'tenInchScreenshots':'store-image-tablet-{}.png', 'featureGraphic':'store-image-feature.png'}
+TYPES = {'phoneScreenshots':'store-image-{}.png', 'featureGraphic':'store-image-feature.png'}
+# The web store shows every form factor's screenshots in one row, so tablet sets repeat the phone ones; keep them empty.
+EMPTY = ['sevenInchScreenshots', 'tenInchScreenshots']
 
 def session():
     from google.oauth2.service_account import Credentials
@@ -61,6 +63,8 @@ def verify_edit(client, edit, data):
                 images = request(client,'GET',f'{API}/{edit}/listings/{code}/{typ}').get('images',[])
                 expected = [hashlib.sha256(p.read_bytes()).hexdigest() for p in assets(lang,data['screenshotOrder'],typ)]
                 assert [p['sha256'] for p in images] == expected, (code,typ)
+            for typ in EMPTY:
+                assert not request(client,'GET',f'{API}/{edit}/listings/{code}/{typ}').get('images'), (code,typ)
     return {'listings':len(actual),'imageSets':len(actual)*len(TYPES),'verified':True}
 
 def main():
@@ -85,11 +89,11 @@ def main():
             def upload_language(lang, entry, code):
                 worker = session()
                 request(worker,'PUT',f'{API}/{edit}/listings/{code}',json=entry['listing'])
-                for typ in TYPES:
+                for typ in [*TYPES, *EMPTY]:
                     request(worker,'DELETE',f'{API}/{edit}/listings/{code}/{typ}')
-                    for png in assets(lang,data['screenshotOrder'],typ):
+                    for png in assets(lang,data['screenshotOrder'],typ) if typ in TYPES else []:
                         request(worker,'POST',f'{UPLOAD}/{edit}/listings/{code}/{typ}',params={'uploadType':'media'},headers={'Content-Type':'image/png'},data=png.read_bytes())
-                print(f'{code}: copy and 16 images uploaded',flush=True)
+                print(f'{code}: copy and {len(data["screenshotOrder"])+1} images uploaded',flush=True)
             with ThreadPoolExecutor(max_workers=4) as pool:
                 futures = [pool.submit(upload_language,lang,entry,code) for lang,entry in data['locales'].items() for code in entry['playLanguages']]
                 for task in as_completed(futures): task.result()
