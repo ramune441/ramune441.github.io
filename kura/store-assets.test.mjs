@@ -32,8 +32,9 @@ test('Play titles, summaries and descriptions stay within their character limits
     }
   }
 });
-test('Private is the second screenshot and regional listings share one source',()=>{
-  assert.deepEqual(listing.screenshotOrder,[2,4,3,1,5]);
+test('five screenshots in their own order, and regional listings share one source',()=>{
+  // 1 introduction, 2 swipe and cleanup, 3 Private, 4 library, 5 backup.
+  assert.deepEqual(listing.screenshotOrder,[1,2,3,4,5]);
   const languages = Object.values(listing.locales).flatMap(l=>l.playLanguages);
   assert.equal(languages.length,22);
   assert.equal(new Set(languages).size,22);
@@ -57,11 +58,11 @@ test('all captions have the full translated template without missing placeholder
     assert.deepEqual(Object.keys(copy).sort(),Object.keys(captions.en).sort(),language);
     for (const [key, value] of Object.entries(copy)) {
       if (Array.isArray(value)) {
-        assert.equal(value.length,2,language);
+        assert.equal(value.length,captions.en[key].length,`${language}.${key}`);
         assert.ok(value.every(v=>v.trim()),language);
       } else {
         assert.ok(value.trim(),`${language}.${key}`);
-        // Existing Japanese prices are in yen; Arabic names Private directly.
+        // Arabic names Private directly.
         if (language === 'nl' || language === 'bn') {
           assert.deepEqual(tokens(value),tokens(captions.en[key]),`${language}.${key}`);
         }

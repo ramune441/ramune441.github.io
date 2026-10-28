@@ -11,9 +11,12 @@
     #p1-#p5 → store-image-1..5.png（携帯電話 1080x1920）
   ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id hi tr vi th pl ar nl bn（en が既定）。
   画面の中の言葉はアプリの strings.xml から（store-images-app-strings.js、store-images-strings.mjs で生成）、
-  キャプションだけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
-  5枚の流れ: 写真タブ（アルバム・場所は説明文で）→ スワイプで仕分け（連写のベストを横に添える）→ 容量を食うもの（端末内で解析）→ {vault} に写真を隠す → 写真も動画も月額いくらでバックアップ（料金の画面）。
-  フィーチャーグラフィックは写真管理アプリとして見せる（写真タブの画面＋ライブラリ・片付け・金庫・バックアップの4点）。
+  キャプションと地名だけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
+  5枚: 1 紹介（写真の壁・写真タブ・思い出と場所のカード・4つの柱の札）／2 スワイプで片付け（飛んでいくカード・見つかった容量・連写のベスト）／
+  3 {vault} に写真を隠す（暗い地）／4 ライブラリ（コレクション・人物・場所の地図・地名で検索）／5 写真も動画も元の画質でバックアップ（動画のカード・クラウドだけにある写真）。
+  料金は載せない（ストアの決まりと国ごとの価格のため。料金は説明文とアプリの中）。
+  検索の例は地名: 写っているものの名前（ML Kit のラベル）は英語だけなので、どの言語でも引ける地名で見せる。
+  フィーチャーグラフィックは紹介の横長版（名前・タグライン・4つの柱の札＋写真の壁・写真タブ・思い出のプリント）。小さい字は載せない。
   写真は Unsplash License（picsum.photos 経由）。撮影者は images/photos/CREDITS.txt。
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,11 +56,11 @@ body { background:#2a2d2b; font-family:var(--ui); -webkit-font-smoothing:antiali
 .cap p { font-weight:500; line-height:1.34; color:#CDEBD7; }
 body.cjk .cap h1 { letter-spacing:-.01em; line-height:1.22; }
 /* CJK captions break only at punctuation and spaces, never mid-word ("見つけ/る"); fit() shrinks what won't fit. */
-body.cjk .cap h1, body.cjk .cap p, body.cjk #fg h1 { word-break:keep-all; }
+body.cjk .cap h1, body.cjk .cap p { word-break:keep-all; }
 /* Arabic, Hindi, Thai and Bengali letters join or stack: no tracking, as in the app. */
 body.untracked *:not(.mi):not(.mo) { letter-spacing:0 !important; }
 /* Arabic reads right to left inside the phone and in the words; the frames stay where they are. */
-body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
+body.rtl .scr, body.rtl .cap, body.rtl #fg .left, body.rtl .intro .brand, body.rtl .print { direction:rtl; }
 .phone .cap { position:absolute; left:70px; right:70px; top:92px; height:330px; text-align:center;
   display:flex; flex-direction:column; justify-content:center; gap:22px; }
 .phone .cap h1 { font-size:84px; }
@@ -122,15 +125,12 @@ body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
   font-size:14px; font-weight:500; color:var(--onVar); white-space:nowrap; background:var(--bg); }
 .chip i { font-size:18px; }
 .chip.dd { padding-right:8px; }
-/* a piece of an app screen laid over the canvas, beside the phone (shot 2: the burst strip) */
+/* a piece of an app screen laid over the canvas, beside the phone (the burst strip, the lock, search, the map, a video) */
 .callout { position:absolute; z-index:5; background:var(--bg); color:var(--on); font-family:var(--ui); border-radius:24px; padding:14px;
   box-shadow:0 30px 70px rgba(0,0,0,.35), 0 0 0 1px rgba(0,0,0,.04); display:flex; flex-direction:column; gap:10px; }
 .callout .hd { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; }
 .callout .hd i { font-size:18px; color:var(--primary); }
 .callout .hd small { margin-left:auto; font-size:12px; font-weight:500; color:var(--onVar); white-space:nowrap; }
-#fg .device { left:668px; top:44px; width:316px; padding:8px; border-radius:38px; }
-#fg .device .glass { border-radius:30px; }
-#fg .cam { width:10px; height:10px; top:10px; box-shadow:none; }
 
 .mh { font-size:22px; line-height:28px; font-weight:700; letter-spacing:-.4px; padding:14px 16px 2px; }
 .dh { height:42px; display:flex; align-items:center; padding:0 10px 0 16px; gap:8px; }
@@ -186,15 +186,6 @@ body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
 /* cloud */
 .stack { display:flex; flex-direction:column; gap:16px; padding:4px 16px 24px; }
 .sec .lbl { padding:0 4px; }
-.plan { display:flex; align-items:center; gap:12px; padding:13px 16px; border-radius:18px; background:var(--bg); border:1.5px solid transparent; }
-.plan.cur { border:2px solid var(--primary); }
-.plan .n { flex:1; }
-.plan .n b { display:block; font-size:16px; line-height:22px; font-weight:600; }
-.plan .n small { display:block; font-size:13px; line-height:18px; color:var(--onVar); }
-.plan .p { font-size:14px; font-weight:500; color:var(--onVar); white-space:nowrap; }
-.plan.cur .p { color:var(--primary); font-weight:600; }
-.plan i { font-size:22px; color:var(--primary); }
-.tbtn { color:var(--primary); font-size:14px; font-weight:500; padding:4px 0 0; }
 .sw { display:flex; align-items:center; gap:14px; }
 .sw .n { flex:1; }
 .sw .n b { display:block; font-size:16px; line-height:24px; font-weight:400; }
@@ -202,29 +193,122 @@ body.rtl .scr, body.rtl .cap, body.rtl #fg .left { direction:rtl; }
 .switch { width:52px; height:32px; border-radius:16px; background:var(--primary); position:relative; flex:none; }
 .switch b { position:absolute; right:4px; top:4px; width:24px; height:24px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; }
 .switch b i { font-size:16px; color:var(--primary); }
+.rule { height:1px; background:var(--outlineVar); }
 .okline { display:flex; gap:8px; align-items:center; font-size:14px; line-height:20px; color:var(--onVar); }
 .okline i { font-size:20px; color:var(--primary); }
 
-/* ═════════ feature graphic ═════════ */
+/* ═════════ feature graphic: the introduction in landscape — name and the four parts on the left, photos and the app on the right ═════════ */
 #fg { width:1024px; height:500px; }
-/* The feature graphic sells what Kura does: four feature cards lead, the backup card carries the price. */
-#fg .left { position:absolute; left:48px; top:40px; bottom:40px; width:590px; display:flex; flex-direction:column; gap:22px; }
-#fg .brand { display:flex; align-items:center; gap:16px; }
-#fg .brand svg { width:66px; height:66px; border-radius:17px; box-shadow:0 0 0 2px rgba(255,255,255,.18); flex:none; }
-#fg .brand b { display:block; font-size:44px; line-height:1; font-weight:700; letter-spacing:-1.2px; }
-#fg .brand > div { flex:1; min-width:0; }
-#fg .brand small { display:block; font-size:18px; font-weight:500; color:#CDEBD7; margin-top:7px; white-space:nowrap; overflow:hidden; }
-#fg .feats { flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:14px; }
-#fg .ft { border-radius:22px; padding:16px 18px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
-  display:flex; flex-direction:column; justify-content:center; gap:4px; overflow:hidden; }
-#fg .ft i { width:40px; height:40px; border-radius:50%; background:var(--inversePrimary); color:var(--onPrimaryC); font-size:22px;
-  display:flex; align-items:center; justify-content:center; margin-bottom:6px; }
-#fg .ft b { font-size:25px; line-height:1.15; font-weight:700; letter-spacing:-.4px; }
-#fg .ft small { font-size:16px; line-height:1.3; font-weight:500; color:#CDEBD7; }
-#fg .ft.hi { background:#fff; border-color:#fff; color:var(--primary); box-shadow:0 18px 40px rgba(0,0,0,.25); }
-#fg .ft.hi i { background:var(--primary); color:#fff; }
-#fg .ft.hi small { color:var(--onVar); }
-body.cjk #fg .ft b { letter-spacing:0; word-break:keep-all; }
+#fg .wall { position:absolute; left:300px; top:-120px; width:900px; display:flex; gap:14px; transform:rotate(-11deg); transform-origin:50% 0; }
+#fg .wall .col { flex:1; display:flex; flex-direction:column; gap:14px; }
+#fg .wall img { width:100%; border-radius:18px; object-fit:cover; display:block; }
+/* Solid green under the words, the photos clear around the phone. */
+#fg .fade { position:absolute; inset:0; background:linear-gradient(90deg, var(--primary) 0, var(--primary) 38%, rgba(35,107,70,.6) 50%,
+  rgba(35,107,70,.1) 68%, rgba(35,107,70,0) 100%); }
+#fg .left { position:absolute; z-index:3; left:56px; top:0; bottom:0; width:480px; display:flex; flex-direction:column; justify-content:center; gap:22px; }
+#fg .brand { display:flex; align-items:center; gap:22px; direction:ltr; }
+#fg .brand svg { width:96px; height:96px; border-radius:25px; flex:none; box-shadow:0 0 0 2px rgba(255,255,255,.18), 0 16px 40px rgba(0,0,0,.25); }
+#fg .brand b { font-size:92px; line-height:1; font-weight:800; letter-spacing:-2.6px; }
+#fg .left > small { font-size:30px; line-height:1.25; font-weight:600; white-space:nowrap; overflow:hidden; }
+#fg .tags { display:flex; flex-wrap:wrap; gap:14px; zoom:.7; }
+#fg .device { left:676px; top:54px; width:260px; padding:8px; border-radius:36px; z-index:2; }
+#fg .device .glass { border-radius:29px; }
+#fg .cam { width:10px; height:10px; top:10px; box-shadow:none; }
+
+/* ═════════ the introduction (first screenshot): a wall of photos, the app in front, its four parts as tags ═════════ */
+.intro .wall { position:absolute; left:-330px; top:250px; width:1800px; display:flex; gap:22px; transform:rotate(-11deg); transform-origin:50% 0; }
+.intro .wall .col { flex:1; display:flex; flex-direction:column; gap:22px; }
+.intro .wall img { width:100%; border-radius:30px; object-fit:cover; display:block; }
+/* The wall rises out of the green: solid behind the name, clear around the phone. */
+.intro .fade { position:absolute; inset:0; background:linear-gradient(180deg, var(--primary) 0, var(--primary) 27%, rgba(35,107,70,.5) 35%,
+  rgba(35,107,70,.06) 48%, rgba(35,107,70,0) 100%); }
+.intro .brand { position:absolute; left:60px; right:60px; top:84px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+/* The logo lockup reads icon-then-name in every language, Arabic too. */
+.intro .brand .row { display:flex; align-items:center; gap:30px; direction:ltr; }
+.intro .brand svg { width:150px; height:150px; border-radius:38px; box-shadow:0 0 0 3px rgba(255,255,255,.18), 0 24px 60px rgba(0,0,0,.25); }
+.intro .brand b { font-size:136px; line-height:1; font-weight:800; letter-spacing:-3.5px; }
+.intro .brand small { font-size:46px; line-height:1.25; font-weight:600; color:#fff; margin-top:30px; white-space:nowrap; }
+.intro .tags { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:30px; }
+/* The four parts as tags, here and on the feature graphic. */
+.tag { display:flex; align-items:center; gap:10px; height:62px; padding:0 24px 0 14px; border-radius:31px; white-space:nowrap;
+  background:rgba(255,255,255,.14); border:1.5px solid rgba(255,255,255,.22); font-size:28px; font-weight:600; }
+.tag i { width:40px; height:40px; border-radius:50%; background:var(--inversePrimary); color:var(--onPrimaryC); font-size:24px;
+  display:flex; align-items:center; justify-content:center; }
+.intro .device { top:700px; z-index:2; }
+/* Pieces of the library laid on the wall like prints: a memory and a place (and the feature graphic's memory). */
+.print { position:absolute; z-index:3; background:#fff; padding:12px 12px 0; border-radius:26px; box-shadow:0 34px 70px rgba(0,0,0,.4); }
+.print .card { border-radius:18px; }
+.print .card .tx { left:22px; right:18px; bottom:20px; }
+.print .card .tx b { font-size:38px; line-height:1.15; white-space:nowrap; }
+.print .card .tx small { font-size:26px; line-height:1.3; margin-top:4px; }
+.print .foot { height:66px; display:flex; align-items:center; gap:10px; padding:0 10px; color:var(--on); font-size:28px; font-weight:600; white-space:nowrap; }
+.print .foot i { font-size:34px; color:var(--primary); }
+.heart { position:absolute; z-index:4; width:92px; height:92px; border-radius:50%; background:#fff; color:#E0245E; font-size:52px;
+  display:flex; align-items:center; justify-content:center; box-shadow:0 16px 36px rgba(0,0,0,.3); }
+
+/* ═════════ 2: cleanup — a smaller phone on the left, the kept photo flying out of it, what was found beside it ═════════ */
+.clean .device { left:52px; width:608px; }
+.fly { position:absolute; z-index:4; border-radius:40px; overflow:hidden; background:#000; border:10px solid #fff;
+  box-shadow:0 44px 90px rgba(0,0,0,.42); }
+.fly img { width:100%; height:100%; object-fit:cover; display:block; }
+.fly .seal { zoom:1.7; }
+.finds { position:absolute; z-index:3; right:34px; width:372px; display:flex; flex-direction:column; gap:16px; }
+.find { display:flex; align-items:center; gap:18px; padding:18px 20px 18px 18px; border-radius:30px; background:var(--bg); color:var(--on);
+  box-shadow:0 24px 50px rgba(0,0,0,.28); }
+.find .dsc { width:64px; height:64px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.find .dsc i { font-size:34px; }
+.find > div { min-width:0; flex:1; }
+.find b { display:block; font-size:25px; line-height:1.22; font-weight:600; }
+.find em { display:block; font-style:normal; font-size:38px; line-height:1.15; font-weight:700; letter-spacing:-.6px; color:var(--primary); white-space:nowrap; }
+body.cjk .find b { word-break:keep-all; }
+
+/* ═════════ 3: Private — the same layout on a dark ground ═════════ */
+.shot.dark { background:radial-gradient(110% 70% at 50% 68%, #1E3B2C 0, #111613 62%, #0B0D0C 100%); }
+.dark .cap p { color:#A9C3B3; }
+.dark .device { box-shadow:0 40px 110px rgba(0,0,0,.7), 0 0 0 2px rgba(255,255,255,.08), 0 0 160px rgba(143,203,166,.16); }
+
+/* ═════════ 4: the library — Collections in the phone, search and the map beside it ═════════ */
+.scs { display:flex; gap:10px; padding:4px 16px 0; }
+.sc { flex:1; min-width:0; display:flex; align-items:center; gap:6px; padding:10px 6px 10px 8px; border-radius:16px; background:var(--cLow); }
+.sc > div { min-width:0; }
+.dsc { width:28px; height:28px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; }
+.dsc i { font-size:16px; }
+.sc b { display:block; font-size:14px; line-height:20px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sc small { display:block; font-size:12px; line-height:16px; font-weight:500; color:var(--onVar); }
+.faces { display:flex; gap:12px; padding:0 16px; overflow:hidden; }
+.face { width:84px; flex:none; display:flex; flex-direction:column; align-items:center; }
+.face span { position:relative; width:72px; height:72px; border-radius:50%; overflow:hidden; display:block; background:var(--cHigh); }
+.face img { position:absolute; display:block; max-width:none; }
+.face b { font-size:14px; line-height:20px; font-weight:600; margin-top:6px; white-space:nowrap; }
+.face small { font-size:12px; line-height:16px; font-weight:500; color:var(--onVar); }
+.lbl em { display:flex; align-items:center; gap:6px; }
+.lbl em i { font-size:18px; }
+.atiles { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0 16px; }
+.atile { aspect-ratio:1; border-radius:16px; overflow:hidden; position:relative; background:var(--cLow); display:flex; align-items:center; justify-content:center; }
+.sfield { height:48px; border-radius:24px; background:var(--cHigh); display:flex; align-items:center; gap:10px; padding:0 12px 0 14px; }
+.sfield i { font-size:20px; color:var(--onVar); }
+.sfield span { flex:1; font-size:16px; font-weight:500; white-space:nowrap; }
+.sfield span::after { content:''; display:inline-block; width:2px; height:20px; background:var(--primary); vertical-align:-4px; margin-left:2px; }
+.scount { font-size:13px; line-height:18px; font-weight:500; color:var(--onVar); padding:0 4px; }
+.map { position:relative; width:250px; height:190px; border-radius:16px; overflow:hidden; }
+.map svg { position:absolute; inset:0; }
+.pin { position:absolute; transform:translate(-50%,-50%); min-width:34px; height:34px; padding:0 8px; border-radius:17px; background:var(--primary); color:#fff;
+  border:3px solid var(--bg); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; box-shadow:0 3px 8px rgba(0,0,0,.25); }
+
+/* ═════════ 5: backup — a video in the cloud beside the phone ═════════ */
+.vthumb { position:relative; width:230px; height:300px; border-radius:16px; overflow:hidden; background:#000; }
+.vthumb .play { position:absolute; left:50%; top:50%; width:64px; height:64px; margin:-32px 0 0 -32px; border-radius:50%; background:rgba(0,0,0,.45);
+  color:#fff; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
+.vthumb .play i { font-size:40px; }
+.vthumb .dur { position:absolute; right:10px; top:10px; color:#fff; font-size:13px; font-weight:600; display:flex; align-items:center; gap:2px; text-shadow:0 0 4px rgba(0,0,0,.7); }
+.vthumb .dur i { font-size:16px; }
+.vthumb .cl { position:absolute; left:10px; bottom:10px; color:#fff; font-size:22px; filter:drop-shadow(0 0 3px rgba(0,0,0,.6)); }
+.cmark { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--onVar); white-space:nowrap; }
+.cmark i { font-size:18px; color:var(--primary); }
+.hero { display:flex; align-items:center; gap:14px; }
+.hero .n { flex:1; min-width:0; }
+.hero b { display:block; font-size:20px; line-height:26px; font-weight:600; letter-spacing:-.3px; }
+.hero small { display:block; font-size:14px; line-height:20px; color:var(--onVar); }
 
 </style>
 </head>
@@ -262,36 +346,24 @@ if (SCRIPT) {
   document.head.appendChild(link);
 }
 if (L === 'ar') document.body.classList.add('rtl');
-// Which way the start of a row lies, for strips shifted by hand (a transform is not mirrored).
-const START = L === 'ar' ? -1 : 1;
 const fmt = (s, a) => { let i = 0; return s.replace(/%(\d+)\$[ds]|%[ds]/g, (m, p) => String(p ? a[p - 1] : a[i++])); };
 const t = (k, ...a) => fmt(A[k] ?? EN[k], a);
 const pl = (k, n, ...a) => { const f = A[k] ?? EN[k]; return fmt(f[new Intl.PluralRules(LOC).select(n)] ?? f.other, [n, ...a]); };
 // domain/ByteFormat.kt: decimal units, Locale.US, one decimal under 100.
 const bytes = gb => { let v = gb * 1e9, u = -1; const U = ['KB','MB','GB','TB']; while (v >= 1000 && u < 3) { v /= 1000; u++; }
-  return (v >= 100 ? v.toFixed(0) : v.toFixed(1)) + ' ' + U[u]; };
+  const text = (v >= 100 ? v.toFixed(0) : v.toFixed(1)) + ' ' + U[u];
+  // In Arabic a size is one left-to-right run, or "GB 38.2" comes out reversed.
+  return L === 'ar' ? '⁦' + text + '⁩' : text; };
 const D = (y, m, d, h = 12, mi = 0, s = 0) => new Date(y, m - 1, d, h, mi, s);
 const TODAY = D(2026, 9, 28);
 const df = (o, d) => new Intl.DateTimeFormat(LOC, o).format(d);
 const monthTitle = (y, m) => df({ year:'numeric', month:'long' }, D(y, m, 1));
-const shortMonth = (y, m) => df({ year:'numeric', month:'short' }, D(y, m, 1));
 const dayTitle = d => { const diff = Math.round((TODAY - d) / 864e5);
   return diff === 0 ? t('day_today') : diff === 1 ? t('day_yesterday') : df({ weekday:'short', month:'short', day:'numeric' }, d); };
 const P = n => `images/photos/${n}.jpg`;
-// Plan prices (Play: USD $0.99 / $4.99 / $9.99, Japan ¥160 / ¥780 / ¥1,580). Other countries pay Play's conversion,
-// which is not known here, so they see the USD price written with the currency code.
-const price = usd => L === 'ja' ? { .99:'¥160', 4.99:'¥780', 9.99:'¥1,580' }[usd]
-  : L === 'en' ? '$' + usd.toFixed(2)
-  : new Intl.NumberFormat(LOC, { style:'currency', currency:'USD', currencyDisplay:'code' }).format(usd);
-const priced = s => s.replace('{p1}', price(.99)).replace('{p2}', price(4.99)).replace('{p3}', price(9.99));
 // {vault} = the app's own name for the vault (lib_vault: Private / プライベート / Tresor …), so a rename in the app carries over.
 // A size never splits from its unit across lines ("500 GB").
-const fill = s => priced(s).replace(/\{vault\}/g, t('lib_vault')).replace(/(\d) (GB|TB|Go|To|ГБ|ТБ)/g, '$1 $2');
-// "Keep what matters.<br>Clear the rest." — the tagline breaks after its first clause, in every language.
-// A full stop inside the line wins ("Behalte, was zählt.<br>Räum…"); otherwise the first comma (ja, ko, zh).
-const twoLines = s => /^.+?[.。!！?？]\s*\S/u.test(s)
-  ? s.replace(/^(.+?[.。!！?？])\s*(?=\S)/u, '$1<br>')
-  : s.replace(/^(.+?[、，,])\s*(?=\S)/u, '$1<br>');
+const fill = s => s.replace(/\{vault\}/g, t('lib_vault')).replace(/(\d) (GB|TB|Go|To|ГБ|ТБ)/g, '$1 $2');
 const mi = (n, cls = 'mi', st = '') => `<i class="${cls}" style="${st}">${n}</i>`;
 
 // ─────────────── the icon (res/drawable/ic_launcher_foreground.xml on @color/brand) ───────────────
@@ -336,17 +408,54 @@ const decisionBar = info => `<div class="dbar">
 const seal = (word, ink, side, tilt, st = '') => `<div class="seal" style="${side}:28px;border-color:${ink};color:${ink};transform:rotate(${tilt}deg);${st}">
   <span style="border-color:${ink}99">${word.toLocaleUpperCase(LOC)}</span></div>`;
 
-// ─────────────── the burst strip (tidy/BurstPicker.kt), laid beside the swipe screen ───────────────
+// ─────────────── pieces of app screens laid beside the phone ───────────────
+// The burst strip (tidy/BurstPicker.kt): one burst of the same dog, each frame a slightly different crop, the way a burst drifts.
 function burstCallout() {
-  // One burst of the same dog: each frame a slightly different crop, the way a burst drifts.
   const frames = ['transform:scale(1.14) translate(-3%,2%)', 'transform:scale(1.02)', 'transform:scale(1.1) translate(4%,-2%);filter:brightness(.9)',
-    'transform:scale(1.16) translate(-2%,-3%)', 'transform:scale(1.08) translate(2%,3%);filter:blur(1.2px)'];
-  const dec = [-1, 0, -1, 0, -1]; // trashed / open
-  return `<div class="hd">${mi('burst_mode', 'mo')}${t('session_similar')}<small>${t('burst_tally_short', 3, 2)}</small></div>
+    'transform:scale(1.08) translate(2%,3%);filter:blur(1.2px)'];
+  const dec = [-1, 0, -1, -1]; // trashed / open
+  return `<div class="hd">${mi('burst_mode', 'mo')}${t('session_similar')}</div>
     <div class="strip">${frames.map((f, i) => `<div class="sth ${i === 1 ? 'f' : ''}"><img class="ph" src="${P('p237')}" style="${f};${dec[i] < 0 ? 'opacity:.35' : ''}">
       ${dec[i] < 0 ? `<div class="mb" style="background:var(--error);color:#fff;left:22px;top:22px">${mi('close')}</div>` : ''}
       ${i === 1 ? `<div class="mb" style="background:var(--secondaryC);color:var(--onSecondaryC);left:3px;top:3px">${mi('auto_awesome')}</div>` : ''}</div>`).join('')}</div>
     <div><span class="qc">${mi('auto_awesome')}${t('burst_keep_best_rest')}</span></div>`;
+}
+
+// Search by a place name: the geocoder names places in the phone's language, so this finds them in every language.
+function searchCallout() {
+  const found = ['p512', 'p509', 'p565', 'p558', 'p13', 'p507'];
+  return `<div class="sfield">${mi('search', 'mo')}<span>${C.cities[1]}</span>${mi('close')}</div>
+    <div class="scount">${pl('search_count', 86, bytes(.412))}</div>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr);width:240px;border-radius:12px;overflow:hidden">
+      ${found.map(src => `<div class="cell"><img src="${P(src)}"></div>`).join('')}</div>`;
+}
+
+// The map (collections/MapScreen.kt): each place a disc with how many shots are there. The streets are drawn, not tiles.
+function mapCallout() {
+  const pins = [[64, 58, 241], [176, 112, 86], [206, 40, 12], [104, 150, 37]];
+  return `<div class="hd">${mi('map', 'mo')}${t('places_title')}</div>
+    <div class="map"><svg viewBox="0 0 250 190" width="250" height="190">
+      <rect width="250" height="190" fill="#ECEBE3"/>
+      <path d="M0 128 C40 118 70 140 112 132 C150 124 170 150 210 146 C230 144 242 150 250 152 V190 H0 Z" fill="#B7D2E2"/>
+      <path d="M150 0 C146 30 160 54 154 80 C150 98 160 112 176 126" fill="none" stroke="#B7D2E2" stroke-width="12"/>
+      <path d="M14 20 h52 v38 h-52 z M188 70 c20 -8 44 4 52 22 l-40 10 z" fill="#D2E5C6"/>
+      <path d="M0 92 L250 64 M84 0 L104 190 M0 30 L150 46 M196 0 L226 190" stroke="#fff" stroke-width="6" fill="none"/>
+      <path d="M0 92 L250 64 M84 0 L104 190" stroke="#F3DFA8" stroke-width="3" fill="none"/>
+      <path d="M30 0 L44 120 M120 20 L250 30 M0 160 L120 100" stroke="#fff" stroke-width="3" fill="none"/>
+    </svg>${pins.map(([x, y, n]) => `<span class="pin" style="left:${x}px;top:${y}px">${n}</span>`).join('')}</div>`;
+}
+
+// A video that is only in the cloud: it plays from there (viewer/Media.kt CloudVideo).
+function videoCallout() {
+  return `<div class="vthumb"><img class="ph" src="${P('p124')}"><span class="play">${mi('play_arrow')}</span>
+      <span class="dur">${mi('videocam')}1:08</span><i class="mo cl">cloud</i></div>
+    <div class="cmark">${mi('cloud', 'mo')}${t('cloud_only_mark')} · ${bytes(1.21)}</div>`;
+}
+
+// Backup going now (cloud/BackupState.kt BackupHero).
+function backupHero() {
+  return `<div class="hero"><span class="dsc" style="width:48px;height:48px;background:var(--primaryC);color:var(--onPrimaryC)">${mi('cloud_upload', 'mo', 'font-size:26px')}</span>
+    <div class="n"><b>${t('backup_running_title')}</b><small>${t('progress_n_of_m', 412, 1204)}</small></div></div>${meter(412 / 1204)}`;
 }
 
 function privateCallout() {
@@ -402,56 +511,39 @@ const SCREENS = {
       ${libraryGrid(cols)}
     </div>${navBar(0)}`,
 
-  swipe: () => `${statusBar()}${screenBar(t('session_today'), t('swipe_progress', 3, 24))}
-    <div style="padding:0 20px">${meter(3 / 24)}</div>
+  // The photo before this one has just been kept and flies out of the phone (shot 2 draws it on the canvas).
+  swipe: () => `${statusBar()}${screenBar(t('session_today'), t('swipe_progress', 4, 24))}
+    <div style="padding:0 20px">${meter(4 / 24)}</div>
     <div class="body" style="display:flex;flex-direction:column;gap:12px;padding:12px 16px 16px">
       <div class="deck">
-        <div class="mcard" style="transform:translateY(12px) scale(.95);left:10px;right:10px"><img src="${P('p509')}"></div>
-        <div class="mcard" style="transform:translateX(64px) rotate(3.4deg);box-shadow:0 12px 34px rgba(0,0,0,.25)"><img src="${P('p1025')}" style="object-position:50% 40%">
-          ${seal(t('swipe_keep'), '#236B46', 'left', -9)}</div>
+        <div class="mcard" style="transform:translateY(12px) scale(.95);left:10px;right:10px"><img src="${P('p431')}"></div>
+        <div class="mcard" style="box-shadow:0 12px 34px rgba(0,0,0,.25)"><img src="${P('p509')}"></div>
       </div>
       <div class="meta">${t('kind_photo')} · ${bytes(.0042)} · ${df({ year:'numeric', month:'short', day:'numeric' }, D(2023, 9, 28))}</div>
       ${decisionBar(false)}
       <div class="hint">${t('swipe_hint')}</div>
     </div>${gestOnly()}`,
 
-  tidy: ({ w }) => {
-    const sessions = [
-      ['p28', t('session_all'), t('session_count', 12480, bytes(48.6)), 'photo_library', 'secondary'],
-      ['p49', t('session_today'), t('session_count', 24, bytes(.093)), 'history', 'secondary'],
-      ['p431', t('session_dup'), t('session_count', 318, bytes(1.9)), 'content_copy', 'primary'],
-      ['p237', t('session_similar'), t('session_count', 1204, bytes(5.7)), 'burst_mode', 'primary'],
-      ['p553', t('session_blurry'), t('session_count', 162, bytes(.61)), 'blur_on', 'tertiary', 'filter:blur(2.6px);transform:scale(1.08)'],
-      ['p509', t('session_large'), t('session_count', 47, bytes(6.4)), 'sd_card', 'tertiary'],
-      ['p401', t('session_motion'), t('session_count', 389, bytes(2.3)), 'motion_photos_on', 'tertiary'],
-      ['p165', t('session_old_screenshots'), t('session_count', 540, bytes(.82)), 'screenshot', 'tertiary'],
-    ];
-    const months = [[2026, 9, 'p110', 44, .161], [2026, 8, 'p124', 312, 2.1], [2026, 7, 'p199', 486, 3.4], [2026, 6, 'p152', 205, 1.2],
-      [2026, 5, 'p288', 190, .98], [2026, 4, 'p106', 233, 1.4], [2026, 3, 'p565', 168, .77], [2026, 2, 'p225', 121, .55]];
-    const folders = [['Camera', 'p323', 9812, 41.2], ['Screenshots', 'p165', 1630, 2.5], ['WhatsApp Images', 'p429', 702, .88], ['Download', 'p517', 211, 1.6],
-      ['Instagram', 'p488', 125, .31]];
-    return `${statusBar()}${tabHeader(t('tab_sort'), null, ['delete'])}
+  // Collections (collections/CollectionsScreen.kt): the fixed places, people, places, then the albums.
+  collections: () => {
+    const tile = (icon, lb, n, accent) => `<div class="sc"><span class="dsc" style="background:var(--${accent ? 'primaryC' : 'secondaryC'});
+      color:var(--on${accent ? 'PrimaryC' : 'SecondaryC'})">${mi(icon, 'mo')}</span><div><b>${lb}</b><small>${n}</small></div></div>`;
+    // Each face cropped from its photo, as FaceThumbs does: [photo, name, count, face centre x, y (0-1), zoom].
+    const people = [['p1027', 'Emma', 214, .52, .47, 1.7], ['p836', 'Sofia', 132, .33, .2, 3.6], ['p832', 'Aiko', 87, .58, .34, 3.4],
+      ['p838', 'Lena', 64, .48, .33, 2.8], ['p64', 'Maya', 23, .55, .43, 2.6]];
+    const face = (x, y, z) => `width:${72 * z}px;left:${36 - x * 72 * z}px;top:${36 - y * 72 * z}px`;
+    const places = [['p419', C.cities[0], 241], ['p512', C.cities[1], 86], ['p436', C.cities[2], 57]];
+    return `${statusBar()}${tabHeader(t('tab_collections'), null, ['sort', 'add'])}
     <div class="body">
-      <div style="padding:4px 16px"><div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:14px">
-        <div class="big"><div class="l">${t('tidy_library')}</div><div class="v">${bytes(48.6)}</div><div class="s">${pl('stats_items', 12480)}</div></div>
-        <div class="share"><b style="flex:31.2;background:var(--primary)"></b><b style="flex:14.9;background:var(--tertiary)"></b><b style="flex:2.5;background:var(--outline)"></b></div>
-        <div class="legend"><span><i style="background:var(--primary)"></i>${t('kind_photo')} <b>${bytes(31.2)}</b></span>
-          <span><i style="background:var(--tertiary)"></i>${t('kind_video')} <b>${bytes(14.9)}</b></span>
-          <span><i style="background:var(--outline)"></i>${t('kind_screenshot')} <b>${bytes(2.5)}</b></span></div>
-      </div></div>
-      <div style="height:8px"></div>${label(t('home_sessions'))}
-      <div class="hscroll"><div style="display:flex;gap:10px;transform:translateX(${w > 600 ? 0 : -308 * START}px)">
-        ${sessions.map(([src, title, detail, icon, tone, st]) => photoCard({ src, title, detail, icon, tone, w:156, h:196, style:st || '' })).join('')}
-      </div></div>
-      <div style="height:16px"></div>${label(t('home_by_month'), t('see_all'))}
-      <div class="hscroll">${months.map(([y, m, src, n, gb]) => photoCard({ src, title:shortMonth(y, m), detail:`${n} · ${bytes(gb)}`, w:128, h:128 })).join('')}</div>
-      <div style="height:16px"></div>${label(t('home_by_folder'), t('see_all'))}
-      <div class="hscroll">${folders.map(([name, src, n, gb]) => photoCard({ src, title:name, detail:`${n} · ${bytes(gb)}`, w:128, h:128 })).join('')}</div>
-      <div style="height:16px"></div>
-      <div style="padding:0 16px"><div class="panel" style="padding:14px 18px;display:flex;align-items:center;gap:14px;color:var(--error)">
-        ${mi('delete', 'mo', 'font-size:22px')}<span style="flex:1;font-size:16px;line-height:24px;color:var(--on)">${t('trash_title')}</span>
-        <span style="font-size:14px;font-weight:500">57 · ${bytes(1.2)}</span>${mi('keyboard_arrow_right', 'mi', 'font-size:20px;color:var(--outline)')}</div></div>
-    </div>${navBar(2)}`;
+      <div class="scs">${tile('favorite_border', t('lib_favorites'), 214, true)}${tile('folder', t('lib_folders'), 12)}${tile('lock', t('lib_vault'), 38)}</div>
+      <div style="height:8px"></div>${label(`<span style="display:flex;align-items:center;gap:6px">${t('people_title')}${mi('info', 'mo', 'font-size:18px;color:var(--onVar);font-weight:400')}</span>`)}
+      <div class="faces">${people.map(([src, name, n, x, y, z]) => `<div class="face"><span><img src="${P(src)}" style="${face(x, y, z)}"></span><b>${name}</b><small>${n}</small></div>`).join('')}</div>
+      <div style="height:8px"></div>${label(t('places_title'), `${mi('map', 'mo')}${t('map_open')}`)}
+      <div class="hscroll">${places.map(([src, title, n]) => photoCard({ src, title, detail:pl('stats_items', n), w:148, h:112 })).join('')}</div>
+      <div style="height:8px"></div>${label(t('tab_albums'))}
+      <div class="atiles"><div class="atile"><span class="dsc" style="width:48px;height:48px;background:var(--cHighest);color:var(--on)">${mi('add', 'mi', 'font-size:26px')}</span></div>
+        <div class="atile"><img class="ph" src="${P('p163')}"></div></div>
+    </div>${navBar(1)}`;
   },
 
   vault: ({ cols }) => {
@@ -473,56 +565,96 @@ const SCREENS = {
     </div>${gestOnly()}`;
   },
 
+  // Settings' cloud backup (cloud/BackupState.kt BackupHero) while a run goes, and what is only in the cloud. No plan prices.
   cloud: () => {
-    const plan = (name, gb, usd, cur) => `<div class="plan ${cur ? 'cur' : ''}"><div class="n"><b>${name}</b><small>${bytes(gb)}</small></div>
-      <span class="p">${cur ? t('plan_current') : t('cloud_per_month', price(usd))}</span>${cur ? mi('check_circle') : ''}</div>`;
-    const infoLabel = text => `<div class="lbl"><span style="display:flex;align-items:center;gap:6px">${text}${mi('info', 'mo', 'font-size:18px;color:var(--onVar)')}</span></div>`;
-    return `${statusBar()}${screenBar(t('storage_title'))}
+    const onlyThere = ['p199', 'p124', 'p77', 'p215', 'p434', 'p381', 'p128', 'p10'];
+    return `${statusBar()}${screenBar(t('cloud_title'))}
     <div class="body"><div class="stack">
       <div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:12px">
         <div class="big"><div class="l">${t('plan_plus')} · ${bytes(100)}</div><div class="v">${bytes(38.2)}</div></div>${meter(38.2 / 100)}</div>
-      <div class="sec"><div class="panel" style="display:flex;flex-direction:column;gap:8px;padding:10px">
-        ${plan(t('plan_plus'), 100, .99, true)}${plan(t('plan_standard'), 500, 4.99)}${plan(t('plan_pro'), 1000, 9.99)}
-        <div class="tbtn" style="padding:6px 8px 4px">${t('plan_cancel')}</div></div></div>
-      <div class="sec">${label(t('cloud_title'))}<div class="panel" style="display:flex;flex-direction:column;gap:14px">
+      <div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:16px">
         <div class="sw"><div class="n"><b>${t('settings_auto_backup')}</b><small>${t('settings_auto_backup_hint')}</small></div><div class="switch"><b>${mi('check')}</b></div></div>
-        <div class="okline">${mi('cloud_done')}<span>${t('backup_done_title')}</span></div></div></div>
+        <div class="rule"></div>
+        ${backupHero()}</div>
+      <div class="sec">${label(t('cloud_sync_title'))}
+        <div class="grid" style="grid-template-columns:repeat(4,1fr);border-radius:14px;overflow:hidden">
+          ${onlyThere.map((src, i) => `<div class="cell"><img src="${P(src)}">${i === 1 || i === 6 ? `<span class="vd">${mi('play_arrow')}${i === 1 ? '1:08' : '0:37'}</span>` : ''}<i class="mo cl">cloud</i></div>`).join('')}</div></div>
     </div></div>${gestOnly()}`;
   },
 };
 
 // ─────────────── assembling the canvases ───────────────
-const SHOTS = [
-  ['photos', twoLines(t('brand_tagline')), C.s1],
-  ['swipe', C.h2, C.s2, burstCallout],
-  ['tidy', C.h3, C.s3],
-  ['vault', t('intro_private_title'), t('intro_private_text', t('lib_vault')), privateCallout],
-  ['cloud', fill(C.h5), fill(C.s5)],
-];
 const PHONE = { w:400, h:866, cols:4, zoom:1.6 };
 const screen = (name, f) => `<div class="glass" style="width:${f.w * f.zoom}px;height:${f.h * f.zoom}px"><div class="cam"></div>
   <div class="scr" style="zoom:${f.zoom};width:${f.w}px;height:${f.h}px">${SCREENS[name](f)}</div></div>`;
 
 let html = '';
+// The introduction leads the screenshots and sells Kura as a photo app first: a wall of photos, the photos tab in
+// front, a memory and a place laid on top as prints, and the four parts (the feature graphic's titles) as tags.
+// The prints and the phone's memories show other photos than the wall, so no picture appears twice side by side.
+const WALL = [['p360', 'p164', 'p509', 'p292', 'p77'], ['p200', 'p516', 'p553', 'p437', 'p13'], ['p429', 'p392', 'p106', 'p565', 'p288'],
+  ['p525', 'p152', 'p433', 'p450', 'p219'], ['p507', 'p488', 'p110', 'p237', 'p434'], ['p54', 'p169', 'p493', 'p327', 'p517']];
+const HEIGHTS = [300, 380, 300, 340, 300];
+const TAGS = `<span class="tag">${mi('photo_library')}${C.f1t}</span><span class="tag">${mi('cleaning_services')}${C.f2t}</span>
+  <span class="tag">${mi('lock')}${fill(C.f3t)}</span><span class="tag">${mi('cloud_done')}${fill(C.f4t)}</span>`;
+// The feature graphic is the introduction turned sideways: the name, the tagline and the four parts on solid green,
+// the wall, the photos tab and a memory print to the right. No small print: Play shows it small.
 html += `<section class="shot" id="fg">
-  ${ROOF(900, 'left:420px;top:-60px')}
+  <div class="wall">${WALL.slice(1, 5).map((col, c) => `<div class="col" style="margin-top:${[60, 0, 110, 30][c]}px">
+    ${col.map((src, i) => `<img src="${P(src)}" style="height:${HEIGHTS[(i + c) % HEIGHTS.length] * .55}px">`).join('')}</div>`).join('')}</div>
+  <div class="fade"></div>
   <div class="left">
-    <div class="brand">${ICON_SVG('16 16 76 76')}<div><b>${t('app_name')}</b><small>${t('brand_tagline')}</small></div></div>
-    <div class="feats">
-      <div class="ft">${mi('photo_library')}<b>${C.f1t}</b><small>${C.f1s}</small></div>
-      <div class="ft">${mi('cleaning_services')}<b>${C.f2t}</b><small>${C.f2s}</small></div>
-      <div class="ft hi">${mi('lock')}<b>${fill(C.f3t)}</b><small>${fill(C.f3s)}</small></div>
-      <div class="ft">${mi('cloud_done')}<b>${fill(C.f4t)}</b><small>${C.f4s}</small></div>
+    <div class="brand">${ICON_SVG('16 16 76 76')}<b>${t('app_name')}</b></div>
+    <small>${t('brand_tagline')}</small>
+    <div class="tags">${TAGS}</div>
+  </div>
+  <div class="device">${screen('photos', { w:400, h:866, cols:4, zoom:.61 })}</div>
+  <div class="print" style="zoom:.46;left:1265px;top:540px;transform:rotate(-7deg)">
+    ${photoCard({ src:'p401', title:t('session_today'), detail:`2023 · ${pl('stats_items', 12)}`, w:330, h:420, style:'object-position:30% 50%' })}
+    <div class="foot">${mi('auto_awesome', 'mo')}${t('memories_title')}</div></div>
+  <div class="heart" style="zoom:.46;left:1600px;top:500px">${mi('favorite')}</div>
+</section>`;
+html += `<section class="shot phone intro" id="p1">
+  <div class="wall">${WALL.map((col, c) => `<div class="col" style="margin-top:${[120, 0, 200, 60, 160, 20][c]}px">
+    ${col.map((src, i) => `<img src="${P(src)}" style="height:${HEIGHTS[(i + c) % HEIGHTS.length]}px">`).join('')}</div>`).join('')}</div>
+  <div class="fade"></div>
+  <div class="brand">
+    <div class="row">${ICON_SVG('16 16 76 76')}<b>${t('app_name')}</b></div>
+    <small>${t('brand_tagline')}</small>
+    <div class="tags">
+      ${TAGS}
     </div>
   </div>
-  <div class="device">${screen('photos', { w:400, h:866, cols:4, zoom:.75 })}</div>
+  <div class="device">${screen('photos', PHONE)}</div>
+  <div class="print" style="left:22px;top:1010px;transform:rotate(-7deg)">
+    ${photoCard({ src:'p401', title:t('session_today'), detail:`2023 · ${pl('stats_items', 12)}`, w:330, h:420, style:'object-position:30% 50%' })}
+    <div class="foot">${mi('auto_awesome', 'mo')}${t('memories_title')}</div></div>
+  <div class="heart" style="left:300px;top:970px">${mi('favorite')}</div>
+  <div class="print" style="right:22px;top:1330px;transform:rotate(6deg)">
+    ${photoCard({ src:'p436', title:C.cities[2], detail:`2025 · ${pl('stats_items', 23)}`, w:320, h:300 })}
+    <div class="foot">${mi('place', 'mo')}${t('places_title')}</div></div>
 </section>`;
-const callout = (extra, st) => extra ? `<div class="callout" style="${st}">${extra()}</div>` : '';
-SHOTS.forEach(([name, h, s, extra], i) => {
-  html += `<section class="shot phone" id="p${i + 1}">${ROOF(1300, 'left:-110px;top:40px')}
-    <div class="cap"><h1>${h}</h1><p>${s}</p></div>
-    <div class="device">${screen(name, PHONE)}</div>${callout(extra, 'zoom:1.5;left:27px;top:853px')}</section>`;
-});
+const shot = (id, cls, h, s, body) => `<section class="shot phone ${cls}" id="${id}">${ROOF(1300, 'left:-110px;top:40px')}
+  <div class="cap"><h1>${h}</h1><p>${s}</p></div>${body}</section>`;
+const device = (name, f = PHONE) => `<div class="device">${screen(name, f)}</div>`;
+// A zoomed callout's left/top are zoomed too: top:860px at zoom 1.5 sits 1290px down the canvas.
+const callout = (extra, st) => `<div class="callout" style="${st}">${extra()}</div>`;
+// 2: sorting and cleanup in one. The photo just kept flies out of the phone; beside it, what the scan found and the burst's best.
+const FOUND = [['content_copy', t('session_dup'), 1.9, 'primary'], ['burst_mode', t('session_similar'), 5.7, 'primary'],
+  ['blur_on', t('session_blurry'), .61, 'tertiary'], ['sd_card', t('session_large'), 6.4, 'tertiary']];
+html += shot('p2', 'clean', C.h2, C.s2, `${device('swipe', { ...PHONE, zoom:1.45 })}
+  <div class="fly" style="left:530px;top:500px;width:360px;height:470px;transform:rotate(13deg)"><img src="${P('p1025')}" style="object-position:50% 40%">
+    ${seal(t('swipe_keep'), '#236B46', 'left', -9)}</div>
+  <div class="finds" style="top:1030px">
+    ${FOUND.map(([icon, name, gb, tone]) => `<div class="find"><span class="dsc" style="background:var(--${tone}C);color:var(--on${tone[0].toUpperCase() + tone.slice(1)}C)">${mi(icon, 'mo')}</span>
+      <div><b>${name}</b><em>${bytes(gb)}</em></div></div>`).join('')}
+    ${callout(burstCallout, 'position:relative;zoom:1.2')}
+  </div>`);
+html += shot('p3', 'dark', t('intro_private_title'), t('intro_private_text', t('lib_vault')),
+  `${device('vault')}${callout(privateCallout, 'zoom:1.5;left:27px;top:853px')}`);
+html += shot('p4', '', C.h4, C.s4,
+  `${device('collections')}${callout(searchCallout, 'zoom:1.5;right:16px;top:860px')}${callout(mapCallout, 'zoom:1.5;left:16px;top:947px')}`);
+html += shot('p5', '', C.h5, C.s5, `${device('cloud')}${callout(videoCallout, 'zoom:1.5;left:16px;top:860px')}`);
 document.getElementById('stage').innerHTML = html;
 
 // Captions shrink until they fit their box, so no language overflows.
@@ -548,15 +680,21 @@ window.READY = (async () => {
   document.querySelectorAll('.nav .lb').forEach(el => shrink(el, 9));
   document.querySelectorAll('.th h2').forEach(el => { el.style.overflow = 'hidden'; shrink(el, 20); });
   document.querySelectorAll('.cap').forEach(fit);
-  // Feature cards: shrink a long title (and its line) until the card holds it; the tagline stays on one line.
-  document.querySelectorAll('#fg .ft').forEach(ft => {
-    const b = ft.querySelector('b'), sm = ft.querySelector('small');
-    for (let s = 25, t2 = 16; (ft.scrollHeight > ft.clientHeight || b.scrollWidth > b.clientWidth) && s > 15; s -= 1, t2 = Math.max(13, t2 - .4)) {
-      b.style.fontSize = s + 'px'; sm.style.fontSize = t2 + 'px';
-    }
-  });
-  const tag = document.querySelector('#fg .brand small');
-  for (let s = 18; tag.scrollWidth > tag.clientWidth && s > 12; s -= .5) tag.style.fontSize = s + 'px';
+  // Shortcut names share the largest size at which all of them fit (CollectionsScreen.kt ShortcutTiles).
+  const names = [...document.querySelectorAll('.sc b')];
+  for (let s = 14; names.some(b => b.scrollWidth > b.clientWidth) && s > 9; s -= .5) names.forEach(b => b.style.fontSize = s + 'px');
+  // The feature graphic's tagline stays on one line and its tags on two rows, inside the green.
+  const fgLine = document.querySelector('#fg .left > small');
+  for (let s = 30; fgLine.scrollWidth > fgLine.clientWidth && s > 18; s -= .5) fgLine.style.fontSize = s + 'px';
+  const fgTags = document.querySelector('#fg .tags');
+  for (let s = 28; fgTags.offsetHeight > 140 && s > 18; s -= .5) fgTags.querySelectorAll('.tag').forEach(el => el.style.fontSize = s + 'px');
+  // A print's place name stays on one line.
+  document.querySelectorAll('.print .tx b').forEach(b => shrink(b, 24));
+  // The tagline stays on one line, within the brand's width (as a flex item it grows to its text); the tags stay on two rows.
+  const intro = document.querySelector('.intro .brand small');
+  for (let s = 46; intro.offsetWidth > intro.parentElement.clientWidth && s > 28; s -= .5) intro.style.fontSize = s + 'px';
+  const tags = document.querySelector('.intro .tags');
+  for (let s = 28; tags.offsetHeight > 140 && s > 20; s -= .5) tags.querySelectorAll('.tag').forEach(el => el.style.fontSize = s + 'px');
   return true;
 })();
 </script>
