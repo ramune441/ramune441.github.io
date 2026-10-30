@@ -1,0 +1,124 @@
+{
+  "wallSeconds": 39.506,
+  "coverage": {
+    "language": "pl",
+    "direction": "ltr",
+    "missing": [],
+    "timeline": [
+      0,
+      100,
+      600,
+      1100,
+      2800,
+      3000,
+      3150,
+      3550,
+      7700,
+      8000,
+      8150,
+      8450,
+      8730,
+      9010,
+      11200,
+      11500,
+      11800,
+      13200,
+      14800,
+      16200,
+      16500,
+      16800,
+      17200,
+      18000,
+      18400,
+      18900,
+      19500,
+      20100,
+      21700,
+      21800,
+      22000,
+      22300,
+      22600,
+      23300,
+      23500,
+      24900,
+      26700,
+      26900,
+      27000,
+      27300,
+      27600,
+      28400,
+      29500,
+      31200,
+      31400,
+      31500,
+      31700,
+      31830,
+      31940,
+      32050,
+      32160,
+      32270,
+      32380,
+      35000,
+      35200,
+      35550,
+      35850
+    ]
+  },
+  "states": [
+    {
+      "seconds": 2,
+      "scene": "s1",
+      "text": "SubDuo\nDwa języki.\nJeden ekran.\n▶\nPrime Video\n▶\nYouTube\nN\nNetflix\nD\nDisney+",
+      "overflow": []
+    },
+    {
+      "seconds": 6,
+      "scene": "s2",
+      "text": "WCZEŚNIEJ / Z SUBDUO\nBez pauz. Bez cofania. Bez przełączania.\nWCZEŚNIEJ\nTylko jeden język napisów naraz\nZmień napisy\nCofnij o 10 s\nStały rozmiar i położenie napisów\nZ SUBDUO\nDwa języki. Jeden ekran.\nWybierz dwa języki\nPrzesuwaj, zmieniaj rozmiar i wyrównanie na filmie\nOsobny kolor wiersza i ustawienia witryny",
+      "overflow": []
+    },
+    {
+      "seconds": 10,
+      "scene": "s3",
+      "text": "GOTOWE W 30 SEKUND\nZainstaluj. Odtwórz. Gotowe.\n1\nDodaj do Chrome\nOdtwórz w jednym z pięciu serwisów: Prime Video, YouTube, Netflix, Disney+ & TED.\n2\nWybierz dwa języki\nWybierz dwa języki napisów dostępne dla tytułu — wykrywane automatycznie po rozpoczęciu odtwarzania.\n3\nOglądaj i dostosuj\nPrzeciągnij, aby przesunąć; przewiń, aby zmienić rozmiar; kliknij prawym, aby zmienić kolory.",
+      "overflow": []
+    },
+    {
+      "seconds": 14,
+      "scene": "ds",
+      "text": "🔒 primevideo.com\n‹\nThe Long Way Home\nSezon 1, odc. 3\nLewo\nŚrodek\nPrawo\nDon't look back. We're almost there.\nNie oglądaj się. Już prawie jesteśmy.\nPrzeciągnij: przesuń / Strzałki: popraw / Kółko: rozmiar / Prawy: kolory\nPrzeciągnij, aby przesunąć\nPrzewiń, aby zmienić rozmiar\n42:18 / 1:05:30\nCC\nUstawienia wyświetlania SubDuo\n✕\nGóra\nKolor tekstu\nPrzezroczystość tła\n25%\nDół\nKolor tekstu\nPrzezroczystość tła\n25%\nPrzywróć kolory i przezroczystość\nSubDuo\nYouTube\n\nWykryto: 6 języków\n\nJęzyki\nGóra\nEnglish\nDół\n—\nEnglish\nPolski\nEspañol\nFrançais\nDeutsch\n日本語\nWygląd\nGóra\nDół\nKolor tekstu\nRozmiar tekstu\nPODWÓJNE NAPISY\nPodwójne napisy.\nDwa języki w jednej ramce. Oryginał u góry, Twój język na dole.\nWYBIERZ JĘZYKI\nWybierz języki.\nWybierz dwa języki w oknie rozszerzenia. Lista zawiera wszystkie napisy dostępne dla filmu.\nDOSTOSUJ NA EKRANIE\nDostosuj na ekranie.\nPrzeciągnij, aby przesunąć; przewiń, aby zmienić rozmiar; kliknij prawym, aby zmienić kolory.\nSTYL KAŻDEGO WIERSZA\nStyl każdego wiersza.\nUstaw kolor tekstu oraz przezroczystość tekstu i tła osobno dla każdego wiersza.",
+      "overflow": []
+    },
+    {
+      "seconds": 20,
+      "scene": "ds",
+      "text": "🔒 youtube.com\n‹\nThe Long Way Home\nSezon 1, odc. 3\nLewo\nŚrodek\nPrawo\nSome doors only open once.\nNiektóre drzwi otwierają się tylko raz.\nPrzeciągnij: przesuń / Strzałki: popraw / Kółko: rozmiar / Prawy: kolory\nPrzeciągnij, aby przesunąć\nPrzewiń, aby zmienić rozmiar\n42:18 / 1:05:30\nCC\nUstawienia wyświetlania SubDuo\n✕\nGóra\nKolor tekstu\nPrzezroczystość tła\n25%\nDół\nKolor tekstu\nPrzezroczystość tła\n25%\nPrzywróć kolory i przezroczystość\nSubDuo\nYouTube\n\nWykryto: 6 języków\n\nJęzyki\nGóra\nEnglish\nDół\nPolski\nEnglish\nPolski\nEspañol\nFrançais\nDeutsch\n日本語\nWygląd\nGóra\nDół\nKolor tekstu\nRozmiar tekstu\nPODWÓJNE NAPISY\nPodwójne napisy.\nDwa języki w jednej ramce. Oryginał u góry, Twój język na dole.\nWYBIERZ JĘZYKI\nWybierz języki.\nWybierz dwa języki w oknie rozszerzenia. Lista zawiera wszystkie napisy dostępne dla filmu.\nDOSTOSUJ NA EKRANIE\nDostosuj na ekranie.\nPrzeciągnij, aby przesunąć; przewiń, aby zmienić rozmiar; kliknij prawym, aby zmienić kolory.\nSTYL KAŻDEGO WIERSZA\nStyl każdego wiersza.\nUstaw kolor tekstu oraz przezroczystość tekstu i tła osobno dla każdego wiersza.",
+      "overflow": []
+    },
+    {
+      "seconds": 25,
+      "scene": "ds",
+      "text": "🔒 netflix.com\n‹\nThe Long Way Home\nSezon 1, odc. 3\nLewo\nŚrodek\nPrawo\nYou can't outrun the tide.\nNie zdołasz uciec przed przypływem.\nPrzeciągnij: przesuń / Strzałki: popraw / Kółko: rozmiar / Prawy: kolory\nPrzeciągnij, aby przesunąć\nPrzewiń, aby zmienić rozmiar\n42:18 / 1:05:30\nCC\nUstawienia wyświetlania SubDuo\n✕\nGóra\nKolor tekstu\nPrzezroczystość tła\n25%\nDół\nKolor tekstu\nPrzezroczystość tła\n25%\nPrzywróć kolory i przezroczystość\nSubDuo\nYouTube\n\nWykryto: 6 języków\n\nJęzyki\nGóra\nEnglish\nDół\nPolski\nEnglish\nPolski\nEspañol\nFrançais\nDeutsch\n日本語\nWygląd\nGóra\nDół\nKolor tekstu\nRozmiar tekstu\nPODWÓJNE NAPISY\nPodwójne napisy.\nDwa języki w jednej ramce. Oryginał u góry, Twój język na dole.\nWYBIERZ JĘZYKI\nWybierz języki.\nWybierz dwa języki w oknie rozszerzenia. Lista zawiera wszystkie napisy dostępne dla filmu.\nDOSTOSUJ NA EKRANIE\nDostosuj na ekranie.\nPrzeciągnij, aby przesunąć; przewiń, aby zmienić rozmiar; kliknij prawym, aby zmienić kolory.\nSTYL KAŻDEGO WIERSZA\nStyl każdego wiersza.\nUstaw kolor tekstu oraz przezroczystość tekstu i tła osobno dla każdego wiersza.",
+      "overflow": []
+    },
+    {
+      "seconds": 30,
+      "scene": "ds",
+      "text": "🔒 disneyplus.com\n‹\nThe Long Way Home\nSezon 1, odc. 3\nLewo\nŚrodek\nPrawo\nDon't look back. We're almost there.\nNie oglądaj się. Już prawie jesteśmy.\nPrzeciągnij: przesuń / Strzałki: popraw / Kółko: rozmiar / Prawy: kolory\nPrzeciągnij, aby przesunąć\nPrzewiń, aby zmienić rozmiar\n42:18 / 1:05:30\nCC\nUstawienia wyświetlania SubDuo\n✕\nGóra\nKolor tekstu\nPrzezroczystość tła\n65%\nDół\nKolor tekstu\nPrzezroczystość tła\n65%\nPrzywróć kolory i przezroczystość\nSubDuo\nYouTube\n\nWykryto: 6 języków\n\nJęzyki\nGóra\nEnglish\nDół\nPolski\nEnglish\nPolski\nEspañol\nFrançais\nDeutsch\n日本語\nWygląd\nGóra\nDół\nKolor tekstu\nRozmiar tekstu\nPODWÓJNE NAPISY\nPodwójne napisy.\nDwa języki w jednej ramce. Oryginał u góry, Twój język na dole.\nWYBIERZ JĘZYKI\nWybierz języki.\nWybierz dwa języki w oknie rozszerzenia. Lista zawiera wszystkie napisy dostępne dla filmu.\nDOSTOSUJ NA EKRANIE\nDostosuj na ekranie.\nPrzeciągnij, aby przesunąć; przewiń, aby zmienić rozmiar; kliknij prawym, aby zmienić kolory.\nSTYL KAŻDEGO WIERSZA\nStyl każdego wiersza.\nUstaw kolor tekstu oraz przezroczystość tekstu i tła osobno dla każdego wiersza.",
+      "overflow": []
+    },
+    {
+      "seconds": 34,
+      "scene": "s5",
+      "text": "FUNKCJE\nMałe, ale przemyślane\n📺\n5 serwisów streamingowych\nPrime Video · YouTube · Netflix · Disney+ · TED\n🎬\nWybierz dwa języki\nWybierz dwa języki napisów dostępne dla tytułu — wykrywane automatycznie po rozpoczęciu odtwarzania.\n🖱️\nDostosuj na ekranie\nPrzeciągnij, aby przesunąć; przewiń, aby zmienić rozmiar; kliknij prawym, aby zmienić kolory.\n🎨\nStyl każdego wiersza\nUstaw kolor tekstu oraz przezroczystość tekstu i tła osobno dla każdego wiersza.\n☁️\nOsobne, synchronizowane ustawienia\nUstawienia są zapisywane osobno dla każdej witryny i synchronizowane przez konto Chrome.\n🛡️\nTwoja prywatność\nBezpłatnie, bez konta. Napisy zostają w przeglądarce, słowa są tłumaczone na urządzeniu. Tylko zwrot i jego kontekst są wysyłane po naciśnięciu „Zapytaj AI”.",
+      "overflow": []
+    },
+    {
+      "seconds": 38,
+      "scene": "s6",
+      "text": "Dwa języki. Jeden ekran.\nDodaj do Chrome\nBez konta i śledzenia",
+      "overflow": []
+    }
+  ],
+  "errors": []
+}

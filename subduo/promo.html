@@ -6,12 +6,13 @@
 <meta name="robots" content="noindex, nofollow">
 <title>SubDuo Promo Video</title>
 <!--
-  1920x1080 の HTML アニメーション。record-promo.mjs が page.screencast() で録画する。
-  文言は LP の辞書 (i18n-lp.js / LP_MESSAGES) をそのまま使う: promo.html?lang=ja のように開くと
+  1920x1080 の HTML アニメーション。build-promo-localized.mjs が4Kで録画する。
+  既存12言語はLPの辞書、追加8言語はpromo-locales.jsを使う。promo.html?lang=ja のように開くと
   initLP() が data-i18n / data-i18n-html を差し替える（英語が DOM 既定）。
   デモの UI は index.html のプレイヤー / ポップアップ / 右クリックパネルのモックを 1920px 向けに拡大したもの。
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800;900&family=Noto+Sans+TC:wght@400;500;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -22,6 +23,14 @@
   --text:#E2E8F0;--text-sub:#A3AECB;--text-light:#7C879F;
 }
 html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--text);font-family:'Inter','Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased}
+html[lang="ar"] body{font-family:'Noto Sans Arabic','Inter',sans-serif}
+html[lang="th"] body{font-family:'Noto Sans Thai','Inter',sans-serif}
+html[lang="bn"] body{font-family:'Noto Sans Bengali','Inter',sans-serif}
+html:is([lang="ar"],[lang="th"],[lang="bn"]) :is(.itagline,.prob-h,.steps-h,.fhead h2,.cta-ttl,.co-body b){line-height:1.5;letter-spacing:0}
+html[lang="ar"] :is(.scene,#ds){direction:ltr}
+html[lang="ar"] :is(.popup,.sd-panel,.co-body,.co-tag,.fcard,.step-card,.prob-card,.itagline,.prob-h,.steps-h,.cta-ttl,.cta-note,.fhead,.eyebrow){direction:rtl}
+html[lang="ar"] :is(.co-body,.fcard,.sd-panel){text-align:right}
+#sdA,#sdB{unicode-bidi:plaintext}
 html[lang="ja"] body{font-family:'Noto Sans JP','Inter',sans-serif}
 html[lang="ko"] body{font-family:'Noto Sans KR','Inter',sans-serif}
 html[lang="zh"] body{font-family:'Noto Sans SC','Inter',sans-serif}
@@ -365,12 +374,14 @@ html[lang="ja"] .prob-h,html[lang="zh"] .prob-h,html[lang="zh-TW"] .prob-h{font-
 </div>
 
 <script src="i18n-lp.js"></script>
+<script src="store-image-locales.js"></script>
+<script src="promo-locales.js"></script>
 <script>
 // i18n-lp.js の initLP() が DOMContentLoaded で ?lang= を読んで data-i18n を差し替える。
 // ここでは動的に入れ替える文言（字幕キュー・言語名）だけ辞書から引く。
 const $=id=>document.getElementById(id);
 function M(){const l=document.documentElement.lang||'en';return Object.assign({},LP_MESSAGES.en,LP_MESSAGES[l]||{});}
-function cue(n){const m=M();$('sdA').textContent=m['cue'+n+'_a'];$('sdB').textContent=m['cue'+n+'_b'];}
+function cue(n){const m=M();$('sdA').textContent=m['cue'+n+'_a'];$('sdB').textContent=m['cue'+n+'_b'];$('sdA').dir='auto';$('sdB').dir='auto';}
 function buildList(){
   const m=M();const names=['Español','English','Français','Deutsch','日本語','한국어'].filter(x=>x!==m.pu_lang_a&&x!==m.pu_lang_b);
   const list=[m.pu_lang_a,m.pu_lang_b,...names].slice(0,6);

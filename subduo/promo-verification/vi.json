@@ -1,0 +1,124 @@
+{
+  "wallSeconds": 39.503,
+  "coverage": {
+    "language": "vi",
+    "direction": "ltr",
+    "missing": [],
+    "timeline": [
+      0,
+      100,
+      600,
+      1100,
+      2800,
+      3000,
+      3150,
+      3550,
+      7700,
+      8000,
+      8150,
+      8450,
+      8730,
+      9010,
+      11200,
+      11500,
+      11800,
+      13200,
+      14800,
+      16200,
+      16500,
+      16800,
+      17200,
+      18000,
+      18400,
+      18900,
+      19500,
+      20100,
+      21700,
+      21800,
+      22000,
+      22300,
+      22600,
+      23300,
+      23500,
+      24900,
+      26700,
+      26900,
+      27000,
+      27300,
+      27600,
+      28400,
+      29500,
+      31200,
+      31400,
+      31500,
+      31700,
+      31830,
+      31940,
+      32050,
+      32160,
+      32270,
+      32380,
+      35000,
+      35200,
+      35550,
+      35850
+    ]
+  },
+  "states": [
+    {
+      "seconds": 2,
+      "scene": "s1",
+      "text": "SubDuo\nHai ngôn ngữ.\nMột màn hình.\n▶\nPrime Video\n▶\nYouTube\nN\nNetflix\nD\nDisney+",
+      "overflow": []
+    },
+    {
+      "seconds": 6,
+      "scene": "s2",
+      "text": "TRƯỚC ĐÂY / VỚI SUBDUO\nKhông dừng. Không tua. Không đổi.\nTRƯỚC ĐÂY\nChỉ một ngôn ngữ phụ đề\nĐổi phụ đề\nTua lại 10 giây\nCỡ chữ và vị trí cố định\nVỚI SUBDUO\nHai ngôn ngữ. Một màn hình.\nChọn hai ngôn ngữ\nKéo, đổi cỡ và căn ngay trên video\nMàu riêng từng dòng, cài đặt riêng từng trang",
+      "overflow": []
+    },
+    {
+      "seconds": 10,
+      "scene": "s3",
+      "text": "SẴN SÀNG TRONG 30 GIÂY\nCài đặt. Phát. Xong.\n1\nThêm vào Chrome\nPhát trên một trong năm dịch vụ: Prime Video, YouTube, Netflix, Disney+ & TED.\n2\nChọn hai ngôn ngữ\nChọn hai ngôn ngữ phụ đề có sẵn cho nội dung — tự động phát hiện khi bắt đầu phát.\n3\nXem và điều chỉnh\nKéo để di chuyển, cuộn để đổi cỡ, nhấp phải để đổi màu.",
+      "overflow": []
+    },
+    {
+      "seconds": 14,
+      "scene": "ds",
+      "text": "🔒 primevideo.com\n‹\nThe Long Way Home\nMùa 1, Tập 3\nTrái\nGiữa\nPhải\nDon't look back. We're almost there.\nĐừng ngoảnh lại. Chúng ta sắp đến rồi.\nKéo: di chuyển / Phím mũi tên: chỉnh / Cuộn: cỡ / Nhấp phải: màu\nKéo để di chuyển\nCuộn để đổi cỡ dòng\n42:18 / 1:05:30\nCC\nCài đặt hiển thị SubDuo\n✕\nTrên\nMàu chữ\nĐộ trong suốt nền\n25%\nDưới\nMàu chữ\nĐộ trong suốt nền\n25%\nĐặt lại màu và độ trong suốt\nSubDuo\nYouTube\n\nĐã tìm thấy: 6 ngôn ngữ\n\nNgôn ngữ\nTrên\nEnglish\nDưới\n—\nEnglish\nTiếng Việt\nEspañol\nFrançais\nDeutsch\n日本語\nGiao diện\nTrên\nDưới\nMàu chữ\nCỡ chữ\nPHỤ ĐỀ SONG NGỮ\nPhụ đề song ngữ.\nHai ngôn ngữ trong một khung. Tiếng gốc ở trên, tiếng của bạn ở dưới.\nCHỌN NGÔN NGỮ\nChọn ngôn ngữ.\nChọn hai ngôn ngữ trong cửa sổ tiện ích. Mọi phụ đề có sẵn của phim đều được liệt kê.\nCHỈNH NGAY TRÊN MÀN HÌNH\nChỉnh ngay trên màn hình.\nKéo để di chuyển, cuộn để đổi cỡ, nhấp phải để đổi màu.\nKIỂU RIÊNG TỪNG DÒNG\nKiểu riêng từng dòng.\nĐặt màu chữ, độ trong suốt chữ và nền riêng cho từng dòng.",
+      "overflow": []
+    },
+    {
+      "seconds": 20,
+      "scene": "ds",
+      "text": "🔒 youtube.com\n‹\nThe Long Way Home\nMùa 1, Tập 3\nTrái\nGiữa\nPhải\nSome doors only open once.\nCó những cánh cửa chỉ mở một lần.\nKéo: di chuyển / Phím mũi tên: chỉnh / Cuộn: cỡ / Nhấp phải: màu\nKéo để di chuyển\nCuộn để đổi cỡ dòng\n42:18 / 1:05:30\nCC\nCài đặt hiển thị SubDuo\n✕\nTrên\nMàu chữ\nĐộ trong suốt nền\n25%\nDưới\nMàu chữ\nĐộ trong suốt nền\n25%\nĐặt lại màu và độ trong suốt\nSubDuo\nYouTube\n\nĐã tìm thấy: 6 ngôn ngữ\n\nNgôn ngữ\nTrên\nEnglish\nDưới\nTiếng Việt\nEnglish\nTiếng Việt\nEspañol\nFrançais\nDeutsch\n日本語\nGiao diện\nTrên\nDưới\nMàu chữ\nCỡ chữ\nPHỤ ĐỀ SONG NGỮ\nPhụ đề song ngữ.\nHai ngôn ngữ trong một khung. Tiếng gốc ở trên, tiếng của bạn ở dưới.\nCHỌN NGÔN NGỮ\nChọn ngôn ngữ.\nChọn hai ngôn ngữ trong cửa sổ tiện ích. Mọi phụ đề có sẵn của phim đều được liệt kê.\nCHỈNH NGAY TRÊN MÀN HÌNH\nChỉnh ngay trên màn hình.\nKéo để di chuyển, cuộn để đổi cỡ, nhấp phải để đổi màu.\nKIỂU RIÊNG TỪNG DÒNG\nKiểu riêng từng dòng.\nĐặt màu chữ, độ trong suốt chữ và nền riêng cho từng dòng.",
+      "overflow": []
+    },
+    {
+      "seconds": 25,
+      "scene": "ds",
+      "text": "🔒 netflix.com\n‹\nThe Long Way Home\nMùa 1, Tập 3\nTrái\nGiữa\nPhải\nYou can't outrun the tide.\nBạn không thể chạy thoát thủy triều.\nKéo: di chuyển / Phím mũi tên: chỉnh / Cuộn: cỡ / Nhấp phải: màu\nKéo để di chuyển\nCuộn để đổi cỡ dòng\n42:18 / 1:05:30\nCC\nCài đặt hiển thị SubDuo\n✕\nTrên\nMàu chữ\nĐộ trong suốt nền\n25%\nDưới\nMàu chữ\nĐộ trong suốt nền\n25%\nĐặt lại màu và độ trong suốt\nSubDuo\nYouTube\n\nĐã tìm thấy: 6 ngôn ngữ\n\nNgôn ngữ\nTrên\nEnglish\nDưới\nTiếng Việt\nEnglish\nTiếng Việt\nEspañol\nFrançais\nDeutsch\n日本語\nGiao diện\nTrên\nDưới\nMàu chữ\nCỡ chữ\nPHỤ ĐỀ SONG NGỮ\nPhụ đề song ngữ.\nHai ngôn ngữ trong một khung. Tiếng gốc ở trên, tiếng của bạn ở dưới.\nCHỌN NGÔN NGỮ\nChọn ngôn ngữ.\nChọn hai ngôn ngữ trong cửa sổ tiện ích. Mọi phụ đề có sẵn của phim đều được liệt kê.\nCHỈNH NGAY TRÊN MÀN HÌNH\nChỉnh ngay trên màn hình.\nKéo để di chuyển, cuộn để đổi cỡ, nhấp phải để đổi màu.\nKIỂU RIÊNG TỪNG DÒNG\nKiểu riêng từng dòng.\nĐặt màu chữ, độ trong suốt chữ và nền riêng cho từng dòng.",
+      "overflow": []
+    },
+    {
+      "seconds": 30,
+      "scene": "ds",
+      "text": "🔒 disneyplus.com\n‹\nThe Long Way Home\nMùa 1, Tập 3\nTrái\nGiữa\nPhải\nDon't look back. We're almost there.\nĐừng ngoảnh lại. Chúng ta sắp đến rồi.\nKéo: di chuyển / Phím mũi tên: chỉnh / Cuộn: cỡ / Nhấp phải: màu\nKéo để di chuyển\nCuộn để đổi cỡ dòng\n42:18 / 1:05:30\nCC\nCài đặt hiển thị SubDuo\n✕\nTrên\nMàu chữ\nĐộ trong suốt nền\n65%\nDưới\nMàu chữ\nĐộ trong suốt nền\n65%\nĐặt lại màu và độ trong suốt\nSubDuo\nYouTube\n\nĐã tìm thấy: 6 ngôn ngữ\n\nNgôn ngữ\nTrên\nEnglish\nDưới\nTiếng Việt\nEnglish\nTiếng Việt\nEspañol\nFrançais\nDeutsch\n日本語\nGiao diện\nTrên\nDưới\nMàu chữ\nCỡ chữ\nPHỤ ĐỀ SONG NGỮ\nPhụ đề song ngữ.\nHai ngôn ngữ trong một khung. Tiếng gốc ở trên, tiếng của bạn ở dưới.\nCHỌN NGÔN NGỮ\nChọn ngôn ngữ.\nChọn hai ngôn ngữ trong cửa sổ tiện ích. Mọi phụ đề có sẵn của phim đều được liệt kê.\nCHỈNH NGAY TRÊN MÀN HÌNH\nChỉnh ngay trên màn hình.\nKéo để di chuyển, cuộn để đổi cỡ, nhấp phải để đổi màu.\nKIỂU RIÊNG TỪNG DÒNG\nKiểu riêng từng dòng.\nĐặt màu chữ, độ trong suốt chữ và nền riêng cho từng dòng.",
+      "overflow": []
+    },
+    {
+      "seconds": 34,
+      "scene": "s5",
+      "text": "TÍNH NĂNG\nNhỏ gọn, đầy đủ\n📺\n5 dịch vụ phát video\nPrime Video · YouTube · Netflix · Disney+ · TED\n🎬\nChọn hai ngôn ngữ\nChọn hai ngôn ngữ phụ đề có sẵn cho nội dung — tự động phát hiện khi bắt đầu phát.\n🖱️\nChỉnh ngay trên màn hình\nKéo để di chuyển, cuộn để đổi cỡ, nhấp phải để đổi màu.\n🎨\nKiểu riêng từng dòng\nĐặt màu chữ, độ trong suốt chữ và nền riêng cho từng dòng.\n☁️\nCài đặt riêng, đồng bộ từng trang\nCài đặt được lưu riêng từng trang và đồng bộ qua tài khoản Chrome.\n🛡️\nQuyền riêng tư\nMiễn phí, không cần tài khoản. Phụ đề ở trong trình duyệt, từ được dịch trên thiết bị. Chỉ cụm từ và ngữ cảnh được gửi khi bạn nhấn “Hỏi AI”.",
+      "overflow": []
+    },
+    {
+      "seconds": 38,
+      "scene": "s6",
+      "text": "Hai ngôn ngữ. Một màn hình.\nThêm vào Chrome\nKhông tài khoản, không theo dõi",
+      "overflow": []
+    }
+  ],
+  "errors": []
+}

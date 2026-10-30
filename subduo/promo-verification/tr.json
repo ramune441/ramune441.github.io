@@ -1,0 +1,124 @@
+{
+  "wallSeconds": 39.509,
+  "coverage": {
+    "language": "tr",
+    "direction": "ltr",
+    "missing": [],
+    "timeline": [
+      0,
+      100,
+      600,
+      1100,
+      2800,
+      3000,
+      3150,
+      3550,
+      7700,
+      8000,
+      8150,
+      8450,
+      8730,
+      9010,
+      11200,
+      11500,
+      11800,
+      13200,
+      14800,
+      16200,
+      16500,
+      16800,
+      17200,
+      18000,
+      18400,
+      18900,
+      19500,
+      20100,
+      21700,
+      21800,
+      22000,
+      22300,
+      22600,
+      23300,
+      23500,
+      24900,
+      26700,
+      26900,
+      27000,
+      27300,
+      27600,
+      28400,
+      29500,
+      31200,
+      31400,
+      31500,
+      31700,
+      31830,
+      31940,
+      32050,
+      32160,
+      32270,
+      32380,
+      35000,
+      35200,
+      35550,
+      35850
+    ]
+  },
+  "states": [
+    {
+      "seconds": 2,
+      "scene": "s1",
+      "text": "SubDuo\nİki dil.\nTek ekran.\n▶\nPrime Video\n▶\nYouTube\nN\nNetflix\nD\nDisney+",
+      "overflow": []
+    },
+    {
+      "seconds": 6,
+      "scene": "s2",
+      "text": "ÖNCEDEN / SUBDUO İLE\nDuraklatmadan. Sarmadan. Değiştirmeden.\nÖNCEDEN\nAynı anda yalnızca bir altyazı dili\nAltyazıyı değiştir\n10 sn geri sar\nSabit altyazı boyutu ve konumu\nSUBDUO İLE\nİki dil. Tek ekran.\nİki dil seçin\nVideonun üzerinde taşı, boyutlandır ve hizala\nHer satırın rengi, her sitenin ayarı ayrı",
+      "overflow": []
+    },
+    {
+      "seconds": 10,
+      "scene": "s3",
+      "text": "30 SANİYEDE HAZIR\nYükleyin. Oynatın. Tamam.\n1\nChrome'a ekle\nBeş hizmetten birinde oynatın: Prime Video, YouTube, Netflix, Disney+ & TED.\n2\nİki dil seçin\nİçerikte sunulan altyazı dillerinden ikisini seçin — oynatmaya başladığınızda otomatik algılanır.\n3\nİzle ve ayarla\nTaşımak için sürükle, boyut için kaydır, renk için sağ tıkla.",
+      "overflow": []
+    },
+    {
+      "seconds": 14,
+      "scene": "ds",
+      "text": "🔒 primevideo.com\n‹\nThe Long Way Home\n1. Sezon, 3. Bölüm\nSol\nOrta\nSağ\nDon't look back. We're almost there.\nArkana bakma. Neredeyse vardık.\nSürükle: taşı / Oklar: ince ayar / Kaydır: boyut / Sağ tık: renk\nTaşımak için sürükle\nBoyut için kaydır\n42:18 / 1:05:30\nCC\nSubDuo görüntü ayarları\n✕\nÜst\nYazı rengi\nArka plan saydamlığı\n25%\nAlt\nYazı rengi\nArka plan saydamlığı\n25%\nRenkleri ve saydamlığı sıfırla\nSubDuo\nYouTube\n\nAlgılandı: 6 dil\n\nDiller\nÜst\nEnglish\nAlt\n—\nEnglish\nTürkçe\nEspañol\nFrançais\nDeutsch\n日本語\nGörünüm\nÜst\nAlt\nYazı rengi\nYazı boyutu\nÇİFT ALTYAZI\nÇift altyazı.\nTek kutuda iki dil. Üstte özgün dil, altta sizin diliniz.\nDİLLERİ SEÇ\nDilleri seç.\nAçılır pencerede iki dil seçin. Yapımın tüm mevcut altyazıları listelenir.\nEKRANDA AYARLA\nEkranda ayarla.\nTaşımak için sürükle, boyut için kaydır, renk için sağ tıkla.\nHER SATIRI BİÇİMLENDİR\nHer satırı biçimlendir.\nYazı rengini, yazı ve arka plan saydamlığını her satır için ayrı ayarlayın.",
+      "overflow": []
+    },
+    {
+      "seconds": 20,
+      "scene": "ds",
+      "text": "🔒 youtube.com\n‹\nThe Long Way Home\n1. Sezon, 3. Bölüm\nSol\nOrta\nSağ\nSome doors only open once.\nBazı kapılar yalnızca bir kez açılır.\nSürükle: taşı / Oklar: ince ayar / Kaydır: boyut / Sağ tık: renk\nTaşımak için sürükle\nBoyut için kaydır\n42:18 / 1:05:30\nCC\nSubDuo görüntü ayarları\n✕\nÜst\nYazı rengi\nArka plan saydamlığı\n25%\nAlt\nYazı rengi\nArka plan saydamlığı\n25%\nRenkleri ve saydamlığı sıfırla\nSubDuo\nYouTube\n\nAlgılandı: 6 dil\n\nDiller\nÜst\nEnglish\nAlt\nTürkçe\nEnglish\nTürkçe\nEspañol\nFrançais\nDeutsch\n日本語\nGörünüm\nÜst\nAlt\nYazı rengi\nYazı boyutu\nÇİFT ALTYAZI\nÇift altyazı.\nTek kutuda iki dil. Üstte özgün dil, altta sizin diliniz.\nDİLLERİ SEÇ\nDilleri seç.\nAçılır pencerede iki dil seçin. Yapımın tüm mevcut altyazıları listelenir.\nEKRANDA AYARLA\nEkranda ayarla.\nTaşımak için sürükle, boyut için kaydır, renk için sağ tıkla.\nHER SATIRI BİÇİMLENDİR\nHer satırı biçimlendir.\nYazı rengini, yazı ve arka plan saydamlığını her satır için ayrı ayarlayın.",
+      "overflow": []
+    },
+    {
+      "seconds": 25,
+      "scene": "ds",
+      "text": "🔒 netflix.com\n‹\nThe Long Way Home\n1. Sezon, 3. Bölüm\nSol\nOrta\nSağ\nYou can't outrun the tide.\nGelgitten daha hızlı koşamazsın.\nSürükle: taşı / Oklar: ince ayar / Kaydır: boyut / Sağ tık: renk\nTaşımak için sürükle\nBoyut için kaydır\n42:18 / 1:05:30\nCC\nSubDuo görüntü ayarları\n✕\nÜst\nYazı rengi\nArka plan saydamlığı\n25%\nAlt\nYazı rengi\nArka plan saydamlığı\n25%\nRenkleri ve saydamlığı sıfırla\nSubDuo\nYouTube\n\nAlgılandı: 6 dil\n\nDiller\nÜst\nEnglish\nAlt\nTürkçe\nEnglish\nTürkçe\nEspañol\nFrançais\nDeutsch\n日本語\nGörünüm\nÜst\nAlt\nYazı rengi\nYazı boyutu\nÇİFT ALTYAZI\nÇift altyazı.\nTek kutuda iki dil. Üstte özgün dil, altta sizin diliniz.\nDİLLERİ SEÇ\nDilleri seç.\nAçılır pencerede iki dil seçin. Yapımın tüm mevcut altyazıları listelenir.\nEKRANDA AYARLA\nEkranda ayarla.\nTaşımak için sürükle, boyut için kaydır, renk için sağ tıkla.\nHER SATIRI BİÇİMLENDİR\nHer satırı biçimlendir.\nYazı rengini, yazı ve arka plan saydamlığını her satır için ayrı ayarlayın.",
+      "overflow": []
+    },
+    {
+      "seconds": 30,
+      "scene": "ds",
+      "text": "🔒 disneyplus.com\n‹\nThe Long Way Home\n1. Sezon, 3. Bölüm\nSol\nOrta\nSağ\nDon't look back. We're almost there.\nArkana bakma. Neredeyse vardık.\nSürükle: taşı / Oklar: ince ayar / Kaydır: boyut / Sağ tık: renk\nTaşımak için sürükle\nBoyut için kaydır\n42:18 / 1:05:30\nCC\nSubDuo görüntü ayarları\n✕\nÜst\nYazı rengi\nArka plan saydamlığı\n65%\nAlt\nYazı rengi\nArka plan saydamlığı\n65%\nRenkleri ve saydamlığı sıfırla\nSubDuo\nYouTube\n\nAlgılandı: 6 dil\n\nDiller\nÜst\nEnglish\nAlt\nTürkçe\nEnglish\nTürkçe\nEspañol\nFrançais\nDeutsch\n日本語\nGörünüm\nÜst\nAlt\nYazı rengi\nYazı boyutu\nÇİFT ALTYAZI\nÇift altyazı.\nTek kutuda iki dil. Üstte özgün dil, altta sizin diliniz.\nDİLLERİ SEÇ\nDilleri seç.\nAçılır pencerede iki dil seçin. Yapımın tüm mevcut altyazıları listelenir.\nEKRANDA AYARLA\nEkranda ayarla.\nTaşımak için sürükle, boyut için kaydır, renk için sağ tıkla.\nHER SATIRI BİÇİMLENDİR\nHer satırı biçimlendir.\nYazı rengini, yazı ve arka plan saydamlığını her satır için ayrı ayarlayın.",
+      "overflow": []
+    },
+    {
+      "seconds": 34,
+      "scene": "s5",
+      "text": "ÖZELLİKLER\nKüçük ama özenli\n📺\n5 yayın hizmeti\nPrime Video · YouTube · Netflix · Disney+ · TED\n🎬\nİki dil seçin\nİçerikte sunulan altyazı dillerinden ikisini seçin — oynatmaya başladığınızda otomatik algılanır.\n🖱️\nEkranda ayarla\nTaşımak için sürükle, boyut için kaydır, renk için sağ tıkla.\n🎨\nHer satırı biçimlendir\nYazı rengini, yazı ve arka plan saydamlığını her satır için ayrı ayarlayın.\n☁️\nSiteye özel, eşitlenen ayarlar\nAyarlar her site için ayrı kaydedilir ve Chrome hesabınızla eşitlenir.\n🛡️\nGizliliğiniz\nÜcretsiz, hesap gerekmez. Altyazılar tarayıcınızda kalır, sözcükler cihazınızda çevrilir. Yalnızca “Yapay zekâya sor”a bastığınızda ifade ve bağlamı gönderilir.",
+      "overflow": []
+    },
+    {
+      "seconds": 38,
+      "scene": "s6",
+      "text": "İki dil. Tek ekran.\nChrome'a ekle\nHesap yok, takip yok",
+      "overflow": []
+    }
+  ],
+  "errors": []
+}

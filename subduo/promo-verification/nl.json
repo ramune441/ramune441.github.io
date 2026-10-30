@@ -1,0 +1,124 @@
+{
+  "wallSeconds": 39.512,
+  "coverage": {
+    "language": "nl",
+    "direction": "ltr",
+    "missing": [],
+    "timeline": [
+      0,
+      100,
+      600,
+      1100,
+      2800,
+      3000,
+      3150,
+      3550,
+      7700,
+      8000,
+      8150,
+      8450,
+      8730,
+      9010,
+      11200,
+      11500,
+      11800,
+      13200,
+      14800,
+      16200,
+      16500,
+      16800,
+      17200,
+      18000,
+      18400,
+      18900,
+      19500,
+      20100,
+      21700,
+      21800,
+      22000,
+      22300,
+      22600,
+      23300,
+      23500,
+      24900,
+      26700,
+      26900,
+      27000,
+      27300,
+      27600,
+      28400,
+      29500,
+      31200,
+      31400,
+      31500,
+      31700,
+      31830,
+      31940,
+      32050,
+      32160,
+      32270,
+      32380,
+      35000,
+      35200,
+      35550,
+      35850
+    ]
+  },
+  "states": [
+    {
+      "seconds": 2,
+      "scene": "s1",
+      "text": "SubDuo\nTwee talen.\nEén scherm.\n▶\nPrime Video\n▶\nYouTube\nN\nNetflix\nD\nDisney+",
+      "overflow": []
+    },
+    {
+      "seconds": 6,
+      "scene": "s2",
+      "text": "VOORHEEN / MET SUBDUO\nNiet pauzeren. Niet terugspoelen. Niet wisselen.\nVOORHEEN\nEén ondertitelingstaal tegelijk\nOndertiteling wisselen\n10 s terug\nVaste grootte en positie\nMET SUBDUO\nTwee talen. Eén scherm.\nKies twee talen\nSleep, schaal en lijn uit op de video\nEigen kleuren per regel, instellingen per site",
+      "overflow": []
+    },
+    {
+      "seconds": 10,
+      "scene": "s3",
+      "text": "KLAAR IN 30 SECONDEN\nInstalleren. Afspelen. Klaar.\n1\nToevoegen aan Chrome\nAfspelen op een van de vijf diensten: Prime Video, YouTube, Netflix, Disney+ & TED.\n2\nKies twee talen\nKies twee ondertiteltalen die de titel aanbiedt — automatisch gevonden zodra je afspeelt.\n3\nKijk en pas aan\nSleep om te verplaatsen, scroll voor de grootte en klik rechts voor kleuren.",
+      "overflow": []
+    },
+    {
+      "seconds": 14,
+      "scene": "ds",
+      "text": "🔒 primevideo.com\n‹\nThe Long Way Home\nSeizoen 1, afl. 3\nLinks\nMidden\nRechts\nDon't look back. We're almost there.\nKijk niet om. We zijn er bijna.\nSlepen: verplaatsen / Pijlen: bijstellen / Scrollen: grootte / Rechtsklik: kleuren\nSleep om te verplaatsen\nScroll om de regel te vergroten\n42:18 / 1:05:30\nCC\nSubDuo-weergave-instellingen\n✕\nBoven\nTekstkleur\nAchtergrondtransparantie\n25%\nOnder\nTekstkleur\nAchtergrondtransparantie\n25%\nKleuren en transparantie herstellen\nSubDuo\nYouTube\n\nGevonden: 6 talen\n\nTalen\nBoven\nEnglish\nOnder\n—\nEnglish\nNederlands\nEspañol\nFrançais\nDeutsch\n日本語\nWeergave\nBoven\nOnder\nTekstkleur\nTekstgrootte\nDUBBELE ONDERTITELING\nDubbele ondertiteling.\nTwee talen in één kader. Het origineel boven, jouw taal onder.\nKIES TALEN\nKies talen.\nKies twee talen in de pop-up. Alle ondertitels van de titel staan in de lijst.\nPAS AAN OP HET SCHERM\nPas aan op het scherm.\nSleep om te verplaatsen, scroll voor de grootte en klik rechts voor kleuren.\nSTIJL PER REGEL\nStijl per regel.\nStel tekstkleur, teksttransparantie en achtergrondtransparantie per regel in.",
+      "overflow": []
+    },
+    {
+      "seconds": 20,
+      "scene": "ds",
+      "text": "🔒 youtube.com\n‹\nThe Long Way Home\nSeizoen 1, afl. 3\nLinks\nMidden\nRechts\nSome doors only open once.\nSommige deuren gaan maar één keer open.\nSlepen: verplaatsen / Pijlen: bijstellen / Scrollen: grootte / Rechtsklik: kleuren\nSleep om te verplaatsen\nScroll om de regel te vergroten\n42:18 / 1:05:30\nCC\nSubDuo-weergave-instellingen\n✕\nBoven\nTekstkleur\nAchtergrondtransparantie\n25%\nOnder\nTekstkleur\nAchtergrondtransparantie\n25%\nKleuren en transparantie herstellen\nSubDuo\nYouTube\n\nGevonden: 6 talen\n\nTalen\nBoven\nEnglish\nOnder\nNederlands\nEnglish\nNederlands\nEspañol\nFrançais\nDeutsch\n日本語\nWeergave\nBoven\nOnder\nTekstkleur\nTekstgrootte\nDUBBELE ONDERTITELING\nDubbele ondertiteling.\nTwee talen in één kader. Het origineel boven, jouw taal onder.\nKIES TALEN\nKies talen.\nKies twee talen in de pop-up. Alle ondertitels van de titel staan in de lijst.\nPAS AAN OP HET SCHERM\nPas aan op het scherm.\nSleep om te verplaatsen, scroll voor de grootte en klik rechts voor kleuren.\nSTIJL PER REGEL\nStijl per regel.\nStel tekstkleur, teksttransparantie en achtergrondtransparantie per regel in.",
+      "overflow": []
+    },
+    {
+      "seconds": 25,
+      "scene": "ds",
+      "text": "🔒 netflix.com\n‹\nThe Long Way Home\nSeizoen 1, afl. 3\nLinks\nMidden\nRechts\nYou can't outrun the tide.\nJe kunt het getij niet ontlopen.\nSlepen: verplaatsen / Pijlen: bijstellen / Scrollen: grootte / Rechtsklik: kleuren\nSleep om te verplaatsen\nScroll om de regel te vergroten\n42:18 / 1:05:30\nCC\nSubDuo-weergave-instellingen\n✕\nBoven\nTekstkleur\nAchtergrondtransparantie\n25%\nOnder\nTekstkleur\nAchtergrondtransparantie\n25%\nKleuren en transparantie herstellen\nSubDuo\nYouTube\n\nGevonden: 6 talen\n\nTalen\nBoven\nEnglish\nOnder\nNederlands\nEnglish\nNederlands\nEspañol\nFrançais\nDeutsch\n日本語\nWeergave\nBoven\nOnder\nTekstkleur\nTekstgrootte\nDUBBELE ONDERTITELING\nDubbele ondertiteling.\nTwee talen in één kader. Het origineel boven, jouw taal onder.\nKIES TALEN\nKies talen.\nKies twee talen in de pop-up. Alle ondertitels van de titel staan in de lijst.\nPAS AAN OP HET SCHERM\nPas aan op het scherm.\nSleep om te verplaatsen, scroll voor de grootte en klik rechts voor kleuren.\nSTIJL PER REGEL\nStijl per regel.\nStel tekstkleur, teksttransparantie en achtergrondtransparantie per regel in.",
+      "overflow": []
+    },
+    {
+      "seconds": 30,
+      "scene": "ds",
+      "text": "🔒 disneyplus.com\n‹\nThe Long Way Home\nSeizoen 1, afl. 3\nLinks\nMidden\nRechts\nDon't look back. We're almost there.\nKijk niet om. We zijn er bijna.\nSlepen: verplaatsen / Pijlen: bijstellen / Scrollen: grootte / Rechtsklik: kleuren\nSleep om te verplaatsen\nScroll om de regel te vergroten\n42:18 / 1:05:30\nCC\nSubDuo-weergave-instellingen\n✕\nBoven\nTekstkleur\nAchtergrondtransparantie\n65%\nOnder\nTekstkleur\nAchtergrondtransparantie\n65%\nKleuren en transparantie herstellen\nSubDuo\nYouTube\n\nGevonden: 6 talen\n\nTalen\nBoven\nEnglish\nOnder\nNederlands\nEnglish\nNederlands\nEspañol\nFrançais\nDeutsch\n日本語\nWeergave\nBoven\nOnder\nTekstkleur\nTekstgrootte\nDUBBELE ONDERTITELING\nDubbele ondertiteling.\nTwee talen in één kader. Het origineel boven, jouw taal onder.\nKIES TALEN\nKies talen.\nKies twee talen in de pop-up. Alle ondertitels van de titel staan in de lijst.\nPAS AAN OP HET SCHERM\nPas aan op het scherm.\nSleep om te verplaatsen, scroll voor de grootte en klik rechts voor kleuren.\nSTIJL PER REGEL\nStijl per regel.\nStel tekstkleur, teksttransparantie en achtergrondtransparantie per regel in.",
+      "overflow": []
+    },
+    {
+      "seconds": 34,
+      "scene": "s5",
+      "text": "FUNCTIES\nKlein en doordacht\n📺\n5 streamingdiensten\nPrime Video · YouTube · Netflix · Disney+ · TED\n🎬\nKies twee talen\nKies twee ondertiteltalen die de titel aanbiedt — automatisch gevonden zodra je afspeelt.\n🖱️\nPas aan op het scherm\nSleep om te verplaatsen, scroll voor de grootte en klik rechts voor kleuren.\n🎨\nStijl per regel\nStel tekstkleur, teksttransparantie en achtergrondtransparantie per regel in.\n☁️\nEigen instellingen per site, gesynchroniseerd\nInstellingen worden per site bewaard en via je Chrome-account gesynchroniseerd.\n🛡️\nJouw privacy\nGratis, zonder account. Ondertiteling blijft in je browser, woorden worden op je apparaat vertaald. Alleen als je op ‘Vraag AI’ tikt, worden de woordgroep en context verstuurd.",
+      "overflow": []
+    },
+    {
+      "seconds": 38,
+      "scene": "s6",
+      "text": "Twee talen. Eén scherm.\nToevoegen aan Chrome\nGeen account of tracking",
+      "overflow": []
+    }
+  ],
+  "errors": []
+}

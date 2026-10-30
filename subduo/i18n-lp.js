@@ -1,5 +1,5 @@
 // SubDuo Landing Page — Internationalization
-// Supports the same 12 languages as the extension UI:
+// LP supports 12 languages; promo-locales.js adds eight locales for the video:
 //   en, ja, zh (简体), zh-TW (繁體), ko, es, fr, de, it, pt, ru, hi
 // Keys with HTML go through data-i18n-html; the rest are plain text (data-i18n).
 // Demo cues: cueN_a = top line (original language), cueN_b = bottom line (viewer's language).

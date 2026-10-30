@@ -56,15 +56,18 @@ FormPilot の言語別URLは `/formpilot/<lang>/`、`/guide.html`、`/privacy-po
 | Bing | `msvalidate.01` = `1C375C5F8B9811B7B6156E4202B36EA4`（ポータル＋ `BingSiteAuth.xml`） |
 
 ## YouTube 動画 ID（言語別。LP の `LP_VIDEO_IDS` とストアのプロモ動画欄に使う）
+- SubDuoの採用URLは `subduo/youtube-store-videos.json`、追加8言語の動画・字幕・ハッシュ・投稿IDは `subduo/youtube-promo-localized.json` を正とする。既存動画のIDを再生成時に上書きしない。
+
 | プロダクト | en | ja | zh | zh-TW | ko | es | fr | de | it | pt | ru | hi | id | ar |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | FormPilot | c02Ka-_WdIE | 2Caux6fcero | 3RzbNsLkw6Q | | qqjFaQIk0IQ | 4eLZeM5lRLo | ljIlLc6FTM8 | FhwzRQyPnQo | | df5TcuOgLvM | | ZSdSh7UxRnc | nmI-oOZIHRs | Uue8B-AuAj4 |
 | SendReady | EgFYF6ePogI | XJfutrY5Hi4 | O14tQiPTOuM | | EP851RRJ960 | i5upjawC5Wc | yy85fFNBexM | A27lAS3KP6A | | gUgKhme1FLg | | XCgpLPoVV8I | vuDxSAuPJJk | 4li9HWk8jf0 |
-| SubDuo | Bt77OCrpUnk | Jp1TjBxZxto | eoimxCj4PRs | 2VWXTUd_mV0 | QppIza5SWs0 | VkRPztFOxeE | tRGVESBz834 | 1t2N-RPqfM8 | mDftA2N5ZnI | 8OrAuDa_F54 | 1l8z_GPCpL8 | rfBC1whtjyU | | |
 | Ripen | YWXSLB3oNIk | ZQU_WGjQm_I | IfsfJfg0vNo | | WPGNv3VMRiw | NbepPxeCQCQ | ckaQ6bCZWyk | CZ40F6x5vhk | ick4Fth687I | XyePSrbkaps | s7OqzqooMc8 | pUys6pfdarU | | nfaGKUhp_J8 |
-- チャンネルは「Just One More Animal」。掲載タイトル・説明文は `subduo/youtube.json`・`sendready-chrome/youtube.json`・`ripen/images/promo/audio/youtube.json`。
+- チャンネルは「Just One More Animal」。SubDuoの既存12言語の投稿情報は `subduo/youtube.json`、他製品は `sendready-chrome/youtube.json`・`ripen/images/promo/audio/youtube.json`。
 
 ## 素材のファイル名と仕様
+SubDuo の画像言語コードは `en / ja / zh / zh-TW / ko / es / fr / de / pt / hi / id / ar / vi / it / tr / pl / th / nl / ru / bn`。英語は `subduo/images/`、他はその配下の言語フォルダに置く。拡張の `zh_CN / zh_TW / pt_BR` はそれぞれ `zh / zh-TW / pt` に対応する。
+
 | 素材 | 仕様 |
 |---|---|
 | ストア用プロモ動画 `promo[-lang].webm` | VP9 / yuv420p / 1920x1080 / 30fps / 無音。en は無印 |

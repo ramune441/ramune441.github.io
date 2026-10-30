@@ -1,0 +1,124 @@
+{
+  "wallSeconds": 39.509,
+  "coverage": {
+    "language": "id",
+    "direction": "ltr",
+    "missing": [],
+    "timeline": [
+      0,
+      100,
+      600,
+      1100,
+      2800,
+      3000,
+      3150,
+      3550,
+      7700,
+      8000,
+      8150,
+      8450,
+      8730,
+      9010,
+      11200,
+      11500,
+      11800,
+      13200,
+      14800,
+      16200,
+      16500,
+      16800,
+      17200,
+      18000,
+      18400,
+      18900,
+      19500,
+      20100,
+      21700,
+      21800,
+      22000,
+      22300,
+      22600,
+      23300,
+      23500,
+      24900,
+      26700,
+      26900,
+      27000,
+      27300,
+      27600,
+      28400,
+      29500,
+      31200,
+      31400,
+      31500,
+      31700,
+      31830,
+      31940,
+      32050,
+      32160,
+      32270,
+      32380,
+      35000,
+      35200,
+      35550,
+      35850
+    ]
+  },
+  "states": [
+    {
+      "seconds": 2,
+      "scene": "s1",
+      "text": "SubDuo\nDua bahasa.\nSatu layar.\n▶\nPrime Video\n▶\nYouTube\nN\nNetflix\nD\nDisney+",
+      "overflow": []
+    },
+    {
+      "seconds": 6,
+      "scene": "s2",
+      "text": "SEBELUMNYA / DENGAN SUBDUO\nTanpa jeda. Tanpa mundur. Tanpa berganti.\nSEBELUMNYA\nHanya satu bahasa takarir\nGanti takarir\nMundur 10 detik\nUkuran dan posisi takarir tetap\nDENGAN SUBDUO\nDua bahasa. Satu layar.\nPilih dua bahasa\nSeret, ubah ukuran dan perataan di video\nWarna tiap baris, pengaturan tiap situs",
+      "overflow": []
+    },
+    {
+      "seconds": 10,
+      "scene": "s3",
+      "text": "SIAP DALAM 30 DETIK\nPasang. Putar. Selesai.\n1\nTambahkan ke Chrome\nPutar di salah satu dari lima layanan: Prime Video, YouTube, Netflix, Disney+ & TED.\n2\nPilih dua bahasa\nPilih dua bahasa takarir yang tersedia untuk judul itu — terdeteksi otomatis saat video diputar.\n3\nTonton dan sesuaikan\nSeret untuk memindah, gulir untuk ukuran, klik kanan untuk warna.",
+      "overflow": []
+    },
+    {
+      "seconds": 14,
+      "scene": "ds",
+      "text": "🔒 primevideo.com\n‹\nThe Long Way Home\nMusim 1, Episode 3\nKiri\nTengah\nKanan\nDon't look back. We're almost there.\nJangan menoleh. Kita hampir sampai.\nSeret: pindah / Panah: geser / Gulir: ukuran / Klik kanan: warna\nSeret untuk memindah\nGulir untuk mengubah ukuran\n42:18 / 1:05:30\nCC\nPengaturan tampilan SubDuo\n✕\nAtas\nWarna teks\nTransparansi latar\n25%\nBawah\nWarna teks\nTransparansi latar\n25%\nAtur ulang warna dan transparansi\nSubDuo\nYouTube\n\nTerdeteksi: 6 bahasa\n\nBahasa\nAtas\nEnglish\nBawah\n—\nEnglish\nBahasa Indonesia\nEspañol\nFrançais\nDeutsch\n日本語\nTampilan\nAtas\nBawah\nWarna teks\nUkuran teks\nTAKARIR GANDA\nTakarir ganda.\nDua bahasa dalam satu kotak. Bahasa asli di atas, bahasa Anda di bawah.\nPILIH BAHASA\nPilih bahasa.\nPilih dua bahasa di popup. Semua takarir yang tersedia untuk judul itu ditampilkan.\nATUR DI LAYAR\nAtur di layar.\nSeret untuk memindah, gulir untuk ukuran, klik kanan untuk warna.\nGAYA TIAP BARIS\nGaya tiap baris.\nAtur warna teks serta transparansi teks dan latar secara terpisah untuk tiap baris.",
+      "overflow": []
+    },
+    {
+      "seconds": 20,
+      "scene": "ds",
+      "text": "🔒 youtube.com\n‹\nThe Long Way Home\nMusim 1, Episode 3\nKiri\nTengah\nKanan\nSome doors only open once.\nBeberapa pintu hanya terbuka sekali.\nSeret: pindah / Panah: geser / Gulir: ukuran / Klik kanan: warna\nSeret untuk memindah\nGulir untuk mengubah ukuran\n42:18 / 1:05:30\nCC\nPengaturan tampilan SubDuo\n✕\nAtas\nWarna teks\nTransparansi latar\n25%\nBawah\nWarna teks\nTransparansi latar\n25%\nAtur ulang warna dan transparansi\nSubDuo\nYouTube\n\nTerdeteksi: 6 bahasa\n\nBahasa\nAtas\nEnglish\nBawah\nBahasa Indonesia\nEnglish\nBahasa Indonesia\nEspañol\nFrançais\nDeutsch\n日本語\nTampilan\nAtas\nBawah\nWarna teks\nUkuran teks\nTAKARIR GANDA\nTakarir ganda.\nDua bahasa dalam satu kotak. Bahasa asli di atas, bahasa Anda di bawah.\nPILIH BAHASA\nPilih bahasa.\nPilih dua bahasa di popup. Semua takarir yang tersedia untuk judul itu ditampilkan.\nATUR DI LAYAR\nAtur di layar.\nSeret untuk memindah, gulir untuk ukuran, klik kanan untuk warna.\nGAYA TIAP BARIS\nGaya tiap baris.\nAtur warna teks serta transparansi teks dan latar secara terpisah untuk tiap baris.",
+      "overflow": []
+    },
+    {
+      "seconds": 25,
+      "scene": "ds",
+      "text": "🔒 netflix.com\n‹\nThe Long Way Home\nMusim 1, Episode 3\nKiri\nTengah\nKanan\nYou can't outrun the tide.\nKau tak bisa berlari lebih cepat dari pasang laut.\nSeret: pindah / Panah: geser / Gulir: ukuran / Klik kanan: warna\nSeret untuk memindah\nGulir untuk mengubah ukuran\n42:18 / 1:05:30\nCC\nPengaturan tampilan SubDuo\n✕\nAtas\nWarna teks\nTransparansi latar\n25%\nBawah\nWarna teks\nTransparansi latar\n25%\nAtur ulang warna dan transparansi\nSubDuo\nYouTube\n\nTerdeteksi: 6 bahasa\n\nBahasa\nAtas\nEnglish\nBawah\nBahasa Indonesia\nEnglish\nBahasa Indonesia\nEspañol\nFrançais\nDeutsch\n日本語\nTampilan\nAtas\nBawah\nWarna teks\nUkuran teks\nTAKARIR GANDA\nTakarir ganda.\nDua bahasa dalam satu kotak. Bahasa asli di atas, bahasa Anda di bawah.\nPILIH BAHASA\nPilih bahasa.\nPilih dua bahasa di popup. Semua takarir yang tersedia untuk judul itu ditampilkan.\nATUR DI LAYAR\nAtur di layar.\nSeret untuk memindah, gulir untuk ukuran, klik kanan untuk warna.\nGAYA TIAP BARIS\nGaya tiap baris.\nAtur warna teks serta transparansi teks dan latar secara terpisah untuk tiap baris.",
+      "overflow": []
+    },
+    {
+      "seconds": 30,
+      "scene": "ds",
+      "text": "🔒 disneyplus.com\n‹\nThe Long Way Home\nMusim 1, Episode 3\nKiri\nTengah\nKanan\nDon't look back. We're almost there.\nJangan menoleh. Kita hampir sampai.\nSeret: pindah / Panah: geser / Gulir: ukuran / Klik kanan: warna\nSeret untuk memindah\nGulir untuk mengubah ukuran\n42:18 / 1:05:30\nCC\nPengaturan tampilan SubDuo\n✕\nAtas\nWarna teks\nTransparansi latar\n65%\nBawah\nWarna teks\nTransparansi latar\n65%\nAtur ulang warna dan transparansi\nSubDuo\nYouTube\n\nTerdeteksi: 6 bahasa\n\nBahasa\nAtas\nEnglish\nBawah\nBahasa Indonesia\nEnglish\nBahasa Indonesia\nEspañol\nFrançais\nDeutsch\n日本語\nTampilan\nAtas\nBawah\nWarna teks\nUkuran teks\nTAKARIR GANDA\nTakarir ganda.\nDua bahasa dalam satu kotak. Bahasa asli di atas, bahasa Anda di bawah.\nPILIH BAHASA\nPilih bahasa.\nPilih dua bahasa di popup. Semua takarir yang tersedia untuk judul itu ditampilkan.\nATUR DI LAYAR\nAtur di layar.\nSeret untuk memindah, gulir untuk ukuran, klik kanan untuk warna.\nGAYA TIAP BARIS\nGaya tiap baris.\nAtur warna teks serta transparansi teks dan latar secara terpisah untuk tiap baris.",
+      "overflow": []
+    },
+    {
+      "seconds": 34,
+      "scene": "s5",
+      "text": "FITUR\nKecil, tetapi lengkap\n📺\n5 layanan streaming\nPrime Video · YouTube · Netflix · Disney+ · TED\n🎬\nPilih dua bahasa\nPilih dua bahasa takarir yang tersedia untuk judul itu — terdeteksi otomatis saat video diputar.\n🖱️\nAtur di layar\nSeret untuk memindah, gulir untuk ukuran, klik kanan untuk warna.\n🎨\nGaya tiap baris\nAtur warna teks serta transparansi teks dan latar secara terpisah untuk tiap baris.\n☁️\nPengaturan per situs, tersinkron\nPengaturan disimpan per situs dan disinkronkan melalui akun Chrome Anda.\n🛡️\nPrivasi Anda\nGratis, tanpa akun. Takarir tetap di browser, terjemahan kata di perangkat. Hanya frasa dan konteksnya yang dikirim saat Anda menekan “Tanya AI”.",
+      "overflow": []
+    },
+    {
+      "seconds": 38,
+      "scene": "s6",
+      "text": "Dua bahasa. Satu layar.\nTambahkan ke Chrome\nTanpa akun atau pelacakan",
+      "overflow": []
+    }
+  ],
+  "errors": []
+}

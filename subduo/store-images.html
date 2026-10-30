@@ -5,16 +5,21 @@
 <meta name="robots" content="noindex, nofollow">
 <title>SubDuo Store Images</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap">
 <style>
-/* Generator for Chrome Web Store assets. Screenshot each #id element with Puppeteer (record-store.mjs).
+/* Generator for Chrome Web Store assets. Screenshot each #id element with Puppeteer (render-store-images.mjs).
    ?lang=xx swaps all text (en = DOM default). Colors mirror the LP (index.html).
    Story of the 5 shots: 1 hook (full-bleed scene, 5 services) → 2 pain/solution (before/after)
    → 3 look up a word (double-click) + vocabulary → 4 any language pair → 5 zero friction (3 steps + trust). */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#3a3f52; -webkit-font-smoothing:antialiased; padding:40px 0;
-  font-family:'Inter','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans TC','Noto Sans Devanagari','Segoe UI',sans-serif; }
+  font-family:'Inter','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans TC','Noto Sans Devanagari','Noto Sans Arabic','Noto Sans Thai','Noto Sans Bengali','Segoe UI',sans-serif; }
 body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
+body.complex .eyebrow { letter-spacing:0; }
+body.complex .vb-head, body.complex .ve-head { line-height:1.4; }
+body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
+[dir="auto"] { unicode-bidi:isolate; }
+.svc, .brand, .fb-brand, .tile-brand { direction:ltr; unicode-bidi:isolate; }
 :root{
   --navy:#0F2A3F; --cy:#38B6FF; --cy-deep:#00A8E1; --cy-pale:#8FD0FF; --yel:#FFD76A;
   --t1:#FFFFFF; --t2:#B8C4DA; --t3:#7C879F;
@@ -188,7 +193,7 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
 .ve-phrase { font-size:18px; font-weight:800; }
 .ve-speak { color:#9aa1aa; font-size:14px; }
 .ve-pron { color:#9aa1aa; font-size:13px; }
-.ve-lang { padding:1px 8px; border:1px solid #3a3f46; border-radius:999px; color:#9aa1aa; font-size:11.5px; margin-left:auto; white-space:nowrap; }
+.ve-lang { padding:1px 8px; border:1px solid #3a3f46; border-radius:999px; color:#9aa1aa; font-size:11.5px; margin-inline-start:auto; white-space:nowrap; }
 .ve p { margin:0 0 4px; line-height:1.5; }
 .ve-meaning { font-weight:700; }
 .ve-ex { font-style:italic; }
@@ -473,7 +478,7 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
       <div class="st-row"><span class="num">3</span><span class="st" data-i="st3">Pick two languages</span></div>
     </div>
   </div>
-  <div class="pills"><span class="pill" data-i="p1">🚫 No account, no tracking</span><span class="pill" data-i="p2">📺 5 streaming services</span><span class="pill" data-i="p3">🎨 Drag, resize, recolor on screen</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 Pick from 12 display languages</span></div>
+  <div class="pills"><span class="pill" data-i="p1">🚫 No account, no tracking</span><span class="pill" data-i="p2">📺 5 streaming services</span><span class="pill" data-i="p3">🎨 Drag, resize, recolor on screen</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 Pick from 20 display languages</span></div>
 </div>
 
 <!-- ════ SMALL PROMO TILE (440x280, en only) ════ -->
@@ -513,6 +518,7 @@ body.nolat .cap h1, body.nolat .fb-title { letter-spacing:0; }
   </div>
 </div>
 
+<script src="store-image-locales.js"></script>
 <script>
 // ?lang=xx swaps all text. en is the DOM default.
 // Cues: cueN_a = top line (original language), cueN_b = bottom line (viewer's language).
@@ -535,7 +541,7 @@ ja: {
   e4:"🌐 組み合わせは自由", h4:"英語×日本語も、韓国語×日本語も。", s4:"作品に用意された字幕から、上段と下段に好きな言語を1つずつ。再生すれば自動で検出します。",
   e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕はブラウザの外に出ず、語の訳も端末内で。外部に送るのは「AIに聞く」を押した語句だけです。",
   st1:"Chrome に追加", st2:"5サービスのどれかで再生", st3:"言語を2つ選ぶ", addbtn:"Chrome に追加", pu_top:"上段", pu_bottom:"下段",
-  p1:"🚫 アカウント不要・追跡なし", p2:"📺 5つの配信サービス", p3:"🎨 画面上でドラッグ・拡大・色変更", p4:"☁️ サイトごとの設定・同期", p5:"🌏 表示は12言語から選べる",
+  p1:"🚫 アカウント不要・追跡なし", p2:"📺 5つの配信サービス", p3:"🎨 画面上でドラッグ・拡大・色変更", p4:"☁️ サイトごとの設定・同期", p5:"🌏 表示は20言語から選べる",
   fb_badge:"🎬 無料 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video・YouTube・Netflix・Disney+・TED の二言語字幕。語をダブルクリックで意味を表示、そのまま単語帳へ。",
   fbp1:"📺 5つの配信サービス", fbp2:"🌐 好きな2言語", fbp3:"📖 ダブルクリックで解説", fbp4:"🖱️ 画面上で調整"
 },
@@ -555,7 +561,7 @@ zh: {
   e4:"🌐 任意组合", h4:"英语×中文，日语×中文，随你搭配。", s4:"从影片自带的字幕中，为上行和下行各选一种语言 —— 按下播放即自动检测。",
   e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。字幕不会离开浏览器，词语也在设备上翻译 —— 只有点“询问 AI”时才会发送该词语。",
   st1:"添加至 Chrome", st2:"在五个平台任一播放", st3:"选择两种语言", addbtn:"添加至 Chrome", pu_top:"上行", pu_bottom:"下行",
-  p1:"🚫 无需账号、不追踪", p2:"📺 5 个流媒体平台", p3:"🎨 屏幕上拖动、缩放、改色", p4:"☁️ 按网站保存并同步", p5:"🌏 12 种显示语言任选",
+  p1:"🚫 无需账号、不追踪", p2:"📺 5 个流媒体平台", p3:"🎨 屏幕上拖动、缩放、改色", p4:"☁️ 按网站保存并同步", p5:"🌏 20 种显示语言任选",
   fb_badge:"🎬 免费 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的双语字幕。双击查词义，一键存入生词本。",
   fbp1:"📺 5 个流媒体平台", fbp2:"🌐 任选两种语言", fbp3:"📖 双击查词", fbp4:"🖱️ 屏幕上调整"
 },
@@ -575,7 +581,7 @@ zh: {
   e4:"🌐 任意組合", h4:"英文×中文，日文×中文，隨你搭配。", s4:"從影片內建的字幕中，為上排與下排各選一種語言 —— 按下播放即自動偵測。",
   e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。字幕不會離開瀏覽器，字詞也在裝置上翻譯 —— 只有按「詢問 AI」時才會傳送該字詞。",
   st1:"加到 Chrome", st2:"在五個平台任一播放", st3:"選擇兩種語言", addbtn:"加到 Chrome", pu_top:"上排", pu_bottom:"下排",
-  p1:"🚫 不需帳號、不追蹤", p2:"📺 5 個串流平台", p3:"🎨 畫面上拖曳、縮放、改色", p4:"☁️ 依網站保存並同步", p5:"🌏 12 種顯示語言任選",
+  p1:"🚫 不需帳號、不追蹤", p2:"📺 5 個串流平台", p3:"🎨 畫面上拖曳、縮放、改色", p4:"☁️ 依網站保存並同步", p5:"🌏 20 種顯示語言任選",
   fb_badge:"🎬 免費 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的雙語字幕。雙擊查字義，一鍵存入單字本。",
   fbp1:"📺 5 個串流平台", fbp2:"🌐 任選兩種語言", fbp3:"📖 雙擊查字", fbp4:"🖱️ 畫面上調整"
 },
@@ -595,7 +601,7 @@ ko: {
   e4:"🌐 조합은 자유", h4:"영어×한국어도, 일본어×한국어도.", s4:"작품에 있는 자막 중 위와 아래에 원하는 언어를 하나씩 — 재생하면 자동으로 감지합니다.",
   e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. 자막은 브라우저 밖으로 나가지 않고 단어도 기기에서 번역합니다 — 'AI에게 묻기'를 누를 때만 그 단어가 전송됩니다.",
   st1:"Chrome에 추가", st2:"다섯 서비스 중 아무거나 재생", st3:"언어 두 개 선택", addbtn:"Chrome에 추가", pu_top:"위", pu_bottom:"아래",
-  p1:"🚫 계정 불필요 · 추적 없음", p2:"📺 5개 스트리밍 서비스", p3:"🎨 화면에서 드래그·크기·색상", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 표시 언어 12개 중 선택",
+  p1:"🚫 계정 불필요 · 추적 없음", p2:"📺 5개 스트리밍 서비스", p3:"🎨 화면에서 드래그·크기·색상", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 표시 언어 20개 중 선택",
   fb_badge:"🎬 무료 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video·YouTube·Netflix·Disney+·TED 이중 자막. 더블클릭으로 단어 뜻을 보고 단어장에 저장.",
   fbp1:"📺 5개 스트리밍 서비스", fbp2:"🌐 원하는 두 언어", fbp3:"📖 더블클릭으로 단어 뜻", fbp4:"🖱️ 화면에서 조절"
 },
@@ -615,7 +621,7 @@ es: {
   e4:"🌐 LA PAREJA QUE QUIERAS", h4:"Inglés × español. Francés × español. Tú decides.", s4:"Elige dos de los idiomas de subtítulos que ofrece el título: se detectan solos al pulsar reproducir.",
   e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Los subtítulos no salen de tu navegador y las palabras se traducen en tu dispositivo: solo se envía una palabra si pulsas «Preguntar a la IA».",
   st1:"Añadir a Chrome", st2:"Reproduce en cualquiera de los cinco", st3:"Elegir dos idiomas", addbtn:"Añadir a Chrome", pu_top:"Arriba", pu_bottom:"Abajo",
-  p1:"🚫 Sin cuenta ni rastreo", p2:"📺 5 servicios de streaming", p3:"🎨 Mueve, redimensiona y colorea en pantalla", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 12 idiomas de interfaz a elegir",
+  p1:"🚫 Sin cuenta ni rastreo", p2:"📺 5 servicios de streaming", p3:"🎨 Mueve, redimensiona y colorea en pantalla", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 20 idiomas de interfaz a elegir",
   fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ y TED", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles en cinco servicios de streaming. Doble clic en cualquier palabra y guárdala en tu vocabulario.",
   fbp1:"📺 5 servicios", fbp2:"🌐 Dos idiomas cualesquiera", fbp3:"📖 Doble clic para consultar", fbp4:"🖱️ Ajuste en pantalla"
 },
@@ -635,7 +641,7 @@ fr: {
   e4:"🌐 LA PAIRE DE VOTRE CHOIX", h4:"Anglais × français. Espagnol × français. À vous de voir.", s4:"Choisissez deux des langues de sous-titres du titre : détectées automatiquement dès la lecture.",
   e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Les sous-titres ne quittent pas votre navigateur et les mots sont traduits sur votre appareil : un mot n'est envoyé que si vous touchez « Demander à l’IA ».",
   st1:"Ajouter à Chrome", st2:"Lancez sur l'un des cinq", st3:"Choisir deux langues", addbtn:"Ajouter à Chrome", pu_top:"Haut", pu_bottom:"Bas",
-  p1:"🚫 Sans compte ni suivi", p2:"📺 5 services de streaming", p3:"🎨 Déplacez, redimensionnez, colorez à l'écran", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 12 langues d'affichage au choix",
+  p1:"🚫 Sans compte ni suivi", p2:"📺 5 services de streaming", p3:"🎨 Déplacez, redimensionnez, colorez à l'écran", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 20 langues d'affichage au choix",
   fb_badge:"🎬 Gratuit · Prime Video, YouTube, Netflix, Disney+ et TED", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres sur cinq services de streaming. Double-clic sur un mot pour son sens, puis dans votre vocabulaire.",
   fbp1:"📺 5 services", fbp2:"🌐 Deux langues au choix", fbp3:"📖 Double-clic pour chercher", fbp4:"🖱️ Réglage à l'écran"
 },
@@ -655,7 +661,7 @@ de: {
   e4:"🌐 JEDES PAAR, DAS DU WILLST", h4:"Englisch × Deutsch. Spanisch × Deutsch. Du entscheidest.", s4:"Wähle zwei der Untertitelsprachen des Titels – automatisch erkannt, sobald du auf Play drückst.",
   e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Untertitel verlassen deinen Browser nicht, Wörter werden auf deinem Gerät übersetzt – ein Wort wird nur gesendet, wenn du „KI fragen“ tippst.",
   st1:"Zu Chrome hinzufügen", st2:"Auf einem der fünf abspielen", st3:"Zwei Sprachen wählen", addbtn:"Hinzufügen", pu_top:"Oben", pu_bottom:"Unten",
-  p1:"🚫 Kein Konto, kein Tracking", p2:"📺 5 Streaming-Dienste", p3:"🎨 Verschieben, skalieren, färben – auf dem Bild", p4:"☁️ Einstellungen pro Seite", p5:"🌏 12 Anzeigesprachen zur Wahl",
+  p1:"🚫 Kein Konto, kein Tracking", p2:"📺 5 Streaming-Dienste", p3:"🎨 Verschieben, skalieren, färben – auf dem Bild", p4:"☁️ Einstellungen pro Seite", p5:"🌏 20 Anzeigesprachen zur Wahl",
   fb_badge:"🎬 Kostenlos · Prime Video, YouTube, Netflix, Disney+ &amp; TED", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel auf fünf Streaming-Diensten. Doppelklick auf ein Wort zeigt die Bedeutung, ein Klick speichert es.",
   fbp1:"📺 5 Dienste", fbp2:"🌐 Zwei beliebige Sprachen", fbp3:"📖 Doppelklick zum Nachschlagen", fbp4:"🖱️ Auf dem Bild anpassen"
 },
@@ -675,7 +681,7 @@ it: {
   e4:"🌐 LA COPPIA CHE VUOI", h4:"Inglese × italiano. Spagnolo × italiano. Decidi tu.", s4:"Scegli due delle lingue dei sottotitoli del titolo: rilevate in automatico appena premi play.",
   e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. I sottotitoli non lasciano il browser e le parole si traducono sul dispositivo: una parola viene inviata solo se tocchi «Chiedi all’IA».",
   st1:"Aggiungi a Chrome", st2:"Riproduci su uno dei cinque", st3:"Scegli due lingue", addbtn:"Aggiungi a Chrome", pu_top:"Sopra", pu_bottom:"Sotto",
-  p1:"🚫 Nessun account, nessun tracciamento", p2:"📺 5 servizi di streaming", p3:"🎨 Sposta, ridimensiona, colora sullo schermo", p4:"☁️ Impostazioni per sito", p5:"🌏 12 lingue di visualizzazione a scelta",
+  p1:"🚫 Nessun account, nessun tracciamento", p2:"📺 5 servizi di streaming", p3:"🎨 Sposta, ridimensiona, colora sullo schermo", p4:"☁️ Impostazioni per sito", p5:"🌏 20 lingue di visualizzazione a scelta",
   fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli su cinque servizi di streaming. Doppio clic su una parola per il significato, poi nel tuo vocabolario.",
   fbp1:"📺 5 servizi", fbp2:"🌐 Due lingue qualsiasi", fbp3:"📖 Doppio clic per cercare", fbp4:"🖱️ Regola sullo schermo"
 },
@@ -695,7 +701,7 @@ pt: {
   e4:"🌐 O PAR QUE VOCÊ QUISER", h4:"Inglês × português. Espanhol × português. Você escolhe.", s4:"Escolha dois dos idiomas de legenda que o título oferece — detectados automaticamente ao apertar o play.",
   e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. As legendas não saem do seu navegador e as palavras são traduzidas no seu dispositivo — uma palavra só é enviada quando você toca em “Perguntar à IA”.",
   st1:"Adicionar ao Chrome", st2:"Dê play em qualquer um dos cinco", st3:"Escolher dois idiomas", addbtn:"Adicionar ao Chrome", pu_top:"Em cima", pu_bottom:"Embaixo",
-  p1:"🚫 Sem conta, sem rastreamento", p2:"📺 5 serviços de streaming", p3:"🎨 Arraste, redimensione e colora na tela", p4:"☁️ Configuração por site", p5:"🌏 12 idiomas de exibição à escolha",
+  p1:"🚫 Sem conta, sem rastreamento", p2:"📺 5 serviços de streaming", p3:"🎨 Arraste, redimensione e colora na tela", p4:"☁️ Configuração por site", p5:"🌏 20 idiomas de exibição à escolha",
   fb_badge:"🎬 Grátis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas em cinco serviços de streaming. Clique duplo em qualquer palavra e salve no seu vocabulário.",
   fbp1:"📺 5 serviços", fbp2:"🌐 Dois idiomas quaisquer", fbp3:"📖 Clique duplo para consultar", fbp4:"🖱️ Ajuste na tela"
 },
@@ -715,7 +721,7 @@ ru: {
   e4:"🌐 ЛЮБАЯ ПАРА", h4:"Английский × русский. Испанский × русский. Решать вам.", s4:"Выберите любые два языка субтитров из имеющихся у фильма — определяются автоматически при нажатии «Воспроизвести».",
   e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Субтитры не покидают браузер, слова переводятся на устройстве — слово отправляется, только если вы нажмёте «Спросить ИИ».",
   st1:"Добавить в Chrome", st2:"Включите на любом из пяти", st3:"Выбрать два языка", addbtn:"Добавить в Chrome", pu_top:"Сверху", pu_bottom:"Снизу",
-  p1:"🚫 Без аккаунта и слежки", p2:"📺 5 стриминговых сервисов", p3:"🎨 Перетаскивайте, масштабируйте, красьте на экране", p4:"☁️ Настройки для каждого сайта", p5:"🌏 12 языков интерфейса на выбор",
+  p1:"🚫 Без аккаунта и слежки", p2:"📺 5 стриминговых сервисов", p3:"🎨 Перетаскивайте, масштабируйте, красьте на экране", p4:"☁️ Настройки для каждого сайта", p5:"🌏 20 языков интерфейса на выбор",
   fb_badge:"🎬 Бесплатно · Prime Video, YouTube, Netflix, Disney+ и TED", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры на пяти стриминговых сервисах. Двойной клик по слову покажет значение и сохранит его в словарь.",
   fbp1:"📺 5 сервисов", fbp2:"🌐 Любые два языка", fbp3:"📖 Двойной клик — значение", fbp4:"🖱️ Настройка на экране"
 },
@@ -735,15 +741,16 @@ hi: {
   e4:"🌐 कोई भी जोड़ी", h4:"अंग्रेज़ी × हिन्दी। जापानी × हिन्दी। आपकी मर्ज़ी।", s4:"टाइटल में उपलब्ध सबटाइटल भाषाओं में से कोई भी दो चुनिए — प्ले दबाते ही अपने-आप पहचान।",
   e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सबटाइटल आपके ब्राउज़र से बाहर नहीं जाते और शब्दों का अनुवाद डिवाइस पर होता है — शब्द तभी भेजा जाता है जब आप “AI से पूछें” दबाते हैं।",
   st1:"Chrome में जोड़ें", st2:"पाँचों में से किसी पर प्ले करें", st3:"दो भाषाएँ चुनें", addbtn:"Chrome में जोड़ें", pu_top:"ऊपर", pu_bottom:"नीचे",
-  p1:"🚫 कोई खाता नहीं, कोई ट्रैकिंग नहीं", p2:"📺 5 स्ट्रीमिंग सेवाएँ", p3:"🎨 स्क्रीन पर खींचें, आकार और रंग बदलें", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 12 प्रदर्शन भाषाओं में से चुनें",
+  p1:"🚫 कोई खाता नहीं, कोई ट्रैकिंग नहीं", p2:"📺 5 स्ट्रीमिंग सेवाएँ", p3:"🎨 स्क्रीन पर खींचें, आकार और रंग बदलें", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 20 प्रदर्शन भाषाओं में से चुनें",
   fb_badge:"🎬 मुफ़्त · Prime Video, YouTube, Netflix, Disney+ और TED", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"पाँच स्ट्रीमिंग सेवाओं पर दोहरे सबटाइटल। किसी भी शब्द पर डबल-क्लिक से अर्थ, और शब्दकोश में सहेजें।",
   fbp1:"📺 5 स्ट्रीमिंग सेवाएँ", fbp2:"🌐 कोई भी दो भाषाएँ", fbp3:"📖 डबल-क्लिक से अर्थ", fbp4:"🖱️ स्क्रीन पर समायोजन"
 }
 };
 
 // IMG 4 pair cards: language names in their own script + one sample line per language ("Don't look back.").
-const LANG_NAMES = { en:"English", ja:"日本語", ko:"한국어", zh:"中文", "zh-TW":"中文（繁體）", es:"Español", fr:"Français", de:"Deutsch", it:"Italiano", pt:"Português", ru:"Русский", hi:"हिन्दी" };
-const SAMPLE = { en:"Don't look back.", ja:"振り返るな。", ko:"뒤돌아보지 마.", zh:"别回头。", "zh-TW":"別回頭。", es:"No mires atrás.", fr:"Ne te retourne pas.", de:"Schau nicht zurück.", it:"Non voltarti.", pt:"Não olhe para trás.", ru:"Не оглядывайся.", hi:"पीछे मत देखो।" };
+Object.assign(I18N, globalThis.SUBDUO_STORE_EXTRA);
+const LANG_NAMES = { en:"English", ja:"日本語", ko:"한국어", zh:"中文", "zh-TW":"中文（繁體）", es:"Español", fr:"Français", de:"Deutsch", it:"Italiano", pt:"Português", ru:"Русский", hi:"हिन्दी", id:"Bahasa Indonesia", ar:"العربية", vi:"Tiếng Việt", tr:"Türkçe", pl:"Polski", th:"ไทย", nl:"Nederlands", bn:"বাংলা" };
+const SAMPLE = { en:"Don't look back.", ja:"振り返るな。", ko:"뒤돌아보지 마.", zh:"别回头。", "zh-TW":"別回頭。", es:"No mires atrás.", fr:"Ne te retourne pas.", de:"Schau nicht zurück.", it:"Non voltarti.", pt:"Não olhe para trás.", ru:"Не оглядывайся.", hi:"पीछे मत देखो।", id:"Jangan menoleh.", ar:"لا تنظر إلى الخلف.", vi:"Đừng ngoảnh lại.", tr:"Arkana bakma.", pl:"Nie oglądaj się.", th:"อย่าหันกลับไป", nl:"Kijk niet om.", bn:"পেছনে তাকিয়ো না।" };
 // [top (original), bottom (viewer)] per locale — the first pair also feeds IMG 5's popup.
 const PAIRS = {
   en: [["es","en"],["ja","en"],["ko","en"],["fr","en"],["de","en"],["zh","en"]],
@@ -760,6 +767,7 @@ const PAIRS = {
   hi: [["en","hi"],["ja","hi"],["ko","hi"],["es","hi"],["fr","hi"],["de","hi"]],
 };
 const CARD_SCENES = ["city", "sea", "g-neon", "g-forest", "g-dawn", "g-snow"];
+for (const locale of Object.keys(globalThis.SUBDUO_STORE_EXTRA)) PAIRS[locale] = ["en", "ko", "ja", "es", "fr", "de"].map(a => [a, locale]);
 
 const lang = new URLSearchParams(location.search).get("lang") || "en";
 const dict = I18N[lang];
@@ -770,7 +778,17 @@ if (dict) {
   });
   document.documentElement.lang = lang;
 }
-if (["ja", "zh", "zh-TW", "ko", "hi"].includes(lang)) document.body.classList.add("nolat");
+if (["ja", "zh", "zh-TW", "ko", "hi", "ar", "th", "bn"].includes(lang)) document.body.classList.add("nolat");
+if (["ar", "th", "bn"].includes(lang)) document.body.classList.add("complex");
+if (lang === "ar") {
+  document.body.classList.add("rtl");
+  document.querySelectorAll(".cap, .card, .vb, .pu, .st-row, .pills, .fb-left, .tag, .chip").forEach(el => el.dir = "rtl");
+  // Disney+の+など、サービス名の記号はブランド名と同じ向きで保つ。
+  document.querySelectorAll('[data-i]').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/Prime Video|Disney\+|YouTube|Netflix|Chrome|SubDuo|TED/g, name => `<bdi dir="ltr">${name}</bdi>`);
+  });
+}
+document.querySelector(".tb-body small").textContent = dict ? dict.h1 : "Dual Subtitles for Streaming";
 
 // IMG 3: the card's example is the line the word came from (top line + the bottom line as its translation)
 const cue3 = document.querySelector("#img3 .sd");
@@ -796,6 +814,9 @@ document.getElementById("pairs").innerHTML = pairs.map(([a, b], i) => {
 // IMG 5 popup languages
 document.getElementById("pu5a").textContent = LANG_NAMES[pairs[0][0]];
 document.getElementById("pu5b").textContent = LANG_NAMES[pairs[0][1]];
+// 原語とUI言語を同じ行内でも混ぜず、それぞれの文字方向で表示する。
+document.querySelectorAll(".sd-line, .ex-a, .ex-b, .ve-phrase, .ve-pron, .ve-ex span, .card-phrase").forEach(el => el.dir = "auto");
+window.__store = { lang, locales: ["en", ...Object.keys(I18N)], names: LANG_NAMES, pairs, dictionary: dict };
 
 // キャンバス(固定サイズ)からコンテンツがはみ出している量(px)。装飾の .glow / .brand は除外
 // （scrollHeight は overflow:hidden でも装飾のはみ出しを含むため使わない）
@@ -818,7 +839,7 @@ function overflowBleed(el) {
   return Math.round(Math.max(0, cap.bottom + 40 - sd.top));
 }
 const overflowAny = (el) => (el.classList.contains("bleed") ? overflowBleed(el) : overflowOf(el));
-// record-store.mjs から呼ぶあふれ検査
+// render-store-images.mjs から呼ぶあふれ検査
 window.__overflow = () => {
   const bad = [];
   for (const el of document.querySelectorAll(".si, .feat-banner, .tile")) {
@@ -881,6 +902,14 @@ function fit() {
     let s = 19;
     while (card.getBoundingClientRect().bottom + 8 > sub.getBoundingClientRect().top && s > 14) { s -= .5; card.style.fontSize = s + "px"; }
   }
+  // 字体で行高が増えても、単語帳の2件目は下端のフェードより上に収める。
+  const vb = document.querySelector('#img3 .vb');
+  const second = vb.querySelectorAll('.ve')[1];
+  let pad = 11;
+  while (second.getBoundingClientRect().bottom > vb.getBoundingClientRect().bottom - 40 && pad > 5) {
+    pad -= 1;
+    vb.querySelectorAll('.ve').forEach(el => el.style.paddingBlock = pad + 'px');
+  }
   // ウェブストアのカードは、ボタンの訳が長い言語だと拡張名の欄が潰れて4行になる。
   // 名前欄が2行に収まるまでボタンの文字を縮める（ボタンは1行固定）。
   document.querySelectorAll(".tb-body").forEach((row) => {
@@ -892,7 +921,7 @@ function fit() {
     while (small.offsetHeight > lh * 2 + 1 && s > 9) { s -= 0.5; btn.style.fontSize = s + "px"; }
   });
 }
-document.fonts.ready.then(() => requestAnimationFrame(fit));
+document.fonts.ready.then(() => requestAnimationFrame(() => { fit(); window.__storeReady = true; }));
 </script>
 </body>
 </html>

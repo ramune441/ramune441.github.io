@@ -1,0 +1,272 @@
+{
+  "channelId": "UCrjA6ffzb5pUw2URh0BcdRQ",
+  "baseVideo": "promo.mp4",
+  "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+  "duration": 39.5,
+  "items": {
+    "id": {
+      "title": "SubDuo — Dua bahasa. Satu layar. (Bahasa Indonesia)",
+      "description": "Takarir dua bahasa di lima layanan. Klik ganda kata untuk mencari artinya, lalu simpan ke kosakata.\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nGratis, tanpa akun. Takarir tetap di browser, terjemahan kata di perangkat. Hanya frasa dan konteksnya yang dikirim saat Anda menekan “Tanya AI”.\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-id.mp4",
+      "captions": "promo-id.vtt",
+      "language": "id",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "b9a15e71f57137343ad8be86e235e02b86f0f314554601d1de34053b6b8e29fd",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/id.json",
+      "videoId": "54p-aADipUU",
+      "uploadedAt": "2026-10-30T06:35:57.767Z",
+      "metadataVerifiedAt": "2026-10-30T06:36:04.138Z",
+      "settings": {
+        "language": "インドネシア語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "インドネシア語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:38:18.303Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:38:56.978Z",
+      "publicVerifiedAt": "2026-10-30T06:39:05.901Z"
+    },
+    "ar": {
+      "title": "SubDuo — لغتان. شاشة واحدة. (العربية)",
+      "description": "ترجمة نصية بلغتين على خمس خدمات. انقر مرتين على كلمة لمعرفة معناها واحفظها في مفرداتك.\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nمجاني وبلا حساب. تبقى الترجمة النصية في متصفحك، وتُترجم الكلمات على جهازك. لا تُرسل العبارة وسياقها إلا عند الضغط على «اسأل الذكاء الاصطناعي».\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-ar.mp4",
+      "captions": "promo-ar.vtt",
+      "language": "ar",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "aa07384e7abff894afb410ed8544065655f30853a5f3e19c4855815a4675f20a",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/ar.json",
+      "videoId": "qFMAWLPrCrE",
+      "uploadedAt": "2026-10-30T06:40:21.672Z",
+      "metadataVerifiedAt": "2026-10-30T06:40:27.471Z",
+      "settings": {
+        "language": "アラビア語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "アラビア語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:42:14.654Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:42:23.739Z",
+      "publicVerifiedAt": "2026-10-30T06:42:27.169Z"
+    },
+    "vi": {
+      "title": "SubDuo — Hai ngôn ngữ. Một màn hình. (Tiếng Việt)",
+      "description": "Phụ đề song ngữ trên năm dịch vụ. Nhấp đúp từ để tra nghĩa rồi lưu vào từ vựng.\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nMiễn phí, không cần tài khoản. Phụ đề ở trong trình duyệt, từ được dịch trên thiết bị. Chỉ cụm từ và ngữ cảnh được gửi khi bạn nhấn “Hỏi AI”.\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-vi.mp4",
+      "captions": "promo-vi.vtt",
+      "language": "vi",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "160a360b2e2011d4bed9283928524e7315c456d168f1b23f47d4930f38d28463",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/vi.json",
+      "videoId": "j4L9jrVFb4A",
+      "uploadedAt": "2026-10-30T06:42:42.862Z",
+      "metadataVerifiedAt": "2026-10-30T06:42:50.121Z",
+      "settings": {
+        "language": "ベトナム語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "ベトナム語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:44:32.363Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:45:02.615Z",
+      "publicVerifiedAt": "2026-10-30T06:45:06.490Z"
+    },
+    "tr": {
+      "title": "SubDuo — İki dil. Tek ekran. (Türkçe)",
+      "description": "Beş yayın hizmetinde çift dilli altyazı. Sözcüğe çift tıklayın, anlamını öğrenin ve kaydedin.\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nÜcretsiz, hesap gerekmez. Altyazılar tarayıcınızda kalır, sözcükler cihazınızda çevrilir. Yalnızca “Yapay zekâya sor”a bastığınızda ifade ve bağlamı gönderilir.\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-tr.mp4",
+      "captions": "promo-tr.vtt",
+      "language": "tr",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "8a01515a6b1629bbaf08bd116386e321ec90b6ec61999424b5a56053ff020cc5",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/tr.json",
+      "videoId": "fZ-p9bB_-OI",
+      "uploadedAt": "2026-10-30T06:45:22.727Z",
+      "metadataVerifiedAt": "2026-10-30T06:45:28.956Z",
+      "settings": {
+        "language": "トルコ語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "トルコ語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:46:07.061Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:47:19.394Z",
+      "publicVerifiedAt": "2026-10-30T06:47:23.261Z"
+    },
+    "pl": {
+      "title": "SubDuo — Dwa języki. Jeden ekran. (Polski)",
+      "description": "Napisy w dwóch językach w pięciu serwisach. Dwuklik sprawdza słowo, które możesz zapisać w słownictwie.\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nBezpłatnie, bez konta. Napisy zostają w przeglądarce, słowa są tłumaczone na urządzeniu. Tylko zwrot i jego kontekst są wysyłane po naciśnięciu „Zapytaj AI”.\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-pl.mp4",
+      "captions": "promo-pl.vtt",
+      "language": "pl",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "7f72be2402ef53bedd33c513eab958d7b57413a49dfe7a1e284d4416abe568b7",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/pl.json",
+      "videoId": "bSbNb9_v0ZI",
+      "uploadedAt": "2026-10-30T06:47:39.923Z",
+      "metadataVerifiedAt": "2026-10-30T06:47:47.026Z",
+      "settings": {
+        "language": "ポーランド語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "ポーランド語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:52:37.705Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:52:45.804Z",
+      "publicVerifiedAt": "2026-10-30T06:52:49.084Z"
+    },
+    "th": {
+      "title": "SubDuo — สองภาษา จอเดียว (ภาษาไทย)",
+      "description": "คำบรรยายสองภาษาบนห้าบริการ ดับเบิลคลิกคำเพื่อดูความหมาย แล้วบันทึกลงคำศัพท์\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nฟรี ไม่ต้องมีบัญชี คำบรรยายอยู่ในเบราว์เซอร์และแปลคำบนอุปกรณ์ จะส่งเฉพาะวลีพร้อมบริบทเมื่อกด “ถาม AI” เท่านั้น\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-th.mp4",
+      "captions": "promo-th.vtt",
+      "language": "th",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "05f5886f3821e04639d4eb43aafdbc068b747359634242c9919f5d41ab41e3e2",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/th.json",
+      "videoId": "pwzPBvYggBU",
+      "uploadedAt": "2026-10-30T06:53:04.534Z",
+      "metadataVerifiedAt": "2026-10-30T06:53:09.432Z",
+      "settings": {
+        "language": "タイ語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "タイ語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:53:49.748Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:55:20.135Z",
+      "publicVerifiedAt": "2026-10-30T06:55:23.354Z"
+    },
+    "nl": {
+      "title": "SubDuo — Twee talen. Eén scherm. (Nederlands)",
+      "description": "Tweetalige ondertiteling op vijf diensten. Dubbelklik voor de betekenis en bewaar het woord in je woordenschat.\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nGratis, zonder account. Ondertiteling blijft in je browser, woorden worden op je apparaat vertaald. Alleen als je op ‘Vraag AI’ tikt, worden de woordgroep en context verstuurd.\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-nl.mp4",
+      "captions": "promo-nl.vtt",
+      "language": "nl",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "7163a592a96004b2e4951aa6e8e09ca0521ed344a4a48b90b670ddc31722f714",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/nl.json",
+      "videoId": "tzExTpb9oJI",
+      "uploadedAt": "2026-10-30T06:55:37.836Z",
+      "metadataVerifiedAt": "2026-10-30T06:55:42.785Z",
+      "settings": {
+        "language": "オランダ語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "オランダ語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:56:23.152Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:57:53.448Z",
+      "publicVerifiedAt": "2026-10-30T06:57:56.650Z"
+    },
+    "bn": {
+      "title": "SubDuo — দুই ভাষা। এক পর্দা। (বাংলা)",
+      "description": "পাঁচটি পরিষেবায় দুই ভাষার সাবটাইটেল। শব্দে ডাবল ক্লিক করে অর্থ জানুন, তারপর শব্দভান্ডারে রাখুন।\n\nPrime Video · YouTube · Netflix · Disney+ · TED\nবিনামূল্যে, অ্যাকাউন্ট ছাড়া। সাবটাইটেল ব্রাউজারেই থাকে, শব্দের অনুবাদ ডিভাইসে হয়। শুধু “AI-কে জিজ্ঞাসা” চাপলেই বাক্যাংশ ও তার প্রসঙ্গ পাঠানো হয়।\n\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo\n🌐 https://ramune441.github.io/subduo/\n📄 https://ramune441.github.io/subduo/privacy-policy.html\n#SubDuo #dualsubtitles #languagelearning",
+      "file": "promo-bn.mp4",
+      "captions": "promo-bn.vtt",
+      "language": "bn",
+      "width": 3840,
+      "height": 2160,
+      "duration": 39.5,
+      "audioChannels": 2,
+      "sha256": "005901c96a9d2dd5d161ad828143638e98e1b10e46886049530fcc80b20387aa",
+      "baseSha256": "0fc7e8d884a39f45386275c3c7abb38d9dbcaf8dfa240ca88ff6b5335667462c",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "captureFile": "promo-verification/bn.json",
+      "videoId": "UVnv0BbQ4xY",
+      "uploadedAt": "2026-10-30T06:58:11.551Z",
+      "metadataVerifiedAt": "2026-10-30T06:58:16.457Z",
+      "settings": {
+        "language": "ベンガル語",
+        "madeForKids": false,
+        "embedding": true,
+        "notifySubscribers": false
+      },
+      "captionVerification": {
+        "language": "ベンガル語",
+        "cues": 9,
+        "verifiedAt": "2026-10-30T06:58:57.303Z"
+      },
+      "publishRequestedAt": "2026-10-30T06:59:46.628Z",
+      "publicVerifiedAt": "2026-10-30T06:59:49.946Z"
+    }
+  }
+}
