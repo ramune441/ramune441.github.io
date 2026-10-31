@@ -34,6 +34,7 @@ test('既存言語の表示言語数も20に揃い、画像生成ページは検
 
 test('ストア掲載文の対応言語数が画像と同じ20になっている', () => {
   const listing = JSON.parse(readFileSync(join(ROOT, 'store-listing.json'), 'utf8'));
+  assert.deepEqual(Object.keys(listing).filter(locale => locale !== '_').sort(), [...LOCALES].sort(), '本文の言語が欠けている');
   for (const [locale, text] of Object.entries(listing)) {
     if (locale === '_') continue;
     const count = text.split('\n').find(line => line.startsWith('🌏')) || '';

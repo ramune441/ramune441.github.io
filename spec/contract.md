@@ -66,6 +66,7 @@ FormPilot の言語別URLは `/formpilot/<lang>/`、`/guide.html`、`/privacy-po
 - チャンネルは「Just One More Animal」。SubDuoの既存12言語の投稿情報は `subduo/youtube.json`、他製品は `sendready-chrome/youtube.json`・`ripen/images/promo/audio/youtube.json`。
 
 ## 素材のファイル名と仕様
+- SubDuoのストア説明は `subduo/store-listing.json` の言語コード別の文字列で保持する。`_` は管理用の注記で、各本文は改行を含むプレーンテキスト・16000文字以内とする。
 SubDuo の画像言語コードは `en / ja / zh / zh-TW / ko / es / fr / de / pt / hi / id / ar / vi / it / tr / pl / th / nl / ru / bn`。英語は `subduo/images/`、他はその配下の言語フォルダに置く。拡張の `zh_CN / zh_TW / pt_BR` はそれぞれ `zh / zh-TW / pt` に対応する。
 
 | 素材 | 仕様 |

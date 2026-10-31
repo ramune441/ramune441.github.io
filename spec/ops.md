@@ -33,6 +33,7 @@
 - 注意: ストア画像のあふれ判定に scrollHeight を使わない（overflow:hidden でも装飾のはみ出しを含む）。装飾を除いて判定する。
 
 ## ストアへの反映（手動）
+- SubDuoの説明本文は `node --test subduo/store-listing.test.mjs subduo/store-assets.test.mjs` で全20言語の存在・翻訳・動作要件を確認する。登録後は各言語を再選択し、本文全体の一致と画像・動画URLが保持されていることを読み戻す。
 - SubDuoの動画は「Just One More Animal」で公開し、投稿直後のIDと素材ハッシュを保存して重複投稿を防ぐ。言語・字幕・子ども向けではない設定・埋め込み許可・通知なしとチェック完了を読み戻し、公開再生を確認したURLだけを採用台帳とストアに使う。
 - Kura は `node --test kura/store-assets.test.mjs` と `python kura/publish-store.py` で検証し、`--publish` で Play に反映、`--verify` で読み戻して照合する。詳しくは `kura/images/store/UPLOAD.md`。
 - Chrome ウェブストアの掲載情報（説明・プロモ動画 URL）・Play Console の掲載情報・YouTube Studio の動画のタイトルと説明は、サインイン済みの Chrome プロファイル `C:\Users\Warlo\cws-profile` から貼る（`--remote-debugging-port` 付きで起動すれば puppeteer-core で自動化できる）。審査中のストア掲載情報は保存できない（⋮ → 審査をキャンセル → 保存 → 再提出）。
