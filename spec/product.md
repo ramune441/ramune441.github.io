@@ -9,7 +9,7 @@
 | `/<product>/privacy-policy.html` | プライバシーポリシー | index | yes |
 | `/<product>/uninstall.html` | アンインストール理由アンケート | noindex | no |
 | `/<product>/promo.html` `store-images.html` `icon-512.html` 等 | 録画・画像生成用 | noindex | no |
-| `/sendready-chrome/<lang>/` | SendReady LP の言語別ページ（10 言語） | index | yes |
+| `/sendready-chrome/<lang>/` | SendReady LP の言語別ページ（19 言語） | index | yes |
 | `/sendready/contact.html` | 転送（→ `/sendready-chrome/contact.html`） | noindex | no |
 
 プロダクト: FormPilot・足あとメーカー・SendReady（Chrome）・SubDuo・Ripen（Android）・Kura（Android、LP 未作成でポータルと sitemap に載せない）。
@@ -32,8 +32,9 @@
 - **言語ごとに URL を持つ**: en はルート、他は `/sendready-chrome/<lang>/`。各ページは本文をその言語で生成済みで、実行時に訳し直さない（クローラが英語ブラウザとして描画しても、その言語で索引させるため）。言語セレクターはその言語のページへ移動する。
 - ルートは拡張が `?lang=` 付きで開くため、従来どおりその場で言語を切り替える。使い方ページ（how-to.html）もその場で切り替える。
 - title / description は検索語入り（`i18n-lp.js` の `seo_title` / `seo_desc`）。ja は「敬語」「ビジネスメール」「書き換え」「返信」「定型文」、他言語は「AI 書き換え（rewrite / reformuler / umschreiben …）」「メール返信」「テキスト展開・テンプレート」の語。
-- 各ページは hreflang（全 11 言語＋ x-default=ルート）と、その言語の SoftwareApplication・FAQPage・BreadcrumbList を持つ。
+- 各ページは hreflang（全 20 言語＋ x-default=ルート）と、その言語の SoftwareApplication・FAQPage・BreadcrumbList を持つ。
 - ウェブストアへのリンクは言語別の utm 付き（contract.md）。
+- 言語は拡張 UI と同じ 20 言語。繁体字のコードは `zh-TW` で、`?lang=` とブラウザ言語の zh_TW / zh-HK / zh-MO / zh-Hant も zh-TW に寄せる（拡張は `zh_TW` で渡す）。お問い合わせページも同じ 20 言語。
 - `/sendready/contact.html` は削除済み Android 版の旧問い合わせ URL。ストア公開中の古い拡張が持つため転送ページとして残す。
 
 ## SubDuo の素材

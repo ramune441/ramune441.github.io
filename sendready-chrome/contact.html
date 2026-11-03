@@ -207,8 +207,10 @@
       var MAX_FILE_BYTES = 25 * 1024 * 1024;
 
       var LANG_NAMES = {
-        en: "English", ja: "日本語", zh: "中文", ko: "한국어", es: "Español",
-        fr: "Français", de: "Deutsch", pt: "Português", hi: "हिन्दी", id: "Indonesia", ar: "العربية"
+        en: "English", ja: "日本語", zh: "简体中文", "zh-TW": "繁體中文", ko: "한국어", es: "Español",
+        fr: "Français", de: "Deutsch", it: "Italiano", nl: "Nederlands", pl: "Polski", pt: "Português",
+        ru: "Русский", tr: "Türkçe", vi: "Tiếng Việt", th: "ไทย", hi: "हिन्दी", bn: "বাংলা",
+        id: "Indonesia", ar: "العربية"
       };
 
       var MESSAGES = {
@@ -431,6 +433,186 @@
           contact_success_back: "العودة إلى الصفحة الرئيسية",
           contact_error: "فشل الإرسال. يُرجى الانتظار قليلًا والمحاولة مرة أخرى.",
           contact_privacy_note: "تُستخدم رسالتك فقط للرد على استفسارك."
+        },
+        "zh-TW": {
+          nav_cta: "加到 Chrome", nav_howto: "使用方式", footer_privacy: "隱私權政策",
+          contact_back: "← 返回首頁",
+          contact_title: "聯絡我們",
+          contact_desc: "無論是問題回報、功能建議，或是關於擴充功能的任何疑問，都歡迎隨時告訴我們。",
+          contact_optional: "選填", contact_required: "必填",
+          contact_email: "電子郵件地址", contact_email_ph: "example@example.com",
+          contact_email_note: "若希望收到回覆，請填寫此欄。",
+          contact_type: "詢問類型", contact_type_bug: "問題回報", contact_type_feature: "功能建議", contact_type_other: "其他",
+          contact_message: "訊息內容",
+          contact_message_ph: "請盡量具體描述。若是問題回報，附上發生問題的網站與操作步驟會很有幫助。",
+          contact_file: "附加檔案（螢幕截圖、影片等）", contact_file_drop: "點擊以選擇檔案",
+          contact_file_note: "圖片、影片、PDF 或文字檔，最大 25MB。", contact_file_too_large: "檔案太大（最大 25MB）。",
+          contact_submit: "送出", contact_sending: "傳送中...",
+          contact_success_title: "訊息已送出",
+          contact_success_desc: "感謝你的來信。我們會確認內容，如有需要將會回覆你。",
+          contact_success_back: "返回首頁",
+          contact_error: "傳送失敗，請稍候再試一次。",
+          contact_privacy_note: "你送出的內容僅用於回覆此次詢問。"
+        },
+        vi: {
+          nav_cta: "Thêm vào Chrome", nav_howto: "Hướng dẫn", footer_privacy: "Chính sách quyền riêng tư",
+          contact_back: "← Quay lại trang chủ",
+          contact_title: "Liên hệ",
+          contact_desc: "Báo lỗi, đề xuất tính năng, câu hỏi về tiện ích — cứ thoải mái gửi cho chúng tôi.",
+          contact_optional: "Không bắt buộc", contact_required: "Bắt buộc",
+          contact_email: "Địa chỉ email", contact_email_ph: "example@example.com",
+          contact_email_note: "Hãy nhập nếu bạn muốn nhận phản hồi.",
+          contact_type: "Loại yêu cầu", contact_type_bug: "Báo lỗi", contact_type_feature: "Đề xuất tính năng", contact_type_other: "Khác",
+          contact_message: "Nội dung",
+          contact_message_ph: "Vui lòng mô tả càng cụ thể càng tốt. Nếu là lỗi, hãy ghi rõ trang web xảy ra lỗi và các bước bạn đã thực hiện.",
+          contact_file: "Tệp đính kèm (ảnh chụp màn hình, video, v.v.)", contact_file_drop: "Nhấp để chọn tệp",
+          contact_file_note: "Hình ảnh, video, PDF hoặc văn bản — tối đa 25MB.", contact_file_too_large: "Tệp quá lớn (tối đa 25MB).",
+          contact_submit: "Gửi", contact_sending: "Đang gửi...",
+          contact_success_title: "Đã gửi tin nhắn của bạn",
+          contact_success_desc: "Cảm ơn bạn đã liên hệ. Chúng tôi sẽ xem xét tin nhắn và phản hồi nếu cần.",
+          contact_success_back: "Quay lại trang chủ",
+          contact_error: "Gửi không thành công. Vui lòng đợi một lát rồi thử lại.",
+          contact_privacy_note: "Nội dung bạn gửi chỉ được dùng để phản hồi yêu cầu của bạn."
+        },
+        th: {
+          nav_cta: "เพิ่มลงใน Chrome", nav_howto: "วิธีใช้", footer_privacy: "นโยบายความเป็นส่วนตัว",
+          contact_back: "← กลับไปหน้าแรก",
+          contact_title: "ติดต่อเรา",
+          contact_desc: "แจ้งปัญหา เสนอฟีเจอร์ หรือสอบถามเกี่ยวกับส่วนขยาย — ส่งมาหาเราได้เลย",
+          contact_optional: "ไม่บังคับ", contact_required: "จำเป็น",
+          contact_email: "อีเมล", contact_email_ph: "example@example.com",
+          contact_email_note: "กรอกไว้หากต้องการให้เราตอบกลับ",
+          contact_type: "ประเภทการติดต่อ", contact_type_bug: "แจ้งปัญหา", contact_type_feature: "เสนอฟีเจอร์", contact_type_other: "อื่น ๆ",
+          contact_message: "ข้อความ",
+          contact_message_ph: "โปรดระบุให้ละเอียดที่สุด หากเป็นปัญหาการใช้งาน การแจ้งเว็บไซต์ที่เกิดปัญหาและขั้นตอนที่คุณทำจะช่วยเราได้มาก",
+          contact_file: "ไฟล์แนบ (ภาพหน้าจอ วิดีโอ ฯลฯ)", contact_file_drop: "คลิกเพื่อเลือกไฟล์",
+          contact_file_note: "รูปภาพ วิดีโอ PDF หรือข้อความ — สูงสุด 25MB", contact_file_too_large: "ไฟล์มีขนาดใหญ่เกินไป (สูงสุด 25MB)",
+          contact_submit: "ส่ง", contact_sending: "กำลังส่ง...",
+          contact_success_title: "ส่งข้อความเรียบร้อยแล้ว",
+          contact_success_desc: "ขอบคุณที่ติดต่อเรา เราจะตรวจสอบข้อความของคุณและติดต่อกลับหากจำเป็น",
+          contact_success_back: "กลับไปหน้าแรก",
+          contact_error: "ส่งไม่สำเร็จ โปรดรอสักครู่แล้วลองอีกครั้ง",
+          contact_privacy_note: "ข้อความที่คุณส่งจะใช้เพื่อตอบกลับการติดต่อของคุณเท่านั้น"
+        },
+        bn: {
+          nav_cta: "Chrome-এ যোগ করুন", nav_howto: "ব্যবহারের নিয়ম", footer_privacy: "গোপনীয়তা নীতি",
+          contact_back: "← প্রথম পাতায় ফিরে যান",
+          contact_title: "যোগাযোগ",
+          contact_desc: "সমস্যার রিপোর্ট, নতুন ফিচারের অনুরোধ, এক্সটেনশন নিয়ে প্রশ্ন — নির্দ্বিধায় আমাদের পাঠান।",
+          contact_optional: "ঐচ্ছিক", contact_required: "আবশ্যক",
+          contact_email: "ইমেইল ঠিকানা", contact_email_ph: "example@example.com",
+          contact_email_note: "উত্তর পেতে চাইলে লিখুন।",
+          contact_type: "বার্তার ধরন", contact_type_bug: "সমস্যার রিপোর্ট", contact_type_feature: "ফিচারের অনুরোধ", contact_type_other: "অন্যান্য",
+          contact_message: "বার্তা",
+          contact_message_ph: "যতটা সম্ভব নির্দিষ্ট করে লিখুন। সমস্যার ক্ষেত্রে কোন সাইটে হয়েছে এবং আপনি কী কী ধাপে করেছিলেন তা জানালে সুবিধা হয়।",
+          contact_file: "সংযুক্ত ফাইল (স্ক্রিনশট, ভিডিও ইত্যাদি)", contact_file_drop: "ফাইল বেছে নিতে ক্লিক করুন",
+          contact_file_note: "ছবি, ভিডিও, PDF বা টেক্সট — সর্বোচ্চ 25MB।", contact_file_too_large: "ফাইলটি খুব বড় (সর্বোচ্চ 25MB)।",
+          contact_submit: "পাঠান", contact_sending: "পাঠানো হচ্ছে...",
+          contact_success_title: "আপনার বার্তা পাঠানো হয়েছে",
+          contact_success_desc: "যোগাযোগ করার জন্য ধন্যবাদ। আমরা আপনার বার্তাটি দেখে প্রয়োজনে উত্তর দেব।",
+          contact_success_back: "প্রথম পাতায় ফিরে যান",
+          contact_error: "পাঠানো যায়নি। একটু অপেক্ষা করে আবার চেষ্টা করুন।",
+          contact_privacy_note: "আপনার বার্তা শুধু আপনার প্রশ্নের উত্তর দিতে ব্যবহার করা হয়।"
+        },
+        it: {
+          nav_cta: "Aggiungi a Chrome", nav_howto: "Come si usa", footer_privacy: "Informativa sulla privacy",
+          contact_back: "← Torna alla pagina principale",
+          contact_title: "Contatti",
+          contact_desc: "Segnalazioni di bug, richieste di funzionalità, domande sull'estensione — scrivici quando vuoi.",
+          contact_optional: "Facoltativo", contact_required: "Obbligatorio",
+          contact_email: "Indirizzo email", contact_email_ph: "example@example.com",
+          contact_email_note: "Inseriscilo se desideri una risposta.",
+          contact_type: "Tipo di richiesta", contact_type_bug: "Segnalazione di bug", contact_type_feature: "Richiesta di funzionalità", contact_type_other: "Altro",
+          contact_message: "Messaggio",
+          contact_message_ph: "Descrivi il problema nel modo più preciso possibile. Per i bug, è utile indicare il sito in cui si è verificato e i passaggi che hai seguito.",
+          contact_file: "File allegato (screenshot, video, ecc.)", contact_file_drop: "Fai clic per scegliere un file",
+          contact_file_note: "Immagine, video, PDF o testo — fino a 25MB.", contact_file_too_large: "Il file è troppo grande (max 25MB).",
+          contact_submit: "Invia", contact_sending: "Invio in corso...",
+          contact_success_title: "Il tuo messaggio è stato inviato",
+          contact_success_desc: "Grazie per averci scritto. Leggeremo il tuo messaggio e ti risponderemo, se necessario.",
+          contact_success_back: "Torna alla pagina principale",
+          contact_error: "Invio non riuscito. Attendi un momento e riprova.",
+          contact_privacy_note: "Il tuo messaggio viene usato solo per rispondere alla tua richiesta."
+        },
+        nl: {
+          nav_cta: "Toevoegen aan Chrome", nav_howto: "Zo gebruik je het", footer_privacy: "Privacybeleid",
+          contact_back: "← Terug naar de startpagina",
+          contact_title: "Contact",
+          contact_desc: "Bugmeldingen, wensen voor nieuwe functies, vragen over de extensie — stuur ze gerust naar ons.",
+          contact_optional: "Optioneel", contact_required: "Verplicht",
+          contact_email: "E-mailadres", contact_email_ph: "example@example.com",
+          contact_email_note: "Vul dit in als je een antwoord wilt.",
+          contact_type: "Soort vraag", contact_type_bug: "Bugmelding", contact_type_feature: "Functieverzoek", contact_type_other: "Overig",
+          contact_message: "Bericht",
+          contact_message_ph: "Wees zo specifiek mogelijk. Bij bugs helpt het als je vermeldt op welke site het gebeurde en welke stappen je hebt gezet.",
+          contact_file: "Bijlage (screenshots, video's, enz.)", contact_file_drop: "Klik om een bestand te kiezen",
+          contact_file_note: "Afbeelding, video, pdf of tekst — tot 25MB.", contact_file_too_large: "Het bestand is te groot (max. 25MB).",
+          contact_submit: "Versturen", contact_sending: "Bezig met versturen...",
+          contact_success_title: "Je bericht is verstuurd",
+          contact_success_desc: "Bedankt voor je bericht. We bekijken het en nemen contact met je op als een antwoord nodig is.",
+          contact_success_back: "Terug naar de startpagina",
+          contact_error: "Versturen mislukt. Wacht even en probeer het opnieuw.",
+          contact_privacy_note: "Je bericht wordt alleen gebruikt om je vraag te beantwoorden."
+        },
+        pl: {
+          nav_cta: "Dodaj do Chrome", nav_howto: "Jak używać", footer_privacy: "Polityka prywatności",
+          contact_back: "← Powrót na stronę główną",
+          contact_title: "Kontakt",
+          contact_desc: "Zgłoszenia błędów, propozycje funkcji, pytania o rozszerzenie — śmiało do nas pisz.",
+          contact_optional: "Opcjonalnie", contact_required: "Wymagane",
+          contact_email: "Adres e-mail", contact_email_ph: "example@example.com",
+          contact_email_note: "Podaj go, jeśli chcesz otrzymać odpowiedź.",
+          contact_type: "Rodzaj zgłoszenia", contact_type_bug: "Zgłoszenie błędu", contact_type_feature: "Propozycja funkcji", contact_type_other: "Inne",
+          contact_message: "Wiadomość",
+          contact_message_ph: "Opisz sprawę możliwie konkretnie. W przypadku błędu pomoże informacja, na jakiej stronie wystąpił i jakie kroki zostały wykonane.",
+          contact_file: "Załącznik (zrzuty ekranu, nagrania itp.)", contact_file_drop: "Kliknij, aby wybrać plik",
+          contact_file_note: "Obraz, wideo, PDF lub tekst — do 25 MB.", contact_file_too_large: "Plik jest za duży (maks. 25 MB).",
+          contact_submit: "Wyślij", contact_sending: "Wysyłanie...",
+          contact_success_title: "Wiadomość została wysłana",
+          contact_success_desc: "Dziękujemy za kontakt. Zapoznamy się z wiadomością i odpowiemy, jeśli będzie to potrzebne.",
+          contact_success_back: "Powrót na stronę główną",
+          contact_error: "Nie udało się wysłać. Odczekaj chwilę i spróbuj ponownie.",
+          contact_privacy_note: "Twoja wiadomość posłuży wyłącznie do odpowiedzi na zgłoszenie."
+        },
+        ru: {
+          nav_cta: "Добавить в Chrome", nav_howto: "Как пользоваться", footer_privacy: "Политика конфиденциальности",
+          contact_back: "← Вернуться на главную",
+          contact_title: "Обратная связь",
+          contact_desc: "Сообщения об ошибках, пожелания к функциям, вопросы о расширении — смело пишите нам.",
+          contact_optional: "Необязательно", contact_required: "Обязательно",
+          contact_email: "Адрес электронной почты", contact_email_ph: "example@example.com",
+          contact_email_note: "Укажите, если хотите получить ответ.",
+          contact_type: "Тип обращения", contact_type_bug: "Сообщение об ошибке", contact_type_feature: "Предложение функции", contact_type_other: "Другое",
+          contact_message: "Сообщение",
+          contact_message_ph: "Опишите ситуацию как можно подробнее. Если это ошибка, укажите сайт, на котором она возникла, и ваши действия.",
+          contact_file: "Вложение (скриншоты, видео и т. п.)", contact_file_drop: "Нажмите, чтобы выбрать файл",
+          contact_file_note: "Изображение, видео, PDF или текст — до 25 МБ.", contact_file_too_large: "Файл слишком большой (макс. 25 МБ).",
+          contact_submit: "Отправить", contact_sending: "Отправка...",
+          contact_success_title: "Ваше сообщение отправлено",
+          contact_success_desc: "Спасибо за обращение. Мы ознакомимся с сообщением и ответим, если это потребуется.",
+          contact_success_back: "Вернуться на главную",
+          contact_error: "Не удалось отправить. Подождите немного и попробуйте снова.",
+          contact_privacy_note: "Ваше сообщение используется только для ответа на обращение."
+        },
+        tr: {
+          nav_cta: "Chrome'a ekle", nav_howto: "Nasıl kullanılır", footer_privacy: "Gizlilik Politikası",
+          contact_back: "← Ana sayfaya dön",
+          contact_title: "İletişim",
+          contact_desc: "Hata bildirimleri, özellik istekleri, uzantıyla ilgili sorular — bize çekinmeden yazın.",
+          contact_optional: "İsteğe bağlı", contact_required: "Zorunlu",
+          contact_email: "E-posta adresi", contact_email_ph: "example@example.com",
+          contact_email_note: "Yanıt almak istiyorsanız girin.",
+          contact_type: "Talep türü", contact_type_bug: "Hata bildirimi", contact_type_feature: "Özellik isteği", contact_type_other: "Diğer",
+          contact_message: "Mesaj",
+          contact_message_ph: "Lütfen olabildiğince ayrıntılı yazın. Hatalarda, sorunun yaşandığı siteyi ve izlediğiniz adımları belirtmeniz çok yardımcı olur.",
+          contact_file: "Ek dosya (ekran görüntüsü, video vb.)", contact_file_drop: "Dosya seçmek için tıklayın",
+          contact_file_note: "Görsel, video, PDF veya metin — en fazla 25 MB.", contact_file_too_large: "Dosya çok büyük (en fazla 25 MB).",
+          contact_submit: "Gönder", contact_sending: "Gönderiliyor...",
+          contact_success_title: "Mesajınız gönderildi",
+          contact_success_desc: "Bizimle iletişime geçtiğiniz için teşekkürler. Mesajınızı inceleyip gerekirse size dönüş yapacağız.",
+          contact_success_back: "Ana sayfaya dön",
+          contact_error: "Gönderilemedi. Lütfen biraz bekleyip tekrar deneyin.",
+          contact_privacy_note: "Mesajınız yalnızca talebinize yanıt vermek için kullanılır."
         }
       };
 
@@ -441,17 +623,20 @@
       }
 
       // ?lang=xx > localStorage > ブラウザ言語。拡張はアプリのUI言語を ?lang= で引き継ぐ。
+      // 言語タグ → 対応言語（拡張は繁体字を zh_TW で渡す）。対応外は null
+      function matchLocale(tag) {
+        var t = String(tag || '').toLowerCase().replace(/_/g, '-');
+        if (!t) return null;
+        if (/^zh-(tw|hk|mo|hant)/.test(t)) return 'zh-TW';
+        for (var i = 0; i < SUPPORTED.length; i++) if (SUPPORTED[i].toLowerCase() === t) return SUPPORTED[i];
+        var primary = t.split('-')[0];
+        return SUPPORTED.indexOf(primary) !== -1 ? primary : null;
+      }
       function detectLocale() {
-        var forced = param('lang').toLowerCase();
-        if (forced && SUPPORTED.indexOf(forced) !== -1) return forced;
         var saved = null;
         try { saved = localStorage.getItem('lp_lang'); } catch (e) {}
-        if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
-        var nav = (navigator.language || 'en').toLowerCase();
-        if (SUPPORTED.indexOf(nav) !== -1) return nav;
-        var primary = nav.split('-')[0];
-        if (SUPPORTED.indexOf(primary) !== -1) return primary;
-        return 'en';
+        return matchLocale(param('lang')) || (saved && SUPPORTED.indexOf(saved) !== -1 ? saved : null) ||
+          matchLocale(navigator.language) || 'en';
       }
 
       var locale = detectLocale();

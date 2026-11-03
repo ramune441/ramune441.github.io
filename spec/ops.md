@@ -19,6 +19,7 @@
 | 対象 | 実行 | 生成物 |
 |---|---|---|
 | SendReady LP の言語別ページ | `cd sendready-chrome && node build-lang-pages.mjs`（Node だけで動く） | `sendready-chrome/<lang>/index.html`、ルート `index.html` の SEO ブロック、`sitemap.xml` の SendReady LP 部分 |
+| SendReady ストア画像 | `node sendready-chrome/render-store-images.mjs [lang…]`（puppeteer-core と Chrome。指定なしで全 20 言語） | `sendready-chrome/images/`（en）と `images/<lang>/` の紹介画像 5 枚とマーキー、en だけ小タイル。文字がキャンバス外・言語数が 20 でない場合は失敗する |
 | FormPilot の公開資料 | `node formpilot/guide-shots.js` → `node formpilot/build-site.js`（puppeteer-core と Chrome、同階層の FormPilot 拡張ソースが必要。別配置は `FORMPILOT_EXT`） | 20言語の実画面・LP・ガイド・プライバシー説明、共通問い合わせ翻訳、サイトマップ |
 | FormPilot の動画 | 上記の画像生成後に `node formpilot/build-videos.js` → `node formpilot/build-site.js` | 20言語各2本のMP4・WebVTT・ポスター、再生ページと動画の検証情報 |
 | SubDuo ストア画像 | `node subduo/render-store-images.mjs [lang…]` → `node --test subduo/store-assets.test.mjs`（puppeteer-core・Chromeが必要。ブラウザは `CHROME_PATH` で指定可能） | `subduo/images/` と寸法・SHA-256を記録した `subduo/store-assets.json`。指定なしで全言語、指定ありで対象言語を再生成 |

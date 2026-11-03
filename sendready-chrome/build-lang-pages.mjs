@@ -4,7 +4,7 @@
 // <lang>/index.html を全言語ぶん書き出し、各ページの <head> の SEO ブロック（title・description・
 // canonical・hreflang・OGP・JSON-LD）と sitemap.xml の SendReady LP 部分を作り直す。
 // 文言を変えたら i18n-lp.js を直してから実行し、生成物ごとコミットする。
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
@@ -15,6 +15,8 @@ const STORE = "https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojg
 const OG_LOCALE = {
   en: "en_US", ja: "ja_JP", zh: "zh_CN", ko: "ko_KR", es: "es_ES", fr: "fr_FR",
   de: "de_DE", pt: "pt_BR", hi: "hi_IN", id: "id_ID", ar: "ar_AR",
+  "zh-TW": "zh_TW", it: "it_IT", nl: "nl_NL", pl: "pl_PL", ru: "ru_RU", tr: "tr_TR",
+  vi: "vi_VN", th: "th_TH", bn: "bn_BD",
 };
 // hreflang は BCP 47。pt の LP は ブラジルポルトガル語、zh は簡体字
 const HREFLANG = { zh: "zh-Hans", pt: "pt-BR" };
@@ -64,7 +66,9 @@ function translateBody(html, msgs) {
 // ── <head> の SEO ブロック ──────────────────────────────────────────
 function seoBlock(lang, msgs, langs) {
   const url = pageURL(lang);
-  const img = `${SITE}images/${lang === "en" ? "" : lang + "/"}store-image-1.png`;
+  // 言語別のストア画像が無い言語は en の画像を使う
+  const sub = lang !== "en" && existsSync(join(DIR, "images", lang, "store-image-1.png")) ? lang + "/" : "";
+  const img = `${SITE}images/${sub}store-image-1.png`;
   const alt = langs
     .map((l) => `  <link rel="alternate" hreflang="${HREFLANG[l] || l}" href="${pageURL(l)}">`)
     .concat(`  <link rel="alternate" hreflang="x-default" href="${SITE}">`)
