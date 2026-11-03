@@ -102,10 +102,9 @@
     <p>The Extension uses the following Chrome permissions. Each is the minimum required to provide its features.</p>
     <ul>
       <li><strong>storage</strong>: Storing presets, settings, and the deviceId</li>
-      <li><strong>contextMenus</strong>: Running transformations from the right-click menu</li>
+      <li><strong>contextMenus</strong>: Opening SendReady from the right-click menu</li>
       <li><strong>clipboardWrite</strong>: Copying transformation results to the clipboard</li>
-      <li><strong>activeTab</strong>: Reading the text currently selected in the active tab</li>
-      <li><strong>scripting</strong>: Inserting and applying transformation results into the page</li>
+      <li><strong>Content script on web pages</strong>: Showing the SendReady button next to text you select or the field you type in, and inserting the result. It reads only the text you select or type, and only sends it when you run an AI action.</li>
       <li><strong>host_permissions (AI proxy)</strong>: Communicating with the Cloudflare Worker above</li>
     </ul>
     <p>The Extension does <strong>not</strong> request access to your <strong>camera, microphone, or location</strong>.</p>
