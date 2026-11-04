@@ -1,20 +1,20 @@
 # Kura ストア画像 — Play Console 掲載手順
 
-各言語 6 枚（20 言語）。アイコンは全言語共通で `kura/icons/icon512.png`（512×512）。
+各言語 8 枚（20 言語）。アイコンは全言語共通で `kura/icons/icon512.png`（512×512）。
 
 ```
 images/store/
   en/  ja/  zh/  zh-TW/  ko/  es/  fr/  de/  pt/  it/  ru/  id/  hi/  tr/  vi/  th/  pl/  ar/  nl/  bn/
     store-image-feature.png          ← フィーチャー グラフィック（1024×500）
-    store-image-1.png … 5.png        ← 携帯電話版のスクリーンショット（1080×1920）
+    store-image-1.png … 7.png        ← 携帯電話版のスクリーンショット（1080×1920）
 ```
 
 タブレット（7 インチ・10 インチ）のスクリーンショットは**登録しない**。Web のストアは全種類を 1 列に並べるので、携帯電話版と同じ絵が 3 回繰り返して見える。タブレットでは携帯電話版が出る。
 
 すべてアルファ無しの RGB PNG（Play の指定どおり）。
 
-5枚の中身: 1 紹介（写真の壁・思い出と場所・4 つの柱）/ 2 スワイプで片付け（見つかった容量・連写のベスト）/ 3 プライベートに写真を隠す / 4 ライブラリ（人物・場所の地図・地名で検索）/ 5 写真も動画も元の画質でバックアップ。
-Play へは **1 → 5** の番号順で上げる。まず写真アプリとして見せ、片付けに続いて写真を隠せることを伝える。
+7枚の中身: 1 紹介（写真の壁・思い出と場所・4 つの柱）/ 2 スワイプで片付け（見つかった容量・連写のベスト）/ 3 プライベートに写真を隠す / 4 ライブラリ（人物・場所の地図・地名で検索）/ 5 写真も動画も元の画質でバックアップ / 6 Google フォトから移行（Google のロゴは使わない）/ 7 人物と写真の編集。
+Play へは **1 → 7** の番号順で上げる。まず写真アプリとして見せ、片付けに続いて写真を隠せることを伝える。
 画像に料金は書かない（料金は説明文とアプリの中）。順序と掲載文・22 掲載先の対応は `kura/store-listing.json` を正とする。
 
 ## API での反映
@@ -67,7 +67,7 @@ Play へは **1 → 5** の番号順で上げる。まず写真アプリとし�
 cd kura
 node store-images-strings.mjs      # Kura リポジトリの strings.xml → store-images-app-strings.js
 npm install --no-save puppeteer-core
-node render-store-images.mjs       # 20 言語 × 6 枚を書き出し（nl bn のように言語を絞れる）
+node render-store-images.mjs       # 20 言語 × 8 枚を書き出し（nl bn のように言語を絞れる）
 ```
 テンプレ: `store-images.html`（画面とレイアウト） / `store-images-i18n.js`（キャプションと地名 20 言語）。
 `store-images.html?lang=xx` をブラウザで開くと各言語をプレビューできる。

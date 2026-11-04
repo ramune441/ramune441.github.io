@@ -12,7 +12,7 @@
   ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id hi tr vi th pl ar nl bn（en が既定）。
   画面パーツと見た目は store-art.js / store-art.css（紹介動画 promo.html と共有）。画面の中の言葉はアプリの strings.xml から（store-images-app-strings.js、store-images-strings.mjs で生成）、
   キャプションと地名だけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
-  5枚: 1 紹介（写真の壁・写真タブ・思い出と場所のカード・4つの柱の札）／2 スワイプで片付け（飛んでいくカード・見つかった容量・連写のベスト）／
+  7枚: 1 紹介（写真の壁・写真タブ・思い出と場所のカード・4つの柱の札）／2 スワイプで片付け（飛んでいくカード・見つかった容量・連写のベスト）／
   3 {vault} に写真を隠す（暗い地）／4 ライブラリ（コレクション・人物・場所の地図・地名で検索）／5 写真も動画も元の画質でバックアップ（動画のカード・クラウドだけにある写真）。
   料金は載せない（ストアの決まりと国ごとの価格のため。料金は説明文とアプリの中）。
   検索の例は地名: 写っているものの名前（ML Kit のラベル）は英語だけなので、どの言語でも引ける地名で見せる。
@@ -100,6 +100,9 @@ html += shot('p3', 'dark', t('intro_private_title'), t('intro_private_text', t('
 html += shot('p4', '', C.h4, C.s4,
   `${device('collections')}${callout(searchCallout, 'zoom:1.5;right:16px;top:860px')}${callout(mapCallout, 'zoom:1.5;left:16px;top:947px')}`);
 html += shot('p5', '', C.h5, C.s5, `${device('cloud')}${callout(videoCallout, 'zoom:1.5;left:16px;top:860px')}`);
+// The name stays whole on one line: "Google" alone at a line's end reads badly.
+html += shot('p6', '', t('intro_move_title').replace(/Google /g, 'Google\u00a0'), t('import_row_hint'), device('move'));
+html += shot('p7', '', C.h7, C.s7, device('edit'));
 document.getElementById('stage').innerHTML = html;
 
 // Captions shrink until they fit their box, so no language overflows.

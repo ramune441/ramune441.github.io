@@ -285,4 +285,4 @@ body.cjk .find b { word-break:keep-all; }
 .hero .n { flex:1; min-width:0; }
 .hero b { display:block; font-size:20px; line-height:26px; font-weight:600; letter-spacing:-.3px; }
 .hero small { display:block; font-size:14px; line-height:20px; color:var(--onVar); }
-
+#p6 .cap h1 { word-break:keep-all; }

@@ -26,9 +26,10 @@ def session():
     return AuthorizedSession(Credentials.from_service_account_file(str(key), scopes=['https://www.googleapis.com/auth/androidpublisher']))
 
 def request(client, method, url, **kwargs):
-    for attempt in range(4):
+    # 22 listings of 8 images is over a thousand calls, and Play answers some of them 503 for a moment.
+    for attempt in range(7):
         result = client.request(method,url,timeout=90,**kwargs)
-        if result.status_code != 429: break
+        if result.status_code != 429 and result.status_code < 500: break
         time.sleep(2**attempt)
     if not result.ok:
         raise RuntimeError(f'{method} {url}: {result.status_code} {result.text[:1200]}')
@@ -40,7 +41,7 @@ def assets(lang, order, image_type):
 
 def validate_local(data):
     assert data['packageName'] == 'app.kura.photos'
-    assert data['screenshotOrder'] == [1,2,3,4,5]
+    assert data['screenshotOrder'] == [1,2,3,4,5,6,7]
     codes = []
     for lang, entry in data['locales'].items():
         codes += entry['playLanguages']
