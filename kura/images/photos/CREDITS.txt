@@ -61,3 +61,7 @@ p836.jpg — Lechon Kirb — https://unsplash.com/photos/yvx7LSZSzeo
 p838.jpg — London Scout — https://unsplash.com/photos/4-gFGb12hFA
 p832.jpg — hieu le — https://unsplash.com/photos/SrkuyPb3aUk
 p823.jpg — Benjamin Combs — https://unsplash.com/photos/hiAdjnXZxl8
+edit-before.jpg — p1027.jpg を切り抜いたもの。edit-smolder / edit-makeup / edit-bob / edit-glasses は Kura の AI 加工（/v1/ai/edit、edit-glasses は自由入力の「add round glasses」）で実際に作った結果。
+body-before.jpg の元 — Ionela Mat — https://unsplash.com/photos/a-woman-in-a-black-dress-posing-for-a-picture-S4KqP_H3rS4
+body-before.jpg は上の写真を切り抜いたもの。body-fuller.jpg は Kura のボディ加工「ふっくら」、body-after.jpg は全身とウエストのスライダーを最大、脚の長さを 0.35 にして実際に作った結果。同じ縮尺で足元をそろえて切り抜く。
+food-before.jpg — p429.jpg を切り抜いたもの。food-after.jpg は Kura のルック（シズル）で実際に作った結果。

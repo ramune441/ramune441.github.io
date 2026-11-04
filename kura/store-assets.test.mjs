@@ -32,9 +32,9 @@ test('Play titles, summaries and descriptions stay within their character limits
     }
   }
 });
-test('seven screenshots in their own order, and regional listings share one source',()=>{
-  // 1 introduction, 2 swipe and cleanup, 3 Private, 4 library, 5 backup, 6 moving from Google Photos, 7 editing.
-  assert.deepEqual(listing.screenshotOrder,[1,2,3,4,5,6,7]);
+test('eight screenshots in their own order, and regional listings share one source',()=>{
+  // Shown as: introduction, cleanup, AI editing, body and food editing, moving from Google Photos, backup, library, Private.
+  assert.deepEqual(listing.screenshotOrder,[1,2,7,8,6,5,4,3]);
   const languages = Object.values(listing.locales).flatMap(l=>l.playLanguages);
   assert.equal(languages.length,22);
   assert.equal(new Set(languages).size,22);

@@ -249,40 +249,6 @@ const SCREENS = {
   },
 
   // Settings' cloud backup (cloud/BackupState.kt BackupHero) while a run goes, and what is only in the cloud. No plan prices.
-  // What a move leaves: the numbers, then the albums as they came over. The album names are the
-  // places of the other screens, so they need no words of their own.
-  move: () => {
-    const n = (v) => v.toLocaleString(LOC);
-    const line = (key, v) => `<div class="sw"><div class="n"><b>${t(key, n(v))}</b></div></div>`;
-    return `${statusBar()}${screenBar(t('import_title'))}
-    <div class="body"><div class="stack">
-      <div class="panel" style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">
-        <div class="hero"><span class="dsc" style="width:48px;height:48px;background:var(--primaryC);color:var(--onPrimaryC)">${mi('cloud_done', 'mo', 'font-size:26px')}</span>
-          <div class="n"><b>${t('import_done_title')}</b></div></div>
-        ${line('import_done_copied', 3912)}${line('import_done_already', 846)}${line('import_done_albums', 12)}${line('import_done_favorites', 58)}</div>
-      <div class="sec">${label(t('lib_favorites'))}
-        <div class="grid" style="grid-template-columns:repeat(4,1fr);border-radius:14px;overflow:hidden">
-          ${['p199', 'p124', 'p77', 'p215', 'p434', 'p381', 'p128', 'p10'].map((src) => `<div class="cell"><img src="${P(src)}"><i class="mi cl" style="color:#fff">favorite</i></div>`).join('')}
-        </div></div>
-      <div class="sec">${label(t('tab_albums'))}</div>
-      <div style="display:flex;gap:12px">
-        ${photoCard({ src:'p436', title:C.cities[0], detail:pl('stats_items', 86), w:176, h:150 })}
-        ${photoCard({ src:'p401', title:C.cities[1], detail:pl('stats_items', 41), w:176, h:150 })}</div>
-    </div></div>${gestOnly()}`;
-  },
-  // The editor on a portrait: the photo, the two tabs and the person's tools, as in the app.
-  edit: () => {
-    const tools = [['face_retouching_natural', t('editor_retouch')], ['face', t('editor_reshape')], ['sentiment_satisfied', t('editor_expression')],
-      ['brush', t('editor_makeup')], ['content_cut', t('editor_tool_hair')], ['wallpaper', t('editor_background')]];
-    return `${statusBar()}${screenBar(t('viewer_edit'))}
-    <div style="height:560px;overflow:hidden"><img src="${P('p1027')}" style="width:100%;height:100%;object-fit:cover;object-position:52% 40%;display:block"></div>
-    <div style="display:flex;gap:8px;padding:12px 16px 4px">
-      <span style="padding:7px 16px;border-radius:18px;background:var(--primaryC);color:var(--onPrimaryC);font-size:14px;font-weight:600">${t('editor_tab_face')}</span>
-      <span style="padding:7px 16px;border-radius:18px;color:var(--onVar);font-size:14px">${t('editor_tab_photo')}</span></div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px 6px;padding:8px 10px">
-      ${tools.map(([icon, name]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;min-width:0">${mi(icon, 'mo', 'font-size:26px;color:var(--on)')}<span style="font-size:13px;line-height:17px;color:var(--on);text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:100%">${name}</span></div>`).join('')}
-    </div>${gestOnly()}`;
-  },
   cloud: () => {
     const onlyThere = ['p199', 'p124', 'p77', 'p215', 'p434', 'p381', 'p128', 'p10'];
     return `${statusBar()}${screenBar(t('cloud_title'))}

@@ -8,12 +8,13 @@
   Kura（Android）の Google Play 掲載画像。record-store-i18n.mjs が要素ごとにスクショして
   images/store/<lang>/ に書き出す:
     #fg → store-image-feature.png (1024x500)
-    #p1-#p5 → store-image-1..5.png（携帯電話 1080x1920）
+    #p1-#p8 → store-image-1..8.png（携帯電話 1080x1920）
   ?lang=xx: en ja zh zh-TW ko es fr de pt it ru id hi tr vi th pl ar nl bn（en が既定）。
   画面パーツと見た目は store-art.js / store-art.css（紹介動画 promo.html と共有）。画面の中の言葉はアプリの strings.xml から（store-images-app-strings.js、store-images-strings.mjs で生成）、
   キャプションと地名だけ store-images-i18n.js。色は ui/theme/Palette.kt、文字の大きさは Type.kt、書体は同梱の Geist（fonts/）。
-  7枚: 1 紹介（写真の壁・写真タブ・思い出と場所のカード・4つの柱の札）／2 スワイプで片付け（飛んでいくカード・見つかった容量・連写のベスト）／
-  3 {vault} に写真を隠す（暗い地）／4 ライブラリ（コレクション・人物・場所の地図・地名で検索）／5 写真も動画も元の画質でバックアップ（動画のカード・クラウドだけにある写真）。
+  8枚: 1 紹介（写真の壁・写真タブ・思い出と場所のカード・4つの柱の札）／2 スワイプで片付け（飛んでいくカード・見つかった容量・連写のベスト）／
+  3 {vault} に写真を隠す（暗い地）／4 ライブラリ（コレクション・人物・場所の地図・地名で検索）／5 写真も動画も元の画質でバックアップ（動画のカード・クラウドだけにある写真）／
+  6 Google フォトから移行／7 AI 加工の加工前と加工後／8 ボディと料理の加工前と加工後。
   料金は載せない（ストアの決まりと国ごとの価格のため。料金は説明文とアプリの中）。
   検索の例は地名: 写っているものの名前（ML Kit のラベル）は英語だけなので、どの言語でも引ける地名で見せる。
   フィーチャーグラフィックは紹介の横長版（名前・タグライン・4つの柱の札＋写真の壁・写真タブ・思い出のプリント）。小さい字は載せない。
@@ -41,7 +42,7 @@ const WALL = [['p360', 'p164', 'p509', 'p292', 'p77'], ['p200', 'p516', 'p553', 
   ['p525', 'p152', 'p433', 'p450', 'p219'], ['p507', 'p488', 'p110', 'p237', 'p434'], ['p54', 'p169', 'p493', 'p327', 'p517']];
 const HEIGHTS = [300, 380, 300, 340, 300];
 const TAGS = `<span class="tag">${mi('photo_library')}${C.f1t}</span><span class="tag">${mi('cleaning_services')}${C.f2t}</span>
-  <span class="tag">${mi('lock')}${fill(C.f3t)}</span><span class="tag">${mi('cloud_done')}${fill(C.f4t)}</span>`;
+  <span class="tag">${mi('auto_fix_high')}${C.f5t}</span><span class="tag">${mi('lock')}${fill(C.f3t)}</span><span class="tag">${mi('cloud_done')}${fill(C.f4t)}</span>`;
 // The feature graphic is the introduction turned sideways: the name, the tagline and the four parts on solid green,
 // the wall, the photos tab and a memory print to the right. No small print: Play shows it small.
 html += `<section class="shot" id="fg">
@@ -50,7 +51,7 @@ html += `<section class="shot" id="fg">
   <div class="fade"></div>
   <div class="left">
     <div class="brand">${ICON_SVG('16 16 76 76')}<b>${t('app_name')}</b></div>
-    <small>${t('brand_tagline')}</small>
+    <small>${C.one}</small>
     <div class="tags">${TAGS}</div>
   </div>
   <div class="device">${screen('photos', { w:400, h:866, cols:4, zoom:.61 })}</div>
@@ -65,7 +66,7 @@ html += `<section class="shot phone intro" id="p1">
   <div class="fade"></div>
   <div class="brand">
     <div class="row">${ICON_SVG('16 16 76 76')}<b>${t('app_name')}</b></div>
-    <small>${t('brand_tagline')}</small>
+    <small>${C.one}</small>
     <div class="tags">
       ${TAGS}
     </div>
@@ -101,8 +102,35 @@ html += shot('p4', '', C.h4, C.s4,
   `${device('collections')}${callout(searchCallout, 'zoom:1.5;right:16px;top:860px')}${callout(mapCallout, 'zoom:1.5;left:16px;top:947px')}`);
 html += shot('p5', '', C.h5, C.s5, `${device('cloud')}${callout(videoCallout, 'zoom:1.5;left:16px;top:860px')}`);
 // The name stays whole on one line: "Google" alone at a line's end reads badly.
-html += shot('p6', '', t('intro_move_title').replace(/Google /g, 'Google\u00a0'), t('import_row_hint'), device('move'));
-html += shot('p7', '', C.h7, C.s7, device('edit'));
+// Moving is shown as a picture: from where to where, and what comes over. The name is written out; no Google logo.
+const FROM = ['p199', 'p436', 'p77', 'p434', 'p124', 'p401'];
+const KINDS = [['p436', 'photo_album', t('tab_albums')], ['p215', 'favorite', t('lib_favorites')], ['p381', 'add_photo_alternate', C.m6]];
+html += shot('p6', '', t('intro_move_title').replace(/Google /g, 'Google\u00a0'), t('import_row_hint'), `<div class="flow">
+    <figure><div class="from">${FROM.map(src => `<img src="${P(src)}">`).join('')}</div><figcaption>${C.gp}</figcaption></figure>
+    ${mi('arrow_forward', 'mi go')}
+    <figure><div class="to">${ICON_SVG('16 16 76 76')}</div><figcaption>${t('app_name')}</figcaption></figure></div>
+  <div class="kinds">${KINDS.map(([src, icon, name]) => `<figure><img src="${P(src)}"><span>${mi(icon, 'mo')}</span><em>${name}</em></figure>`).join('')}</div>`);
+// Editing is shown by what it does, before and after, in the app's own AI results (CREDITS.txt) rather than its tools.
+const STYLES = [['edit-makeup', t('editor_ai_makeup')], ['edit-bob', t('editor_ai_hair_bob')], ['edit-glasses', t('editor_tool_ai_request')]];
+const TOOLS = [['face_retouching_natural', t('editor_retouch')], ['brush', t('editor_makeup')], ['content_cut', t('editor_tool_hair')],
+  ['accessibility_new', t('editor_body')], ['wallpaper', t('editor_background')], ['photo_filter', t('editor_filters')], ['chat_bubble_outline', t('editor_tool_ai_request')]];
+html += shot('p7', 'dark', C.h7, C.s7, `<div class="ba">
+    <figure><img src="${P('edit-before')}"><b>${C.b7}</b></figure>
+    <figure class="after"><img src="${P('edit-smolder')}"><b>${C.a7}</b></figure>
+    ${mi('arrow_forward', 'mi go')}</div>
+  <div class="more">${STYLES.map(([src, name]) => `<figure><img src="${P(src)}"><em>${name}</em></figure>`).join('')}</div>
+  <div class="tools">${TOOLS.map(([icon, name]) => `<span>${mi(icon, 'mo')}${name}</span>`).join('')}</div>`);
+// The editor's body and food results on real photos (CREDITS.txt). The body row keeps one scale with the feet on one line, and
+// its source sits in the middle, between a fuller and a slimmer result: she is slim already, so one step alone would hardly show.
+// The dashed line is the source's hem. Only the source is called the before: the fuller picture is a result too.
+const BODIES = [['body-fuller', t('editor_body_look_fuller')], ['body-before', C.b7], ['body-after', t('editor_body_look_leaner')]];
+html += shot('p8', 'dark', C.h8, C.s8, `<div class="trio"><h2>${t('editor_body')}</h2>
+    ${BODIES.map(([src, name]) => `<figure><img src="${P(src)}"><b>${name}</b></figure>`).join('')}
+    <div class="line" style="top:473px"></div></div>
+  <div class="ba"><h2>${t('editor_filter_food')} · ${t('editor_look_sizzle')}</h2>
+    <figure><img src="${P('food-before')}"><b>${C.b7}</b></figure>
+    <figure class="after"><img src="${P('food-after')}"><b>${C.a7}</b></figure>
+    ${mi('arrow_forward', 'mi go')}</div>`);
 document.getElementById('stage').innerHTML = html;
 
 // Captions shrink until they fit their box, so no language overflows.

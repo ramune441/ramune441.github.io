@@ -41,7 +41,7 @@ def assets(lang, order, image_type):
 
 def validate_local(data):
     assert data['packageName'] == 'app.kura.photos'
-    assert data['screenshotOrder'] == [1,2,3,4,5,6,7]
+    assert data['screenshotOrder'] == [1,2,7,8,6,5,4,3]
     codes = []
     for lang, entry in data['locales'].items():
         codes += entry['playLanguages']
