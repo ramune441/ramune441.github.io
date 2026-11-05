@@ -5,181 +5,241 @@
     "en": {
       "file": "promo-en.mp4",
       "title": "Kura: Photo Library & Cleaner",
-      "description": "Clean up duplicates, hide photos and back up originals.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=en-US",
+      "description": "One app for your photos: tidy up, edit with AI, hide and back up originals.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=en-US",
       "language": "en-US",
-      "videoId": "pQJ10_HyJc4",
-      "watchUrl": "https://www.youtube.com/watch?v=pQJ10_HyJc4",
+      "retired": [
+        "pQJ10_HyJc4"
+      ],
+      "videoId": "KWMlLVyj3IU",
+      "watchUrl": "https://www.youtube.com/watch?v=KWMlLVyj3IU",
       "published": true
     },
     "ja": {
       "file": "promo-ja.mp4",
       "title": "Kura: 写真ライブラリと整理",
-      "description": "重複写真を片付けて容量を確保。見せたくない写真や動画を隠し、元の画質でバックアップ。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ja-JP",
+      "description": "写真のことは全部これひとつ。整理、片付け、AI 編集、非表示、元の画質でのバックアップまで。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ja-JP",
       "language": "ja-JP",
-      "videoId": "oHWyCTFRkog",
-      "watchUrl": "https://www.youtube.com/watch?v=oHWyCTFRkog",
+      "retired": [
+        "oHWyCTFRkog"
+      ],
+      "videoId": "kLPCBIHNpDM",
+      "watchUrl": "https://www.youtube.com/watch?v=kLPCBIHNpDM",
       "published": true
     },
     "zh": {
       "file": "promo-zh.mp4",
       "title": "Kura：照片图库与清理",
-      "description": "清理重复照片、释放空间，隐藏私密照片和视频，并以原画质备份。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=zh-CN",
+      "description": "照片的事一个应用全搞定：整理、清理、AI 编辑、隐藏，并以原画质备份。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=zh-CN",
       "language": "zh-CN",
-      "videoId": "rZNIh0TyOVM",
-      "watchUrl": "https://www.youtube.com/watch?v=rZNIh0TyOVM",
+      "retired": [
+        "rZNIh0TyOVM"
+      ],
+      "videoId": "Nn-3Ru4rL-g",
+      "watchUrl": "https://www.youtube.com/watch?v=Nn-3Ru4rL-g",
       "published": true
     },
     "zh-TW": {
       "file": "promo-zh-TW.mp4",
       "title": "Kura：相片圖庫與清理",
-      "description": "清理重複相片、釋放空間，隱藏私密相片和影片，並以原畫質備份。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=zh-TW",
+      "description": "相片的事一個 App 全搞定：整理、清理、AI 編輯、隱藏，並以原畫質備份。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=zh-TW",
       "language": "zh-TW",
-      "videoId": "w1dG1UlYnDI",
-      "watchUrl": "https://www.youtube.com/watch?v=w1dG1UlYnDI",
+      "retired": [
+        "w1dG1UlYnDI"
+      ],
+      "videoId": "SZT-pCAjv0o",
+      "watchUrl": "https://www.youtube.com/watch?v=SZT-pCAjv0o",
       "published": true
     },
     "ko": {
       "file": "promo-ko.mp4",
       "title": "Kura: 사진 라이브러리 & 정리",
-      "description": "중복 사진을 정리하고 공간을 확보하세요. 사진과 동영상을 숨기고 원본 화질로 백업하세요.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ko-KR",
+      "description": "사진의 모든 것을 앱 하나로. 정리, AI 편집, 숨기기, 원본 화질 백업까지.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ko-KR",
       "language": "ko-KR",
-      "videoId": "rtcRx7eKy8w",
-      "watchUrl": "https://www.youtube.com/watch?v=rtcRx7eKy8w",
+      "retired": [
+        "rtcRx7eKy8w"
+      ],
+      "videoId": "2f3yKhIxa7A",
+      "watchUrl": "https://www.youtube.com/watch?v=2f3yKhIxa7A",
       "published": true
     },
     "es": {
       "file": "promo-es.mp4",
       "title": "Kura: Galería y limpiador",
-      "description": "Limpia duplicados, oculta fotos privadas y guarda copias en calidad original.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=es-ES",
+      "description": "Una app para tus fotos: limpia, edita con IA, oculta y guarda originales.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=es-ES",
       "language": "es-ES",
-      "videoId": "FVIJQWt-hj4",
-      "watchUrl": "https://www.youtube.com/watch?v=FVIJQWt-hj4",
+      "retired": [
+        "FVIJQWt-hj4"
+      ],
+      "videoId": "LGklshzyNtE",
+      "watchUrl": "https://www.youtube.com/watch?v=LGklshzyNtE",
       "published": true
     },
     "fr": {
       "file": "promo-fr.mp4",
       "title": "Kura : Photos et nettoyeur",
-      "description": "Supprimez les doublons, masquez vos photos et sauvegardez les originaux.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=fr-FR",
+      "description": "Une appli pour vos photos : tri, retouche IA, photos masquées et sauvegarde.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=fr-FR",
       "language": "fr-FR",
-      "videoId": "-wknD8dbxZ8",
-      "watchUrl": "https://www.youtube.com/watch?v=-wknD8dbxZ8",
+      "retired": [
+        "-wknD8dbxZ8"
+      ],
+      "videoId": "TVcxBFwhTAE",
+      "watchUrl": "https://www.youtube.com/watch?v=TVcxBFwhTAE",
       "published": true
     },
     "de": {
       "file": "promo-de.mp4",
       "title": "Kura: Fotogalerie & Cleaner",
-      "description": "Duplikate aufräumen, private Fotos ausblenden und Originale sichern.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=de-DE",
+      "description": "Eine App für deine Fotos: aufräumen, mit KI bearbeiten, verbergen, sichern.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=de-DE",
       "language": "de-DE",
-      "videoId": "zMmb5k_g6y8",
-      "watchUrl": "https://www.youtube.com/watch?v=zMmb5k_g6y8",
+      "retired": [
+        "zMmb5k_g6y8"
+      ],
+      "videoId": "KCHrsn4lpZU",
+      "watchUrl": "https://www.youtube.com/watch?v=KCHrsn4lpZU",
       "published": true
     },
     "pt": {
       "file": "promo-pt.mp4",
       "title": "Kura: Galeria e limpeza",
-      "description": "Limpe duplicatas, oculte fotos e faça backup na qualidade original.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=pt-BR",
+      "description": "Um app para suas fotos: limpe, edite com IA, oculte e faça backup original.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=pt-BR",
       "language": "pt-BR",
-      "videoId": "2BN9GncsHyo",
-      "watchUrl": "https://www.youtube.com/watch?v=2BN9GncsHyo",
+      "retired": [
+        "2BN9GncsHyo"
+      ],
+      "videoId": "ijiNDdOsoWw",
+      "watchUrl": "https://www.youtube.com/watch?v=ijiNDdOsoWw",
       "published": true
     },
     "it": {
       "file": "promo-it.mp4",
       "title": "Kura: Galleria e pulizia foto",
-      "description": "Elimina i duplicati, nascondi foto private e salva gli originali.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=it-IT",
+      "description": "Un’app per le tue foto: riordina, ritocca con l’IA, nascondi e salva.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=it-IT",
       "language": "it-IT",
-      "videoId": "h21EQFg1tE8",
-      "watchUrl": "https://www.youtube.com/watch?v=h21EQFg1tE8",
+      "retired": [
+        "h21EQFg1tE8"
+      ],
+      "videoId": "CQEaToPRbMs",
+      "watchUrl": "https://www.youtube.com/watch?v=CQEaToPRbMs",
       "published": true
     },
     "ru": {
       "file": "promo-ru.mp4",
       "title": "Kura: галерея и очистка фото",
-      "description": "Убирайте дубликаты, скрывайте личные фото и сохраняйте оригиналы в облаке.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ru-RU",
+      "description": "Всё для фото в одном приложении: уборка, ИИ-редактор, скрытие и бэкап.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ru-RU",
       "language": "ru-RU",
-      "videoId": "9PFeR70Al7I",
-      "watchUrl": "https://www.youtube.com/watch?v=9PFeR70Al7I",
+      "retired": [
+        "9PFeR70Al7I"
+      ],
+      "videoId": "z2ma1q6EB_A",
+      "watchUrl": "https://www.youtube.com/watch?v=z2ma1q6EB_A",
       "published": true
     },
     "id": {
       "file": "promo-id.mp4",
       "title": "Kura: Galeri & Pembersih Foto",
-      "description": "Bersihkan duplikat, sembunyikan foto pribadi, dan cadangkan kualitas asli.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=id",
+      "description": "Satu aplikasi untuk foto: rapikan, edit dengan AI, sembunyikan, dan cadangkan.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=id",
       "language": "id",
-      "videoId": "hOdaBBDHnUw",
-      "watchUrl": "https://www.youtube.com/watch?v=hOdaBBDHnUw",
+      "retired": [
+        "hOdaBBDHnUw"
+      ],
+      "videoId": "WwSB8TKOIXw",
+      "watchUrl": "https://www.youtube.com/watch?v=WwSB8TKOIXw",
       "published": true
     },
     "hi": {
       "file": "promo-hi.mp4",
       "title": "Kura: फ़ोटो लाइब्रेरी व क्लीनर",
-      "description": "डुप्लीकेट हटाएं, निजी फ़ोटो छिपाएं और मूल क्वालिटी में बैकअप लें।\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=hi-IN",
+      "description": "फ़ोटो का सब कुछ एक ऐप में: सफ़ाई, AI एडिट, फ़ोटो छिपाना और बैकअप।\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=hi-IN",
       "language": "hi-IN",
-      "videoId": "JeFRbssD3pc",
-      "watchUrl": "https://www.youtube.com/watch?v=JeFRbssD3pc",
+      "retired": [
+        "JeFRbssD3pc"
+      ],
+      "videoId": "tCFsH79NXjY",
+      "watchUrl": "https://www.youtube.com/watch?v=tCFsH79NXjY",
       "published": true
     },
     "tr": {
       "file": "promo-tr.mp4",
       "title": "Kura: Galeri ve Temizleyici",
-      "description": "Yinelenenleri temizleyin, özel fotoğrafları gizleyin ve asıllarını yedekleyin.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=tr-TR",
+      "description": "Fotoğraflar için tek uygulama: temizle, yapay zekayla düzenle, gizle, yedekle.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=tr-TR",
       "language": "tr-TR",
-      "videoId": "du0NV7TMztM",
-      "watchUrl": "https://www.youtube.com/watch?v=du0NV7TMztM",
+      "retired": [
+        "du0NV7TMztM"
+      ],
+      "videoId": "j7xPSAedIJA",
+      "watchUrl": "https://www.youtube.com/watch?v=j7xPSAedIJA",
       "published": true
     },
     "vi": {
       "file": "promo-vi.mp4",
       "title": "Kura: Thư viện & dọn ảnh",
-      "description": "Dọn ảnh trùng, ẩn ảnh riêng tư và sao lưu chất lượng gốc.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=vi",
+      "description": "Một ứng dụng cho ảnh: dọn dẹp, sửa bằng AI, ẩn ảnh và sao lưu bản gốc.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=vi",
       "language": "vi",
-      "videoId": "KdqBVZfnaiQ",
-      "watchUrl": "https://www.youtube.com/watch?v=KdqBVZfnaiQ",
+      "retired": [
+        "KdqBVZfnaiQ"
+      ],
+      "videoId": "e_1i_qW4gek",
+      "watchUrl": "https://www.youtube.com/watch?v=e_1i_qW4gek",
       "published": true
     },
     "th": {
       "file": "promo-th.mp4",
       "title": "Kura: คลังรูปและจัดระเบียบ",
-      "description": "ลบรูปซ้ำ ซ่อนรูปส่วนตัว และสำรองข้อมูลด้วยคุณภาพต้นฉบับ\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=th",
+      "description": "ทุกเรื่องของรูปในแอปเดียว: จัดระเบียบ แต่งด้วย AI ซ่อนรูป และสำรองต้นฉบับ\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=th",
       "language": "th",
-      "videoId": "jZvdN8ufi5s",
-      "watchUrl": "https://www.youtube.com/watch?v=jZvdN8ufi5s",
+      "retired": [
+        "jZvdN8ufi5s"
+      ],
+      "videoId": "_SWNvjrWAFM",
+      "watchUrl": "https://www.youtube.com/watch?v=_SWNvjrWAFM",
       "published": true
     },
     "pl": {
       "file": "promo-pl.mp4",
       "title": "Kura: Galeria i porządki",
-      "description": "Usuwaj duplikaty, ukrywaj prywatne zdjęcia i zapisuj oryginały w chmurze.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=pl-PL",
+      "description": "Jedna aplikacja do zdjęć: porządki, edycja AI, ukrywanie i kopie oryginałów.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=pl-PL",
       "language": "pl-PL",
-      "videoId": "QPGOhYiAkqw",
-      "watchUrl": "https://www.youtube.com/watch?v=QPGOhYiAkqw",
+      "retired": [
+        "QPGOhYiAkqw"
+      ],
+      "videoId": "5ThuU2mYv4o",
+      "watchUrl": "https://www.youtube.com/watch?v=5ThuU2mYv4o",
       "published": true
     },
     "ar": {
       "file": "promo-ar.mp4",
       "title": "Kura: مكتبة الصور والتنظيف",
-      "description": "نظّف الصور المكررة وأخفِ صورك الخاصة واحتفظ بنسخة احتياطية بالجودة الأصلية.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ar",
+      "description": "تطبيق واحد لصورك: تنظيف وتحرير بالذكاء الاصطناعي وإخفاء ونسخ احتياطي للأصل.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ar",
       "language": "ar",
-      "videoId": "scnJhAkCfYQ",
-      "watchUrl": "https://www.youtube.com/watch?v=scnJhAkCfYQ",
+      "retired": [
+        "scnJhAkCfYQ"
+      ],
+      "videoId": "w2Bv5ecaTQA",
+      "watchUrl": "https://www.youtube.com/watch?v=w2Bv5ecaTQA",
       "published": true
     },
     "nl": {
       "file": "promo-nl.mp4",
       "title": "Kura: Foto’s & Opruimen",
-      "description": "Ruim duplicaten op, verberg foto’s en maak back-ups van originelen.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=nl-NL",
+      "description": "Eén app voor je foto’s: opruimen, bewerken met AI, verbergen en back-uppen.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=nl-NL",
       "language": "nl-NL",
-      "videoId": "gotJ8CdHqs8",
-      "watchUrl": "https://www.youtube.com/watch?v=gotJ8CdHqs8",
+      "retired": [
+        "gotJ8CdHqs8"
+      ],
+      "videoId": "uEzHEyViPVc",
+      "watchUrl": "https://www.youtube.com/watch?v=uEzHEyViPVc",
       "published": true
     },
     "bn": {
       "file": "promo-bn.mp4",
       "title": "Kura: ছবি সাজান ও লুকান",
-      "description": "একই ছবি সরান, ব্যক্তিগত ছবি লুকান ও আসল মানে ব্যাকআপ রাখুন।\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=bn-BD",
+      "description": "ছবির সবকিছু এক অ্যাপে: গোছানো, AI এডিট, লুকানো ও আসল মানে ব্যাকআপ।\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=bn-BD",
       "language": "bn-BD",
-      "videoId": "k-O-I7osGQc",
-      "watchUrl": "https://www.youtube.com/watch?v=k-O-I7osGQc",
+      "retired": [
+        "k-O-I7osGQc"
+      ],
+      "videoId": "qluQUVXmmkg",
+      "watchUrl": "https://www.youtube.com/watch?v=qluQUVXmmkg",
       "published": true
     }
   }
