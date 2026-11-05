@@ -4,7 +4,7 @@
   "items": {
     "en": {
       "file": "promo-en.mp4",
-      "title": "Kura: Photo Library & Cleaner",
+      "title": "Kura: All-in-One Photo App",
       "description": "One app for your photos: tidy up, edit with AI, hide and back up originals.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=en-US",
       "language": "en-US",
       "retired": [
@@ -16,7 +16,7 @@
     },
     "ja": {
       "file": "promo-ja.mp4",
-      "title": "Kura: 写真ライブラリと整理",
+      "title": "Kura: オールインワン写真アプリ",
       "description": "写真のことは全部これひとつ。整理、片付け、AI 編集、非表示、元の画質でのバックアップまで。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ja-JP",
       "language": "ja-JP",
       "retired": [
@@ -28,7 +28,7 @@
     },
     "zh": {
       "file": "promo-zh.mp4",
-      "title": "Kura：照片图库与清理",
+      "title": "Kura：一站式照片应用",
       "description": "照片的事一个应用全搞定：整理、清理、AI 编辑、隐藏，并以原画质备份。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=zh-CN",
       "language": "zh-CN",
       "retired": [
@@ -40,7 +40,7 @@
     },
     "zh-TW": {
       "file": "promo-zh-TW.mp4",
-      "title": "Kura：相片圖庫與清理",
+      "title": "Kura：一站式相片 App",
       "description": "相片的事一個 App 全搞定：整理、清理、AI 編輯、隱藏，並以原畫質備份。\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=zh-TW",
       "language": "zh-TW",
       "retired": [
@@ -52,7 +52,7 @@
     },
     "ko": {
       "file": "promo-ko.mp4",
-      "title": "Kura: 사진 라이브러리 & 정리",
+      "title": "Kura: 올인원 사진 앱",
       "description": "사진의 모든 것을 앱 하나로. 정리, AI 편집, 숨기기, 원본 화질 백업까지.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ko-KR",
       "language": "ko-KR",
       "retired": [
@@ -64,7 +64,7 @@
     },
     "es": {
       "file": "promo-es.mp4",
-      "title": "Kura: Galería y limpiador",
+      "title": "Kura: App de fotos todo en uno",
       "description": "Una app para tus fotos: limpia, edita con IA, oculta y guarda originales.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=es-ES",
       "language": "es-ES",
       "retired": [
@@ -76,7 +76,7 @@
     },
     "fr": {
       "file": "promo-fr.mp4",
-      "title": "Kura : Photos et nettoyeur",
+      "title": "Kura : photos tout-en-un",
       "description": "Une appli pour vos photos : tri, retouche IA, photos masquées et sauvegarde.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=fr-FR",
       "language": "fr-FR",
       "retired": [
@@ -88,7 +88,7 @@
     },
     "de": {
       "file": "promo-de.mp4",
-      "title": "Kura: Fotogalerie & Cleaner",
+      "title": "Kura: All-in-One-Foto-App",
       "description": "Eine App für deine Fotos: aufräumen, mit KI bearbeiten, verbergen, sichern.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=de-DE",
       "language": "de-DE",
       "retired": [
@@ -100,7 +100,7 @@
     },
     "pt": {
       "file": "promo-pt.mp4",
-      "title": "Kura: Galeria e limpeza",
+      "title": "Kura: App de fotos tudo em um",
       "description": "Um app para suas fotos: limpe, edite com IA, oculte e faça backup original.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=pt-BR",
       "language": "pt-BR",
       "retired": [
@@ -112,7 +112,7 @@
     },
     "it": {
       "file": "promo-it.mp4",
-      "title": "Kura: Galleria e pulizia foto",
+      "title": "Kura: app foto tutto in uno",
       "description": "Un’app per le tue foto: riordina, ritocca con l’IA, nascondi e salva.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=it-IT",
       "language": "it-IT",
       "retired": [
@@ -124,7 +124,7 @@
     },
     "ru": {
       "file": "promo-ru.mp4",
-      "title": "Kura: галерея и очистка фото",
+      "title": "Kura: всё для фото в одном",
       "description": "Всё для фото в одном приложении: уборка, ИИ-редактор, скрытие и бэкап.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ru-RU",
       "language": "ru-RU",
       "retired": [
@@ -136,7 +136,7 @@
     },
     "id": {
       "file": "promo-id.mp4",
-      "title": "Kura: Galeri & Pembersih Foto",
+      "title": "Kura: Aplikasi Foto Serba Ada",
       "description": "Satu aplikasi untuk foto: rapikan, edit dengan AI, sembunyikan, dan cadangkan.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=id",
       "language": "id",
       "retired": [
@@ -148,7 +148,7 @@
     },
     "hi": {
       "file": "promo-hi.mp4",
-      "title": "Kura: फ़ोटो लाइब्रेरी व क्लीनर",
+      "title": "Kura: ऑल-इन-वन फ़ोटो ऐप",
       "description": "फ़ोटो का सब कुछ एक ऐप में: सफ़ाई, AI एडिट, फ़ोटो छिपाना और बैकअप।\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=hi-IN",
       "language": "hi-IN",
       "retired": [
@@ -160,7 +160,7 @@
     },
     "tr": {
       "file": "promo-tr.mp4",
-      "title": "Kura: Galeri ve Temizleyici",
+      "title": "Kura: Hepsi Bir Arada Fotoğraf",
       "description": "Fotoğraflar için tek uygulama: temizle, yapay zekayla düzenle, gizle, yedekle.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=tr-TR",
       "language": "tr-TR",
       "retired": [
@@ -172,7 +172,7 @@
     },
     "vi": {
       "file": "promo-vi.mp4",
-      "title": "Kura: Thư viện & dọn ảnh",
+      "title": "Kura: Ảnh tất cả trong một",
       "description": "Một ứng dụng cho ảnh: dọn dẹp, sửa bằng AI, ẩn ảnh và sao lưu bản gốc.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=vi",
       "language": "vi",
       "retired": [
@@ -184,7 +184,7 @@
     },
     "th": {
       "file": "promo-th.mp4",
-      "title": "Kura: คลังรูปและจัดระเบียบ",
+      "title": "Kura: แอปรูปภาพครบวงจร",
       "description": "ทุกเรื่องของรูปในแอปเดียว: จัดระเบียบ แต่งด้วย AI ซ่อนรูป และสำรองต้นฉบับ\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=th",
       "language": "th",
       "retired": [
@@ -196,7 +196,7 @@
     },
     "pl": {
       "file": "promo-pl.mp4",
-      "title": "Kura: Galeria i porządki",
+      "title": "Kura: Wszystko dla zdjęć",
       "description": "Jedna aplikacja do zdjęć: porządki, edycja AI, ukrywanie i kopie oryginałów.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=pl-PL",
       "language": "pl-PL",
       "retired": [
@@ -208,7 +208,7 @@
     },
     "ar": {
       "file": "promo-ar.mp4",
-      "title": "Kura: مكتبة الصور والتنظيف",
+      "title": "Kura: تطبيق الصور الشامل",
       "description": "تطبيق واحد لصورك: تنظيف وتحرير بالذكاء الاصطناعي وإخفاء ونسخ احتياطي للأصل.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=ar",
       "language": "ar",
       "retired": [
@@ -220,7 +220,7 @@
     },
     "nl": {
       "file": "promo-nl.mp4",
-      "title": "Kura: Foto’s & Opruimen",
+      "title": "Kura: Alles-in-één foto-app",
       "description": "Eén app voor je foto’s: opruimen, bewerken met AI, verbergen en back-uppen.\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=nl-NL",
       "language": "nl-NL",
       "retired": [
@@ -232,7 +232,7 @@
     },
     "bn": {
       "file": "promo-bn.mp4",
-      "title": "Kura: ছবি সাজান ও লুকান",
+      "title": "Kura: অল-ইন-ওয়ান ছবি অ্যাপ",
       "description": "ছবির সবকিছু এক অ্যাপে: গোছানো, AI এডিট, লুকানো ও আসল মানে ব্যাকআপ।\n\n▶ Google Play: https://play.google.com/store/apps/details?id=app.kura.photos&hl=bn-BD",
       "language": "bn-BD",
       "retired": [
