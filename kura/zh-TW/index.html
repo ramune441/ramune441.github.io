@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<!-- 生成物: kura/lp-template.html と kura/lp-i18n/<lang>.json から node kura/build-lp.mjs で作る。直接直さない。 -->
+<html lang="zh-TW" dir="ltr" data-lang="zh-TW" data-base="../" prefix="og: https://ogp.me/ns#">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kura｜相片的事一個 App 全搞定：圖庫、清理、AI 編輯與備份的 Android App</title>
+  <meta name="description" content="Kura 是一站式 Android 相片 App：完整圖庫、重複和模糊相片清理、人像修飾與 AI 編輯、把相片藏進私密、原始畫質雲端備份，以及從 Google 相簿搬移。瀏覽、整理和刪除都免費，沒有廣告。">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/kura/zh-TW/">
+  <link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/">
+  <link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/">
+  <link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/">
+  <link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/">
+  <link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/">
+  <link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/">
+  <link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/">
+  <link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/">
+  <link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/">
+  <link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/">
+  <link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/">
+  <link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/">
+  <link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/">
+  <link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/">
+  <link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/">
+  <link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/">
+  <link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/">
+  <link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/">
+  <link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/">
+  <link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/">
+
+  <meta property="og:title" content="Kura｜相片的事，一個 App 全搞定。">
+  <meta property="og:description" content="圖庫、清理、AI 編輯、私密、原始畫質備份、從 Google 相簿搬移，全在一個 Android 相片 App。瀏覽、整理和刪除都免費。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/kura/zh-TW/">
+  <meta property="og:image" content="https://ramune441.github.io/kura/images/store/zh-TW/store-image-feature.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="Kura - 相片的事，一個 App 全搞定。">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="Kura">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kura｜相片的事，一個 App 全搞定。">
+  <meta name="twitter:description" content="圖庫、清理、AI 編輯、私密、原始畫質備份、從 Google 相簿搬移，全在一個 Android 相片 App。瀏覽、整理和刪除都免費。">
+  <meta name="twitter:image" content="https://ramune441.github.io/kura/images/store/zh-TW/store-image-feature.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Kura",
+    "description": "圖庫、清理、AI 編輯、私密、原始畫質備份、從 Google 相簿搬移，全在一個 Android 相片 App。瀏覽、整理和刪除都免費。",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Android 11+",
+    "inLanguage": "zh-TW",
+    "url": "https://ramune441.github.io/kura/zh-TW/",
+    "installUrl": "https://play.google.com/store/apps/details?id=app.kura.photos",
+    "image": "https://ramune441.github.io/kura/images/store/zh-TW/store-image-feature.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ramune",
+      "url": "https://ramune441.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "zh-TW",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "可以免費使用嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "瀏覽、整理和刪除相片都免費，也沒有廣告。雲端備份、網頁版、從 Google 相簿搬移和 AI 編輯，包含在月付的雲端方案中（100 GB 起，US$0.99）。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "我的相片會被傳送到別處嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "整理所需的辨識（重複、模糊、臉孔、物體和文字）全部在手機上執行。只有在你開啟自動備份，或進行分享、使用 AI 編輯等明確會傳送相片的操作時，相片和影片才會離開手機。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "可以從 Google 相簿搬移嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。從 App 或網頁版傳送以 Google Takeout 下載的 .zip 檔，Kura 就會帶來你的相簿、我的最愛，以及 Kura 還沒有的相片。搬移需要雲端方案。在 Google 相簿加上的說明、人物和地點不會搬過來。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "可以在電腦上看相片嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。用瀏覽器登入網頁版，就能查看、整理、清理、分享和上傳 Kura 雲端裡的相片。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "取消訂閱後，相片會怎麼樣？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "手機上的相片會原樣保留。訂閱結束一段時間後，Kura 雲端中的資料可能會被刪除，請先把需要的內容儲存到手機或電腦。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "iPhone 可以用嗎？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "App 只支援 Android（Android 11 以上）。Kura 雲端裡的相片，可以在包括 iPhone 在內的任何瀏覽器上，透過網頁版查看。"
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ramune Apps",
+        "item": "https://ramune441.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kura",
+        "item": "https://ramune441.github.io/kura/zh-TW/"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="../icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800;900&amp;family=Noto+Sans:wght@400;500;700;800;900&display=swap">
+  <link rel="stylesheet" href="../lp.css">
+  <style>:root { --font-script: 'Noto Sans TC', 'Noto Sans'; }</style>
+</head>
+<body>  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../" class="nav-brand"><img src="../icons/icon.svg" alt=""><span>Kura</span></a>
+      <div class="nav-right">
+        <a href="https://kura-api.warload57.workers.dev/web" class="nav-link" target="_blank" rel="noopener">網頁版</a>
+        <select id="langSelect" class="lang-select" aria-label="Language"><option value="en">English</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="zh-TW" selected>繁體中文</option><option value="ko">한국어</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="it">Italiano</option><option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="hi">हिन्दी</option><option value="tr">Türkçe</option><option value="vi">Tiếng Việt</option><option value="th">ไทย</option><option value="pl">Polski</option><option value="ar">العربية</option><option value="nl">Nederlands</option><option value="bn">বাংলা</option></select>
+        <a href="https://play.google.com/store/apps/details?id=app.kura.photos&amp;hl=zh-TW" class="nav-cta" target="_blank" rel="noopener">在 Google Play 下載</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span>Android 相片 App · 無廣告</span></div>
+      <h1>相片的事，<br><span class="accent">一個 App 全搞定。</span></h1>
+      <p class="hero-desc">圖庫、清理、AI 編輯、私密、備份，以及從 Google 相簿搬移。有了 Kura，不必再為每件事各裝一個 App。</p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=app.kura.photos&amp;hl=zh-TW" class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+          <span>在 Google Play 下載</span>
+        </a>
+        <a href="https://kura-api.warload57.workers.dev/web" class="btn-secondary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>開啟網頁版</span>
+        </a>
+      </div>
+      <p class="hero-note">Android 11 以上 · 瀏覽、整理和刪除都免費 · 使用 Google 帳戶登入</p>
+      <div class="hero-visual">
+        <img src="../images/lp/zh-TW/store-image-feature.webp" width="1024" height="500" alt="Kura - 相片的事，一個 App 全搞定。" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- PROBLEM -->
+  <div class="problem">
+    <h2>你的相片，需要幾個 App？</h2>
+    <p>看相片用圖庫，騰空間用清理 App，修圖再換一個 App，備份又是另一個服務。每切換一次，就得重新找一次同一張相片。<br><span class="highlight">Kura 在一個圖庫裡全部搞定。</span></p>
+  </div>
+
+  <!-- COMPARE -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag">一站式</span>
+      <h2>四個 App，合而為一。</h2>
+      <p class="section-lead">同一批相片，在同一個地方查看、清理、編輯和備份。</p>
+      <div class="compare">
+        <div class="cmp-card before">
+          <h3>以前</h3>
+          <ul class="cmp-list">
+            <li><span class="mk">1</span><span>在圖庫 App 裡瀏覽</span></li>
+            <li><span class="mk">2</span><span>在清理 App 裡找重複相片</span></li>
+            <li><span class="mk">3</span><span>在修圖 App 裡開啟相片</span></li>
+            <li><span class="mk">4</span><span>再用另一個服務備份</span></li>
+          </ul>
+        </div>
+        <div class="cmp-card after">
+          <h3><img src="../icons/icon.svg" alt=""><span>有了 Kura</span></h3>
+          <ul class="cmp-list">
+            <li><span class="mk">✓</span><span>依日期、人物、地點和回憶瀏覽</span></li>
+            <li><span class="mk">✓</span><span>在手機上找出重複、相似和模糊相片，滑動就能清理</span></li>
+            <li><span class="mk">✓</span><span>在同一個畫面修飾、套濾鏡、AI 編輯</span></li>
+            <li><span class="mk">✓</span><span>以原始畫質備份，用瀏覽器也能查看</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">影片</span>
+      <h2>44 秒認識 Kura</h2>
+      <p class="section-lead">從圖庫到清理、編輯、搬移和備份，一次看完。</p>
+      <div class="video-wrap">
+        <iframe id="promo-video" src="https://www.youtube-nocookie.com/embed/SZT-pCAjv0o?rel=0&amp;hl=zh-TW" title="Kura" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: cleanup -->
+  <section id="features">
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">清理</span>
+          <h3>滑一滑，<br><span class="accent">一次清掉一大批。</span></h3>
+          <p>Kura 在手機上找出完全重複、相似相片、模糊相片和大型檔案。向右滑動保留，向左滑動丟掉，能釋出多少空間一眼就知道。</p>
+          <ul class="feat-list">
+            <li>在相似相片中標出最佳相片</li>
+            <li>依月份或資料夾挑選清理</li>
+            <li>每一步都能復原，丟掉的相片會留在垃圾桶</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/lp/zh-TW/store-image-2.webp" width="1080" height="1920" alt="滑動清理相片" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: edit -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">編輯</span>
+          <h3>相片更好看，<br><span class="accent">你也更好看。</span></h3>
+          <p>修飾、塑形、妝容、頭髮和背景，還有 30 種濾鏡、調整和裁切。美食濾鏡讓料理更誘人，身形工具調整全身比例。一律另存副本，原始相片保持不變。</p>
+          <ul class="feat-list">
+            <li>改變髮型和表情的 AI 編輯（隨雲端方案提供）</li>
+            <li>「請 AI 修改」：寫下你想改的地方</li>
+            <li>編輯結果另存，原始相片保留</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/lp/zh-TW/store-image-7.webp" width="1080" height="1920" alt="人像編輯與 AI 編輯範例" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: library -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">圖庫</span>
+          <h3>想找的那張，<br><span class="accent">幾秒就找到。</span></h3>
+          <p>依日期排列的格狀檢視，還有往年同一天的回憶。可依地點、相片內容或相片中的文字搜尋，臉孔會在手機上依人物分組。</p>
+          <ul class="feat-list">
+            <li>人物、地點（地圖）、相簿和資料夾</li>
+            <li>動態相片、全景相片和幻燈片</li>
+            <li>JPEG 無損旋轉和列印</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/lp/zh-TW/store-image-4.webp" width="1080" height="1920" alt="包含人物、地點和搜尋的圖庫" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: private -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">私密</span>
+          <h3>不想給人看的相片，<br><span class="accent">放進私密。</span></h3>
+          <p>將相片和影片移入私密，即可從圖庫和其他 App 中隱藏。開啟時需透過手機螢幕鎖驗證身分。</p>
+          <ul class="feat-list">
+            <li>也可以鎖定整個 App</li>
+            <li>分享的相片會移除位置資訊（預設開啟）</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/lp/zh-TW/store-image-3.webp" width="1080" height="1920" alt="私密畫面" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: backup -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">備份</span>
+          <h3>原始畫質，<br><span class="accent">安心存到雲端。</span></h3>
+          <p>相片和影片不重新壓縮，原樣備份。從手機刪除已備份的副本以釋出空間，仍可在雲端查看。</p>
+          <ul class="feat-list">
+            <li>月付方案：100 GB / 500 GB / 1 TB</li>
+            <li>透過連結分享，可設定有效期限和密碼</li>
+            <li>也能在電腦瀏覽器中查看和整理</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/lp/zh-TW/store-image-5.webp" width="1080" height="1920" alt="雲端備份畫面" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: move -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">搬移</span>
+          <h3>從 Google 相簿，<br><span class="accent">一次搬過來。</span></h3>
+          <p>只要從 App 或網頁版傳送 Google Takeout 的 .zip 檔，Kura 就會帶來你的相簿、我的最愛，以及 Kura 還沒有的相片。解壓縮由 Kura 的伺服器在背景完成，App 和瀏覽器都可以關掉。</p>
+          <ul class="feat-list">
+            <li>搬移需要雲端方案</li>
+            <li>相片很多時，用電腦上的網頁版最方便</li>
+            <li>相機記錄的拍攝地點會保留在檔案中</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/lp/zh-TW/store-image-6.webp" width="1080" height="1920" alt="從 Google 相簿搬移" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEB -->
+  <section id="web">
+    <div class="section-inner">
+      <div class="web-band">
+        <div>
+          <span class="section-tag">網頁版</span>
+          <h2>在電腦瀏覽器上，也是同一個圖庫。</h2>
+          <p>Kura 雲端裡的相片，在網頁版也能像在 App 裡一樣查看、整理、清理、編輯、分享和上傳。我的最愛會與 App 同步。</p>
+          <a href="https://kura-api.warload57.workers.dev/web" class="btn-secondary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <span>開啟網頁版</span>
+          </a>
+          <p class="web-note">使用 Google 帳戶登入 · 僅提供英文和日文</p>
+        </div>
+        <div class="browser" aria-hidden="true">
+          <div class="browser-bar"><i></i><i></i><i></i><span>kura-api.warload57.workers.dev/web</span></div>
+          <div class="browser-grid">
+            <img src="../images/lp/photos/p10.webp" alt="" loading="lazy"><img src="../images/lp/photos/p28.webp" alt="" loading="lazy"><img src="../images/lp/photos/p110.webp" alt="" loading="lazy"><img src="../images/lp/photos/p164.webp" alt="" loading="lazy">
+            <img src="../images/lp/photos/p200.webp" alt="" loading="lazy"><img src="../images/lp/photos/p237.webp" alt="" loading="lazy"><img src="../images/lp/photos/p287.webp" alt="" loading="lazy"><img src="../images/lp/photos/p323.webp" alt="" loading="lazy">
+            <img src="../images/lp/photos/p369.webp" alt="" loading="lazy"><img src="../images/lp/photos/p433.webp" alt="" loading="lazy"><img src="../images/lp/photos/p509.webp" alt="" loading="lazy"><img src="../images/lp/photos/p558.webp" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">功能</span>
+      <h2>相片需要的，其他也都有</h2>
+      <p class="section-lead">每天使用的圖庫該有的功能，一應俱全。</p>
+      <div class="features-grid">
+        <article class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>依內容搜尋</h3>
+          <p>依地點、相片內容或相片中的文字找相片。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c1.9.7 3.1 2.4 3.5 5.2"/></svg></div>
+          <h3>人物和地點</h3>
+          <p>臉孔在手機上依人物分組，相片也能在地圖上查看。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+          <h3>歷年今日</h3>
+          <p>往年同一天拍的相片，顯示在圖庫最上方。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3.5 9h17M3.5 15h17"/></svg></div>
+          <h3>30 種濾鏡</h3>
+          <p>亮度和色彩調整、裁切和筆刷，還有美食濾鏡。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></div>
+          <h3>連結分享</h3>
+          <p>設定有效期限和密碼，沒裝 App 的人也收得到。</p>
+        </article>
+        <article class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+          <h3>應用程式鎖定</h3>
+          <p>每次開啟都用螢幕鎖確認。還可以把私密隱藏起來。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag">開始使用</span>
+      <h2>四個步驟就能開始</h2>
+      <p class="section-lead">裝好之後，你的相片就會整理好呈現在眼前。</p>
+      <div class="flow">
+        <div class="flow-item"><div class="flow-num">1</div><h3>安裝</h3><p>從 Google Play 下載（Android 11 以上）</p></div>
+        <div class="flow-item"><div class="flow-num">2</div><h3>相片存取權</h3><p>選擇「全部允許」，載入整個圖庫</p></div>
+        <div class="flow-item"><div class="flow-num">3</div><h3>登入</h3><p>使用你的 Google 帳戶登入</p></div>
+        <div class="flow-item"><div class="flow-num">4</div><h3>瀏覽和清理</h3><p>馬上開始整理，需要時再加上備份</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">價格</span>
+      <h2>瀏覽和清理免費，雲端需要時再用。</h2>
+      <p class="section-lead">沒有廣告。只有使用雲端時才需要付費。</p>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>免費</h3>
+          <p class="price-sub">手機上能做的一切</p>
+          <div class="price-big">US$0</div>
+          <ul class="check-list">
+            <li>圖庫、搜尋、人物、地點和回憶</li>
+            <li>重複、相似和模糊相片清理</li>
+            <li>修飾、濾鏡等編輯</li>
+            <li>私密和應用程式鎖定</li>
+          </ul>
+        </div>
+        <div class="price-card plan">
+          <h3>雲端方案</h3>
+          <p class="price-sub">透過 Google Play 按月付費，可隨時取消</p>
+          <div class="plans">
+            <div class="plan-tile"><b>100GB</b><span>US$0.99/月</span></div>
+            <div class="plan-tile"><b>500GB</b><span>US$4.99/月</span></div>
+            <div class="plan-tile"><b>1TB</b><span>US$9.99/月</span></div>
+          </div>
+          <ul class="check-list">
+            <li>原始畫質雲端備份</li>
+            <li>在瀏覽器使用網頁版</li>
+            <li>從 Google 相簿搬移</li>
+            <li>AI 編輯（每天最多 30 次）</li>
+          </ul>
+        </div>
+      </div>
+      <p class="price-note">Google Play 會以你所在地區的貨幣顯示價格。</p>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section>
+    <div class="section-inner section-center">
+      <span class="section-tag">隱私</span>
+      <h2>相片不離開手機，就能完成整理。</h2>
+      <p class="section-lead">只有在你執行明確會把相片傳送到某處的操作時，相片才會離開手機。</p>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+          <div><h3>辨識全部在手機上完成</h3><p>重複、模糊、臉孔、物體和文字的辨識都在手機上執行，不會為了整理而上傳任何相片。</p></div>
+        </div>
+        <div class="safety-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 13a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1l1-13M9 7V4h6v3"/></svg></div>
+          <div><h3>刪除前一定會詢問</h3><p>刪除任何檔案之前 Android 都會向你確認，丟掉的相片會留在垃圾桶，直到你清空為止。</p></div>
+        </div>
+        <div class="safety-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div>
+          <div><h3>只傳送帳戶 ID</h3><p>登入時，我們的伺服器只保存你的 Google 帳戶 ID，絕不會傳送你的姓名和電子郵件地址。</p></div>
+        </div>
+        <div class="safety-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+          <div><h3>AI 編輯只傳送臉部範圍</h3><p>AI 編輯只傳送臉部周圍的範圍，相片和結果都不會保留在伺服器上。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTE -->
+  <section class="bg-alt" style="padding-top: 72px; padding-bottom: 72px;">
+    <div class="section-inner">
+      <div class="note-box">
+        <h3>使用前須知</h3>
+        <ul>
+          <li>Kura 適用於 Android 11 以上版本，沒有 iPhone 版 App。</li>
+          <li>若要整理整個圖庫，相片存取權必須設為「全部允許」。</li>
+          <li>開始使用需要以 Google 帳戶登入。</li>
+          <li>AI 編輯需要雲端方案和網路連線（每天最多 30 次）。</li>
+          <li>網頁版沒有人物、AI 編輯和私密功能。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="section-inner section-center">
+      <span class="section-tag">問答</span>
+      <h2>常見問題</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>可以免費使用嗎？</span></button>
+          <div class="faq-a"><div class="faq-a-inner">瀏覽、整理和刪除相片都免費，也沒有廣告。雲端備份、網頁版、從 Google 相簿搬移和 AI 編輯，包含在月付的雲端方案中（100 GB 起，US$0.99）。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>我的相片會被傳送到別處嗎？</span></button>
+          <div class="faq-a"><div class="faq-a-inner">整理所需的辨識（重複、模糊、臉孔、物體和文字）全部在手機上執行。只有在你開啟自動備份，或進行分享、使用 AI 編輯等明確會傳送相片的操作時，相片和影片才會離開手機。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>可以從 Google 相簿搬移嗎？</span></button>
+          <div class="faq-a"><div class="faq-a-inner">可以。從 App 或網頁版傳送以 Google Takeout 下載的 .zip 檔，Kura 就會帶來你的相簿、我的最愛，以及 Kura 還沒有的相片。搬移需要雲端方案。在 Google 相簿加上的說明、人物和地點不會搬過來。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>可以在電腦上看相片嗎？</span></button>
+          <div class="faq-a"><div class="faq-a-inner">可以。用瀏覽器登入網頁版，就能查看、整理、清理、分享和上傳 Kura 雲端裡的相片。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>取消訂閱後，相片會怎麼樣？</span></button>
+          <div class="faq-a"><div class="faq-a-inner">手機上的相片會原樣保留。訂閱結束一段時間後，Kura 雲端中的資料可能會被刪除，請先把需要的內容儲存到手機或電腦。</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>iPhone 可以用嗎？</span></button>
+          <div class="faq-a"><div class="faq-a-inner">App 只支援 Android（Android 11 以上）。Kura 雲端裡的相片，可以在包括 iPhone 在內的任何瀏覽器上，透過網頁版查看。</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <img class="cta-icon" src="../icons/icon.svg" alt="">
+      <h2>相片的事，<span class="accent">交給 Kura。</span></h2>
+      <ul class="cta-checklist">
+        <li>查看、搜尋、重溫，都在同一個圖庫</li>
+        <li>滑一滑，清掉重複和模糊相片</li>
+        <li>從修飾到 AI 編輯，原始相片始終保留</li>
+        <li>原始畫質備份，瀏覽器也能查看</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=app.kura.photos&amp;hl=zh-TW" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+        <span>在 Google Play 下載</span>
+      </a>
+      <p class="cta-note">無廣告 · 瀏覽、整理和刪除都免費</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Kura</span>
+      <a href="../../">Ramune Apps</a>
+      <a href="https://kura-api.warload57.workers.dev/web" target="_blank" rel="noopener">網頁版</a>
+      <a href="../privacy-policy.html?lang=en">隱私權政策</a>
+      <a href="../delete-account.html">刪除帳戶</a>
+    </div>
+  </footer>
+
+  
+
+  <script src="../lp.js"></script>
+</body>
+</html>

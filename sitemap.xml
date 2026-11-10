@@ -625,12 +625,548 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- kura-lp:start (node kura/build-lp.mjs) -->
   <url>
     <loc>https://ramune441.github.io/kura/</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
   </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/ja/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/zh/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/zh-TW/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/ko/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/es/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/fr/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/de/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/pt/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/it/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/ru/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/id/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/hi/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/tr/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/vi/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/th/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/pl/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/ar/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/nl/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <url>
+    <loc>https://ramune441.github.io/kura/bn/</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ramune441.github.io/kura/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ramune441.github.io/kura/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/kura/zh/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/kura/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://ramune441.github.io/kura/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ramune441.github.io/kura/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ramune441.github.io/kura/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ramune441.github.io/kura/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/kura/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://ramune441.github.io/kura/it/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ramune441.github.io/kura/ru/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://ramune441.github.io/kura/id/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://ramune441.github.io/kura/hi/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ramune441.github.io/kura/tr/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://ramune441.github.io/kura/vi/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://ramune441.github.io/kura/th/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://ramune441.github.io/kura/pl/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://ramune441.github.io/kura/ar/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://ramune441.github.io/kura/nl/"/>
+    <xhtml:link rel="alternate" hreflang="bn" href="https://ramune441.github.io/kura/bn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/kura/"/>
+  </url>
+  <!-- kura-lp:end -->
   <url>
     <loc>https://ramune441.github.io/kura/privacy-policy.html</loc>
     <lastmod>2026-09-26</lastmod>

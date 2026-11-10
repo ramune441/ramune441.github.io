@@ -25,7 +25,8 @@
 | SubDuo ストア画像 | `node subduo/render-store-images.mjs [lang…]` → `node --test subduo/store-assets.test.mjs`（puppeteer-core・Chromeが必要。ブラウザは `CHROME_PATH` で指定可能） | `subduo/images/` と寸法・SHA-256を記録した `subduo/store-assets.json`。指定なしで全言語、指定ありで対象言語を再生成 |
 | SubDuo の追加言語動画 | `node subduo/build-promo-localized.mjs [lang…]` → `node --test subduo/promo-localized.test.mjs`（FFmpeg・FFprobe・Chrome・puppeteer-coreが必要） | 39.5秒・4K/30fpsのMP4とWebVTT。既存英語版のAAC BGMを再利用し、公開済みIDがある素材は再生成しない |
 | Kura ストア画像 | `node kura/store-images-strings.mjs` → `node kura/render-store-images.mjs`（puppeteer-core と Chrome が必要） | `kura/images/store/<lang>/` |
-| Kura LP の画像 | ストア画像を作り直したら `node kura/build-lp-images.mjs` → `node --test kura/lp.test.mjs`（puppeteer-core と Chrome。古いとテストで失敗する） | `kura/images/lp/<ja\|en>/` の WebP と `kura/images/lp/photos/` のサムネイル |
+| Kura LP | `node kura/build-lp.mjs`（Node だけで動く）→ `node --test kura/lp.test.mjs`。形は `kura/lp-template.html`・`lp.css`・`lp.js`、文言は `kura/lp-i18n/<lang>.json` を直す | `kura/index.html`（英語）と `kura/<lang>/index.html`、`sitemap.xml` の `kura-lp` の印の間 |
+| Kura LP の画像 | ストア画像を作り直したら `node kura/build-lp-images.mjs [lang…]` → `node --test kura/lp.test.mjs`（puppeteer-core と Chrome。古いとテストで失敗する） | `kura/images/lp/<lang>/` の WebP と `kura/images/lp/photos/` のサムネイル |
 - SendReady LP の文言は `sendready-chrome/i18n-lp.js` を直してから生成する。生成ページを手で直すと次の生成で消える。
 - FormPilot は生成後に `node --test formpilot/site.test.js formpilot/media.test.js` と `node formpilot/verify-site.js` を通す。後者は20言語のPC・390px画面、キーボード、言語移動、画像、動画の再生・シーク・字幕、フォーム送信が発生しないことを一時Chromeで確認する。
 - 動画生成にはFFmpeg・FFprobeを使う。実行ファイルは `FFMPEG_PATH` / `FFPROBE_PATH`、または `FORMPILOT_MEDIA_TOOLS` 配下の `ffmpeg-static` / `ffprobe-static` を使用し、生成フレームはOSの一時フォルダーに置く。

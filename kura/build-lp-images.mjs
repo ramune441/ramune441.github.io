@@ -1,13 +1,15 @@
 // LP 用の軽い画像を作る: images/store/<lang>/ の PNG → images/lp/<lang>/ の WebP。
 // 電話の画面は表示幅 330px の 2 倍（660px）、フィーチャー画像は 1024px のまま。
-// 使い方: node kura/build-lp-images.mjs（puppeteer-core と Chrome。ストア画像を作り直したら実行する）
+// 使い方: node kura/build-lp-images.mjs [lang…]（puppeteer-core と Chrome。ストア画像を作り直したら実行する。指定なしで全 20 言語）
 import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import puppeteer from 'puppeteer-core';
+import {LANGS as LP_LANGS} from './build-lp.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const LANGS = ['ja', 'en'];
+const only = process.argv.slice(2);
+const LANGS = LP_LANGS.map(l => l.code).filter(c => !only.length || only.includes(c));
 const FILES = {'store-image-feature': 1024, 'store-image-2': 660, 'store-image-3': 660, 'store-image-4': 660,
   'store-image-5': 660, 'store-image-6': 660, 'store-image-7': 660};
 const QUALITY = 0.82;

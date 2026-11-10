@@ -16,6 +16,9 @@ FormPilot の言語別URLは `/formpilot/<lang>/`、`/guide.html`、`/privacy-po
 | Twitter | `twitter:card=summary_large_image` |
 | JSON-LD | ポータル＝`WebSite`＋`Person`＋`ItemList` / LP＝`SoftwareApplication`＋`FAQPage`＋`BreadcrumbList` |
 
+Kura LP の言語別URLは `/kura/<lang>/`（`<lang>` はストア画像と同じ言語コード）、英語だけ `/kura/`。hreflang は `zh-Hans`・`pt-BR`、ほかは言語コードのまま。
+`/kura/` だけが `?lang=` > localStorage `kura_lp_lang`（言語を選ぶと保存）> ブラウザ言語 のページへ移る。各言語のページは移さない。
+
 ## 拡張から渡るクエリ（変えると拡張側が壊れる）
 | ページ | クエリ |
 |---|---|
