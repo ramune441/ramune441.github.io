@@ -1,0 +1,110 @@
+{
+  "extension": "pedgekkfockobnmkokefjkclahjekend",
+  "liveAI": true,
+  "marks": {
+    "begin": 0,
+    "filled": 5.114,
+    "save": 9.774,
+    "reopen": 17.288,
+    "restore": 19.237,
+    "end": 24.055
+  },
+  "pageSubmissions": [],
+  "popupCapture": "real popup in a background tab with active-tab routing to the local form",
+  "empty": {
+    "lastName": "",
+    "firstName": "",
+    "email": "",
+    "phone": "",
+    "postal": "",
+    "state": "",
+    "addressLine1": "",
+    "inquiry": "",
+    "message": ""
+  },
+  "aiStatus": {
+    "state": "done",
+    "filledCount": 9,
+    "elapsed": "2.20"
+  },
+  "filled": {
+    "lastName": "山田",
+    "firstName": "太郎",
+    "email": "taro@example.com",
+    "phone": "090-1234-5678",
+    "postal": "100-0005",
+    "state": "東京都",
+    "addressLine1": "丸の内1-1-1",
+    "inquiry": "製品について",
+    "message": "製品について詳しく教えてください。"
+  },
+  "beforeSave": {
+    "lastName": "山田",
+    "firstName": "太郎",
+    "email": "taro@example.com",
+    "phone": "090-1234-5678",
+    "postal": "100-0005",
+    "state": "東京都",
+    "addressLine1": "丸の内1-1-1",
+    "inquiry": "製品について",
+    "message": "請求書の送付先を変更したいです。"
+  },
+  "savedEntries": [
+    {
+      "fields": {
+        "addressLine1||input|": "丸の内1-1-1",
+        "email||input|email": "taro@example.com",
+        "firstName||input|": "太郎",
+        "inquiry||select|": "製品について",
+        "lastName||input|": "山田",
+        "message||textarea|": "請求書の送付先を変更したいです。",
+        "phone||input|tel": "090-1234-5678",
+        "postal||input|": "100-0005",
+        "state||select|": "東京都"
+      },
+      "matchUrl": "http://127.0.0.1:62835/contact",
+      "name": "お問い合わせ用",
+      "pageTitle": "お問い合わせフォーム",
+      "savedAt": "2026-10-27T09:25:06.733Z",
+      "url": "http://127.0.0.1:62835/contact"
+    }
+  ],
+  "reopened": {
+    "lastName": "",
+    "firstName": "",
+    "email": "",
+    "phone": "",
+    "postal": "",
+    "state": "",
+    "addressLine1": "",
+    "inquiry": "",
+    "message": ""
+  },
+  "aiCallsBeforeRestore": 1,
+  "restored": {
+    "lastName": "山田",
+    "firstName": "太郎",
+    "email": "taro@example.com",
+    "phone": "090-1234-5678",
+    "postal": "100-0005",
+    "state": "東京都",
+    "addressLine1": "丸の内1-1-1",
+    "inquiry": "製品について",
+    "message": "請求書の送付先を変更したいです。"
+  },
+  "aiCallsAfterRestore": 1,
+  "network": [
+    {
+      "url": "https://formpilot-1-1-0.warload57.workers.dev/",
+      "status": 200
+    }
+  ],
+  "output": {
+    "file": "promo-ja-demo.mp4",
+    "duration": 33,
+    "bytes": 4660152,
+    "width": 3840,
+    "height": 2160,
+    "audioCodec": "aac"
+  }
+}

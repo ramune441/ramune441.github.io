@@ -1,0 +1,347 @@
+{
+  "locale": "id",
+  "file": "promo-id.mp4",
+  "sha256": "53040d8cb56ebb47dccda8b96b2448340ced0491513834a04c49f20a12769a29",
+  "bytes": 13031057,
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-id.vtt",
+  "recording": {
+    "events": {
+      "analyzeClick": 2.8,
+      "filled": 5.165,
+      "editStart": 7.586,
+      "editEnd": 10.702,
+      "saveClick": 12.537,
+      "confirmClick": 16.96,
+      "saved": 17.453,
+      "reopenClick": 19.812,
+      "restoreClick": 22.095,
+      "restored": 22.478,
+      "end": 26.093
+    },
+    "boxes": {
+      "fields": [
+        {
+          "x": 194,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 861,
+          "w": 2172,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 1075,
+          "w": 2172,
+          "h": 232
+        },
+        {
+          "x": 194,
+          "y": 1335,
+          "w": 368.84375,
+          "h": 60
+        }
+      ],
+      "kinds": {
+        "date": {
+          "x": 1306,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        "radio": {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "checkbox": {
+          "x": 194,
+          "y": 1335,
+          "w": 368.84375,
+          "h": 60
+        }
+      },
+      "badges": {
+        "radio": {
+          "x": 854.3125,
+          "y": 776,
+          "align": "left"
+        },
+        "checkbox": {
+          "x": 590.84375,
+          "y": 1365,
+          "align": "left"
+        },
+        "date": {
+          "x": 2366,
+          "y": 463,
+          "align": "right"
+        }
+      },
+      "form": {
+        "x": 100,
+        "y": 40,
+        "w": 2360,
+        "h": 1549
+      },
+      "analyzeClick": {
+        "x": 36,
+        "y": 355,
+        "w": 728,
+        "h": 81
+      },
+      "message": {
+        "x": 194,
+        "y": 1147,
+        "w": 2172,
+        "h": 160
+      },
+      "saveClick": {
+        "x": 36,
+        "y": 682,
+        "w": 728,
+        "h": 70
+      },
+      "confirmClick": {
+        "x": 555.40625,
+        "y": 787,
+        "w": 122.53125,
+        "h": 50
+      },
+      "reopenClick": {
+        "x": 1942.546875,
+        "y": 1431,
+        "w": 423.453125,
+        "h": 100
+      },
+      "restoreClick": {
+        "x": 555.25,
+        "y": 776,
+        "w": 110.0625,
+        "h": 39
+      }
+    },
+    "aiStatus": {
+      "state": "done",
+      "filledCount": 9,
+      "elapsed": "2.19"
+    },
+    "filled": {
+      "name": "Sukarno",
+      "email": "sample@example.com",
+      "phone": "081234567890",
+      "birthday": "1990-12-31",
+      "gender": "male",
+      "postal": "10220",
+      "inquiry": "Tentang produk",
+      "message": "Mohon jelaskan lebih lanjut tentang produk ini.",
+      "newsletter": "on"
+    },
+    "restoredMatchesSaved": true,
+    "pageSubmissions": 0
+  },
+  "words": {
+    "fill": "Isi Otomatis AI",
+    "typed": "Sukarno",
+    "field": "Nama lengkap"
+  },
+  "sourceSha256": {
+    "story": "ef67cfc47edd78bbf418764156ad1afb3649551c1e3f19eb6f6bf7e786ce7486",
+    "copy": "a156d92f8fdde30e17fb8c108059e66138d4e18e006e56ad3375eb6c91258161",
+    "sound": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd",
+    "stage": "717363724599cd7881d0d6ce1dbed9b18f3542692f88800d4fbbad932715f8d7"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "style": "gentle",
+    "pcmSha256": "99a6f0f5778c5150140b892af9fb90098cb09cff110f90691637574bd4c24fc2",
+    "events": [
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.4357,
+        "kind": "key"
+      },
+      {
+        "time": 0.5214,
+        "kind": "key"
+      },
+      {
+        "time": 0.6071,
+        "kind": "key"
+      },
+      {
+        "time": 0.6929,
+        "kind": "key"
+      },
+      {
+        "time": 0.7786,
+        "kind": "key"
+      },
+      {
+        "time": 0.8643,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.4214,
+        "kind": "key"
+      },
+      {
+        "time": 1.4929,
+        "kind": "key"
+      },
+      {
+        "time": 1.5643,
+        "kind": "key"
+      },
+      {
+        "time": 1.6357,
+        "kind": "key"
+      },
+      {
+        "time": 1.7071,
+        "kind": "key"
+      },
+      {
+        "time": 1.7786,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.2643,
+        "kind": "key"
+      },
+      {
+        "time": 2.3286,
+        "kind": "key"
+      },
+      {
+        "time": 2.3929,
+        "kind": "key"
+      },
+      {
+        "time": 2.4571,
+        "kind": "key"
+      },
+      {
+        "time": 2.5214,
+        "kind": "key"
+      },
+      {
+        "time": 2.5857,
+        "kind": "key"
+      },
+      {
+        "time": 3.05,
+        "kind": "impact"
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 7.7773,
+        "kind": "success"
+      },
+      {
+        "time": 8.0773,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 8.3773,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.6773,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12.268,
+        "kind": "click"
+      },
+      {
+        "time": 14.6392,
+        "kind": "click"
+      },
+      {
+        "time": 15.8667,
+        "kind": "click"
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.683,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.12,
+    "truePeakDbtp": -3.54
+  }
+}

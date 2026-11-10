@@ -1,0 +1,378 @@
+{
+  "locale": "th",
+  "file": "promo-th.mp4",
+  "sha256": "cd99a52a041d3d22644b6e8216b1e2603eede85e962a7d584f8304c512ed4dfb",
+  "bytes": 13317401,
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-th.vtt",
+  "recording": {
+    "events": {
+      "analyzeClick": 2.774,
+      "filled": 4.958,
+      "editStart": 7.238,
+      "editEnd": 10.005,
+      "saveClick": 11.809,
+      "confirmClick": 16.232,
+      "saved": 16.875,
+      "reopenClick": 19.3,
+      "restoreClick": 21.456,
+      "restored": 21.837,
+      "end": 25.529
+    },
+    "boxes": {
+      "fields": [
+        {
+          "x": 194,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 1075,
+          "w": 2172,
+          "h": 232
+        },
+        {
+          "x": 194,
+          "y": 1335,
+          "w": 360.78125,
+          "h": 60
+        }
+      ],
+      "kinds": {
+        "date": {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "radio": {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "checkbox": {
+          "x": 194,
+          "y": 1335,
+          "w": 360.78125,
+          "h": 60
+        }
+      },
+      "badges": {
+        "radio": {
+          "x": 1725.59375,
+          "y": 776,
+          "align": "left"
+        },
+        "checkbox": {
+          "x": 582.78125,
+          "y": 1365,
+          "align": "left"
+        },
+        "date": {
+          "x": 1254,
+          "y": 677,
+          "align": "right"
+        }
+      },
+      "form": {
+        "x": 100,
+        "y": 40,
+        "w": 2360,
+        "h": 1549
+      },
+      "analyzeClick": {
+        "x": 36,
+        "y": 355,
+        "w": 728,
+        "h": 81
+      },
+      "message": {
+        "x": 194,
+        "y": 1147,
+        "w": 2172,
+        "h": 160
+      },
+      "saveClick": {
+        "x": 36,
+        "y": 682,
+        "w": 728,
+        "h": 70
+      },
+      "confirmClick": {
+        "x": 569.015625,
+        "y": 787,
+        "w": 108.921875,
+        "h": 50
+      },
+      "reopenClick": {
+        "x": 2004.40625,
+        "y": 1431,
+        "w": 361.59375,
+        "h": 100
+      },
+      "restoreClick": {
+        "x": 592.375,
+        "y": 776,
+        "w": 72.9375,
+        "h": 39
+      }
+    },
+    "aiStatus": {
+      "state": "done",
+      "filledCount": 10,
+      "elapsed": "1.93"
+    },
+    "filled": {
+      "firstName": "สมชาย",
+      "lastName": "ใจดี",
+      "email": "sample@example.com",
+      "phone": "0812345678",
+      "birthday": "1990-12-31",
+      "gender": "male",
+      "postal": "10110",
+      "inquiry": "สอบถามสินค้า",
+      "message": "อยากทราบรายละเอียดสินค้าเพิ่มเติม",
+      "newsletter": "on"
+    },
+    "restoredMatchesSaved": true,
+    "pageSubmissions": 0
+  },
+  "words": {
+    "fill": "กรอกอัตโนมัติด้วย AI",
+    "typed": "สมชาย ใจดี",
+    "field": "ชื่อและนามสกุล"
+  },
+  "sourceSha256": {
+    "story": "ef67cfc47edd78bbf418764156ad1afb3649551c1e3f19eb6f6bf7e786ce7486",
+    "copy": "a156d92f8fdde30e17fb8c108059e66138d4e18e006e56ad3375eb6c91258161",
+    "sound": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd",
+    "stage": "717363724599cd7881d0d6ce1dbed9b18f3542692f88800d4fbbad932715f8d7"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "style": "gentle",
+    "pcmSha256": "e2b3676a07fd1dae838aec91b6d89ac0ce81a15e56715d88075820ebb5eb65e6",
+    "events": [
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.41,
+        "kind": "key"
+      },
+      {
+        "time": 0.47,
+        "kind": "key"
+      },
+      {
+        "time": 0.53,
+        "kind": "key"
+      },
+      {
+        "time": 0.59,
+        "kind": "key"
+      },
+      {
+        "time": 0.71,
+        "kind": "key"
+      },
+      {
+        "time": 0.77,
+        "kind": "key"
+      },
+      {
+        "time": 0.83,
+        "kind": "key"
+      },
+      {
+        "time": 0.89,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.4,
+        "kind": "key"
+      },
+      {
+        "time": 1.45,
+        "kind": "key"
+      },
+      {
+        "time": 1.5,
+        "kind": "key"
+      },
+      {
+        "time": 1.55,
+        "kind": "key"
+      },
+      {
+        "time": 1.65,
+        "kind": "key"
+      },
+      {
+        "time": 1.7,
+        "kind": "key"
+      },
+      {
+        "time": 1.75,
+        "kind": "key"
+      },
+      {
+        "time": 1.8,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.245,
+        "kind": "key"
+      },
+      {
+        "time": 2.29,
+        "kind": "key"
+      },
+      {
+        "time": 2.335,
+        "kind": "key"
+      },
+      {
+        "time": 2.38,
+        "kind": "key"
+      },
+      {
+        "time": 2.47,
+        "kind": "key"
+      },
+      {
+        "time": 2.515,
+        "kind": "key"
+      },
+      {
+        "time": 2.56,
+        "kind": "key"
+      },
+      {
+        "time": 2.605,
+        "kind": "key"
+      },
+      {
+        "time": 3.05,
+        "kind": "impact"
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 7.7831,
+        "kind": "success"
+      },
+      {
+        "time": 8.0831,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 8.3831,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.6831,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12.268,
+        "kind": "click"
+      },
+      {
+        "time": 14.6392,
+        "kind": "click"
+      },
+      {
+        "time": 15.8667,
+        "kind": "click"
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.681,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.12,
+    "truePeakDbtp": -3.21
+  }
+}

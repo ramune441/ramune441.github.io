@@ -1,0 +1,270 @@
+{
+  "verifiedAt": "2026-11-01T03:43:32.125Z",
+  "languages": {
+    "ja": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 39950,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "行末で自動停止。 止まったら、じっくり読める"
+      },
+      "expected": 44
+    },
+    "en": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41516,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Auto-pause at each line's end. Take your time to read"
+      },
+      "expected": 44
+    },
+    "zh": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41271,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "每句结束自动暂停。 停下来慢慢看"
+      },
+      "expected": 44
+    },
+    "zh-TW": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42059,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "每句結束自動暫停。 停下來慢慢看"
+      },
+      "expected": 44
+    },
+    "ko": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42052,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "줄 끝에서 자동 멈춤. 멈춘 동안 천천히 읽기"
+      },
+      "expected": 44
+    },
+    "es": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41739,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Pausa automática al final de la línea. Lee con calma"
+      },
+      "expected": 44
+    },
+    "fr": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41289,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Pause auto en fin de ligne. Prenez le temps de lire"
+      },
+      "expected": 44
+    },
+    "de": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42026,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Auto-Pause am Zeilenende. In Ruhe mitlesen"
+      },
+      "expected": 44
+    },
+    "pt": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41503,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Pausa automática no fim da linha. Leia com calma"
+      },
+      "expected": 44
+    },
+    "hi": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42052,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "हर पंक्ति के अंत में अपने-आप रुकें। आराम से पढ़ें"
+      },
+      "expected": 44
+    },
+    "id": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42036,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Jeda otomatis di akhir baris. Baca dengan tenang"
+      },
+      "expected": 44
+    },
+    "ar": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42052,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "إيقاف تلقائي في نهاية السطر. اقرأ على مهل"
+      },
+      "expected": 44
+    },
+    "vi": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 42052,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Tự dừng ở cuối mỗi dòng. Thong thả đọc"
+      },
+      "expected": 44
+    },
+    "it": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41253,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Pausa automatica a fine riga. Leggi con calma"
+      },
+      "expected": 44
+    },
+    "tr": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41205,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Satır sonunda otomatik duraklama. Rahatça okuyun"
+      },
+      "expected": 44
+    },
+    "pl": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41501,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Automatyczna pauza na końcu wiersza. Czytaj spokojnie"
+      },
+      "expected": 44
+    },
+    "th": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41689,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "หยุดอัตโนมัติ ท้ายบรรทัด อ่านได้อย่างสบาย"
+      },
+      "expected": 44
+    },
+    "nl": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41544,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Automatisch pauzeren aan het regeleinde. Lees op je gemak"
+      },
+      "expected": 44
+    },
+    "ru": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41834,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "Автопауза в конце строки. Читайте не спеша"
+      },
+      "expected": 44
+    },
+    "bn": {
+      "playing": true,
+      "duration": 44,
+      "width": 1920,
+      "cues": 14,
+      "audioBytes": 41766,
+      "error": null,
+      "seek": {
+        "time": 24,
+        "cue": "লাইনের শেষে নিজে থেকে বিরতি। ধীরে-সুস্থে পড়ুন"
+      },
+      "expected": 44
+    }
+  },
+  "mobile": {
+    "width": 390,
+    "scroll": 390
+  },
+  "errors": []
+}

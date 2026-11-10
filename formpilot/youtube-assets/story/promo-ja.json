@@ -1,0 +1,318 @@
+{
+  "locale": "ja",
+  "file": "promo-ja.mp4",
+  "sha256": "b31be58e1a622f632a64d130159e7c302e4aa2bf5a11e63c77552d14e387257b",
+  "bytes": 13810951,
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-ja.vtt",
+  "recording": {
+    "events": {
+      "analyzeClick": 2.717,
+      "filled": 5.092,
+      "editStart": 7.628,
+      "editEnd": 8.863,
+      "saveClick": 10.748,
+      "confirmClick": 15.413,
+      "saved": 15.877,
+      "reopenClick": 18.244,
+      "restoreClick": 20.497,
+      "restored": 20.892,
+      "end": 24.51
+    },
+    "boxes": {
+      "fields": [
+        {
+          "x": 194,
+          "y": 236,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 1306,
+          "y": 236,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 194,
+          "y": 462,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 1306,
+          "y": 462,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 194,
+          "y": 688,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 1306,
+          "y": 688,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 194,
+          "y": 914,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 1306,
+          "y": 914,
+          "w": 1060,
+          "h": 198
+        },
+        {
+          "x": 194,
+          "y": 1140,
+          "w": 2172,
+          "h": 244
+        },
+        {
+          "x": 194,
+          "y": 1412,
+          "w": 588,
+          "h": 68
+        }
+      ],
+      "kinds": {
+        "date": {
+          "x": 194,
+          "y": 688,
+          "w": 1060,
+          "h": 198
+        },
+        "radio": {
+          "x": 1306,
+          "y": 688,
+          "w": 1060,
+          "h": 198
+        },
+        "checkbox": {
+          "x": 194,
+          "y": 1412,
+          "w": 588,
+          "h": 68
+        }
+      },
+      "badges": {
+        "radio": {
+          "x": 1754,
+          "y": 829,
+          "align": "left"
+        },
+        "checkbox": {
+          "x": 810,
+          "y": 1446,
+          "align": "left"
+        },
+        "date": {
+          "x": 1254,
+          "y": 718,
+          "align": "right"
+        }
+      },
+      "form": {
+        "x": 100,
+        "y": 40,
+        "w": 2360,
+        "h": 1644
+      },
+      "analyzeClick": {
+        "x": 36,
+        "y": 357,
+        "w": 728,
+        "h": 84
+      },
+      "message": {
+        "x": 194,
+        "y": 1224,
+        "w": 2172,
+        "h": 160
+      },
+      "saveClick": {
+        "x": 36,
+        "y": 691,
+        "w": 728,
+        "h": 73
+      },
+      "confirmClick": {
+        "x": 585.9375,
+        "y": 798,
+        "w": 92,
+        "h": 52
+      },
+      "reopenClick": {
+        "x": 1959.78125,
+        "y": 1516,
+        "w": 406.21875,
+        "h": 110
+      },
+      "restoreClick": {
+        "x": 593.3125,
+        "y": 789.5,
+        "w": 72,
+        "h": 41
+      }
+    },
+    "aiStatus": {
+      "state": "done",
+      "filledCount": 10,
+      "elapsed": "2.28"
+    },
+    "filled": {
+      "lastName": "山田",
+      "firstName": "太郎",
+      "email": "sample@example.com",
+      "phone": "09012345678",
+      "birthday": "1990-12-31",
+      "gender": "male",
+      "postal": "100-0005",
+      "inquiry": "製品について",
+      "message": "製品について詳しく教えてください。",
+      "newsletter": "on"
+    },
+    "restoredMatchesSaved": true,
+    "pageSubmissions": 0
+  },
+  "words": {
+    "fill": "AI 自動入力",
+    "typed": "山田 太郎",
+    "field": "氏名"
+  },
+  "sourceSha256": {
+    "story": "ef67cfc47edd78bbf418764156ad1afb3649551c1e3f19eb6f6bf7e786ce7486",
+    "copy": "a156d92f8fdde30e17fb8c108059e66138d4e18e006e56ad3375eb6c91258161",
+    "sound": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd",
+    "stage": "717363724599cd7881d0d6ce1dbed9b18f3542692f88800d4fbbad932715f8d7"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "style": "gentle",
+    "pcmSha256": "3a3a2c209917a098b84aefb6ea00fee2a2ed4d5795ba33ca7ac41273ae5a0694",
+    "events": [
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.47,
+        "kind": "key"
+      },
+      {
+        "time": 0.71,
+        "kind": "key"
+      },
+      {
+        "time": 0.83,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.45,
+        "kind": "key"
+      },
+      {
+        "time": 1.65,
+        "kind": "key"
+      },
+      {
+        "time": 1.75,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.29,
+        "kind": "key"
+      },
+      {
+        "time": 2.47,
+        "kind": "key"
+      },
+      {
+        "time": 2.56,
+        "kind": "key"
+      },
+      {
+        "time": 3.05,
+        "kind": "impact"
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 7.7773,
+        "kind": "success"
+      },
+      {
+        "time": 8.0773,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 8.3773,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.6773,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12.2562,
+        "kind": "click"
+      },
+      {
+        "time": 14.6463,
+        "kind": "click"
+      },
+      {
+        "time": 15.8667,
+        "kind": "click"
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.695,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.12,
+    "truePeakDbtp": -3.55
+  }
+}

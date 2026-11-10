@@ -4,3 +4,5 @@ _frames/
 _frames_guide/
 _probe/
 record.mjs
+__pycache__/
+*.pyc

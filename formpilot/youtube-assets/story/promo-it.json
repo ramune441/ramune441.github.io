@@ -1,0 +1,378 @@
+{
+  "locale": "it",
+  "file": "promo-it.mp4",
+  "sha256": "7b070df0e00cf500086aa9028eff3d5ed8cec3230230753c6d0c9ca878cc2590",
+  "bytes": 13308335,
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-it.vtt",
+  "recording": {
+    "events": {
+      "analyzeClick": 2.784,
+      "filled": 4.929,
+      "editStart": 7.319,
+      "editEnd": 10.926,
+      "saveClick": 12.779,
+      "confirmClick": 17.743,
+      "saved": 18.444,
+      "reopenClick": 20.812,
+      "restoreClick": 22.929,
+      "restored": 23.31,
+      "end": 26.928
+    },
+    "boxes": {
+      "fields": [
+        {
+          "x": 194,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 1075,
+          "w": 2172,
+          "h": 232
+        },
+        {
+          "x": 194,
+          "y": 1335,
+          "w": 465.375,
+          "h": 60
+        }
+      ],
+      "kinds": {
+        "date": {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "radio": {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "checkbox": {
+          "x": 194,
+          "y": 1335,
+          "w": 465.375,
+          "h": 60
+        }
+      },
+      "badges": {
+        "radio": {
+          "x": 1829.828125,
+          "y": 776,
+          "align": "left"
+        },
+        "checkbox": {
+          "x": 687.375,
+          "y": 1365,
+          "align": "left"
+        },
+        "date": {
+          "x": 1254,
+          "y": 677,
+          "align": "right"
+        }
+      },
+      "form": {
+        "x": 100,
+        "y": 40,
+        "w": 2360,
+        "h": 1549
+      },
+      "analyzeClick": {
+        "x": 36,
+        "y": 355,
+        "w": 728,
+        "h": 81
+      },
+      "message": {
+        "x": 194,
+        "y": 1147,
+        "w": 2172,
+        "h": 160
+      },
+      "saveClick": {
+        "x": 36,
+        "y": 682,
+        "w": 728,
+        "h": 70
+      },
+      "confirmClick": {
+        "x": 578.4375,
+        "y": 787,
+        "w": 99.5,
+        "h": 50
+      },
+      "reopenClick": {
+        "x": 2010.25,
+        "y": 1431,
+        "w": 355.75,
+        "h": 100
+      },
+      "restoreClick": {
+        "x": 547.765625,
+        "y": 776,
+        "w": 117.546875,
+        "h": 39
+      }
+    },
+    "aiStatus": {
+      "state": "done",
+      "filledCount": 10,
+      "elapsed": "2.01"
+    },
+    "filled": {
+      "firstName": "Luca",
+      "lastName": "Rossi",
+      "email": "sample@example.com",
+      "phone": "0612345678",
+      "birthday": "1990-12-31",
+      "gender": "male",
+      "postal": "00122",
+      "inquiry": "Domanda sul prodotto",
+      "message": "Vorrei saperne di più sul prodotto.",
+      "newsletter": "on"
+    },
+    "restoredMatchesSaved": true,
+    "pageSubmissions": 0
+  },
+  "words": {
+    "fill": "Compilazione IA",
+    "typed": "Luca Rossi",
+    "field": "Nome e cognome"
+  },
+  "sourceSha256": {
+    "story": "ef67cfc47edd78bbf418764156ad1afb3649551c1e3f19eb6f6bf7e786ce7486",
+    "copy": "a156d92f8fdde30e17fb8c108059e66138d4e18e006e56ad3375eb6c91258161",
+    "sound": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd",
+    "stage": "717363724599cd7881d0d6ce1dbed9b18f3542692f88800d4fbbad932715f8d7"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "style": "gentle",
+    "pcmSha256": "c7cb02419ec971541f4117a365fdd18de639422151724832837ab169ee212013",
+    "events": [
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.41,
+        "kind": "key"
+      },
+      {
+        "time": 0.47,
+        "kind": "key"
+      },
+      {
+        "time": 0.53,
+        "kind": "key"
+      },
+      {
+        "time": 0.65,
+        "kind": "key"
+      },
+      {
+        "time": 0.71,
+        "kind": "key"
+      },
+      {
+        "time": 0.77,
+        "kind": "key"
+      },
+      {
+        "time": 0.83,
+        "kind": "key"
+      },
+      {
+        "time": 0.89,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.4,
+        "kind": "key"
+      },
+      {
+        "time": 1.45,
+        "kind": "key"
+      },
+      {
+        "time": 1.5,
+        "kind": "key"
+      },
+      {
+        "time": 1.6,
+        "kind": "key"
+      },
+      {
+        "time": 1.65,
+        "kind": "key"
+      },
+      {
+        "time": 1.7,
+        "kind": "key"
+      },
+      {
+        "time": 1.75,
+        "kind": "key"
+      },
+      {
+        "time": 1.8,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.245,
+        "kind": "key"
+      },
+      {
+        "time": 2.29,
+        "kind": "key"
+      },
+      {
+        "time": 2.335,
+        "kind": "key"
+      },
+      {
+        "time": 2.425,
+        "kind": "key"
+      },
+      {
+        "time": 2.47,
+        "kind": "key"
+      },
+      {
+        "time": 2.515,
+        "kind": "key"
+      },
+      {
+        "time": 2.56,
+        "kind": "key"
+      },
+      {
+        "time": 2.605,
+        "kind": "key"
+      },
+      {
+        "time": 3.05,
+        "kind": "impact"
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 7.7773,
+        "kind": "success"
+      },
+      {
+        "time": 8.0773,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 8.3773,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.6773,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12.2429,
+        "kind": "click"
+      },
+      {
+        "time": 14.6543,
+        "kind": "click"
+      },
+      {
+        "time": 15.8667,
+        "kind": "click"
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.681,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.12,
+    "truePeakDbtp": -3.55
+  }
+}

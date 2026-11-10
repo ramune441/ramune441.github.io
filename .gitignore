@@ -6,6 +6,7 @@ package-lock.json
 record.mjs
 record-store.mjs
 record-*.mjs
+!sendready-chrome/record-story.mjs
 add-audio-*.mjs
 _frames/
 _frames_guide/
@@ -19,3 +20,19 @@ ripen/images/promo/promo-*.mp4
 kura/images/promo/promo-*.mp4
 kura/images/promo/promo-audio.wav
 
+# SendReady 実録版の4K動画（record-story.mjs の録画から build-story.mjs で作り直せる）
+sendready-chrome/story/*.mp4
+
+
+# YouTube 投稿用・確認用の動画（生成スクリプトで作り直せる。サイトからは使わず、GitHub Pages の 1GB 上限を超えるので入れない）
+formpilot/youtube-assets/**/*.mp4
+formpilot/previews/*.mp4
+subduo/previews/*.mp4
+formpilot/promo-bn.mp4
+formpilot/promo-it.mp4
+formpilot/promo-nl.mp4
+formpilot/promo-pl.mp4
+formpilot/promo-th.mp4
+formpilot/promo-tr.mp4
+formpilot/promo-vi.mp4
+formpilot/promo-zh-Hant.mp4

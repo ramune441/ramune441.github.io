@@ -1,0 +1,306 @@
+{
+  "locale": "zh-Hant",
+  "file": "promo-zh-Hant.mp4",
+  "sha256": "10c0367d1da3ae1ead338ba1b5e6bfd8f212cb8494fb402a009609ec0dea4518",
+  "bytes": 13180939,
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-zh-Hant.vtt",
+  "recording": {
+    "events": {
+      "analyzeClick": 2.68,
+      "filled": 4.649,
+      "editStart": 6.924,
+      "editEnd": 7.756,
+      "saveClick": 9.609,
+      "confirmClick": 13.723,
+      "saved": 14.413,
+      "reopenClick": 16.855,
+      "restoreClick": 19.166,
+      "restored": 19.528,
+      "end": 23.135
+    },
+    "boxes": {
+      "fields": [
+        {
+          "x": 194,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 1075,
+          "w": 2172,
+          "h": 232
+        },
+        {
+          "x": 194,
+          "y": 1335,
+          "w": 294,
+          "h": 60
+        }
+      ],
+      "kinds": {
+        "date": {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "radio": {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "checkbox": {
+          "x": 194,
+          "y": 1335,
+          "w": 294,
+          "h": 60
+        }
+      },
+      "badges": {
+        "radio": {
+          "x": 1662,
+          "y": 776,
+          "align": "left"
+        },
+        "checkbox": {
+          "x": 516,
+          "y": 1365,
+          "align": "left"
+        },
+        "date": {
+          "x": 1254,
+          "y": 677,
+          "align": "right"
+        }
+      },
+      "form": {
+        "x": 100,
+        "y": 40,
+        "w": 2360,
+        "h": 1549
+      },
+      "analyzeClick": {
+        "x": 36,
+        "y": 357,
+        "w": 728,
+        "h": 84
+      },
+      "message": {
+        "x": 194,
+        "y": 1147,
+        "w": 2172,
+        "h": 160
+      },
+      "saveClick": {
+        "x": 36,
+        "y": 691,
+        "w": 728,
+        "h": 73
+      },
+      "confirmClick": {
+        "x": 585.9375,
+        "y": 798,
+        "w": 92,
+        "h": 52
+      },
+      "reopenClick": {
+        "x": 2066,
+        "y": 1431,
+        "w": 300,
+        "h": 100
+      },
+      "restoreClick": {
+        "x": 593.3125,
+        "y": 789.5,
+        "w": 72,
+        "h": 41
+      }
+    },
+    "aiStatus": {
+      "state": "done",
+      "filledCount": 10,
+      "elapsed": "1.94"
+    },
+    "filled": {
+      "lastName": "王",
+      "firstName": "小明",
+      "email": "sample@example.com",
+      "phone": "0912345678",
+      "birthday": "1990-12-31",
+      "gender": "male",
+      "postal": "104",
+      "inquiry": "產品諮詢",
+      "message": "請詳細介紹一下產品。",
+      "newsletter": "on"
+    },
+    "restoredMatchesSaved": true,
+    "pageSubmissions": 0
+  },
+  "words": {
+    "fill": "AI 自動填寫",
+    "typed": "王小明",
+    "field": "姓名"
+  },
+  "sourceSha256": {
+    "story": "ef67cfc47edd78bbf418764156ad1afb3649551c1e3f19eb6f6bf7e786ce7486",
+    "copy": "a156d92f8fdde30e17fb8c108059e66138d4e18e006e56ad3375eb6c91258161",
+    "sound": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd",
+    "stage": "717363724599cd7881d0d6ce1dbed9b18f3542692f88800d4fbbad932715f8d7"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "style": "gentle",
+    "pcmSha256": "595408464436e483ceed5da67ec30e064b478b6f6e915483cf56a76916ebd29a",
+    "events": [
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.55,
+        "kind": "key"
+      },
+      {
+        "time": 0.75,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.5167,
+        "kind": "key"
+      },
+      {
+        "time": 1.6833,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.35,
+        "kind": "key"
+      },
+      {
+        "time": 2.5,
+        "kind": "key"
+      },
+      {
+        "time": 3.05,
+        "kind": "impact"
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 7.7835,
+        "kind": "success"
+      },
+      {
+        "time": 8.0835,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 8.3835,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.6835,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12.2849,
+        "kind": "click"
+      },
+      {
+        "time": 14.6291,
+        "kind": "click"
+      },
+      {
+        "time": 15.8667,
+        "kind": "click"
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.662,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.12,
+    "truePeakDbtp": -3.54
+  }
+}

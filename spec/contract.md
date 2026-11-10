@@ -64,12 +64,11 @@ Kura LP の言語別URLは `/kura/<lang>/`（`<lang>` はストア画像と同�
 | Search Console | `google-site-verification` = `prSam5v9XLSOs51WRCTyq592bxz1Xmf6HiBGRA-_ke0`（ポータル） |
 | Bing | `msvalidate.01` = `1C375C5F8B9811B7B6156E4202B36EA4`（ポータル＋ `BingSiteAuth.xml`） |
 
-## YouTube 動画 ID（言語別。LP の `LP_VIDEO_IDS` とストアのプロモ動画欄に使う）
+## YouTube 動画 ID（言語別。ストアのプロモ動画欄と各LPで使用する）
 - SubDuoの採用URLは `subduo/youtube-store-videos.json`、追加8言語の動画・字幕・ハッシュ・投稿IDは `subduo/youtube-promo-localized.json` を正とする。既存動画のIDを再生成時に上書きしない。
-
+- FormPilot の採用動画IDは `formpilot/youtube-store-videos.json`、追加した8言語の素材・投稿と照合結果は `formpilot/youtube-promo-localized.json` を正とする。ストアの `zh-CN` は `zh`、`zh-TW` は `zh-Hant`、`pt-BR` は `pt` に対応する。
 | プロダクト | en | ja | zh | zh-TW | ko | es | fr | de | it | pt | ru | hi | id | ar |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| FormPilot | c02Ka-_WdIE | 2Caux6fcero | 3RzbNsLkw6Q | | qqjFaQIk0IQ | 4eLZeM5lRLo | ljIlLc6FTM8 | FhwzRQyPnQo | | df5TcuOgLvM | | ZSdSh7UxRnc | nmI-oOZIHRs | Uue8B-AuAj4 |
 | SendReady | EgFYF6ePogI | XJfutrY5Hi4 | O14tQiPTOuM | | EP851RRJ960 | i5upjawC5Wc | yy85fFNBexM | A27lAS3KP6A | | gUgKhme1FLg | | XCgpLPoVV8I | vuDxSAuPJJk | 4li9HWk8jf0 |
 | Ripen | YWXSLB3oNIk | ZQU_WGjQm_I | IfsfJfg0vNo | | WPGNv3VMRiw | NbepPxeCQCQ | ckaQ6bCZWyk | CZ40F6x5vhk | ick4Fth687I | XyePSrbkaps | s7OqzqooMc8 | pUys6pfdarU | | nfaGKUhp_J8 |
 - チャンネルは「Just One More Animal」。SubDuoの既存12言語の投稿情報は `subduo/youtube.json`、他製品は `sendready-chrome/youtube.json`・`ripen/images/promo/audio/youtube.json`。
@@ -77,10 +76,14 @@ Kura LP の言語別URLは `/kura/<lang>/`（`<lang>` はストア画像と同�
 ## 素材のファイル名と仕様
 - SubDuoのストア説明は `subduo/store-listing.json` の言語コード別の文字列で保持する。`_` は管理用の注記で、各本文は改行を含むプレーンテキスト・16000文字以内とする。
 SubDuo の画像言語コードは `en / ja / zh / zh-TW / ko / es / fr / de / pt / hi / id / ar / vi / it / tr / pl / th / nl / ru / bn`。英語は `subduo/images/`、他はその配下の言語フォルダに置く。拡張の `zh_CN / zh_TW / pt_BR` はそれぞれ `zh / zh-TW / pt` に対応する。
-
 | 素材 | 仕様 |
 |---|---|
 | ストア用プロモ動画 `promo[-lang].webm` | VP9 / yuv420p / 1920x1080 / 30fps / 無音。en は無印 |
 | YouTube 用 `promo[-lang].mp4` | 4K（3840x2160）H.264 High / yuv420p / 30fps ＋ AAC BGM |
+| FormPilot 実録版 `formpilot/youtube-assets/story/promo-<lang>.mp4` | 3840x2160 / H.264 High / yuv420p / 30fps / 25秒 / AAC 192kbps 48kHz ステレオ。字幕は同名の `.vtt`、照合情報は同名の `.json`（録画の操作時刻とボタン位置、AIの入力結果、音の出来事とPCMハッシュ、音量、生成元4ファイルのハッシュ） |
+| SendReady 実録版 `sendready-chrome/story/promo-<lang>.mp4`（git に入れない） | 3840x2160 / H.264 High / yuv420p / 30fps / 約64秒（7機能の実演＋「ほかにも」＋締め。録画の実時間で言語ごとに変わる）/ AAC 192kbps 48kHz ステレオ・-16 LUFS。字幕は同名の `.vtt`、照合情報は同名の `.json`（録画の操作時刻・6回のAIの結果・時間割・音の出来事とPCMハッシュ・生成元ファイルのハッシュ）。`<lang>` は拡張の UI 言語コード（`story-copy.mjs` のキー） |
+| FormPilot 実録版の投稿台帳 `formpilot/youtube-story.json` | 言語別に `file`・`sha256`・`title`（`FormPilot \| <締めの一文>`）・`description`（ストア詳細説明＋ストア・LP・ガイド・プライバシーのURL）・`language`（Studioの表示名）・`videoId`・`uploadedSha256`・`captionsUploaded`・`published`。中断した投稿は `draftId` から再開し、同じ素材を二重に上げない |
+| FormPilot の自作音入り YouTube 用 `formpilot/youtube-assets/original-sound/{promo-<lang>,formpilot-<version>-<lang>}.mp4` | 元動画の映像ストリームをそのまま（再エンコードしない）＋ AAC 192kbps / 48kHz / ステレオ。照合情報は `formpilot/youtube-sound.json`（元動画と映像のハッシュ、測った場面開始、音のPCMハッシュ、音量、生成した `promo-sound.js` のハッシュ） |
+| SubDuo 実操作試作 `subduo/previews/live-demo-<lang>.mp4` | 1920x1080 / H.264 / yuv420p / 30fps / 約40秒（2秒単位）/ AAC。`<lang>` はストア画像と同じ言語コード。字幕は同名のWebVTT、ポスターは同名JPEG、照合情報は同名JSON、出典と変更点は共通の `CREDITS.md`、全言語の切り替えは `index.html` |
 | Chrome ストア画像 | `store-image-{1..5}.png` 1280x800、マーキー 1400x560、小タイル 440x280。翻訳版は `images/<lang>/` |
 | Play ストア画像 | フィーチャー 1024x500、スクショは 1080x1920 |

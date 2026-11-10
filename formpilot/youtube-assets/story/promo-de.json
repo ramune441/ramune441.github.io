@@ -1,0 +1,366 @@
+{
+  "locale": "de",
+  "file": "promo-de.mp4",
+  "sha256": "1ef0e5d9167973eedd8779cc658cc52dbbba602d09b7a8b9265682d7f69715f3",
+  "bytes": 13679056,
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-de.vtt",
+  "recording": {
+    "events": {
+      "analyzeClick": 2.954,
+      "filled": 4.911,
+      "editStart": 7.553,
+      "editEnd": 11.133,
+      "saveClick": 13.05,
+      "confirmClick": 17.533,
+      "saved": 18.012,
+      "reopenClick": 20.453,
+      "restoreClick": 22.915,
+      "restored": 23.268,
+      "end": 26.987
+    },
+    "boxes": {
+      "fields": [
+        {
+          "x": 194,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 219,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 433,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 1306,
+          "y": 861,
+          "w": 1060,
+          "h": 186
+        },
+        {
+          "x": 194,
+          "y": 1075,
+          "w": 2172,
+          "h": 232
+        },
+        {
+          "x": 194,
+          "y": 1335,
+          "w": 473.78125,
+          "h": 60
+        }
+      ],
+      "kinds": {
+        "date": {
+          "x": 194,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "radio": {
+          "x": 1306,
+          "y": 647,
+          "w": 1060,
+          "h": 186
+        },
+        "checkbox": {
+          "x": 194,
+          "y": 1335,
+          "w": 473.78125,
+          "h": 60
+        }
+      },
+      "badges": {
+        "radio": {
+          "x": 1929.328125,
+          "y": 776,
+          "align": "left"
+        },
+        "checkbox": {
+          "x": 695.78125,
+          "y": 1365,
+          "align": "left"
+        },
+        "date": {
+          "x": 1254,
+          "y": 677,
+          "align": "right"
+        }
+      },
+      "form": {
+        "x": 100,
+        "y": 40,
+        "w": 2360,
+        "h": 1549
+      },
+      "analyzeClick": {
+        "x": 36,
+        "y": 355,
+        "w": 728,
+        "h": 81
+      },
+      "message": {
+        "x": 194,
+        "y": 1147,
+        "w": 2172,
+        "h": 160
+      },
+      "saveClick": {
+        "x": 36,
+        "y": 682,
+        "w": 728,
+        "h": 70
+      },
+      "confirmClick": {
+        "x": 531.453125,
+        "y": 787,
+        "w": 146.484375,
+        "h": 50
+      },
+      "reopenClick": {
+        "x": 1933.171875,
+        "y": 1431,
+        "w": 432.828125,
+        "h": 100
+      },
+      "restoreClick": {
+        "x": 479.171875,
+        "y": 776,
+        "w": 186.140625,
+        "h": 39
+      }
+    },
+    "aiStatus": {
+      "state": "done",
+      "filledCount": 10,
+      "elapsed": "1.87"
+    },
+    "filled": {
+      "firstName": "Jörg",
+      "lastName": "Groß",
+      "email": "sample@example.com",
+      "phone": "017612345678",
+      "birthday": "1990-12-31",
+      "gender": "male",
+      "postal": "10115",
+      "inquiry": "Frage zum Produkt",
+      "message": "Bitte erzählen Sie mir mehr über das Produkt.",
+      "newsletter": "on"
+    },
+    "restoredMatchesSaved": true,
+    "pageSubmissions": 0
+  },
+  "words": {
+    "fill": "KI-Autofill",
+    "typed": "Jörg Groß",
+    "field": "Vollständiger Name"
+  },
+  "sourceSha256": {
+    "story": "ef67cfc47edd78bbf418764156ad1afb3649551c1e3f19eb6f6bf7e786ce7486",
+    "copy": "a156d92f8fdde30e17fb8c108059e66138d4e18e006e56ad3375eb6c91258161",
+    "sound": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd",
+    "stage": "717363724599cd7881d0d6ce1dbed9b18f3542692f88800d4fbbad932715f8d7"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "style": "gentle",
+    "pcmSha256": "6ae7947c1f7e90e362f23f161239f3f54422e9685bd277c2e05b42fc84a9db5b",
+    "events": [
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.4167,
+        "kind": "key"
+      },
+      {
+        "time": 0.4833,
+        "kind": "key"
+      },
+      {
+        "time": 0.55,
+        "kind": "key"
+      },
+      {
+        "time": 0.6833,
+        "kind": "key"
+      },
+      {
+        "time": 0.75,
+        "kind": "key"
+      },
+      {
+        "time": 0.8167,
+        "kind": "key"
+      },
+      {
+        "time": 0.8833,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.4056,
+        "kind": "key"
+      },
+      {
+        "time": 1.4611,
+        "kind": "key"
+      },
+      {
+        "time": 1.5167,
+        "kind": "key"
+      },
+      {
+        "time": 1.6278,
+        "kind": "key"
+      },
+      {
+        "time": 1.6833,
+        "kind": "key"
+      },
+      {
+        "time": 1.7389,
+        "kind": "key"
+      },
+      {
+        "time": 1.7944,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.25,
+        "kind": "key"
+      },
+      {
+        "time": 2.3,
+        "kind": "key"
+      },
+      {
+        "time": 2.35,
+        "kind": "key"
+      },
+      {
+        "time": 2.45,
+        "kind": "key"
+      },
+      {
+        "time": 2.5,
+        "kind": "key"
+      },
+      {
+        "time": 2.55,
+        "kind": "key"
+      },
+      {
+        "time": 2.6,
+        "kind": "key"
+      },
+      {
+        "time": 3.05,
+        "kind": "impact"
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 7.7773,
+        "kind": "success"
+      },
+      {
+        "time": 8.0773,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 8.3773,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.6773,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12.265,
+        "kind": "click"
+      },
+      {
+        "time": 14.641,
+        "kind": "click"
+      },
+      {
+        "time": 15.8667,
+        "kind": "click"
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.653,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.12,
+    "truePeakDbtp": -3.55
+  }
+}

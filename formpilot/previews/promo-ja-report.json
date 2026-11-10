@@ -1,0 +1,25 @@
+{
+  "locale": "ja",
+  "reference": "../promo-ja.mp4",
+  "source": "../promo.html",
+  "sourceHash": "a259dcd67983d38ada57fcdb4106c76259c37f5d9a083692b177ecab89cf43be",
+  "seconds": 33,
+  "video": {
+    "codec": "h264",
+    "width": 3840,
+    "height": 2160,
+    "fps": "30/1"
+  },
+  "audio": {
+    "codec": "aac",
+    "channels": 2,
+    "sourceCopied": true,
+    "packetHashMatchesReference": true
+  },
+  "capture": {
+    "wall": 33.007,
+    "rawDuration": 33.2
+  },
+  "states": [],
+  "sha256": "5f627c48066ff23a090544b8821953357f8f572e7125ac9518b9d4083b477b5d"
+}

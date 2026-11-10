@@ -1,0 +1,465 @@
+{
+  "channelId": "UCrjA6ffzb5pUw2URh0BcdRQ",
+  "items": {
+    "en": {
+      "file": "promo-en.mp4",
+      "captions": "promo-en.vtt",
+      "sha256": "1e65b93af46a4824162b2ca4e2d359b294927be8af441035636fb246e3abeadd",
+      "title": "FormPilot | Fill forms in one click.",
+      "description": "Save your profile once, then use AI to fill registration, contact and checkout forms. Free to use, with no account or API key required.\n\n🤖 HOW TO USE\n1. Save your name, contact details and address in a profile.\n2. Open a form, choose your profile and click AI Auto-Fill.\n3. Check the filled values, then submit the form yourself.\n\n✅ WHAT YOU CAN DO\n• Keep up to 10 profiles and 50 custom fields per profile.\n• Fill with a click, a profile shortcut or the right-click menu, including supported embedded forms.\n• Save inputs for a site and restore them on your next visit.\n• Use the interface in 20 languages, with names, phone numbers, postcodes and dates adapted to supported field instructions.\n\n🔒 PRIVACY\nSaved profile values stay on your device. Form labels, field attributes and custom field names are sent to AI for analysis; your saved profile values are not sent.\n\nℹ️ PLEASE NOTE\nDaily usage limits apply. AI can make mistakes, and some custom form controls are not supported. Always check the results. FormPilot never submits forms for you.\n\nAdd to Chrome (Free)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/?utm_source=youtube&utm_medium=video&utm_campaign=en\n\nUser Guide\nhttps://ramune441.github.io/formpilot/guide.html\n\nPrivacy Policy\nhttps://ramune441.github.io/formpilot/privacy-policy.html",
+      "language": "英語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "4c1-kj_o7tw",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "v3APD0nwPwQ",
+      "watchUrl": "https://www.youtube.com/watch?v=v3APD0nwPwQ",
+      "uploadedSha256": "1e65b93af46a4824162b2ca4e2d359b294927be8af441035636fb246e3abeadd",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "ja": {
+      "file": "promo-ja.mp4",
+      "captions": "promo-ja.vtt",
+      "sha256": "b31be58e1a622f632a64d130159e7c302e4aa2bf5a11e63c77552d14e387257b",
+      "title": "FormPilot | フォーム入力を、ワンクリックに。",
+      "description": "プロフィールを一度保存すれば、会員登録・問い合わせ・注文フォームをAIで入力できます。無料で使え、アカウント登録やAPIキーは不要です。\n\n🤖 使い方\n1. 氏名・連絡先・住所をプロフィールに保存します。\n2. フォームを開き、プロフィールを選んで「AI 自動入力」を押します。\n3. 入力結果を確認し、送信は自分で行います。\n\n✅ できること\n• プロフィールは最大10件、カスタム項目は1件につき最大50個。\n• ボタン・プロフィール別ショートカット・右クリックから実行。対応する埋め込みフォームにも入力できます。\n• サイトごとの入力内容を保存し、次回の訪問時に復元できます。\n• UIは20言語に対応。氏名・電話番号・郵便番号・日付を、対応する入力欄の指定に合わせて整形します。\n\n🔒 プライバシー\n保存したプロフィールの値は端末内に保持します。AIに送るのはフォームのラベル・項目の属性・カスタム項目の名前で、保存したプロフィールの値は送りません。\n\nℹ️ ご利用にあたって\n日次の利用上限があります。AIの誤判定や、一部の独自フォームに入力できない場合があります。入力結果は必ず確認してください。フォームを自動送信することはありません。\n\nChromeに追加する（無料）\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/ja/?utm_source=youtube&utm_medium=video&utm_campaign=ja\n\n使い方ガイド\nhttps://ramune441.github.io/formpilot/ja/guide.html\n\nプライバシーポリシー\nhttps://ramune441.github.io/formpilot/ja/privacy-policy.html",
+      "language": "日本語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "OMNKluz83uM",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "oBCgl_J58TI",
+      "watchUrl": "https://www.youtube.com/watch?v=oBCgl_J58TI",
+      "uploadedSha256": "b31be58e1a622f632a64d130159e7c302e4aa2bf5a11e63c77552d14e387257b",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "zh": {
+      "file": "promo-zh.mp4",
+      "captions": "promo-zh.vtt",
+      "sha256": "99ba142e2aca4b6baa968cfb1674827d02f28c06daaeb070f3804332748d95a2",
+      "title": "FormPilot | 填写表单，一键完成。",
+      "description": "保存一次个人资料，即可用AI填写注册、联系和结账表单。免费使用，无需账号或API密钥。\n\n🤖 使用方法\n1. 将姓名、联系方式和地址保存到个人资料。\n2. 打开表单，选择个人资料并点击“AI 自动填充”。\n3. 检查填写结果，然后自行提交表单。\n\n✅ 主要功能\n• 最多保存10份个人资料，每份可添加50个自定义字段。\n• 通过按钮、个人资料快捷键或右键菜单填写，也支持兼容的嵌入式表单。\n• 按网站保存输入内容，下次访问时恢复。\n• 界面支持20种语言，可根据支持的字段要求调整姓名、电话号码、邮政编码和日期格式。\n\n🔒 隐私\n保存的个人资料值保留在设备内。发送给AI分析的是表单标签、字段属性和自定义字段名称，不发送保存的个人资料值。\n\nℹ️ 使用须知\n设有每日使用上限。AI可能判断错误，部分自定义表单控件不受支持。请务必检查结果。FormPilot不会自动提交表单。\n\n添加到 Chrome（免费）\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/zh/?utm_source=youtube&utm_medium=video&utm_campaign=zh\n\n使用指南\nhttps://ramune441.github.io/formpilot/zh/guide.html\n\n隐私政策\nhttps://ramune441.github.io/formpilot/zh/privacy-policy.html",
+      "language": "中国語 (簡体字)",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "i-Jm6ZjQh70",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "6ONg99KhNvg",
+      "watchUrl": "https://www.youtube.com/watch?v=6ONg99KhNvg",
+      "uploadedSha256": "99ba142e2aca4b6baa968cfb1674827d02f28c06daaeb070f3804332748d95a2",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "zh-Hant": {
+      "file": "promo-zh-Hant.mp4",
+      "captions": "promo-zh-Hant.vtt",
+      "sha256": "10c0367d1da3ae1ead338ba1b5e6bfd8f212cb8494fb402a009609ec0dea4518",
+      "title": "FormPilot | 填寫表單，一鍵完成。",
+      "description": "儲存一次個人資料，即可用AI填寫註冊、聯絡和結帳表單。免費使用，無需帳戶或API金鑰。\n\n🤖 使用方式\n1. 將姓名、聯絡方式和地址儲存至個人資料。\n2. 開啟表單，選擇個人資料並按下「AI 自動填寫」。\n3. 檢查填寫結果，再自行送出表單。\n\n✅ 主要功能\n• 最多儲存10份個人資料，每份可新增50個自訂欄位。\n• 透過按鈕、個人資料快速鍵或右鍵選單填寫，也支援相容的嵌入式表單。\n• 依網站儲存輸入內容，下次造訪時還原。\n• 介面支援20種語言，可依支援的欄位要求調整姓名、電話號碼、郵遞區號和日期格式。\n\n🔒 隱私\n儲存的個人資料值保留在裝置內。傳送給AI分析的是表單標籤、欄位屬性和自訂欄位名稱，不會傳送儲存的個人資料值。\n\nℹ️ 使用須知\n設有每日使用上限。AI可能判斷錯誤，部分自訂表單控制項不受支援。請務必檢查結果。FormPilot不會自動送出表單。\n\n免費加入Chrome\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/zh-Hant/?utm_source=youtube&utm_medium=video&utm_campaign=zh-Hant\n\n使用指南\nhttps://ramune441.github.io/formpilot/zh-Hant/guide.html\n\n隱私權政策\nhttps://ramune441.github.io/formpilot/zh-Hant/privacy-policy.html",
+      "language": "中国語 (繁体字)",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "K1XPM2QKc7Y",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "CTxnLmLGViQ",
+      "watchUrl": "https://www.youtube.com/watch?v=CTxnLmLGViQ",
+      "uploadedSha256": "10c0367d1da3ae1ead338ba1b5e6bfd8f212cb8494fb402a009609ec0dea4518",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "ko": {
+      "file": "promo-ko.mp4",
+      "captions": "promo-ko.vtt",
+      "sha256": "1b6beb263babcee7396d8486fa9d7ff11328a52b46d20ef9cd6bee0cc134a94b",
+      "title": "FormPilot | 양식 입력을 클릭 한 번으로.",
+      "description": "프로필을 한 번 저장하고 AI로 가입, 문의, 주문 양식을 작성하세요. 계정이나 API 키 없이 무료로 사용할 수 있습니다.\n\n🤖 사용 방법\n1. 이름, 연락처, 주소를 프로필에 저장합니다.\n2. 양식을 열고 프로필을 선택한 뒤 AI 자동 입력 버튼을 누릅니다.\n3. 입력 결과를 확인하고 양식은 직접 제출합니다.\n\n✅ 주요 기능\n• 프로필은 최대 10개, 프로필별 사용자 지정 필드는 최대 50개까지 저장합니다.\n• 버튼, 프로필 단축키 또는 우클릭 메뉴로 실행하며, 지원되는 삽입 양식에도 입력합니다.\n• 사이트별 입력 내용을 저장하고 다음 방문 때 복원합니다.\n• 인터페이스는 20개 언어를 지원하며, 지원되는 필드의 지시에 맞춰 이름, 전화번호, 우편번호, 날짜를 조정합니다.\n\n🔒 개인정보\n저장한 프로필 값은 기기에 보관합니다. AI에는 양식 라벨, 필드 속성, 사용자 지정 필드 이름을 분석용으로 전송하며 저장한 프로필 값은 보내지 않습니다.\n\nℹ️ 이용 안내\n일일 사용 한도가 있습니다. AI가 잘못 판단하거나 일부 사용자 지정 양식 요소에 입력하지 못할 수 있습니다. 결과를 꼭 확인하세요. FormPilot은 양식을 자동 제출하지 않습니다.\n\nChrome에 추가하기 (무료)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/ko/?utm_source=youtube&utm_medium=video&utm_campaign=ko\n\n사용 가이드\nhttps://ramune441.github.io/formpilot/ko/guide.html\n\n개인정보처리방침\nhttps://ramune441.github.io/formpilot/ko/privacy-policy.html",
+      "language": "韓国語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "-cM7fL10Y1Q",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "-_eSEZEy8mI",
+      "watchUrl": "https://www.youtube.com/watch?v=-_eSEZEy8mI",
+      "uploadedSha256": "1b6beb263babcee7396d8486fa9d7ff11328a52b46d20ef9cd6bee0cc134a94b",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "es": {
+      "file": "promo-es.mp4",
+      "captions": "promo-es.vtt",
+      "sha256": "b53cd17b428f725d8ed4d4686726d9b2aabb94c138694466e01f0f1490d33e76",
+      "title": "FormPilot | Rellena formularios con un clic.",
+      "description": "Guarda tu perfil una vez y usa IA para rellenar formularios de registro, contacto y compra. Gratis, sin cuenta ni clave de API.\n\n🤖 CÓMO USARLO\n1. Guarda tu nombre, datos de contacto y dirección en un perfil.\n2. Abre un formulario, elige tu perfil y pulsa Auto-rellenar con IA.\n3. Revisa los valores y envía el formulario tú mismo.\n\n✅ FUNCIONES\n• Hasta 10 perfiles y 50 campos personalizados por perfil.\n• Ejecuta desde el botón, un atajo del perfil o el menú contextual; también en formularios incrustados compatibles.\n• Guarda los datos introducidos por sitio y restáuralos en tu próxima visita.\n• Interfaz en 20 idiomas, con nombres, teléfonos, códigos postales y fechas adaptados a las instrucciones de campos compatibles.\n\n🔒 PRIVACIDAD\nLos valores guardados en tu perfil permanecen en tu dispositivo. Se envían a la IA las etiquetas, los atributos y los nombres de campos personalizados para analizarlos, pero no los valores guardados.\n\nℹ️ TEN EN CUENTA\nHay límites de uso diarios. La IA puede equivocarse y algunos controles personalizados no son compatibles. Revisa siempre el resultado. FormPilot no envía formularios por ti.\n\nAñadir a Chrome (Gratis)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/es/?utm_source=youtube&utm_medium=video&utm_campaign=es\n\nGuía de uso\nhttps://ramune441.github.io/formpilot/es/guide.html\n\nPolítica de privacidad\nhttps://ramune441.github.io/formpilot/es/privacy-policy.html",
+      "language": "スペイン語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "D6qKDruJnnQ",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "diPV44tCfvk",
+      "watchUrl": "https://www.youtube.com/watch?v=diPV44tCfvk",
+      "uploadedSha256": "b53cd17b428f725d8ed4d4686726d9b2aabb94c138694466e01f0f1490d33e76",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "fr": {
+      "file": "promo-fr.mp4",
+      "captions": "promo-fr.vtt",
+      "sha256": "b03095a6c524c83116af1e8d3a9f0fc2a1029f6442bf9f7f971a6b1eabb551cb",
+      "title": "FormPilot | Remplissez vos formulaires en un clic.",
+      "description": "Enregistrez votre profil une fois, puis remplissez vos formulaires d’inscription, de contact et de commande avec l’IA. Gratuit, sans compte ni clé API.\n\n🤖 UTILISATION\n1. Enregistrez votre nom, vos coordonnées et votre adresse dans un profil.\n2. Ouvrez un formulaire, choisissez votre profil et cliquez sur Remplissage auto IA.\n3. Vérifiez les valeurs puis envoyez vous-même le formulaire.\n\n✅ FONCTIONNALITÉS\n• Jusqu’à 10 profils et 50 champs personnalisés par profil.\n• Lancez le remplissage avec le bouton, un raccourci de profil ou le menu contextuel, y compris dans les formulaires intégrés compatibles.\n• Enregistrez les saisies par site et restaurez-les lors de votre prochaine visite.\n• Interface en 20 langues, avec des noms, téléphones, codes postaux et dates adaptés aux consignes des champs pris en charge.\n\n🔒 CONFIDENTIALITÉ\nLes valeurs enregistrées dans votre profil restent sur votre appareil. Les libellés, attributs et noms des champs personnalisés sont envoyés à l’IA pour analyse, mais pas les valeurs enregistrées.\n\nℹ️ À SAVOIR\nDes limites quotidiennes s’appliquent. L’IA peut se tromper et certains contrôles personnalisés ne sont pas pris en charge. Vérifiez toujours le résultat. FormPilot n’envoie jamais les formulaires à votre place.\n\nAjouter à Chrome (Gratuit)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/fr/?utm_source=youtube&utm_medium=video&utm_campaign=fr\n\nGuide d'utilisation\nhttps://ramune441.github.io/formpilot/fr/guide.html\n\nPolitique de confidentialité\nhttps://ramune441.github.io/formpilot/fr/privacy-policy.html",
+      "language": "フランス語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "xckogblpxXo",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "HQsvZVZbZ4c",
+      "watchUrl": "https://www.youtube.com/watch?v=HQsvZVZbZ4c",
+      "uploadedSha256": "b03095a6c524c83116af1e8d3a9f0fc2a1029f6442bf9f7f971a6b1eabb551cb",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "de": {
+      "file": "promo-de.mp4",
+      "captions": "promo-de.vtt",
+      "sha256": "1ef0e5d9167973eedd8779cc658cc52dbbba602d09b7a8b9265682d7f69715f3",
+      "title": "FormPilot | Formulare mit einem Klick ausfüllen.",
+      "description": "Speichere dein Profil einmal und fülle Anmelde-, Kontakt- und Bestellformulare mit KI aus. Kostenlos, ohne Konto und ohne API-Schlüssel.\n\n🤖 SO GEHT’S\n1. Speichere Name, Kontaktdaten und Adresse in einem Profil.\n2. Öffne ein Formular, wähle dein Profil und klicke auf KI-Autofill.\n3. Prüfe die Werte und sende das Formular selbst ab.\n\n✅ FUNKTIONEN\n• Bis zu 10 Profile und 50 eigene Felder pro Profil.\n• Starte per Schaltfläche, Profil-Tastenkürzel oder Kontextmenü, auch in unterstützten eingebetteten Formularen.\n• Speichere Eingaben je Website und stelle sie beim nächsten Besuch wieder her.\n• Oberfläche in 20 Sprachen; Namen, Telefonnummern, Postleitzahlen und Datumsangaben folgen unterstützten Feldvorgaben.\n\n🔒 DATENSCHUTZ\nGespeicherte Profilwerte bleiben auf deinem Gerät. Feldbeschriftungen, Attribute und Namen eigener Felder werden zur Analyse an die KI gesendet, deine gespeicherten Profilwerte jedoch nicht.\n\nℹ️ BITTE BEACHTEN\nEs gelten tägliche Nutzungslimits. Die KI kann Fehler machen und einige eigene Formularelemente werden nicht unterstützt. Prüfe immer das Ergebnis. FormPilot sendet keine Formulare für dich ab.\n\nZu Chrome hinzufügen (Kostenlos)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/de/?utm_source=youtube&utm_medium=video&utm_campaign=de\n\nBenutzerhandbuch\nhttps://ramune441.github.io/formpilot/de/guide.html\n\nDatenschutzrichtlinie\nhttps://ramune441.github.io/formpilot/de/privacy-policy.html",
+      "language": "ドイツ語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "ANZfFdnXoa8",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "sHHtEAeNcBQ",
+      "watchUrl": "https://www.youtube.com/watch?v=sHHtEAeNcBQ",
+      "uploadedSha256": "1ef0e5d9167973eedd8779cc658cc52dbbba602d09b7a8b9265682d7f69715f3",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "pt": {
+      "file": "promo-pt.mp4",
+      "captions": "promo-pt.vtt",
+      "sha256": "d7b70e5549058a5347b5c3844f2378e96b0069e5503595610ff64a71feaf0a6a",
+      "title": "FormPilot | Preencha formulários com um clique.",
+      "description": "Salve seu perfil uma vez e use IA para preencher formulários de cadastro, contato e compra. Grátis, sem conta ou chave de API.\n\n🤖 COMO USAR\n1. Salve seu nome, contato e endereço em um perfil.\n2. Abra um formulário, escolha seu perfil e clique em Preenchimento auto IA.\n3. Confira os valores e envie o formulário por conta própria.\n\n✅ RECURSOS\n• Até 10 perfis e 50 campos personalizados por perfil.\n• Execute pelo botão, atalho do perfil ou menu do botão direito, inclusive em formulários incorporados compatíveis.\n• Salve as entradas de cada site e restaure-as na próxima visita.\n• Interface em 20 idiomas, com nomes, telefones, CEPs e datas ajustados às instruções de campos compatíveis.\n\n🔒 PRIVACIDADE\nOs valores salvos no perfil ficam no seu dispositivo. Rótulos, atributos e nomes dos campos personalizados são enviados à IA para análise; os valores salvos no perfil não são enviados.\n\nℹ️ IMPORTANTE\nHá limites diários de uso. A IA pode errar e alguns controles personalizados não são compatíveis. Sempre confira o resultado. O FormPilot não envia formulários por você.\n\nAdicionar ao Chrome (Grátis)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/pt/?utm_source=youtube&utm_medium=video&utm_campaign=pt\n\nGuia de uso\nhttps://ramune441.github.io/formpilot/pt/guide.html\n\nPolítica de Privacidade\nhttps://ramune441.github.io/formpilot/pt/privacy-policy.html",
+      "language": "ポルトガル語 (ブラジル)",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "u7jnWu-RhOc",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "r2rMo64QS5I",
+      "watchUrl": "https://www.youtube.com/watch?v=r2rMo64QS5I",
+      "uploadedSha256": "d7b70e5549058a5347b5c3844f2378e96b0069e5503595610ff64a71feaf0a6a",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "hi": {
+      "file": "promo-hi.mp4",
+      "captions": "promo-hi.vtt",
+      "sha256": "c4d650bb001efd73d946815fdca58feb07a39f4e3bb446a556f7b96305a40aa3",
+      "title": "FormPilot | फ़ॉर्म भरें, एक क्लिक में।",
+      "description": "प्रोफ़ाइल एक बार सहेजें और AI से पंजीकरण, संपर्क और खरीदारी के फ़ॉर्म भरें। खाता या API कुंजी बनाए बिना मुफ़्त में इस्तेमाल करें।\n\n🤖 इस्तेमाल कैसे करें\n1. अपना नाम, संपर्क जानकारी और पता प्रोफ़ाइल में सहेजें।\n2. फ़ॉर्म खोलें, प्रोफ़ाइल चुनें और AI ऑटो-भरें दबाएँ।\n3. भरी गई जानकारी जाँचें और फ़ॉर्म स्वयं सबमिट करें।\n\n✅ सुविधाएँ\n• अधिकतम 10 प्रोफ़ाइल और हर प्रोफ़ाइल में 50 कस्टम फ़ील्ड।\n• बटन, प्रोफ़ाइल शॉर्टकट या राइट-क्लिक मेन्यू से भरें; समर्थित एम्बेड किए गए फ़ॉर्म भी शामिल हैं।\n• हर साइट की भरी गई जानकारी सहेजें और अगली बार पुनर्स्थापित करें।\n• इंटरफ़ेस 20 भाषाओं में उपलब्ध है। नाम, फ़ोन नंबर, पिन कोड और तारीखें समर्थित फ़ील्ड के निर्देशों के अनुसार ढलते हैं।\n\n🔒 गोपनीयता\nसहेजी गई प्रोफ़ाइल के मान आपके उपकरण पर रहते हैं। विश्लेषण के लिए फ़ॉर्म के लेबल, फ़ील्ड के गुण और कस्टम फ़ील्ड के नाम AI को भेजे जाते हैं; सहेजी गई प्रोफ़ाइल के मान नहीं भेजे जाते।\n\nℹ️ ध्यान दें\nरोज़ाना उपयोग की सीमा लागू है। AI गलती कर सकता है और कुछ कस्टम फ़ॉर्म नियंत्रण समर्थित नहीं हैं। परिणाम हमेशा जाँचें। FormPilot आपकी ओर से फ़ॉर्म सबमिट नहीं करता।\n\nChrome में जोड़ें (मुफ़्त)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/hi/?utm_source=youtube&utm_medium=video&utm_campaign=hi\n\nउपयोग गाइड\nhttps://ramune441.github.io/formpilot/hi/guide.html\n\nगोपनीयता नीति\nhttps://ramune441.github.io/formpilot/hi/privacy-policy.html",
+      "language": "ヒンディー語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "V4NV7zvsyjk",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "dPtW48Vn9a4",
+      "watchUrl": "https://www.youtube.com/watch?v=dPtW48Vn9a4",
+      "uploadedSha256": "c4d650bb001efd73d946815fdca58feb07a39f4e3bb446a556f7b96305a40aa3",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "id": {
+      "file": "promo-id.mp4",
+      "captions": "promo-id.vtt",
+      "sha256": "53040d8cb56ebb47dccda8b96b2448340ced0491513834a04c49f20a12769a29",
+      "title": "FormPilot | Isi formulir dengan satu klik.",
+      "description": "Simpan profil sekali, lalu gunakan AI untuk mengisi formulir pendaftaran, kontak, dan belanja. Gratis, tanpa akun atau kunci API.\n\n🤖 CARA PAKAI\n1. Simpan nama, kontak, dan alamat dalam profil.\n2. Buka formulir, pilih profil, lalu klik Isi Otomatis AI.\n3. Periksa hasil isian, lalu kirim formulir sendiri.\n\n✅ FITUR\n• Hingga 10 profil dan 50 kolom kustom per profil.\n• Jalankan lewat tombol, pintasan profil, atau menu klik kanan, termasuk formulir tersemat yang didukung.\n• Simpan isian per situs dan pulihkan saat kunjungan berikutnya.\n• Antarmuka dalam 20 bahasa; nama, nomor telepon, kode pos, dan tanggal mengikuti petunjuk kolom yang didukung.\n\n🔒 PRIVASI\nNilai profil yang disimpan tetap berada di perangkat. Label, atribut kolom, dan nama kolom kustom dikirim ke AI untuk dianalisis; nilai profil yang disimpan tidak dikirim.\n\nℹ️ PERHATIKAN\nAda batas penggunaan harian. AI dapat salah dan beberapa kontrol formulir kustom tidak didukung. Selalu periksa hasilnya. FormPilot tidak mengirim formulir untuk Anda.\n\nTambahkan ke Chrome (Gratis)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/id/?utm_source=youtube&utm_medium=video&utm_campaign=id\n\nPanduan penggunaan\nhttps://ramune441.github.io/formpilot/id/guide.html\n\nKebijakan Privasi\nhttps://ramune441.github.io/formpilot/id/privacy-policy.html",
+      "language": "インドネシア語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "X9G5uuS1ycg",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "jVqgx9gEcVw",
+      "watchUrl": "https://www.youtube.com/watch?v=jVqgx9gEcVw",
+      "uploadedSha256": "53040d8cb56ebb47dccda8b96b2448340ced0491513834a04c49f20a12769a29",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "ar": {
+      "file": "promo-ar.mp4",
+      "captions": "promo-ar.vtt",
+      "sha256": "2bca3b1d97261b7dc0a209fc2ea899f7b445fae480b5a3e521ed8d97f5ece8f7",
+      "title": "FormPilot | املأ النماذج بنقرة واحدة.",
+      "description": "احفظ ملفك الشخصي مرة واحدة، ثم استخدم الذكاء الاصطناعي لملء نماذج التسجيل والتواصل والشراء. الاستخدام مجاني ولا يتطلب حسابًا أو مفتاح API.\n\n🤖 طريقة الاستخدام\n1. احفظ اسمك وبيانات التواصل والعنوان في ملف شخصي.\n2. افتح نموذجًا واختر ملفك الشخصي واضغط ملء تلقائي بالذكاء الاصطناعي.\n3. راجع القيم المعبأة ثم أرسل النموذج بنفسك.\n\n✅ الميزات\n• حتى 10 ملفات شخصية و50 حقلًا مخصصًا لكل ملف.\n• شغّل الملء بالزر أو اختصار الملف أو قائمة الزر الأيمن، بما يشمل النماذج المضمّنة المدعومة.\n• احفظ المدخلات لكل موقع واستعدها في الزيارة التالية.\n• واجهة بـ20 لغة، مع تكييف الأسماء وأرقام الهاتف والرموز البريدية والتواريخ وفق تعليمات الحقول المدعومة.\n\n🔒 الخصوصية\nتبقى قيم الملف الشخصي المحفوظة على جهازك. تُرسل تسميات النموذج وخصائص الحقول وأسماء الحقول المخصصة إلى الذكاء الاصطناعي للتحليل، ولا تُرسل قيم ملفك الشخصي المحفوظة.\n\nℹ️ يرجى الانتباه\nتوجد حدود استخدام يومية. قد يخطئ الذكاء الاصطناعي وبعض عناصر النماذج المخصصة غير مدعومة. راجع النتائج دائمًا. لا يرسل FormPilot النماذج نيابةً عنك.\n\nأضف إلى Chrome (مجاني)\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/ar/?utm_source=youtube&utm_medium=video&utm_campaign=ar\n\nدليل الاستخدام\nhttps://ramune441.github.io/formpilot/ar/guide.html\n\nسياسة الخصوصية\nhttps://ramune441.github.io/formpilot/ar/privacy-policy.html",
+      "language": "アラビア語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "Npv7EDxK8tc",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "YDa1SDIcd0M",
+      "watchUrl": "https://www.youtube.com/watch?v=YDa1SDIcd0M",
+      "uploadedSha256": "2bca3b1d97261b7dc0a209fc2ea899f7b445fae480b5a3e521ed8d97f5ece8f7",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "vi": {
+      "file": "promo-vi.mp4",
+      "captions": "promo-vi.vtt",
+      "sha256": "8e8f9ca9bf4d614ad8170cc6ffcd09b8376f2107eec6df9cf922bc3a5fc2fedc",
+      "title": "FormPilot | Điền biểu mẫu chỉ với một cú nhấp.",
+      "description": "Lưu hồ sơ một lần, rồi dùng AI điền biểu mẫu đăng ký, liên hệ và mua hàng. Miễn phí, không cần tài khoản hay khóa API.\n\n🤖 CÁCH DÙNG\n1. Lưu họ tên, thông tin liên hệ và địa chỉ vào hồ sơ.\n2. Mở biểu mẫu, chọn hồ sơ rồi nhấn Tự động điền AI.\n3. Kiểm tra thông tin đã điền và tự gửi biểu mẫu.\n\n✅ TÍNH NĂNG\n• Tối đa 10 hồ sơ và 50 trường tùy chỉnh cho mỗi hồ sơ.\n• Chạy bằng nút, phím tắt hồ sơ hoặc menu chuột phải, kể cả biểu mẫu nhúng được hỗ trợ.\n• Lưu dữ liệu nhập theo trang web và khôi phục ở lần truy cập sau.\n• Giao diện có 20 ngôn ngữ; họ tên, số điện thoại, mã bưu chính và ngày tháng theo hướng dẫn của trường được hỗ trợ.\n\n🔒 QUYỀN RIÊNG TƯ\nGiá trị hồ sơ đã lưu ở lại trên thiết bị. Nhãn, thuộc tính trường và tên trường tùy chỉnh được gửi đến AI để phân tích; giá trị hồ sơ đã lưu không được gửi đi.\n\nℹ️ LƯU Ý\nCó giới hạn sử dụng hằng ngày. AI có thể nhầm và một số thành phần biểu mẫu tùy chỉnh chưa được hỗ trợ. Luôn kiểm tra kết quả. FormPilot không tự gửi biểu mẫu.\n\nThêm vào Chrome miễn phí\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/vi/?utm_source=youtube&utm_medium=video&utm_campaign=vi\n\nHướng dẫn sử dụng\nhttps://ramune441.github.io/formpilot/vi/guide.html\n\nQuyền riêng tư\nhttps://ramune441.github.io/formpilot/vi/privacy-policy.html",
+      "language": "ベトナム語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "pDqSmlc6rHU",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "L50NFykQqEE",
+      "watchUrl": "https://www.youtube.com/watch?v=L50NFykQqEE",
+      "uploadedSha256": "8e8f9ca9bf4d614ad8170cc6ffcd09b8376f2107eec6df9cf922bc3a5fc2fedc",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "it": {
+      "file": "promo-it.mp4",
+      "captions": "promo-it.vtt",
+      "sha256": "7b070df0e00cf500086aa9028eff3d5ed8cec3230230753c6d0c9ca878cc2590",
+      "title": "FormPilot | Compila i moduli con un clic.",
+      "description": "Salva il profilo una volta e usa l’IA per compilare moduli di registrazione, contatto e acquisto. Gratis, senza account né chiave API.\n\n🤖 COME SI USA\n1. Salva nome, contatti e indirizzo in un profilo.\n2. Apri un modulo, scegli il profilo e premi Compilazione IA.\n3. Controlla i valori compilati e invia personalmente il modulo.\n\n✅ FUNZIONI\n• Fino a 10 profili e 50 campi personalizzati per profilo.\n• Avvia dal pulsante, dalla scorciatoia del profilo o dal menu contestuale, anche nei moduli incorporati supportati.\n• Salva i dati inseriti per sito e ripristinali alla visita successiva.\n• Interfaccia in 20 lingue, con nomi, telefoni, codici postali e date adattati alle istruzioni dei campi supportati.\n\n🔒 PRIVACY\nI valori salvati nel profilo restano sul dispositivo. Etichette, attributi e nomi dei campi personalizzati vengono inviati all’IA per l’analisi, ma non i valori salvati nel profilo.\n\nℹ️ DA SAPERE\nSi applicano limiti giornalieri. L’IA può sbagliare e alcuni controlli personalizzati non sono supportati. Controlla sempre il risultato. FormPilot non invia i moduli al posto tuo.\n\nAggiungi a Chrome gratis\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/it/?utm_source=youtube&utm_medium=video&utm_campaign=it\n\nGuida all’uso\nhttps://ramune441.github.io/formpilot/it/guide.html\n\nPrivacy\nhttps://ramune441.github.io/formpilot/it/privacy-policy.html",
+      "language": "イタリア語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "-EMNiSH_9Xk",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "4ewnRNqKHHg",
+      "watchUrl": "https://www.youtube.com/watch?v=4ewnRNqKHHg",
+      "uploadedSha256": "7b070df0e00cf500086aa9028eff3d5ed8cec3230230753c6d0c9ca878cc2590",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "tr": {
+      "file": "promo-tr.mp4",
+      "captions": "promo-tr.vtt",
+      "sha256": "8e1a1ee2cb1a3a95f38f871df0c979a0779a3d816deabc6f6f2fcad08087dc62",
+      "title": "FormPilot | Formları tek tıkla doldurun.",
+      "description": "Profilinizi bir kez kaydedin, ardından kayıt, iletişim ve alışveriş formlarını yapay zekâyla doldurun. Ücretsizdir; hesap veya API anahtarı gerekmez.\n\n🤖 NASIL KULLANILIR\n1. Adınızı, iletişim bilgilerinizi ve adresinizi profile kaydedin.\n2. Bir form açın, profilinizi seçin ve AI ile Doldur düğmesine basın.\n3. Doldurulan değerleri kontrol edip formu kendiniz gönderin.\n\n✅ ÖZELLİKLER\n• En fazla 10 profil ve profil başına 50 özel alan.\n• Düğme, profil kısayolu veya sağ tık menüsüyle çalıştırın; desteklenen gömülü formlar da dahildir.\n• Her site için girdileri kaydedin ve sonraki ziyaretinizde geri yükleyin.\n• 20 dilde arayüz; adlar, telefonlar, posta kodları ve tarihler desteklenen alan talimatlarına göre biçimlenir.\n\n🔒 GİZLİLİK\nKaydedilmiş profil değerleri cihazınızda kalır. Form etiketleri, alan özellikleri ve özel alan adları analiz için yapay zekâya gönderilir; kaydedilmiş profil değerleri gönderilmez.\n\nℹ️ LÜTFEN DİKKAT\nGünlük kullanım sınırları geçerlidir. Yapay zekâ hata yapabilir ve bazı özel form denetimleri desteklenmez. Sonuçları her zaman kontrol edin. FormPilot formları sizin yerinize göndermez.\n\nChrome’a ücretsiz ekle\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/tr/?utm_source=youtube&utm_medium=video&utm_campaign=tr\n\nKullanım kılavuzu\nhttps://ramune441.github.io/formpilot/tr/guide.html\n\nGizlilik\nhttps://ramune441.github.io/formpilot/tr/privacy-policy.html",
+      "language": "トルコ語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "LtNPVLum0Hk",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "IGcZqSRDhz8",
+      "watchUrl": "https://www.youtube.com/watch?v=IGcZqSRDhz8",
+      "uploadedSha256": "8e1a1ee2cb1a3a95f38f871df0c979a0779a3d816deabc6f6f2fcad08087dc62",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "pl": {
+      "file": "promo-pl.mp4",
+      "captions": "promo-pl.vtt",
+      "sha256": "b6b3d1e4c95d17313120024cbee0c756636fbc6c64f6231ac7f81d9e857ece27",
+      "title": "FormPilot | Wypełniaj formularze jednym kliknięciem.",
+      "description": "Zapisz profil raz, a potem wypełniaj formularze rejestracji, kontaktu i zakupów z pomocą AI. Bezpłatnie, bez konta i klucza API.\n\n🤖 JAK KORZYSTAĆ\n1. Zapisz imię, nazwisko, dane kontaktowe i adres w profilu.\n2. Otwórz formularz, wybierz profil i kliknij Wypełnij z AI.\n3. Sprawdź wpisane wartości i samodzielnie wyślij formularz.\n\n✅ FUNKCJE\n• Do 10 profili i 50 pól niestandardowych w każdym profilu.\n• Uruchamiaj przyciskiem, skrótem profilu lub z menu kontekstowego, także w obsługiwanych formularzach osadzonych.\n• Zapisuj dane dla danej witryny i przywracaj je przy kolejnej wizycie.\n• Interfejs w 20 językach; imiona, nazwiska, telefony, kody pocztowe i daty zgodnie z obsługiwanymi wskazówkami pól.\n\n🔒 PRYWATNOŚĆ\nZapisane wartości profilu pozostają na urządzeniu. Do analizy AI wysyłane są etykiety, atrybuty pól i nazwy pól niestandardowych, ale nie zapisane wartości profilu.\n\nℹ️ WAŻNE\nObowiązują dzienne limity użycia. AI może się pomylić, a niektóre niestandardowe elementy formularzy nie są obsługiwane. Zawsze sprawdzaj wynik. FormPilot nie wysyła formularzy za Ciebie.\n\nDodaj do Chrome za darmo\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/pl/?utm_source=youtube&utm_medium=video&utm_campaign=pl\n\nInstrukcja obsługi\nhttps://ramune441.github.io/formpilot/pl/guide.html\n\nPrywatność\nhttps://ramune441.github.io/formpilot/pl/privacy-policy.html",
+      "language": "ポーランド語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "UUn6G5X-TIM",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "zVhUJp4-c5w",
+      "watchUrl": "https://www.youtube.com/watch?v=zVhUJp4-c5w",
+      "uploadedSha256": "b6b3d1e4c95d17313120024cbee0c756636fbc6c64f6231ac7f81d9e857ece27",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "th": {
+      "file": "promo-th.mp4",
+      "captions": "promo-th.vtt",
+      "sha256": "cd99a52a041d3d22644b6e8216b1e2603eede85e962a7d584f8304c512ed4dfb",
+      "title": "FormPilot | กรอกฟอร์มได้ในคลิกเดียว",
+      "description": "บันทึกโปรไฟล์ครั้งเดียว แล้วใช้ AI กรอกแบบฟอร์มสมัครสมาชิก ติดต่อ และสั่งซื้อ ใช้ได้ฟรีโดยไม่ต้องมีบัญชีหรือคีย์ API\n\n🤖 วิธีใช้\n1. บันทึกชื่อ ข้อมูลติดต่อ และที่อยู่ไว้ในโปรไฟล์\n2. เปิดแบบฟอร์ม เลือกโปรไฟล์ แล้วกด กรอกอัตโนมัติด้วย AI\n3. ตรวจสอบข้อมูลที่กรอก แล้วส่งแบบฟอร์มด้วยตนเอง\n\n✅ คุณสมบัติ\n• เก็บได้สูงสุด 10 โปรไฟล์ และฟิลด์กำหนดเอง 50 ฟิลด์ต่อโปรไฟล์\n• เรียกใช้ผ่านปุ่ม คีย์ลัดของโปรไฟล์ หรือเมนูคลิกขวา รวมถึงแบบฟอร์มฝังตัวที่รองรับ\n• บันทึกข้อมูลแยกตามเว็บไซต์ แล้วเรียกคืนในการเข้าชมครั้งถัดไป\n• อินเทอร์เฟซรองรับ 20 ภาษา พร้อมจัดรูปแบบชื่อ เบอร์โทร รหัสไปรษณีย์ และวันที่ตามคำสั่งของฟิลด์ที่รองรับ\n\n🔒 ความเป็นส่วนตัว\nค่าที่บันทึกในโปรไฟล์อยู่บนอุปกรณ์ของคุณ ป้ายกำกับ คุณสมบัติของฟิลด์ และชื่อฟิลด์กำหนดเองจะถูกส่งให้ AI วิเคราะห์ แต่จะไม่ส่งค่าที่บันทึกในโปรไฟล์\n\nℹ️ โปรดทราบ\nมีขีดจำกัดการใช้งานรายวัน AI อาจตัดสินผิด และองค์ประกอบแบบฟอร์มกำหนดเองบางชนิดยังไม่รองรับ โปรดตรวจสอบผลลัพธ์เสมอ FormPilot ไม่ส่งแบบฟอร์มแทนคุณ\n\nเพิ่มใน Chrome ฟรี\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/th/?utm_source=youtube&utm_medium=video&utm_campaign=th\n\nคู่มือการใช้งาน\nhttps://ramune441.github.io/formpilot/th/guide.html\n\nความเป็นส่วนตัว\nhttps://ramune441.github.io/formpilot/th/privacy-policy.html",
+      "language": "タイ語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "0cUDfg5iHw4",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "Je0vmKOUyo4",
+      "watchUrl": "https://www.youtube.com/watch?v=Je0vmKOUyo4",
+      "uploadedSha256": "cd99a52a041d3d22644b6e8216b1e2603eede85e962a7d584f8304c512ed4dfb",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "nl": {
+      "file": "promo-nl.mp4",
+      "captions": "promo-nl.vtt",
+      "sha256": "b87398b4cde5ad60f949a067fdc80f2fb01ab39d9eb252d0de64f524eb99436b",
+      "title": "FormPilot | Formulieren invullen met één klik.",
+      "description": "Sla je profiel één keer op en vul registratie-, contact- en bestelformulieren in met AI. Gratis, zonder account of API-sleutel.\n\n🤖 ZO WERKT HET\n1. Sla je naam, contactgegevens en adres op in een profiel.\n2. Open een formulier, kies je profiel en klik op AI-invullen.\n3. Controleer de ingevulde waarden en verstuur het formulier zelf.\n\n✅ FUNCTIES\n• Maximaal 10 profielen en 50 aangepaste velden per profiel.\n• Start met de knop, een profielsneltoets of het rechtermuisknopmenu, ook in ondersteunde ingesloten formulieren.\n• Sla invoer per website op en herstel die bij je volgende bezoek.\n• Interface in 20 talen; namen, telefoonnummers, postcodes en datums volgen ondersteunde veldinstructies.\n\n🔒 PRIVACY\nOpgeslagen profielwaarden blijven op je apparaat. Formulierlabels, veldkenmerken en namen van aangepaste velden worden voor analyse naar AI gestuurd, maar je opgeslagen profielwaarden niet.\n\nℹ️ LET OP\nEr gelden dagelijkse gebruikslimieten. AI kan fouten maken en sommige aangepaste formulieronderdelen worden niet ondersteund. Controleer altijd het resultaat. FormPilot verstuurt geen formulieren voor je.\n\nGratis toevoegen aan Chrome\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/nl/?utm_source=youtube&utm_medium=video&utm_campaign=nl\n\nHandleiding\nhttps://ramune441.github.io/formpilot/nl/guide.html\n\nPrivacy\nhttps://ramune441.github.io/formpilot/nl/privacy-policy.html",
+      "language": "オランダ語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "BiqqwESJgW4",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "9tB8TA5OzmY",
+      "watchUrl": "https://www.youtube.com/watch?v=9tB8TA5OzmY",
+      "uploadedSha256": "b87398b4cde5ad60f949a067fdc80f2fb01ab39d9eb252d0de64f524eb99436b",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "ru": {
+      "file": "promo-ru.mp4",
+      "captions": "promo-ru.vtt",
+      "sha256": "04ca9cffae0491c654efeb1935d78525ab40cb82aebf0f9665fffaca874c94b5",
+      "title": "FormPilot | Заполняйте формы одним нажатием.",
+      "description": "Сохраните профиль один раз и заполняйте формы регистрации, обратной связи и заказа с помощью ИИ. Бесплатно, без учётной записи и ключа API.\n\n🤖 КАК ПОЛЬЗОВАТЬСЯ\n1. Сохраните имя, контактные данные и адрес в профиле.\n2. Откройте форму, выберите профиль и нажмите Автозаполнение ИИ.\n3. Проверьте заполненные значения и отправьте форму самостоятельно.\n\n✅ ВОЗМОЖНОСТИ\n• До 10 профилей и 50 дополнительных полей в каждом профиле.\n• Запускайте кнопкой, сочетанием клавиш профиля или из контекстного меню, в том числе в поддерживаемых встроенных формах.\n• Сохраняйте введённые данные для сайта и восстанавливайте при следующем посещении.\n• Интерфейс на 20 языках; имена, телефоны, почтовые индексы и даты учитывают поддерживаемые указания полей.\n\n🔒 КОНФИДЕНЦИАЛЬНОСТЬ\nСохранённые значения профиля остаются на устройстве. В ИИ для анализа передаются подписи, атрибуты и названия дополнительных полей, но не сохранённые значения профиля.\n\nℹ️ ОБРАТИТЕ ВНИМАНИЕ\nДействуют суточные ограничения. ИИ может ошибаться, а некоторые нестандартные элементы форм не поддерживаются. Всегда проверяйте результат. FormPilot не отправляет формы за вас.\n\nДобавить в Chrome бесплатно\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/ru/?utm_source=youtube&utm_medium=video&utm_campaign=ru\n\nРуководство\nhttps://ramune441.github.io/formpilot/ru/guide.html\n\nКонфиденциальность\nhttps://ramune441.github.io/formpilot/ru/privacy-policy.html",
+      "language": "ロシア語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "p7VdlsS8uSw",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "DKoML7sMqYM",
+      "watchUrl": "https://www.youtube.com/watch?v=DKoML7sMqYM",
+      "uploadedSha256": "04ca9cffae0491c654efeb1935d78525ab40cb82aebf0f9665fffaca874c94b5",
+      "captionsUploaded": true,
+      "published": true
+    },
+    "bn": {
+      "file": "promo-bn.mp4",
+      "captions": "promo-bn.vtt",
+      "sha256": "8bd561ab7231c13cc15c2e9bd9638f535bd667be7d0f49c18bfc496e4e9b72cb",
+      "title": "FormPilot | এক ক্লিকে ফর্ম পূরণ।",
+      "description": "একবার প্রোফাইল সংরক্ষণ করে AI দিয়ে নিবন্ধন, যোগাযোগ ও কেনাকাটার ফর্ম পূরণ করুন। অ্যাকাউন্ট বা API কী ছাড়াই বিনামূল্যে ব্যবহার করা যায়।\n\n🤖 ব্যবহারের নিয়ম\n1. নাম, যোগাযোগের তথ্য ও ঠিকানা প্রোফাইলে সংরক্ষণ করুন।\n2. ফর্ম খুলুন, প্রোফাইল বেছে নিয়ে AI অটো-ফিল চাপুন।\n3. পূরণ করা তথ্য যাচাই করে নিজে ফর্ম জমা দিন।\n\n✅ যা করতে পারবেন\n• সর্বোচ্চ ১০টি প্রোফাইল এবং প্রতি প্রোফাইলে ৫০টি অতিরিক্ত ফিল্ড।\n• বাটন, প্রোফাইলের শর্টকাট বা ডান-ক্লিক মেনু থেকে চালান; সমর্থিত এমবেড করা ফর্মেও কাজ করে।\n• প্রতি ওয়েবসাইটের লেখা তথ্য সংরক্ষণ করুন এবং পরেরবার ফিরিয়ে আনুন।\n• ইন্টারফেস ২০টি ভাষায় পাওয়া যায়। নাম, ফোন নম্বর, পোস্টকোড ও তারিখ সমর্থিত ফিল্ডের নির্দেশনা অনুযায়ী সাজানো হয়।\n\n🔒 গোপনীয়তা\nসংরক্ষিত প্রোফাইলের মান আপনার ডিভাইসেই থাকে। বিশ্লেষণের জন্য ফর্মের লেবেল, ফিল্ডের বৈশিষ্ট্য ও অতিরিক্ত ফিল্ডের নাম AI-তে পাঠানো হয়; সংরক্ষিত প্রোফাইলের মান পাঠানো হয় না।\n\nℹ️ মনে রাখুন\nদৈনিক ব্যবহারের সীমা রয়েছে। AI ভুল করতে পারে এবং কিছু বিশেষ ফর্ম নিয়ন্ত্রণ সমর্থিত নয়। ফলাফল সব সময় যাচাই করুন। FormPilot আপনার হয়ে ফর্ম জমা দেয় না।\n\nবিনামূল্যে Chrome-এ যোগ করুন\nhttps://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend\n\nFormPilot\nhttps://ramune441.github.io/formpilot/bn/?utm_source=youtube&utm_medium=video&utm_campaign=bn\n\nব্যবহার নির্দেশিকা\nhttps://ramune441.github.io/formpilot/bn/guide.html\n\nগোপনীয়তা\nhttps://ramune441.github.io/formpilot/bn/privacy-policy.html",
+      "language": "ベンガル語",
+      "visibility": "public",
+      "madeForKids": false,
+      "notifySubscribers": false,
+      "retired": [
+        {
+          "videoId": "CMMa6rSo7RY",
+          "private": true,
+          "deleted": true
+        }
+      ],
+      "videoId": "LkhsnZYRrRY",
+      "watchUrl": "https://www.youtube.com/watch?v=LkhsnZYRrRY",
+      "uploadedSha256": "8bd561ab7231c13cc15c2e9bd9638f535bd667be7d0f49c18bfc496e4e9b72cb",
+      "captionsUploaded": true,
+      "published": true
+    }
+  }
+}

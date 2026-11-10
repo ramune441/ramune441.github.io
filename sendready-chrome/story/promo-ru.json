@@ -1,0 +1,1037 @@
+{
+  "lang": "ru",
+  "file": "promo-ru.mp4",
+  "sha256": "7bebeb211d74e48cc6982b8e425cbcdd25580f6050de592d21d0517142a29e89",
+  "bytes": 27841133,
+  "duration": 66.834,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-ru.vtt",
+  "recording": {
+    "events": {
+      "draftStart": 3.768,
+      "draftEnd": 5.159,
+      "politeLauncherClick": 6.326,
+      "politePresetClick": 7.681,
+      "politeRunClick": 8.881,
+      "politeResult": 10.677,
+      "politeApplyClick": 12.734,
+      "politeApplied": 13.122,
+      "caretClick": 14.935,
+      "snippetStart": 15.467,
+      "snippetTab": 16.244,
+      "endClick": 18.207,
+      "inlineStart": 18.599,
+      "inlineTab": 21.121,
+      "inlineResult": 22.237,
+      "inlineApplyClick": 24.281,
+      "inlineApplied": 24.67,
+      "mailEnd": 26.18,
+      "chatShown": 26.234,
+      "receivedStart": 27.739,
+      "receivedEnd": 29.057,
+      "replyLauncherClick": 30.28,
+      "replyCheckClick": 31.546,
+      "replyPresetClick": 32.596,
+      "gistClick": 33.551,
+      "gistStart": 33.832,
+      "gistEnd": 36.351,
+      "replyRunClick": 37.374,
+      "replyResult": 38.662,
+      "copyClick": 40.55,
+      "closeClick": 41.661,
+      "inputClick": 42.675,
+      "pasted": 43.066,
+      "sendClick": 44.61,
+      "chatEnd": 46.769,
+      "articleShown": 46.804,
+      "articleStart": 48.41,
+      "articleEnd": 58.394,
+      "summaryLauncherClick": 50.844,
+      "summaryPresetClick": 52.114,
+      "summaryRunClick": 53.28,
+      "summaryResult": 54.755,
+      "summaryCloseClick": 57.799,
+      "postShown": 58.427,
+      "postStart": 59.945,
+      "postEnd": 61.245,
+      "customLauncherClick": 62.45,
+      "moreClick": 63.784,
+      "instructionStart": 64.125,
+      "instructionEnd": 66.738,
+      "customRunClick": 67.781,
+      "customResult": 69.338,
+      "customApplyClick": 71.358,
+      "customApplied": 71.764,
+      "post2Start": 73.808,
+      "post2End": 75.111,
+      "translateLauncherClick": 76.281,
+      "translatePresetClick": 77.584,
+      "translateRunClick": 78.708,
+      "translateResult": 80.328,
+      "translateApplyClick": 82.362,
+      "translateApplied": 82.751,
+      "end": 84.765
+    },
+    "results": {
+      "polite": "К сожалению, в четверг я не смогу. Буду рад встретиться в пятницу.",
+      "inline": "Завтра направлю вам файлы.",
+      "reply": "Здравствуйте! Да, конечно, я обязательно подготовлю и пришлю слайды сегодня до 17:00.",
+      "summary": "Около 60% сотрудников используют генеративный ИИ в основном для работы с текстом (написание писем, саммари, перевод). Главные опасения — риск утечки конфиденциальных данных и время на проверку результата, поэтому эксперты советуют минимизировать ввод личной информации и всегда перечитывать сгенерированный текст.",
+      "custom": "Ох уж эти выходные! 🥳 Занесло меня тут в одно новенькое кафе — и знаете что? Это просто восторг! ☕️✨ Латте там — ну просто сказка, такой нежный и бодрящий, прям сердечко забилось чаще! 💖🥰 Короче, я влюбился(ась) 😍 Обязательно пойду туда ещё, и точка! 🏃‍♂️💨🎉",
+      "translate": "Oh, those weekends! 🥳 I ended up in this brand-new café, and you know what? It’s just amazing! ☕️✨ Their latte is like a dream—so smooth and energizing, it literally made my heart skip a beat! 💖🥰 Anyway, I'm in love 😍 I’m definitely going back there again, period! 🏃‍♂️💨🎉"
+    },
+    "withInline": "Здравствуйте!\n\nСпасибо, что написали.\nК сожалению, в четверг я не смогу. Буду рад встретиться в пятницу.\nЗавтра направлю вам файлы.",
+    "sent": "Здравствуйте! Да, конечно, я обязательно подготовлю и пришлю слайды сегодня до 17:00.",
+    "translated": "Oh, those weekends! 🥳 I ended up in this brand-new café, and you know what? It’s just amazing! ☕️✨ Their latte is like a dream—so smooth and energizing, it literally made my heart skip a beat! 💖🥰 Anyway, I'm in love 😍 I’m definitely going back there again, period! 🏃‍♂️💨🎉",
+    "extensionState": {
+      "successCount": 6,
+      "history": [
+        "Oh, those weekends! 🥳 I ended up in this brand-new café, and you know what? It’s just amazing! ☕️✨ Their latte is like a dream—so smooth and energizing, it literally made my heart skip a beat! 💖🥰 Anyway, I'm in love 😍 I’m definitely going back there again, period! 🏃‍♂️💨🎉",
+        "Ох уж эти выходные! 🥳 Занесло меня тут в одно новенькое кафе — и знаете что? Это просто восторг! ☕️✨ Латте там — ну просто сказка, такой нежный и бодрящий, прям сердечко забилось чаще! 💖🥰 Короче, я влюбился(ась) 😍 Обязательно пойду туда ещё, и точка! 🏃‍♂️💨🎉",
+        "Около 60% сотрудников используют генеративный ИИ в основном для работы с текстом (написание писем, саммари, перевод). Главные опасения — риск утечки конфиденциальных данных и время на проверку результата, поэтому эксперты советуют минимизировать ввод личной информации и всегда перечитывать сгенерированный текст.",
+        "Здравствуйте! Да, конечно, я обязательно подготовлю и пришлю слайды сегодня до 17:00.",
+        "Завтра направлю вам файлы."
+      ],
+      "usage": {
+        "count": 6,
+        "limit": 50,
+        "resetsAt": "2026-11-09T00:00:00.000Z"
+      }
+    },
+    "pageSubmissions": 0
+  },
+  "timeline": {
+    "pieces": [
+      [
+        "polite",
+        5.4,
+        7.972,
+        3.0679999999999996,
+        6.925999999999999
+      ],
+      [
+        "polite",
+        7.972,
+        9.4087,
+        6.925999999999999,
+        9.081
+      ],
+      [
+        "polite",
+        9.4087,
+        10.0087,
+        9.081,
+        10.677
+      ],
+      [
+        "polite",
+        10.0087,
+        11.9756,
+        10.677,
+        13.234
+      ],
+      [
+        "polite",
+        11.9756,
+        12.5101,
+        13.234,
+        13.822
+      ],
+      [
+        "snippet",
+        12.5101,
+        14.9093,
+        14.385,
+        17.144
+      ],
+      [
+        "inline",
+        14.9093,
+        17.3327,
+        17.707,
+        21.221
+      ],
+      [
+        "inline",
+        17.3327,
+        17.9327,
+        21.221,
+        22.237
+      ],
+      [
+        "inline",
+        17.9327,
+        19.8896,
+        22.237,
+        24.781
+      ],
+      [
+        "inline",
+        19.8896,
+        20.516,
+        24.781,
+        25.470000000000002
+      ],
+      [
+        "reply",
+        20.516,
+        23.28,
+        26.734,
+        30.880000000000003
+      ],
+      [
+        "reply",
+        23.28,
+        26.7776,
+        30.880000000000003,
+        36.650999999999996
+      ],
+      [
+        "reply",
+        26.7776,
+        27.4369,
+        36.650999999999996,
+        37.574000000000005
+      ],
+      [
+        "reply",
+        27.4369,
+        28.0369,
+        37.574000000000005,
+        38.662
+      ],
+      [
+        "reply",
+        28.0369,
+        29.7317,
+        38.662,
+        40.949999999999996
+      ],
+      [
+        "reply",
+        29.7317,
+        32.4785,
+        40.949999999999996,
+        46.169
+      ],
+      [
+        "summary",
+        32.4785,
+        35.2385,
+        47.304,
+        51.444
+      ],
+      [
+        "summary",
+        35.2385,
+        36.5959,
+        51.444,
+        53.480000000000004
+      ],
+      [
+        "summary",
+        36.5959,
+        37.1959,
+        53.480000000000004,
+        54.755
+      ],
+      [
+        "summary",
+        37.1959,
+        38.7343,
+        54.755,
+        56.755
+      ],
+      [
+        "custom",
+        38.7343,
+        41.483,
+        58.927,
+        63.050000000000004
+      ],
+      [
+        "custom",
+        41.483,
+        44.7703,
+        63.050000000000004,
+        67.98100000000001
+      ],
+      [
+        "custom",
+        44.7703,
+        45.3703,
+        67.98100000000001,
+        69.338
+      ],
+      [
+        "custom",
+        45.3703,
+        47.3088,
+        69.338,
+        71.858
+      ],
+      [
+        "custom",
+        47.3088,
+        47.7688,
+        71.858,
+        72.36399999999999
+      ],
+      [
+        "translate",
+        47.7688,
+        50.2174,
+        73.20800000000001,
+        76.881
+      ],
+      [
+        "translate",
+        50.2174,
+        51.5688,
+        76.881,
+        78.908
+      ],
+      [
+        "translate",
+        51.5688,
+        52.1688,
+        78.908,
+        80.328
+      ],
+      [
+        "translate",
+        52.1688,
+        54.118,
+        80.328,
+        82.862
+      ],
+      [
+        "translate",
+        54.118,
+        55.621,
+        82.862,
+        84.365
+      ]
+    ],
+    "cuts": [
+      {
+        "at": 12.5101,
+        "raw": 14.385
+      },
+      {
+        "at": 14.9093,
+        "raw": 17.707
+      },
+      {
+        "at": 20.516,
+        "raw": 26.734
+      },
+      {
+        "at": 32.4785,
+        "raw": 47.304
+      },
+      {
+        "at": 38.7343,
+        "raw": 58.927
+      },
+      {
+        "at": 47.7688,
+        "raw": 73.20800000000001
+      }
+    ],
+    "captions": [
+      [
+        5.4,
+        "polite"
+      ],
+      [
+        12.5101,
+        "snippet"
+      ],
+      [
+        14.9093,
+        "inline"
+      ],
+      [
+        20.516,
+        "reply"
+      ],
+      [
+        32.4785,
+        "summary"
+      ],
+      [
+        38.7343,
+        "custom"
+      ],
+      [
+        47.7688,
+        "translate"
+      ]
+    ]
+  },
+  "sourceSha256": {
+    "story.mjs": "9d3da6ddb1519f873c767a25bbe94c5cc8666a50542193fa54a1f06a113b71b8",
+    "story-copy.mjs": "611384d1d0b5d53d3391e9129654283131683cd9e9689358c698a4ba61f22d72",
+    "story.html": "15fc9bd1779ce0da60a010355dc98ff0c9075af8be6e63067e2fec6090fe6ed5",
+    "build-story.mjs": "5dbbde0ad655961da77e4dfaa74af245abad5de528a5e1cda558332b55500850",
+    "../formpilot/promo-sound.js": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "palette": "soft",
+    "pcmSha256": "9e88111eec8996e66915c10e7662186189110f1b983e5c2918f4cc8c2d66940b",
+    "events": [
+      {
+        "time": 0.3,
+        "kind": "key"
+      },
+      {
+        "time": 0.3706,
+        "kind": "key"
+      },
+      {
+        "time": 0.4059,
+        "kind": "key"
+      },
+      {
+        "time": 0.4412,
+        "kind": "key"
+      },
+      {
+        "time": 0.4765,
+        "kind": "key"
+      },
+      {
+        "time": 0.5118,
+        "kind": "key"
+      },
+      {
+        "time": 0.5471,
+        "kind": "key"
+      },
+      {
+        "time": 0.5824,
+        "kind": "key"
+      },
+      {
+        "time": 0.6529,
+        "kind": "key"
+      },
+      {
+        "time": 0.6882,
+        "kind": "key"
+      },
+      {
+        "time": 0.7588,
+        "kind": "key"
+      },
+      {
+        "time": 0.7941,
+        "kind": "key"
+      },
+      {
+        "time": 0.8294,
+        "kind": "key"
+      },
+      {
+        "time": 0.8647,
+        "kind": "key"
+      },
+      {
+        "time": 0.9,
+        "kind": "key"
+      },
+      {
+        "time": 0.9706,
+        "kind": "key"
+      },
+      {
+        "time": 1.0412,
+        "kind": "key"
+      },
+      {
+        "time": 1.0765,
+        "kind": "key"
+      },
+      {
+        "time": 1.1118,
+        "kind": "key"
+      },
+      {
+        "time": 1.1471,
+        "kind": "key"
+      },
+      {
+        "time": 1.1824,
+        "kind": "key"
+      },
+      {
+        "time": 1.2176,
+        "kind": "key"
+      },
+      {
+        "time": 1.2529,
+        "kind": "key"
+      },
+      {
+        "time": 1.3235,
+        "kind": "key"
+      },
+      {
+        "time": 1.3588,
+        "kind": "key"
+      },
+      {
+        "time": 1.3941,
+        "kind": "key"
+      },
+      {
+        "time": 1.4294,
+        "kind": "key"
+      },
+      {
+        "time": 1.4647,
+        "kind": "key"
+      },
+      {
+        "time": 2.15,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 3.08,
+        "kind": "whoosh"
+      },
+      {
+        "time": 3.45,
+        "kind": "impact"
+      },
+      {
+        "time": 5.08,
+        "kind": "whoosh"
+      },
+      {
+        "time": 5.8667,
+        "kind": "click"
+      },
+      {
+        "time": 7.5727,
+        "kind": "click"
+      },
+      {
+        "time": 8.476,
+        "kind": "click"
+      },
+      {
+        "time": 9.276,
+        "kind": "click"
+      },
+      {
+        "time": 10.0087,
+        "kind": "sparkle"
+      },
+      {
+        "time": 11.591,
+        "kind": "click"
+      },
+      {
+        "time": 11.8894,
+        "kind": "success"
+      },
+      {
+        "time": 12.2101,
+        "kind": "whoosh"
+      },
+      {
+        "time": 12.5601,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 12.9884,
+        "kind": "click"
+      },
+      {
+        "time": 13.451,
+        "kind": "key"
+      },
+      {
+        "time": 13.5929,
+        "kind": "key"
+      },
+      {
+        "time": 13.7348,
+        "kind": "key"
+      },
+      {
+        "time": 14.1267,
+        "kind": "success"
+      },
+      {
+        "time": 14.6093,
+        "kind": "whoosh"
+      },
+      {
+        "time": 14.9593,
+        "kind": "pop",
+        "pitch": 1
+      },
+      {
+        "time": 15.2541,
+        "kind": "click"
+      },
+      {
+        "time": 15.5245,
+        "kind": "key"
+      },
+      {
+        "time": 15.5871,
+        "kind": "key"
+      },
+      {
+        "time": 15.6496,
+        "kind": "key"
+      },
+      {
+        "time": 15.7748,
+        "kind": "key"
+      },
+      {
+        "time": 15.8374,
+        "kind": "key"
+      },
+      {
+        "time": 15.8999,
+        "kind": "key"
+      },
+      {
+        "time": 15.9625,
+        "kind": "key"
+      },
+      {
+        "time": 16.0251,
+        "kind": "key"
+      },
+      {
+        "time": 16.0877,
+        "kind": "key"
+      },
+      {
+        "time": 16.2128,
+        "kind": "key"
+      },
+      {
+        "time": 16.2754,
+        "kind": "key"
+      },
+      {
+        "time": 16.338,
+        "kind": "key"
+      },
+      {
+        "time": 16.4005,
+        "kind": "key"
+      },
+      {
+        "time": 16.4631,
+        "kind": "key"
+      },
+      {
+        "time": 16.5883,
+        "kind": "key"
+      },
+      {
+        "time": 16.6508,
+        "kind": "key"
+      },
+      {
+        "time": 16.7134,
+        "kind": "key"
+      },
+      {
+        "time": 16.776,
+        "kind": "key"
+      },
+      {
+        "time": 16.8386,
+        "kind": "key"
+      },
+      {
+        "time": 16.9011,
+        "kind": "key"
+      },
+      {
+        "time": 17.9327,
+        "kind": "sparkle"
+      },
+      {
+        "time": 19.505,
+        "kind": "click"
+      },
+      {
+        "time": 19.8042,
+        "kind": "success"
+      },
+      {
+        "time": 20.216,
+        "kind": "whoosh"
+      },
+      {
+        "time": 20.566,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 21.186,
+        "kind": "click"
+      },
+      {
+        "time": 22.88,
+        "kind": "click"
+      },
+      {
+        "time": 23.6836,
+        "kind": "click"
+      },
+      {
+        "time": 24.32,
+        "kind": "click"
+      },
+      {
+        "time": 24.8988,
+        "kind": "click"
+      },
+      {
+        "time": 25.0691,
+        "kind": "key"
+      },
+      {
+        "time": 25.1355,
+        "kind": "key"
+      },
+      {
+        "time": 25.2019,
+        "kind": "key"
+      },
+      {
+        "time": 25.2682,
+        "kind": "key"
+      },
+      {
+        "time": 25.3346,
+        "kind": "key"
+      },
+      {
+        "time": 25.401,
+        "kind": "key"
+      },
+      {
+        "time": 25.5337,
+        "kind": "key"
+      },
+      {
+        "time": 25.6001,
+        "kind": "key"
+      },
+      {
+        "time": 25.6665,
+        "kind": "key"
+      },
+      {
+        "time": 25.7329,
+        "kind": "key"
+      },
+      {
+        "time": 25.7993,
+        "kind": "key"
+      },
+      {
+        "time": 25.8656,
+        "kind": "key"
+      },
+      {
+        "time": 25.932,
+        "kind": "key"
+      },
+      {
+        "time": 26.0648,
+        "kind": "key"
+      },
+      {
+        "time": 26.1312,
+        "kind": "key"
+      },
+      {
+        "time": 26.2639,
+        "kind": "key"
+      },
+      {
+        "time": 26.3303,
+        "kind": "key"
+      },
+      {
+        "time": 26.3967,
+        "kind": "key"
+      },
+      {
+        "time": 26.463,
+        "kind": "key"
+      },
+      {
+        "time": 26.5294,
+        "kind": "key"
+      },
+      {
+        "time": 27.294,
+        "kind": "click"
+      },
+      {
+        "time": 28.0369,
+        "kind": "sparkle"
+      },
+      {
+        "time": 29.4354,
+        "kind": "click"
+      },
+      {
+        "time": 30.1059,
+        "kind": "click"
+      },
+      {
+        "time": 30.6401,
+        "kind": "click"
+      },
+      {
+        "time": 31.658,
+        "kind": "click"
+      },
+      {
+        "time": 31.758,
+        "kind": "success"
+      },
+      {
+        "time": 32.1785,
+        "kind": "whoosh"
+      },
+      {
+        "time": 32.5285,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 33.2158,
+        "kind": "click"
+      },
+      {
+        "time": 34.8385,
+        "kind": "click"
+      },
+      {
+        "time": 35.6852,
+        "kind": "click"
+      },
+      {
+        "time": 36.4632,
+        "kind": "click"
+      },
+      {
+        "time": 37.1959,
+        "kind": "sparkle"
+      },
+      {
+        "time": 38.4343,
+        "kind": "whoosh"
+      },
+      {
+        "time": 38.7843,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 39.413,
+        "kind": "click"
+      },
+      {
+        "time": 41.083,
+        "kind": "click"
+      },
+      {
+        "time": 41.9723,
+        "kind": "click"
+      },
+      {
+        "time": 42.1997,
+        "kind": "key"
+      },
+      {
+        "time": 42.2723,
+        "kind": "key"
+      },
+      {
+        "time": 42.3449,
+        "kind": "key"
+      },
+      {
+        "time": 42.4174,
+        "kind": "key"
+      },
+      {
+        "time": 42.49,
+        "kind": "key"
+      },
+      {
+        "time": 42.5626,
+        "kind": "key"
+      },
+      {
+        "time": 42.7078,
+        "kind": "key"
+      },
+      {
+        "time": 42.7803,
+        "kind": "key"
+      },
+      {
+        "time": 42.8529,
+        "kind": "key"
+      },
+      {
+        "time": 42.9255,
+        "kind": "key"
+      },
+      {
+        "time": 42.9981,
+        "kind": "key"
+      },
+      {
+        "time": 43.0707,
+        "kind": "key"
+      },
+      {
+        "time": 43.2158,
+        "kind": "key"
+      },
+      {
+        "time": 43.361,
+        "kind": "key"
+      },
+      {
+        "time": 43.5061,
+        "kind": "key"
+      },
+      {
+        "time": 43.5787,
+        "kind": "key"
+      },
+      {
+        "time": 43.6513,
+        "kind": "key"
+      },
+      {
+        "time": 43.7239,
+        "kind": "key"
+      },
+      {
+        "time": 43.7964,
+        "kind": "key"
+      },
+      {
+        "time": 43.869,
+        "kind": "key"
+      },
+      {
+        "time": 44.637,
+        "kind": "click"
+      },
+      {
+        "time": 45.3703,
+        "kind": "sparkle"
+      },
+      {
+        "time": 46.9242,
+        "kind": "click"
+      },
+      {
+        "time": 47.2365,
+        "kind": "success"
+      },
+      {
+        "time": 47.4688,
+        "kind": "whoosh"
+      },
+      {
+        "time": 47.8188,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 48.1688,
+        "kind": "click"
+      },
+      {
+        "time": 49.8174,
+        "kind": "click"
+      },
+      {
+        "time": 50.6861,
+        "kind": "click"
+      },
+      {
+        "time": 51.4355,
+        "kind": "click"
+      },
+      {
+        "time": 52.1688,
+        "kind": "sparkle"
+      },
+      {
+        "time": 53.7334,
+        "kind": "click"
+      },
+      {
+        "time": 54.0326,
+        "kind": "success"
+      },
+      {
+        "time": 55.301,
+        "kind": "whoosh"
+      },
+      {
+        "time": 56.121,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 56.471,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 56.821,
+        "kind": "pop",
+        "pitch": 5
+      },
+      {
+        "time": 57.171,
+        "kind": "pop",
+        "pitch": 6
+      },
+      {
+        "time": 60.901,
+        "kind": "whoosh"
+      },
+      {
+        "time": 63.021,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.08,
+    "truePeakDbtp": -3.12
+  }
+}

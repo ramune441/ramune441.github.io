@@ -27,6 +27,7 @@ Ramune の Chrome 拡張・Android アプリ・Web サービスの LP・使い�
 - SubDuo のストア掲載文（`subduo/store-listing.json`）のプライバシーポリシー URL に各言語の `?lang=<lang>` を付ける。
 - SubDuo の読み上げ（🔊）は Chrome の Google オンライン音声だと文字列を Google が処理する。拡張の仕様の「外部へ送らない」とプライバシーポリシーのどちらに揃えるか決める。
 - Ripen のストア掲載文・画像・動画を LP に揃える（単語クイズ・使用状況アクセスとユーザー補助が必須になったこと）。
+- FormPilot の古いYouTube動画（タイトルが「FormPilot」「FormPilot ver2」「FormPilot v1.4.0」のもの。現行は `formpilot/youtube-story.json` の20本）を削除する。旧ストア掲載の20本はストアの差し替えが審査を通ってから。
 
 ## 目次
 - [spec/product.md](spec/product.md) — ページを足す・変える、プロダクトごとの LP・素材の決まりを確かめるとき

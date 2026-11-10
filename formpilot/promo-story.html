@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>FormPilot promo stage</title>
+<!-- Recording stage for build-promo-story.js: every frame is drawn by draw(state) from promo-story.js; nothing animates on its own. -->
+<style>
+*{box-sizing:border-box;margin:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#f0fdf4;font-family:'Yu Gothic UI','Yu Gothic','Meiryo',sans-serif;color:#064e3b}
+.scene{position:absolute;inset:0;opacity:0}
+.green{color:#059669}
+/* hook */
+#hook{background:radial-gradient(circle at 50% 30%,#ffffff,#ecfdf5 70%)}
+#hook .lines{position:absolute;top:200px;left:0;right:0;text-align:center;font-weight:800;font-size:118px;line-height:1.25;letter-spacing:.02em}
+#hook .lines div:last-child{color:#ea580c}
+#hook .field{position:absolute;left:510px;top:690px;width:900px}
+#hook label{display:block;font-size:34px;font-weight:700;color:#334155;margin-bottom:14px}
+#hook .box{height:104px;border:4px solid #10b981;border-radius:18px;background:#fff;box-shadow:0 18px 50px #05966922;font-size:52px;padding:0 30px;display:flex;align-items:center;color:#0f172a}
+#hook .caret{display:inline-block;width:4px;height:58px;background:#059669;margin-left:6px}
+[dir=rtl] #hook .count{right:auto;left:510px}
+#hook .count{position:absolute;right:510px;top:652px;background:#ea580c;color:#fff;font-weight:800;font-size:34px;padding:10px 26px;border-radius:999px;box-shadow:0 8px 24px #ea580c44}
+/* brand */
+#brand{background:linear-gradient(135deg,#ecfdf5,#d1fae5)}
+#brand .row{position:absolute;top:330px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:56px}
+#brand .logo{width:230px;height:230px}
+#brand .name{font-size:150px;font-weight:800;letter-spacing:-.01em}
+#brand .tagline{position:absolute;top:640px;left:0;right:0;text-align:center;font-size:64px;font-weight:700;color:#065f46}
+/* demo */
+#demo{background:linear-gradient(130deg,#ecfdf5,#f8fafc)}
+#world{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.pane{position:absolute;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 24px 70px #0f172a1f;border:2px solid #d1fae5}
+.pane img{display:block;width:100%;height:100%}
+.ripple{position:absolute;border-radius:50%;border:6px solid #f59e0b;background:#fbbf2433;transform:translate(-50%,-50%)}
+.badge{position:absolute;display:flex;align-items:center;gap:8px;white-space:nowrap;padding:7px 16px 7px 12px;border-radius:999px;background:#fff;border:3px solid #10b981;color:#065f46;font-size:28px;font-weight:800;box-shadow:0 8px 22px #05966933}
+.badge::before{content:'✓';display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#10b981;color:#fff;font-size:19px}
+.glow{position:absolute;border-radius:10px;box-shadow:0 0 0 5px #10b981,0 0 30px 8px #34d39988;background:#10b9811a}
+#caption{position:absolute;left:60px;top:34px;padding:22px 40px;border-radius:24px;background:#064e3bf2;color:#fff;font-size:56px;font-weight:800;box-shadow:0 14px 40px #064e3b40;white-space:nowrap}
+/* cta */
+#cta{background:linear-gradient(135deg,#ecfdf5,#d1fae5)}
+#cta .title{position:absolute;top:210px;left:0;right:0;text-align:center;font-size:104px;font-weight:800}
+#cta .chips{position:absolute;top:430px;left:0;right:0;display:flex;justify-content:center;gap:28px}
+#cta .chip{font-size:46px;font-weight:700;padding:16px 36px;border-radius:999px;background:#fff;border:3px solid #a7f3d0;color:#047857}
+#cta .chip::before{content:'✓ ';color:#10b981}
+#cta .button{position:absolute;top:610px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:26px;padding:34px 60px;border-radius:28px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:58px;font-weight:800;white-space:nowrap;box-shadow:0 22px 60px #05966955}
+#cta .button svg{width:84px;height:84px}
+#cta .note{position:absolute;top:850px;left:0;right:0;text-align:center;font-size:38px;color:#475569}
+</style></head><body>
+<section class="scene" id="hook"><div class="lines"><div></div><div></div></div><div class="field"><label></label><div class="box"><span class="text"></span><span class="caret"></span></div></div><div class="count"></div></section>
+<section class="scene" id="brand"><div class="row"><div class="logo"></div><div class="name"></div></div><div class="tagline"></div></section>
+<section class="scene" id="demo"><div id="world"><div class="pane" id="popup"><img alt=""></div><div class="pane" id="form"><img alt=""></div><div id="marks"></div></div><div id="caption"></div></section>
+<section class="scene" id="cta"><div class="title"></div><div class="chips"></div><div class="button"><span class="logo"></span><span class="label"></span></div><div class="note"></div></section>
+<script>
+const $=s=>document.querySelector(s);
+const rise=(el,p,dy=40)=>{el.style.opacity=p;el.style.transform=`translateY(${(1-p)*dy}px)`;};
+// Long lines in some languages shrink to fit their box instead of running off the frame.
+const fits=[['#hook .lines div',1800],['#brand .tagline',1800],['#caption',1780],['#cta .title',1800],['#cta .chips',1800],['#cta .button',1700],['#cta .note',1800]];
+const base=new Map();
+function fit(){for(const [selector,max] of fits)for(const el of document.querySelectorAll(selector)){
+ if(!base.has(el))base.set(el,parseFloat(getComputedStyle(el).fontSize));
+ let size=base.get(el);el.style.fontSize=size+'px';
+ // The caption and the button shrink to their text; the other boxes span the frame, so measure their text.
+ const range=document.createRange(),width=()=>{
+  if(selector==='#cta .chips')return[...el.children].reduce((w,c)=>w+c.offsetWidth+28,0);
+  if(selector==='#caption'||selector==='#cta .button')return el.offsetWidth;
+  range.selectNodeContents(el);return range.getBoundingClientRect().width;
+ };
+ while(width()>max&&size>20){size-=2;el.style.fontSize=size+'px';if(selector==='#cta .chips')for(const c of el.children)c.style.fontSize=size+'px';}
+}}
+function setup({logo,panes,lang,dir,font}){
+ document.documentElement.lang=lang;document.documentElement.dir=dir;if(font)document.body.style.fontFamily=font;
+ $('#brand .logo').innerHTML=logo;$('#cta .button .logo').innerHTML=logo;
+ for(const [id,p] of Object.entries(panes))Object.assign($('#'+id).style,{left:p.x+'px',top:p.y+'px',width:p.w+'px',height:p.h+'px'});
+}
+async function draw(s,images){
+ for(const id of ['hook','brand','demo','cta'])$('#'+id).style.opacity=s.opacity[id]||0;
+ if(s.hook){
+  const h=s.hook;h.lines.forEach((l,i)=>{const el=$(`#hook .lines div:nth-child(${i+1})`);el.textContent=l.text;rise(el,l.p,60);});
+  $('#hook label').textContent=h.field;$('#hook .text').textContent=h.text;$('#hook .caret').style.opacity=h.caret?1:0;
+  const count=$('#hook .count');count.textContent=h.count;count.style.transform=`scale(${1+.25*h.countPop})`;
+ }
+ if(s.brand){$('#brand .name').textContent=s.brand.name;$('#brand .tagline').textContent=s.brand.tagline;const row=$('#brand .row');row.style.opacity=s.brand.logo;row.style.transform=`scale(${.9+.1*s.brand.logo})`;rise($('#brand .tagline'),s.brand.line);}
+ if(s.demo){
+  const d=s.demo,c=d.camera;$('#world').style.transform=`translate(960px,600px) scale(${c.s}) translate(${-c.x}px,${-c.y}px)`;
+  const cap=$('#caption');cap.textContent=d.caption.text;cap.style.opacity=d.caption.p;cap.style.transform=`translateX(${(1-d.caption.p)*-40}px)`;
+  $('#marks').innerHTML=d.ripples.map(r=>`<div class="ripple" style="left:${r.x}px;top:${r.y}px;width:${r.r*2}px;height:${r.r*2}px;opacity:${r.o}"></div>`).join('')+d.badges.map(b=>`<div class="badge" style="left:${b.x}px;top:${b.y}px;opacity:${b.p};transform:translate(${b.align==='right'?'-100%':'0'},-50%) scale(${.7+.3*b.p});transform-origin:${b.align==='right'?'right':'left'} center">${b.text}</div>`).join('')+d.glows.map(g=>`<div class="glow" style="left:${g.x}px;top:${g.y}px;width:${g.w}px;height:${g.h}px;opacity:${g.o}"></div>`).join('');
+  // Swap the recording's frames only when they change, and wait until each is decoded.
+  for(const id of ['popup','form']){const img=$(`#${id} img`);if(img.getAttribute('src')!==images[id]){img.src=images[id];await img.decode();}}
+ }
+ if(s.cta){
+  const c=s.cta;$('#cta .title').textContent=c.title;rise($('#cta .title'),c.titleP);
+  $('#cta .chips').innerHTML=c.chips.map(x=>`<div class="chip" style="opacity:${x.p};transform:translateY(${(1-x.p)*30}px)">${x.text}</div>`).join('');
+  $('#cta .label').textContent=c.button;const b=$('#cta .button');b.style.opacity=c.buttonP;b.style.transform=`translateX(-50%) scale(${.92+.08*c.buttonP})`;
+  $('#cta .note').textContent=c.note;$('#cta .note').style.opacity=c.noteP;
+ }
+ fit();
+}
+</script></body></html>

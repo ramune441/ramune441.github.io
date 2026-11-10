@@ -1,0 +1,885 @@
+{
+  "lang": "ja",
+  "file": "promo-ja.mp4",
+  "sha256": "e3419884ccb097ca199ea6dade5133f4891bdabd59d2a00d904b03e949c31a7a",
+  "bytes": 26580713,
+  "duration": 64.241,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-ja.vtt",
+  "recording": {
+    "events": {
+      "draftStart": 3.228,
+      "draftEnd": 4.556,
+      "politeLauncherClick": 5.789,
+      "politePresetClick": 7.132,
+      "politeRunClick": 8.255,
+      "politeResult": 10.365,
+      "politeApplyClick": 12.346,
+      "politeApplied": 12.735,
+      "caretClick": 14.516,
+      "snippetStart": 15.046,
+      "snippetTab": 15.979,
+      "endClick": 17.942,
+      "inlineStart": 18.335,
+      "inlineTab": 19.909,
+      "inlineResult": 21.479,
+      "inlineApplyClick": 23.458,
+      "inlineApplied": 23.852,
+      "mailEnd": 25.365,
+      "chatShown": 25.404,
+      "receivedStart": 26.909,
+      "receivedEnd": 28.186,
+      "replyLauncherClick": 29.344,
+      "replyCheckClick": 30.622,
+      "replyPresetClick": 31.671,
+      "gistClick": 32.564,
+      "gistStart": 32.859,
+      "gistEnd": 33.952,
+      "replyRunClick": 35.031,
+      "replyResult": 36.491,
+      "copyClick": 38.417,
+      "closeClick": 39.531,
+      "inputClick": 40.546,
+      "pasted": 40.937,
+      "sendClick": 42.508,
+      "chatEnd": 44.664,
+      "articleShown": 44.705,
+      "articleStart": 46.324,
+      "articleEnd": 56.741,
+      "summaryLauncherClick": 48.849,
+      "summaryPresetClick": 50.12,
+      "summaryRunClick": 51.305,
+      "summaryResult": 53.129,
+      "summaryCloseClick": 56.146,
+      "postShown": 56.771,
+      "postStart": 58.287,
+      "postEnd": 59.549,
+      "customLauncherClick": 60.726,
+      "moreClick": 62.053,
+      "instructionStart": 62.398,
+      "instructionEnd": 63.491,
+      "customRunClick": 64.488,
+      "customResult": 66.102,
+      "customApplyClick": 68.088,
+      "customApplied": 68.482,
+      "post2Start": 70.539,
+      "post2End": 71.843,
+      "translateLauncherClick": 73.048,
+      "translatePresetClick": 74.332,
+      "translateRunClick": 75.522,
+      "translateResult": 77.245,
+      "translateApplyClick": 79.228,
+      "translateApplied": 79.622,
+      "end": 81.634
+    },
+    "results": {
+      "polite": "木曜日は都合がつきかねますが、金曜日でしたら伺うことができます。",
+      "inline": "資料は明日お送りいたします。",
+      "reply": "本日の17時までには共有いたします。",
+      "summary": "生成AIの利用者の約6割が文章作成に使用しており、要約や翻訳など文章業務での活用が目立つ。一方、情報流出への不安や確認作業の負担が課題となっており、専門家は送信前の人間の確認と入力情報の最小化を推奨している。",
+      "custom": "週末、新しくできたカフェに行ってきたよ☕✨\nラテがとってもおいしかったー！😋💕\nまた絶対行きたいな🌿🍰",
+      "translate": "I went to the new café that just opened this weekend ☕✨\nThe latte was so delicious! 😋💕\nI definitely want to go back again 🌿🍰"
+    },
+    "withInline": "お世話になっております。\n木曜日は都合がつきかねますが、金曜日でしたら伺うことができます。\n資料は明日お送りいたします。",
+    "sent": "本日の17時までには共有いたします。",
+    "translated": "I went to the new café that just opened this weekend ☕✨\nThe latte was so delicious! 😋💕\nI definitely want to go back again 🌿🍰",
+    "extensionState": {
+      "successCount": 6,
+      "history": [
+        "I went to the new café that just opened this weekend ☕✨\nThe latte was so delicious! 😋💕\nI definitely want to go back again 🌿🍰",
+        "週末、新しくできたカフェに行ってきたよ☕✨\nラテがとってもおいしかったー！😋💕\nまた絶対行きたいな🌿🍰",
+        "生成AIの利用者の約6割が文章作成に使用しており、要約や翻訳など文章業務での活用が目立つ。一方、情報流出への不安や確認作業の負担が課題となっており、専門家は送信前の人間の確認と入力情報の最小化を推奨している。",
+        "本日の17時までには共有いたします。",
+        "資料は明日お送りいたします。"
+      ],
+      "usage": {
+        "count": 6,
+        "limit": 50,
+        "resetsAt": "2026-11-09T00:00:00.000Z"
+      }
+    },
+    "pageSubmissions": 0
+  },
+  "timeline": {
+    "pieces": [
+      [
+        "polite",
+        5.4,
+        7.974,
+        2.5280000000000005,
+        6.388999999999999
+      ],
+      [
+        "polite",
+        7.974,
+        9.3513,
+        6.388999999999999,
+        8.455
+      ],
+      [
+        "polite",
+        9.3513,
+        9.9513,
+        8.455,
+        10.365
+      ],
+      [
+        "polite",
+        9.9513,
+        11.8598,
+        10.365,
+        12.846
+      ],
+      [
+        "polite",
+        11.8598,
+        12.3952,
+        12.846,
+        13.434999999999999
+      ],
+      [
+        "snippet",
+        12.3952,
+        14.9283,
+        13.966,
+        16.878999999999998
+      ],
+      [
+        "inline",
+        14.9283,
+        16.6986,
+        17.442,
+        20.009
+      ],
+      [
+        "inline",
+        16.6986,
+        17.2986,
+        20.009,
+        21.479
+      ],
+      [
+        "inline",
+        17.2986,
+        19.2056,
+        21.479,
+        23.958
+      ],
+      [
+        "inline",
+        19.2056,
+        19.8365,
+        23.958,
+        24.652
+      ],
+      [
+        "reply",
+        19.8365,
+        22.5298,
+        25.904,
+        29.944000000000003
+      ],
+      [
+        "reply",
+        22.5298,
+        25.1407,
+        29.944000000000003,
+        34.251999999999995
+      ],
+      [
+        "reply",
+        25.1407,
+        25.84,
+        34.251999999999995,
+        35.231
+      ],
+      [
+        "reply",
+        25.84,
+        26.44,
+        35.231,
+        36.491
+      ],
+      [
+        "reply",
+        26.44,
+        28.163,
+        36.491,
+        38.817
+      ],
+      [
+        "reply",
+        28.163,
+        30.9245,
+        38.817,
+        44.064
+      ],
+      [
+        "summary",
+        30.9245,
+        33.7539,
+        45.205,
+        49.449
+      ],
+      [
+        "summary",
+        33.7539,
+        35.1245,
+        49.449,
+        51.505
+      ],
+      [
+        "summary",
+        35.1245,
+        35.7245,
+        51.505,
+        53.129
+      ],
+      [
+        "summary",
+        35.7245,
+        37.263,
+        53.129,
+        55.129
+      ],
+      [
+        "custom",
+        37.263,
+        39.9663,
+        57.271,
+        61.326
+      ],
+      [
+        "custom",
+        39.9663,
+        42.2077,
+        61.326,
+        64.688
+      ],
+      [
+        "custom",
+        42.2077,
+        42.8077,
+        64.688,
+        66.102
+      ],
+      [
+        "custom",
+        42.8077,
+        44.72,
+        66.102,
+        68.588
+      ],
+      [
+        "custom",
+        44.72,
+        45.1691,
+        68.588,
+        69.082
+      ],
+      [
+        "translate",
+        45.1691,
+        47.6417,
+        69.93900000000001,
+        73.648
+      ],
+      [
+        "translate",
+        47.6417,
+        49.0244,
+        73.648,
+        75.72200000000001
+      ],
+      [
+        "translate",
+        49.0244,
+        49.6244,
+        75.72200000000001,
+        77.245
+      ],
+      [
+        "translate",
+        49.6244,
+        51.5344,
+        77.245,
+        79.728
+      ],
+      [
+        "translate",
+        51.5344,
+        53.0404,
+        79.728,
+        81.234
+      ]
+    ],
+    "cuts": [
+      {
+        "at": 12.3952,
+        "raw": 13.966
+      },
+      {
+        "at": 14.9283,
+        "raw": 17.442
+      },
+      {
+        "at": 19.8365,
+        "raw": 25.904
+      },
+      {
+        "at": 30.9245,
+        "raw": 45.205
+      },
+      {
+        "at": 37.263,
+        "raw": 57.271
+      },
+      {
+        "at": 45.1691,
+        "raw": 69.93900000000001
+      }
+    ],
+    "captions": [
+      [
+        5.4,
+        "polite"
+      ],
+      [
+        12.3952,
+        "snippet"
+      ],
+      [
+        14.9283,
+        "inline"
+      ],
+      [
+        19.8365,
+        "reply"
+      ],
+      [
+        30.9245,
+        "summary"
+      ],
+      [
+        37.263,
+        "custom"
+      ],
+      [
+        45.1691,
+        "translate"
+      ]
+    ]
+  },
+  "sourceSha256": {
+    "story.mjs": "9d3da6ddb1519f873c767a25bbe94c5cc8666a50542193fa54a1f06a113b71b8",
+    "story-copy.mjs": "611384d1d0b5d53d3391e9129654283131683cd9e9689358c698a4ba61f22d72",
+    "story.html": "15fc9bd1779ce0da60a010355dc98ff0c9075af8be6e63067e2fec6090fe6ed5",
+    "build-story.mjs": "5dbbde0ad655961da77e4dfaa74af245abad5de528a5e1cda558332b55500850",
+    "../formpilot/promo-sound.js": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "palette": "soft",
+    "pcmSha256": "9c50db450b6baf300ff103572f0e6dbe48006eb70a62789dd98bbba92554e853",
+    "events": [
+      {
+        "time": 0.3,
+        "kind": "key"
+      },
+      {
+        "time": 0.3706,
+        "kind": "key"
+      },
+      {
+        "time": 0.4412,
+        "kind": "key"
+      },
+      {
+        "time": 0.5118,
+        "kind": "key"
+      },
+      {
+        "time": 0.5824,
+        "kind": "key"
+      },
+      {
+        "time": 0.6529,
+        "kind": "key"
+      },
+      {
+        "time": 0.7235,
+        "kind": "key"
+      },
+      {
+        "time": 0.7941,
+        "kind": "key"
+      },
+      {
+        "time": 0.8647,
+        "kind": "key"
+      },
+      {
+        "time": 0.9353,
+        "kind": "key"
+      },
+      {
+        "time": 1.0059,
+        "kind": "key"
+      },
+      {
+        "time": 1.0765,
+        "kind": "key"
+      },
+      {
+        "time": 1.1471,
+        "kind": "key"
+      },
+      {
+        "time": 1.2176,
+        "kind": "key"
+      },
+      {
+        "time": 1.2882,
+        "kind": "key"
+      },
+      {
+        "time": 1.3588,
+        "kind": "key"
+      },
+      {
+        "time": 1.4294,
+        "kind": "key"
+      },
+      {
+        "time": 2.15,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 3.08,
+        "kind": "whoosh"
+      },
+      {
+        "time": 3.45,
+        "kind": "impact"
+      },
+      {
+        "time": 5.08,
+        "kind": "whoosh"
+      },
+      {
+        "time": 5.8667,
+        "kind": "click"
+      },
+      {
+        "time": 7.574,
+        "kind": "click"
+      },
+      {
+        "time": 8.4693,
+        "kind": "click"
+      },
+      {
+        "time": 9.218,
+        "kind": "click"
+      },
+      {
+        "time": 9.9513,
+        "kind": "sparkle"
+      },
+      {
+        "time": 11.4752,
+        "kind": "click"
+      },
+      {
+        "time": 11.7744,
+        "kind": "success"
+      },
+      {
+        "time": 12.0952,
+        "kind": "whoosh"
+      },
+      {
+        "time": 12.4452,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 12.8735,
+        "kind": "click"
+      },
+      {
+        "time": 13.3344,
+        "kind": "key"
+      },
+      {
+        "time": 13.4747,
+        "kind": "key"
+      },
+      {
+        "time": 13.6151,
+        "kind": "key"
+      },
+      {
+        "time": 13.7554,
+        "kind": "key"
+      },
+      {
+        "time": 14.1457,
+        "kind": "success"
+      },
+      {
+        "time": 14.6283,
+        "kind": "whoosh"
+      },
+      {
+        "time": 14.9783,
+        "kind": "pop",
+        "pitch": 1
+      },
+      {
+        "time": 15.2731,
+        "kind": "click"
+      },
+      {
+        "time": 15.5441,
+        "kind": "key"
+      },
+      {
+        "time": 15.6045,
+        "kind": "key"
+      },
+      {
+        "time": 15.6649,
+        "kind": "key"
+      },
+      {
+        "time": 15.7858,
+        "kind": "key"
+      },
+      {
+        "time": 15.8462,
+        "kind": "key"
+      },
+      {
+        "time": 15.9066,
+        "kind": "key"
+      },
+      {
+        "time": 15.9671,
+        "kind": "key"
+      },
+      {
+        "time": 16.0275,
+        "kind": "key"
+      },
+      {
+        "time": 16.0879,
+        "kind": "key"
+      },
+      {
+        "time": 16.1483,
+        "kind": "key"
+      },
+      {
+        "time": 16.2088,
+        "kind": "key"
+      },
+      {
+        "time": 16.2692,
+        "kind": "key"
+      },
+      {
+        "time": 17.2986,
+        "kind": "sparkle"
+      },
+      {
+        "time": 18.8217,
+        "kind": "click"
+      },
+      {
+        "time": 19.1241,
+        "kind": "success"
+      },
+      {
+        "time": 19.5365,
+        "kind": "whoosh"
+      },
+      {
+        "time": 19.8865,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 20.5065,
+        "kind": "click"
+      },
+      {
+        "time": 22.1298,
+        "kind": "click"
+      },
+      {
+        "time": 22.9407,
+        "kind": "click"
+      },
+      {
+        "time": 23.5765,
+        "kind": "click"
+      },
+      {
+        "time": 24.1177,
+        "kind": "click"
+      },
+      {
+        "time": 24.2965,
+        "kind": "key"
+      },
+      {
+        "time": 24.3627,
+        "kind": "key"
+      },
+      {
+        "time": 24.429,
+        "kind": "key"
+      },
+      {
+        "time": 24.4952,
+        "kind": "key"
+      },
+      {
+        "time": 24.5615,
+        "kind": "key"
+      },
+      {
+        "time": 24.6277,
+        "kind": "key"
+      },
+      {
+        "time": 24.6939,
+        "kind": "key"
+      },
+      {
+        "time": 24.7602,
+        "kind": "key"
+      },
+      {
+        "time": 24.8264,
+        "kind": "key"
+      },
+      {
+        "time": 24.8927,
+        "kind": "key"
+      },
+      {
+        "time": 25.6979,
+        "kind": "click"
+      },
+      {
+        "time": 26.44,
+        "kind": "sparkle"
+      },
+      {
+        "time": 27.8667,
+        "kind": "click"
+      },
+      {
+        "time": 28.5388,
+        "kind": "click"
+      },
+      {
+        "time": 29.073,
+        "kind": "click"
+      },
+      {
+        "time": 30.1056,
+        "kind": "click"
+      },
+      {
+        "time": 30.2056,
+        "kind": "success"
+      },
+      {
+        "time": 30.6245,
+        "kind": "whoosh"
+      },
+      {
+        "time": 30.9745,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 31.6705,
+        "kind": "click"
+      },
+      {
+        "time": 33.3546,
+        "kind": "click"
+      },
+      {
+        "time": 34.2012,
+        "kind": "click"
+      },
+      {
+        "time": 34.9912,
+        "kind": "click"
+      },
+      {
+        "time": 35.7245,
+        "kind": "sparkle"
+      },
+      {
+        "time": 36.963,
+        "kind": "whoosh"
+      },
+      {
+        "time": 37.313,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 37.941,
+        "kind": "click"
+      },
+      {
+        "time": 39.5663,
+        "kind": "click"
+      },
+      {
+        "time": 40.451,
+        "kind": "click"
+      },
+      {
+        "time": 40.681,
+        "kind": "key"
+      },
+      {
+        "time": 40.7539,
+        "kind": "key"
+      },
+      {
+        "time": 40.8267,
+        "kind": "key"
+      },
+      {
+        "time": 40.8996,
+        "kind": "key"
+      },
+      {
+        "time": 40.9725,
+        "kind": "key"
+      },
+      {
+        "time": 41.0453,
+        "kind": "key"
+      },
+      {
+        "time": 41.1182,
+        "kind": "key"
+      },
+      {
+        "time": 41.1911,
+        "kind": "key"
+      },
+      {
+        "time": 41.264,
+        "kind": "key"
+      },
+      {
+        "time": 41.3368,
+        "kind": "key"
+      },
+      {
+        "time": 42.0744,
+        "kind": "click"
+      },
+      {
+        "time": 42.8077,
+        "kind": "sparkle"
+      },
+      {
+        "time": 44.3354,
+        "kind": "click"
+      },
+      {
+        "time": 44.6385,
+        "kind": "success"
+      },
+      {
+        "time": 44.8691,
+        "kind": "whoosh"
+      },
+      {
+        "time": 45.2191,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 45.5691,
+        "kind": "click"
+      },
+      {
+        "time": 47.2417,
+        "kind": "click"
+      },
+      {
+        "time": 48.0984,
+        "kind": "click"
+      },
+      {
+        "time": 48.8911,
+        "kind": "click"
+      },
+      {
+        "time": 49.6244,
+        "kind": "sparkle"
+      },
+      {
+        "time": 51.1498,
+        "kind": "click"
+      },
+      {
+        "time": 51.4529,
+        "kind": "success"
+      },
+      {
+        "time": 52.7204,
+        "kind": "whoosh"
+      },
+      {
+        "time": 53.5404,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 53.8904,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 54.2404,
+        "kind": "pop",
+        "pitch": 5
+      },
+      {
+        "time": 54.5904,
+        "kind": "pop",
+        "pitch": 6
+      },
+      {
+        "time": 58.3204,
+        "kind": "whoosh"
+      },
+      {
+        "time": 60.4404,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.07,
+    "truePeakDbtp": -3.55
+  }
+}

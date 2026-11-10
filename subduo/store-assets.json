@@ -27,37 +27,37 @@
         "file": "images/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "c64b33181dd9a9bafb1a36cbaf9401c180f3a143670295378561b0145c253ebe"
+        "sha256": "448f2732ee84ee878194a38068bb18501f62b734335abe95119d267162526bb9"
       },
       {
         "file": "images/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "b3a85aba68118888930a016387beb28e1553b27dfde9d075aa50e9d08c6cebf0"
+        "sha256": "b7c43b93bc47cc80a603e80dd290a764cb5b1d291e5f1e018e82053cdd3a608f"
       },
       {
         "file": "images/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "047eef4d39e1f06a05103ffdd51c66dd517cb33f8d10cc7d7f372501587480c2"
+        "sha256": "daba2321fed6c1e59dc468fc0c41ebe55605f9196f94fbc257612c3d9be80055"
       },
       {
         "file": "images/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "2d32f19bc6607123d4a1d458ce0a32c8777997f2be7f698745e853acd8e132ee"
+        "sha256": "4bf137b9779b1e248aaccfbc71725fc0b8798aed6bdcb7238bdc048cc9caf8a9"
       },
       {
         "file": "images/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "e1aee0798100f8940f2200b66b6fb70d18ce8004509b9403a25aaa7aadf5e489"
+        "sha256": "ec8c19a4f4022de82cb4c81364bccd2008e770d8d79a5e0f4d641aaaac61c620"
       },
       {
         "file": "images/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "5078803d1f96bf2183289b257776d61e74e4e279d0d211447c3dbd0b60f606cc"
+        "sha256": "fbd2d225faefa6fe95299d560e474c28637dd9dca29a2c0f1a629b2685561310"
       }
     ],
     "ja": [
@@ -65,37 +65,37 @@
         "file": "images/ja/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a1f383651b68ecc79041a5fecfb77e282439da2b9d91e5cf3aa2ae4dc6804465"
+        "sha256": "bdac5af2205553ff5f69bae60fd7aa862012d7521c238cdd29000cd35089cc33"
       },
       {
         "file": "images/ja/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "4a0aeb73924ac3fc96fa980806f8d3790b44e49bcd4bba01462fb4ec751fcfaf"
+        "sha256": "9b65bcd003d7852d89be139ee8b499e22ce2e8e61c971f15b38b959ce4b25b29"
       },
       {
         "file": "images/ja/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "37c230ae51894ef8c034bd594ce1d0cdadf48a8508f7f94a0f73ab3f0f5ffe9d"
+        "sha256": "184a919116e5fba25b4a48ab208a7d0e59eceb62ce8c7c75ae0567aeb1985fd5"
       },
       {
         "file": "images/ja/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "91e94a2164d909c743f87ec5708537b26f98f937dc04f72f3caa5b101a993a34"
+        "sha256": "d158dcd55a8ec7f8ba2c1836edf164a2b525f26a3cd7b15930cbb99dbd4820af"
       },
       {
         "file": "images/ja/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ae037261fd72ec0027374a366d9fe291e56949781d5b27b091c93c08f3a46b94"
+        "sha256": "5d415dcd395de0079c87003465f29095937742a80bdd3de4679891b79a902900"
       },
       {
         "file": "images/ja/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "29152f128b1d6069da4906d3ec773a9b1748457fbb7a21ff275cdbb48200a746"
+        "sha256": "a45573ac0a6ce5aab563f313995244d97185e21a9a0a896142fb82b1fdb7ab0c"
       }
     ],
     "zh": [
@@ -103,37 +103,37 @@
         "file": "images/zh/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "53cafc1a7a936b3e3ba98e67981d15ede91cfc34df367870e34466bb21ee7704"
+        "sha256": "e68df2db3d764788b8a692129740a5951785ba331a55f70002a4bebe39667c46"
       },
       {
         "file": "images/zh/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "5b525dc071b7eb38ec782c3e7e4a23e9bf61d6782f11a2ef1eab0d837a2bcd32"
+        "sha256": "801463a37583d272f6f7d1e45bdca25cbf57671f6a31793dfcb4130d07889334"
       },
       {
         "file": "images/zh/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "e17676e358530e135157bc4066f509deffed9e1df382f167c268db27d1c0b845"
+        "sha256": "4b8eca1422f672e424efc8bbb2dcdf709f3902462d1472452eae908aa7a004f3"
       },
       {
         "file": "images/zh/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "1a39a94f0633a1ecbe1724dffbedc477ab2d0539b03eb732935ae84f231a8e71"
+        "sha256": "a1a59a024ba5822424f1ab7caefcfb2b9634fa0cdf24602d9e5d76fb1650e930"
       },
       {
         "file": "images/zh/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "c548a6fd3c4b24c02eb6b79f99d85f44d21f7bd223af022853f4e3460a77946a"
+        "sha256": "6f83459c43c71e6d99f3425ba4f195291dcd9f4dccce73b461d88d350149efa5"
       },
       {
         "file": "images/zh/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "863d86cc65a55bceae52d171b3b24263955a546b2c893b510d72e645a92d84ac"
+        "sha256": "128106e6de4477bac106a725f89920679bec38d071f24b8dec535afa4b818003"
       }
     ],
     "zh-TW": [
@@ -141,37 +141,37 @@
         "file": "images/zh-TW/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "69bf993c9722cee35a0daca8da9051991ec01920982e144d7d69635b585552e6"
+        "sha256": "70bd440bae223272bdab13a5b854c4c1713624f3fe2571d52d462b486bf20b4b"
       },
       {
         "file": "images/zh-TW/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "8d9553625af333ecc1ab0a971298a3aed19944a5cf96491e9362a7243b5e4fc1"
+        "sha256": "5160a67819160f87551d8ca7b829ffeae3dc7a144d3748c138434f7a1a872e92"
       },
       {
         "file": "images/zh-TW/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "848947d8f68033b4a355498eaffa44eab3109b0fd5011833c79468de0a348ffe"
+        "sha256": "89853150fa3af8e40585d75041058d810d42759b1df7833cb8a8e3acdad4f715"
       },
       {
         "file": "images/zh-TW/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "174c4f21d84c2a4b4bc73bee84291d13746360e66404755e424c3b35251fb278"
+        "sha256": "f890f30b88c272cdfc8d6af0f39eda55a1b9a8287ff76a24a429e39f98559fab"
       },
       {
         "file": "images/zh-TW/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "f04ce271c6f40be968304367206cbec7f590f1fbbcef05c79810be2373ce0b8c"
+        "sha256": "3932896c27000aae091d114f2223b8855424aed9fcabeb5e5cf5001e95212096"
       },
       {
         "file": "images/zh-TW/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "3e96950003909be97d7d41d6fe58e74546d343d54d8ed6e45f2f483effe147d2"
+        "sha256": "ed364d4ccb1a10e679a530ca84738ae86ca877ec76361f65785a053ba19d5bf6"
       }
     ],
     "ko": [
@@ -179,37 +179,37 @@
         "file": "images/ko/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "8bda5bd9fecf39e7d93f73d43e2db8aaf46ffaeec279ffbe95307449fb3e897e"
+        "sha256": "c9ed3561db763cd1f525a3eeb739fc46b3f34a223edf6550c2f71b909ef2c646"
       },
       {
         "file": "images/ko/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "5e77f9efb3fd87ac2201415795e7fa70e6c85dbde87e9abaf83fe08ec65bea1e"
+        "sha256": "f688242bd1d93272166191a6f5729bd8bba74ae62389607cacdd3493dd426be4"
       },
       {
         "file": "images/ko/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "9c916a5fc781c07cd562db833afbd76d035cff35d4036d47c41cfe4b67e89c8f"
+        "sha256": "0fc8360cc3e703e84ac4407db1101eda6ac2c1fd5655d0f168d0725c1be5c0a5"
       },
       {
         "file": "images/ko/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "6c41ec8b1c6743720486f6911b065330a6f6e022419b37081c62925284c9d6f0"
+        "sha256": "4507a97d6191f75082d9d08dab5e9b63ff2818b8fdef1549248eae947d3e1d44"
       },
       {
         "file": "images/ko/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "4ffea4de75603091a5306a4b168a1a52a4c1fd3711a2cb58b601e816454ea62e"
+        "sha256": "8fec04f050dbb60c78eacf194a060a37cbdf0f277c0e8bad80c05676b88fc841"
       },
       {
         "file": "images/ko/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "501643342dee8b919009f3d782002cdce0f9998b4f6c21791fa1989506a8f7a2"
+        "sha256": "ee0adce6690173cf29ba63fb615b7bf537ef28b3f0e0d5e65b11e939a4efb72b"
       }
     ],
     "es": [
@@ -217,37 +217,37 @@
         "file": "images/es/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ddd95a1bfad26408dcab244fa630b21212c49d51cc49c627990f1f0b996586ea"
+        "sha256": "4fd5efd7c52610cae06461ab0bbb7f8c9b313af98955684e62cd148919931f83"
       },
       {
         "file": "images/es/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "8fff12806db57acecf4ec856a6a03337783308aa7575d61be623f8568714447f"
+        "sha256": "5fbf5ad1d389793300ae44a582ea9761796d5ed2be65046c14b940b7fcb7a881"
       },
       {
         "file": "images/es/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "31b99cd51ed16f93d55e799eff555b35adb74b9868347237bad29bb105877e40"
+        "sha256": "8fe425beaac9bad2adf6e9d41d1947e9549cebe4195d8b678332417a778bdfc2"
       },
       {
         "file": "images/es/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a9f35062f305f96c72526721c11c9588581dfe5cba000f36c4dfd4c3248d3a24"
+        "sha256": "ec63556efdc768ef7d9fa8641477663ee783d7f7a19e0c670a38fd46204fdb4d"
       },
       {
         "file": "images/es/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "1ac1ac75c372b366264bdfaf25e842a835547fd240c8fd4804f272ac8310eabd"
+        "sha256": "341a82b4c38308b333e752f0e34080ee88b900e3d9a35763b402fd9248ea2276"
       },
       {
         "file": "images/es/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "7afd46ed50742fd64a442a284d85945a96e42f2b1e3599428e2649ade787c171"
+        "sha256": "38c6f56bb26dc2db921a536a1952038ea7573f56df174e64de510b2e2148bf12"
       }
     ],
     "fr": [
@@ -255,37 +255,37 @@
         "file": "images/fr/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "92644f7f54573b4f502d32274993d58f40549de09cbbc6311e56187076bee80f"
+        "sha256": "c0594eb522d52a34acecea630f4e039567aa5d9915bc4cb59f5be99490306895"
       },
       {
         "file": "images/fr/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "25f29df014d374ec6180b4638bd147342717930f5201ae0f09001d77e6e29150"
+        "sha256": "e7145be8e91258278a2488352b65dec7a26c5305c4010666a208b3742f7ab670"
       },
       {
         "file": "images/fr/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "c59f6ced5f6bc476c664ffa16b7f923edf044f0db38b071bd1411087d6f9d260"
+        "sha256": "40649d7e97c25d33573c26c3556c4edc14617eeffb4556924338cdd6e52be239"
       },
       {
         "file": "images/fr/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "5d81e1e9b1793ec2e10dd3529936515e79ef5bda92f55f33e3730b15441254af"
+        "sha256": "1a68a7d79d2a322aaf6e8f9569aec5820e61d334f2a62725eb58582594efd647"
       },
       {
         "file": "images/fr/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "fae52fc684fc7349fae344c1b34327aff009e66e9dbc7322a1cbe641f6733b15"
+        "sha256": "5e6ed38ccffd9d1979fe888ad7f2000fe4d2a04a5c3df62715cb6e34022ebeb0"
       },
       {
         "file": "images/fr/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "9624558b82c7881088963956a17f6ac9b2ee83c929f88d904bc6cb302589ebfc"
+        "sha256": "f290046e92ca8fc8bcfa31db24d50ae20c8797622c58f75d2b76db306c87e03b"
       }
     ],
     "de": [
@@ -293,37 +293,37 @@
         "file": "images/de/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "bd3daadd5314605d19f408ce492e84e508d1025cf9de47596a64a011788ac0ee"
+        "sha256": "727c28457c014e8357df5cc3e7be8401b749b449ea5bdb59e05b539e5767d188"
       },
       {
         "file": "images/de/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "78e6893413a93707d6ab7c5fd1a32989c8fd7531aed45d3078ccba83d3dc9d03"
+        "sha256": "9c7c56cfeb1ca1b66a487b1b432ce563854016c26cee64116bcb8ba68f12e496"
       },
       {
         "file": "images/de/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "f74051add89509a509f094a73cd7eaba6ec46ec536472e1a8b8a03d1e41ef358"
+        "sha256": "9d1d20c56603f6ab1023fb9ee99fdfc541871ad6b30916c873ed8df8334e340b"
       },
       {
         "file": "images/de/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "c310e311770944197079052c02c97314465f878445f712454705b7e157be1d58"
+        "sha256": "15f0ad0ae2cb1e84cc2024d62015b445aa0321d70909bc2a6c60c94821f280bc"
       },
       {
         "file": "images/de/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "2fee001631d51e630fe1adb51dfa905f379fbb572e87ac3d3a43a764fb52d8ba"
+        "sha256": "a3d6009b5a07aeabe1db9096ce7d8d915487095cf2ab563b3ef95f480ad2af9a"
       },
       {
         "file": "images/de/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "3f3ccc13004b956ddef188d9054c9a10ce443a9ca9a1cd994affd6135cd5b164"
+        "sha256": "7110f7bda84f6f6c378b387dcb7a64eab7f8dff7e9af1a133e952e2599e724f6"
       }
     ],
     "pt": [
@@ -331,37 +331,37 @@
         "file": "images/pt/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "0cffa819a019e9ca33e1cbfd51be2748df451a2d65ceb42304ff9b0ee6ae5994"
+        "sha256": "03f303b7627ba3ab65d9da1e879ba6549433db645d52fa92d6db54ca7317bfb0"
       },
       {
         "file": "images/pt/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "e0079fe3341fb7666abcdb129907f4e0f9133fe6a5c96203aaceac775a6b0188"
+        "sha256": "a2d0ea0a92e58d8df7aee4fe10dae6ba80e2e952c1af09d497bba76cab9bf43e"
       },
       {
         "file": "images/pt/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "3460f82bf2ad2c174d6f6b8ae0a967840002bef004fcb77fc1a4f14de9193abb"
+        "sha256": "5e9edc686f1b3fcdd7c4400b03e41db57f9e9516ac36767893906524b7408841"
       },
       {
         "file": "images/pt/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "4919f24670ffb9591833b8f3492bac2874da36a9843b041ee96489756242c7dc"
+        "sha256": "e23898fdb674755d4a7854944c36ca72331972c8aa8bb46487958f5d21550f7f"
       },
       {
         "file": "images/pt/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "c5de8f701a6b24d559b77d0643d203c504176b323289e21d5edc15925d8f1a5e"
+        "sha256": "de7162a6bc47c3007a7e314feeda11914e6255bbaa69b230c676f302e230addb"
       },
       {
         "file": "images/pt/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "df2fadb4c8de6394ca37c6d4352fef170a450f6ac2218f9e14f869af84b90b79"
+        "sha256": "4253f1ed1966d9252f3d37f473781e6ed3f90cf8150943d1944de5a762e1d933"
       }
     ],
     "hi": [
@@ -369,37 +369,37 @@
         "file": "images/hi/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "e01bbe548cdf1d6bfcf0497236b335bc5a6b175695cbf2d73ea9727291d03a63"
+        "sha256": "3d47b881491c285695d1aaa98a06c92765730f058ec3ef75cbd7c5b9b5ba69f4"
       },
       {
         "file": "images/hi/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "4449533dd0b17230bbaa76b01125f8c27f14d9bac4fc8f2efc44c92d141f410b"
+        "sha256": "010a31cfb308100e48976959de3af0097eab6f9caa8db2c55d1a81b43fbe4712"
       },
       {
         "file": "images/hi/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "5c5a8719db92cc68ecb51f22e6aa6579225da40c77cb863f7a0664a9e5e0f3f1"
+        "sha256": "2e0d87f57472d0a3c58e4d9f404bb02c983615e6279768169453ba0a28fc1e19"
       },
       {
         "file": "images/hi/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a5880239333168e8a897faf7fb33bd804ca8c220f2cbdbf953cc3b6f8aee1d91"
+        "sha256": "513e93da9b95530a8621c1c429a6dce9b39911e54de0decc45ab4b576f1bec34"
       },
       {
         "file": "images/hi/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "9d7d918b022352815d8a1fff41eadec80e3c6c81ff90cada1df4effdd60a6457"
+        "sha256": "e5455d6d64109d5726c6dd7ce2fd8fc6ee69a69b651bd4aed171524152062b93"
       },
       {
         "file": "images/hi/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "b61c924a4fe9dcd04efc8edca4ec34278da48e37b50e5f5c120df114b69fa212"
+        "sha256": "eb16d40ba572d5716d959e3ff7f291c0ff86aa5891dc285d521590a274eb79e8"
       }
     ],
     "id": [
@@ -407,37 +407,37 @@
         "file": "images/id/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ff3e21c87cc9ccbe6ae89f50dc10a218cbdc0d4321dcb151bc0612b377c61c12"
+        "sha256": "3cce9c8d24f69e4145663bbf2596c8616bcde3dca91aa66e95c9a62cbd37c715"
       },
       {
         "file": "images/id/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "f78449a8b337b96b48ee655c4db62a6017d4914922c6caeec048f3489694e706"
+        "sha256": "52c30a989032da58d303616d15b95aa266e66d77e472f1e47438548f1226ce9e"
       },
       {
         "file": "images/id/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "1a1c0d222ce186a11a399f31cb0ac7a96bf4236f507c655ebff419f10a6e8fef"
+        "sha256": "de0455ff0994b4a9ef0cb91f98ba2f88ea2f5d77a06abaa9c417a6a2b030ea19"
       },
       {
         "file": "images/id/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "6ba2ee8ed4e9861a832a5dfd831b4e8cf76d2ca7ad06598a5bb79695d49c4f4c"
+        "sha256": "54583692cb30108d8e739af01581f8e898d2bce890bcc178e152212f17764bca"
       },
       {
         "file": "images/id/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "690f26aba98dfa67ebf4c26340dc38617bf4909666c9b7a8b9d6eddf79776974"
+        "sha256": "bdc7657579a64fa679b02b4c90af9423013f9114be5a3b72c402b429fede7598"
       },
       {
         "file": "images/id/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "d0454c64427b5190884b21040191874277d9de8a1bd3568112f08a7063e1bee5"
+        "sha256": "8e6d535f22b10edd49bde8a099f85dbfd86c41d86333557564a263e9316266b5"
       }
     ],
     "ar": [
@@ -451,31 +451,31 @@
         "file": "images/ar/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "61ea03a2bce214a68057f73cd751768d0fe5e79b6f4884bb10e2ec960ededf47"
+        "sha256": "372b3b690676a1364b38783ab490b0c41ef3e23044fbc9659cfcffb13c703b3a"
       },
       {
         "file": "images/ar/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "7376dcf329ddca568a760512de7b2dbc74e2073973407b18f7172c0b88ab8ade"
+        "sha256": "f1d200ae2cbf8638f2700c51f66e52ed1fb24f91702888b7d2e0b9c3c58257e2"
       },
       {
         "file": "images/ar/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "d847e7a8371fda54a7c323a0ad4a38991c1b23d50eaa2d34b42ab0b148ffc438"
+        "sha256": "23d9f0a13643d8794d28a29f1be987977e483a0ce204069fa71b7b127404070e"
       },
       {
         "file": "images/ar/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a79449b544de1f539c01df107e73b48d52b07ca246ee8274ecb7aeff353d8750"
+        "sha256": "86cb2fe8ae7b2b801267713ecbdfafe4b7c477a338aa83d3cf7aecf2ecc725bb"
       },
       {
         "file": "images/ar/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "5abed2f35076bd69258bc33b281bf671f2e37782023d8b00707aeedce46b374f"
+        "sha256": "6fe64a461d2576fd8cd7f8910a86a910584efa3deefe7e60cd44deb1600af3ab"
       }
     ],
     "vi": [
@@ -483,37 +483,37 @@
         "file": "images/vi/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ab02bb83a72237ed31f05b811a6635abeed11c73dc238819fb3f031ba215bb32"
+        "sha256": "606eaa0c93f74531248d9971f549eb566c66efe285c426d8967d3e6745adfd20"
       },
       {
         "file": "images/vi/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "8b3921dc0fc62819275f5d22f7b8316b3fa63d765910db92f3b66131b0f14b9d"
+        "sha256": "d5b93012f58d5b187dd5ead9dd4cb1c97f6bbb8c68c90f7411c4c1be794ef56f"
       },
       {
         "file": "images/vi/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "3324bd801f19c78579922238f0b72fdbf6b3f31cca27ee6b53104e8e7bf087ef"
+        "sha256": "c4acf091bfdf38c7dbe9699df9992348846ee4ab0f10048d63700d1342a22f7b"
       },
       {
         "file": "images/vi/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "bca7b46935a74bd650a372b5f66363ef23c6442ae1d3b537a00ea67877626950"
+        "sha256": "a505b699673708b6d280904f01eea05c60bf00089c165e80b0710cf4a525f970"
       },
       {
         "file": "images/vi/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "3a1e47c1a570a038f968b903066d0ee9082a4411c52527d6d183b8810d3b7a1e"
+        "sha256": "00dad3fa599d336e704abf6dd04ac4051a277f21a49a6c0d7ff5f9903a9c25df"
       },
       {
         "file": "images/vi/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "fbeabce3cd52daeb6b4047dce41525b482456eaa5396882b45ae407ce9959809"
+        "sha256": "33aea9eafed519b9c1ada796e0c9a9ed5590ee4a12c402467530fe1a83c3afcd"
       }
     ],
     "it": [
@@ -521,37 +521,37 @@
         "file": "images/it/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "992f343c25e0e6468c9834e39d198551964954bd09aa8e42d51c6987133c5711"
+        "sha256": "3264498bc825e384090a78a3fd9071177a9f5f94f877b209b4bfb41be8f211c4"
       },
       {
         "file": "images/it/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "e489b3bc19a34864ce4a658bbc2bbadd2e9c43d9def56ea50f1a416399b46f44"
+        "sha256": "d693101eaa421c7687d27cdb7e0bf094cabb0063f3ed23f213b2df1dc2e63445"
       },
       {
         "file": "images/it/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "2ebabbfe79e4cd46fd9887b33b739b793ee61fd15773cae62ae9367c21a55238"
+        "sha256": "c8d30fb24fb0786aa9f421dbe973e4daa1d2cff4fa5a6ceb2d816d87c95fc1ef"
       },
       {
         "file": "images/it/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "e791a9b04e5b05cb3a24db9ba0acfea7692a1223ee4e8a6498bfe67e5ebebe5d"
+        "sha256": "267dafe52516ddc67ce7cec00543db5b740131f2c8de51f5fee2f8b145f665a5"
       },
       {
         "file": "images/it/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "645533bc8baf44f1333e84ad7eb61299b48b9b38c78f91f7c59b7d614573e74f"
+        "sha256": "1c149791ffbe089c1fd72180151877006efba4ff7657a81b1204073a966cf4f2"
       },
       {
         "file": "images/it/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "cc4e473582f61956b1a33cbee5d049ce1e271d179dbafac35c88a88d14a0e763"
+        "sha256": "ffd7a03a1efb59162c5fd3dd0bd38b255dd968fcc50e077b90c240a127562fed"
       }
     ],
     "tr": [
@@ -559,37 +559,37 @@
         "file": "images/tr/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a769441e1507a11aadb3da816a5a08ffd742174cfb491f2e659229fac8468b5a"
+        "sha256": "f5511a635b430de9d63ff14197b0f0bd5f2a0be31cf27656c3221cce202e69bf"
       },
       {
         "file": "images/tr/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "f14d8c7dc92ddfb473eeaa6d351029473b0204781822e7a4d135f77920d9a782"
+        "sha256": "e71fd0a79df08b9e92d2b602eb8684be2dcb197056491bf0076a7baaa6401235"
       },
       {
         "file": "images/tr/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "392bf50c7bb762b5e0e4d355c38edc86180ba1c5c83c20af3cdd9a1975981152"
+        "sha256": "10943ddfe94e791242ab9856352641289cf6d1be32604ab56d3f4370e9bce1e7"
       },
       {
         "file": "images/tr/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "41e930e50c3cac499a591edfc85fc88747ffa0099c64d600bf63d990cee43e78"
+        "sha256": "e8cf7d67a68f8804fd06948aa692c88406b90acd9dba6a7e5b662eb570531838"
       },
       {
         "file": "images/tr/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ca643cfe6d4d81431059be1f7542630f4a0234e6f6549f1c97648d172af83c86"
+        "sha256": "41224ada39325631a3dc179347fbabbe7fa8c1a607ddcf225c9f6db0d1bd2783"
       },
       {
         "file": "images/tr/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "b37f363502082686030c5b1170005d282cc407ded331c215167fbd1cd264a213"
+        "sha256": "0df24f251b38ca28ce6036cb4fd86923bb07ef6b5b4fc01987dd03685180de76"
       }
     ],
     "pl": [
@@ -597,37 +597,37 @@
         "file": "images/pl/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "42996b5b2801ee795a1c3a5ee23fc6a281e0127077210bd5216bd12f4efd3f32"
+        "sha256": "ad73867e9713265273b1d8307044bd69f67bdb3d8401faca8df764b961eee4a9"
       },
       {
         "file": "images/pl/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "d2517878718afa814481ed66a09610299883ec4b9aa88600ffae140c326cfc7d"
+        "sha256": "a951569ec0c5ada75b186924aa11cc2eea42cf3d1ab523f68fa4ce3c52b39c27"
       },
       {
         "file": "images/pl/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a9d06284ee5c895b431d185c5f35c7a59594abe9f5dbbfbd2d5a4053beb19ec9"
+        "sha256": "f21d514e9b46bc930ecc195c5e72a7d26cead76da800720b22c24bbfcd82d897"
       },
       {
         "file": "images/pl/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "a6861d916afb7df0d2a6f3b6bf3dfd756408befffcf9f029230628da45c394a2"
+        "sha256": "85f90f8ea8f1ef17d7025b30744ffaf18448045b22e4b867f56c9b579724f17e"
       },
       {
         "file": "images/pl/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "61cc0158b837c4a80cb0d637b5a2943b2a054b93da8af373c7cfa5181edcf152"
+        "sha256": "96403a7cca2a0076eccec1ba549ea6ea8378c635847d80830705ff0e00e04fc5"
       },
       {
         "file": "images/pl/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "05b153affe5f14459afc8893b9692d7d02b42961b98585e29105ac9a56c22d79"
+        "sha256": "eb8a2738c25f4eb7bdf9a9d9f2447bf7071a99b77253c05ad673ddf40750f39c"
       }
     ],
     "th": [
@@ -635,37 +635,37 @@
         "file": "images/th/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ba4cf67860846cbc881c8f8f4a31752bf9de534c8438de44e9b919ee084fd8c7"
+        "sha256": "bbe26be85e6988a997f0db1ae7e8f7b9cec5e73614ab7d7891159d4fe4aa7611"
       },
       {
         "file": "images/th/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "95b28a9435bbba5be13a9b1968684392cb65ee2a14315d454201f99427ba445e"
+        "sha256": "0899ec261b1b6375c172a770cc52cf326d8183d0c8c2eb0f9169ea77e8b97d6b"
       },
       {
         "file": "images/th/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "36b19836242dc35859a9349a17b5cbb1f46f582501c9d5ef0fe10c0aca210c54"
+        "sha256": "2a07ba6588a305979a29084664fd2d6e44fe19eacc2fe72a3ae724d223bc56cc"
       },
       {
         "file": "images/th/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "ba57f3bc70f7dbc445d27b5cc2de35c192d94934db484416ee57d5857cb6c325"
+        "sha256": "abe72817b2e46420d872d2de7e1c2881099bfaa5c80a0d555673e2e0c57d70ad"
       },
       {
         "file": "images/th/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "35b2feaf84cd8d978d9a613f1339d3301d9e42f58ea854fd8a36b9724f7c3a59"
+        "sha256": "6dc7eb787a2b463ea05fd63c8323afbd3ce32d8340b32d4d17b7ba6c37db92c6"
       },
       {
         "file": "images/th/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "79b3261a78d65f05c6747b4a9c813cdb2ec3fbe23fb4969a49b91106b630c21a"
+        "sha256": "fec44dbb11a806d59718b399d97cee60c8f19c60a640a684018769ba5dc39d8d"
       }
     ],
     "nl": [
@@ -673,37 +673,37 @@
         "file": "images/nl/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "5ae108c17ae5640893e472ce5589454fd9efb7f9111b5489eb1a13f62f2673d6"
+        "sha256": "4f75392a7fb081e0956a0de559f99ade6d45aebf59d51faac5aea0b96bd8db1f"
       },
       {
         "file": "images/nl/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "f998d6a06cba0ac0cc7a5c8c527ac96450f668f3aaa36a90f28fb28643bf625d"
+        "sha256": "d54c5ea6d810aab26528c4a3315ac1bc0196eac72f9b86fef62b40d8a1844f49"
       },
       {
         "file": "images/nl/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "3b1f41d126282f35babd5c89d9eb1fa691f02067047e7b036173d9c5e96fc556"
+        "sha256": "686371fcb9f6dd119769af6f315c84d7e9f8378d77f1d582d15b69d5cac6c225"
       },
       {
         "file": "images/nl/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "68c3dd113de4efb088df8f0efa9a92ab1db71f3014967e952bb787b576a4e300"
+        "sha256": "ab9cc3c1866aeb4ab8ed370744be0a4abb84517cea32078fa937f9fd808d4764"
       },
       {
         "file": "images/nl/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "fdc94e2a5d5b2ddac4d0153bd514576119a5052bd31da3c559eca10ad5c57a7e"
+        "sha256": "71d196fca22e0cd5bb2997b89f0c2ea35e836add649c2ebf86b11bd6b6ebb689"
       },
       {
         "file": "images/nl/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "924c43e6e7b36d68af1431b1e4a143666d4661a3facdb7870fdd3a75735a1317"
+        "sha256": "3d1611a593a1051fcc7f51dd3edc98ded5e5b20db83001c600858de36789b4ed"
       }
     ],
     "ru": [
@@ -711,37 +711,37 @@
         "file": "images/ru/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "1aa86bf74b4c25b7f0658f14ee247d3f8f4f035f45e53e46d590591c6445af58"
+        "sha256": "e6623af05befe00c66a44ed1e738a615d27a8785f75e5f5029f50bf3fdb1e149"
       },
       {
         "file": "images/ru/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "f0081fff8c5a057509698968c1640c9136a0b74419135acfc25ed8cb3e5f8495"
+        "sha256": "1a18ce213233b64e286a15e4beb3fc0c4bad41353aeebb333b871b9f975700b5"
       },
       {
         "file": "images/ru/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "053ff906cfabdd3676bb2552a4a0030c7d699b1ed6ea3764b29686ec631639ce"
+        "sha256": "3ed1d09525f494d285c92b4de8df570582403963b9ee4655c694ebb4471e498b"
       },
       {
         "file": "images/ru/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "c430ac2ed23797fd28dbe0389735ff11942d03ed9c98ee5632d274e160bd4065"
+        "sha256": "88cbaf9b8a99f56096eaa041cd239ddd879aa3309752f9e1979c4b88e890b278"
       },
       {
         "file": "images/ru/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "2484741b694803e9378ffdf552f3952d0cbd9b2fda5f0726decd99ae18d21c39"
+        "sha256": "7c10d41205735e4ecf6f614456af48d4e707e4e18e85bdd82a499290248c5469"
       },
       {
         "file": "images/ru/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "01537da7457c52f268dd3714727b02240650266c9b83fcc2dd8dffcccf6a2bd7"
+        "sha256": "ba0d3c3781100aa517a3ffd07251e581e7d2153614037e8197bd38c7fda774e5"
       }
     ],
     "bn": [
@@ -749,37 +749,37 @@
         "file": "images/bn/store-image-1.png",
         "width": 1280,
         "height": 800,
-        "sha256": "9edc3c313b221d8d23572c13504278b4017128fc9dadc24ae7c3a79602e9b929"
+        "sha256": "15505a583e1c6348a8d5b6a71ccf55d2167e44aa7006e30869e32fec893297bf"
       },
       {
         "file": "images/bn/store-image-2.png",
         "width": 1280,
         "height": 800,
-        "sha256": "b8e585259524bccb4a55273c8477edabc0d4f553169d3803bfdaaefb25fbb173"
+        "sha256": "5df535934b27402da5b2fa37c4a64fb724dfc5ef3fb0a7dae1f55dce541864d6"
       },
       {
         "file": "images/bn/store-image-3.png",
         "width": 1280,
         "height": 800,
-        "sha256": "03ca16f2245aa4410b7d6490d5226b43f0ccd327fd4193225bf055b97522ea22"
+        "sha256": "3880793f224346eb865ec34d45477cfa3f2ab9d40a7cc03eb49d14d8f024b2ea"
       },
       {
         "file": "images/bn/store-image-4.png",
         "width": 1280,
         "height": 800,
-        "sha256": "330c6ba9b15c31b210f85ca67b41e0a631fa1fe7aa1458380eda6d4b1c49620b"
+        "sha256": "e72e7627fc427977fd5cbdd955e877396b675d7c83ab9731c1c37875b83208c9"
       },
       {
         "file": "images/bn/store-image-5.png",
         "width": 1280,
         "height": 800,
-        "sha256": "43980e1c5eececdf744cf44a005608f098ece33296627a1e223bf9971d89ab88"
+        "sha256": "423a2dd829964bd7cde7575b9fd39a9b4fbc05d6ca3728b0bc3a1125de1720bb"
       },
       {
         "file": "images/bn/store-image-marquee.png",
         "width": 1400,
         "height": 560,
-        "sha256": "8d6482af56fafe0e8c8734801b2638b2e096a93d62110cacace022e727bab589"
+        "sha256": "d13eab24d62f47ef66aa0494a1fb765c86595282702bb1f9d5d4e4299844dee3"
       }
     ]
   },
@@ -787,6 +787,6 @@
     "file": "images/store-tile-small.png",
     "width": 440,
     "height": 280,
-    "sha256": "9dea1546e240ae442f2c0d9752b3b6a51aa8f92c668d107ccb5662c23d3befc8"
+    "sha256": "6db1683780a1148877892de42037950ac742bd636412b4129f0eed2de4afd7bd"
   }
 }

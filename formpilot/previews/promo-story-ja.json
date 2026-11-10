@@ -1,0 +1,375 @@
+{
+  "file": "promo-story-ja.mp4",
+  "sha256": "a7b5339100e7c24f15c89cefd23e5b8a932b0fa885d7160ff264b8625e5245bc",
+  "duration": 25,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "recording": {
+    "dir": "C:\\Users\\Warlo\\AppData\\Local\\Temp\\formpilot-live-demo-ja",
+    "evidence": {
+      "begin": 0,
+      "filled": 5.114,
+      "save": 9.774,
+      "reopen": 17.288,
+      "restore": 19.237,
+      "end": 24.055
+    },
+    "pieces": [
+      [
+        5,
+        6.6,
+        1,
+        2.5
+      ],
+      [
+        6.6,
+        8.2,
+        2.86,
+        4.6
+      ],
+      [
+        8.2,
+        10.4,
+        4.6,
+        6.6
+      ],
+      [
+        10.4,
+        12,
+        6.6,
+        9.8
+      ],
+      [
+        12,
+        15.2,
+        10.2,
+        15.8
+      ],
+      [
+        15.2,
+        16.4,
+        16.6,
+        18.4
+      ],
+      [
+        16.4,
+        18.6,
+        19.4,
+        21.6
+      ],
+      [
+        18.6,
+        20,
+        21.6,
+        23
+      ]
+    ]
+  },
+  "layout": {
+    "fields": [
+      {
+        "x": 194,
+        "y": 348,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 1306,
+        "y": 348,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 194,
+        "y": 582,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 1306,
+        "y": 582,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 194,
+        "y": 816,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 1306,
+        "y": 816,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 194,
+        "y": 1050,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 1306,
+        "y": 1050,
+        "w": 1060,
+        "h": 114
+      },
+      {
+        "x": 194,
+        "y": 1284,
+        "w": 2172,
+        "h": 188
+      }
+    ],
+    "reopen": {
+      "x": 1959.78125,
+      "y": 1516,
+      "w": 406.21875,
+      "h": 110
+    }
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "pcmSha256": "f9d3af23de712e3550022983462829404e37096c3434e6de52c569e9122e326c",
+    "events": [
+      {
+        "time": 0.12,
+        "kind": "pop",
+        "pitch": 1
+      },
+      {
+        "time": 0.35,
+        "kind": "key"
+      },
+      {
+        "time": 0.35,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 0.47,
+        "kind": "key"
+      },
+      {
+        "time": 0.67,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 0.71,
+        "kind": "key"
+      },
+      {
+        "time": 0.83,
+        "kind": "key"
+      },
+      {
+        "time": 1.2,
+        "kind": "swish"
+      },
+      {
+        "time": 1.35,
+        "kind": "key"
+      },
+      {
+        "time": 1.35,
+        "kind": "pop",
+        "pitch": 1
+      },
+      {
+        "time": 1.45,
+        "kind": "key"
+      },
+      {
+        "time": 1.65,
+        "kind": "key"
+      },
+      {
+        "time": 1.75,
+        "kind": "key"
+      },
+      {
+        "time": 2.05,
+        "kind": "swish"
+      },
+      {
+        "time": 2.2,
+        "kind": "key"
+      },
+      {
+        "time": 2.2,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 2.29,
+        "kind": "key"
+      },
+      {
+        "time": 2.47,
+        "kind": "key"
+      },
+      {
+        "time": 2.56,
+        "kind": "key"
+      },
+      {
+        "time": 3,
+        "kind": "impact"
+      },
+      {
+        "time": 3.05,
+        "kind": "sparkle"
+      },
+      {
+        "time": 3.55,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 4.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 5,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 6.6,
+        "kind": "click"
+      },
+      {
+        "time": 8.2,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 8.376,
+        "kind": "check",
+        "pitch": 0
+      },
+      {
+        "time": 8.376,
+        "kind": "success"
+      },
+      {
+        "time": 8.426,
+        "kind": "check",
+        "pitch": 1
+      },
+      {
+        "time": 8.476,
+        "kind": "check",
+        "pitch": 2
+      },
+      {
+        "time": 8.526,
+        "kind": "check",
+        "pitch": 3
+      },
+      {
+        "time": 8.576,
+        "kind": "check",
+        "pitch": 4
+      },
+      {
+        "time": 8.626,
+        "kind": "check",
+        "pitch": 5
+      },
+      {
+        "time": 8.676,
+        "kind": "check",
+        "pitch": 6
+      },
+      {
+        "time": 8.726,
+        "kind": "check",
+        "pitch": 7
+      },
+      {
+        "time": 8.776,
+        "kind": "check",
+        "pitch": 8
+      },
+      {
+        "time": 10.4,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 12,
+        "kind": "pop",
+        "pitch": 5
+      },
+      {
+        "time": 12.2857,
+        "kind": "click"
+      },
+      {
+        "time": 14.9143,
+        "kind": "click"
+      },
+      {
+        "time": 15.0143,
+        "kind": "ok"
+      },
+      {
+        "time": 15.2,
+        "kind": "pop",
+        "pitch": 6
+      },
+      {
+        "time": 16.0267,
+        "kind": "click"
+      },
+      {
+        "time": 16.4,
+        "kind": "pop",
+        "pitch": 7
+      },
+      {
+        "time": 17.3,
+        "kind": "click"
+      },
+      {
+        "time": 17.45,
+        "kind": "success"
+      },
+      {
+        "time": 19.68,
+        "kind": "whoosh"
+      },
+      {
+        "time": 20.2,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 20.8,
+        "kind": "pop",
+        "pitch": 5
+      },
+      {
+        "time": 21,
+        "kind": "pop",
+        "pitch": 6
+      },
+      {
+        "time": 21.2,
+        "kind": "pop",
+        "pitch": 7
+      },
+      {
+        "time": 21.8,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.24,
+    "truePeakDbtp": -2.06
+  }
+}

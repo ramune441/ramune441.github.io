@@ -9,8 +9,9 @@
 <style>
 /* Generator for Chrome Web Store assets. Screenshot each #id element with Puppeteer (render-store-images.mjs).
    ?lang=xx swaps all text (en = DOM default). Colors mirror the LP (index.html).
-   Story of the 5 shots: 1 hook (full-bleed scene, 5 services) → 2 pain/solution (before/after)
-   → 3 look up a word (double-click) + vocabulary → 4 any language pair → 5 zero friction (3 steps + trust). */
+   The 5 shots follow one viewing session, each a viewer's problem → SubDuo's answer:
+   1 watch: two languages on one screen (5 services) → 2 catch: missed a line? replay it (A/S/D/Q) or read the transcript (W)
+   → 3 understand: unknown word? double-click it → 4 keep: saved words come back as flashcards → 5 start: 3 steps + make it yours. */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#3a3f52; -webkit-font-smoothing:antialiased; padding:40px 0;
   font-family:'Inter','Noto Sans JP','Noto Sans KR','Noto Sans SC','Noto Sans TC','Noto Sans Devanagari','Noto Sans Arabic','Noto Sans Thai','Noto Sans Bengali','Segoe UI',sans-serif; }
@@ -133,27 +134,25 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
 .p-row .sp { flex:1; }
 .p-row .cc { font-size:12px; font-weight:800; border:1.5px solid #fff; border-radius:4px; padding:0 5px; line-height:1.45; }
 
-/* ════ IMG 2: before / after ════ */
-.split { display:flex; align-items:flex-start; gap:0; z-index:2; }
-.col { width:560px; display:flex; flex-direction:column; align-items:center; gap:16px; }
-.arrow { width:64px; display:flex; align-items:center; justify-content:center; font-size:56px; color:var(--cy); align-self:center; padding-bottom:60px; font-weight:300; }
-.tag { position:absolute; left:16px; top:14px; z-index:4; font-size:13px; font-weight:800; letter-spacing:.14em; padding:6px 14px; border-radius:100px;
-  background:rgba(0,0,0,.55); color:#cfd8ea; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(4px); }
-.tag.ok { background:var(--cy); color:#06121c; border-color:var(--cy); }
-.pauseicon { position:absolute; left:50%; top:44%; width:96px; height:96px; border-radius:50%; transform:translate(-50%,-50%); z-index:3;
-  background:rgba(255,255,255,.14); border:2px solid rgba(255,255,255,.55); display:flex; align-items:center; justify-content:center; }
-.pauseicon i { display:block; width:34px; height:38px; background:linear-gradient(90deg,#fff 0 36%, transparent 36% 64%, #fff 64%); }
-.qmark { position:absolute; right:7%; bottom:34%; z-index:4; font-size:60px; font-weight:900; color:#fff; opacity:.85; text-shadow:0 4px 20px rgba(0,0,0,.6); transform:rotate(12deg); }
-.chips { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:560px; }
-.chip { font-size:18px; font-weight:700; padding:9px 18px; border-radius:100px; white-space:nowrap; }
-.chip.x { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); color:#b5bfd3; font-size:16.5px; padding:8px 15px; }
-.chip.ok { background:var(--cy); color:#06121c; font-size:21px; padding:11px 26px; box-shadow:0 10px 30px rgba(56,182,255,.35); }
+/* ════ IMG 2: replay a line (keys on the player) + the transcript beside it ════ */
+/* the subtitle the viewer clicked: selection frame + the key hint under it (mirrors .subduo-frame / .subduo-hint-keys) */
+.sd-box.sel::before { content:''; position:absolute; inset:-6px; border:2px solid #38b6ff; border-radius:4px; pointer-events:none; }
+.sd-hint { position:absolute; top:100%; left:50%; transform:translateX(-50%); margin-top:16px; white-space:nowrap; z-index:4;
+  font-size:15px; font-weight:600; line-height:1.4; color:#fff; background:rgba(0,0,0,.72); border-radius:6px; padding:5px 12px; text-shadow:none; }
+/* the notice a key toggle shows near the top of the player (mirrors .subduo-toast) */
+.toast { position:absolute; top:7%; left:50%; transform:translateX(-50%); z-index:5; white-space:nowrap;
+  background:rgba(24,24,28,.92); color:#fff; font-size:17px; font-weight:600; padding:7px 18px; border-radius:999px; }
+/* the keys being used, as keycaps on the player (S = repeat is the one pressed) */
+.kcs { position:absolute; right:18px; top:16px; z-index:5; display:flex; gap:9px; direction:ltr; }
+.kcap { width:48px; height:48px; flex:none; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:23px; font-weight:900; color:#dfe7f7;
+  background:linear-gradient(180deg,#2b3452,#1a2136); border:1px solid rgba(255,255,255,.2); box-shadow:0 4px 0 #0b1020; }
+.kcap.on { color:#fff; background:linear-gradient(180deg,#4fb0ff,#1d7fe0); border-color:#8fd0ff; box-shadow:0 4px 0 #0f447f, 0 0 26px rgba(56,182,255,.55); }
 
 /* ════ IMG 3: look up a word + vocabulary ════ */
 .lk-row { display:flex; align-items:stretch; gap:26px; z-index:2; }
-.lk-row .frame { width:720px; height:405px; }
-.lk-row .frame .sd { font-size:28px; bottom:9%; }
-.lk-row .frame .p-top { font-size:15px; }
+.lk-row .frame { width:1000px; height:470px; }
+.lk-row .frame .sd { font-size:32px; bottom:10%; }
+.lk-row .frame .p-top { font-size:16px; }
 /* keyboard hint on the player */
 .kb { position:absolute; right:18px; top:14px; z-index:5; display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:#dbe4f5;
   background:rgba(0,0,0,.55); border:1px solid rgba(255,255,255,.2); border-radius:100px; padding:6px 14px 6px 12px; backdrop-filter:blur(4px); }
@@ -199,14 +198,54 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
 .ve-ex { font-style:italic; }
 .ve-ex .tr { display:block; font-style:normal; color:#9aa1aa; font-size:13.5px; }
 
-/* ════ IMG 4: pair cards ════ */
-.pairs { display:grid; grid-template-columns:repeat(3, 372px); gap:18px; z-index:2; }
-.pair { width:372px; height:209px; }
-.plabel { position:absolute; left:12px; top:12px; z-index:4; display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:800; padding:5px 12px; border-radius:100px;
-  background:rgba(0,0,0,.5); border:1px solid rgba(255,255,255,.22); color:#fff; backdrop-filter:blur(4px); }
-.plabel b { color:var(--yel); font-weight:800; }
-.plabel .x { color:var(--t3); font-weight:500; }
-.pair .sd { font-size:22px; bottom:9%; }
+/* ════ IMG 4: vocabulary + review flashcard (mirrors vocab.html's list and review view, dark scheme) ════ */
+.rv-row { display:flex; align-items:stretch; gap:26px; z-index:2; }
+.rv-row .vb { height:440px; }
+.vb-study { font-size:13px; font-weight:700; color:#06121c; background:#00a8e1; border-radius:7px; padding:4px 11px; white-space:nowrap; }
+.vb-study b { display:inline-block; min-width:18px; margin-inline-start:6px; padding:0 5px; border-radius:999px; background:#06121c; color:#8fd0ff; font-size:12px; text-align:center; }
+.rv { width:640px; height:440px; flex:none; background:#16181c; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:18px 22px; color:#e6e6e6;
+  box-shadow:0 30px 80px rgba(0,0,0,.55); display:flex; flex-direction:column; gap:12px; text-align:start; }
+.rv-top { display:flex; align-items:center; justify-content:space-between; font-size:14px; color:#9aa1aa; }
+.rv-top b { font-weight:600; color:#e6e6e6; border:1px solid #3a3f46; border-radius:7px; padding:4px 11px; }
+.rv-card { flex:1; border:1px solid #3a3f46; border-radius:12px; background:#1e2126; padding:22px 24px 16px; text-align:center; }
+.rv-phrase { font-size:32px; font-weight:800; }
+.rv-phrase .sp { font-size:19px; color:#9aa1aa; margin-inline-start:8px; }
+.rv-context { margin-top:10px; font-size:18px; color:#9aa1aa; line-height:1.6; }
+.rv-context mark { padding:0 3px; border-radius:3px; background:#5a4d00; color:inherit; }
+.rv-answer { margin-top:16px; padding-top:14px; border-top:1px dashed #3a3f46; display:flex; flex-direction:column; gap:6px; line-height:1.5; }
+.rv-pron { color:#9aa1aa; font-size:16px; }
+.rv-meaning { font-size:21px; font-weight:700; }
+.rv-tr { color:#c9ced6; font-size:16px; }
+.rv-acts { display:flex; justify-content:center; gap:12px; position:relative; }
+.rv-acts b { min-width:118px; padding:9px 16px; font-size:16px; font-weight:600; text-align:center; border:1px solid #3a3f46; border-radius:8px; color:#e6e6e6; white-space:nowrap; }
+.rv-acts b.again { border-color:#e0675a; color:#ff8a7d; }
+.rv-acts b.on { border-color:#00a8e1; background:rgba(0,168,225,.18); color:#8fd0ff; }
+.rv-acts svg { position:absolute; width:26px; height:34px; filter:drop-shadow(0 2px 3px rgba(0,0,0,.7)); }
+.rv-hint { text-align:center; color:#9aa1aa; font-size:13px; }
+
+/* one browser window: the player and the transcript side panel beside it (mirrors transcript.html, dark scheme, ×1.1) */
+.tw { display:flex; z-index:2; border-radius:16px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.10); }
+.tw .frame { width:780px; height:440px; border-radius:0; box-shadow:none; }
+.tw .frame .sd { font-size:28px; bottom:22%; }
+.tp { width:380px; height:440px; flex:none; background:#16181c; color:#e6e6e6; border-inline-start:1px solid #3a3f46; text-align:start; position:relative; overflow:hidden; font-size:15px; }
+.tp::after { content:''; position:absolute; left:0; right:0; bottom:0; height:44px; background:linear-gradient(180deg, rgba(22,24,28,0), #16181c 85%); pointer-events:none; }
+.tp-head { padding:12px 14px 10px; border-bottom:1px solid #3a3f46; }
+.tp-title { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; margin-bottom:9px; }
+.tp-title h2 { font-size:18px; font-weight:800; color:#00a8e1; }
+.tp-title h2 span { color:#e6e6e6; font-weight:700; }
+.tp-langs { color:#9aa1aa; font-size:13px; }
+.tp-nav { display:flex; flex-wrap:wrap; align-items:center; gap:7px; }
+.tp-nav b { padding:3px 11px; border:1px solid #00a8e1; border-radius:999px; color:#00a8e1; font-size:13px; font-weight:600; white-space:nowrap; direction:ltr; }
+.tp-auto { display:inline-flex; align-items:center; gap:6px; margin-inline-start:auto; font-size:13px; }
+.tp-auto i { width:14px; height:14px; border-radius:3px; background:#00a8e1; color:#06121c; font-style:normal; font-size:11px; font-weight:900; display:inline-flex; align-items:center; justify-content:center; }
+.tp-rows { list-style:none; padding:4px 0; }
+.tp-rows li { display:grid; grid-template-columns:3.4em 1fr; gap:8px; padding:8px 14px; border-inline-start:3px solid transparent; position:relative; }
+.tp-rows li.cur { border-inline-start-color:#00a8e1; background:#13303d; }
+.tp-rows .t { padding-top:2px; color:#9aa1aa; font-size:12px; font-variant-numeric:tabular-nums; direction:ltr; }
+.tp-rows p { line-height:1.45; }
+.tp-rows p.b { color:#9aa1aa; font-size:13.5px; }
+/* the pointer clicking a row */
+.tp-ptr { position:absolute; right:26px; top:58%; width:26px; height:34px; filter:drop-shadow(0 2px 3px rgba(0,0,0,.7)); }
 
 /* ════ IMG 5: steps + trust ════ */
 .steps { display:flex; gap:20px; z-index:2; }
@@ -335,53 +374,57 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
   </div>
 </div>
 
-<!-- ════ IMG 2 · Pain → solution: before / after ════ -->
-<div class="si" id="img2" style="padding-left:40px;padding-right:40px;">
+<!-- ════ IMG 2 · Missed a line? Replay it (keys on the player) or read it in the transcript beside the video ════ -->
+<!-- The hint under the clicked subtitles is hintKeys, the notice is toastAutoPauseOn; S (repeat) is the key being pressed.
+     The panel mirrors transcript.html: both languages per row, the playing row highlighted (the player's line, cue2),
+     prev / repeat / next and auto-pause on top, a pointer about to jump to another row. -->
+<div class="si" id="img2" style="padding-left:40px;padding-right:40px;gap:24px;">
   <div class="glow" style="right:-200px;bottom:-260px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap">
-    <div class="eyebrow" data-i="e2">🎯 NEVER MISS A LINE</div>
-    <h1 data-i="h2">No pausing. No rewinding. No switching.</h1>
-    <p data-i="s2">Didn't catch it? Glance at the second line and keep watching — the story never stops.</p>
+    <div class="eyebrow" data-i="e2">🎧 NEVER MISS A LINE</div>
+    <h1 data-i="h2">Missed a line? Play it again.</h1>
+    <p data-i="s2">S replays the line, A and D step back and ahead, Q pauses after every line. Press W to read the whole script beside the video.</p>
   </div>
-  <div class="split">
-    <div class="col">
-      <div class="frame" style="width:560px;height:315px;">
-        <div class="scene sea dim"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div></div>
-        <div class="tag" data-i="bl">BEFORE</div>
-        <div class="pauseicon"><i></i></div>
-        <div class="qmark">?</div>
-        <div class="sd only" style="font-size:26px;bottom:10%;"><div class="sd-box">
-          <div class="sd-line sd-a" style="opacity:.85;" data-i="cue2_a">No mires atrás. Ya casi llegamos.</div>
-        </div></div>
-      </div>
-      <div class="chips"><span class="chip x" data-i="bc1">⏸ Pause</span><span class="chip x" data-i="bc2">⟲ Back 10s</span><span class="chip x" data-i="bc3">🔁 Switch subtitles</span><span class="chip x" data-i="bc4">😩 Lose the plot</span></div>
+  <div class="tw">
+    <div class="frame">
+      <div class="scene sea"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div><div class="grain"></div></div>
+      <div class="toast" data-i="toast">Pause after each line: on</div>
+      <div class="kcs"><span class="kcap">A</span><span class="kcap on">S</span><span class="kcap">D</span></div>
+      <div class="sd"><div class="sd-box sel">
+        <div class="sd-line sd-a" data-i="cue2_a">No mires atrás. Ya casi llegamos.</div>
+        <div class="sd-line sd-b" data-i="cue2_b">Don't look back. We're almost there.</div>
+        <div class="sd-hint" data-i="hint_keys">A: Previous line / S: Repeat line / D: Next line / Q: Pause after each line / W: Transcript</div>
+      </div></div>
     </div>
-    <div class="arrow">→</div>
-    <div class="col">
-      <div class="frame" style="width:560px;height:315px;box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 2px rgba(56,182,255,.55);">
-        <div class="scene sea"><div class="sea"></div><div class="hill l"></div><div class="hill r"></div><div class="vig"></div><div class="grain"></div></div>
-        <div class="tag ok" data-i="al">WITH SUBDUO</div>
-        <div class="sd" style="font-size:26px;bottom:10%;"><div class="sd-box">
-          <div class="sd-line sd-a" data-i="cue2_a">No mires atrás. Ya casi llegamos.</div>
-          <div class="sd-line sd-b" data-i="cue2_b">Don't look back. We're almost there.</div>
-        </div></div>
+    <div class="tp">
+      <div class="tp-head">
+        <div class="tp-title"><h2>SubDuo <span data-i="tr_title">Transcript</span></h2><span class="tp-langs" data-i="tr_langs">Spanish / English</span></div>
+        <div class="tp-nav"><b>⏮ A</b><b>↻ S</b><b>⏭ D</b><span class="tp-auto"><i>✓</i><span data-i="tr_auto">Pause after each line</span></span></div>
       </div>
-      <div class="chips"><span class="chip ok" data-i="ac">▶ Just keep watching</span></div>
+      <ol class="tp-rows">
+        <li><span class="t">42:01</span><div><p data-i="r1a">¿Dónde estabas?</p><p class="b" data-i="r1b">Where were you?</p></div></li>
+        <li><span class="t">42:04</span><div><p data-i="r2a">Te busqué por todas partes.</p><p class="b" data-i="r2b">I looked for you everywhere.</p></div></li>
+        <li class="cur"><span class="t">42:09</span><div><p data-i="cue2_a">No mires atrás. Ya casi llegamos.</p><p class="b" data-i="cue2_b">Don't look back. We're almost there.</p></div></li>
+        <li><span class="t">42:13</span><div><p data-i="r4a">Entonces, corramos.</p><p class="b" data-i="r4b">Then let's run.</p></div></li>
+        <li><span class="t">42:16</span><div><p data-i="r5a">¡Por aquí, rápido!</p><p class="b" data-i="r5b">This way, hurry!</p></div></li>
+        <li><span class="t">42:20</span><div><p data-i="r6a">¿Y si nos encuentran?</p><p class="b" data-i="r6b">What if they find us?</p></div></li>
+      </ol>
+      <svg class="tp-ptr" viewBox="0 0 26 34"><path d="M2 2v26l7-6.5 4.6 10 4-1.8-4.6-9.8H22z" fill="#fff" stroke="#06121c" stroke-width="1.6" stroke-linejoin="round"/></svg>
     </div>
   </div>
 </div>
 
-<!-- ════ IMG 3 · Look up a word (double-click) and keep it in the vocabulary list ════ -->
-<!-- The card is the v1.6 default state: on-device translation + the scene's own line as the example, "Ask AI" beside Save.
+<!-- ════ IMG 3 · Unknown word? Double-click it: the explanation card on the player ════ -->
+<!-- The card is the default state: on-device translation + the scene's own line as the example, "Ask AI" beside Save.
      The example line/translation (.ex-a / .ex-b) are copied from cue3_a / cue3_b by JS. -->
 <div class="si" id="img3" style="padding-left:40px;padding-right:40px;gap:24px;">
   <div class="glow" style="left:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(56,182,255,.12),transparent 65%);"></div>
   <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
   <div class="cap">
     <div class="eyebrow" data-i="e3">📖 TAP A WORD, LEARN IT</div>
-    <h1 data-i="h3">Double-click a word. Know it. Keep it.</h1>
-    <p data-i="s3">An instant on-device translation, with the scene's own line as the example — playback pauses for you. Want more? Ask AI. One click saves it to your vocabulary.</p>
+    <h1 data-i="h3">Don't know a word? Double-click it.</h1>
+    <p data-i="s3">The show pauses and the meaning appears at once, translated on your device, with the scene's own line as the example. Want more? Ask AI.</p>
   </div>
   <div class="lk-row">
     <div class="frame">
@@ -401,8 +444,23 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
         <div class="sd-line sd-b" data-i="cue3_b">You can't outrun the tide.</div>
       </div></div>
     </div>
+  </div>
+</div>
+
+<!-- ════ IMG 4 · Saved words come back: the vocabulary list + a review flashcard (answer shown) ════ -->
+<!-- Mirrors vocab.html: the list (newest first, the Review button with the due count) and the review view — the word,
+     its line with the word marked, then the answer (pronunciation, meaning, the line's translation) and the grades. -->
+<div class="si" id="img4" style="padding-left:40px;padding-right:40px;gap:24px;">
+  <div class="glow" style="right:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(255,215,106,.09),transparent 65%);"></div>
+  <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
+  <div class="cap">
+    <div class="eyebrow y" data-i="e4">🧠 MAKE IT STICK</div>
+    <h1 data-i="h4">Saved words come back for review.</h1>
+    <p data-i="s4">Every word keeps the line it came from. Flashcards bring it back — the better you know it, the longer it waits.</p>
+  </div>
+  <div class="rv-row">
     <div class="vb">
-      <div class="vb-head"><h2>SubDuo <span data-i="v_title">Vocabulary</span></h2><span class="vb-count" data-i="v_count">Saved: 3</span><div class="vb-search" data-i="v_search">Search</div></div>
+      <div class="vb-head"><h2>SubDuo <span data-i="v_title">Vocabulary</span></h2><span class="vb-count" data-i="v_count">Saved: 3</span><span class="vb-study"><span data-i="rv_start">Review</span><b>3</b></span><div class="vb-search" data-i="v_search">Search</div></div>
       <div class="ve hi">
         <div class="ve-head"><span class="ve-phrase" data-i="c_phrase">escapar</span><span class="ve-speak">🔊</span><span class="ve-lang" data-i="v_lang">Spanish</span></div>
         <p class="ve-meaning" data-i="c_meaning">to escape, to get away</p>
@@ -419,19 +477,22 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
         <p class="ve-ex"><span data-i="v3_e">De repente, todo cambió.</span><span class="tr" data-i="v3_t">Suddenly, everything changed.</span></p>
       </div>
     </div>
+    <div class="rv">
+      <div class="rv-top"><span data-i="rv_left">Left: 3</span><b data-i="rv_back">Back to list</b></div>
+      <div class="rv-card">
+        <div class="rv-phrase"><span data-i="c_phrase">escapar</span><span class="sp">🔊</span></div>
+        <div class="rv-context ex-mark"></div>
+        <div class="rv-answer">
+          <span class="rv-pron" data-i="c_pron">/es.kaˈpaɾ/</span>
+          <span class="rv-meaning" data-i="c_meaning">to escape, to get away</span>
+          <span class="rv-tr ex-b"></span>
+        </div>
+      </div>
+      <div class="rv-acts"><b class="again" data-i="rv_forgot">Forgot</b><b class="on" data-i="rv_good">Got it</b><b data-i="rv_easy">Easy</b>
+        <svg viewBox="0 0 26 34" style="left:50%;top:22px;"><path d="M2 2v26l7-6.5 4.6 10 4-1.8-4.6-9.8H22z" fill="#fff" stroke="#06121c" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+      <div class="rv-hint" data-i="rv_hint">Space: show answer / 1: forgot / 2: got it / 3: easy / Esc: back</div>
+    </div>
   </div>
-</div>
-
-<!-- ════ IMG 4 · Any pair you like: cards built by JS ════ -->
-<div class="si" id="img4">
-  <div class="glow" style="right:-200px;top:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(255,215,106,.09),transparent 65%);"></div>
-  <div class="brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
-  <div class="cap">
-    <div class="eyebrow y" data-i="e4">🌐 ANY PAIR YOU LIKE</div>
-    <h1 data-i="h4">Spanish × English. Korean × English. Your call.</h1>
-    <p data-i="s4">Pick any two of the subtitle languages the title offers — detected automatically when you press play.</p>
-  </div>
-  <div class="pairs" id="pairs"></div>
 </div>
 
 <!-- ════ IMG 5 · Zero friction: 3 steps + trust ════ -->
@@ -478,7 +539,7 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
       <div class="st-row"><span class="num">3</span><span class="st" data-i="st3">Pick two languages</span></div>
     </div>
   </div>
-  <div class="pills"><span class="pill" data-i="p1">🚫 No account, no tracking</span><span class="pill" data-i="p2">📺 5 streaming services</span><span class="pill" data-i="p3">🎨 Drag, resize, recolor on screen</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 Pick from 20 display languages</span></div>
+  <div class="pills"><span class="pill" data-i="p1">🚫 No account, no tracking</span><span class="pill" data-i="p2">🌐 Any two subtitle languages</span><span class="pill" data-i="p3">🎨 Drag, resize, recolor on screen</span><span class="pill" data-i="p6">🙈 Blur a line to test yourself</span><span class="pill" data-i="p4">☁️ Per-site settings, synced</span><span class="pill" data-i="p5">🌏 Pick from 20 display languages</span></div>
 </div>
 
 <!-- ════ SMALL PROMO TILE (440x280, en only) ════ -->
@@ -496,8 +557,8 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
     <div class="fb-brand"><img src="icons/logo.svg" alt=""><span>SubDuo</span></div>
     <div class="fb-badge" data-i="fb_badge">🎬 Free · Prime Video, YouTube, Netflix, Disney+ &amp; TED</div>
     <div class="fb-title" data-i="fb_title">Two languages.<br><em>One screen.</em></div>
-    <div class="fb-sub" data-i="fb_sub">Dual subtitles on five streaming services. Double-click any word for its meaning, save it to your vocabulary.</div>
-    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">📺 5 streaming services</span><span class="fb-pill" data-i="fbp2">🌐 Any two languages</span><span class="fb-pill" data-i="fbp3">📖 Double-click to look up</span><span class="fb-pill" data-i="fbp4">🖱️ Adjust on screen</span></div>
+    <div class="fb-sub" data-i="fb_sub">Dual subtitles on five streaming services. Replay any line with one key, double-click a word for its meaning.</div>
+    <div class="fb-pills"><span class="fb-pill" data-i="fbp1">📺 5 streaming services</span><span class="fb-pill" data-i="fbp2">🌐 Any two languages</span><span class="fb-pill" data-i="fbp3">📖 Double-click to look up</span><span class="fb-pill" data-i="fbp4">🎧 Replay any line</span></div>
   </div>
   <div class="fb-right">
     <div class="frame">
@@ -526,232 +587,198 @@ body.rtl .card, body.rtl .vb, body.rtl .pu { text-align:right; }
 // UI labels are kept in sync with the extension's _locales/<locale>/messages.json.
 const I18N = {
 ja: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 もう聞き逃さない", h2:"聞き逃した？ その一文をもう一度。", s2:"S でその行をもう一度、A と D で前後の行へ、Q で一文ごとに自動停止。W で全セリフを動画の横に。", e3:"📖 わからない語は、その場で", h3:"知らない語は、ダブルクリック。", s3:"再生が止まり、端末内の翻訳ですぐに意味を表示。その場面のセリフが例文に。もっと知りたいときは「AIに聞く」。", e4:"🧠 覚えるまで", h4:"保存した語は、復習で戻ってくる。", s4:"語ごとに出てきたセリフも保存。フラッシュカードで復習し、覚えている語ほど間隔をあけて出します。", p2:"🌐 好きな2言語の字幕", p6:"🙈 片方をぼかして力試し", fb_sub:"Prime Video・YouTube・Netflix・Disney+・TED の二言語字幕。1キーでその行をもう一度、語をダブルクリックで意味を表示。", fbp4:"🎧 1キーで聞き直し", r1b:"どこにいたの？", r2b:"ずっと探してたんだ。", r4b:"じゃあ、走ろう。", r5b:"こっちだ、急げ！", r6b:"見つかったらどうする？", toast:"1行ごとに止める: オン", hint_keys:"A: 前の行 / S: もう一度 / D: 次の行 / Q: 1行ごとに止める / W: 字幕の一覧", tr_title:"字幕の一覧", tr_auto:"1行ごとに止める", rv_start:"復習", rv_left:"残り: 3", rv_back:"一覧に戻る", rv_forgot:"忘れた", rv_good:"覚えていた", rv_easy:"簡単", rv_hint:"Space: 答えを見る / 1: 忘れた / 2: 覚えていた / 3: 簡単 / Esc: 戻る",
   e1:"🎬 無料の Chrome 拡張機能", h1:"字幕を2言語、同時に。", s1:"好きな作品が、そのまま語学教材に。上段に原語、下段に母語。",
   title:"The Long Way Home", ep:"シーズン1 第3話",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"この瞬間を、ずっと待っていたんだ。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"振り返るな。もうすぐ着く。",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"潮からは逃げられない。",
-  e2:"🎯 もう、聞き逃さない", h2:"止めない。戻さない。切り替えない。", s2:"わからない一行は、下の段をちらっと見るだけ。作品の流れを止めずに観られます。",
-  bl:"これまで", al:"SubDuo なら", bc1:"⏸ 止める", bc2:"⟲ 10秒戻す", bc3:"🔁 字幕を切り替える", bc4:"😩 話を見失う", ac:"▶ そのまま観続ける",
-  e3:"📖 わからない語は、その場で", h3:"ダブルクリックで意味。そのまま単語帳へ。", s3:"端末内の翻訳で意味をすぐ表示し、その場面のセリフを例文に。再生は自動で一時停止。もっと知りたいときは「AIに聞く」、ワンクリックで単語帳へ。",
+  
   kb:"ダブルクリック", c_phrase:"outrun", c_ask:"AIに聞く", c_save:"★ 保存済み", c_meaning:"〜より速く走る、〜から逃げ切る",
   v_title:"単語帳", v_count:"保存: 3 件", v_search:"検索", v_lang:"英語",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"潮、潮の満ち引き", v2_e:"The tide is coming in.", v2_t:"潮が満ちてきている。",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"（難しいことを）やり遂げる", v3_e:"She pulled off a win.", v3_t:"彼女は勝利をもぎ取った。",
-  e4:"🌐 組み合わせは自由", h4:"英語×日本語も、韓国語×日本語も。", s4:"作品に用意された字幕から、上段と下段に好きな言語を1つずつ。再生すれば自動で検出します。",
   e5:"⚡ 準備は30秒", h5:"入れて、再生するだけ。", s5:"アカウント不要・完全無料。字幕はブラウザの外に出ず、語の訳も端末内で。外部に送るのは「AIに聞く」を押した語句だけです。",
   st1:"Chrome に追加", st2:"5サービスのどれかで再生", st3:"言語を2つ選ぶ", addbtn:"Chrome に追加", pu_top:"上段", pu_bottom:"下段",
-  p1:"🚫 アカウント不要・追跡なし", p2:"📺 5つの配信サービス", p3:"🎨 画面上でドラッグ・拡大・色変更", p4:"☁️ サイトごとの設定・同期", p5:"🌏 表示は20言語から選べる",
-  fb_badge:"🎬 無料 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"字幕を2言語、<br><em>同時に。</em>", fb_sub:"Prime Video・YouTube・Netflix・Disney+・TED の二言語字幕。語をダブルクリックで意味を表示、そのまま単語帳へ。",
-  fbp1:"📺 5つの配信サービス", fbp2:"🌐 好きな2言語", fbp3:"📖 ダブルクリックで解説", fbp4:"🖱️ 画面上で調整"
-},
+  p1:"🚫 アカウント不要・追跡なし", p3:"🎨 画面上でドラッグ・拡大・色変更", p4:"☁️ サイトごとの設定・同期", p5:"🌏 表示は20言語から選べる",
+  fb_badge:"🎬 無料 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"字幕を2言語、<br><em>同時に。</em>", 
+  fbp1:"📺 5つの配信サービス", fbp2:"🌐 好きな2言語", fbp3:"📖 ダブルクリックで解説", },
 zh: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 不再漏听一句", h2:"没听清？再放一遍。", s2:"按 S 重放这一句，A 和 D 前后跳句，Q 每句后自动暂停。按 W 在视频旁查看全部台词。", e3:"📖 生词，当场解决", h3:"不认识的词？双击它。", s3:"播放自动暂停，设备端翻译即时显示词义，并以该场景的台词作例句。想了解更多？询问 AI。", e4:"🧠 记得更牢", h4:"保存的单词，会回来让你复习。", s4:"每个词都保留它出现的台词。用抽认卡复习——记得越牢，间隔越长。", p2:"🌐 任选两种字幕语言", p6:"🙈 模糊一行，自我测试", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的双语字幕。一键重放台词，双击查词义。", fbp4:"🎧 一键重放", r1b:"你去哪儿了？", r2b:"我到处找你。", r4b:"那我们跑吧。", r5b:"这边，快！", r6b:"要是被他们发现了怎么办？", toast:"每句后暂停：开", hint_keys:"A: 上一句 / S: 重复本句 / D: 下一句 / Q: 每句后暂停 / W: 字幕列表", tr_title:"字幕列表", tr_auto:"每句后暂停", rv_start:"复习", rv_left:"剩余：3", rv_back:"返回列表", rv_forgot:"忘了", rv_good:"记得", rv_easy:"简单", rv_hint:"空格：显示答案 / 1：忘了 / 2：记得 / 3：简单 / Esc：返回",
   e1:"🎬 免费 Chrome 扩展", h1:"两种语言，同一屏幕。", s1:"你爱看的剧，就是最好的语言课 —— 上行原文，下行母语。",
   title:"The Long Way Home", ep:"第 1 季 第 3 集",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"这一刻，我等了一辈子。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"别回头，我们快到了。",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"你跑不过潮水。",
-  e2:"🎯 再也不漏掉一句", h2:"不暂停。不倒回。不切换。", s2:"没听清？瞄一眼下行，继续看 —— 剧情不会中断。",
-  bl:"以前", al:"有了 SubDuo", bc1:"⏸ 暂停", bc2:"⟲ 倒回 10 秒", bc3:"🔁 切换字幕", bc4:"😩 跟丢剧情", ac:"▶ 继续看下去",
-  e3:"📖 生词，当场解决", h3:"双击查词义，一键存入生词本。", s3:"设备端翻译即时显示词义，并以该场景的台词作例句，播放自动暂停。想了解更多？点“询问 AI”。点一下即可存入生词本。",
+  
   kb:"双击", c_phrase:"outrun", c_ask:"询问 AI", c_save:"★ 已保存", c_meaning:"跑得比…快；甩开",
   v_title:"生词本", v_count:"已保存: 3", v_search:"搜索", v_lang:"英语",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"潮水，潮汐", v2_e:"The tide is coming in.", v2_t:"潮水正在上涨。",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"（成功）做成，办到", v3_e:"She pulled off a win.", v3_t:"她成功赢得了比赛。",
-  e4:"🌐 任意组合", h4:"英语×中文，日语×中文，随你搭配。", s4:"从影片自带的字幕中，为上行和下行各选一种语言 —— 按下播放即自动检测。",
   e5:"⚡ 30 秒就绪", h5:"安装，播放，完成。", s5:"无需账号，完全免费。字幕不会离开浏览器，词语也在设备上翻译 —— 只有点“询问 AI”时才会发送该词语。",
   st1:"添加至 Chrome", st2:"在五个平台任一播放", st3:"选择两种语言", addbtn:"添加至 Chrome", pu_top:"上行", pu_bottom:"下行",
-  p1:"🚫 无需账号、不追踪", p2:"📺 5 个流媒体平台", p3:"🎨 屏幕上拖动、缩放、改色", p4:"☁️ 按网站保存并同步", p5:"🌏 20 种显示语言任选",
-  fb_badge:"🎬 免费 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"两种语言，<br><em>同一屏幕。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的双语字幕。双击查词义，一键存入生词本。",
-  fbp1:"📺 5 个流媒体平台", fbp2:"🌐 任选两种语言", fbp3:"📖 双击查词", fbp4:"🖱️ 屏幕上调整"
-},
+  p1:"🚫 无需账号、不追踪", p3:"🎨 屏幕上拖动、缩放、改色", p4:"☁️ 按网站保存并同步", p5:"🌏 20 种显示语言任选",
+  fb_badge:"🎬 免费 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"两种语言，<br><em>同一屏幕。</em>", 
+  fbp1:"📺 5 个流媒体平台", fbp2:"🌐 任选两种语言", fbp3:"📖 双击查词", },
 "zh-TW": {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 不再漏聽一句", h2:"沒聽清楚？再播一次。", s2:"按 S 重播這一句，A 和 D 前後跳句，Q 每句後自動暫停。按 W 在影片旁查看全部台詞。", e3:"📖 生字，當場解決", h3:"不認識的字？雙擊它。", s3:"播放自動暫停，裝置端翻譯立即顯示字義，並以該場景的台詞作例句。想了解更多？詢問 AI。", e4:"🧠 記得更牢", h4:"儲存的單字，會回來讓你複習。", s4:"每個單字都保留它出現的台詞。用字卡複習——記得越牢，間隔越長。", p2:"🌐 任選兩種字幕語言", p6:"🙈 模糊一行，自我測驗", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的雙語字幕。一鍵重播台詞，雙擊查字義。", fbp4:"🎧 一鍵重播", r1b:"你去哪裡了？", r2b:"我到處找你。", r4b:"那我們跑吧。", r5b:"這邊，快！", r6b:"要是被他們發現怎麼辦？", toast:"每句後暫停：開", hint_keys:"A: 上一句 / S: 重複本句 / D: 下一句 / Q: 每句後暫停 / W: 字幕列表", tr_title:"字幕列表", tr_auto:"每句後暫停", rv_start:"複習", rv_left:"剩餘：3", rv_back:"返回列表", rv_forgot:"忘了", rv_good:"記得", rv_easy:"簡單", rv_hint:"空白鍵：顯示答案 / 1：忘了 / 2：記得 / 3：簡單 / Esc：返回",
   e1:"🎬 免費 Chrome 擴充功能", h1:"兩種語言，同一畫面。", s1:"你愛看的劇，就是最好的語言課 —— 上排原文，下排母語。",
   title:"The Long Way Home", ep:"第 1 季 第 3 集",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"這一刻，我等了一輩子。",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"別回頭，我們快到了。",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"你跑不過潮水。",
-  e2:"🎯 再也不漏掉一句", h2:"不暫停。不倒帶。不切換。", s2:"沒聽清楚？瞄一眼下排，繼續看 —— 劇情不會中斷。",
-  bl:"以前", al:"有了 SubDuo", bc1:"⏸ 暫停", bc2:"⟲ 倒帶 10 秒", bc3:"🔁 切換字幕", bc4:"😩 跟丟劇情", ac:"▶ 繼續看下去",
-  e3:"📖 生字，當場解決", h3:"雙擊查字義，一鍵存入單字本。", s3:"裝置端翻譯即時顯示字義，並以該場景的台詞作例句，播放自動暫停。想了解更多？按「詢問 AI」。點一下即可存入單字本。",
+  
   kb:"雙擊", c_phrase:"outrun", c_ask:"詢問 AI", c_save:"★ 已儲存", c_meaning:"跑得比…快；甩開",
   v_title:"單字本", v_count:"已儲存: 3", v_search:"搜尋", v_lang:"英文",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"潮水，潮汐", v2_e:"The tide is coming in.", v2_t:"潮水正在上漲。",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"（成功）辦到，做成", v3_e:"She pulled off a win.", v3_t:"她成功贏得了比賽。",
-  e4:"🌐 任意組合", h4:"英文×中文，日文×中文，隨你搭配。", s4:"從影片內建的字幕中，為上排與下排各選一種語言 —— 按下播放即自動偵測。",
   e5:"⚡ 30 秒就緒", h5:"安裝，播放，完成。", s5:"不需帳號，完全免費。字幕不會離開瀏覽器，字詞也在裝置上翻譯 —— 只有按「詢問 AI」時才會傳送該字詞。",
   st1:"加到 Chrome", st2:"在五個平台任一播放", st3:"選擇兩種語言", addbtn:"加到 Chrome", pu_top:"上排", pu_bottom:"下排",
-  p1:"🚫 不需帳號、不追蹤", p2:"📺 5 個串流平台", p3:"🎨 畫面上拖曳、縮放、改色", p4:"☁️ 依網站保存並同步", p5:"🌏 20 種顯示語言任選",
-  fb_badge:"🎬 免費 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"兩種語言，<br><em>同一畫面。</em>", fb_sub:"Prime Video、YouTube、Netflix、Disney+、TED 的雙語字幕。雙擊查字義，一鍵存入單字本。",
-  fbp1:"📺 5 個串流平台", fbp2:"🌐 任選兩種語言", fbp3:"📖 雙擊查字", fbp4:"🖱️ 畫面上調整"
-},
+  p1:"🚫 不需帳號、不追蹤", p3:"🎨 畫面上拖曳、縮放、改色", p4:"☁️ 依網站保存並同步", p5:"🌏 20 種顯示語言任選",
+  fb_badge:"🎬 免費 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"兩種語言，<br><em>同一畫面。</em>", 
+  fbp1:"📺 5 個串流平台", fbp2:"🌐 任選兩種語言", fbp3:"📖 雙擊查字", },
 ko: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 한 줄도 놓치지 않게", h2:"놓친 대사? 다시 들으세요.", s2:"S로 그 줄을 다시, A와 D로 앞뒤 줄로, Q로 줄마다 자동 정지. W로 전체 대사를 영상 옆에서 보세요.", e3:"📖 모르는 단어는 그 자리에서", h3:"모르는 단어? 더블클릭하세요.", s3:"재생이 멈추고 기기 내 번역으로 뜻이 바로 나옵니다. 그 장면의 대사가 예문이 됩니다. 더 알고 싶다면 AI에게 묻기.", e4:"🧠 오래 기억하도록", h4:"저장한 단어는 복습으로 돌아옵니다.", s4:"단어마다 나온 대사도 함께 저장. 플래시카드로 복습하고, 잘 아는 단어일수록 더 늦게 다시 나옵니다.", p2:"🌐 원하는 두 자막 언어", p6:"🙈 한 줄을 흐리게 해 실력 확인", fb_sub:"Prime Video·YouTube·Netflix·Disney+·TED 이중 자막. 키 하나로 대사를 다시 듣고, 더블클릭으로 단어 뜻을 보세요.", fbp4:"🎧 키 하나로 다시 듣기", r1b:"어디 있었어?", r2b:"사방으로 찾아다녔어.", r4b:"그럼 달리자.", r5b:"이쪽이야, 서둘러!", r6b:"우릴 찾아내면 어떡해?", toast:"줄마다 멈춤: 켜짐", hint_keys:"A: 이전 줄 / S: 다시 듣기 / D: 다음 줄 / Q: 줄마다 멈춤 / W: 자막 목록", tr_title:"자막 목록", tr_auto:"줄마다 멈춤", rv_start:"복습", rv_left:"남은 카드: 3", rv_back:"목록으로", rv_forgot:"잊어버림", rv_good:"기억함", rv_easy:"쉬움", rv_hint:"Space: 정답 보기 / 1: 잊어버림 / 2: 기억함 / 3: 쉬움 / Esc: 돌아가기",
   e1:"🎬 무료 Chrome 확장 프로그램", h1:"두 언어를 한 화면에.", s1:"좋아하는 작품이 최고의 어학 교재로 — 위에는 원어, 아래에는 내 언어.",
   title:"The Long Way Home", ep:"시즌 1, 3화",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"이 순간을 평생 기다려 왔어.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"돌아보지 마. 거의 다 왔어.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"밀물보다 빨리 달릴 순 없어.",
-  e2:"🎯 한 줄도 놓치지 않게", h2:"멈추지 않고. 되감지 않고. 바꾸지 않고.", s2:"못 알아들었나요? 아래 줄을 슬쩍 보고 계속 보세요 — 이야기는 멈추지 않습니다.",
-  bl:"지금까지", al:"SubDuo라면", bc1:"⏸ 멈춤", bc2:"⟲ 10초 되감기", bc3:"🔁 자막 전환", bc4:"😩 줄거리 놓침", ac:"▶ 그대로 계속 보기",
-  e3:"📖 모르는 단어는 그 자리에서", h3:"더블클릭으로 뜻을 보고, 단어장에 담기.", s3:"기기 내 번역으로 뜻을 바로 보여 주고, 그 장면의 대사를 예문으로. 재생은 자동으로 멈춥니다. 더 알고 싶다면 'AI에게 묻기', 한 번 눌러 단어장에 저장하세요.",
+  
   kb:"더블클릭", c_phrase:"outrun", c_ask:"AI에게 묻기", c_save:"★ 저장됨", c_meaning:"…보다 빨리 달리다, 따돌리다",
   v_title:"단어장", v_count:"저장됨: 3", v_search:"검색", v_lang:"영어",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"조수, 밀물과 썰물", v2_e:"The tide is coming in.", v2_t:"밀물이 들어오고 있다.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"(어려운 일을) 해내다", v3_e:"She pulled off a win.", v3_t:"그녀는 승리를 따냈다.",
-  e4:"🌐 조합은 자유", h4:"영어×한국어도, 일본어×한국어도.", s4:"작품에 있는 자막 중 위와 아래에 원하는 언어를 하나씩 — 재생하면 자동으로 감지합니다.",
   e5:"⚡ 준비는 30초", h5:"설치하고, 재생하면 끝.", s5:"계정 불필요, 완전 무료. 자막은 브라우저 밖으로 나가지 않고 단어도 기기에서 번역합니다 — 'AI에게 묻기'를 누를 때만 그 단어가 전송됩니다.",
   st1:"Chrome에 추가", st2:"다섯 서비스 중 아무거나 재생", st3:"언어 두 개 선택", addbtn:"Chrome에 추가", pu_top:"위", pu_bottom:"아래",
-  p1:"🚫 계정 불필요 · 추적 없음", p2:"📺 5개 스트리밍 서비스", p3:"🎨 화면에서 드래그·크기·색상", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 표시 언어 20개 중 선택",
-  fb_badge:"🎬 무료 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"두 언어를<br><em>한 화면에.</em>", fb_sub:"Prime Video·YouTube·Netflix·Disney+·TED 이중 자막. 더블클릭으로 단어 뜻을 보고 단어장에 저장.",
-  fbp1:"📺 5개 스트리밍 서비스", fbp2:"🌐 원하는 두 언어", fbp3:"📖 더블클릭으로 단어 뜻", fbp4:"🖱️ 화면에서 조절"
-},
+  p1:"🚫 계정 불필요 · 추적 없음", p3:"🎨 화면에서 드래그·크기·색상", p4:"☁️ 사이트별 설정 · 동기화", p5:"🌏 표시 언어 20개 중 선택",
+  fb_badge:"🎬 무료 · Prime Video / YouTube / Netflix / Disney+ / TED", fb_title:"두 언어를<br><em>한 화면에.</em>", 
+  fbp1:"📺 5개 스트리밍 서비스", fbp2:"🌐 원하는 두 언어", fbp3:"📖 더블클릭으로 단어 뜻", },
 es: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 NO TE PIERDAS NI UNA FRASE", h2:"¿Se te escapó una frase? Vuelve a oírla.", s2:"S repite la frase, A y D van a la anterior y a la siguiente, Q pausa tras cada frase. Pulsa W para leer todo el guion junto al vídeo.", e3:"📖 TOCA UNA PALABRA Y APRÉNDELA", h3:"¿No conoces una palabra? Doble clic.", s3:"El vídeo se pausa y el significado aparece al instante, traducido en tu dispositivo, con la frase de la escena como ejemplo. ¿Quieres más? Pregunta a la IA.", e4:"🧠 QUE SE TE QUEDE", h4:"Las palabras guardadas vuelven para repasar.", s4:"Cada palabra conserva la frase de donde salió. Las tarjetas la traen de vuelta: cuanto mejor la sabes, más tarda en volver.", p2:"🌐 Dos idiomas de subtítulos a elegir", p6:"🙈 Difumina una línea para ponerte a prueba", fb_sub:"Subtítulos dobles en cinco servicios. Repite cualquier frase con una tecla y haz doble clic en una palabra para ver su significado.", fbp4:"🎧 Repite cualquier frase", r1b:"¿Dónde estabas?", r2b:"Te busqué por todas partes.", r4b:"Entonces, corramos.", r5b:"¡Por aquí, rápido!", r6b:"¿Y si nos encuentran?", toast:"Pausar tras cada línea: activado", hint_keys:"A: Línea anterior / S: Repetir línea / D: Línea siguiente / Q: Pausar tras cada línea / W: Transcripción", tr_title:"Transcripción", tr_auto:"Pausar tras cada línea", rv_start:"Repasar", rv_left:"Quedan: 3", rv_back:"Volver a la lista", rv_forgot:"La olvidé", rv_good:"La sabía", rv_easy:"Fácil", rv_hint:"Espacio: ver respuesta / 1: la olvidé / 2: la sabía / 3: fácil / Esc: volver",
   e1:"🎬 EXTENSIÓN GRATUITA DE CHROME", h1:"Dos idiomas. Una pantalla.", s1:"Tus series favoritas, tu mejor clase de idiomas: el original arriba, el tuyo abajo.",
   title:"The Long Way Home", ep:"Temporada 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Llevo toda la vida esperando este momento.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"No mires atrás. Ya casi llegamos.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"No puedes escapar de la marea.",
-  e2:"🎯 NO TE PIERDAS NI UNA FRASE", h2:"Sin pausar. Sin rebobinar. Sin cambiar.", s2:"¿No lo pillaste? Mira la segunda línea y sigue viendo: la historia no se detiene.",
-  bl:"ANTES", al:"CON SUBDUO", bc1:"⏸ Pausar", bc2:"⟲ Atrás 10 s", bc3:"🔁 Cambiar subtítulos", bc4:"😩 Perder el hilo", ac:"▶ Seguir viendo",
-  e3:"📖 UNA PALABRA, AL INSTANTE", h3:"Doble clic en una palabra. Su significado. Guárdala.", s3:"Traducción al instante en tu dispositivo, con la frase de la escena como ejemplo; la reproducción se pausa sola. ¿Quieres más? Pregunta a la IA. Un clic y queda en tu vocabulario.",
+  
   kb:"Doble clic", c_phrase:"outrun", c_ask:"Preguntar a la IA", c_save:"★ Guardado", c_meaning:"correr más rápido que; escapar de",
   v_title:"Vocabulario", v_count:"Guardadas: 3", v_search:"Buscar", v_lang:"Inglés",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"marea", v2_e:"The tide is coming in.", v2_t:"La marea está subiendo.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"lograr, conseguir (algo difícil)", v3_e:"She pulled off a win.", v3_t:"Ella logró la victoria.",
-  e4:"🌐 LA PAREJA QUE QUIERAS", h4:"Inglés × español. Francés × español. Tú decides.", s4:"Elige dos de los idiomas de subtítulos que ofrece el título: se detectan solos al pulsar reproducir.",
   e5:"⚡ LISTO EN 30 SEGUNDOS", h5:"Instala. Reproduce. Listo.", s5:"Sin cuenta, totalmente gratis. Los subtítulos no salen de tu navegador y las palabras se traducen en tu dispositivo: solo se envía una palabra si pulsas «Preguntar a la IA».",
   st1:"Añadir a Chrome", st2:"Reproduce en cualquiera de los cinco", st3:"Elegir dos idiomas", addbtn:"Añadir a Chrome", pu_top:"Arriba", pu_bottom:"Abajo",
-  p1:"🚫 Sin cuenta ni rastreo", p2:"📺 5 servicios de streaming", p3:"🎨 Mueve, redimensiona y colorea en pantalla", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 20 idiomas de interfaz a elegir",
-  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ y TED", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", fb_sub:"Subtítulos dobles en cinco servicios de streaming. Doble clic en cualquier palabra y guárdala en tu vocabulario.",
-  fbp1:"📺 5 servicios", fbp2:"🌐 Dos idiomas cualesquiera", fbp3:"📖 Doble clic para consultar", fbp4:"🖱️ Ajuste en pantalla"
-},
+  p1:"🚫 Sin cuenta ni rastreo", p3:"🎨 Mueve, redimensiona y colorea en pantalla", p4:"☁️ Ajustes por sitio, sincronizados", p5:"🌏 20 idiomas de interfaz a elegir",
+  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ y TED", fb_title:"Dos idiomas.<br><em>Una pantalla.</em>", 
+  fbp1:"📺 5 servicios", fbp2:"🌐 Dos idiomas cualesquiera", fbp3:"📖 Doble clic para consultar", },
 fr: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 NE RATEZ PLUS UNE RÉPLIQUE", h2:"Une réplique ratée ? Réécoutez-la.", s2:"S rejoue la réplique, A et D passent à la précédente ou à la suivante, Q met en pause après chaque réplique. W affiche tout le texte à côté de la vidéo.", e3:"📖 UN MOT, UN CLIC", h3:"Un mot inconnu ? Double-cliquez.", s3:"La vidéo se met en pause et le sens s'affiche aussitôt, traduit sur votre appareil, avec la réplique de la scène en exemple. Envie d'en savoir plus ? Demandez à l'IA.", e4:"🧠 POUR QUE ÇA RESTE", h4:"Les mots enregistrés reviennent en révision.", s4:"Chaque mot garde la réplique d'où il vient. Les cartes le font revenir : mieux vous le connaissez, plus il attend.", p2:"🌐 Deux langues de sous-titres au choix", p6:"🙈 Floutez une ligne pour vous tester", fb_sub:"Sous-titres doubles sur cinq services. Réécoutez une réplique d'une touche, double-cliquez sur un mot pour son sens.", fbp4:"🎧 Réécoute d'une touche", r1b:"Où étais-tu ?", r2b:"Je t'ai cherché partout.", r4b:"Alors, courons.", r5b:"Par ici, vite !", r6b:"Et s'ils nous trouvent ?", toast:"Pause après chaque ligne : activée", hint_keys:"A: Ligne précédente / S: Répéter la ligne / D: Ligne suivante / Q: Pause après chaque ligne / W: Transcription", tr_title:"Transcription", tr_auto:"Pause après chaque ligne", rv_start:"Réviser", rv_left:"Restantes : 3", rv_back:"Retour à la liste", rv_forgot:"Oublié", rv_good:"Je savais", rv_easy:"Facile", rv_hint:"Espace : voir la réponse / 1 : oublié / 2 : je savais / 3 : facile / Échap : retour",
   e1:"🎬 EXTENSION CHROME GRATUITE", h1:"Deux langues. Un seul écran.", s1:"Vos séries préférées deviennent votre meilleur cours de langue : l'original en haut, la vôtre en bas.",
   title:"The Long Way Home", ep:"Saison 1, ép. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"J'ai attendu ce moment toute ma vie.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Ne te retourne pas. On y est presque.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"On ne peut pas fuir la marée.",
-  e2:"🎯 NE RATEZ PLUS UNE RÉPLIQUE", h2:"Sans pause. Sans retour. Sans changement.", s2:"Pas compris ? Un coup d'œil à la seconde ligne et vous continuez : l'histoire ne s'arrête jamais.",
-  bl:"AVANT", al:"AVEC SUBDUO", bc1:"⏸ Pause", bc2:"⟲ Retour 10 s", bc3:"🔁 Changer de sous-titres", bc4:"😩 Perdre le fil", ac:"▶ Continuer à regarder",
-  e3:"📖 UN MOT ? RÉPONSE IMMÉDIATE", h3:"Double-clic sur un mot. Son sens. Gardez-le.", s3:"Traduction instantanée sur votre appareil, avec la réplique de la scène comme exemple ; la lecture se met en pause. Envie d'en savoir plus ? Demandez à l'IA. Un clic et le mot rejoint votre vocabulaire.",
+  
   kb:"Double-clic", c_phrase:"outrun", c_ask:"Demander à l’IA", c_save:"★ Enregistré", c_meaning:"distancer, échapper à",
   v_title:"Vocabulaire", v_count:"Enregistrés : 3", v_search:"Rechercher", v_lang:"Anglais",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"marée", v2_e:"The tide is coming in.", v2_t:"La marée monte.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"réussir (un coup difficile)", v3_e:"She pulled off a win.", v3_t:"Elle a décroché la victoire.",
-  e4:"🌐 LA PAIRE DE VOTRE CHOIX", h4:"Anglais × français. Espagnol × français. À vous de voir.", s4:"Choisissez deux des langues de sous-titres du titre : détectées automatiquement dès la lecture.",
   e5:"⚡ PRÊT EN 30 SECONDES", h5:"Installez. Lancez. C'est tout.", s5:"Sans compte, entièrement gratuit. Les sous-titres ne quittent pas votre navigateur et les mots sont traduits sur votre appareil : un mot n'est envoyé que si vous touchez « Demander à l’IA ».",
   st1:"Ajouter à Chrome", st2:"Lancez sur l'un des cinq", st3:"Choisir deux langues", addbtn:"Ajouter à Chrome", pu_top:"Haut", pu_bottom:"Bas",
-  p1:"🚫 Sans compte ni suivi", p2:"📺 5 services de streaming", p3:"🎨 Déplacez, redimensionnez, colorez à l'écran", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 20 langues d'affichage au choix",
-  fb_badge:"🎬 Gratuit · Prime Video, YouTube, Netflix, Disney+ et TED", fb_title:"Deux langues.<br><em>Un seul écran.</em>", fb_sub:"Double sous-titres sur cinq services de streaming. Double-clic sur un mot pour son sens, puis dans votre vocabulaire.",
-  fbp1:"📺 5 services", fbp2:"🌐 Deux langues au choix", fbp3:"📖 Double-clic pour chercher", fbp4:"🖱️ Réglage à l'écran"
-},
+  p1:"🚫 Sans compte ni suivi", p3:"🎨 Déplacez, redimensionnez, colorez à l'écran", p4:"☁️ Réglages par site, synchronisés", p5:"🌏 20 langues d'affichage au choix",
+  fb_badge:"🎬 Gratuit · Prime Video, YouTube, Netflix, Disney+ et TED", fb_title:"Deux langues.<br><em>Un seul écran.</em>", 
+  fbp1:"📺 5 services", fbp2:"🌐 Deux langues au choix", fbp3:"📖 Double-clic pour chercher", },
 de: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 KEINEN SATZ MEHR VERPASSEN", h2:"Satz verpasst? Einfach nochmal hören.", s2:"S wiederholt die Zeile, A und D springen zur vorigen oder nächsten, Q pausiert nach jeder Zeile. Mit W liest du das ganze Skript neben dem Video.", e3:"📖 WORT ANKLICKEN, WORT LERNEN", h3:"Wort unbekannt? Doppelklick.", s3:"Das Video pausiert und die Bedeutung erscheint sofort – auf deinem Gerät übersetzt, mit der Zeile aus der Szene als Beispiel. Mehr wissen? Frag die KI.", e4:"🧠 DAMIT ES HÄNGEN BLEIBT", h4:"Gespeicherte Wörter kommen zum Wiederholen zurück.", s4:"Jedes Wort behält die Zeile, aus der es stammt. Karteikarten bringen es zurück – je besser du es kannst, desto später.", p2:"🌐 Zwei Untertitelsprachen nach Wahl", p6:"🙈 Zeile verwischen und dich selbst testen", fb_sub:"Doppelte Untertitel auf fünf Diensten. Jede Zeile per Taste wiederholen, Wörter per Doppelklick nachschlagen.", fbp4:"🎧 Zeile per Taste wiederholen", r1b:"Wo warst du?", r2b:"Ich habe dich überall gesucht.", r4b:"Dann lass uns rennen.", r5b:"Hier entlang, schnell!", r6b:"Und wenn sie uns finden?", toast:"Nach jeder Zeile anhalten: an", hint_keys:"A: Vorherige Zeile / S: Zeile wiederholen / D: Nächste Zeile / Q: Nach jeder Zeile anhalten / W: Transkript", tr_title:"Transkript", tr_auto:"Nach jeder Zeile anhalten", rv_start:"Wiederholen", rv_left:"Übrig: 3", rv_back:"Zurück zur Liste", rv_forgot:"Vergessen", rv_good:"Gewusst", rv_easy:"Leicht", rv_hint:"Leertaste: Antwort zeigen / 1: vergessen / 2: gewusst / 3: leicht / Esc: zurück",
   e1:"🎬 KOSTENLOSE CHROME-ERWEITERUNG", h1:"Zwei Sprachen. Ein Bildschirm.", s1:"Deine Lieblingsserien werden zum besten Sprachkurs – Original oben, deine Sprache unten.",
   title:"The Long Way Home", ep:"Staffel 1, Folge 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Auf diesen Moment habe ich mein ganzes Leben gewartet.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Schau nicht zurück. Wir sind fast da.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"Der Flut läuft man nicht davon.",
-  e2:"🎯 KEINE ZEILE MEHR VERPASSEN", h2:"Kein Pausieren. Kein Zurückspulen. Kein Umschalten.", s2:"Nicht verstanden? Ein Blick auf die zweite Zeile, und du schaust weiter – die Geschichte läuft.",
-  bl:"VORHER", al:"MIT SUBDUO", bc1:"⏸ Pause", bc2:"⟲ 10 s zurück", bc3:"🔁 Untertitel wechseln", bc4:"😩 Den Faden verlieren", ac:"▶ Einfach weiterschauen",
-  e3:"📖 WORT ANTIPPEN, VERSTEHEN", h3:"Doppelklick auf ein Wort. Bedeutung. Merken.", s3:"Sofortige Übersetzung auf deinem Gerät, mit der Zeile aus der Szene als Beispiel – die Wiedergabe pausiert von selbst. Mehr wissen? KI fragen. Ein Klick speichert es in deinen Vokabeln.",
+  
   kb:"Doppelklick", c_phrase:"outrun", c_ask:"KI fragen", c_save:"★ Gespeichert", c_meaning:"davonlaufen, entkommen",
   v_title:"Vokabeln", v_count:"Gespeichert: 3", v_search:"Suchen", v_lang:"Englisch",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"Gezeiten, Flut", v2_e:"The tide is coming in.", v2_t:"Die Flut kommt.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"(etwas Schwieriges) schaffen", v3_e:"She pulled off a win.", v3_t:"Sie hat den Sieg geschafft.",
-  e4:"🌐 JEDES PAAR, DAS DU WILLST", h4:"Englisch × Deutsch. Spanisch × Deutsch. Du entscheidest.", s4:"Wähle zwei der Untertitelsprachen des Titels – automatisch erkannt, sobald du auf Play drückst.",
   e5:"⚡ IN 30 SEKUNDEN STARTKLAR", h5:"Installieren. Abspielen. Fertig.", s5:"Kein Konto, komplett kostenlos. Untertitel verlassen deinen Browser nicht, Wörter werden auf deinem Gerät übersetzt – ein Wort wird nur gesendet, wenn du „KI fragen“ tippst.",
   st1:"Zu Chrome hinzufügen", st2:"Auf einem der fünf abspielen", st3:"Zwei Sprachen wählen", addbtn:"Hinzufügen", pu_top:"Oben", pu_bottom:"Unten",
-  p1:"🚫 Kein Konto, kein Tracking", p2:"📺 5 Streaming-Dienste", p3:"🎨 Verschieben, skalieren, färben – auf dem Bild", p4:"☁️ Einstellungen pro Seite", p5:"🌏 20 Anzeigesprachen zur Wahl",
-  fb_badge:"🎬 Kostenlos · Prime Video, YouTube, Netflix, Disney+ &amp; TED", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", fb_sub:"Doppelte Untertitel auf fünf Streaming-Diensten. Doppelklick auf ein Wort zeigt die Bedeutung, ein Klick speichert es.",
-  fbp1:"📺 5 Dienste", fbp2:"🌐 Zwei beliebige Sprachen", fbp3:"📖 Doppelklick zum Nachschlagen", fbp4:"🖱️ Auf dem Bild anpassen"
-},
+  p1:"🚫 Kein Konto, kein Tracking", p3:"🎨 Verschieben, skalieren, färben – auf dem Bild", p4:"☁️ Einstellungen pro Seite", p5:"🌏 20 Anzeigesprachen zur Wahl",
+  fb_badge:"🎬 Kostenlos · Prime Video, YouTube, Netflix, Disney+ &amp; TED", fb_title:"Zwei Sprachen.<br><em>Ein Bildschirm.</em>", 
+  fbp1:"📺 5 Dienste", fbp2:"🌐 Zwei beliebige Sprachen", fbp3:"📖 Doppelklick zum Nachschlagen", },
 it: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 NON PERDERE NEMMENO UNA BATTUTA", h2:"Ti sei perso una battuta? Riascoltala.", s2:"S ripete la battuta, A e D vanno alla precedente e alla successiva, Q mette in pausa dopo ogni battuta. Con W leggi tutto il copione accanto al video.", e3:"📖 TOCCA UNA PAROLA, IMPARALA", h3:"Una parola sconosciuta? Doppio clic.", s3:"Il video si mette in pausa e il significato appare subito, tradotto sul tuo dispositivo, con la battuta della scena come esempio. Vuoi saperne di più? Chiedi all'IA.", e4:"🧠 PER NON DIMENTICARE", h4:"Le parole salvate tornano per il ripasso.", s4:"Ogni parola conserva la battuta da cui viene. Le flashcard la riportano: più la conosci, più a lungo aspetta.", p2:"🌐 Due lingue di sottotitoli a scelta", p6:"🙈 Sfoca una riga per metterti alla prova", fb_sub:"Sottotitoli doppi su cinque servizi. Riascolta ogni battuta con un tasto, doppio clic su una parola per il significato.", fbp4:"🎧 Riascolta con un tasto", r1b:"Dov'eri?", r2b:"Ti ho cercato dappertutto.", r4b:"Allora corriamo.", r5b:"Di qua, presto!", r6b:"E se ci trovano?", toast:"Pausa dopo ogni riga: attiva", hint_keys:"A: Riga precedente / S: Ripeti la riga / D: Riga successiva / Q: Pausa dopo ogni riga / W: Trascrizione", tr_title:"Trascrizione", tr_auto:"Pausa dopo ogni riga", rv_start:"Ripassa", rv_left:"Rimanenti: 3", rv_back:"Torna all’elenco", rv_forgot:"Dimenticata", rv_good:"Ricordata", rv_easy:"Facile", rv_hint:"Spazio: mostra la risposta / 1: dimenticata / 2: ricordata / 3: facile / Esc: indietro",
   e1:"🎬 ESTENSIONE CHROME GRATUITA", h1:"Due lingue. Uno schermo.", s1:"Le tue serie preferite diventano la tua miglior lezione di lingua: l'originale sopra, la tua sotto.",
   title:"The Long Way Home", ep:"Stagione 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Ho aspettato questo momento tutta la vita.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Non voltarti. Ci siamo quasi.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"Non puoi sfuggire alla marea.",
-  e2:"🎯 NON PERDERE PIÙ UNA BATTUTA", h2:"Niente pause. Niente riavvolgimenti. Niente cambi.", s2:"Non l'hai capita? Un'occhiata alla seconda riga e continui a guardare: la storia non si ferma.",
-  bl:"PRIMA", al:"CON SUBDUO", bc1:"⏸ Pausa", bc2:"⟲ Indietro 10 s", bc3:"🔁 Cambia sottotitoli", bc4:"😩 Perdi il filo", ac:"▶ Continua a guardare",
-  e3:"📖 UNA PAROLA, SUBITO CHIARA", h3:"Doppio clic su una parola. Il significato. Tienila.", s3:"Traduzione istantanea sul tuo dispositivo, con la battuta della scena come esempio: la riproduzione si mette in pausa. Vuoi saperne di più? Chiedi all'IA. Un clic e finisce nel tuo vocabolario.",
+  
   kb:"Doppio clic", c_phrase:"outrun", c_ask:"Chiedi all’IA", c_save:"★ Salvato", c_meaning:"correre più veloce di, sfuggire a",
   v_title:"Vocabolario", v_count:"Salvate: 3", v_search:"Cerca", v_lang:"Inglese",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"marea", v2_e:"The tide is coming in.", v2_t:"La marea sta salendo.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"riuscire in (qualcosa di difficile)", v3_e:"She pulled off a win.", v3_t:"Ha strappato la vittoria.",
-  e4:"🌐 LA COPPIA CHE VUOI", h4:"Inglese × italiano. Spagnolo × italiano. Decidi tu.", s4:"Scegli due delle lingue dei sottotitoli del titolo: rilevate in automatico appena premi play.",
   e5:"⚡ PRONTO IN 30 SECONDI", h5:"Installa. Riproduci. Fatto.", s5:"Nessun account, completamente gratis. I sottotitoli non lasciano il browser e le parole si traducono sul dispositivo: una parola viene inviata solo se tocchi «Chiedi all’IA».",
   st1:"Aggiungi a Chrome", st2:"Riproduci su uno dei cinque", st3:"Scegli due lingue", addbtn:"Aggiungi a Chrome", pu_top:"Sopra", pu_bottom:"Sotto",
-  p1:"🚫 Nessun account, nessun tracciamento", p2:"📺 5 servizi di streaming", p3:"🎨 Sposta, ridimensiona, colora sullo schermo", p4:"☁️ Impostazioni per sito", p5:"🌏 20 lingue di visualizzazione a scelta",
-  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Due lingue.<br><em>Uno schermo.</em>", fb_sub:"Doppi sottotitoli su cinque servizi di streaming. Doppio clic su una parola per il significato, poi nel tuo vocabolario.",
-  fbp1:"📺 5 servizi", fbp2:"🌐 Due lingue qualsiasi", fbp3:"📖 Doppio clic per cercare", fbp4:"🖱️ Regola sullo schermo"
-},
+  p1:"🚫 Nessun account, nessun tracciamento", p3:"🎨 Sposta, ridimensiona, colora sullo schermo", p4:"☁️ Impostazioni per sito", p5:"🌏 20 lingue di visualizzazione a scelta",
+  fb_badge:"🎬 Gratis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Due lingue.<br><em>Uno schermo.</em>", 
+  fbp1:"📺 5 servizi", fbp2:"🌐 Due lingue qualsiasi", fbp3:"📖 Doppio clic per cercare", },
 pt: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 NÃO PERCA NENHUMA FALA", h2:"Perdeu uma fala? Ouça de novo.", s2:"S repete a fala, A e D vão para a anterior e a próxima, Q pausa após cada fala. Aperte W para ler o roteiro inteiro ao lado do vídeo.", e3:"📖 TOQUE NUMA PALAVRA E APRENDA", h3:"Não conhece uma palavra? Clique duas vezes.", s3:"O vídeo pausa e o significado aparece na hora, traduzido no seu dispositivo, com a fala da cena como exemplo. Quer saber mais? Pergunte à IA.", e4:"🧠 PARA FIXAR DE VEZ", h4:"As palavras salvas voltam para revisão.", s4:"Cada palavra guarda a fala de onde veio. Os flashcards a trazem de volta — quanto melhor você a conhece, mais tempo ela espera.", p2:"🌐 Dois idiomas de legenda à escolha", p6:"🙈 Desfoque uma linha para se testar", fb_sub:"Legendas duplas em cinco serviços. Repita qualquer fala com uma tecla e clique duas vezes numa palavra para ver o significado.", fbp4:"🎧 Repita qualquer fala", r1b:"Onde você estava?", r2b:"Procurei você por toda parte.", r4b:"Então vamos correr.", r5b:"Por aqui, rápido!", r6b:"E se eles nos encontrarem?", toast:"Pausar após cada linha: ativado", hint_keys:"A: Linha anterior / S: Repetir linha / D: Próxima linha / Q: Pausar após cada linha / W: Transcrição", tr_title:"Transcrição", tr_auto:"Pausar após cada linha", rv_start:"Revisar", rv_left:"Restantes: 3", rv_back:"Voltar à lista", rv_forgot:"Esqueci", rv_good:"Lembrei", rv_easy:"Fácil", rv_hint:"Espaço: ver resposta / 1: esqueci / 2: lembrei / 3: fácil / Esc: voltar",
   e1:"🎬 EXTENSÃO GRATUITA DO CHROME", h1:"Dois idiomas. Uma tela.", s1:"Suas séries favoritas viram a melhor aula de idiomas: o original em cima, o seu embaixo.",
   title:"The Long Way Home", ep:"Temporada 1, ep. 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Esperei por este momento a vida inteira.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Não olhe para trás. Estamos quase lá.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"Não dá para fugir da maré.",
-  e2:"🎯 NUNCA MAIS PERCA UMA FALA", h2:"Sem pausar. Sem voltar. Sem trocar.", s2:"Não pegou? Dê uma olhada na segunda linha e continue assistindo — a história não para.",
-  bl:"ANTES", al:"COM O SUBDUO", bc1:"⏸ Pausar", bc2:"⟲ Voltar 10 s", bc3:"🔁 Trocar legenda", bc4:"😩 Perder o fio", ac:"▶ Continuar assistindo",
-  e3:"📖 UMA PALAVRA, NA HORA", h3:"Clique duplo numa palavra. O significado. Guarde.", s3:"Tradução instantânea no seu dispositivo, com a fala da cena como exemplo — a reprodução pausa sozinha. Quer saber mais? Pergunte à IA. Um clique e a palavra vai para o seu vocabulário.",
+  
   kb:"Clique duplo", c_phrase:"outrun", c_ask:"Perguntar à IA", c_save:"★ Salvo", c_meaning:"correr mais rápido que; escapar de",
   v_title:"Vocabulário", v_count:"Salvas: 3", v_search:"Pesquisar", v_lang:"Inglês",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"maré", v2_e:"The tide is coming in.", v2_t:"A maré está subindo.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"conseguir (algo difícil)", v3_e:"She pulled off a win.", v3_t:"Ela conseguiu a vitória.",
-  e4:"🌐 O PAR QUE VOCÊ QUISER", h4:"Inglês × português. Espanhol × português. Você escolhe.", s4:"Escolha dois dos idiomas de legenda que o título oferece — detectados automaticamente ao apertar o play.",
   e5:"⚡ PRONTO EM 30 SEGUNDOS", h5:"Instale. Dê o play. Pronto.", s5:"Sem conta, totalmente grátis. As legendas não saem do seu navegador e as palavras são traduzidas no seu dispositivo — uma palavra só é enviada quando você toca em “Perguntar à IA”.",
   st1:"Adicionar ao Chrome", st2:"Dê play em qualquer um dos cinco", st3:"Escolher dois idiomas", addbtn:"Adicionar ao Chrome", pu_top:"Em cima", pu_bottom:"Embaixo",
-  p1:"🚫 Sem conta, sem rastreamento", p2:"📺 5 serviços de streaming", p3:"🎨 Arraste, redimensione e colora na tela", p4:"☁️ Configuração por site", p5:"🌏 20 idiomas de exibição à escolha",
-  fb_badge:"🎬 Grátis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", fb_sub:"Legendas duplas em cinco serviços de streaming. Clique duplo em qualquer palavra e salve no seu vocabulário.",
-  fbp1:"📺 5 serviços", fbp2:"🌐 Dois idiomas quaisquer", fbp3:"📖 Clique duplo para consultar", fbp4:"🖱️ Ajuste na tela"
-},
+  p1:"🚫 Sem conta, sem rastreamento", p3:"🎨 Arraste, redimensione e colora na tela", p4:"☁️ Configuração por site", p5:"🌏 20 idiomas de exibição à escolha",
+  fb_badge:"🎬 Grátis · Prime Video, YouTube, Netflix, Disney+ e TED", fb_title:"Dois idiomas.<br><em>Uma tela.</em>", 
+  fbp1:"📺 5 serviços", fbp2:"🌐 Dois idiomas quaisquer", fbp3:"📖 Clique duplo para consultar", },
 ru: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 НИ ОДНОЙ ПРОПУЩЕННОЙ РЕПЛИКИ", h2:"Пропустили реплику? Послушайте ещё раз.", s2:"S повторяет реплику, A и D переходят к предыдущей и следующей, Q ставит паузу после каждой. По W весь текст открывается рядом с видео.", e3:"📖 НАЖМИТЕ НА СЛОВО — УЗНАЙТЕ ЕГО", h3:"Незнакомое слово? Дважды щёлкните.", s3:"Видео встаёт на паузу, а значение появляется сразу — перевод прямо на устройстве, с репликой из сцены как примером. Хотите подробнее? Спросите ИИ.", e4:"🧠 ЧТОБЫ ЗАПОМНИЛОСЬ", h4:"Сохранённые слова возвращаются на повторение.", s4:"Каждое слово хранит реплику, из которой оно взято. Карточки возвращают его — чем лучше вы его знаете, тем дольше пауза.", p2:"🌐 Любые два языка субтитров", p6:"🙈 Размойте строку и проверьте себя", fb_sub:"Двойные субтитры на пяти сервисах. Повтор любой реплики одной клавишей, значение слова — двойным щелчком.", fbp4:"🎧 Повтор одной клавишей", r1b:"Где ты был?", r2b:"Я искал тебя повсюду.", r4b:"Тогда бежим.", r5b:"Сюда, быстрее!", r6b:"А если нас найдут?", toast:"Пауза после каждой строки: вкл.", hint_keys:"A: Предыдущая строка / S: Повторить строку / D: Следующая строка / Q: Пауза после каждой строки / W: Расшифровка", tr_title:"Расшифровка", tr_auto:"Пауза после каждой строки", rv_start:"Повторить", rv_left:"Осталось: 3", rv_back:"К списку", rv_forgot:"Забыл", rv_good:"Помню", rv_easy:"Легко", rv_hint:"Пробел: показать ответ / 1: забыл / 2: помню / 3: легко / Esc: назад",
   e1:"🎬 БЕСПЛАТНОЕ РАСШИРЕНИЕ CHROME", h1:"Два языка. Один экран.", s1:"Любимые сериалы становятся лучшим уроком языка: оригинал сверху, ваш язык снизу.",
   title:"The Long Way Home", ep:"Сезон 1, серия 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"Я ждал этого момента всю жизнь.",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"Не оглядывайся. Мы почти на месте.",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"От прилива не убежишь.",
-  e2:"🎯 НЕ ПРОПУСКАЙТЕ НИ СТРОЧКИ", h2:"Без пауз. Без перемотки. Без переключений.", s2:"Не расслышали? Взгляните на вторую строку и смотрите дальше — история не останавливается.",
-  bl:"РАНЬШЕ", al:"С SUBDUO", bc1:"⏸ Пауза", bc2:"⟲ Назад на 10 с", bc3:"🔁 Сменить субтитры", bc4:"😩 Потерять нить", ac:"▶ Просто смотреть дальше",
-  e3:"📖 СЛОВО — СРАЗУ ПОНЯТНО", h3:"Двойной клик по слову. Значение. В словарь.", s3:"Мгновенный перевод прямо на устройстве, а примером служит реплика из сцены — воспроизведение само ставится на паузу. Хотите подробнее? Спросите ИИ. Один клик — и слово в вашем словаре.",
+  
   kb:"Двойной клик", c_phrase:"outrun", c_ask:"Спросить ИИ", c_save:"★ Сохранено", c_meaning:"обогнать, убежать от",
   v_title:"Словарь", v_count:"Сохранено: 3", v_search:"Поиск", v_lang:"Английский",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"прилив, отлив", v2_e:"The tide is coming in.", v2_t:"Начинается прилив.",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"справиться, провернуть", v3_e:"She pulled off a win.", v3_t:"Она вырвала победу.",
-  e4:"🌐 ЛЮБАЯ ПАРА", h4:"Английский × русский. Испанский × русский. Решать вам.", s4:"Выберите любые два языка субтитров из имеющихся у фильма — определяются автоматически при нажатии «Воспроизвести».",
   e5:"⚡ ГОТОВО ЗА 30 СЕКУНД", h5:"Установить. Включить. Готово.", s5:"Без аккаунта, полностью бесплатно. Субтитры не покидают браузер, слова переводятся на устройстве — слово отправляется, только если вы нажмёте «Спросить ИИ».",
   st1:"Добавить в Chrome", st2:"Включите на любом из пяти", st3:"Выбрать два языка", addbtn:"Добавить в Chrome", pu_top:"Сверху", pu_bottom:"Снизу",
-  p1:"🚫 Без аккаунта и слежки", p2:"📺 5 стриминговых сервисов", p3:"🎨 Перетаскивайте, масштабируйте, красьте на экране", p4:"☁️ Настройки для каждого сайта", p5:"🌏 20 языков интерфейса на выбор",
-  fb_badge:"🎬 Бесплатно · Prime Video, YouTube, Netflix, Disney+ и TED", fb_title:"Два языка.<br><em>Один экран.</em>", fb_sub:"Двойные субтитры на пяти стриминговых сервисах. Двойной клик по слову покажет значение и сохранит его в словарь.",
-  fbp1:"📺 5 сервисов", fbp2:"🌐 Любые два языка", fbp3:"📖 Двойной клик — значение", fbp4:"🖱️ Настройка на экране"
-},
+  p1:"🚫 Без аккаунта и слежки", p3:"🎨 Перетаскивайте, масштабируйте, красьте на экране", p4:"☁️ Настройки для каждого сайта", p5:"🌏 20 языков интерфейса на выбор",
+  fb_badge:"🎬 Бесплатно · Prime Video, YouTube, Netflix, Disney+ и TED", fb_title:"Два языка.<br><em>Один экран.</em>", 
+  fbp1:"📺 5 сервисов", fbp2:"🌐 Любые два языка", fbp3:"📖 Двойной клик — значение", },
 hi: {
+  r1a:"Where were you?", r2a:"I looked for you everywhere.", r4a:"Then let's run.", r5a:"This way, hurry!", r6a:"What if they find us?", c_pron:"/ˌaʊtˈrʌn/", e2:"🎧 कोई संवाद न छूटे", h2:"संवाद छूट गया? फिर से सुनें।", s2:"S से वही पंक्ति दोबारा, A और D से पिछली और अगली पंक्ति, Q से हर पंक्ति के बाद अपने आप रुकना। W दबाकर पूरी स्क्रिप्ट वीडियो के बगल में पढ़ें।", e3:"📖 शब्द चुनें, सीखें", h3:"शब्द नहीं पता? डबल-क्लिक करें।", s3:"वीडियो रुक जाता है और अर्थ तुरंत दिखता है — आपके डिवाइस पर अनुवाद, उसी दृश्य की पंक्ति उदाहरण के रूप में। और जानना है? AI से पूछें।", e4:"🧠 याद रहे हमेशा", h4:"सहेजे गए शब्द दोहराने के लिए लौटते हैं।", s4:"हर शब्द के साथ वह पंक्ति भी सहेजी जाती है जिससे वह आया। फ़्लैशकार्ड उसे वापस लाते हैं — जितना अच्छा याद, उतनी देर बाद।", p2:"🌐 कोई भी दो सबटाइटल भाषाएँ", p6:"🙈 एक पंक्ति धुंधली कर खुद को परखें", fb_sub:"पाँच स्ट्रीमिंग सेवाओं पर दोहरे सबटाइटल। एक कुंजी से कोई भी पंक्ति दोबारा सुनें, डबल-क्लिक से शब्द का अर्थ।", fbp4:"🎧 एक कुंजी से दोबारा सुनें", r1b:"तुम कहाँ थे?", r2b:"मैंने तुम्हें हर जगह ढूँढा।", r4b:"तो चलो, भागते हैं।", r5b:"इधर, जल्दी!", r6b:"अगर उन्होंने हमें ढूँढ लिया तो?", toast:"हर पंक्ति के बाद रोकें: चालू", hint_keys:"A: पिछली पंक्ति / S: पंक्ति दोहराएँ / D: अगली पंक्ति / Q: हर पंक्ति के बाद रोकें / W: ट्रांसक्रिप्ट", tr_title:"ट्रांसक्रिप्ट", tr_auto:"हर पंक्ति के बाद रोकें", rv_start:"दोहराएँ", rv_left:"बाकी: 3", rv_back:"सूची पर वापस", rv_forgot:"भूल गया", rv_good:"याद था", rv_easy:"आसान", rv_hint:"Space: उत्तर दिखाएँ / 1: भूल गया / 2: याद था / 3: आसान / Esc: वापस",
   e1:"🎬 मुफ़्त Chrome एक्सटेंशन", h1:"दो भाषाएँ। एक स्क्रीन।", s1:"आपकी पसंदीदा सीरीज़ बन जाए सबसे अच्छी भाषा की क्लास — ऊपर मूल, नीचे आपकी भाषा।",
   title:"The Long Way Home", ep:"सीज़न 1, एपिसोड 3",
   cue1_a:"I've been waiting for this moment my whole life.", cue1_b:"मैं इस पल का इंतज़ार पूरी ज़िंदगी करता रहा।",
   cue2_a:"Don't look back. We're almost there.", cue2_b:"पीछे मत देखो। हम बस पहुँचने वाले हैं।",
   cue3_a:"You can't <mark>outrun</mark> the tide.", cue3_b:"ज्वार से भागकर नहीं बच सकते।",
-  e2:"🎯 अब कोई पंक्ति नहीं छूटेगी", h2:"न रोकना। न पीछे जाना। न बदलना।", s2:"समझ नहीं आया? नीचे की पंक्ति पर नज़र डालिए और देखते रहिए — कहानी रुकती नहीं।",
-  bl:"पहले", al:"SubDuo के साथ", bc1:"⏸ रोकें", bc2:"⟲ 10 सेकंड पीछे", bc3:"🔁 सबटाइटल बदलें", bc4:"😩 कहानी छूट जाए", ac:"▶ बस देखते रहिए",
-  e3:"📖 शब्द पर टैप, अर्थ तुरंत", h3:"डबल-क्लिक करें। अर्थ देखें। सहेज लें।", s3:"डिवाइस पर ही तुरंत अनुवाद, और उसी दृश्य का संवाद उदाहरण के रूप में — प्लेबैक अपने-आप रुक जाता है। और जानना है? AI से पूछें। एक क्लिक में शब्दकोश में सहेजें।",
+  
   kb:"डबल-क्लिक", c_phrase:"outrun", c_ask:"AI से पूछें", c_save:"★ सहेजा गया", c_meaning:"से तेज़ दौड़ना, से बच निकलना",
   v_title:"शब्दकोश", v_count:"सहेजे गए: 3", v_search:"खोजें", v_lang:"अंग्रेज़ी",
   v2_p:"tide", v2_pr:"/taɪd/", v2_m:"ज्वार", v2_e:"The tide is coming in.", v2_t:"ज्वार चढ़ रहा है।",
   v3_p:"pull off", v3_pr:"/pʊl ˈɒf/", v3_m:"(कठिन काम) कर दिखाना", v3_e:"She pulled off a win.", v3_t:"उसने जीत हासिल कर ली।",
-  e4:"🌐 कोई भी जोड़ी", h4:"अंग्रेज़ी × हिन्दी। जापानी × हिन्दी। आपकी मर्ज़ी।", s4:"टाइटल में उपलब्ध सबटाइटल भाषाओं में से कोई भी दो चुनिए — प्ले दबाते ही अपने-आप पहचान।",
   e5:"⚡ 30 सेकंड में तैयार", h5:"इंस्टॉल करें। प्ले करें। बस।", s5:"कोई खाता नहीं, पूरी तरह मुफ़्त। सबटाइटल आपके ब्राउज़र से बाहर नहीं जाते और शब्दों का अनुवाद डिवाइस पर होता है — शब्द तभी भेजा जाता है जब आप “AI से पूछें” दबाते हैं।",
   st1:"Chrome में जोड़ें", st2:"पाँचों में से किसी पर प्ले करें", st3:"दो भाषाएँ चुनें", addbtn:"Chrome में जोड़ें", pu_top:"ऊपर", pu_bottom:"नीचे",
-  p1:"🚫 कोई खाता नहीं, कोई ट्रैकिंग नहीं", p2:"📺 5 स्ट्रीमिंग सेवाएँ", p3:"🎨 स्क्रीन पर खींचें, आकार और रंग बदलें", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 20 प्रदर्शन भाषाओं में से चुनें",
-  fb_badge:"🎬 मुफ़्त · Prime Video, YouTube, Netflix, Disney+ और TED", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", fb_sub:"पाँच स्ट्रीमिंग सेवाओं पर दोहरे सबटाइटल। किसी भी शब्द पर डबल-क्लिक से अर्थ, और शब्दकोश में सहेजें।",
-  fbp1:"📺 5 स्ट्रीमिंग सेवाएँ", fbp2:"🌐 कोई भी दो भाषाएँ", fbp3:"📖 डबल-क्लिक से अर्थ", fbp4:"🖱️ स्क्रीन पर समायोजन"
-}
+  p1:"🚫 कोई खाता नहीं, कोई ट्रैकिंग नहीं", p3:"🎨 स्क्रीन पर खींचें, आकार और रंग बदलें", p4:"☁️ हर साइट की अपनी सेटिंग", p5:"🌏 20 प्रदर्शन भाषाओं में से चुनें",
+  fb_badge:"🎬 मुफ़्त · Prime Video, YouTube, Netflix, Disney+ और TED", fb_title:"दो भाषाएँ।<br><em>एक स्क्रीन।</em>", 
+  fbp1:"📺 5 स्ट्रीमिंग सेवाएँ", fbp2:"🌐 कोई भी दो भाषाएँ", fbp3:"📖 डबल-क्लिक से अर्थ", }
 };
 
-// IMG 4 pair cards: language names in their own script + one sample line per language ("Don't look back.").
+// IMG 5 popup: language names in their own script.
 Object.assign(I18N, globalThis.SUBDUO_STORE_EXTRA);
 const LANG_NAMES = { en:"English", ja:"日本語", ko:"한국어", zh:"中文", "zh-TW":"中文（繁體）", es:"Español", fr:"Français", de:"Deutsch", it:"Italiano", pt:"Português", ru:"Русский", hi:"हिन्दी", id:"Bahasa Indonesia", ar:"العربية", vi:"Tiếng Việt", tr:"Türkçe", pl:"Polski", th:"ไทย", nl:"Nederlands", bn:"বাংলা" };
-const SAMPLE = { en:"Don't look back.", ja:"振り返るな。", ko:"뒤돌아보지 마.", zh:"别回头。", "zh-TW":"別回頭。", es:"No mires atrás.", fr:"Ne te retourne pas.", de:"Schau nicht zurück.", it:"Non voltarti.", pt:"Não olhe para trás.", ru:"Не оглядывайся.", hi:"पीछे मत देखो।", id:"Jangan menoleh.", ar:"لا تنظر إلى الخلف.", vi:"Đừng ngoảnh lại.", tr:"Arkana bakma.", pl:"Nie oglądaj się.", th:"อย่าหันกลับไป", nl:"Kijk niet om.", bn:"পেছনে তাকিয়ো না।" };
-// [top (original), bottom (viewer)] per locale — the first pair also feeds IMG 5's popup.
+// [top (original), bottom (viewer)] per locale — the first pair feeds IMG 5's popup.
 const PAIRS = {
   en: [["es","en"],["ja","en"],["ko","en"],["fr","en"],["de","en"],["zh","en"]],
   ja: [["en","ja"],["ko","ja"],["zh","ja"],["es","ja"],["fr","ja"],["de","ja"]],
@@ -766,7 +793,6 @@ const PAIRS = {
   ru: [["en","ru"],["es","ru"],["de","ru"],["fr","ru"],["ja","ru"],["ko","ru"]],
   hi: [["en","hi"],["ja","hi"],["ko","hi"],["es","hi"],["fr","hi"],["de","hi"]],
 };
-const CARD_SCENES = ["city", "sea", "g-neon", "g-forest", "g-dawn", "g-snow"];
 for (const locale of Object.keys(globalThis.SUBDUO_STORE_EXTRA)) PAIRS[locale] = ["en", "ko", "ja", "es", "fr", "de"].map(a => [a, locale]);
 
 const lang = new URLSearchParams(location.search).get("lang") || "en";
@@ -782,7 +808,7 @@ if (["ja", "zh", "zh-TW", "ko", "hi", "ar", "th", "bn"].includes(lang)) document
 if (["ar", "th", "bn"].includes(lang)) document.body.classList.add("complex");
 if (lang === "ar") {
   document.body.classList.add("rtl");
-  document.querySelectorAll(".cap, .card, .vb, .pu, .st-row, .pills, .fb-left, .tag, .chip").forEach(el => el.dir = "rtl");
+  document.querySelectorAll(".cap, .card, .vb, .pu, .st-row, .pills, .fb-left, .tp, .rv, .sd-hint, .toast").forEach(el => el.dir = "rtl");
   // Disney+の+など、サービス名の記号はブランド名と同じ向きで保つ。
   document.querySelectorAll('[data-i]').forEach(el => {
     el.innerHTML = el.innerHTML.replace(/Prime Video|Disney\+|YouTube|Netflix|Chrome|SubDuo|TED/g, name => `<bdi dir="ltr">${name}</bdi>`);
@@ -790,32 +816,27 @@ if (lang === "ar") {
 }
 document.querySelector(".tb-body small").textContent = dict ? dict.h1 : "Dual Subtitles for Streaming";
 
-// IMG 3: the card's example is the line the word came from (top line + the bottom line as its translation)
+// IMG 3 / 4: the card's, the vocabulary's and the flashcard's example is the line the word came from
+// (top line + the bottom line as its translation); the flashcard shows the line with the word marked.
 const cue3 = document.querySelector("#img3 .sd");
 const cue3a = cue3.querySelector(".sd-a").textContent, cue3b = cue3.querySelector(".sd-b").textContent;
-document.querySelectorAll("#img3 .ex-a").forEach((el) => { el.textContent = cue3a; });
-document.querySelectorAll("#img3 .ex-b").forEach((el) => { el.textContent = cue3b; });
+document.querySelectorAll(".ex-a").forEach((el) => { el.textContent = cue3a; });
+document.querySelectorAll(".ex-b").forEach((el) => { el.textContent = cue3b; });
+document.querySelectorAll(".ex-mark").forEach((el) => { el.innerHTML = cue3.querySelector(".sd-a").innerHTML; });
 // pointer + double-click rings on the looked-up word
 cue3.querySelector("mark").insertAdjacentHTML("beforeend",
   '<span class="dbl"><i></i><i></i><svg viewBox="0 0 26 34"><path d="M2 2v26l7-6.5 4.6 10 4-1.8-4.6-9.8H22z" fill="#fff" stroke="#06121c" stroke-width="1.6" stroke-linejoin="round"/></svg></span>');
 
-// IMG 4 cards
-const pairs = PAIRS[lang] || PAIRS.en;
-document.getElementById("pairs").innerHTML = pairs.map(([a, b], i) => {
-  const sc = CARD_SCENES[i % CARD_SCENES.length];
-  const extra = sc === "city"
-    ? '<div class="bokeh" style="left:14%;top:26%;width:60px;height:60px;background:radial-gradient(circle,rgba(255,150,70,.85),rgba(255,150,70,0) 70%);"></div><div class="bokeh" style="left:66%;top:22%;width:74px;height:74px;background:radial-gradient(circle,rgba(255,200,90,.8),rgba(255,200,90,0) 70%);"></div><div class="bokeh" style="left:40%;top:40%;width:30px;height:30px;background:radial-gradient(circle,rgba(120,220,255,.85),rgba(120,220,255,0) 70%);"></div><div class="bld dark" style="left:-2%;width:14%;height:34%;"></div><div class="bld" style="left:11%;width:9%;height:50%;"></div><div class="bld dark" style="left:19%;width:15%;height:28%;"></div><div class="bld" style="left:33%;width:8%;height:56%;"></div><div class="bld dark" style="left:40%;width:14%;height:38%;"></div><div class="bld" style="left:53%;width:10%;height:44%;"></div><div class="bld dark" style="left:62%;width:16%;height:30%;"></div><div class="bld" style="left:77%;width:8%;height:52%;"></div><div class="bld dark" style="left:84%;width:18%;height:36%;"></div><div class="ground"></div>'
-    : sc === "sea" ? '<div class="sea"></div><div class="hill l"></div><div class="hill r"></div>'
-    : '<div class="orb"></div>';
-  return `<div class="frame pair"><div class="scene ${sc}">${extra}<div class="vig"></div><div class="grain"></div></div>
-    <div class="plabel"><span>${LANG_NAMES[a]}</span><span class="x">×</span><b>${LANG_NAMES[b]}</b></div>
-    <div class="sd"><div class="sd-box"><div class="sd-line sd-a">${SAMPLE[a]}</div><div class="sd-line sd-b">${SAMPLE[b]}</div></div></div></div>`;
-}).join("");
+// IMG 2 transcript header: the two subtitle languages, named in the UI language (en watches Spanish, the others English)
+const names = new Intl.DisplayNames([lang], { type: "language" });
+const named = code => names.of({ zh: "zh-Hans", "zh-TW": "zh-Hant" }[code] || code);
+document.querySelector('[data-i="tr_langs"]').textContent = `${named(lang === "en" ? "es" : "en")} / ${named(lang)}`;
 // IMG 5 popup languages
+const pairs = PAIRS[lang] || PAIRS.en;
 document.getElementById("pu5a").textContent = LANG_NAMES[pairs[0][0]];
 document.getElementById("pu5b").textContent = LANG_NAMES[pairs[0][1]];
 // 原語とUI言語を同じ行内でも混ぜず、それぞれの文字方向で表示する。
-document.querySelectorAll(".sd-line, .ex-a, .ex-b, .ve-phrase, .ve-pron, .ve-ex span, .card-phrase").forEach(el => el.dir = "auto");
+document.querySelectorAll(".sd-line, .ex-a, .ex-b, .ve-phrase, .ve-pron, .ve-ex span, .card-phrase, .tp-rows p, .rv-phrase, .rv-context, .rv-pron, .rv-tr").forEach(el => el.dir = "auto");
 window.__store = { lang, locales: ["en", ...Object.keys(I18N)], names: LANG_NAMES, pairs, dictionary: dict };
 
 // キャンバス(固定サイズ)からコンテンツがはみ出している量(px)。装飾の .glow / .brand は除外
@@ -847,7 +868,7 @@ window.__overflow = () => {
     if (o > 0) bad.push(`#${el.id} +${o}px`);
   }
   for (const f of document.querySelectorAll(".frame")) {
-    for (const box of f.querySelectorAll(".sd-box, .card")) {
+    for (const box of f.querySelectorAll(".sd-box, .card, .sd-hint, .toast, .kb")) {
       const fr = f.getBoundingClientRect(), br = box.getBoundingClientRect();
       if (br.left < fr.left - 1 || br.right > fr.right + 1 || br.top < fr.top - 1 || br.bottom > fr.bottom + 1) bad.push(`#${f.closest("[id]").id} ${box.className.split(" ")[0]} overflows frame`);
     }
@@ -855,9 +876,16 @@ window.__overflow = () => {
   // IMG3: the card must sit above the subtitle block (it points at the looked-up word)
   const card = document.querySelector("#img3 .card"), sub = document.querySelector("#img3 .sd-box");
   if (card && sub && card.getBoundingClientRect().bottom + 8 > sub.getBoundingClientRect().top) bad.push("#img3 card overlaps subtitles");
-  // IMG3: the vocabulary list is clipped on purpose, but the first two entries must be fully readable
-  const vb = document.querySelector("#img3 .vb"), ve2 = document.querySelectorAll("#img3 .ve")[1];
-  if (vb && ve2 && ve2.getBoundingClientRect().bottom > vb.getBoundingClientRect().bottom - 28) bad.push("#img3 vocabulary: 2nd entry is cut");
+  // IMG4: the vocabulary list is clipped on purpose, but the first two entries must be fully readable
+  const vb = document.querySelector("#img4 .vb"), ve2 = document.querySelectorAll("#img4 .ve")[1];
+  if (vb && ve2 && ve2.getBoundingClientRect().bottom > vb.getBoundingClientRect().bottom - 28) bad.push("#img4 vocabulary: 2nd entry is cut");
+  // IMG4: the flashcard and its grades fit in the review view
+  const rv = document.querySelector("#img4 .rv"), acts = document.querySelector("#img4 .rv-acts");
+  if (rv && rv.scrollHeight > rv.clientHeight + 1) bad.push("#img4 review view too tall");
+  if (acts && acts.scrollWidth > acts.clientWidth + 1) bad.push("#img4 grade buttons overflow");
+  // IMG2: the playing row and the row after it are fully readable above the panel's fade
+  const tp = document.querySelector("#img2 .tp"), next = document.querySelector("#img2 .tp-rows li.cur + li");
+  if (tp && next && next.getBoundingClientRect().bottom > tp.getBoundingClientRect().bottom - 30) bad.push("#img2 transcript: the row after the current one is cut");
   // the tile / marquee badge are one-liners; the marquee sub is exactly the two lines written with <br>
   for (const one of document.querySelectorAll(".tile-tag, .fb-badge")) {
     if (one.scrollWidth > one.clientWidth + 1) bad.push(`${one.className} clipped`);
@@ -896,6 +924,16 @@ function fit() {
     let s = parseFloat(getComputedStyle(b).fontSize);
     while (b.scrollWidth > b.clientWidth + 1 && s > 10) { s -= 1; b.style.fontSize = s + "px"; }
   });
+  // 拡張の文言そのままの1行もの（キーの説明・知らせ）は、プレイヤーの幅に収まるまで縮める。
+  document.querySelectorAll(".sd-hint, .toast").forEach((one) => {
+    const frame = one.closest(".frame").getBoundingClientRect();
+    let s = parseFloat(getComputedStyle(one).fontSize);
+    while (one.getBoundingClientRect().width > frame.width - 24 && s > 10) { s -= .5; one.style.fontSize = s + "px"; }
+  });
+  // 復習の評価ボタンは訳が長い言語でも1行に収める。
+  const acts = document.querySelector(".rv-acts");
+  let as = 16;
+  while (acts.scrollWidth > acts.clientWidth + 1 && as > 11) { as -= .5; acts.querySelectorAll("b").forEach((b) => { b.style.fontSize = as + "px"; b.style.minWidth = "0"; }); }
   // IMG3: 解説カードが字幕ブロックに被るなら、カードの文字を縮める（例文が2行に折り返す言語のため）
   const card = document.querySelector("#img3 .card"), sub = document.querySelector("#img3 .sd-box");
   if (card && sub) {
@@ -903,7 +941,7 @@ function fit() {
     while (card.getBoundingClientRect().bottom + 8 > sub.getBoundingClientRect().top && s > 14) { s -= .5; card.style.fontSize = s + "px"; }
   }
   // 字体で行高が増えても、単語帳の2件目は下端のフェードより上に収める。
-  const vb = document.querySelector('#img3 .vb');
+  const vb = document.querySelector('#img4 .vb');
   const second = vb.querySelectorAll('.ve')[1];
   let pad = 11;
   while (second.getBoundingClientRect().bottom > vb.getBoundingClientRect().bottom - 40 && pad > 5) {

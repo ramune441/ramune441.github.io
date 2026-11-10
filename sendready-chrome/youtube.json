@@ -1,5 +1,5 @@
 {
-  "_": "YouTube の SendReady プロモ動画（言語別11本・動画IDは i18n-lp.js の LP_VIDEO_IDS）のタイトルと説明文。YouTube Studio で各動画の「詳細」に貼る。タイトルは100文字以内、検索される語句を先頭に置く。リンクの utm_source=youtube でストアの流入元を見分ける。",
+  "_": "YouTube の SendReady 紹介動画（言語別20本。実録版の投稿は youtube-story.mjs、動画IDは youtube-story.json と i18n-lp.js の LP_VIDEO_IDS）のタイトルと説明文。タイトルは100文字以内、検索される語句を先頭に置く。リンクの utm_source=youtube でストアの流入元を見分ける。",
   "en": {
     "title": "AI Rewrite & Reply in Any Text Field — Free Chrome Extension (Text Expander too) | SendReady",
     "description": "Select text in Gmail, Outlook, Slack, LinkedIn or any website and let AI rewrite it on the spot — more polite, more professional, grammar fixed, translated or summarized. Select a message you received and SendReady drafts the reply. Type ;sig + Tab to insert your saved snippets.\nFree · No account · 50 AI runs/day · Only the text you pick is sent.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=en\n🌐 https://ramune441.github.io/sendready-chrome/\n#AIwriting #ChromeExtension #Gmail #TextExpander #Productivity"
@@ -43,5 +43,41 @@
   "ar": {
     "title": "إعادة صياغة النص والرد على البريد بالذكاء الاصطناعي في أي حقل — إضافة Chrome مجانية | SendReady",
     "description": "حدّد نصًا في Gmail أو Outlook أو Slack أو LinkedIn أو أي موقع، فيعيد الذكاء الاصطناعي صياغته في مكانه: أكثر تهذيبًا، بلا أخطاء، مترجمًا أو ملخّصًا. حدّد الرسالة الواردة ويكتب SendReady الرد. اكتب ;sig ثم Tab لإدراج قوالبك النصية.\nمجاني · بدون تسجيل · 50 استخدامًا للذكاء الاصطناعي يوميًا · لا يُرسل إلا النص الذي تختاره.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=ar\n🌐 https://ramune441.github.io/sendready-chrome/ar/\n#ذكاء_اصطناعي #إضافة_كروم #Gmail #إنتاجية"
+  },
+  "zh-TW": {
+    "title": "在任何輸入框用 AI 改寫潤飾、產生回覆｜免費 Chrome 擴充功能 SendReady",
+    "description": "在 Gmail、Outlook、Slack、LinkedIn 或任何網站選取文字，點一下圖示，AI 就地改寫：更有禮貌、修正錯字、翻譯或摘要。選取收到的訊息，SendReady 幫你寫好回覆。輸入 ;hi + Tab 即可插入常用文字。\n免費 · 免註冊 · AI 每天 50 次 · 只傳送你選取的文字。\n▶ Chrome 線上應用程式商店: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=zh-TW\n🌐 https://ramune441.github.io/sendready-chrome/zh-TW/\n#AI寫作 #Chrome擴充功能 #效率工具 #回覆郵件"
+  },
+  "vi": {
+    "title": "Viết lại & trả lời tin nhắn bằng AI ở mọi ô nhập — Tiện ích Chrome miễn phí | SendReady",
+    "description": "Chọn văn bản trên Gmail, Outlook, Slack, LinkedIn hay bất kỳ trang web nào, AI sẽ viết lại ngay tại chỗ: lịch sự hơn, sửa lỗi chính tả, dịch hoặc tóm tắt. Chọn tin nhắn bạn nhận được và SendReady soạn sẵn câu trả lời. Gõ ;hi + Tab để chèn mẫu câu đã lưu.\nMiễn phí · Không cần đăng ký · AI 50 lần/ngày · Chỉ gửi đoạn văn bạn chọn.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=vi\n🌐 https://ramune441.github.io/sendready-chrome/vi/\n#AI #TienIchChrome #Gmail #NangSuat"
+  },
+  "th": {
+    "title": "ใช้ AI เกลาข้อความและร่างคำตอบได้ทุกช่องพิมพ์ — ส่วนขยาย Chrome ฟรี | SendReady",
+    "description": "เลือกข้อความใน Gmail, Outlook, Slack, LinkedIn หรือเว็บไหนก็ได้ แล้วให้ AI เขียนใหม่ทันที: สุภาพขึ้น แก้คำผิด แปล หรือสรุป เลือกข้อความที่ได้รับ แล้ว SendReady จะร่างคำตอบให้ พิมพ์ ;hi + Tab เพื่อแทรกข้อความสำเร็จรูป\nฟรี · ไม่ต้องสมัคร · AI วันละ 50 ครั้ง · ส่งเฉพาะข้อความที่เลือก\n▶ Chrome เว็บสโตร์: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=th\n🌐 https://ramune441.github.io/sendready-chrome/th/\n#AI #ส่วนขยายChrome #Gmail #ทำงานไวขึ้น"
+  },
+  "bn": {
+    "title": "যেকোনো টেক্সট বক্সে AI দিয়ে লেখা ঠিক করুন ও উত্তর লিখুন — ফ্রি Chrome এক্সটেনশন | SendReady",
+    "description": "Gmail, Outlook, Slack, LinkedIn বা যেকোনো ওয়েবসাইটে লেখা বাছাই করুন, AI সেখানেই নতুন করে লিখে দেবে: আরও ভদ্র, বানান ঠিক, অনুবাদ বা সারসংক্ষেপ। আসা বার্তা বাছাই করলে SendReady উত্তরের খসড়া তৈরি করে দেয়। ;hi + Tab লিখে সংরক্ষিত স্নিপেট বসান।\nবিনামূল্যে · সাইন-আপ নেই · দিনে ৫০ বার AI · শুধু বাছাই করা লেখাই পাঠানো হয়।\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=bn\n🌐 https://ramune441.github.io/sendready-chrome/bn/\n#AI #ChromeExtension #Gmail #Productivity"
+  },
+  "it": {
+    "title": "Riscrivi testi e rispondi alle email con l'IA — Estensione Chrome gratuita | SendReady",
+    "description": "Seleziona un testo in Gmail, Outlook, Slack, LinkedIn o in qualsiasi sito e l'IA lo riscrive sul posto: più cortese, senza errori, tradotto o riassunto. Seleziona il messaggio ricevuto e SendReady prepara la risposta. Scrivi ;hi + Tab per inserire i tuoi testi rapidi.\nGratis · Senza registrazione · 50 usi dell'IA al giorno · Viene inviato solo il testo selezionato.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=it\n🌐 https://ramune441.github.io/sendready-chrome/it/\n#IA #EstensioneChrome #Gmail #Produttività"
+  },
+  "nl": {
+    "title": "Tekst herschrijven en e-mails beantwoorden met AI — gratis Chrome-extensie | SendReady",
+    "description": "Selecteer tekst in Gmail, Outlook, Slack, LinkedIn of op elke website en AI herschrijft hem ter plekke: beleefder, zonder typfouten, vertaald of samengevat. Selecteer een ontvangen bericht en SendReady schrijft het antwoord. Typ ;hi + Tab om je tekstblokken in te voegen.\nGratis · Geen account · 50 AI-acties per dag · Alleen de geselecteerde tekst wordt verstuurd.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=nl\n🌐 https://ramune441.github.io/sendready-chrome/nl/\n#AI #ChromeExtensie #Gmail #Productiviteit"
+  },
+  "pl": {
+    "title": "Poprawiaj teksty i odpisuj na wiadomości z AI — darmowe rozszerzenie Chrome | SendReady",
+    "description": "Zaznacz tekst w Gmailu, Outlooku, Slacku, LinkedInie lub na dowolnej stronie, a AI przepisze go na miejscu: uprzejmiej, bez literówek, przetłumaczy albo streści. Zaznacz otrzymaną wiadomość, a SendReady przygotuje odpowiedź. Wpisz ;hi + Tab, by wstawić zapisany szablon.\nZa darmo · Bez rejestracji · 50 użyć AI dziennie · Wysyłany jest tylko zaznaczony tekst.\n▶ Chrome Web Store: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=pl\n🌐 https://ramune441.github.io/sendready-chrome/pl/\n#AI #RozszerzenieChrome #Gmail #Produktywność"
+  },
+  "ru": {
+    "title": "Переписать текст и ответить на письмо с ИИ в любом поле — бесплатное расширение Chrome | SendReady",
+    "description": "Выделите текст в Gmail, Outlook, Slack, LinkedIn или на любом сайте — ИИ перепишет его прямо на месте: вежливее, без опечаток, переведёт или кратко изложит. Выделите полученное сообщение, и SendReady подготовит ответ. Введите ;hi + Tab, чтобы вставить сохранённый шаблон.\nБесплатно · Без регистрации · 50 запросов к ИИ в день · Отправляется только выделенный текст.\n▶ Интернет-магазин Chrome: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=ru\n🌐 https://ramune441.github.io/sendready-chrome/ru/\n#ИИ #РасширениеChrome #Gmail #Продуктивность"
+  },
+  "tr": {
+    "title": "Her metin alanında yapay zekâ ile yeniden yaz ve yanıtla — ücretsiz Chrome uzantısı | SendReady",
+    "description": "Gmail, Outlook, Slack, LinkedIn veya herhangi bir sitede metni seçin; yapay zekâ onu yerinde yeniden yazsın: daha kibar, yazım hataları düzeltilmiş, çevrilmiş ya da özetlenmiş. Gelen mesajı seçin, SendReady yanıtı hazırlasın. Kayıtlı metninizi eklemek için ;hi + Tab yazın.\nÜcretsiz · Kayıt yok · Günde 50 yapay zekâ kullanımı · Yalnızca seçtiğiniz metin gönderilir.\n▶ Chrome Web Mağazası: https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono?utm_source=youtube&utm_medium=video&utm_campaign=tr\n🌐 https://ramune441.github.io/sendready-chrome/tr/\n#YapayZeka #ChromeUzantısı #Gmail #Verimlilik"
   }
 }

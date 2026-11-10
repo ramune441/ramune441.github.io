@@ -10,14 +10,22 @@ const ROOT = dirname(fileURLToPath(import.meta.url));
 const html = readFileSync(join(ROOT, 'store-images.html'), 'utf8');
 const context = vm.createContext({});
 vm.runInContext(readFileSync(join(ROOT, 'store-image-locales.js'), 'utf8'), context);
-vm.runInContext(html.slice(html.indexOf('const I18N ='), html.indexOf('// IMG 4 pair cards:')) + ';globalThis.dict = I18N', context);
+vm.runInContext(html.slice(html.indexOf('const I18N ='), html.indexOf('// IMG 5 popup: language names')) + ';globalThis.dict = I18N', context);
 const dictionaries = context.dict;
 
-test('翻訳は英語の既定値と19言語、追加8言語の全67キーが揃う', () => {
+test('翻訳は英語の既定値と19言語、追加8言語の全83キーが揃う', () => {
   const extra = context.SUBDUO_STORE_EXTRA;
   assert.deepEqual(['en', ...Object.keys(dictionaries), ...Object.keys(extra)].sort(), [...LOCALES].sort());
   const keys = Object.keys(dictionaries.ja).sort();
-  assert.equal(keys.length, 67);
+  assert.equal(keys.length, 83);
+  // 画像の中の拡張の画面は、拡張の文言をそのまま写す（キーの説明・知らせ・復習の評価）。
+  for (const [locale, dict] of Object.entries({ ...dictionaries, ...extra })) {
+    const folder = { zh: 'zh_CN', 'zh-TW': 'zh_TW', pt: 'pt_BR' }[locale] || locale;
+    const messages = JSON.parse(readFileSync(join(ROOT, '../../SubDuo/_locales', folder, 'messages.json'), 'utf8'));
+    assert.equal(dict.hint_keys, messages.hintKeys.message, locale);
+    assert.equal(dict.toast, messages.toastAutoPauseOn.message, locale);
+    assert.equal(dict.rv_good, messages.studyGood.message, locale);
+  }
   for (const [locale, dict] of Object.entries(extra)) {
     assert.deepEqual(Object.keys(dict).sort(), keys, locale);
     for (const [key, text] of Object.entries(dict)) assert.ok(typeof text === 'string' && text.trim(), `${locale}.${key}`);

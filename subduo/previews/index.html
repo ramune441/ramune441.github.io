@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SubDuo — 実操作プレビュー</title>
+<style>body{font-family:system-ui,sans-serif;margin:40px auto;padding:0 20px;max-width:1200px;background:#f3f7fc;color:#183454}h1{font-size:26px}video{display:block;width:100%;border-radius:16px;box-shadow:0 14px 48px #18345422;background:#111}p{line-height:1.8}a{color:#1765b6}nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}nav button{font:inherit;border:1px solid #bcd6f1;background:#fff;border-radius:20px;padding:4px 14px;cursor:pointer}nav button[aria-pressed=true]{background:#1765b6;color:#fff;border-color:#1765b6}</style>
+<h1>SubDuo — 実操作プレビュー（約45秒・BGM／効果音つき・20言語）</h1>
+<nav aria-label="言語"><button type="button" data-lang="ja" lang="ja">日本語</button><button type="button" data-lang="en" lang="en">English</button><button type="button" data-lang="zh" lang="zh-CN">中文（中国）</button><button type="button" data-lang="zh-TW" lang="zh-TW">中文（台灣）</button><button type="button" data-lang="ko" lang="ko">한국어</button><button type="button" data-lang="es" lang="es">español</button><button type="button" data-lang="fr" lang="fr">français</button><button type="button" data-lang="de" lang="de">Deutsch</button><button type="button" data-lang="pt" lang="pt-BR">português (Brasil)</button><button type="button" data-lang="hi" lang="hi">हिन्दी</button><button type="button" data-lang="id" lang="id">Indonesia</button><button type="button" data-lang="ar" lang="ar">العربية</button><button type="button" data-lang="vi" lang="vi">Tiếng Việt</button><button type="button" data-lang="it" lang="it">italiano</button><button type="button" data-lang="tr" lang="tr">Türkçe</button><button type="button" data-lang="pl" lang="pl">polski</button><button type="button" data-lang="th" lang="th">ไทย</button><button type="button" data-lang="nl" lang="nl">Nederlands</button><button type="button" data-lang="ru" lang="ru">русский</button><button type="button" data-lang="bn" lang="bn">বাংলা</button></nav>
+<video controls preload="metadata"></video>
+<p>実際のYouTubeとSubDuoで、二言語字幕・移動とサイズ変更・一文ずつの練習・語句の保存・単語帳を各言語で収録しています。上段は映画の英語、下段と画面の説明はその言語です（作品に字幕がない言語は、画面に代わりの字幕を明記しています）。</p>
+<p>操作の瞬間に合わせて画面が寄り、キー・クリック・保存を注釈と効果音で示します。BGMと効果音はSubDuo用に合成したオリジナルです。音量はプレイヤーで調整できます。</p>
+<p>Sintel — © copyright Blender Foundation | durian.blender.org · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>。映像の一部を画面収録し、切り出し・拡大・速度調整のうえ説明と注釈を追加しています。<a href="CREDITS.md">素材と出典</a> · <a id="download" download>MP4を保存</a></p>
+<script>
+const video=document.querySelector('video'),buttons=[...document.querySelectorAll('nav button')];
+function show(code){
+ video.pause();video.innerHTML='';video.poster='live-demo-'+code+'.jpg';
+ const source=document.createElement('source');source.src='live-demo-'+code+'.mp4';source.type='video/mp4';
+ const track=document.createElement('track');Object.assign(track,{kind:'captions',src:'live-demo-'+code+'.vtt',srclang:buttons.find(b=>b.dataset.lang===code).lang,label:buttons.find(b=>b.dataset.lang===code).textContent});
+ video.append(source,track);video.load();document.getElementById('download').href=source.src;
+ for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.lang===code));
+}
+for(const b of buttons)b.addEventListener('click',()=>show(b.dataset.lang));
+show(buttons.some(b=>b.dataset.lang==='ja')?'ja':buttons[0].dataset.lang);
+</script>
+</html>

@@ -1,0 +1,1121 @@
+{
+  "lang": "tr",
+  "file": "promo-tr.mp4",
+  "sha256": "92a61c04d83707999e755d76f1f6f4c2c59f9e43ca24be19f4aafb8e6d801f1e",
+  "bytes": 26842981,
+  "duration": 68.3,
+  "width": 3840,
+  "height": 2160,
+  "fps": "30/1",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "captions": "promo-tr.vtt",
+  "recording": {
+    "events": {
+      "draftStart": 2.987,
+      "draftEnd": 4.212,
+      "politeLauncherClick": 5.528,
+      "politePresetClick": 6.891,
+      "politeRunClick": 8.007,
+      "politeResult": 9.981,
+      "politeApplyClick": 11.991,
+      "politeApplied": 12.375,
+      "caretClick": 14.261,
+      "snippetStart": 14.799,
+      "snippetTab": 15.592,
+      "endClick": 17.492,
+      "inlineStart": 17.878,
+      "inlineTab": 21.075,
+      "inlineResult": 22.767,
+      "inlineApplyClick": 24.78,
+      "inlineApplied": 25.169,
+      "mailEnd": 26.676,
+      "chatShown": 26.716,
+      "receivedStart": 28.308,
+      "receivedEnd": 29.544,
+      "replyLauncherClick": 30.825,
+      "replyCheckClick": 32.071,
+      "replyPresetClick": 33.102,
+      "gistClick": 33.976,
+      "gistStart": 34.27,
+      "gistEnd": 39.041,
+      "replyRunClick": 40.064,
+      "replyResult": 41.719,
+      "copyClick": 43.643,
+      "closeClick": 44.769,
+      "inputClick": 45.852,
+      "pasted": 46.245,
+      "sendClick": 47.806,
+      "chatEnd": 49.962,
+      "articleShown": 49.984,
+      "articleStart": 51.642,
+      "articleEnd": 62.341,
+      "summaryLauncherClick": 54.109,
+      "summaryPresetClick": 55.603,
+      "summaryRunClick": 56.77,
+      "summaryResult": 58.67,
+      "summaryCloseClick": 61.739,
+      "postShown": 62.365,
+      "postStart": 63.902,
+      "postEnd": 65.043,
+      "customLauncherClick": 66.233,
+      "moreClick": 67.529,
+      "instructionStart": 67.873,
+      "instructionEnd": 70.023,
+      "customRunClick": 71.092,
+      "customResult": 72.801,
+      "customApplyClick": 74.808,
+      "customApplied": 75.212,
+      "post2Start": 77.37,
+      "post2End": 78.625,
+      "translateLauncherClick": 79.858,
+      "translatePresetClick": 81.142,
+      "translateRunClick": 82.241,
+      "translateResult": 83.702,
+      "translateApplyClick": 85.669,
+      "translateApplied": 86.054,
+      "end": 88.057
+    },
+    "results": {
+      "polite": "Perşembe günü uygun değiliz, dilerseniz Cuma günü gerçekleştirebiliriz.",
+      "inline": "Dosyaları yarın gönderebilirim.",
+      "reply": "Tabii ki, yarınki toplantının slaytlarını bugün saat 17.00'ye kadar ben memnuniyetle paylaşacağım.",
+      "summary": "Üretken yapay zekâ en çok e-posta, sohbet mesajı yazma, belge özetleme ve çeviri gibi yazı işlerinde kullanılıyor. Ancak kullanıcılar veri gizliliği ve çıktıları kontrol etme konusunda kaygılı; uzmanlar ise gönderim öncesi insan kontrolü ve minimum veri girişi yapılmasını öneriyor.",
+      "custom": "☕️✨ Hafta sonu süper yeni açılan kafeye gittim! 🥐🥳 Latte harikaydı. 😍 Kesinlikle yine gitmek istiyorum! 💃🎉",
+      "translate": "☕️✨ I went to a super cool newly opened café this weekend! 🥐🥳 The latte was amazing. 😍 I definitely want to go back! 💃🎉"
+    },
+    "withInline": "Merhaba,\n\nBize ulaştığınız için teşekkürler.\nPerşembe günü uygun değiliz, dilerseniz Cuma günü gerçekleştirebiliriz.\nDosyaları yarın gönderebilirim.",
+    "sent": "Tabii ki, yarınki toplantının slaytlarını bugün saat 17.00'ye kadar ben memnuniyetle paylaşacağım.",
+    "translated": "☕️✨ I went to a super cool newly opened café this weekend! 🥐🥳 The latte was amazing. 😍 I definitely want to go back! 💃🎉",
+    "extensionState": {
+      "successCount": 6,
+      "history": [
+        "☕️✨ I went to a super cool newly opened café this weekend! 🥐🥳 The latte was amazing. 😍 I definitely want to go back! 💃🎉",
+        "☕️✨ Hafta sonu süper yeni açılan kafeye gittim! 🥐🥳 Latte harikaydı. 😍 Kesinlikle yine gitmek istiyorum! 💃🎉",
+        "Üretken yapay zekâ en çok e-posta, sohbet mesajı yazma, belge özetleme ve çeviri gibi yazı işlerinde kullanılıyor. Ancak kullanıcılar veri gizliliği ve çıktıları kontrol etme konusunda kaygılı; uzmanlar ise gönderim öncesi insan kontrolü ve minimum veri girişi yapılmasını öneriyor.",
+        "Tabii ki, yarınki toplantının slaytlarını bugün saat 17.00'ye kadar ben memnuniyetle paylaşacağım.",
+        "Dosyaları yarın gönderebilirim."
+      ],
+      "usage": {
+        "count": 6,
+        "limit": 50,
+        "resetsAt": "2026-11-09T00:00:00.000Z"
+      }
+    },
+    "pageSubmissions": 0
+  },
+  "timeline": {
+    "pieces": [
+      [
+        "polite",
+        5.4,
+        7.9607,
+        2.287,
+        6.127999999999999
+      ],
+      [
+        "polite",
+        7.9607,
+        9.3467,
+        6.127999999999999,
+        8.206999999999999
+      ],
+      [
+        "polite",
+        9.3467,
+        9.9467,
+        8.206999999999999,
+        9.981
+      ],
+      [
+        "polite",
+        9.9467,
+        11.8774,
+        9.981,
+        12.491
+      ],
+      [
+        "polite",
+        11.8774,
+        12.4083,
+        12.491,
+        13.075
+      ],
+      [
+        "snippet",
+        12.4083,
+        14.8266,
+        13.710999999999999,
+        16.492
+      ],
+      [
+        "inline",
+        14.8266,
+        17.7114,
+        16.992,
+        21.175
+      ],
+      [
+        "inline",
+        17.7114,
+        18.3114,
+        21.175,
+        22.767
+      ],
+      [
+        "inline",
+        18.3114,
+        20.2445,
+        22.767,
+        25.28
+      ],
+      [
+        "inline",
+        20.2445,
+        20.8709,
+        25.28,
+        25.969
+      ],
+      [
+        "reply",
+        20.8709,
+        23.6769,
+        27.216,
+        31.425
+      ],
+      [
+        "reply",
+        23.6769,
+        28.4744,
+        31.425,
+        39.340999999999994
+      ],
+      [
+        "reply",
+        28.4744,
+        29.1337,
+        39.340999999999994,
+        40.264
+      ],
+      [
+        "reply",
+        29.1337,
+        29.7337,
+        40.264,
+        41.719
+      ],
+      [
+        "reply",
+        29.7337,
+        31.4552,
+        41.719,
+        44.043
+      ],
+      [
+        "reply",
+        31.4552,
+        34.2547,
+        44.043,
+        49.362
+      ],
+      [
+        "summary",
+        34.2547,
+        37.0714,
+        50.484,
+        54.709
+      ],
+      [
+        "summary",
+        37.0714,
+        38.5787,
+        54.709,
+        56.970000000000006
+      ],
+      [
+        "summary",
+        38.5787,
+        39.1787,
+        56.970000000000006,
+        58.67
+      ],
+      [
+        "summary",
+        39.1787,
+        40.7172,
+        58.67,
+        60.67
+      ],
+      [
+        "custom",
+        40.7172,
+        43.3625,
+        62.865,
+        66.833
+      ],
+      [
+        "custom",
+        43.3625,
+        46.3352,
+        66.833,
+        71.292
+      ],
+      [
+        "custom",
+        46.3352,
+        46.9352,
+        71.292,
+        72.801
+      ],
+      [
+        "custom",
+        46.9352,
+        48.8636,
+        72.801,
+        75.308
+      ],
+      [
+        "custom",
+        48.8636,
+        49.3218,
+        75.308,
+        75.812
+      ],
+      [
+        "translate",
+        49.3218,
+        51.7805,
+        76.77000000000001,
+        80.458
+      ],
+      [
+        "translate",
+        51.7805,
+        53.1025,
+        80.458,
+        82.441
+      ],
+      [
+        "translate",
+        53.1025,
+        53.7025,
+        82.441,
+        83.702
+      ],
+      [
+        "translate",
+        53.7025,
+        55.6002,
+        83.702,
+        86.169
+      ],
+      [
+        "translate",
+        55.6002,
+        57.0882,
+        86.169,
+        87.657
+      ]
+    ],
+    "cuts": [
+      {
+        "at": 12.4083,
+        "raw": 13.710999999999999
+      },
+      {
+        "at": 14.8266,
+        "raw": 16.992
+      },
+      {
+        "at": 20.8709,
+        "raw": 27.216
+      },
+      {
+        "at": 34.2547,
+        "raw": 50.484
+      },
+      {
+        "at": 40.7172,
+        "raw": 62.865
+      },
+      {
+        "at": 49.3218,
+        "raw": 76.77000000000001
+      }
+    ],
+    "captions": [
+      [
+        5.4,
+        "polite"
+      ],
+      [
+        12.4083,
+        "snippet"
+      ],
+      [
+        14.8266,
+        "inline"
+      ],
+      [
+        20.8709,
+        "reply"
+      ],
+      [
+        34.2547,
+        "summary"
+      ],
+      [
+        40.7172,
+        "custom"
+      ],
+      [
+        49.3218,
+        "translate"
+      ]
+    ]
+  },
+  "sourceSha256": {
+    "story.mjs": "9d3da6ddb1519f873c767a25bbe94c5cc8666a50542193fa54a1f06a113b71b8",
+    "story-copy.mjs": "611384d1d0b5d53d3391e9129654283131683cd9e9689358c698a4ba61f22d72",
+    "story.html": "15fc9bd1779ce0da60a010355dc98ff0c9075af8be6e63067e2fec6090fe6ed5",
+    "build-story.mjs": "5dbbde0ad655961da77e4dfaa74af245abad5de528a5e1cda558332b55500850",
+    "../formpilot/promo-sound.js": "e81e1c3b9a5adae426a551ab128676edd12c546736b2d59b184304aeba00dedd"
+  },
+  "audio": {
+    "original": true,
+    "thirdPartySamples": false,
+    "palette": "soft",
+    "pcmSha256": "2cdc9ff85b80ded81036f6f0972ea7dabe806e876188090d9a4a853091dadd8a",
+    "events": [
+      {
+        "time": 0.3,
+        "kind": "key"
+      },
+      {
+        "time": 0.3462,
+        "kind": "key"
+      },
+      {
+        "time": 0.3923,
+        "kind": "key"
+      },
+      {
+        "time": 0.4385,
+        "kind": "key"
+      },
+      {
+        "time": 0.4846,
+        "kind": "key"
+      },
+      {
+        "time": 0.5308,
+        "kind": "key"
+      },
+      {
+        "time": 0.5769,
+        "kind": "key"
+      },
+      {
+        "time": 0.6231,
+        "kind": "key"
+      },
+      {
+        "time": 0.7154,
+        "kind": "key"
+      },
+      {
+        "time": 0.7615,
+        "kind": "key"
+      },
+      {
+        "time": 0.8077,
+        "kind": "key"
+      },
+      {
+        "time": 0.8538,
+        "kind": "key"
+      },
+      {
+        "time": 0.9,
+        "kind": "key"
+      },
+      {
+        "time": 0.9462,
+        "kind": "key"
+      },
+      {
+        "time": 1.0385,
+        "kind": "key"
+      },
+      {
+        "time": 1.0846,
+        "kind": "key"
+      },
+      {
+        "time": 1.1308,
+        "kind": "key"
+      },
+      {
+        "time": 1.1769,
+        "kind": "key"
+      },
+      {
+        "time": 1.2692,
+        "kind": "key"
+      },
+      {
+        "time": 1.3154,
+        "kind": "key"
+      },
+      {
+        "time": 1.3615,
+        "kind": "key"
+      },
+      {
+        "time": 1.4077,
+        "kind": "key"
+      },
+      {
+        "time": 1.4538,
+        "kind": "key"
+      },
+      {
+        "time": 2.15,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 3.08,
+        "kind": "whoosh"
+      },
+      {
+        "time": 3.45,
+        "kind": "impact"
+      },
+      {
+        "time": 5.08,
+        "kind": "whoosh"
+      },
+      {
+        "time": 5.8667,
+        "kind": "click"
+      },
+      {
+        "time": 7.5607,
+        "kind": "click"
+      },
+      {
+        "time": 8.4694,
+        "kind": "click"
+      },
+      {
+        "time": 9.2134,
+        "kind": "click"
+      },
+      {
+        "time": 9.9467,
+        "kind": "sparkle"
+      },
+      {
+        "time": 11.4928,
+        "kind": "click"
+      },
+      {
+        "time": 11.7882,
+        "kind": "success"
+      },
+      {
+        "time": 12.1083,
+        "kind": "whoosh"
+      },
+      {
+        "time": 12.4583,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 12.8866,
+        "kind": "click"
+      },
+      {
+        "time": 13.3544,
+        "kind": "key"
+      },
+      {
+        "time": 13.5009,
+        "kind": "key"
+      },
+      {
+        "time": 13.6475,
+        "kind": "key"
+      },
+      {
+        "time": 14.044,
+        "kind": "success"
+      },
+      {
+        "time": 14.5266,
+        "kind": "whoosh"
+      },
+      {
+        "time": 14.8766,
+        "kind": "pop",
+        "pitch": 1
+      },
+      {
+        "time": 15.1714,
+        "kind": "click"
+      },
+      {
+        "time": 15.4376,
+        "kind": "key"
+      },
+      {
+        "time": 15.5011,
+        "kind": "key"
+      },
+      {
+        "time": 15.5646,
+        "kind": "key"
+      },
+      {
+        "time": 15.6916,
+        "kind": "key"
+      },
+      {
+        "time": 15.7551,
+        "kind": "key"
+      },
+      {
+        "time": 15.8186,
+        "kind": "key"
+      },
+      {
+        "time": 15.8821,
+        "kind": "key"
+      },
+      {
+        "time": 15.9455,
+        "kind": "key"
+      },
+      {
+        "time": 16.009,
+        "kind": "key"
+      },
+      {
+        "time": 16.0725,
+        "kind": "key"
+      },
+      {
+        "time": 16.136,
+        "kind": "key"
+      },
+      {
+        "time": 16.1995,
+        "kind": "key"
+      },
+      {
+        "time": 16.3265,
+        "kind": "key"
+      },
+      {
+        "time": 16.39,
+        "kind": "key"
+      },
+      {
+        "time": 16.4535,
+        "kind": "key"
+      },
+      {
+        "time": 16.517,
+        "kind": "key"
+      },
+      {
+        "time": 16.5805,
+        "kind": "key"
+      },
+      {
+        "time": 16.7075,
+        "kind": "key"
+      },
+      {
+        "time": 16.771,
+        "kind": "key"
+      },
+      {
+        "time": 16.8345,
+        "kind": "key"
+      },
+      {
+        "time": 16.8979,
+        "kind": "key"
+      },
+      {
+        "time": 16.9614,
+        "kind": "key"
+      },
+      {
+        "time": 17.0249,
+        "kind": "key"
+      },
+      {
+        "time": 17.0884,
+        "kind": "key"
+      },
+      {
+        "time": 17.1519,
+        "kind": "key"
+      },
+      {
+        "time": 17.2154,
+        "kind": "key"
+      },
+      {
+        "time": 17.2789,
+        "kind": "key"
+      },
+      {
+        "time": 18.3114,
+        "kind": "sparkle"
+      },
+      {
+        "time": 19.8599,
+        "kind": "click"
+      },
+      {
+        "time": 20.1591,
+        "kind": "success"
+      },
+      {
+        "time": 20.5709,
+        "kind": "whoosh"
+      },
+      {
+        "time": 20.9209,
+        "kind": "pop",
+        "pitch": 2
+      },
+      {
+        "time": 21.5989,
+        "kind": "click"
+      },
+      {
+        "time": 23.2769,
+        "kind": "click"
+      },
+      {
+        "time": 24.0684,
+        "kind": "click"
+      },
+      {
+        "time": 24.6932,
+        "kind": "click"
+      },
+      {
+        "time": 25.2229,
+        "kind": "click"
+      },
+      {
+        "time": 25.4011,
+        "kind": "key"
+      },
+      {
+        "time": 25.4654,
+        "kind": "key"
+      },
+      {
+        "time": 25.5296,
+        "kind": "key"
+      },
+      {
+        "time": 25.5939,
+        "kind": "key"
+      },
+      {
+        "time": 25.6581,
+        "kind": "key"
+      },
+      {
+        "time": 25.7224,
+        "kind": "key"
+      },
+      {
+        "time": 25.7866,
+        "kind": "key"
+      },
+      {
+        "time": 25.8509,
+        "kind": "key"
+      },
+      {
+        "time": 25.9151,
+        "kind": "key"
+      },
+      {
+        "time": 26.0437,
+        "kind": "key"
+      },
+      {
+        "time": 26.1079,
+        "kind": "key"
+      },
+      {
+        "time": 26.1722,
+        "kind": "key"
+      },
+      {
+        "time": 26.2364,
+        "kind": "key"
+      },
+      {
+        "time": 26.3007,
+        "kind": "key"
+      },
+      {
+        "time": 26.4292,
+        "kind": "key"
+      },
+      {
+        "time": 26.4934,
+        "kind": "key"
+      },
+      {
+        "time": 26.5577,
+        "kind": "key"
+      },
+      {
+        "time": 26.622,
+        "kind": "key"
+      },
+      {
+        "time": 26.6862,
+        "kind": "key"
+      },
+      {
+        "time": 26.7505,
+        "kind": "key"
+      },
+      {
+        "time": 26.8147,
+        "kind": "key"
+      },
+      {
+        "time": 26.879,
+        "kind": "key"
+      },
+      {
+        "time": 27.0075,
+        "kind": "key"
+      },
+      {
+        "time": 27.0717,
+        "kind": "key"
+      },
+      {
+        "time": 27.136,
+        "kind": "key"
+      },
+      {
+        "time": 27.2003,
+        "kind": "key"
+      },
+      {
+        "time": 27.2645,
+        "kind": "key"
+      },
+      {
+        "time": 27.393,
+        "kind": "key"
+      },
+      {
+        "time": 27.4573,
+        "kind": "key"
+      },
+      {
+        "time": 27.5215,
+        "kind": "key"
+      },
+      {
+        "time": 27.65,
+        "kind": "key"
+      },
+      {
+        "time": 27.7143,
+        "kind": "key"
+      },
+      {
+        "time": 27.7786,
+        "kind": "key"
+      },
+      {
+        "time": 27.8428,
+        "kind": "key"
+      },
+      {
+        "time": 27.9071,
+        "kind": "key"
+      },
+      {
+        "time": 27.9713,
+        "kind": "key"
+      },
+      {
+        "time": 28.0356,
+        "kind": "key"
+      },
+      {
+        "time": 28.0998,
+        "kind": "key"
+      },
+      {
+        "time": 28.1641,
+        "kind": "key"
+      },
+      {
+        "time": 28.2283,
+        "kind": "key"
+      },
+      {
+        "time": 28.9908,
+        "kind": "click"
+      },
+      {
+        "time": 29.7337,
+        "kind": "sparkle"
+      },
+      {
+        "time": 31.1589,
+        "kind": "click"
+      },
+      {
+        "time": 31.8373,
+        "kind": "click"
+      },
+      {
+        "time": 32.4073,
+        "kind": "click"
+      },
+      {
+        "time": 33.4357,
+        "kind": "click"
+      },
+      {
+        "time": 33.5357,
+        "kind": "success"
+      },
+      {
+        "time": 33.9547,
+        "kind": "whoosh"
+      },
+      {
+        "time": 34.3047,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 35.0274,
+        "kind": "click"
+      },
+      {
+        "time": 36.6714,
+        "kind": "click"
+      },
+      {
+        "time": 37.6674,
+        "kind": "click"
+      },
+      {
+        "time": 38.4454,
+        "kind": "click"
+      },
+      {
+        "time": 39.1787,
+        "kind": "sparkle"
+      },
+      {
+        "time": 40.4172,
+        "kind": "whoosh"
+      },
+      {
+        "time": 40.7672,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 41.4085,
+        "kind": "click"
+      },
+      {
+        "time": 42.9625,
+        "kind": "click"
+      },
+      {
+        "time": 43.8265,
+        "kind": "click"
+      },
+      {
+        "time": 44.0558,
+        "kind": "key"
+      },
+      {
+        "time": 44.1241,
+        "kind": "key"
+      },
+      {
+        "time": 44.1923,
+        "kind": "key"
+      },
+      {
+        "time": 44.2606,
+        "kind": "key"
+      },
+      {
+        "time": 44.3288,
+        "kind": "key"
+      },
+      {
+        "time": 44.3971,
+        "kind": "key"
+      },
+      {
+        "time": 44.4653,
+        "kind": "key"
+      },
+      {
+        "time": 44.5336,
+        "kind": "key"
+      },
+      {
+        "time": 44.6019,
+        "kind": "key"
+      },
+      {
+        "time": 44.6701,
+        "kind": "key"
+      },
+      {
+        "time": 44.8066,
+        "kind": "key"
+      },
+      {
+        "time": 44.8749,
+        "kind": "key"
+      },
+      {
+        "time": 44.9431,
+        "kind": "key"
+      },
+      {
+        "time": 45.0114,
+        "kind": "key"
+      },
+      {
+        "time": 45.0797,
+        "kind": "key"
+      },
+      {
+        "time": 45.1479,
+        "kind": "key"
+      },
+      {
+        "time": 45.2844,
+        "kind": "key"
+      },
+      {
+        "time": 45.3527,
+        "kind": "key"
+      },
+      {
+        "time": 45.4209,
+        "kind": "key"
+      },
+      {
+        "time": 46.2019,
+        "kind": "click"
+      },
+      {
+        "time": 46.9352,
+        "kind": "sparkle"
+      },
+      {
+        "time": 48.479,
+        "kind": "click"
+      },
+      {
+        "time": 48.7898,
+        "kind": "success"
+      },
+      {
+        "time": 49.0218,
+        "kind": "whoosh"
+      },
+      {
+        "time": 49.3718,
+        "kind": "pop",
+        "pitch": 0
+      },
+      {
+        "time": 49.7218,
+        "kind": "click"
+      },
+      {
+        "time": 51.3805,
+        "kind": "click"
+      },
+      {
+        "time": 52.2365,
+        "kind": "click"
+      },
+      {
+        "time": 52.9692,
+        "kind": "click"
+      },
+      {
+        "time": 53.7025,
+        "kind": "sparkle"
+      },
+      {
+        "time": 55.2156,
+        "kind": "click"
+      },
+      {
+        "time": 55.5117,
+        "kind": "success"
+      },
+      {
+        "time": 56.7682,
+        "kind": "whoosh"
+      },
+      {
+        "time": 57.5882,
+        "kind": "pop",
+        "pitch": 3
+      },
+      {
+        "time": 57.9382,
+        "kind": "pop",
+        "pitch": 4
+      },
+      {
+        "time": 58.2882,
+        "kind": "pop",
+        "pitch": 5
+      },
+      {
+        "time": 58.6382,
+        "kind": "pop",
+        "pitch": 6
+      },
+      {
+        "time": 62.3682,
+        "kind": "whoosh"
+      },
+      {
+        "time": 64.4882,
+        "kind": "success"
+      }
+    ],
+    "integratedLufs": -16.07,
+    "truePeakDbtp": -3.18
+  }
+}
