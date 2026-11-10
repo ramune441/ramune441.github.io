@@ -1,6 +1,6 @@
 {
-  "seo_title": "Kura | One app for everything photos: gallery, cleanup, AI editing and backup for Android",
-  "seo_desc": "Kura is an all-in-one Android photo app: a full gallery, duplicate and blur cleanup, portrait and AI editing, private photos, original-quality cloud backup and moving from Google Photos. Browsing, sorting and deleting are free, with no ads.",
+  "seo_title": "Kura: All-in-one photo gallery, cleanup, AI editing & backup",
+  "seo_desc": "Kura, the all-in-one Android photo app: gallery, duplicate and blur cleanup, AI editing, private photos, original-quality backup. Free to browse, no ads.",
   "og_title": "Kura | All your photos, all in one app.",
   "og_desc": "Gallery, cleanup, AI editing, private photos, original-quality backup and moving from Google Photos, in one Android photo app. Browsing, sorting and deleting are free.",
   "nav_web": "Web app",
@@ -45,7 +45,7 @@
   "s4_tag": "Private",
   "s4_p": "Move photos and videos to Private to hide them from your gallery and other apps. Open it with your phone's screen lock.",
   "s4_f1": "Lock the whole app if you like",
-  "s4_f2": "Location is removed from shared photos (on by default)",
+  "s4_f2": "Location is removed when you share to other apps (on by default)",
   "s5_tag": "Backup",
   "s5_p": "Back up photos and videos with no recompression. Remove backed-up copies from your phone to free up space; they stay viewable from the cloud.",
   "s5_f1": "Monthly plans: 100 GB / 500 GB / 1 TB",

@@ -1,10 +1,13 @@
-// SubDuo Landing Page — Internationalization
-// LP supports 12 languages; promo-locales.js adds eight locales for the video:
+// SubDuo promo video (promo.html) — text dictionary for the 39.5-second promo film.
+// The landing page no longer uses this file: it is generated per language from lp-i18n/<lang>.json
+// by build-lp.mjs. This dictionary only feeds promo.html (and build-promo-localized.mjs / promo-localized.test.mjs).
+// It covers the 12 languages of the originally published promo videos; promo-locales.js adds eight more:
 //   en, ja, zh (简体), zh-TW (繁體), ko, es, fr, de, it, pt, ru, hi
 // Keys with HTML go through data-i18n-html; the rest are plain text (data-i18n).
 // Demo cues: cueN_a = top line (original language), cueN_b = bottom line (viewer's language).
-// Product facts (v0.2.0): works on Prime Video / YouTube / Netflix / Disney+, per-site settings,
-// no presets, permissions = storage / scripting + the four sites.
+// The text matches what those published videos show (the four-service era); it is not a description of
+// the current extension. Current product facts live in lp-i18n/ and the store listing (store-listing.json).
+// LP_VIDEO_IDS are the IDs of those 12 published promo videos (the LP takes its videos from youtube-store-videos.json).
 
 var LP_MESSAGES = {
 

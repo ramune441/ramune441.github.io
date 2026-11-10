@@ -18,17 +18,22 @@
 ## 生成スクリプト（文言や拡張の UI を変えたら実行して生成物ごとコミット）
 | 対象 | 実行 | 生成物 |
 |---|---|---|
-| SendReady LP の言語別ページ | `cd sendready-chrome && node build-lang-pages.mjs`（Node だけで動く） | `sendready-chrome/<lang>/index.html`、ルート `index.html` の SEO ブロック、`sitemap.xml` の SendReady LP 部分 |
+| ポータル | `node portal/build.mjs [--sitemap]` → `node --test portal/portal.test.mjs` | ルート `index.html`（ja）と `/<lang>/index.html`、`--sitemap` で `sitemap.xml` の `portal` の印の間。プロダクトの言語ページを増やしたら再実行する（カードのリンク先が変わる） |
+| SendReady LP の言語別ページ | `cd sendready-chrome && node build-lang-pages.mjs`（Node だけで動く）→ `node --test sendready-chrome/lp.test.mjs` | `sendready-chrome/<lang>/index.html` と `<lang>/how-to.html`、ルート `index.html`・`how-to.html` の SEO ブロック、`sitemap.xml` の SendReady 部分。版は拡張の manifest（`SENDREADY_EXT`）から取るので、拡張の版を上げたら再生成する |
+| SubDuo LP | `node subduo/build-lp.mjs [--sitemap]` → `node --test subduo/lp.test.mjs` | `subduo/index.html`（英語）と `subduo/<lang>/index.html`、`--sitemap` で `subduo-lp` の印の間。文言は `subduo/lp-i18n/<lang>.json`、版は拡張の manifest（`SUBDUO_EXT`） |
+| Ripen LP・法務 | `node ripen/build-lp.mjs [--sitemap]` → `node --test ripen/lp.test.mjs` | `ripen/index.html`（日本語）と `ripen/<lang>/index.html`、`i18n-pp.js`、プライバシーポリシーと問い合わせの既定文。文言は `ripen/lp-i18n/`・`pp-i18n/`・`contact-i18n/` |
+| 足あとメーカーのページ | `node ashiato-maker/build-pages.mjs [--sitemap]` → `node --test "ashiato-maker/**/*.test.mjs"`。画像は拡張のストア画像を作り直したら `node ashiato-maker/build-lp-images.mjs` | LP 20 言語と問い合わせ・アンケート・プライバシー。文言は `ashiato-maker/i18n/`、形は `templates/`。拡張（`ASHIATO_EXT`）があれば版・動画・主要アプリを `lp-data.json` へ写す |
 | SendReady ストア画像 | `node sendready-chrome/render-store-images.mjs [lang…]`（puppeteer-core と Chrome。指定なしで全 20 言語） | `sendready-chrome/images/`（en）と `images/<lang>/` の紹介画像 5 枚とマーキー、en だけ小タイル。文字がキャンバス外・言語数が 20 でない場合は失敗する |
-| FormPilot の公開資料 | `node formpilot/guide-shots.js` → `node formpilot/build-site.js`（puppeteer-core と Chrome、同階層の FormPilot 拡張ソースが必要。別配置は `FORMPILOT_EXT`） | 20言語の実画面・LP・ガイド・プライバシー説明、共通問い合わせ翻訳、サイトマップ |
+| FormPilot の公開資料 | `node formpilot/guide-shots.js` → `node formpilot/build-site.js`（puppeteer-core と Chrome、同階層の FormPilot 拡張ソースが必要。別配置は `FORMPILOT_EXT`） | 20言語の実画面・LP・ガイド・プライバシー説明、問い合わせとアンケートの翻訳、サイトマップ。検索用の文言は `formpilot/translations-seo.js`、アンケートは `translations-survey.js` |
 | FormPilot の動画 | 上記の画像生成後に `node formpilot/build-videos.js` → `node formpilot/build-site.js` | 20言語各2本のMP4・WebVTT・ポスター、再生ページと動画の検証情報 |
 | SubDuo ストア画像 | `node subduo/render-store-images.mjs [lang…]` → `node --test subduo/store-assets.test.mjs`（puppeteer-core・Chromeが必要。ブラウザは `CHROME_PATH` で指定可能） | `subduo/images/` と寸法・SHA-256を記録した `subduo/store-assets.json`。指定なしで全言語、指定ありで対象言語を再生成 |
 | SubDuo の追加言語動画 | `node subduo/build-promo-localized.mjs [lang…]` → `node --test subduo/promo-localized.test.mjs`（FFmpeg・FFprobe・Chrome・puppeteer-coreが必要） | 39.5秒・4K/30fpsのMP4とWebVTT。既存英語版のAAC BGMを再利用し、公開済みIDがある素材は再生成しない |
 | Kura ストア画像 | `node kura/store-images-strings.mjs` → `node kura/render-store-images.mjs`（puppeteer-core と Chrome が必要） | `kura/images/store/<lang>/` |
-| Kura LP | `node kura/build-lp.mjs`（Node だけで動く）→ `node --test kura/lp.test.mjs`。形は `kura/lp-template.html`・`lp.css`・`lp.js`、文言は `kura/lp-i18n/<lang>.json` を直す | `kura/index.html`（英語）と `kura/<lang>/index.html`、`sitemap.xml` の `kura-lp` の印の間 |
+| Kura LP | `node kura/build-lp.mjs`（Node だけで動く）→ `node --test kura/lp.test.mjs`。形は `kura/lp-template.html`・`lp.css`・`lp.js`、文言は `kura/lp-i18n/<lang>.json`、法務 2 ページは `kura/legal-i18n/<lang>.json` を直す | `kura/index.html`（英語）と `kura/<lang>/index.html`、`kura/i18n-pp.js`・`i18n-delete.js` と法務 2 ページの日本語既定文、`sitemap.xml` の `kura-lp` の印の間 |
 | Kura LP の画像 | ストア画像を作り直したら `node kura/build-lp-images.mjs [lang…]` → `node --test kura/lp.test.mjs`（puppeteer-core と Chrome。古いとテストで失敗する） | `kura/images/lp/<lang>/` の WebP と `kura/images/lp/photos/` のサムネイル |
 - SendReady LP の文言は `sendready-chrome/i18n-lp.js` を直してから生成する。生成ページを手で直すと次の生成で消える。
-- FormPilot は生成後に `node --test formpilot/site.test.js formpilot/media.test.js` と `node formpilot/verify-site.js` を通す。後者は20言語のPC・390px画面、キーボード、言語移動、画像、動画の再生・シーク・字幕、フォーム送信が発生しないことを一時Chromeで確認する。
+- `node --test <フォルダ>/` は Node 24 ではフォルダを受け付けない。`node --test subduo/*.test.mjs` のようにファイルで指定する。
+- FormPilot は生成後に `node --test formpilot/site.test.js formpilot/media.test.js` と `node formpilot/verify-site.js` を通す。後者は20言語×5ページ（LP・ガイド・プライバシー・問い合わせ・アンケート）のPC・390px画面、キーボード、言語移動、画像、動画の再生・シーク・字幕、フォーム送信が発生しないことを一時Chromeで確認する。
 - 動画生成にはFFmpeg・FFprobeを使う。実行ファイルは `FFMPEG_PATH` / `FFPROBE_PATH`、または `FORMPILOT_MEDIA_TOOLS` 配下の `ffmpeg-static` / `ffprobe-static` を使用し、生成フレームはOSの一時フォルダーに置く。
 - FormPilot の機能文は拡張の `store/content.js`、操作名・説明は `i18n.js`、ストア画像は `store/images/` から取り込む。追加のWeb用翻訳だけをこのリポジトリで管理し、生成物もコミットする。
 - 公開はmasterへのpush後、GitHub Pagesのビルド完了と本番の言語ページ・共有JS/CSS・代表画像を照合する。push成功だけでは公開完了にしない。

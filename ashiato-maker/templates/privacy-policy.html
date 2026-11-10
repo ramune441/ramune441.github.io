@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!-- 生成物: ashiato-maker/templates/privacy-policy.html と ashiato-maker/i18n/pages/<lang>.json から node ashiato-maker/build-pages.mjs で作る。直接直さない。日本語版が正本。 -->
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLL1M8ZFGH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NLL1M8ZFGH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pp_doc_title}}</title>
+  <meta name="description" content="{{pp_seo_desc}}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{@url}}">
+  <meta property="og:title" content="{{pp_doc_title}}">
+  <meta property="og:description" content="{{pp_seo_desc}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{@url}}">
+  <meta property="og:image" content="{{@ogImage}}">
+  <meta property="og:locale" content="ja_JP">
+{{@ogLocaleAlternates}}
+  <meta property="og:site_name" content="{{brand}}">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&amp;display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', sans-serif;
+      background: #0a0e1a;
+      color: #cbd5e1;
+      line-height: 1.9;
+    }
+    a { color: #a78bfa; }
+    a:hover { color: #c4b5fd; }
+
+    .header {
+      background: linear-gradient(160deg, #0f172a, #1e1b4b);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 24px;
+    }
+    .header-inner {
+      max-width: 760px; margin: 0 auto;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header img { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
+    .header .brand {
+      font-size: 15px; font-weight: 700; color: #fff; text-decoration: none; min-width: 0;
+    }
+    .lang-select {
+      margin-inline-start: auto; font: inherit; font-size: 13px; color: #e2e8f0;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 5px 8px; cursor: pointer;
+    }
+    .lang-select option { color: #0f172a; }
+
+    main {
+      max-width: 760px; margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    h1 {
+      font-size: 28px; font-weight: 900; color: #fff;
+      margin-bottom: 12px;
+    }
+    .updated { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+    .translation-note { font-size: 13px; color: #c4b5fd; background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.25); border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; }
+    .translation-note[hidden] { display: none; }
+    .rule { border: 0; border-bottom: 1px solid rgba(255,255,255,0.08); margin: 16px 0 32px; }
+    h2 {
+      font-size: 18px; font-weight: 700; color: #e2e8f0;
+      margin-top: 40px; margin-bottom: 12px;
+    }
+    h3 {
+      font-size: 15px; font-weight: 700; color: #cbd5e1;
+      margin-top: 20px; margin-bottom: 8px;
+    }
+    p, li {
+      font-size: 14px; color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    ul {
+      padding-inline-start: 20px; margin-bottom: 12px;
+    }
+    li { margin-bottom: 4px; }
+    strong { color: #e2e8f0; }
+    code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; color: #e2e8f0; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 24px;
+      text-align: center;
+      font-size: 13px; color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-inner">
+      <img src="icons/icon128.png" alt="" width="32" height="32">
+      <a href="./" class="brand" data-lp-link data-i18n="brand">{{brand}}</a>
+      <select id="lang-select" class="lang-select" aria-label="{{lang_label}}" data-i18n-aria="lang_label">{{@langOptions}}</select>
+    </div>
+  </div>
+
+  <main>
+    <h1 data-i18n="pp_title">{{pp_title}}</h1>
+    <p class="updated" data-i18n="pp_updated">{{pp_updated}}</p>
+    <p class="translation-note" id="translation-note" data-i18n="pp_translation_note" hidden>{{pp_translation_note}}</p>
+    <hr class="rule">
+
+    <h2 data-i18n="pp_h1">{{pp_h1}}</h2>
+    <p data-i18n="pp_intro">{{pp_intro}}</p>
+
+    <h2 data-i18n="pp_h2">{{pp_h2}}</h2>
+    <p data-i18n="pp_collect">{{pp_collect}}</p>
+
+    <h3 data-i18n="pp_page_h">{{pp_page_h}}</h3>
+    <ul>
+      <li data-i18n="pp_page_li1">{{pp_page_li1}}</li>
+      <li data-i18n="pp_page_li2">{{pp_page_li2}}</li>
+    </ul>
+    <p data-i18n="pp_page_p">{{pp_page_p}}</p>
+
+    <h3 data-i18n="pp_local_h">{{pp_local_h}}</h3>
+    <ul>
+      <li data-i18n="pp_local_li1">{{pp_local_li1}}</li>
+      <li data-i18n="pp_local_li2">{{pp_local_li2}}</li>
+      <li data-i18n="pp_local_li3">{{pp_local_li3}}</li>
+      <li data-i18n="pp_local_li4">{{pp_local_li4}}</li>
+    </ul>
+    <p data-i18n="pp_local_p">{{pp_local_p}}</p>
+    <p data-i18n="pp_local_sync">{{pp_local_sync}}</p>
+    <p data-i18n="pp_local_none">{{pp_local_none}}</p>
+
+    <h2 data-i18n="pp_h3">{{pp_h3}}</h2>
+    <p data-i18n="pp_purpose">{{pp_purpose}}</p>
+    <ul>
+      <li data-i18n="pp_purpose_li1">{{pp_purpose_li1}}</li>
+      <li data-i18n="pp_purpose_li2">{{pp_purpose_li2}}</li>
+      <li data-i18n="pp_purpose_li3">{{pp_purpose_li3}}</li>
+      <li data-i18n="pp_purpose_li4">{{pp_purpose_li4}}</li>
+    </ul>
+
+    <h2 data-i18n="pp_h4">{{pp_h4}}</h2>
+    <p data-i18n="pp_send_p">{{pp_send_p}}</p>
+    <p data-i18n="pp_send_form">{{pp_send_form}}</p>
+
+    <h2 data-i18n="pp_h5">{{pp_h5}}</h2>
+    <p data-i18n="pp_third">{{pp_third}}</p>
+    <ul>
+      <li data-i18n="pp_third_li1">{{pp_third_li1}}</li>
+      <li data-i18n="pp_third_li2">{{pp_third_li2}}</li>
+    </ul>
+
+    <h2 data-i18n="pp_h6">{{pp_h6}}</h2>
+    <p data-i18n="pp_access">{{pp_access}}</p>
+
+    <h2 data-i18n="pp_h7">{{pp_h7}}</h2>
+    <p data-i18n="pp_perm">{{pp_perm}}</p>
+    <ul>
+      <li><strong>storage</strong>: <span data-i18n="pp_perm_storage">{{pp_perm_storage}}</span></li>
+      <li><strong>tabs</strong>: <span data-i18n="pp_perm_tabs">{{pp_perm_tabs}}</span></li>
+      <li><strong>host_permissions</strong>: <span data-i18n="pp_perm_hosts">{{pp_perm_hosts}}</span></li>
+    </ul>
+    <p data-i18n="pp_perm_note">{{pp_perm_note}}</p>
+
+    <h2 data-i18n="pp_h8">{{pp_h8}}</h2>
+    <p data-i18n="pp_store">{{pp_store}}</p>
+
+    <h2 data-i18n="pp_h9">{{pp_h9}}</h2>
+    <p data-i18n="pp_site">{{pp_site}}</p>
+
+    <h2 data-i18n="pp_h10">{{pp_h10}}</h2>
+    <p data-i18n="pp_contact">{{pp_contact}}</p>
+    <ul>
+      <li><a href="contact.html" id="contact-link" data-i18n="pp_form_link">{{pp_form_link}}</a></li>
+      <li><span data-i18n="pp_email_label">{{pp_email_label}}</span>: warload57@gmail.com</li>
+    </ul>
+
+    <h2 data-i18n="pp_h11">{{pp_h11}}</h2>
+    <p data-i18n="pp_change">{{pp_change}}</p>
+  </main>
+
+  <footer>
+    &copy; 2025 <span data-i18n="brand">{{brand}}</span>
+  </footer>
+
+  <script>
+    (function () {
+      var LP_PATHS = {{@lpPaths}};
+      var MESSAGES = {{@messages}};
+{{@localeScript}}
+
+      var locale = detectLocale();
+      function apply(next) {
+        locale = next;
+        applyMessages(locale, MESSAGES[locale]);
+        document.getElementById('translation-note').hidden = locale === 'ja';
+        document.querySelectorAll('[data-lp-link]').forEach(function (a) { a.href = LP_PATHS[locale]; });
+        document.getElementById('contact-link').href = 'contact.html?lang=' + encodeURIComponent(locale);
+      }
+      bindSelector(function (next) { apply(next); });
+      apply(locale);
+    })();
+  </script>
+
+</body>
+</html>

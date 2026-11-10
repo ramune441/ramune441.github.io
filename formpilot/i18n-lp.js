@@ -11,13 +11,13 @@ function detectLPLocale(){
  return normalizeLPLocale(navigator.language)||'en';
 }
 function localePage(locale,page){return '/formpilot/'+(locale==='en'?'':locale+'/')+(page==='index.html'?'':page);}
-const LP_MESSAGES=Object.fromEntries(Object.entries(FORMPILOT_SITE.labels).map(([lang,l])=>[lang,l.contactCopy]));
+const LP_MESSAGES=FORMPILOT_SITE.forms;
 function applyLPTranslations(locale){
- locale=normalizeLPLocale(locale)||'en';const data=FORMPILOT_SITE,msg=data.labels[locale].contactCopy;
+ locale=normalizeLPLocale(locale)||'en';const data=FORMPILOT_SITE,msg=data.forms[locale];
  document.documentElement.lang=locale;document.documentElement.dir=locale==='ar'?'rtl':'ltr';
  document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(msg[key]!==undefined)el.textContent=msg[key];});
  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{if(msg[el.dataset.i18nPh]!==undefined)el.placeholder=msg[el.dataset.i18nPh];});
- if(!document.body.dataset.page){document.title='FormPilot · '+data.labels[locale].contact;document.querySelectorAll('a[href]').forEach(a=>{const value=a.getAttribute('href');if(['./','index.html','guide.html','privacy-policy.html'].includes(value))a.dataset.pageTarget=value==='./'?'index.html':value;if(a.dataset.pageTarget)a.href=localePage(locale,a.dataset.pageTarget);});}
+ if(!document.body.dataset.page){const titleKey=document.body.dataset.titleKey;document.title=titleKey?msg[titleKey]:'FormPilot · '+data.labels[locale].contact;document.querySelectorAll('a[href]').forEach(a=>{const value=a.getAttribute('href');if(['./','index.html','guide.html','privacy-policy.html'].includes(value))a.dataset.pageTarget=value==='./'?'index.html':value;if(a.dataset.pageTarget)a.href=localePage(locale,a.dataset.pageTarget);});}
  const selector=document.getElementById('lang-select');if(selector){selector.value=locale;selector.setAttribute('aria-label',data.labels[locale].settings);}
  try{localStorage.setItem('formpilot_lang',locale);}catch{}
 }

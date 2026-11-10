@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SendReady Privacy Policy</title>
-  <meta name="description" content="Privacy policy for the Chrome extension SendReady. Covers local storage of settings, the scope of text sent to AI, third-party sharing, permissions, and data deletion.">
+  <meta name="description" content="SendReady privacy policy: what stays in your browser, what is sent to AI and when, what the AI proxy keeps, permissions and how to delete your data.">
   <meta name="robots" content="index, follow">
+  <meta name="author" content="Ramune">
+  <link rel="canonical" href="https://ramune441.github.io/sendready-chrome/privacy-policy.html">
+  <meta property="og:title" content="SendReady Privacy Policy">
+  <meta property="og:description" content="SendReady privacy policy: what stays in your browser, what is sent to AI and when, what the AI proxy keeps, permissions and how to delete your data.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/sendready-chrome/privacy-policy.html">
+  <meta property="og:image" content="https://ramune441.github.io/sendready-chrome/images/store-image-1.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="SendReady">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"SendReady Privacy Policy","url":"https://ramune441.github.io/sendready-chrome/privacy-policy.html","inLanguage":"en","dateModified":"2026-11-10","about":{"@type":"SoftwareApplication","name":"SendReady","url":"https://ramune441.github.io/sendready-chrome/","applicationCategory":"BrowserApplication","operatingSystem":"Chrome"},"publisher":{"@type":"Person","name":"Ramune","url":"https://ramune441.github.io/"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ramune Apps","item":"https://ramune441.github.io/"},{"@type":"ListItem","position":2,"name":"SendReady","item":"https://ramune441.github.io/sendready-chrome/"},{"@type":"ListItem","position":3,"name":"Privacy Policy","item":"https://ramune441.github.io/sendready-chrome/privacy-policy.html"}]}
+  </script>
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +45,7 @@
     }
     .header img { width: 32px; height: 32px; border-radius: 8px; }
     .header span { font-size: 18px; font-weight: 700; color: #1e293b; }
+    #lang-select { margin-inline-start: auto; font-family: inherit; font-size: 13px; color: #475569; background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 10px; cursor: pointer; max-width: 46vw; }
     .container { max-width: 700px; margin: 0 auto; padding: 32px 20px 80px; }
     .back {
       display: inline-flex; align-items: center; gap: 6px;
@@ -37,11 +54,12 @@
     }
     .back:hover { color: var(--indigo); }
     h1 { font-size: 28px; font-weight: 800; color: #1e293b; margin-bottom: 8px; }
-    .updated { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
+    .updated { font-size: 13px; color: #94a3b8; margin-bottom: 24px; }
+    .notice { font-size: 13px; color: #475569; background: #eef4ff; border: 1px solid #d6e4ff; border-radius: 8px; padding: 10px 14px; margin-bottom: 24px; }
+    .notice[hidden] { display: none; }
     h2 { font-size: 20px; font-weight: 700; color: #1e293b; margin-top: 40px; margin-bottom: 16px; }
-    h3 { font-size: 16px; font-weight: 700; color: #1e293b; margin-top: 24px; margin-bottom: 8px; }
     p, li { font-size: 15px; color: #475569; margin-bottom: 12px; }
-    ul { padding-left: 24px; }
+    ul { padding-inline-start: 24px; }
     strong { color: #1e293b; font-weight: 700; }
     code {
       background: #e2e8f0; padding: 2px 6px; border-radius: 4px;
@@ -63,70 +81,121 @@
   <header class="header">
     <img src="icons/icon48.png" alt="" width="32" height="32">
     <span>SendReady</span>
+    <select id="lang-select" aria-label="Language"></select>
   </header>
 
-  <div class="container">
-    <a href="index.html" class="back">&larr; Back to SendReady</a>
-    <h1>SendReady Privacy Policy</h1>
-    <p class="updated">Last updated: June 2025</p>
+  <!-- 英語が正本。既定文は privacy-i18n.js の en と同じ文字列にする（他の言語は ?lang= / 選択で差し替える） -->
+  <main class="container">
+    <a href="./" class="back" id="back-link" data-i18n="pp_back">← Back to SendReady</a>
+    <h1 data-i18n="pp_title">SendReady Privacy Policy</h1>
+    <p class="updated" data-i18n="pp_updated">Last updated: November 2026</p>
+    <p class="notice" id="pp-notice" data-i18n="pp_notice" hidden></p>
 
-    <p>This Privacy Policy describes how the developer Ramune (the "Developer") handles user information in the Chrome extension "SendReady" (the "Extension"). The Extension is a tool that uses AI to transform text that the user selects or types.</p>
+    <p data-i18n-html="pp_intro">This policy explains how the developer Ramune (the "Developer") handles information in the Chrome extension "SendReady" (the "Extension"). The Extension uses AI to rewrite, translate, summarize or reply to text you select or type, and inserts snippets you have saved.</p>
 
-    <h2>1. Information We Collect</h2>
-    <p>The Extension is designed with privacy first, and handles only the minimum information necessary to provide its features.</p>
+    <h2 data-i18n="pp_h1">1. Information stored in your browser</h2>
+    <p data-i18n-html="pp_p1">The Extension stores the following with the Chrome Storage API. The Developer cannot see it.</p>
+    <ul data-i18n-html="pp_l1"><li><strong>Settings</strong> (<code>chrome.storage.sync</code>): your presets and snippets, theme, display language and toolbar setting. If Chrome sync is on, Chrome syncs them across your signed-in browsers through your Google account.</li><li><strong>Device data</strong> (<code>chrome.storage.local</code>): a random device identifier (<code>deviceId</code>, in the form <code>"chrome:" + UUID</code>), your remaining AI uses for the day, your last 5 AI results (history), the review-prompt status and number of successful uses, whether the how-to page has been shown, the install date and the last error code.</li></ul>
+    <p data-i18n-html="pp_p1b">Expanding a snippet happens entirely in your browser and sends nothing.</p>
 
-    <h3>(1) Settings stored locally</h3>
-    <ul>
-      <li>The contents of your presets (transformation rules)</li>
-      <li>App settings such as theme and language</li>
-    </ul>
-    <p>This information is stored only on the user's device using the Chrome Storage API (<code>chrome.storage.sync</code> / <code>chrome.storage.local</code>).</p>
+    <h2 data-i18n="pp_h2">2. Information sent when you run an AI action</h2>
+    <p data-i18n-html="pp_p2">Only when you run an AI action (polish, translate, summarize, fix, a custom instruction or a reply), the Extension sends the following to an AI proxy the Developer runs on Cloudflare Workers (<code>https://sendready-1-22.warload57.workers.dev</code>). The proxy passes the text to Google Gemini and returns the result.</p>
+    <ul data-i18n-html="pp_l2"><li>the text you selected or typed as the target (up to 1,000 characters)</li><li>the style or instruction you chose, and for a reply, the reply content you entered</li><li>your deviceId</li></ul>
+    <p data-i18n-html="pp_p2b"><strong>The Extension does not read or send the rest of the page, your browsing history or other personal information.</strong> As with any connection, the proxy sees your IP address.</p>
 
-    <h3>(2) Device identifier (deviceId)</h3>
-    <ul>
-      <li>On first use, the Extension generates a <strong>deviceId</strong> in the form <code>"chrome:" + a random UUID</code> and stores it in <code>chrome.storage.local</code>.</li>
-      <li>This deviceId is used solely to manage AI usage counts (the daily usage limit), and is not linked to any personal information such as your name or email address.</li>
-    </ul>
+    <h2 data-i18n="pp_h3">3. What the AI proxy keeps</h2>
+    <p data-i18n-html="pp_p3">The proxy does not store your text or the AI result. To enforce the limit of 50 AI uses per day and to prevent abuse, it keeps a usage count per deviceId for 24 hours. If abuse is detected (for example, a burst of requests or far more than the daily limit), the deviceId is added to a block list with no expiry date, and if several blocked devices share an IP address, that IP address is added too.</p>
 
-    <h2>2. Information Sent to AI</h2>
-    <p>The Extension sends <strong>only the text you select or type as the transformation target</strong> to the AI (Google Gemini), via a Cloudflare Worker operated by the Developer (<code>https://sendready-1-22.warload57.workers.dev</code>), and retrieves the transformed result.</p>
-    <p><strong>Important: No other page content, browsing history, or personal information is sent.</strong> Only the text you explicitly designate for transformation is transmitted.</p>
-    <p>To manage the usage limit (50 times per day) and to prevent abuse, the <strong>deviceId</strong> and <strong>IP address</strong> are used during the above communication.</p>
+    <h2 data-i18n="pp_h4">4. Third parties</h2>
+    <p data-i18n-html="pp_p4">The Developer does not sell your information or share it with anyone other than the providers needed to run the AI feature: Cloudflare (hosting the proxy) and Google (Gemini API). For how Google handles the text, see the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+    <p data-i18n-html="pp_p4b"><strong>The Extension contains no ads, tracking or analytics.</strong></p>
 
-    <h2>3. Third-Party Sharing</h2>
-    <p>The Developer never sells or provides your personal data to anyone other than the service providers required to perform the AI processing described above (Cloudflare and Google Gemini).</p>
-    <p>The Extension <strong>uses no advertising, tracking, or analytics whatsoever.</strong></p>
-    <p>For how data is handled by Google Gemini, please see the <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</p>
+    <h2 data-i18n="pp_h5">5. This website, the contact form and the uninstall survey</h2>
+    <p data-i18n-html="pp_p5">This website (not the Extension) uses Google Analytics to count page visits. If you send the contact form or the uninstall survey, we receive what you enter (including your email address and attachment, if you add them) and the anonymous diagnostics the Extension adds to the link: version, display language, days since install, number of successful AI uses and last error code. We use them only to reply to you and to improve the Extension.</p>
 
-    <h2>4. Permissions</h2>
-    <p>The Extension uses the following Chrome permissions. Each is the minimum required to provide its features.</p>
-    <ul>
-      <li><strong>storage</strong>: Storing presets, settings, and the deviceId</li>
-      <li><strong>contextMenus</strong>: Opening SendReady from the right-click menu</li>
-      <li><strong>clipboardWrite</strong>: Copying transformation results to the clipboard</li>
-      <li><strong>Content script on web pages</strong>: Showing the SendReady button next to text you select or the field you type in, and inserting the result. It reads only the text you select or type, and only sends it when you run an AI action.</li>
-      <li><strong>host_permissions (AI proxy)</strong>: Communicating with the Cloudflare Worker above</li>
-    </ul>
-    <p>The Extension does <strong>not</strong> request access to your <strong>camera, microphone, or location</strong>.</p>
+    <h2 data-i18n="pp_h6">6. Permissions</h2>
+    <p data-i18n-html="pp_p6">The Extension requests only the following. It does not request access to your camera, microphone or location.</p>
+    <ul data-i18n-html="pp_l6"><li><strong>storage</strong>: saving presets, settings, history and the deviceId</li><li><strong>contextMenus</strong>: opening SendReady from the right-click menu</li><li><strong>clipboardWrite</strong>: copying results to the clipboard</li><li><strong>Content script on web pages</strong>: showing the SendReady button next to text you select or the field you type in, and inserting the result. It reads only the text you select or type, and sends it only when you run an AI action.</li><li><strong>Host permission for the AI proxy</strong>: connecting to the proxy above</li></ul>
 
-    <h2>5. Data Storage and Deletion</h2>
-    <p>All data the Extension stores (settings, presets, and the deviceId) is kept solely on the user's device (in Chrome's storage area). The Developer does not independently collect or store this data.</p>
-    <p>You can delete all stored data by <strong>uninstalling</strong> the Extension.</p>
+    <h2 data-i18n="pp_h7">7. Deleting your data</h2>
+    <p data-i18n-html="pp_p7">You can clear the history in the Extension's popup. Uninstalling the Extension deletes everything it stored in your browser. The proxy's usage count expires after 24 hours. For block-list records or messages you sent us, contact us below.</p>
 
-    <h2>6. Contact</h2>
-    <p>For questions about this policy, please contact us at:</p>
-    <ul>
-      <li>Developer: <strong>Ramune</strong></li>
-      <li>Contact form: <a href="contact.html">here</a></li>
-      <li>Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a></li>
-    </ul>
+    <h2 data-i18n="pp_h8">8. Contact</h2>
+    <ul data-i18n-html="pp_l8"><li>Developer: <strong>Ramune</strong></li><li>Contact form: <a href="contact.html">Contact</a></li><li>Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a></li></ul>
 
-    <h2>7. Changes to This Privacy Policy</h2>
-    <p>This policy may be revised as needed in response to changes in laws or to the service. The updated Privacy Policy will be published promptly on this page.</p>
-  </div>
+    <h2 data-i18n="pp_h9">9. Changes to this policy</h2>
+    <p data-i18n-html="pp_p9">We may update this policy when the law or the Extension changes. The updated policy is published on this page.</p>
+  </main>
 
   <footer>
     &copy; 2025 SendReady by Ramune
   </footer>
+
+  <script src="privacy-i18n.js?v=1"></script>
+  <script>
+    (function () {
+      var LANG_NAMES = {
+        en: "English", ja: "日本語", zh: "简体中文", "zh-TW": "繁體中文", ko: "한국어", es: "Español",
+        fr: "Français", de: "Deutsch", it: "Italiano", nl: "Nederlands", pl: "Polski", pt: "Português",
+        ru: "Русский", tr: "Türkçe", vi: "Tiếng Việt", th: "ไทย", hi: "हिन्दी", bn: "বাংলা",
+        id: "Indonesia", ar: "العربية"
+      };
+      var MESSAGES = PRIVACY_MESSAGES;
+      var SUPPORTED = Object.keys(MESSAGES);
+
+      // 言語タグ（?lang= の値・ブラウザ言語。拡張は繁体字を zh_TW で渡す）→ 対応言語。対応外は null
+      function matchLocale(tag) {
+        var t = String(tag || '').toLowerCase().replace(/_/g, '-');
+        if (!t) return null;
+        if (/^zh-(tw|hk|mo|hant)/.test(t)) return 'zh-TW';
+        for (var i = 0; i < SUPPORTED.length; i++) if (SUPPORTED[i].toLowerCase() === t) return SUPPORTED[i];
+        var primary = t.split('-')[0];
+        return SUPPORTED.indexOf(primary) !== -1 ? primary : null;
+      }
+      function param(name) {
+        try { return new URLSearchParams(location.search).get(name) || ''; } catch (e) { return ''; }
+      }
+      // ?lang= > localStorage lp_lang（LP と共通）> ブラウザ言語
+      function detectLocale() {
+        var saved = null;
+        try { saved = localStorage.getItem('lp_lang'); } catch (e) {}
+        return matchLocale(param('lang')) || (saved && SUPPORTED.indexOf(saved) !== -1 ? saved : null) ||
+          matchLocale(navigator.language) || 'en';
+      }
+
+      function apply(locale) {
+        var msgs = MESSAGES[locale] || MESSAGES.en;
+        document.documentElement.lang = locale;
+        document.documentElement.dir = locale === 'ar' ? 'rtl' : 'ltr';
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (msgs[key] !== undefined) el.textContent = msgs[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (msgs[key] !== undefined) el.innerHTML = msgs[key];
+        });
+        document.getElementById('pp-notice').hidden = !msgs.pp_notice;
+        document.title = msgs.pp_meta_title || MESSAGES.en.pp_meta_title;
+        // 戻り先・問い合わせは表示中の言語のページへ
+        document.getElementById('back-link').setAttribute('href', locale === 'en' ? './' : locale + '/');
+        document.querySelectorAll('a[href^="contact.html"]').forEach(function (a) {
+          a.setAttribute('href', 'contact.html?lang=' + encodeURIComponent(locale));
+        });
+      }
+
+      var locale = detectLocale();
+      var selector = document.getElementById('lang-select');
+      selector.innerHTML = SUPPORTED.map(function (code) {
+        return '<option value="' + code + '">' + (LANG_NAMES[code] || code) + '</option>';
+      }).join('');
+      selector.value = locale;
+      selector.addEventListener('change', function () {
+        try { localStorage.setItem('lp_lang', this.value); } catch (e) {}
+        apply(this.value);
+      });
+      if (locale !== 'en') apply(locale);
+    })();
+  </script>
 </body>
 </html>

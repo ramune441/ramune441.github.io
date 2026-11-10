@@ -1,5 +1,5 @@
 const fs=require('node:fs'),path=require('node:path'),http=require('node:http'),os=require('node:os'),assert=require('node:assert/strict'),puppeteer=require('puppeteer-core');
-const {locales,url}=require('./build-site');
+const {locales,url,forms}=require('./build-site');
 const selected=process.argv.slice(2).filter(lang=>locales.includes(lang)),targets=selected.length?selected:locales;
 const root=path.resolve(__dirname,'..'),out=path.join(os.tmpdir(),'formpilot-site-verification');fs.mkdirSync(out,{recursive:true});
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.xml':'application/xml','.mp4':'video/mp4','.vtt':'text/vtt; charset=utf-8'};
@@ -14,8 +14,8 @@ const server=http.createServer((req,res)=>{let file=path.resolve(root,'.'+decode
    await page.setRequestInterception(true);page.on('request',r=>{if(r.method()==='POST')posts.push(r.url());r.url().startsWith(origin)?r.continue():r.abort();});
    for(const width of [1280,390]){
     await page.setViewport({width,height:900});
-    for(const kind of ['index.html','guide.html','privacy-policy.html','contact.html']){
-     const target=kind==='contact.html'?`/formpilot/contact.html?lang=${locale}`:url(locale,kind);
+    for(const kind of ['index.html','guide.html','privacy-policy.html','contact.html','uninstall.html']){
+     const target=kind==='contact.html'?`/formpilot/contact.html?lang=${locale}`:kind==='uninstall.html'?`/formpilot/uninstall.html?v=1.4.0&lang=${locale}&fills=3&profile=1&opened=2&days=4`:url(locale,kind);
      await page.goto(origin+target,{waitUntil:'networkidle0'});
      await page.waitForFunction(lang=>document.documentElement.lang===lang,{},locale);
      await page.evaluate(async()=>{for(const img of document.images)img.loading='eager';await Promise.all([...document.images].map(img=>img.complete?Promise.resolve():new Promise(resolve=>{img.onload=img.onerror=resolve;})));});
@@ -32,12 +32,18 @@ const server=http.createServer((req,res)=>{let file=path.resolve(root,'.'+decode
       await page.focus('[data-demo=reset]');await page.keyboard.press('Space');assert.ok((await page.$eval('[data-demo-image]',el=>el.src)).endsWith('/before.png'));
       if(kind==='guide.html'){await page.click('.screenshot summary');assert.equal(await page.$eval('.screenshot',el=>el.open),true);}
      }
+     if(kind==='uninstall.html'){
+      const msg=forms(locale),survey=await page.evaluate(()=>({title:document.title,h1:document.querySelector('h1').textContent,reason:document.querySelector('[data-i18n=un_r1]').textContent,value:document.querySelector('input[name=reasons]').value,diagnostics:document.getElementById('f-diagnostics').value,language:document.getElementById('f-language').value,placeholder:document.getElementById('f-details').placeholder}));
+      assert.deepEqual(survey,{title:msg.un_title,h1:msg.un_title,reason:msg.un_r1,value:"Didn't know how to use it",diagnostics:'v=1.4.0, days=4, fills=3, profile=1, opened=2',language:locale,placeholder:msg.un_details_ph},locale);
+      await page.click('#submit-btn');assert.equal(await page.$eval('#error-box',el=>el.classList.contains('show')&&el.textContent),msg.un_reasons_required);
+     }
+     if(kind==='contact.html'){const msg=forms(locale);assert.equal(await page.$eval('[data-i18n=nav_cta]',el=>el.textContent),msg.nav_cta);assert.equal(await page.$eval('#f-message',el=>el.placeholder),msg.contact_message_ph);}
      if(kind==='privacy-policy.html'&&width===1280){const href=await page.$eval('main a[href*="contact"]',el=>el.href);assert.equal(new URL(href).pathname,'/formpilot/contact.html');await page.goto(href,{waitUntil:'networkidle0'});assert.equal(await page.$eval('html',el=>el.lang),locale);}
      if(['en','ja','ar','zh-Hant','th','bn'].includes(locale)&&kind==='index.html'){await page.screenshot({path:path.join(out,`${locale}-${width}-tutorial.png`)});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(out,`${locale}-${width}.png`)});}
      reports.push({locale,kind,width,ok:true});
     }
    }
-   assert.deepEqual(errors,[],locale);assert.deepEqual(missing,[],locale);assert.deepEqual(posts,[],locale);await context.close();console.log(`PASS ${locale}: PC/mobile, tutorial keyboard, images and no submissions`);
+   assert.deepEqual(errors,[],locale);assert.deepEqual(missing,[],locale);assert.deepEqual(posts,[],locale);await context.close();console.log(`PASS ${locale}: PC/mobile, tutorial keyboard, images, contact/survey language and no submissions`);
   }
   const page=await browser.newPage();await page.goto(origin+'/formpilot/guide.html?lang=zh-TW&from=installed',{waitUntil:'networkidle0'});assert.ok(page.url().includes('/zh-Hant/guide.html?from=installed'));
   await Promise.all([page.waitForNavigation({waitUntil:'networkidle0'}),page.select('#lang-select','ru')]);assert.equal(await page.$eval('html',el=>el.lang),'ru');assert.ok(page.url().includes('/ru/guide.html'));

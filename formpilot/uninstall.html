@@ -77,8 +77,8 @@
       .page-title { font-size: 22px; }
     }
   </style>
-</head>
-<body>
+<script defer src="site-data.js?v=5ecc561103a7"></script><script defer src="i18n-lp.js?v=a06e181f7be0"></script></head>
+<body data-title-key="un_title">
 
   <nav class="nav">
     <div class="nav-inner">
@@ -87,20 +87,20 @@
   </nav>
 
   <div class="container">
-    <h1 class="page-title">FormPilot Uninstall Survey</h1>
-    <p class="page-desc">Thank you for trying FormPilot. Please tell us why you uninstalled — it helps us improve.</p>
+    <h1 class="page-title" data-i18n="un_title">FormPilot Uninstall Survey</h1><p><label>🌐 <select id="lang-select" aria-label="Language"><option value="en">English</option><option value="ja">日本語</option><option value="zh">简体中文</option><option value="zh-Hant">繁體中文</option><option value="ko">한국어</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="hi">हिन्दी</option><option value="id">Indonesia</option><option value="ar">العربية</option><option value="vi">Tiếng Việt</option><option value="it">Italiano</option><option value="tr">Türkçe</option><option value="pl">Polski</option><option value="th">ไทย</option><option value="nl">Nederlands</option><option value="ru">Русский</option><option value="bn">বাংলা</option></select></label></p>
+    <p class="page-desc" data-i18n="un_desc">Thank you for trying FormPilot. Please tell us why you uninstalled — it helps us improve.</p>
 
     <div class="card">
       <div class="success" id="success">
         <div class="success-icon">
           <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
         </div>
-        <h2 class="success-title">Thank you for your feedback</h2>
-        <p class="success-desc">Your response has been sent. We read every submission and use it to improve the product.</p>
+        <h2 class="success-title" data-i18n="un_success_title">Thank you for your feedback</h2>
+        <p class="success-desc" data-i18n="un_success_desc">Your response has been sent. We read every submission and use it to improve the product.</p>
       </div>
 
       <form id="survey-form" novalidate>
-        <div class="alert" id="error-box" role="alert" aria-live="polite">Sending failed. Please wait a moment and try again.</div>
+        <div class="alert" id="error-box" data-i18n="contact_error" role="alert" aria-live="polite">Sending failed. Please wait a moment and try again.</div>
 
         <input type="hidden" name="kind" value="uninstall">
         <input type="hidden" name="product" value="FormPilot">
@@ -110,69 +110,69 @@
 
         <div class="field">
           <div class="field-label">
-            <span>Why did you uninstall? (select all that apply)</span>
-            <span class="tag tag-req">Required</span>
+            <span data-i18n="un_reasons_label">Why did you uninstall? (select all that apply)</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
           </div>
           <label class="check">
             <input type="checkbox" name="reasons" value="Didn't know how to use it">
-            <span>Didn't know how to use it</span>
+            <span data-i18n="un_r1">Didn&#39;t know how to use it</span>
           </label>
           <label class="check">
             <input type="checkbox" name="reasons" value="It didn't work properly / had bugs">
-            <span>It didn't work properly / had bugs</span>
+            <span data-i18n="un_r2">It didn&#39;t work properly / had bugs</span>
           </label>
           <label class="check">
             <input type="checkbox" name="reasons" value="Not what I expected">
-            <span>Not what I expected</span>
+            <span data-i18n="un_r3">Not what I expected</span>
           </label>
           <label class="check">
             <input type="checkbox" name="reasons" value="No longer needed">
-            <span>No longer needed</span>
+            <span data-i18n="un_r4">No longer needed</span>
           </label>
           <label class="check">
             <input type="checkbox" name="reasons" value="Performance issues">
-            <span>Performance issues</span>
+            <span data-i18n="un_r5">Performance issues</span>
           </label>
           <label class="check">
             <input type="checkbox" name="reasons" value="Switched to another tool">
-            <span>Switched to another tool</span>
+            <span data-i18n="un_r6">Switched to another tool</span>
           </label>
           <label class="check">
             <input type="checkbox" name="reasons" value="Other" id="reason-other">
-            <span>Other</span>
+            <span data-i18n="un_r7">Other</span>
           </label>
-          <input type="text" id="reason-other-text" name="reasonOther" placeholder="Please specify" hidden>
+          <input type="text" id="reason-other-text" name="reasonOther" data-i18n-ph="un_other_ph" placeholder="Please specify" hidden>
         </div>
 
         <div class="field">
           <label class="field-label" for="f-details">
-            <span>Details or feedback</span>
-            <span class="tag tag-req">Required</span>
+            <span data-i18n="un_details">Details or feedback</span>
+            <span class="tag tag-req" data-i18n="contact_required">Required</span>
           </label>
-          <textarea id="f-details" name="content" placeholder="Please tell us what happened — which site, what you expected, and what went wrong."></textarea>
+          <textarea id="f-details" name="content" data-i18n-ph="un_details_ph" placeholder="Please tell us what happened — which site, what you expected, and what went wrong."></textarea>
         </div>
 
         <div class="field">
           <label class="field-label" for="f-file">
-            <span>Attached files (screenshots, videos, etc.) — optional</span>
-            <span class="tag tag-opt">Optional</span>
+            <span data-i18n="contact_file">Attached file (screenshots, videos, etc.)</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">Optional</span>
           </label>
           <label class="file-drop" id="file-drop" for="f-file">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            <span class="file-drop-text">Click to choose a file</span>
+            <span class="file-drop-text" data-i18n="contact_file_drop">Click to choose a file</span>
             <span class="file-drop-name" id="file-name"></span>
             <button type="button" class="file-clear" id="file-clear" hidden aria-label="Remove file">&times;</button>
           </label>
           <input type="file" id="f-file" name="attachment" class="hp-file" accept="image/*,video/*,.pdf,.txt">
-          <p class="field-note">Image, video, PDF, or text — up to 25MB.</p>
-          <p class="field-note" id="file-error" style="color:#b91c1c" hidden>The file is too large (max 25MB).</p>
+          <p class="field-note" data-i18n="contact_file_note">Image, video, PDF, or text — up to 25MB.</p>
+          <p class="field-note" id="file-error" style="color:#b91c1c" hidden data-i18n="contact_file_too_large">The file is too large (max 25MB).</p>
         </div>
 
         <button type="submit" class="submit-btn" id="submit-btn">
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-          <span id="submit-label">Send</span>
+          <span id="submit-label" data-i18n="contact_submit">Send</span>
         </button>
-        <p class="privacy-note">Your response is used only to improve the product.</p>
+        <p class="privacy-note" data-i18n="un_privacy_note">Your response is used only to improve the product.</p>
       </form>
     </div>
   </div>
@@ -181,7 +181,14 @@
     (function () {
       var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
       var MAX_FILE_BYTES = 25 * 1024 * 1024;
-      var MSG = {"sending":"Sending...","submit":"Send","error":"Sending failed. Please wait a moment and try again.","reasonsRequired":"Please select at least one reason.","detailsRequired":"Please enter some details — it really helps us fix the problem."};
+      // English fallbacks; the shown language comes from i18n-lp.js (LP_MESSAGES).
+      var FALLBACK = {"contact_sending":"Sending...","contact_submit":"Send","contact_error":"Sending failed. Please wait a moment and try again.","un_reasons_required":"Please select at least one reason.","un_details_required":"Please enter some details — it really helps us fix the problem."};
+      function t(key) {
+        try {
+          var msgs = LP_MESSAGES[document.documentElement.lang] || LP_MESSAGES.en;
+          return msgs[key] || FALLBACK[key];
+        } catch (e) { return FALLBACK[key]; }
+      }
 
       // Anonymous diagnostics passed by the extension via setUninstallURL
       // (v=version, lang=UI language, days=days installed, fills=total fills,
@@ -244,19 +251,19 @@
         errorBox.classList.remove('show');
 
         if (!form.querySelectorAll('input[name="reasons"]:checked').length) {
-          showError(MSG.reasonsRequired);
+          showError(t('un_reasons_required'));
           return;
         }
 
         var details = document.getElementById('f-details');
         if (!details.value.trim()) {
-          showError(MSG.detailsRequired);
+          showError(t('un_details_required'));
           details.focus();
           return;
         }
 
         btn.disabled = true;
-        btnLabel.textContent = MSG.sending;
+        btnLabel.textContent = t('contact_sending');
 
         fetch(ENDPOINT, { method: 'POST', body: new FormData(form) })
           .then(function (res) { return res.json(); })
@@ -267,9 +274,9 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
           })
           .catch(function () {
-            showError(MSG.error);
+            showError(t('contact_error'));
             btn.disabled = false;
-            btnLabel.textContent = MSG.submit;
+            btnLabel.textContent = t('contact_submit');
           });
       });
     })();

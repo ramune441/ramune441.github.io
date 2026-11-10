@@ -1,83 +1,108 @@
 <!DOCTYPE html>
-<html lang="ja">
+<!-- 文言は kura/legal-i18n/<lang>.json が正。日本語の既定文と i18n-delete.js は node kura/build-lp.mjs が書く。形はここで直す。 -->
+<html lang="ja" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>アカウントとデータの削除｜Kura</title>
-  <meta name="description" content="Android写真アプリ「Kura」（Ramune）のアカウントとクラウドデータを削除する方法。 How to delete your Kura account and cloud data.">
+  <meta name="description" content="Android写真アプリ「Kura」（Ramune）のアカウントとクラウドのデータを削除する方法。手順、削除されるデータと残るデータ、事前に必要な操作を説明します。">
+  <meta name="author" content="Ramune">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ramune441.github.io/kura/delete-account.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="アカウントとデータの削除｜Kura">
+  <meta property="og:description" content="Android写真アプリ「Kura」（Ramune）のアカウントとクラウドのデータを削除する方法。手順、削除されるデータと残るデータ、事前に必要な操作を説明します。">
+  <meta property="og:url" content="https://ramune441.github.io/kura/delete-account.html">
+  <meta property="og:image" content="https://ramune441.github.io/kura/icons/icon512.png">
+  <meta property="og:site_name" content="Kura">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="アカウントとデータの削除｜Kura">
+  <meta name="twitter:description" content="Android写真アプリ「Kura」（Ramune）のアカウントとクラウドのデータを削除する方法。手順、削除されるデータと残るデータ、事前に必要な操作を説明します。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Delete your Kura account and data",
+    "url": "https://ramune441.github.io/kura/delete-account.html",
+    "dateModified": "2026-11-10",
+    "about": {"@type": "SoftwareApplication", "name": "Kura", "operatingSystem": "Android 11+", "url": "https://ramune441.github.io/kura/"},
+    "publisher": {"@type": "Person", "name": "Ramune", "url": "https://ramune441.github.io/"}
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&family=Noto+Sans+JP:wght@400;600;800&display=swap">
   <style>
-    :root { --brand-a: #7ED9A8; --bg: #0A0A0A; --text: #F4F7F5; --text-sub: rgba(255,255,255,0.66); --border: rgba(255,255,255,0.10); }
+    :root { --brand-a: #7ED9A8; --font-script: 'Noto Sans JP'; --bg: #0A0A0A; --text: #F4F7F5; --text-sub: rgba(255,255,255,0.66); --border: rgba(255,255,255,0.10); }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans JP', 'Inter', -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.9; }
+    body { font-family: var(--font-script), 'Noto Sans', -apple-system, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.9; overflow-wrap: anywhere; }
     a { color: var(--brand-a); }
-    .nav { border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: center; padding: 0 24px; }
-    .nav-inner { max-width: 760px; width: 100%; display: flex; align-items: center; gap: 10px; font-weight: 800; }
-    .nav-inner img { width: 30px; height: 30px; border-radius: 8px; }
+    .nav { border-bottom: 1px solid var(--border); height: 56px; display: flex; align-items: center; justify-content: center; padding: 0 16px; }
+    .nav-inner { max-width: 760px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--text); text-decoration: none; }
+    .nav-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .lang-select { background: #161616; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 13px; font-family: inherit; cursor: pointer; max-width: 50vw; }
+    .lang-select:focus-visible { outline: 2px solid var(--brand-a); outline-offset: 2px; }
     .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 72px; }
-    h1 { font-size: 26px; font-weight: 800; margin-bottom: 24px; }
-    h2 { font-size: 18px; font-weight: 700; margin: 28px 0 10px; }
+    h1 { font-size: 26px; font-weight: 800; margin-bottom: 24px; line-height: 1.4; }
+    h2 { font-size: 18px; font-weight: 700; margin: 28px 0 10px; line-height: 1.5; }
     p, ol, ul { font-size: 15px; color: var(--text-sub); margin-bottom: 14px; }
-    ol, ul { padding-left: 24px; }
+    ol, ul { padding-inline-start: 24px; }
     li { margin-bottom: 6px; }
-    hr { border: 0; border-top: 1px solid var(--border); margin: 48px 0; }
-    footer { text-align: center; padding: 28px 24px; font-size: 13px; color: var(--text-sub); border-top: 1px solid var(--border); }
+    .note { background: rgba(35,107,70,0.14); border: 1px solid rgba(126,217,168,0.25); border-radius: 14px; padding: 14px 18px; color: var(--text); }
+    footer { text-align: center; padding: 28px 16px; font-size: 13px; color: var(--text-sub); border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; }
     footer a { color: inherit; }
     @media (max-width: 480px) { .container { padding: 28px 16px 56px; } h1 { font-size: 22px; } }
   </style>
 </head>
 <body>
-  <nav class="nav"><div class="nav-inner"><img src="icons/icon.svg" alt="">Kura</div></nav>
-  <div class="container">
-    <section lang="ja">
-      <h1>アカウントとデータの削除</h1>
-      <p>Kura（開発・提供: Ramune）のアカウントと、クラウドに保存されたデータを削除する方法です。</p>
-      <h2>アプリから削除する</h2>
-      <ol>
-        <li>Kura を開き、下のメニューの「設定」から「クラウドを管理」を開きます。</li>
-        <li>画面の一番下にある「アカウントを削除」をタップし、確認します。</li>
-      </ol>
-      <h2>アプリを使えない場合</h2>
-      <p>サインインに使った Google アカウントのメールアドレスから <a href="mailto:warload57@gmail.com?subject=Kura%20account%20deletion">warload57@gmail.com</a> へ「Kura のアカウント削除」とご連絡ください。本人確認のうえ、30日以内に削除します。</p>
-      <h2>削除されるデータ</h2>
-      <ul>
-        <li>バックアップしたすべての写真・動画とサムネイル、保管庫のファイル</li>
-        <li>すべての共有リンク</li>
-        <li>アカウント（Google アカウントの識別子）とクラウドの設定</li>
-      </ul>
-      <h2>残るデータ</h2>
-      <ul>
-        <li>サブスクリプションの購入記録（会計・法令上の理由で保存します）</li>
-        <li>端末内の写真はそのまま残ります。サブスクリプションは Google Play から別途解約してください。</li>
-      </ul>
-    </section>
-    <hr>
-    <section lang="en">
-      <h1>Delete your account and data</h1>
-      <p>How to delete your Kura account (developed by Ramune) and the data stored in its cloud.</p>
-      <h2>In the app</h2>
-      <ol>
-        <li>Open Kura, go to the Settings tab in the bottom bar, and open "Manage cloud".</li>
-        <li>At the bottom of the screen, tap "Delete account" and confirm.</li>
-      </ol>
-      <h2>If you can't use the app</h2>
-      <p>Email <a href="mailto:warload57@gmail.com?subject=Kura%20account%20deletion">warload57@gmail.com</a> from the Google account you signed in with, asking to delete your Kura account. After confirming it is you, we delete it within 30 days.</p>
-      <h2>What is deleted</h2>
-      <ul>
-        <li>All backed-up photos, videos and thumbnails, and vault files</li>
-        <li>All share links</li>
-        <li>Your account (your Google account identifier) and cloud settings</li>
-      </ul>
-      <h2>What is kept</h2>
-      <ul>
-        <li>Subscription purchase records (kept for accounting and legal reasons)</li>
-        <li>The photos on your phone stay as they are. Cancel the subscription separately in Google Play.</li>
-      </ul>
-    </section>
-  </div>
-  <footer><a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; &copy; 2026 Kura by Ramune</footer>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="./" data-lp><img src="icons/icon.svg" alt="" width="30" height="30"><span>Kura</span></a>
+      <select id="langSelect" class="lang-select" aria-label="Language"><option value="ja">日本語</option></select>
+    </div>
+  </nav>
+  <main class="container">
+    <h1 data-i18n="del_title">アカウントとデータの削除</h1>
+    <p data-i18n="del_intro">Kura（開発・提供: Ramune）のアカウントと、クラウドに保存されたデータは、Web のアカウント削除のページで削除できます。アプリの中には削除の入口はありません。</p>
+
+    <h2 data-i18n="del_before_h">始める前に</h2>
+    <p class="note" data-i18n="del_before_p">Kura を使っているすべての端末で「設定 › クラウドバックアップ › 自動バックアップ」をオフにしてください。オンのままだと、削除のあとにアプリがすべてをもう一度バックアップします。</p>
+
+    <h2 data-i18n="del_steps_h">削除の手順</h2>
+    <ol>
+      <li data-i18n-html="del_step1"><a href="https://kura-api.warload57.workers.dev/web/delete">アカウント削除のページ</a>を開き、Kura で使っている Google アカウントでサインインします。</li>
+      <li data-i18n="del_step2">表示されるクラウドのファイル数と容量を確認し、入力欄に「DELETE」と入力して「Delete everything」を押します（このページは英語で表示されます）。</li>
+      <li data-i18n="del_step3">すべて削除されると、自動でログアウトします。途中で止まった場合は、ページを開き直すと続きから削除できます。</li>
+      <li data-i18n-html="del_step4">アカウントを削除してもサブスクリプションは止まりません。<a href="https://play.google.com/store/account/subscriptions">Google Play の定期購入</a>から解約してください。</li>
+    </ol>
+
+    <h2 data-i18n="del_contact_h">Web ページを使えない場合</h2>
+    <p data-i18n-html="del_contact_p">サインインに使った Google アカウントのメールアドレスから <a href="mailto:warload57@gmail.com?subject=Kura%20account%20deletion">warload57@gmail.com</a> へ「Kura のアカウント削除」とご連絡ください。本人確認のうえ、30日以内に削除します。</p>
+
+    <h2 data-i18n="del_deleted_h">削除されるデータ</h2>
+    <ul>
+      <li data-i18n="del_deleted_li1">Kura のクラウドにバックアップしたすべての写真と動画（プライベートのものを含む）と、そのサムネイル</li>
+      <li data-i18n="del_deleted_li2">作成したすべての共有リンク</li>
+    </ul>
+    <p data-i18n="del_deleted_p">これらは直ちに削除され、1日以内に保存領域から完全に消去されます。元に戻すことはできません。</p>
+
+    <h2 data-i18n="del_kept_h">削除されないデータ</h2>
+    <ul>
+      <li data-i18n="del_kept_li1">端末内の写真と動画。Kura はこれらに触れません。</li>
+      <li data-i18n="del_kept_li2">サブスクリプション。アカウントを削除しても支払いは止まらないため、Google Play で解約してください。</li>
+      <li data-i18n="del_kept_li3">購読の記録（Google アカウントの識別子、プラン、Google Play の購入情報、有効期限）と、AI 加工の日ごとの利用回数。課金と利用上限の管理のために保存します。メールアドレスや氏名は、もともと保存していません。</li>
+    </ul>
+  </main>
+  <footer>
+    <a href="./" data-lp>Kura</a>
+    <a href="privacy-policy.html" data-i18n="ui_privacy">プライバシーポリシー</a>
+    <span dir="ltr">&copy; 2026 Kura by Ramune</span>
+  </footer>
+
+  <script src="i18n-delete.js"></script>
+  <script src="legal-i18n.js"></script>
 </body>
 </html>

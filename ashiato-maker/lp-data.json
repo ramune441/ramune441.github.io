@@ -1,0 +1,273 @@
+{
+  "_": "node ashiato-maker/build-pages.mjs が拡張リポジトリ（manifest.json・store-videos/promo/youtube.json・store/copy.json）から写す。手で直さない。",
+  "extensionId": "pidobfkbnlmfckdndkabelpjpdboadfo",
+  "storeUrl": "https://chromewebstore.google.com/detail/%E8%B6%B3%E3%81%82%E3%81%A8%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC/pidobfkbnlmfckdndkabelpjpdboadfo",
+  "version": "1.0.31",
+  "videos": {
+    "ja": "T4YuAsylsXs",
+    "en": "DkalOBbxbwU",
+    "zh": "Ot5j4d7J7xI",
+    "zh-TW": "KvmYQnRIBsA",
+    "ko": "o25OTi2rK0k",
+    "es": "KxY1MIEzgnQ",
+    "fr": "lqExF1BK0us",
+    "de": "K1x1HI6p_L8",
+    "pt": "9Cx5fylovZI",
+    "it": "G7XOkyFuGbY",
+    "ru": "VP3SI1NzoTE",
+    "id": "kePGcVrUvZQ",
+    "hi": "4tMk3T4ZP8k",
+    "tr": "siRZR-vGhi4",
+    "vi": "2Ye_7hPK5WY",
+    "th": "hzihZJxXND4",
+    "pl": "iPZCAojN81I",
+    "ar": "xzo28XoHqKg",
+    "nl": "ILKi5nh_JYI",
+    "bn": "-jaehAuSP_0"
+  },
+  "apps": {
+    "ja": [
+      "pairs",
+      "with",
+      "toukare",
+      "tinder",
+      "badoo",
+      "okcupid",
+      "match"
+    ],
+    "en": [
+      "tinder",
+      "badoo",
+      "okcupid",
+      "pairs",
+      "with",
+      "toukare",
+      "match"
+    ],
+    "zh": [
+      "tinder",
+      "badoo",
+      "okcupid",
+      "pairs",
+      "with",
+      "toukare",
+      "match"
+    ],
+    "zh-TW": [
+      "tinder",
+      "okcupid",
+      "pairs",
+      "with",
+      "toukare",
+      "badoo",
+      "match"
+    ],
+    "ko": [
+      "tinder",
+      "pairs",
+      "with",
+      "toukare",
+      "badoo",
+      "okcupid",
+      "match"
+    ],
+    "es": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "fr": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "de": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "pt": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "it": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "ru": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "id": [
+      "tinder",
+      "badoo",
+      "okcupid",
+      "pairs",
+      "with",
+      "toukare",
+      "match"
+    ],
+    "hi": [
+      "tinder",
+      "okcupid",
+      "pairs",
+      "with",
+      "toukare",
+      "badoo",
+      "match"
+    ],
+    "tr": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "vi": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "th": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "pl": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "ar": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "nl": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ],
+    "bn": [
+      "tinder",
+      "badoo",
+      "pairs",
+      "with",
+      "toukare",
+      "okcupid",
+      "match"
+    ]
+  },
+  "appNames": {
+    "ja": {
+      "toukare": "東カレデート"
+    },
+    "en": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "zh": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "zh-TW": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "ko": {
+      "toukare": "도쿄 캘린더 데이트",
+      "tinder": "틴더 (Tinder)"
+    },
+    "es": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "fr": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "de": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "pt": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "it": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "ru": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "id": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "hi": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "tr": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "vi": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "th": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "pl": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "ar": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "nl": {
+      "toukare": "Tokyo Calendar Date"
+    },
+    "bn": {
+      "toukare": "Tokyo Calendar Date"
+    }
+  }
+}

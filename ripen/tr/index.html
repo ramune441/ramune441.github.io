@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!-- 生成物: ripen/lp-template.html と ripen/lp-i18n/<lang>.json から node ripen/build-lp.mjs で作る。直接直さない。 -->
+<html lang="tr" dir="ltr" data-lang="tr" data-base="../" prefix="og: https://ogp.me/ns#">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripen – odak/ders alışkanlığı, uygulama engelleyici Android</title>
+  <meta name="description" content="Odaklan veya ders çalış, sosyal medya ve video süresi kazan. Ödüllü alışkanlık uygulaması: uygulama engelleme, kelime testi, cihazda varlık algılama.">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/ripen/tr/">
+  <link rel="alternate" hreflang="ja" href="https://ramune441.github.io/ripen/">
+  <link rel="alternate" hreflang="en" href="https://ramune441.github.io/ripen/en/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/ripen/zh/">
+  <link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/ripen/zh-TW/">
+  <link rel="alternate" hreflang="ko" href="https://ramune441.github.io/ripen/ko/">
+  <link rel="alternate" hreflang="es" href="https://ramune441.github.io/ripen/es/">
+  <link rel="alternate" hreflang="fr" href="https://ramune441.github.io/ripen/fr/">
+  <link rel="alternate" hreflang="de" href="https://ramune441.github.io/ripen/de/">
+  <link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/ripen/pt/">
+  <link rel="alternate" hreflang="it" href="https://ramune441.github.io/ripen/it/">
+  <link rel="alternate" hreflang="ru" href="https://ramune441.github.io/ripen/ru/">
+  <link rel="alternate" hreflang="id" href="https://ramune441.github.io/ripen/id/">
+  <link rel="alternate" hreflang="hi" href="https://ramune441.github.io/ripen/hi/">
+  <link rel="alternate" hreflang="tr" href="https://ramune441.github.io/ripen/tr/">
+  <link rel="alternate" hreflang="vi" href="https://ramune441.github.io/ripen/vi/">
+  <link rel="alternate" hreflang="th" href="https://ramune441.github.io/ripen/th/">
+  <link rel="alternate" hreflang="pl" href="https://ramune441.github.io/ripen/pl/">
+  <link rel="alternate" hreflang="ar" href="https://ramune441.github.io/ripen/ar/">
+  <link rel="alternate" hreflang="nl" href="https://ramune441.github.io/ripen/nl/">
+  <link rel="alternate" hreflang="bn" href="https://ramune441.github.io/ripen/bn/">
+  <link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/ripen/en/">
+
+  <meta property="og:title" content="Ripen – odak/ders alışkanlığı, uygulama engelleyici Android">
+  <meta property="og:description" content="Odaklan veya ders çalış, sosyal medya ve video süresi kazan. Ödüllü alışkanlık uygulaması: uygulama engelleme, kelime testi, cihazda varlık algılama.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/ripen/tr/">
+  <meta property="og:image" content="https://ramune441.github.io/ripen/images/store/en/store-image-feature.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="Ripen — odaklandıkça serbest zaman kazandıran Android uygulaması. Odak zamanlayıcısı ekranı">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:locale:alternate" content="id_ID">
+  <meta property="og:locale:alternate" content="hi_IN">
+  <meta property="og:locale:alternate" content="vi_VN">
+  <meta property="og:locale:alternate" content="th_TH">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="ar_AR">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="bn_BD">
+  <meta property="og:site_name" content="Ripen">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ripen – odak/ders alışkanlığı, uygulama engelleyici Android">
+  <meta name="twitter:description" content="Odaklan veya ders çalış, sosyal medya ve video süresi kazan. Ödüllü alışkanlık uygulaması: uygulama engelleme, kelime testi, cihazda varlık algılama.">
+  <meta name="twitter:image" content="https://ramune441.github.io/ripen/images/store/en/store-image-feature.png">
+  <meta name="twitter:image:alt" content="Ripen — odaklandıkça serbest zaman kazandıran Android uygulaması. Odak zamanlayıcısı ekranı">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Ripen",
+    "description": "Odaklan veya ders çalış, sosyal medya ve video süresi kazan. Ödüllü alışkanlık uygulaması: uygulama engelleme, kelime testi, cihazda varlık algılama.",
+    "url": "https://ramune441.github.io/ripen/tr/",
+    "inLanguage": "tr",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Android",
+    "installUrl": "https://play.google.com/store/apps/details?id=com.ripen.app",
+    "sameAs": [
+      "https://play.google.com/store/apps/details?id=com.ripen.app"
+    ],
+    "image": "https://ramune441.github.io/ripen/images/store/en/store-image-feature.png",
+    "screenshot": [
+      "https://ramune441.github.io/ripen/images/store/en/store-image-1.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-2.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-3.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-4.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-5.png"
+    ],
+    "featureList": [
+      "Ödül döngüsü",
+      "Varlık algılama (cihazda)",
+      "Odak aralıkları",
+      "Kelimelerle kazan",
+      "Ön serbest süre",
+      "Ayar kilidi",
+      "Analiz panosu",
+      "Bildirimde bugünün durumu",
+      "Açık/koyu · 12 dil"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ramune",
+      "url": "https://ramune441.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "tr",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Normal bir uygulama engelleyiciden farkı ne?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ripen yalnızca yasaklamaz — ödül temellidir. Bir odak zamanlayıcısını tamamla, sosyal medya veya video için belirlediğin süreyi kazan. Davranışı irade yerine ödüllerle değiştirdiği için devam etmek kolaydır."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kamera ne için kullanılıyor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yalnızca ekranın önünde birinin olup olmadığını (varlık) değerlendirmek için. İşlem cihazında yapılır (Google ML Kit), hiçbir görüntü kaydedilmez veya gönderilmez. Kaydedilen tek şey, kaç saniye orada olup odaklandığındır. Varlık algılamayı her aralık için kapatabilirsin; o aralıklarda kamera kullanılmaz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Hangi izinler gerekiyor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Uygulamaları engellemek için “Kullanım erişimi” ve “Erişilebilirlik” gerekir; ikisi de açıldığında ana ekrana geçebilirsin. Kamera yalnızca varlık algılama kullanan aralıklar içindir, bildirimler isteğe bağlıdır. Erişilebilirlik yalnızca ön plandaki uygulamayı tanımak ve engelleme ekranını göstermek için kullanılır — ekran içeriğini asla okumaz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kullanılabilir süre birikmeye devam eder mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hayır. Kazandığın kullanılabilir süre (ön serbest süre dahil) o aralık bittiğinde sıfırlanır. Biriktirmek için değil, o aralığın ödülü olarak harcanmak üzere tasarlanmıştır."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ders çalışarak süre kazanabilir miyim?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evet. Her aralık için kazanma yöntemini seçersin: odak, kelimeler veya ikisi birden. Kelimeler, 4 seçenekli İngilizce kelime testleridir — belirlediğin sayıda (5–30) soruyu doğru yanıtlayarak bir tur kazanırsın. CEFR seviyelerine göre yaklaşık 10.000 kelime yerleşiktir ve kendi kelimelerini yapıştırarak bir set de oluşturabilirsin."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gerçekten ücretsiz mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evet, ücretsiz. Uygulama içi satın alma, reklam ve hesap yok — indir ve hemen başla."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Verilerim nerede saklanıyor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Odak kayıtları, aralıklar, engellenen uygulamalar ve diğer veriler cihazında saklanır ve asla Ripen sunucularına gönderilmez. Android yedeklemesi açıksa ayarların Google Hesabı yedeğine dahil edilir ve aynı hesapla yeniden yüklediğinde geri yüklenir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "iPhone’da kullanılabilir mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Henüz değil — Ripen şimdilik yalnızca Android içindir. Android 8.0 veya üzeri cihazlarda çalışır."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ramune Apps",
+        "item": "https://ramune441.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Ripen",
+        "item": "https://ramune441.github.io/ripen/tr/"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="512x512" href="../icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800;900&amp;display=swap">
+  <link rel="stylesheet" href="../lp.css">
+  <style>:root { --font-script: 'Noto Sans'; }</style>
+</head>
+<body>
+
+  <!-- brand mark（ic_launcher_foreground と同じ造形：枝＋桜の花＋熟した実） -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <radialGradient id="fruitG" gradientUnits="userSpaceOnUse" cx="66.5" cy="56.5" r="21.7">
+        <stop offset="0" stop-color="#FFD60A"/>
+        <stop offset="1" stop-color="#FF9F0A"/>
+      </radialGradient>
+    </defs>
+    <symbol id="sprout" viewBox="0 0 108 108">
+      <g transform="translate(54,54) scale(1.42) translate(-57.5,-52.9)">
+        <path d="M40,84 C43,70 46,56 56.5,41.5" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+        <path d="M44,72.5 C45.3,69.25 38.36,64.86 29,66.5 C34.64,74.14 42.7,75.75 44,72.5 Z" fill="#34C759"/>
+        <path d="M49,57 C56,53 63,49 69.5,49.5" fill="none" stroke="#2E9E4F" stroke-width="4" stroke-linecap="round"/>
+        <path d="M70,48.5 C71.63,50.95 76.83,48.99 79,42.5 C72.17,42.01 68.37,46.05 70,48.5 Z" fill="#34C759"/>
+        <circle cx="70.5" cy="61.5" r="14" fill="url(#fruitG)"/>
+        <path d="M63.3,56.3 C61.9,59.3 62.3,63.1 64.3,65.5 C61.1,63.5 60.3,58.7 63.3,56.3 Z" fill="rgba(255,255,255,0.55)"/>
+        <path d="M56.5,33 C51.1,30.25 52.61,21.78 56.5,22 C60.39,21.78 61.9,30.25 56.5,33 Z" fill="#F9C9D8"/>
+        <path d="M58.88,34.73 C59.82,28.74 68.35,27.56 69.34,31.33 C70.75,34.96 63.16,39.01 58.88,34.73 Z" fill="#F9C9D8"/>
+        <path d="M57.97,37.52 C63.95,36.57 67.71,44.31 64.44,46.42 C61.42,48.89 55.22,42.92 57.97,37.52 Z" fill="#F9C9D8"/>
+        <path d="M55.03,37.52 C57.78,42.92 51.58,48.89 48.56,46.42 C45.29,44.31 49.05,36.57 55.03,37.52 Z" fill="#F9C9D8"/>
+        <path d="M54.12,34.73 C49.84,39.01 42.25,34.96 43.66,31.33 C44.65,27.56 53.18,28.74 54.12,34.73 Z" fill="#F9C9D8"/>
+        <circle cx="56.5" cy="35.5" r="4" fill="#FFD60A"/>
+        <path d="M80,33.5 C83.02,31.16 87.51,34.3 86.34,36.46 C85.44,38.74 80.15,37.32 80,33.5 Z" fill="#F2A9C0"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand">
+        <span class="nav-icon"><svg aria-hidden="true"><use href="#sprout"/></svg></span>
+        <span>Ripen</span>
+      </a>
+      <div class="nav-right">
+        <select id="langSelect" class="lang-select" aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh">简体中文</option><option value="zh-TW">繁體中文</option><option value="ko">한국어</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="it">Italiano</option><option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="hi">हिन्दी</option><option value="tr" selected>Türkçe</option><option value="vi">Tiếng Việt</option><option value="th">ไทย</option><option value="pl">Polski</option><option value="ar">العربية</option><option value="nl">Nederlands</option><option value="bn">বাংলা</option></select>
+        <a href="https://play.google.com/store/apps/details?id=com.ripen.app&amp;hl=tr" class="nav-cta" target="_blank" rel="noopener">Google Play’den edinin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span>Ücretsiz · Android uygulaması</span></div>
+      <h1>Emeğin <span class="accent">meyvesini versin.</span><br>Odaklandıkça <span class="gold">serbest zaman hasat et.</span></h1>
+      <p class="hero-desc">Yalnızca iradeye dayanan uygulama engelleyiciler uzun sürmez. Ripen ödül temelli bir alışkanlık uygulaması: ne kadar odaklanır ve ders çalışırsan, sosyal medya ve video uygulamaları için o kadar çok süre “hasat” edersin. Kamerayla varlık algılama cihazında çalışır ve her zaman aralığı için kapatılabilir.</p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.ripen.app&amp;hl=tr" class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+          <span>Google Play’den edinin (Ücretsiz)</span>
+        </a>
+        <a href="#features" class="btn-ghost">Özellikleri gör ↓</a>
+      </div>
+      <p class="hero-note">Android 8.0+ · Ücretsiz · Reklamsız · Hesap gerekmez</p>
+      <div class="hero-screenshot">
+        <img src="../images/store/en/store-image-feature.png" width="1024" height="500" alt="Ripen — odaklandıkça serbest zaman kazandıran Android uygulaması. Odak zamanlayıcısı ekranı" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- CONCEPT BANNER -->
+  <div class="concept-bar">
+    <div class="concept-inner">
+      <p class="concept-heading">İradeyle engelleme. <span class="gold">Ödüllerle</span> değiş.</p>
+      <p class="concept-sub">“25 dakika odaklan, 5 dakika kullan.” Her turu tamamladığında serbest zaman olgunlaşır — kalıcı bir ödül döngüsü.</p>
+    </div>
+  </div>
+
+  <!-- PROBLEM BANNER -->
+  <div class="problem-banner">
+    <h2>O engelleyiciyi tekrar tekrar kurup sonunda silmek mi?</h2>
+    <p>“Dokunmayacağım” diye yemin edersin, sonra yine sosyal medyadasın. Katı engellemeler sürekli bir kendini tutmadır — uzun sürmez.<br>Ripen bu fikri tersine çevirir. <span class="highlight">Odaklan, serbest zaman da “ödülün” olarak olgunlaşsın.</span></p>
+  </div>
+
+  <!-- FLOW -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">Nasıl çalışır</span>
+      <h2>Odaklan, sonra hasat et. 4 adımda.</h2>
+      <p class="section-lead">Karmaşık kurulum yok. Yalnızca ne zaman, ne kadar odaklanacağına ve karşılığında ne kadar süre alacağına karar verirsin.</p>
+      <div class="flow-timeline">
+        <div class="flow-item"><div class="flow-num">1</div><h3>Bir zaman aralığı belirle</h3><p>Odaklanmak istediğin günleri ve saatleri seçmek için haftalık ızgarayı boya</p></div>
+        <div class="flow-item"><div class="flow-num">2</div><h3>Odaklan</h3><p>Varlık algılama açıksa, zamanlayıcı geri sayarken ön kamera orada olduğunu doğrular</p></div>
+        <div class="flow-item"><div class="flow-num">3</div><h3>Serbest zaman hasat et</h3><p>Tamamlanan her tur belirlediğin dakikaları kazandırır (kelime testi de olur)</p></div>
+        <div class="flow-item"><div class="flow-num">4</div><h3>Bitince otomatik kilit</h3><p>0 dakika kaldığında seçtiğin uygulamalar nazikçe engellenir</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: focus -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">Odaklan ve kazan</span>
+          <h3>Odaklan,<br><span class="accent">serbest zaman “olgunlaşsın.”</span></h3>
+          <p>Varlık algılamanın açık olduğu aralıklarda odak zamanlayıcısı yalnızca yüzün ekranın önündeyken ilerler. Hedefi tamamla, sosyal medya veya video için belirlediğin dakikaları kazan. Erken bıraktığın turlar hiçbir şey kazandırmaz.</p>
+          <ul class="feat-list">
+            <li>Yalnızca sen oradayken ilerleyen geri sayım (kısa süre başka yere bakmak sorun değil)</li>
+            <li>Tamamlayınca “kullanılabilir süre” hasat et (erken bırakır veya durdurursan yok)</li>
+            <li>Odak süresini (5–120 dk), kazanılan dakikaları ve tur sayısını ayarla</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-1.png" width="1024" height="500" alt="Odak zamanlayıcısı ekranı: geri sayım yalnızca sen oradayken ilerler ve tamamlamak 5 dakika kazandırır" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: dashboard -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">Pano</span>
+          <h3>Büyüyen ilerleme hissi<br><span class="accent">devam etmeni sağlar.</span></h3>
+          <p>Kullanılabilir süreyi, bugünkü odağı, bugün kazanılanı ve gün serini tek bakışta gör. Haftalık ve aylık grafikler ile saatlik ısı haritası en iyi ne zaman odaklandığını gösterir.</p>
+          <ul class="feat-list">
+            <li>Şu anki durumunu özetleyen bir kart</li>
+            <li>Odak grafikleri, odak takvimi ve haftalık özet</li>
+            <li>“Kazanılan ve kullanılan” ile engellenen uygulama kullanım eğilimleri etkiyi gösterir</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-2.png" width="1024" height="500" alt="Kullanılabilir süre, bugünkü odak, gün serisi ve bu haftanın odak grafiğinin yer aldığı pano ekranı" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: focus windows -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">Odak aralıkları</span>
+          <h3>Günün her saati için<br><span class="accent">kendi kuralların.</span></h3>
+          <p>Odaklanmak istediğin günleri ve saatleri belirlemek için haftalık ızgarayı boyaman yeterli. Her aralığın kendi odak hedefi, tur başına dakikası, tur sınırı, engellenen uygulamaları ve kamerayla varlık algılaması vardır. Aralıkların dışında özgürsün.</p>
+          <ul class="feat-list">
+            <li>Günleri ve saatleri tek seferde ayarlamak için ızgarayı boya</li>
+            <li>Her aralık için engellenecek uygulamaları kategoriye göre seç (her uygulamanın kullanım süresiyle)</li>
+            <li>İsteğe bağlı, önce kullanabileceğin “ön serbest süre” dakikaları</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-3.png" width="1024" height="500" alt="Odak aralıkları ekranı: haftalık ızgarada sabah, öğle ve akşam aralıkları" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: block -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">Nazik kilit</span>
+          <h3>Sıfırda<br><span class="accent">nazikçe kilitlenir.</span></h3>
+          <p>Bir aralığın süresini bitirdiğinde, seçtiğin bir uygulamayı açınca engelleme ekranı çıkar. Dikkat dağıtan uygulamalar odak oturumları sırasında da kilitlenir. “Ayar kilidi” kuralları sonradan gevşetmeni önler.</p>
+          <ul class="feat-list">
+            <li>0 dakika kaldığında hedef uygulamalar otomatik olarak engellenir</li>
+            <li>Engelleme ekranından doğrudan odaklanarak veya kelime testiyle süre kazan</li>
+            <li>Ayar kilidi “sonra gevşetirim”i önler</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-4.png" width="1024" height="500" alt="Engelleme ekranı: kullanılabilir süresi 0 dakika olan bir uygulamayı açınca daha fazla süre olgunlaştırmak için odaklanman önerilir" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: presence check -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">Varlık algılama</span>
+          <h3>“Odaklanıyormuş gibi yapmak”<br><span class="accent">burada işe yaramaz.</span></h3>
+          <p>Tek başına bir zamanlayıcı, sen uzaklaşsan bile saymaya devam eder. Ripen ön kamerayı yalnızca ekranın önünde bir yüz olup olmadığını anlamak için kullanır — cihazında. Hiçbir görüntü kaydedilmez veya gönderilmez. Kamerasız aralıklar da seçebilirsin.</p>
+          <ul class="feat-list">
+            <li>Google ML Kit ile cihaz üzerinde yüz algılama</li>
+            <li>Görüntü veya video kaydedilmez ya da gönderilmez (yalnızca saniyeler kaydedilir)</li>
+            <li>Yalnızca zamanlayıcıyla odaklanmak için aralık bazında kapat</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-5.png" width="1024" height="500" alt="Varlık algılama ekranı: yüz cihazda algılanır, hiçbir görüntü kaydedilmez veya gönderilmez" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">Video</span>
+      <h2>40 saniyede Ripen</h2>
+      <p class="section-lead">Nasıl odaklandığını, süre hasat ettiğini ve süre bitince uygulamaların nasıl kilitlendiğini izle. (Video İngilizcedir.)</p>
+      <div class="video-wrap">
+        <iframe id="promo-video" src="https://www.youtube-nocookie.com/embed/YWXSLB3oNIk?rel=0&amp;hl=tr" title="40 saniyede Ripen" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner section-center">
+      <span class="section-tag">Özellikler</span>
+      <h2>Özellikler</h2>
+      <p class="section-lead">“Bırakmak istiyorum ama yapamıyorum”u ödüllerle tersine çevir.</p>
+      <div class="features-grid">
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🌱</div><h3>Ödül döngüsü</h3><p>Bir odak zamanlayıcısını her tamamladığında sosyal medya ve video uygulamaları için süre kazanırsın. Davranışını değiştiren irade değil, ödüllerdir.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">👁️</div><h3>Varlık algılama (cihazda)</h3><p>Ön kamera yalnızca ekranın önünde olup olmadığını değerlendirir. İşlem cihazında yapılır, hiçbir görüntü kaydedilmez veya gönderilmez. Her aralık için kapatabilirsin.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🕒</div><h3>Odak aralıkları</h3><p>Güne ve saate göre birden fazla aralık belirle. Her aralığın kendi odak hedefi, dakikaları, tur sınırı ve engellenen uygulamaları vardır.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">📚</div><h3>Kelimelerle kazan</h3><p>Belirlediğin sayıda İngilizce kelime sorusunu (4 seçenekli) doğru yanıtlayarak bir tur kazan. CEFR seviyelerine göre yaklaşık 10.000 kelime; seviye testi, tekrar listesi ve kendi kelime setlerin.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🎁</div><h3>Ön serbest süre</h3><p>Bir aralık başlar başlamaz — daha odaklanmadan — kullanabileceğin dakikalar. Odak ödüllerinin üzerine eklenir.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🔒</div><h3>Ayar kilidi</h3><p>Daha fazla serbest zaman için ayarlarla oynamanı engelleyen bir taahhüt özelliği. Gevşetici değişiklikler için kilit açmayı planlayıp 1–30 gün beklemen gerekir.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">📊</div><h3>Analiz panosu</h3><p>Odak eğilimleri, odak takvimi, tamamlama oranı, en iyi odaklandığın saatler ve engellenen uygulama kullanım eğilimleri — hepsi görselleştirilmiş.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🔔</div><h3>Bildirimde bugünün durumu</h3><p>Uygulamayı açmadan, kalıcı bir bildirim kullanılabilir süreyi, sonraki odak aralığını ve oturumda kalan süreyi gösterir. Tamamlayınca ses ve titreşimle haber verir.</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🌗</div><h3>Açık/koyu · 12 dil</h3><p>Sistem, Açık veya Koyu temayı seç. Uygulama, İngilizce ve Japonca dahil 12 dilde kullanılabilir.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">Gizlilik ve güvenlik</span>
+      <h2>Kamera var — ama içiniz rahat olsun.</h2>
+      <p class="section-lead">“Odağı kontrol eden bir kamera” endişe verici gelebilir. Ripen gizlilik öncelikli tasarlandı.</p>
+      <div class="safety-grid">
+        <div class="safety-card"><h3><span aria-hidden="true">🔒</span><span>Tamamen cihazda işlenir</span></h3><p>Yüz varlığı algılama, Google ML Kit ile cihazında çalışır. Görüntü asla harici bir sunucuya gönderilmez.</p></div>
+        <div class="safety-card"><h3><span aria-hidden="true">🚫</span><span>Görüntü kaydedilmez veya gönderilmez</span></h3><p>Yalnızca bir yüz olup olmadığını değerlendirir. Fotoğraf ve video asla kaydedilmez veya gönderilmez. Kaydedilen tek şey, kaç saniye orada olup odaklandığındır.</p></div>
+        <div class="safety-card"><h3><span aria-hidden="true">📱</span><span>Veriler cihazında kalır</span></h3><p>Odak kayıtları ve ayarlar cihazında saklanır, asla Ripen sunucularına gönderilmez. Android yedeklemesi açıksa ayarların Google Hesabı yedeğine dahil edilir ve yeniden yüklediğinde geri yüklenir.</p></div>
+        <div class="safety-card"><h3><span aria-hidden="true">🔑</span><span>Hesap yok, reklam yok</span></h3><p>Kayıt veya giriş yok; içinde reklam ya da analiz aracı yok. İndir ve hemen başla.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTE -->
+  <section>
+    <div class="section-inner">
+      <div class="note-box">
+        <h3><span aria-hidden="true">⚠️</span><span>Başlamadan önce</span></h3>
+        <ul>
+          <li>Uygulamaları engellemek için “Kullanım erişimi” ve “Erişilebilirlik” izinleri gerekir. Ripen, ikisi de açılana kadar ana ekranını açmaz (Android bunları Ayarlar’dan elle açmanı gerektirir).</li>
+          <li>Kamera izni, varlık algılamanın açık olduğu bir aralıkta ilk kez odaklandığında istenir. Varlık algılamanın kapalı olduğu aralıklarda ve aralık dışındaki odakta yalnızca zamanlayıcı çalışır, kamera kullanılmaz.</li>
+          <li>Uygulamaları tamamen kullanılamaz hale getirmez — davranışını değiştirmek için tasarlanmış “yumuşak” bir sistemdir. Aralıklarının dışında engellenen uygulamaları serbestçe kullanabilirsin.</li>
+          <li>Yüz algılama ön kamerayı kullandığından iyi aydınlatılmış bir yer önerilir.</li>
+          <li>Uygulama 12 dilde kullanılabilir: Japonca, İngilizce, İspanyolca, Çince (Basitleştirilmiş), Hintçe, Arapça, Portekizce, Rusça, Almanca, Fransızca, Korece ve İtalyanca. (Türkçe henüz uygulamada mevcut değil.)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">SSS</span>
+      <h2>Sık sorulan sorular</h2>
+      <div class="faq-list" style="margin-top: 48px;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Normal bir uygulama engelleyiciden farkı ne?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Ripen yalnızca yasaklamaz — ödül temellidir. Bir odak zamanlayıcısını tamamla, sosyal medya veya video için belirlediğin süreyi kazan. Davranışı irade yerine ödüllerle değiştirdiği için devam etmek kolaydır.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Kamera ne için kullanılıyor?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yalnızca ekranın önünde birinin olup olmadığını (varlık) değerlendirmek için. İşlem cihazında yapılır (Google ML Kit), hiçbir görüntü kaydedilmez veya gönderilmez. Kaydedilen tek şey, kaç saniye orada olup odaklandığındır. Varlık algılamayı her aralık için kapatabilirsin; o aralıklarda kamera kullanılmaz.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Hangi izinler gerekiyor?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Uygulamaları engellemek için “Kullanım erişimi” ve “Erişilebilirlik” gerekir; ikisi de açıldığında ana ekrana geçebilirsin. Kamera yalnızca varlık algılama kullanan aralıklar içindir, bildirimler isteğe bağlıdır. Erişilebilirlik yalnızca ön plandaki uygulamayı tanımak ve engelleme ekranını göstermek için kullanılır — ekran içeriğini asla okumaz.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Kullanılabilir süre birikmeye devam eder mi?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Hayır. Kazandığın kullanılabilir süre (ön serbest süre dahil) o aralık bittiğinde sıfırlanır. Biriktirmek için değil, o aralığın ödülü olarak harcanmak üzere tasarlanmıştır.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Ders çalışarak süre kazanabilir miyim?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Evet. Her aralık için kazanma yöntemini seçersin: odak, kelimeler veya ikisi birden. Kelimeler, 4 seçenekli İngilizce kelime testleridir — belirlediğin sayıda (5–30) soruyu doğru yanıtlayarak bir tur kazanırsın. CEFR seviyelerine göre yaklaşık 10.000 kelime yerleşiktir ve kendi kelimelerini yapıştırarak bir set de oluşturabilirsin.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Gerçekten ücretsiz mi?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Evet, ücretsiz. Uygulama içi satın alma, reklam ve hesap yok — indir ve hemen başla.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>Verilerim nerede saklanıyor?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Odak kayıtları, aralıklar, engellenen uygulamalar ve diğer veriler cihazında saklanır ve asla Ripen sunucularına gönderilmez. Android yedeklemesi açıksa ayarların Google Hesabı yedeğine dahil edilir ve aynı hesapla yeniden yüklediğinde geri yüklenir.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>iPhone’da kullanılabilir mi?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Henüz değil — Ripen şimdilik yalnızca Android içindir. Android 8.0 veya üzeri cihazlarda çalışır.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <h2>Bugün başla, emeğin <span class="gold">meyvesini versin.</span></h2>
+      <div class="cta-checklist">
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>Her odak anı için serbest zaman hasat et</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>Cihazda varlık algılama — görüntü kaydedilmez veya gönderilmez</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>Gün ve zaman aralığına göre kurallar, 0 dakikada otomatik kilit</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>Ücretsiz · reklamsız · kayıt yok</span></div>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.ripen.app&amp;hl=tr" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+        <span>Şimdi ücretsiz yükle</span>
+      </a>
+      <p class="cta-note">Google Play’den indir</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Ripen</span>
+      <a href="../../">Ramune Apps</a>
+      <a href="../privacy-policy.html?lang=tr">Gizlilik Politikası</a>
+      <a href="../contact.html?lang=tr">İletişim</a>
+    </div>
+  </footer>
+
+  <script src="../lp.js"></script>
+</body>
+</html>

@@ -5,8 +5,11 @@ const LP_MESSAGES = {
 
 // ── English ─────────────────────────────────────────────────────────
 en: {
-seo_title: "SendReady — AI Rewrite, Reply Generator & Text Expander for Chrome (Free)",
-seo_desc: "Free Chrome extension: select text in Gmail, Outlook, Slack or any field and AI rewrites it — more polite, grammar fixed, translated or summarized — or drafts the reply. Plus a text expander for snippets.",
+seo_title: "SendReady: AI Rewrite, Email Reply & Text Expander",
+seo_desc: "Free Chrome extension: select text in Gmail, Outlook or any field and AI rewrites, fixes or translates it, or drafts the email reply. Plus a text expander.",
+howto_seo_title: "How to Use SendReady: AI Rewrite & Reply in 4 Steps",
+howto_seo_desc: "Learn SendReady in 4 steps: select text, launch it, let AI rewrite or reply, then apply. Demo videos of AI transforms, replies, triggers and snippets.",
+img_logo_alt: "SendReady icon",
 lp_tag_video: "Video",
 lp_tag_how: "How it works",
 lp_tag_demo: "See it in action",
@@ -122,8 +125,11 @@ footer_other: "Other products",
 
 // ── 日本語 ──────────────────────────────────────────────────────────
 ja: {
-seo_title: "敬語・ビジネスメールをAIで書き換え｜返信作成・定型文のChrome拡張 SendReady（無料）",
-seo_desc: "Gmail・Outlook・Slack・Chatworkなど、どの入力欄でも文章を選ぶだけでAIが敬語に言い換え、誤字脱字を校正、翻訳・要約、返信文まで作成。よく使う定型文はトリガー＋Tabで即入力。無料・登録不要のChrome拡張機能です。",
+seo_title: "敬語メールをAIで書き換え・返信・定型文｜SendReady",
+seo_desc: "ビジネスメールもチャットも、文章を選ぶだけでAIが敬語に書き換え・校正・翻訳・要約し、返信文も作成。定型文はトリガー＋Tabで即入力。無料のChrome拡張機能。",
+howto_seo_title: "SendReadyの使い方｜AI書き換え・返信・定型文",
+howto_seo_desc: "文章を選ぶ→起動→AIが書き換え・返信→適用の4ステップ。AI変換・返信作成・トリガー入力・定型文の挿入を実際の操作動画で解説します。",
+img_logo_alt: "SendReadyのアイコン",
 lp_tag_video: "動画",
 lp_tag_how: "仕組み",
 lp_tag_demo: "実際の動作",
@@ -239,8 +245,11 @@ footer_other: "ほかのプロダクト",
 
 // ── 中文 ────────────────────────────────────────────────────────────
 zh: {
-seo_title: "SendReady — AI 改写润色、邮件回复生成与文本扩展 Chrome 扩展（免费）",
-seo_desc: "免费 Chrome 扩展：在 Gmail、Outlook、Slack 或任意输入框选中文字，AI 即可改写润色、变得更礼貌、纠正错别字、翻译、总结或生成回复。还能用快捷短语即刻插入常用文本。",
+seo_title: "SendReady：AI 改写润色、邮件回复与文本扩展",
+seo_desc: "免费 Chrome 扩展：在 Gmail、Outlook 或任意输入框选中文字，AI 即可改写润色、纠错、翻译、总结或生成邮件回复，还能用快捷短语插入常用文本模板。",
+howto_seo_title: "SendReady 使用方法：4 步完成 AI 改写与回复",
+howto_seo_desc: "选中文字→启动→AI 改写或回复→应用，只需 4 步。通过实际操作视频讲解 AI 改写、生成回复、快捷触发词和文本片段插入。",
+img_logo_alt: "SendReady 图标",
 lp_tag_video: "视频",
 lp_tag_how: "工作原理",
 lp_tag_demo: "实际演示",
@@ -356,8 +365,11 @@ footer_other: "其他产品",
 
 // ── 한국어 ──────────────────────────────────────────────────────────
 ko: {
-seo_title: "SendReady — AI 문장 다듬기·맞춤법 교정·이메일 답장·상용구 크롬 확장 (무료)",
-seo_desc: "무료 크롬 확장 프로그램: Gmail, Outlook, Slack 등 어떤 입력란에서든 텍스트를 선택하면 AI가 문장을 다듬고, 정중한 존댓말로 바꾸고, 맞춤법을 교정하고, 번역·요약하고, 답장을 작성합니다. 상용구도 단축어로 즉시 입력.",
+seo_title: "SendReady: AI 문장 다듬기·이메일 답장·상용구",
+seo_desc: "무료 크롬 확장: 어떤 입력란에서든 텍스트를 선택하면 AI가 문장 다듬기·맞춤법 교정·번역, 이메일 답장까지. 상용구는 단축어로 입력.",
+howto_seo_title: "SendReady 사용법: 4단계로 AI 문장 다듬기·답장",
+howto_seo_desc: "텍스트 선택→실행→AI가 다듬기·답장→적용의 4단계. AI 변환, 답장 작성, 키보드 트리거, 상용구 삽입을 실제 동작 영상으로 설명합니다.",
+img_logo_alt: "SendReady 아이콘",
 lp_tag_video: "영상",
 lp_tag_how: "작동 방식",
 lp_tag_demo: "실제 동작",
@@ -473,8 +485,11 @@ footer_other: "다른 제품",
 
 // ── Español ─────────────────────────────────────────────────────────
 es: {
-seo_title: "SendReady — Reescribir textos con IA, responder correos y expansor de texto (gratis)",
-seo_desc: "Extensión gratuita para Chrome: selecciona texto en Gmail, Outlook, Slack o cualquier campo y la IA lo reescribe, lo hace formal, corrige la ortografía, traduce, resume o redacta la respuesta. Incluye plantillas de texto.",
+seo_title: "SendReady: reescribir con IA, responder correos y plantillas",
+seo_desc: "Extensión gratis para Chrome: selecciona texto en Gmail, Outlook o cualquier campo y la IA lo reescribe, traduce o responde el correo. Con plantillas.",
+howto_seo_title: "Cómo usar SendReady: reescribe y responde con IA en 4 pasos",
+howto_seo_desc: "SendReady en 4 pasos: selecciona texto, ábrelo, la IA reescribe o responde y lo aplicas. Vídeos de transformaciones, respuestas, atajos y plantillas.",
+img_logo_alt: "Icono de SendReady",
 lp_tag_video: "Vídeo",
 lp_tag_how: "Cómo funciona",
 lp_tag_demo: "Míralo en acción",
@@ -590,8 +605,11 @@ footer_other: "Otros productos",
 
 // ── Français ────────────────────────────────────────────────────────
 fr: {
-seo_title: "SendReady — Reformuler un texte avec l'IA, répondre aux e-mails, expanseur de texte (gratuit)",
-seo_desc: "Extension Chrome gratuite : sélectionnez un texte dans Gmail, Outlook, Slack ou n'importe quel champ, l'IA le reformule, le rend poli, corrige l'orthographe, traduit, résume ou rédige la réponse. Avec modèles de texte.",
+seo_title: "SendReady : reformuler avec l'IA, répondre aux e-mails",
+seo_desc: "Extension Chrome gratuite : sélectionnez un texte dans Gmail, Outlook ou tout champ et l'IA le reformule ou rédige la réponse. Expanseur de texte inclus.",
+howto_seo_title: "Mode d'emploi SendReady : l'IA reformule en 4 étapes",
+howto_seo_desc: "SendReady en 4 étapes : sélectionnez le texte, lancez-le, l'IA reformule ou répond, appliquez. Vidéos : transformations, réponses, raccourcis, modèles.",
+img_logo_alt: "Icône de SendReady",
 lp_tag_video: "Vidéo",
 lp_tag_how: "Comment ça marche",
 lp_tag_demo: "En action",
@@ -707,8 +725,11 @@ footer_other: "Autres produits",
 
 // ── Deutsch ─────────────────────────────────────────────────────────
 de: {
-seo_title: "SendReady — Text umschreiben mit KI, E-Mail-Antworten & Textbausteine (kostenlos)",
-seo_desc: "Kostenlose Chrome-Erweiterung: Text in Gmail, Outlook, Slack oder jedem Feld markieren – die KI formuliert ihn um, macht ihn höflicher, korrigiert Rechtschreibung, übersetzt, fasst zusammen oder schreibt die Antwort. Mit Textbausteinen.",
+seo_title: "SendReady: Text mit KI umschreiben, E-Mails beantworten",
+seo_desc: "Kostenlose Chrome-Erweiterung: Text in Gmail, Outlook oder jedem Feld markieren – die KI formuliert um oder schreibt die Antwort. Mit Textbausteinen.",
+howto_seo_title: "SendReady Anleitung: Text mit KI umschreiben in 4 Schritten",
+howto_seo_desc: "SendReady in 4 Schritten: markieren, starten, die KI formuliert um oder antwortet, übernehmen. Videos zu Umformungen, Antworten, Kürzeln, Textbausteinen.",
+img_logo_alt: "SendReady-Symbol",
 lp_tag_video: "Video",
 lp_tag_how: "So funktioniert's",
 lp_tag_demo: "In Aktion",
@@ -824,8 +845,11 @@ footer_other: "Weitere Produkte",
 
 // ── Português ───────────────────────────────────────────────────────
 pt: {
-seo_title: "SendReady — Reescrever texto com IA, responder e-mails e expansor de texto (grátis)",
-seo_desc: "Extensão grátis para Chrome: selecione um texto no Gmail, Outlook, Slack ou qualquer campo e a IA reescreve, deixa formal, corrige erros, traduz, resume ou escreve a resposta. Com modelos de texto.",
+seo_title: "SendReady: reescrever com IA, responder e-mails e modelos",
+seo_desc: "Extensão grátis para Chrome: selecione um texto no Gmail, Outlook ou qualquer campo e a IA reescreve, traduz ou escreve a resposta do e-mail. Com modelos.",
+howto_seo_title: "Como usar o SendReady: IA reescreve e responde em 4 passos",
+howto_seo_desc: "Aprenda o SendReady em 4 passos: selecione o texto, abra, a IA reescreve ou responde e você aplica. Vídeos de transformações, respostas, atalhos e modelos.",
+img_logo_alt: "Ícone do SendReady",
 lp_tag_video: "Vídeo",
 lp_tag_how: "Como funciona",
 lp_tag_demo: "Veja em ação",
@@ -941,8 +965,11 @@ footer_other: "Outros produtos",
 
 // ── हिन्दी ──────────────────────────────────────────────────────────
 hi: {
-seo_title: "SendReady — AI पुनर्लेखन, ईमेल जवाब और टेक्स्ट एक्सपैंडर Chrome एक्सटेंशन (मुफ़्त)",
-seo_desc: "मुफ़्त Chrome एक्सटेंशन: Gmail, Outlook, Slack या किसी भी फ़ील्ड में टेक्स्ट चुनें और AI उसे दोबारा लिखे, विनम्र बनाए, व्याकरण सुधारे, अनुवाद व सारांश करे या जवाब तैयार करे। स्निपेट भी।",
+seo_title: "SendReady: AI पुनर्लेखन, ईमेल जवाब और टेक्स्ट एक्सपैंडर",
+seo_desc: "मुफ़्त Chrome एक्सटेंशन: किसी भी फ़ील्ड में टेक्स्ट चुनें — AI उसे दोबारा लिखे, सुधारे, अनुवाद करे या ईमेल का जवाब तैयार करे। टेक्स्ट एक्सपैंडर भी।",
+howto_seo_title: "SendReady कैसे इस्तेमाल करें: 4 चरणों में AI पुनर्लेखन",
+howto_seo_desc: "4 चरणों में SendReady सीखें: टेक्स्ट चुनें, खोलें, AI दोबारा लिखे या जवाब दे, फिर लागू करें। AI बदलाव, जवाब, ट्रिगर और स्निपेट के डेमो वीडियो।",
+img_logo_alt: "SendReady आइकन",
 lp_tag_video: "वीडियो",
 lp_tag_how: "यह कैसे काम करता है",
 lp_tag_demo: "इसे क्रिया में देखें",
@@ -1058,8 +1085,11 @@ footer_other: "अन्य प्रोडक्ट",
 
 // ── Indonesia ───────────────────────────────────────────────────────
 id: {
-seo_title: "SendReady — Tulis ulang & parafrase AI, balas email, template teks untuk Chrome (gratis)",
-seo_desc: "Ekstensi Chrome gratis: pilih teks di Gmail, Outlook, Slack, atau kolom mana pun, lalu AI menulis ulang, membuat formal dan sopan, memperbaiki salah ketik, menerjemahkan, meringkas, atau menyusun balasan. Plus template teks.",
+seo_title: "SendReady: Tulis Ulang AI, Balas Email & Template Teks",
+seo_desc: "Ekstensi Chrome gratis: pilih teks di Gmail atau kolom mana pun, lalu AI menulis ulang, menerjemahkan, atau menyusun balasan email. Plus template teks.",
+howto_seo_title: "Cara Pakai SendReady: Tulis Ulang & Balas dengan AI",
+howto_seo_desc: "SendReady dalam 4 langkah: pilih teks, buka, AI menulis ulang atau membalas, lalu terapkan. Video demo transformasi, balasan, pemicu, dan template.",
+img_logo_alt: "Ikon SendReady",
 lp_tag_video: "Video",
 lp_tag_how: "Cara kerja",
 lp_tag_demo: "Lihat langsung",
@@ -1175,8 +1205,11 @@ footer_other: "Produk lainnya",
 
 // ── العربية (RTL) ───────────────────────────────────────────────────
 ar: {
-seo_title: "SendReady — إعادة صياغة النص بالذكاء الاصطناعي والرد على البريد وقوالب نصية (مجاني)",
-seo_desc: "إضافة Chrome مجانية: حدّد نصًا في Gmail أو Outlook أو Slack أو أي حقل، فيعيد الذكاء الاصطناعي صياغته، ويجعله مهذبًا، ويصحح الأخطاء، ويترجم ويلخص، أو يكتب الرد. مع قوالب نصية.",
+seo_title: "SendReady: إعادة صياغة بالذكاء الاصطناعي والرد على البريد",
+seo_desc: "إضافة Chrome مجانية: حدّد نصًا في Gmail أو Outlook أو أي حقل، فيعيد الذكاء الاصطناعي صياغته ويصحح أخطاءه ويترجمه أو يكتب الرد على البريد. مع قوالب نصية.",
+howto_seo_title: "طريقة استخدام SendReady: إعادة الصياغة والرد في 4 خطوات",
+howto_seo_desc: "تعلّم SendReady في 4 خطوات: حدّد النص، شغّله، دع الذكاء الاصطناعي يعيد الصياغة أو يرد، ثم طبّق. فيديوهات للتحويل والردود والاختصارات والقوالب.",
+img_logo_alt: "أيقونة SendReady",
 lp_tag_video: "فيديو",
 lp_tag_how: "كيف يعمل",
 lp_tag_demo: "شاهده عمليًا",
@@ -1292,8 +1325,11 @@ footer_other: "منتجات أخرى",
 
 // ── 繁體中文 ──────────────────────────────────────────────────────
 "zh-TW": {
-seo_title: "SendReady — AI 改寫潤稿、Email 回覆產生器與常用語快速輸入 Chrome 擴充功能（免費）",
-seo_desc: "免費 Chrome 擴充功能：在 Gmail、Outlook、Slack 或任何輸入框選取文字，AI 立刻幫你改寫——更有禮貌、修正文法、翻譯或摘要，也能直接擬好回覆。還能用片語快速輸入常用文字。",
+seo_title: "SendReady：AI改寫潤稿、Email回覆、常用語範本",
+seo_desc: "免費 Chrome 擴充功能：在 Gmail、Outlook 或任何輸入框選取文字，AI 幫你改寫潤稿、修正文法、翻譯或摘要，也能擬好 Email 回覆。常用語範本可快速輸入。",
+howto_seo_title: "SendReady 使用教學：4 步驟完成 AI 改寫與回覆",
+howto_seo_desc: "選取文字→啟動→AI 改寫或回覆→套用，只要 4 步驟。用實際操作影片說明 AI 改寫、擬回覆、快捷觸發詞與常用語插入。",
+img_logo_alt: "SendReady 圖示",
 lp_tag_video: "影片",
 lp_tag_how: "運作方式",
 lp_tag_demo: "實際操作",
@@ -1409,8 +1445,11 @@ footer_other: "其他產品",
 
 // ── Tiếng Việt ──────────────────────────────────────────────────────
 vi: {
-seo_title: "SendReady — Viết lại văn bản bằng AI, trả lời email & gõ tắt mẫu câu cho Chrome (Miễn phí)",
-seo_desc: "Tiện ích Chrome miễn phí: bôi đen văn bản trong Gmail, Outlook, Slack hay bất kỳ ô nhập nào, AI sẽ viết lại — lịch sự hơn, sửa ngữ pháp, dịch hoặc tóm tắt — hoặc soạn sẵn câu trả lời. Kèm công cụ gõ tắt mẫu câu (text expander).",
+seo_title: "SendReady: Viết lại bằng AI, trả lời email & gõ tắt mẫu câu",
+seo_desc: "Tiện ích Chrome miễn phí: bôi đen văn bản trong Gmail, Outlook hay ô nhập bất kỳ, AI sẽ viết lại, dịch hoặc soạn trả lời email. Kèm gõ tắt mẫu câu.",
+howto_seo_title: "Cách dùng SendReady: viết lại & trả lời bằng AI trong 4 bước",
+howto_seo_desc: "Học SendReady trong 4 bước: chọn văn bản, mở tiện ích, để AI viết lại hoặc trả lời, rồi áp dụng. Video minh họa chuyển đổi, trả lời, phím tắt, mẫu câu.",
+img_logo_alt: "Biểu tượng SendReady",
 lp_tag_video: "Video",
 lp_tag_how: "Cách hoạt động",
 lp_tag_demo: "Xem thực tế",
@@ -1526,8 +1565,11 @@ footer_other: "Sản phẩm khác",
 
 // ── ไทย ─────────────────────────────────────────────────────────────
 th: {
-seo_title: "SendReady — AI รีไรท์ข้อความ ช่วยตอบอีเมล และพิมพ์ข้อความสำเร็จรูปด่วน สำหรับ Chrome (ฟรี)",
-seo_desc: "ส่วนขยาย Chrome ฟรี: เลือกข้อความใน Gmail, Outlook, Slack หรือช่องพิมพ์ใดก็ได้ แล้วให้ AI รีไรท์ — สุภาพขึ้น แก้ไวยากรณ์ แปล หรือสรุป — หรือร่างคำตอบให้ทันที พร้อมตัวช่วยพิมพ์ข้อความสำเร็จรูป (text expander)",
+seo_title: "SendReady: AI รีไรท์ข้อความ ช่วยตอบอีเมล ข้อความสำเร็จรูป",
+seo_desc: "ส่วนขยาย Chrome ฟรี: เลือกข้อความใน Gmail, Outlook หรือช่องพิมพ์ใดก็ได้ ให้ AI รีไรท์ แก้ไวยากรณ์ แปล หรือร่างคำตอบอีเมลให้ทันที พร้อมข้อความสำเร็จรูป",
+howto_seo_title: "วิธีใช้ SendReady: AI รีไรท์และตอบข้อความใน 4 ขั้นตอน",
+howto_seo_desc: "เรียนรู้ SendReady ใน 4 ขั้นตอน: เลือกข้อความ เปิดใช้ ให้ AI รีไรท์หรือตอบ แล้วนำไปใช้ พร้อมวิดีโอสาธิตการแปลง การตอบ ทริกเกอร์ และข้อความสำเร็จรูป",
+img_logo_alt: "ไอคอน SendReady",
 lp_tag_video: "วิดีโอ",
 lp_tag_how: "วิธีการทำงาน",
 lp_tag_demo: "ดูการใช้งานจริง",
@@ -1643,8 +1685,11 @@ footer_other: "ผลิตภัณฑ์อื่น ๆ",
 
 // ── বাংলা ───────────────────────────────────────────────────────────
 bn: {
-seo_title: "SendReady — AI রিরাইট ও প্যারাফ্রেজ, ইমেইলের উত্তর লেখা ও টেক্সট এক্সপ্যান্ডার — Chrome এক্সটেনশন (ফ্রি)",
-seo_desc: "ফ্রি Chrome এক্সটেনশন: Gmail, Outlook, Slack বা যেকোনো টেক্সট ফিল্ডে লেখা সিলেক্ট করুন, AI সেটি রিরাইট করে দেবে — আরও ভদ্র, ব্যাকরণ ঠিক করা, অনুবাদ বা সারসংক্ষেপ — কিংবা উত্তরের খসড়া লিখে দেবে। সঙ্গে আছে স্নিপেট আর টেমপ্লেটের জন্য টেক্সট এক্সপ্যান্ডার।",
+seo_title: "SendReady: AI রিরাইট, ইমেইলের উত্তর ও টেক্সট এক্সপ্যান্ডার",
+seo_desc: "ফ্রি Chrome এক্সটেনশন: যেকোনো ফিল্ডে লেখা সিলেক্ট করুন — AI রিরাইট, ব্যাকরণ ঠিক, অনুবাদ বা ইমেইলের উত্তর লিখে দেবে। সঙ্গে টেক্সট এক্সপ্যান্ডার।",
+howto_seo_title: "SendReady কীভাবে ব্যবহার করবেন: ৪ ধাপে AI রিরাইট ও উত্তর",
+howto_seo_desc: "৪ ধাপে SendReady শিখুন: লেখা সিলেক্ট করুন, চালু করুন, AI রিরাইট বা উত্তর দেবে, তারপর বসিয়ে দিন। AI রূপান্তর, উত্তর, ট্রিগার ও স্নিপেটের ডেমো ভিডিও।",
+img_logo_alt: "SendReady আইকন",
 lp_tag_video: "ভিডিও",
 lp_tag_how: "যেভাবে কাজ করে",
 lp_tag_demo: "কাজে দেখুন",
@@ -1760,8 +1805,11 @@ footer_other: "অন্যান্য প্রোডাক্ট",
 
 // ── Italiano ────────────────────────────────────────────────────────
 it: {
-seo_title: "SendReady — Riformula testi con l'IA, risposte email e text expander per Chrome (gratis)",
-seo_desc: "Estensione Chrome gratuita: seleziona il testo in Gmail, Outlook, Slack o in qualsiasi campo e l'IA lo riscrive — più cortese, senza errori di grammatica, tradotto o riassunto — oppure scrive la risposta. In più, un text expander per i tuoi modelli di testo.",
+seo_title: "SendReady: riformula testi con IA, risposte email, modelli",
+seo_desc: "Estensione Chrome gratuita: seleziona il testo in Gmail o in qualsiasi campo e l'IA lo riscrive, traduce o scrive la risposta. Con text expander.",
+howto_seo_title: "Guida a SendReady: riformula e rispondi con l'IA in 4 passi",
+howto_seo_desc: "SendReady in 4 passi: seleziona il testo, avvialo, l'IA riscrive o risponde, applica. Video su trasformazioni, risposte, scorciatoie e modelli.",
+img_logo_alt: "Icona di SendReady",
 lp_tag_video: "Video",
 lp_tag_how: "Come funziona",
 lp_tag_demo: "Guardalo in azione",
@@ -1877,8 +1925,11 @@ footer_other: "Altri prodotti",
 
 // ── Nederlands ──────────────────────────────────────────────────────
 nl: {
-seo_title: "SendReady — Tekst herschrijven met AI, e-mailantwoorden en tekstexpander voor Chrome (gratis)",
-seo_desc: "Gratis Chrome-extensie: selecteer tekst in Gmail, Outlook, Slack of elk ander veld en AI herschrijft hem — beleefder, zonder taalfouten, vertaald of samengevat — of schrijft het antwoord. Plus een tekstexpander voor je vaste teksten en sjablonen.",
+seo_title: "SendReady: tekst herschrijven met AI, e-mailantwoorden",
+seo_desc: "Gratis Chrome-extensie: selecteer tekst in Gmail, Outlook of elk veld en AI herschrijft, vertaalt of schrijft het antwoord. Plus een tekstexpander.",
+howto_seo_title: "SendReady gebruiken: herschrijven met AI in 4 stappen",
+howto_seo_desc: "SendReady in 4 stappen: selecteer tekst, start, laat AI herschrijven of antwoorden en pas toe. Video's: bewerkingen, antwoorden, triggers, sjablonen.",
+img_logo_alt: "SendReady-pictogram",
 lp_tag_video: "Video",
 lp_tag_how: "Hoe het werkt",
 lp_tag_demo: "Zie het in actie",
@@ -1994,8 +2045,11 @@ footer_other: "Andere producten",
 
 // ── Polski ──────────────────────────────────────────────────────────
 pl: {
-seo_title: "SendReady — parafraza AI, generator odpowiedzi na e-maile i szablony tekstu dla Chrome (za darmo)",
-seo_desc: "Darmowe rozszerzenie Chrome: zaznacz tekst w Gmailu, Outlooku, Slacku lub dowolnym polu, a AI go przeredaguje — uprzejmiej, bez błędów, przetłumaczy lub streści — albo napisze odpowiedź. Do tego text expander na gotowe fragmenty tekstu.",
+seo_title: "SendReady: parafraza AI, odpowiedzi na e-maile, szablony",
+seo_desc: "Darmowe rozszerzenie Chrome: zaznacz tekst w Gmailu lub dowolnym polu, a AI go przeredaguje, przetłumaczy lub napisze odpowiedź. Plus szablony.",
+howto_seo_title: "Jak używać SendReady: parafraza AI i odpowiedzi w 4 krokach",
+howto_seo_desc: "SendReady w 4 krokach: zaznacz tekst, uruchom, AI przeredaguje lub odpowie, a Ty wstawiasz wynik. Filmy o przekształceniach, odpowiedziach i szablonach.",
+img_logo_alt: "Ikona SendReady",
 lp_tag_video: "Wideo",
 lp_tag_how: "Jak to działa",
 lp_tag_demo: "Zobacz w akcji",
@@ -2111,8 +2165,11 @@ footer_other: "Inne produkty",
 
 // ── Русский ─────────────────────────────────────────────────────────
 ru: {
-seo_title: "SendReady — перефразирование и рерайт текста с ИИ, ответы на письма и шаблоны текста для Chrome (бесплатно)",
-seo_desc: "Бесплатное расширение Chrome: выделите текст в Gmail, Outlook, Slack или любом поле — ИИ перепишет его вежливее, исправит ошибки, переведёт или сократит — или составит ответ. Плюс шаблоны текста с быстрой вставкой по сокращению.",
+seo_title: "SendReady: рерайт текста с ИИ, ответы на письма, шаблоны",
+seo_desc: "Бесплатное расширение Chrome: выделите текст в любом поле — ИИ перепишет его, исправит ошибки, переведёт или составит ответ на письмо. Плюс шаблоны.",
+howto_seo_title: "Как пользоваться SendReady: рерайт и ответы с ИИ за 4 шага",
+howto_seo_desc: "SendReady за 4 шага: выделите текст, запустите, ИИ перепишет или ответит — вставьте результат. Видео: преобразования, ответы, триггеры и шаблоны текста.",
+img_logo_alt: "Значок SendReady",
 lp_tag_video: "Видео",
 lp_tag_how: "Как это работает",
 lp_tag_demo: "Посмотрите в деле",
@@ -2228,8 +2285,11 @@ footer_other: "Другие продукты",
 
 // ── Türkçe ──────────────────────────────────────────────────────────
 tr: {
-seo_title: "SendReady — AI ile Metin Yeniden Yazma, E-posta Yanıtı Oluşturma ve Hazır Metin Şablonları — Chrome (Ücretsiz)",
-seo_desc: "Ücretsiz Chrome uzantısı: Gmail, Outlook, Slack veya herhangi bir alanda metni seçin, yapay zekâ yeniden yazsın — daha kibar, yazım hataları düzeltilmiş, çevrilmiş ya da özetlenmiş — veya yanıtı sizin için hazırlasın. Hazır metinler için metin genişletici de dahil.",
+seo_title: "SendReady: AI ile Yeniden Yazma, E-posta Yanıtı, Şablonlar",
+seo_desc: "Ücretsiz Chrome uzantısı: Gmail, Outlook veya herhangi bir alanda metni seçin; yapay zekâ yeniden yazsın, çevirsin ya da e-posta yanıtını hazırlasın.",
+howto_seo_title: "SendReady Nasıl Kullanılır: 4 Adımda AI ile Yeniden Yazma",
+howto_seo_desc: "SendReady 4 adımda: metni seçin, açın, yapay zekâ yeniden yazsın ya da yanıtlasın, uygulayın. Dönüşüm, yanıt, tetikleyici ve şablon videoları.",
+img_logo_alt: "SendReady simgesi",
 lp_tag_video: "Video",
 lp_tag_how: "Nasıl çalışır",
 lp_tag_demo: "Uygulamada görün",
@@ -2368,10 +2428,12 @@ function fixedLPLocale() {
   return l && LP_MESSAGES[l] ? l : null;
 }
 
-// 言語 → その言語の LP の URL（en はルート）。data-lp-base は LP ルートへの相対パス
+// 言語 → その言語の同じページの URL（en はルート）。data-lp-base は LP ルートへの相対パス、
+// data-lp-page はページのファイル名（LP は無し、使い方は how-to.html）
 function lpPageURL(locale) {
   var base = document.documentElement.getAttribute("data-lp-base");
-  return base + (locale === "en" ? "" : locale + "/");
+  var page = document.documentElement.getAttribute("data-lp-page") || "";
+  return base + (locale === "en" ? "" : locale + "/") + page;
 }
 
 // 言語タグ（?lang= の値・ブラウザ言語。拡張は繁体字を zh_TW で渡す）→ LP の言語。対応外は null
@@ -2406,6 +2468,10 @@ function applyLPTranslations(locale) {
   document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
     const key = el.getAttribute("data-i18n-html");
     if (msgs[key] !== undefined) el.innerHTML = msgs[key];
+  });
+  document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+    const key = el.getAttribute("data-i18n-alt");
+    if (msgs[key] !== undefined) el.setAttribute("alt", msgs[key]);
   });
   document.documentElement.lang = locale;
   document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
@@ -2444,7 +2510,7 @@ function initLP() {
     selector.addEventListener("change", function () {
       var newLocale = this.value;
       try { localStorage.setItem("lp_lang", newLocale); } catch (e) {}
-      // LP は言語ごとに URL を持つので、その言語のページへ移る（使い方ページはその場で切替）
+      // LP・使い方は言語ごとに URL を持つので、その言語のページへ移る
       if (document.documentElement.hasAttribute("data-lp-base")) {
         location.href = lpPageURL(newLocale);
         return;

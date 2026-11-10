@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!-- 生成物: ashiato-maker/templates/contact.html と ashiato-maker/i18n/pages/<lang>.json から node ashiato-maker/build-pages.mjs で作る。直接直さない。 -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{contact_doc_title}}</title>
+  <meta name="description" content="{{contact_seo_desc}}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{@url}}">
+
+  <meta property="og:title" content="{{contact_doc_title}}">
+  <meta property="og:description" content="{{contact_seo_desc}}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{@url}}">
+  <meta property="og:image" content="{{@ogImage}}">
+  <meta property="og:locale" content="ja_JP">
+{{@ogLocaleAlternates}}
+  <meta property="og:site_name" content="{{brand}}">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" sizes="48x48" href="icons/icon128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&amp;display=swap">
+  <style>
+    :root {
+      --purple: #7c3aed; --purple-dark: #6d28d9; --purple-light: #a855f7;
+      --purple-50: #faf9ff; --purple-100: #f1edff; --purple-200: #ddd6fe;
+      --text: #334155; --text-sub: #475569; --text-light: #94a3b8;
+      --bg: #faf9ff; --border: #e2e8f0;
+      --red-50: #fef2f2; --red-200: #fecaca;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', -apple-system, 'Segoe UI', 'Noto Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { color: var(--purple-dark); }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: center; }
+    .nav-inner { max-width: 960px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); text-decoration: none; min-width: 0; }
+    .nav-brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
+    .lang-select { font: inherit; font-size: 13px; color: var(--text-sub); background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 5px 8px; cursor: pointer; flex-shrink: 0; }
+    .container { max-width: 680px; margin: 0 auto; padding: 88px 24px 80px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; font-size: 14px; font-weight: 500; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+    .back:hover { color: var(--purple); }
+    .page-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .page-desc { font-size: 15px; color: var(--text-sub); margin-bottom: 40px; }
+    .card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 36px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); }
+    .field { margin-bottom: 24px; }
+    .field:last-of-type { margin-bottom: 28px; }
+    .field-label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 100px; line-height: 1.6; }
+    .tag-req { background: var(--purple-100); color: var(--purple-dark); border: 1px solid var(--purple-200); }
+    .tag-opt { background: #f1f5f9; color: var(--text-light); border: 1px solid var(--border); }
+    .field-note { font-size: 12px; color: var(--text-light); margin-top: 6px; }
+    input[type="email"], .card select, textarea { width: 100%; font-family: inherit; font-size: 15px; color: var(--text); background: #fff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px 14px; line-height: 1.6; transition: border-color 0.2s, box-shadow 0.2s; }
+    input::placeholder, textarea::placeholder { color: #cbd5e1; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124,58,237,0.15); }
+    textarea { min-height: 160px; resize: vertical; }
+    .card select { appearance: none; cursor: pointer; padding-right: 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 18px; }
+    html[dir="rtl"] .card select { padding-right: 14px; padding-left: 40px; background-position: left 14px center; }
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .hp-file { position: absolute; left: -9999px; opacity: 0; width: 0; height: 0; }
+    .file-drop { display: flex; align-items: center; gap: 10px; cursor: pointer; border: 1.5px dashed #cbd5e1; border-radius: 10px; padding: 14px 16px; color: var(--text-light); font-size: 14px; transition: border-color 0.2s, background 0.2s; position: relative; }
+    .file-drop:hover, .file-drop.has-file { border-color: var(--purple); background: var(--purple-50); color: var(--purple-dark); }
+    .file-drop.has-file { border-style: solid; }
+    .file-drop svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .file-drop.has-file .file-drop-text { display: none; }
+    .file-drop-name { font-weight: 600; word-break: break-all; }
+    .file-clear { margin-inline-start: auto; width: 24px; height: 24px; border: none; border-radius: 50%; background: rgba(124,58,237,0.12); color: var(--purple-dark); font-size: 15px; line-height: 1; cursor: pointer; flex-shrink: 0; }
+    .file-clear:hover { background: rgba(124,58,237,0.25); }
+    .submit-btn { width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: #fff; font-family: inherit; font-size: 15px; font-weight: 700; padding: 15px 32px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(124,58,237,0.25); transition: all 0.2s; }
+    .submit-btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(124,58,237,0.35); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .submit-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    html[dir="rtl"] .submit-btn svg { transform: scaleX(-1); }
+    .privacy-note { font-size: 12px; color: var(--text-light); text-align: center; margin-top: 16px; }
+    .alert { display: none; border-radius: 10px; padding: 14px 16px; font-size: 14px; margin-bottom: 20px; background: var(--red-50); border: 1px solid var(--red-200); color: #b91c1c; }
+    .alert.show { display: block; }
+    .success { display: none; text-align: center; padding: 20px 0; }
+    .success.show { display: block; }
+    .success-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--purple-100); border: 1px solid var(--purple-200); display: flex; align-items: center; justify-content: center; }
+    .success-icon svg { width: 30px; height: 30px; stroke: var(--purple); stroke-width: 2.5; fill: none; }
+    .success-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .success-desc { font-size: 14px; color: var(--text-sub); margin-bottom: 28px; }
+    .success .btn-back { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--purple), var(--purple-light)); color: #fff; font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 10px; }
+    footer { border-top: 1px solid var(--border); padding: 24px 20px; text-align: center; font-size: 13px; color: var(--text-light); }
+    footer a { color: var(--text-light); margin: 0 12px; transition: color 0.2s; }
+    footer a:hover { color: var(--purple); }
+    @media (max-width: 720px) {
+      .nav { padding: 0 16px; }
+      .container { padding: 84px 16px 60px; }
+      .card { padding: 28px 20px; border-radius: 14px; }
+      .page-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand" data-lp-link><img src="icons/icon128.png" alt="" width="32" height="32"><span data-i18n="brand">{{brand}}</span></a>
+      <select id="lang-select" class="lang-select" aria-label="{{lang_label}}" data-i18n-aria="lang_label">{{@langOptions}}</select>
+    </div>
+  </nav>
+
+  <main class="container">
+    <a href="./" class="back" data-lp-link data-i18n="contact_back">{{contact_back}}</a>
+    <h1 class="page-title" data-i18n="contact_title">{{contact_title}}</h1>
+    <p class="page-desc" data-i18n="contact_desc">{{contact_desc}}</p>
+
+    <div class="card">
+      <div class="success" id="success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="success-title" data-i18n="contact_success_title">{{contact_success_title}}</h2>
+        <p class="success-desc" data-i18n="contact_success_desc">{{contact_success_desc}}</p>
+        <a href="./" class="btn-back" data-lp-link data-i18n="contact_success_back">{{contact_success_back}}</a>
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="alert" id="error-box" data-i18n="contact_error" role="alert" aria-live="polite">{{contact_error}}</div>
+
+        <input type="hidden" name="product" value="Ashiato Maker">
+        <input type="hidden" name="diagnostics" id="f-diagnostics">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+        <div class="field">
+          <label class="field-label" for="f-email">
+            <span data-i18n="contact_email">{{contact_email}}</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">{{contact_optional}}</span>
+          </label>
+          <input type="email" id="f-email" name="email" autocomplete="email" data-i18n-ph="contact_email_ph" placeholder="{{contact_email_ph}}">
+          <p class="field-note" data-i18n="contact_email_note">{{contact_email_note}}</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-app">
+            <span data-i18n="contact_app">{{contact_app}}</span>
+            <span class="tag tag-req" data-i18n="contact_required">{{contact_required}}</span>
+          </label>
+          <select id="f-app" name="app" required>
+            <option value="Pairs">Pairs</option>
+            <option value="With">With</option>
+            <option value="東カレデート" data-i18n="app_toukare">{{app_toukare}}</option>
+            <option value="Tinder">Tinder</option>
+            <option value="Badoo">Badoo</option>
+            <option value="OkCupid">OkCupid</option>
+            <option value="Match">Match</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-type">
+            <span data-i18n="contact_type">{{contact_type}}</span>
+            <span class="tag tag-req" data-i18n="contact_required">{{contact_required}}</span>
+          </label>
+          <select id="f-type" name="category" required>
+            <option value="Bug Report" data-i18n="contact_type_bug">{{contact_type_bug}}</option>
+            <option value="Feature Request" data-i18n="contact_type_feature">{{contact_type_feature}}</option>
+            <option value="Other" data-i18n="contact_type_other">{{contact_type_other}}</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-message">
+            <span data-i18n="contact_message">{{contact_message}}</span>
+            <span class="tag tag-req" data-i18n="contact_required">{{contact_required}}</span>
+          </label>
+          <textarea id="f-message" name="content" required maxlength="5000" data-i18n-ph="contact_message_ph" placeholder="{{contact_message_ph}}"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="f-file">
+            <span data-i18n="contact_file">{{contact_file}}</span>
+            <span class="tag tag-opt" data-i18n="contact_optional">{{contact_optional}}</span>
+          </label>
+          <label class="file-drop" id="file-drop" for="f-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span class="file-drop-text" id="file-drop-text" data-i18n="contact_file_drop">{{contact_file_drop}}</span>
+            <span class="file-drop-name" id="file-name"></span>
+            <button type="button" class="file-clear" id="file-clear" hidden aria-label="Remove file">&times;</button>
+          </label>
+          <input type="file" id="f-file" name="attachment" class="hp-file" accept="image/*,video/*,.pdf,.txt">
+          <p class="field-note" data-i18n="contact_file_note">{{contact_file_note}}</p>
+          <p class="field-note" id="file-error" style="color:#b91c1c" hidden data-i18n="contact_file_too_large">{{contact_file_too_large}}</p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span id="submit-label" data-i18n="contact_submit">{{contact_submit}}</span>
+        </button>
+        <p class="privacy-note" data-i18n="contact_privacy_note">{{contact_privacy_note}}</p>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <span>&copy; 2025 <span data-i18n="brand">{{brand}}</span></span>
+    <a href="privacy-policy.html" id="foot-privacy" target="_blank" data-i18n="footer_privacy">{{footer_privacy}}</a>
+  </footer>
+
+  <script>
+    (function () {
+      var ENDPOINT = 'https://contact-api.warload57.workers.dev/';
+      var MAX_FILE_BYTES = 25 * 1024 * 1024;
+      var LP_PATHS = {{@lpPaths}};
+      var MESSAGES = {{@messages}};
+{{@localeScript}}
+
+      var locale = detectLocale();
+      var msgs = MESSAGES[locale];
+      function apply(next) {
+        locale = next;
+        msgs = MESSAGES[locale];
+        applyMessages(locale, msgs);
+        document.querySelectorAll('[data-lp-link]').forEach(function (a) { a.href = LP_PATHS[locale]; });
+        document.getElementById('foot-privacy').href = 'privacy-policy.html?lang=' + encodeURIComponent(locale);
+      }
+      bindSelector(function (next) { apply(next); });
+      apply(locale);
+
+      // 拡張機能が問い合わせリンクに付与する匿名診断
+      // (v=バージョン, app=アプリキー, days=利用日数, visits=累計訪問数, runs=実行回数,
+      //  ev=失敗の種別ごとの件数, evLast=最新の失敗からの経過分, evSpan=記録が覆う期間(分))
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var parts = [];
+        ['v', 'days', 'visits', 'runs', 'ev', 'evLast', 'evSpan'].forEach(function (k) {
+          var val = (params.get(k) || '').slice(0, 150);
+          if (val) parts.push(k + '=' + val);
+        });
+        document.getElementById('f-diagnostics').value = parts.join(', ');
+        // アプリキーは「使っているアプリ」の初期値にする（ユーザーは変更できる）
+        var APP_OPTIONS = { pairs: 'Pairs', with: 'With', toukare: '東カレデート', tinder: 'Tinder', badoo: 'Badoo', okcupid: 'OkCupid', match: 'Match' };
+        var appValue = APP_OPTIONS[(params.get('app') || '').toLowerCase()];
+        if (appValue) document.getElementById('f-app').value = appValue;
+      })();
+
+      var form = document.getElementById('contact-form');
+      var success = document.getElementById('success');
+      var errorBox = document.getElementById('error-box');
+      var btn = document.getElementById('submit-btn');
+      var btnLabel = document.getElementById('submit-label');
+      var fileInput = document.getElementById('f-file');
+      var fileDrop = document.getElementById('file-drop');
+      var fileName = document.getElementById('file-name');
+      var fileClear = document.getElementById('file-clear');
+      var fileError = document.getElementById('file-error');
+
+      function syncFileUI() {
+        var f = fileInput.files[0];
+        var tooLarge = !!f && f.size > MAX_FILE_BYTES;
+        fileError.hidden = !tooLarge;
+        if (tooLarge) { fileInput.value = ''; f = null; }
+        fileDrop.classList.toggle('has-file', !!f);
+        fileName.textContent = f ? f.name + ' (' + (f.size / 1024 / 1024).toFixed(1) + 'MB)' : '';
+        fileClear.hidden = !f;
+      }
+      fileInput.addEventListener('change', syncFileUI);
+      fileClear.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        fileInput.value = '';
+        syncFileUI();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        errorBox.classList.remove('show');
+        btn.disabled = true;
+        btnLabel.textContent = msgs.contact_sending;
+
+        var data = new FormData(form);
+        data.set('language', locale);
+
+        fetch(ENDPOINT, { method: 'POST', body: data })
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            if (!json.success) throw new Error(json.message || 'submit failed');
+            form.style.display = 'none';
+            success.classList.add('show');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          })
+          .catch(function () {
+            errorBox.classList.add('show');
+            btn.disabled = false;
+            btnLabel.textContent = msgs.contact_submit;
+          });
+      });
+    })();
+  </script>
+
+</body>
+</html>

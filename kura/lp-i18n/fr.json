@@ -1,6 +1,6 @@
 {
-  "seo_title": "Kura | Appli photo tout-en-un : galerie, tri, retouche IA et sauvegarde",
-  "seo_desc": "Kura, l’appli photo Android tout-en-un : galerie, tri des doublons et du flou, retouche IA, photos privées, sauvegarde cloud et transfert depuis Google Photos.",
+  "seo_title": "Kura : appli photo tout-en-un, tri, retouche IA, sauvegarde",
+  "seo_desc": "Kura, appli photo Android tout-en-un : galerie, tri des doublons et du flou, retouche IA, photos privées, sauvegarde en qualité d’origine. Sans publicité.",
   "og_title": "Kura | Toutes vos photos, une seule appli.",
   "og_desc": "Galerie, tri, retouche IA, photos privées, sauvegarde en qualité d’origine et transfert depuis Google Photos dans une appli photo Android. Consulter, trier et supprimer est gratuit.",
   "nav_web": "Appli web",
@@ -45,7 +45,7 @@
   "s4_tag": "Privé",
   "s4_p": "Déplacez photos et vidéos dans Privé pour les masquer de la galerie et des autres applis. L’ouverture se fait avec le verrouillage d’écran de votre téléphone.",
   "s4_f1": "Verrouillez toute l’appli si vous le souhaitez",
-  "s4_f2": "La position est retirée des photos partagées (activé par défaut)",
+  "s4_f2": "La position est retirée lors du partage vers d’autres applis (activé par défaut)",
   "s5_tag": "Sauvegarde",
   "s5_p": "Sauvegardez photos et vidéos sans recompression. Retirez du téléphone les copies sauvegardées pour libérer de l’espace ; elles restent visibles depuis le cloud.",
   "s5_f1": "Forfaits mensuels : 100 GB / 500 GB / 1 TB",

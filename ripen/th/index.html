@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!-- 生成物: ripen/lp-template.html と ripen/lp-i18n/<lang>.json から node ripen/build-lp.mjs で作る。直接直さない。 -->
+<html lang="th" dir="ltr" data-lang="th" data-base="../" prefix="og: https://ogp.me/ns#">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YHTG3FQSX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4YHTG3FQSX');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ripen – แอปโฟกัส สร้างนิสัยอ่านหนังสือ บล็อกแอป Android</title>
+  <meta name="description" content="โฟกัสหรืออ่านหนังสือเพื่อแลกเวลาเล่นโซเชียลและดูวิดีโอ แอปสร้างนิสัยแบบให้รางวัล บล็อกแอปตามช่วงเวลา ควิซคำศัพท์ และตรวจการอยู่หน้าจอในเครื่อง">
+  <meta name="author" content="Ramune">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ramune441.github.io/ripen/th/">
+  <link rel="alternate" hreflang="ja" href="https://ramune441.github.io/ripen/">
+  <link rel="alternate" hreflang="en" href="https://ramune441.github.io/ripen/en/">
+  <link rel="alternate" hreflang="zh-Hans" href="https://ramune441.github.io/ripen/zh/">
+  <link rel="alternate" hreflang="zh-TW" href="https://ramune441.github.io/ripen/zh-TW/">
+  <link rel="alternate" hreflang="ko" href="https://ramune441.github.io/ripen/ko/">
+  <link rel="alternate" hreflang="es" href="https://ramune441.github.io/ripen/es/">
+  <link rel="alternate" hreflang="fr" href="https://ramune441.github.io/ripen/fr/">
+  <link rel="alternate" hreflang="de" href="https://ramune441.github.io/ripen/de/">
+  <link rel="alternate" hreflang="pt-BR" href="https://ramune441.github.io/ripen/pt/">
+  <link rel="alternate" hreflang="it" href="https://ramune441.github.io/ripen/it/">
+  <link rel="alternate" hreflang="ru" href="https://ramune441.github.io/ripen/ru/">
+  <link rel="alternate" hreflang="id" href="https://ramune441.github.io/ripen/id/">
+  <link rel="alternate" hreflang="hi" href="https://ramune441.github.io/ripen/hi/">
+  <link rel="alternate" hreflang="tr" href="https://ramune441.github.io/ripen/tr/">
+  <link rel="alternate" hreflang="vi" href="https://ramune441.github.io/ripen/vi/">
+  <link rel="alternate" hreflang="th" href="https://ramune441.github.io/ripen/th/">
+  <link rel="alternate" hreflang="pl" href="https://ramune441.github.io/ripen/pl/">
+  <link rel="alternate" hreflang="ar" href="https://ramune441.github.io/ripen/ar/">
+  <link rel="alternate" hreflang="nl" href="https://ramune441.github.io/ripen/nl/">
+  <link rel="alternate" hreflang="bn" href="https://ramune441.github.io/ripen/bn/">
+  <link rel="alternate" hreflang="x-default" href="https://ramune441.github.io/ripen/en/">
+
+  <meta property="og:title" content="Ripen – แอปโฟกัส สร้างนิสัยอ่านหนังสือ บล็อกแอป Android">
+  <meta property="og:description" content="โฟกัสหรืออ่านหนังสือเพื่อแลกเวลาเล่นโซเชียลและดูวิดีโอ แอปสร้างนิสัยแบบให้รางวัล บล็อกแอปตามช่วงเวลา ควิซคำศัพท์ และตรวจการอยู่หน้าจอในเครื่อง">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/ripen/th/">
+  <meta property="og:image" content="https://ramune441.github.io/ripen/images/store/en/store-image-feature.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="Ripen — แอป Android ที่ยิ่งโฟกัสยิ่งได้เวลาว่าง หน้าจอตัวจับเวลาโฟกัส">
+  <meta property="og:locale" content="th_TH">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:locale:alternate" content="id_ID">
+  <meta property="og:locale:alternate" content="hi_IN">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta property="og:locale:alternate" content="vi_VN">
+  <meta property="og:locale:alternate" content="pl_PL">
+  <meta property="og:locale:alternate" content="ar_AR">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="bn_BD">
+  <meta property="og:site_name" content="Ripen">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ripen – แอปโฟกัส สร้างนิสัยอ่านหนังสือ บล็อกแอป Android">
+  <meta name="twitter:description" content="โฟกัสหรืออ่านหนังสือเพื่อแลกเวลาเล่นโซเชียลและดูวิดีโอ แอปสร้างนิสัยแบบให้รางวัล บล็อกแอปตามช่วงเวลา ควิซคำศัพท์ และตรวจการอยู่หน้าจอในเครื่อง">
+  <meta name="twitter:image" content="https://ramune441.github.io/ripen/images/store/en/store-image-feature.png">
+  <meta name="twitter:image:alt" content="Ripen — แอป Android ที่ยิ่งโฟกัสยิ่งได้เวลาว่าง หน้าจอตัวจับเวลาโฟกัส">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Ripen",
+    "description": "โฟกัสหรืออ่านหนังสือเพื่อแลกเวลาเล่นโซเชียลและดูวิดีโอ แอปสร้างนิสัยแบบให้รางวัล บล็อกแอปตามช่วงเวลา ควิซคำศัพท์ และตรวจการอยู่หน้าจอในเครื่อง",
+    "url": "https://ramune441.github.io/ripen/th/",
+    "inLanguage": "th",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Android",
+    "installUrl": "https://play.google.com/store/apps/details?id=com.ripen.app",
+    "sameAs": [
+      "https://play.google.com/store/apps/details?id=com.ripen.app"
+    ],
+    "image": "https://ramune441.github.io/ripen/images/store/en/store-image-feature.png",
+    "screenshot": [
+      "https://ramune441.github.io/ripen/images/store/en/store-image-1.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-2.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-3.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-4.png",
+      "https://ramune441.github.io/ripen/images/store/en/store-image-5.png"
+    ],
+    "featureList": [
+      "วงจรรางวัล",
+      "ตรวจการอยู่หน้าจอ (ในเครื่อง)",
+      "ช่วงเวลาโฟกัส",
+      "รับเวลาด้วยคำศัพท์",
+      "พักผ่อนล่วงหน้า",
+      "ล็อกการตั้งค่า",
+      "แดชบอร์ดวิเคราะห์",
+      "สถานะวันนี้ในการแจ้งเตือน",
+      "สว่าง/มืด · 12 ภาษา"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ramune",
+      "url": "https://ramune441.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "th",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ต่างจากแอปบล็อกทั่วไปอย่างไร?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ripen ไม่ได้แค่ห้าม แต่ใช้ระบบให้รางวัล เมื่อทำตัวจับเวลาโฟกัสจนจบ คุณจะได้เวลาเท่ากับที่ตั้งไว้สำหรับแอปโซเชียลหรือวิดีโอ เพราะเปลี่ยนพฤติกรรมด้วยรางวัลแทนความอดทน จึงทำต่อเนื่องได้ง่าย"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "กล้องใช้ทำอะไร?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ใช้เพื่อตัดสินว่ามีคนอยู่หน้าจอหรือไม่ (การอยู่หน้าจอ) เท่านั้น ประมวลผลในเครื่อง (Google ML Kit) และไม่มีการบันทึกหรือส่งภาพ สิ่งเดียวที่บันทึกคือจำนวนวินาทีที่คุณอยู่และโฟกัส คุณปิดการตรวจการอยู่หน้าจอได้ในแต่ละช่วงเวลา และช่วงนั้นจะไม่ใช้กล้อง"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ต้องใช้สิทธิ์อะไรบ้าง?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "การบล็อกแอปต้องใช้ “การเข้าถึงข้อมูลการใช้งาน” และ “การช่วยเหลือพิเศษ” เมื่อเปิดทั้งสองอย่างแล้วจึงเข้าสู่หน้าจอหลักได้ กล้องใช้เฉพาะช่วงเวลาที่เปิดการตรวจการอยู่หน้าจอ ส่วนการแจ้งเตือนเป็นตัวเลือก การช่วยเหลือพิเศษใช้เพียงเพื่อระบุแอปที่อยู่เบื้องหน้าและแสดงหน้าจอบล็อก ไม่อ่านเนื้อหาบนหน้าจอเลย"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "เวลาที่ใช้ได้สะสมไปเรื่อย ๆ ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ไม่ เวลาที่ใช้ได้ที่คุณได้รับ (รวมเวลาพักผ่อนล่วงหน้า) จะรีเซ็ตเมื่อช่วงเวลานั้นสิ้นสุด ออกแบบมาให้ใช้เป็นรางวัลของช่วงเวลานั้น ไม่ใช่เก็บสะสม"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "รับเวลาด้วยการเรียนได้ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ได้ ในแต่ละช่วงเวลาคุณเลือกวิธีรับเวลาได้ว่าจะเป็นการโฟกัส คำศัพท์ หรือทั้งสองอย่าง คำศัพท์คือควิซภาษาอังกฤษแบบ 4 ตัวเลือก ตอบถูกตามจำนวนที่ตั้งไว้ (5–30 ข้อ) เพื่อรับหนึ่งรอบ มีคำศัพท์ในตัวประมาณ 10,000 คำแบ่งตามระดับ CEFR และคุณวางคำศัพท์ของตัวเองเพื่อสร้างชุดคำศัพท์ได้"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ฟรีจริงไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ฟรีจริง ไม่มีการซื้อในแอป ไม่มีโฆษณา และไม่ต้องมีบัญชี ดาวน์โหลดแล้วเริ่มได้ทันที"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ข้อมูลของฉันเก็บไว้ที่ไหน?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ประวัติการโฟกัส ช่วงเวลา แอปที่บล็อก และข้อมูลอื่น ๆ เก็บไว้ในเครื่องของคุณ และไม่ถูกส่งไปยังเซิร์ฟเวอร์ของ Ripen หากเปิดการสำรองข้อมูลของ Android การตั้งค่าจะรวมอยู่ในข้อมูลสำรองของบัญชี Google และกู้คืนเมื่อคุณติดตั้งใหม่ด้วยบัญชีเดิม"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ใช้บน iPhone ได้ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ยังไม่ได้ ตอนนี้ Ripen มีเฉพาะบน Android ใช้ได้กับอุปกรณ์ที่ใช้ Android 8.0 ขึ้นไป"
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Ramune Apps",
+        "item": "https://ramune441.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Ripen",
+        "item": "https://ramune441.github.io/ripen/th/"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" sizes="512x512" href="../icons/icon512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800;900&amp;family=Noto+Sans:wght@400;500;600;700;800;900&amp;display=swap">
+  <link rel="stylesheet" href="../lp.css">
+  <style>:root { --font-script: 'Noto Sans Thai', 'Noto Sans'; }</style>
+</head>
+<body>
+
+  <!-- brand mark（ic_launcher_foreground と同じ造形：枝＋桜の花＋熟した実） -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <radialGradient id="fruitG" gradientUnits="userSpaceOnUse" cx="66.5" cy="56.5" r="21.7">
+        <stop offset="0" stop-color="#FFD60A"/>
+        <stop offset="1" stop-color="#FF9F0A"/>
+      </radialGradient>
+    </defs>
+    <symbol id="sprout" viewBox="0 0 108 108">
+      <g transform="translate(54,54) scale(1.42) translate(-57.5,-52.9)">
+        <path d="M40,84 C43,70 46,56 56.5,41.5" fill="none" stroke="#2E9E4F" stroke-width="6" stroke-linecap="round"/>
+        <path d="M44,72.5 C45.3,69.25 38.36,64.86 29,66.5 C34.64,74.14 42.7,75.75 44,72.5 Z" fill="#34C759"/>
+        <path d="M49,57 C56,53 63,49 69.5,49.5" fill="none" stroke="#2E9E4F" stroke-width="4" stroke-linecap="round"/>
+        <path d="M70,48.5 C71.63,50.95 76.83,48.99 79,42.5 C72.17,42.01 68.37,46.05 70,48.5 Z" fill="#34C759"/>
+        <circle cx="70.5" cy="61.5" r="14" fill="url(#fruitG)"/>
+        <path d="M63.3,56.3 C61.9,59.3 62.3,63.1 64.3,65.5 C61.1,63.5 60.3,58.7 63.3,56.3 Z" fill="rgba(255,255,255,0.55)"/>
+        <path d="M56.5,33 C51.1,30.25 52.61,21.78 56.5,22 C60.39,21.78 61.9,30.25 56.5,33 Z" fill="#F9C9D8"/>
+        <path d="M58.88,34.73 C59.82,28.74 68.35,27.56 69.34,31.33 C70.75,34.96 63.16,39.01 58.88,34.73 Z" fill="#F9C9D8"/>
+        <path d="M57.97,37.52 C63.95,36.57 67.71,44.31 64.44,46.42 C61.42,48.89 55.22,42.92 57.97,37.52 Z" fill="#F9C9D8"/>
+        <path d="M55.03,37.52 C57.78,42.92 51.58,48.89 48.56,46.42 C45.29,44.31 49.05,36.57 55.03,37.52 Z" fill="#F9C9D8"/>
+        <path d="M54.12,34.73 C49.84,39.01 42.25,34.96 43.66,31.33 C44.65,27.56 53.18,28.74 54.12,34.73 Z" fill="#F9C9D8"/>
+        <circle cx="56.5" cy="35.5" r="4" fill="#FFD60A"/>
+        <path d="M80,33.5 C83.02,31.16 87.51,34.3 86.34,36.46 C85.44,38.74 80.15,37.32 80,33.5 Z" fill="#F2A9C0"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="./" class="nav-brand">
+        <span class="nav-icon"><svg aria-hidden="true"><use href="#sprout"/></svg></span>
+        <span>Ripen</span>
+      </a>
+      <div class="nav-right">
+        <select id="langSelect" class="lang-select" aria-label="Language"><option value="ja">日本語</option><option value="en">English</option><option value="zh">简体中文</option><option value="zh-TW">繁體中文</option><option value="ko">한국어</option><option value="es">Español</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="it">Italiano</option><option value="ru">Русский</option><option value="id">Bahasa Indonesia</option><option value="hi">हिन्दी</option><option value="tr">Türkçe</option><option value="vi">Tiếng Việt</option><option value="th" selected>ไทย</option><option value="pl">Polski</option><option value="ar">العربية</option><option value="nl">Nederlands</option><option value="bn">বাংলা</option></select>
+        <a href="https://play.google.com/store/apps/details?id=com.ripen.app&amp;hl=th" class="nav-cta" target="_blank" rel="noopener">ดาวน์โหลดบน Google Play</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge"><span class="hero-badge-dot"></span><span>ฟรี · แอป Android</span></div>
+      <h1>ให้ความพยายามของคุณ <span class="accent">ผลิดอกออกผล</span><br>ยิ่งโฟกัสมาก <span class="gold">ยิ่งเก็บเกี่ยวเวลาว่างได้มาก</span></h1>
+      <p class="hero-desc">แอปบล็อกที่พึ่งแค่ความอดทนอยู่ได้ไม่นาน Ripen คือแอปสร้างนิสัยแบบให้รางวัล ยิ่งคุณโฟกัสและเรียนมากเท่าไร ก็ยิ่ง “เก็บเกี่ยว” เวลาสำหรับแอปโซเชียลและวิดีโอได้มากเท่านั้น การตรวจการอยู่หน้าจอด้วยกล้องทำงานในเครื่องของคุณ และปิดได้ในแต่ละช่วงเวลา</p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.ripen.app&amp;hl=th" class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+          <span>ดาวน์โหลดบน Google Play (ฟรี)</span>
+        </a>
+        <a href="#features" class="btn-ghost">ดูฟีเจอร์ ↓</a>
+      </div>
+      <p class="hero-note">Android 8.0 ขึ้นไป · ฟรี · ไม่มีโฆษณา · ไม่ต้องสมัครบัญชี</p>
+      <div class="hero-screenshot">
+        <img src="../images/store/en/store-image-feature.png" width="1024" height="500" alt="Ripen — แอป Android ที่ยิ่งโฟกัสยิ่งได้เวลาว่าง หน้าจอตัวจับเวลาโฟกัส" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- CONCEPT BANNER -->
+  <div class="concept-bar">
+    <div class="concept-inner">
+      <p class="concept-heading">ไม่ต้องบล็อกด้วยความอดทน เปลี่ยนด้วย<span class="gold">รางวัล</span></p>
+      <p class="concept-sub">“โฟกัส 25 นาที ใช้ได้ 5 นาที” ทุกครั้งที่ทำจนจบ เวลาว่างก็จะสุกงอม เป็นวงจรรางวัลที่ทำต่อได้ไม่ฝืน</p>
+    </div>
+  </div>
+
+  <!-- PROBLEM BANNER -->
+  <div class="problem-banner">
+    <h2>ติดตั้งแอปบล็อกซ้ำแล้วซ้ำเล่า สุดท้ายก็ลบทิ้ง?</h2>
+    <p>ตั้งใจว่า “จะไม่แตะแล้ว” แต่รู้ตัวอีกทีก็เลื่อนโซเชียลอยู่ การบล็อกแบบบังคับคือการอดทนไม่รู้จบ จึงไปได้ไม่ไกล<br>Ripen คิดกลับกัน <span class="highlight">ยิ่งโฟกัส เวลาว่างก็ยิ่งสุกงอมเป็น “รางวัล” ให้คุณ</span></p>
+  </div>
+
+  <!-- FLOW -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">วิธีการทำงาน</span>
+      <h2>โฟกัสแล้วเก็บเกี่ยว ใน 4 ขั้นตอน</h2>
+      <p class="section-lead">ไม่ต้องตั้งค่ายุ่งยาก แค่กำหนดว่าจะโฟกัสเมื่อไร นานแค่ไหน และจะได้เวลาคืนเท่าไร</p>
+      <div class="flow-timeline">
+        <div class="flow-item"><div class="flow-num">1</div><h3>กำหนดช่วงเวลา</h3><p>ระบายตารางรายสัปดาห์เพื่อเลือกวันและเวลาที่อยากโฟกัส</p></div>
+        <div class="flow-item"><div class="flow-num">2</div><h3>โฟกัส</h3><p>เมื่อเปิดการตรวจการอยู่หน้าจอ กล้องหน้าจะยืนยันว่าคุณอยู่ขณะที่ตัวจับเวลานับถอยหลัง</p></div>
+        <div class="flow-item"><div class="flow-num">3</div><h3>เก็บเกี่ยวเวลาว่าง</h3><p>ทุกรอบที่ทำจนจบจะได้รับจำนวนนาทีที่ตั้งไว้ (ทำควิซคำศัพท์ก็ได้)</p></div>
+        <div class="flow-item"><div class="flow-num">4</div><h3>ใช้หมดแล้วล็อกอัตโนมัติ</h3><p>เมื่อเหลือ 0 นาที แอปที่คุณเลือกจะถูกบล็อกอย่างนุ่มนวล</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: focus -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">โฟกัสและรับเวลา</span>
+          <h3>โฟกัสแล้ว<br><span class="accent">เวลาว่างจะ “สุกงอม”</span></h3>
+          <p>ในช่วงเวลาที่เปิดการตรวจการอยู่หน้าจอ ตัวจับเวลาโฟกัสจะเดินเฉพาะตอนที่ใบหน้าของคุณอยู่หน้าจอ ทำครบเป้าหมายแล้วจะได้รับจำนวนนาทีที่ตั้งไว้สำหรับแอปโซเชียลหรือวิดีโอ รอบที่เลิกกลางคันจะไม่ได้อะไร</p>
+          <ul class="feat-list">
+            <li>นับถอยหลังเฉพาะตอนที่คุณอยู่ (ละสายตาสั้น ๆ ได้)</li>
+            <li>ทำจนจบเพื่อเก็บเกี่ยว “เวลาที่ใช้ได้” (เลิกหรือหยุดกลางคันจะไม่ได้)</li>
+            <li>ตั้งความยาวการโฟกัส (5–120 นาที) จำนวนนาทีที่ได้ และจำนวนรอบ</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-1.png" width="1024" height="500" alt="หน้าจอตัวจับเวลาโฟกัส: นับถอยหลังเฉพาะตอนที่คุณอยู่ และทำจนจบได้ 5 นาที" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: dashboard -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">แดชบอร์ด</span>
+          <h3>ความก้าวหน้าที่สะสมขึ้น<br><span class="accent">ช่วยให้คุณไปต่อ</span></h3>
+          <p>ดูเวลาที่ใช้ได้ การโฟกัสวันนี้ เวลาที่ได้วันนี้ และจำนวนวันต่อเนื่องได้ในพริบตา กราฟแนวโน้มรายสัปดาห์และรายเดือน รวมถึงฮีตแมปรายชั่วโมงจะบอกว่าคุณโฟกัสได้ดีที่สุดช่วงไหน</p>
+          <ul class="feat-list">
+            <li>การ์ดสรุปสถานะปัจจุบันของคุณ</li>
+            <li>กราฟแนวโน้มการโฟกัส ปฏิทินการโฟกัส และสรุปรายสัปดาห์</li>
+            <li>แนวโน้ม “ได้มา vs. ใช้ไป” และการใช้แอปที่ถูกบล็อกช่วยให้เห็นผลลัพธ์</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-2.png" width="1024" height="500" alt="หน้าจอแดชบอร์ดพร้อมเวลาที่ใช้ได้ การโฟกัสวันนี้ จำนวนวันต่อเนื่อง และกราฟการโฟกัสสัปดาห์นี้" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: focus windows -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">ช่วงเวลาโฟกัส</span>
+          <h3>กฎของคุณเอง<br><span class="accent">สำหรับแต่ละช่วงของวัน</span></h3>
+          <p>แค่ระบายตารางรายสัปดาห์เพื่อกำหนดวันและเวลาที่อยากโฟกัส แต่ละช่วงเวลามีเป้าหมายการโฟกัส จำนวนนาทีต่อรอบ จำนวนรอบสูงสุด แอปที่บล็อก และการตรวจการอยู่หน้าจอด้วยกล้องเป็นของตัวเอง นอกช่วงเวลา คุณใช้ได้อิสระ</p>
+          <ul class="feat-list">
+            <li>ระบายตารางเพื่อตั้งวันและเวลาได้ในครั้งเดียว</li>
+            <li>เลือกแอปที่จะบล็อกตามหมวดหมู่สำหรับแต่ละช่วงเวลา (พร้อมเวลาใช้งานของแต่ละแอป)</li>
+            <li>ตั้งนาที “พักผ่อนล่วงหน้า” ที่ใช้ได้ก่อนได้</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-3.png" width="1024" height="500" alt="หน้าจอช่วงเวลาโฟกัส: ช่วงเช้า กลางวัน และเย็นบนตารางรายสัปดาห์" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: block -->
+  <section class="bg-alt">
+    <div class="section-inner">
+      <div class="showcase reverse">
+        <div class="showcase-text">
+          <span class="section-tag">ล็อกอย่างนุ่มนวล</span>
+          <h3>เหลือศูนย์เมื่อไร<br><span class="accent">ก็ล็อกอย่างนุ่มนวล</span></h3>
+          <p>เมื่อใช้เวลาของช่วงนั้นหมดแล้ว การเปิดแอปที่เลือกไว้จะแสดงหน้าจอบล็อก แอปที่ทำให้วอกแวกจะถูกล็อกระหว่างเซสชันโฟกัสด้วย และ “ล็อกการตั้งค่า” จะกันไม่ให้คุณผ่อนกฎทีหลัง</p>
+          <ul class="feat-list">
+            <li>บล็อกแอปเป้าหมายอัตโนมัติเมื่อเหลือ 0 นาที</li>
+            <li>รับเวลาได้ทันทีจากหน้าจอบล็อกด้วยการโฟกัสหรือควิซคำศัพท์</li>
+            <li>ล็อกการตั้งค่ากันความคิด “เดี๋ยวค่อยผ่อนทีหลัง”</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-4.png" width="1024" height="500" alt="หน้าจอบล็อก: เมื่อเปิดแอปตอนเวลาที่ใช้ได้เหลือ 0 นาที จะชวนให้โฟกัสเพื่อให้เวลาสุกงอมเพิ่ม" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE: presence check -->
+  <section>
+    <div class="section-inner">
+      <div class="showcase">
+        <div class="showcase-text">
+          <span class="section-tag">ตรวจการอยู่หน้าจอ</span>
+          <h3>“แกล้งทำเป็นโฟกัส”<br><span class="accent">ใช้ไม่ได้ที่นี่</span></h3>
+          <p>ตัวจับเวลาธรรมดายังเดินต่อแม้คุณลุกไปแล้ว Ripen ใช้กล้องหน้าตัดสินแค่ว่ามีใบหน้าอยู่หน้าจอหรือไม่ โดยประมวลผลในเครื่อง ไม่มีการบันทึกหรือส่งภาพใด ๆ และคุณยังเลือกช่วงเวลาที่ไม่ใช้กล้องได้</p>
+          <ul class="feat-list">
+            <li>ตรวจจับใบหน้าในเครื่องด้วย Google ML Kit</li>
+            <li>ไม่บันทึกหรือส่งภาพหรือวิดีโอ (บันทึกเพียงจำนวนวินาที)</li>
+            <li>ปิดในแต่ละช่วงเวลาเพื่อโฟกัสด้วยตัวจับเวลาอย่างเดียว</li>
+          </ul>
+        </div>
+        <div class="showcase-img"><img src="../images/store/en/store-image-5.png" width="1024" height="500" alt="หน้าจอตรวจการอยู่หน้าจอ: ตรวจจับใบหน้าในเครื่อง ไม่บันทึกหรือส่งภาพ" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">วิดีโอ</span>
+      <h2>รู้จัก Ripen ใน 40 วินาที</h2>
+      <p class="section-lead">ดูวิธีโฟกัส เก็บเกี่ยวเวลา และการล็อกแอปเมื่อใช้เวลาหมด (วิดีโอเป็นภาษาอังกฤษ)</p>
+      <div class="video-wrap">
+        <iframe id="promo-video" src="https://www.youtube-nocookie.com/embed/YWXSLB3oNIk?rel=0&amp;hl=th" title="รู้จัก Ripen ใน 40 วินาที" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="section-inner section-center">
+      <span class="section-tag">ฟีเจอร์</span>
+      <h2>ฟีเจอร์</h2>
+      <p class="section-lead">เปลี่ยน “อยากเลิกแต่เลิกไม่ได้” ด้วยรางวัล</p>
+      <div class="features-grid">
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🌱</div><h3>วงจรรางวัล</h3><p>ทุกครั้งที่ทำตัวจับเวลาโฟกัสจนจบ คุณจะได้เวลาสำหรับแอปโซเชียลและวิดีโอ สิ่งที่เปลี่ยนพฤติกรรมคือรางวัล ไม่ใช่ความอดทน</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">👁️</div><h3>ตรวจการอยู่หน้าจอ (ในเครื่อง)</h3><p>กล้องหน้าตัดสินแค่ว่าคุณอยู่หน้าจอหรือไม่ ประมวลผลในเครื่องและไม่มีการบันทึกหรือส่งภาพ ปิดได้ในแต่ละช่วงเวลา</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🕒</div><h3>ช่วงเวลาโฟกัส</h3><p>ตั้งได้หลายช่วงตามวันและเวลา แต่ละช่วงมีเป้าหมายการโฟกัส จำนวนนาที จำนวนรอบสูงสุด และแอปที่บล็อกเป็นของตัวเอง</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">📚</div><h3>รับเวลาด้วยคำศัพท์</h3><p>ตอบควิซคำศัพท์ภาษาอังกฤษ (4 ตัวเลือก) ให้ถูกตามจำนวนที่ตั้งไว้เพื่อรับหนึ่งรอบ มีคำศัพท์ประมาณ 10,000 คำแบ่งตามระดับ CEFR พร้อมแบบทดสอบระดับ รายการทบทวน และชุดคำศัพท์ของคุณเอง</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🎁</div><h3>พักผ่อนล่วงหน้า</h3><p>นาทีที่ใช้ได้ทันทีที่ช่วงเวลาเริ่มต้น แม้ยังไม่ได้โฟกัส และจะบวกเพิ่มจากรางวัลการโฟกัส</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🔒</div><h3>ล็อกการตั้งค่า</h3><p>ฟีเจอร์ให้คำมั่นที่กันไม่ให้คุณแก้การตั้งค่าเพื่อเพิ่มเวลาพักผ่อน การเปลี่ยนแปลงที่ผ่อนกฎต้องนัดเวลาปลดล็อกและรอ 1–30 วัน</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">📊</div><h3>แดชบอร์ดวิเคราะห์</h3><p>แนวโน้มการโฟกัส ปฏิทินการโฟกัส อัตราการทำจนจบ ช่วงเวลาที่โฟกัสได้ดีที่สุด และแนวโน้มการใช้แอปที่ถูกบล็อก แสดงผลเป็นภาพทั้งหมด</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🔔</div><h3>สถานะวันนี้ในการแจ้งเตือน</h3><p>ไม่ต้องเปิดแอป การแจ้งเตือนแบบถาวรจะแสดงเวลาที่ใช้ได้ ช่วงเวลาโฟกัสถัดไป และเวลาที่เหลือในเซสชัน เมื่อทำจนจบจะมีเสียงและสั่น</p></article>
+        <article class="feat-card"><div class="feat-icon" aria-hidden="true">🌗</div><h3>สว่าง/มืด · 12 ภาษา</h3><p>เลือกธีมตามระบบ สว่าง หรือมืดได้ แอปรองรับ 12 ภาษา รวมถึงภาษาอังกฤษและภาษาญี่ปุ่น</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">ความเป็นส่วนตัวและความปลอดภัย</span>
+      <h2>ใช้กล้อง แต่ยังสบายใจได้</h2>
+      <p class="section-lead">“ใช้กล้องตรวจการโฟกัส” อาจฟังดูน่ากังวล Ripen จึงออกแบบโดยให้ความเป็นส่วนตัวมาก่อน</p>
+      <div class="safety-grid">
+        <div class="safety-card"><h3><span aria-hidden="true">🔒</span><span>ประมวลผลในเครื่องทั้งหมด</span></h3><p>การตรวจจับการอยู่ของใบหน้าทำงานในเครื่องด้วย Google ML Kit วิดีโอจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ภายนอก</p></div>
+        <div class="safety-card"><h3><span aria-hidden="true">🚫</span><span>ไม่บันทึกหรือส่งภาพ</span></h3><p>แอปตัดสินแค่ว่ามีใบหน้าหรือไม่ ภาพถ่ายและวิดีโอจะไม่ถูกบันทึกหรือส่งออกไป สิ่งเดียวที่บันทึกคือจำนวนวินาทีที่คุณอยู่และโฟกัส</p></div>
+        <div class="safety-card"><h3><span aria-hidden="true">📱</span><span>ข้อมูลอยู่ในเครื่องของคุณ</span></h3><p>ประวัติการโฟกัสและการตั้งค่าเก็บไว้ในเครื่อง และไม่ถูกส่งไปยังเซิร์ฟเวอร์ของ Ripen หากเปิดการสำรองข้อมูลของ Android การตั้งค่าจะรวมอยู่ในข้อมูลสำรองของบัญชี Google และกู้คืนเมื่อคุณติดตั้งใหม่</p></div>
+        <div class="safety-card"><h3><span aria-hidden="true">🔑</span><span>ไม่ต้องมีบัญชี ไม่มีโฆษณา</span></h3><p>ไม่ต้องสมัครหรือเข้าสู่ระบบ และไม่มีโฆษณาหรือเครื่องมือวิเคราะห์ใด ๆ ดาวน์โหลดแล้วเริ่มใช้ได้ทันที</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTE -->
+  <section>
+    <div class="section-inner">
+      <div class="note-box">
+        <h3><span aria-hidden="true">⚠️</span><span>ก่อนเริ่มใช้งาน</span></h3>
+        <ul>
+          <li>การบล็อกแอปต้องใช้สิทธิ์ “การเข้าถึงข้อมูลการใช้งาน” และ “การช่วยเหลือพิเศษ” Ripen จะไม่เปิดหน้าจอหลักจนกว่าจะเปิดทั้งสองอย่าง (Android กำหนดให้คุณเปิดด้วยตัวเองในการตั้งค่า)</li>
+          <li>แอปจะขอสิทธิ์กล้องครั้งแรกที่คุณเริ่มโฟกัสในช่วงเวลาที่เปิดการตรวจการอยู่หน้าจอ ช่วงเวลาที่ปิดฟีเจอร์นี้และการโฟกัสนอกช่วงเวลาจะใช้ตัวจับเวลาอย่างเดียวโดยไม่ใช้กล้อง</li>
+          <li>แอปไม่ได้ทำให้แอปอื่นใช้ไม่ได้เลย แต่เป็นระบบแบบ “นุ่มนวล” ที่ออกแบบมาเพื่อเปลี่ยนพฤติกรรม นอกช่วงเวลาที่กำหนด แอปที่ถูกบล็อกจะใช้ได้อิสระ</li>
+          <li>การตรวจจับใบหน้าใช้กล้องหน้า จึงแนะนำให้ใช้ในที่ที่มีแสงสว่างเพียงพอ</li>
+          <li>แอปรองรับ 12 ภาษา ได้แก่ ภาษาญี่ปุ่น อังกฤษ สเปน จีน (ตัวย่อ) ฮินดี อาหรับ โปรตุเกส รัสเซีย เยอรมัน ฝรั่งเศส เกาหลี และอิตาลี (ขณะนี้แอปยังไม่รองรับภาษาไทย)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-alt">
+    <div class="section-inner section-center">
+      <span class="section-tag">คำถามที่พบบ่อย</span>
+      <h2>คำถามที่พบบ่อย</h2>
+      <div class="faq-list" style="margin-top: 48px;">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>ต่างจากแอปบล็อกทั่วไปอย่างไร?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Ripen ไม่ได้แค่ห้าม แต่ใช้ระบบให้รางวัล เมื่อทำตัวจับเวลาโฟกัสจนจบ คุณจะได้เวลาเท่ากับที่ตั้งไว้สำหรับแอปโซเชียลหรือวิดีโอ เพราะเปลี่ยนพฤติกรรมด้วยรางวัลแทนความอดทน จึงทำต่อเนื่องได้ง่าย</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>กล้องใช้ทำอะไร?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">ใช้เพื่อตัดสินว่ามีคนอยู่หน้าจอหรือไม่ (การอยู่หน้าจอ) เท่านั้น ประมวลผลในเครื่อง (Google ML Kit) และไม่มีการบันทึกหรือส่งภาพ สิ่งเดียวที่บันทึกคือจำนวนวินาทีที่คุณอยู่และโฟกัส คุณปิดการตรวจการอยู่หน้าจอได้ในแต่ละช่วงเวลา และช่วงนั้นจะไม่ใช้กล้อง</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>ต้องใช้สิทธิ์อะไรบ้าง?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">การบล็อกแอปต้องใช้ “การเข้าถึงข้อมูลการใช้งาน” และ “การช่วยเหลือพิเศษ” เมื่อเปิดทั้งสองอย่างแล้วจึงเข้าสู่หน้าจอหลักได้ กล้องใช้เฉพาะช่วงเวลาที่เปิดการตรวจการอยู่หน้าจอ ส่วนการแจ้งเตือนเป็นตัวเลือก การช่วยเหลือพิเศษใช้เพียงเพื่อระบุแอปที่อยู่เบื้องหน้าและแสดงหน้าจอบล็อก ไม่อ่านเนื้อหาบนหน้าจอเลย</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>เวลาที่ใช้ได้สะสมไปเรื่อย ๆ ไหม?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">ไม่ เวลาที่ใช้ได้ที่คุณได้รับ (รวมเวลาพักผ่อนล่วงหน้า) จะรีเซ็ตเมื่อช่วงเวลานั้นสิ้นสุด ออกแบบมาให้ใช้เป็นรางวัลของช่วงเวลานั้น ไม่ใช่เก็บสะสม</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>รับเวลาด้วยการเรียนได้ไหม?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">ได้ ในแต่ละช่วงเวลาคุณเลือกวิธีรับเวลาได้ว่าจะเป็นการโฟกัส คำศัพท์ หรือทั้งสองอย่าง คำศัพท์คือควิซภาษาอังกฤษแบบ 4 ตัวเลือก ตอบถูกตามจำนวนที่ตั้งไว้ (5–30 ข้อ) เพื่อรับหนึ่งรอบ มีคำศัพท์ในตัวประมาณ 10,000 คำแบ่งตามระดับ CEFR และคุณวางคำศัพท์ของตัวเองเพื่อสร้างชุดคำศัพท์ได้</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>ฟรีจริงไหม?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">ฟรีจริง ไม่มีการซื้อในแอป ไม่มีโฆษณา และไม่ต้องมีบัญชี ดาวน์โหลดแล้วเริ่มได้ทันที</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>ข้อมูลของฉันเก็บไว้ที่ไหน?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">ประวัติการโฟกัส ช่วงเวลา แอปที่บล็อก และข้อมูลอื่น ๆ เก็บไว้ในเครื่องของคุณ และไม่ถูกส่งไปยังเซิร์ฟเวอร์ของ Ripen หากเปิดการสำรองข้อมูลของ Android การตั้งค่าจะรวมอยู่ในข้อมูลสำรองของบัญชี Google และกู้คืนเมื่อคุณติดตั้งใหม่ด้วยบัญชีเดิม</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false"><span>ใช้บน iPhone ได้ไหม?</span></button>
+          <div class="faq-a"><div class="faq-a-inner">ยังไม่ได้ ตอนนี้ Ripen มีเฉพาะบน Android ใช้ได้กับอุปกรณ์ที่ใช้ Android 8.0 ขึ้นไป</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <div class="section-inner">
+      <h2>เริ่มวันนี้ ให้ความพยายามของคุณ<span class="gold">ผลิดอกออกผล</span></h2>
+      <div class="cta-checklist">
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>เก็บเกี่ยวเวลาว่างจากทุกการโฟกัส</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>ตรวจการอยู่หน้าจอในเครื่อง ไม่บันทึกหรือส่งภาพ</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>กฎตามวันและช่วงเวลา ล็อกอัตโนมัติเมื่อเหลือ 0 นาที</span></div>
+        <div class="cta-check-item"><span class="cta-check-icon" aria-hidden="true">✓</span><span>ฟรี · ไม่มีโฆษณา · ไม่ต้องสมัคร</span></div>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.ripen.app&amp;hl=th" class="btn-primary" target="_blank" rel="noopener" style="font-size: 16px; padding: 16px 40px;">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.651 1.535a1 1 0 0 1 0 1.73l-2.651 1.535-2.535-2.535 2.535-2.265zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
+        <span>ติดตั้งฟรีเลย</span>
+      </a>
+      <p class="cta-note">ดาวน์โหลดได้จาก Google Play</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 Ripen</span>
+      <a href="../../">Ramune Apps</a>
+      <a href="../privacy-policy.html?lang=th">นโยบายความเป็นส่วนตัว</a>
+      <a href="../contact.html?lang=th">ติดต่อเรา</a>
+    </div>
+  </footer>
+
+  <script src="../lp.js"></script>
+</body>
+</html>

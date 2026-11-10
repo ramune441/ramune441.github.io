@@ -20,6 +20,12 @@ Disallow: /ripen/icon-512.html
 Disallow: /kura/store-images.html
 Disallow: /kura/icon-512.html
 
+# LP・各ページの生成テンプレート（{{…}} が残った雛形）はインデックス対象外
+Disallow: /kura/lp-template.html
+Disallow: /subduo/lp-template.html
+Disallow: /ripen/lp-template.html
+Disallow: /ashiato-maker/templates/
+
 # 権限説明動画（Play Console 提出用）の生成HTMLはインデックス対象外
 Disallow: /ripen/fgs-demo/fgs-demo.html
 

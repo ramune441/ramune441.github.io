@@ -1,0 +1,27 @@
+# Ramune Apps
+
+> Ramune is an independent developer who publishes free, AI-powered Chrome extensions, Android apps and web services. This site hosts each product's landing page, user guide, privacy policy and contact form. Product pages are available in 20 languages (en, ja, zh, zh-TW, ko, es, fr, de, pt, hi, id, ar, it, nl, pl, ru, tr, vi, th, bn).
+
+Language pages live under each product path, for example `/kura/ja/` or `/sendready-chrome/fr/`. Every page lists its other languages with `hreflang` links. Facts on these pages follow the current version of each product.
+
+## Chrome extensions
+
+- [FormPilot](https://ramune441.github.io/formpilot/): AI form autofill. Save your profile once, then fill in registration, contact and checkout forms in one click. Free, no account or API key. Daily usage limits apply, and FormPilot never submits forms for you. [Chrome Web Store](https://chromewebstore.google.com/detail/pedgekkfockobnmkokefjkclahjekend) · [User guide](https://ramune441.github.io/formpilot/guide.html) · [Privacy](https://ramune441.github.io/formpilot/privacy-policy.html)
+- [SendReady](https://ramune441.github.io/sendready-chrome/): AI rewrite and reply generator, plus a text expander, for any text field (Gmail, Outlook, Slack and more). It makes text polite, fixes grammar, translates, summarizes and drafts replies. Free. [Chrome Web Store](https://chromewebstore.google.com/detail/nbjmakcblclblgapocdeaojgacegpono) · [How to use](https://ramune441.github.io/sendready-chrome/how-to.html) · [Privacy](https://ramune441.github.io/sendready-chrome/privacy-policy.html)
+- [SubDuo](https://ramune441.github.io/subduo/): dual subtitles for language learners. It shows two subtitle languages at once on Prime Video, YouTube, Netflix, Disney+ and TED. Subtitles stay in the browser. Only phrases you choose to look up are sent to the explanation server. Free. [Chrome Web Store](https://chromewebstore.google.com/detail/ngifacacaecobbekalngmocklcgkoigo) · [Privacy](https://ramune441.github.io/subduo/privacy-policy.html)
+- [Auto Like Assistant / 足あとメーカー](https://ramune441.github.io/ashiato-maker/en/): automates regular likes and profile visits ("footprints") on dating sites, with delays, limits and duplicate skipping. It covers auto-likes on Tinder, Badoo, OkCupid and Match, plus profile visits on the Japanese apps Pairs, with and Tokyo Calendar Date. The Japanese page is at [/ashiato-maker/](https://ramune441.github.io/ashiato-maker/). It is an unofficial tool, and visit history and settings stay on the device. Free. [Chrome Web Store](https://chromewebstore.google.com/detail/pidobfkbnlmfckdndkabelpjpdboadfo) · [Privacy](https://ramune441.github.io/ashiato-maker/privacy-policy.html)
+
+## Android apps
+
+- [Kura](https://ramune441.github.io/kura/): an all-in-one photo app. It covers the gallery, cleanup of duplicates and blurry shots, AI editing, a private folder opened with the phone's screen lock, original-quality backup and moving from Google Photos. [Google Play](https://play.google.com/store/apps/details?id=app.kura.photos) · [Privacy](https://ramune441.github.io/kura/privacy-policy.html) · [Delete account](https://ramune441.github.io/kura/delete-account.html)
+- [Ripen](https://ramune441.github.io/ripen/): a reward-based habit and focus app. The longer you focus or study, the more free time you earn for social media and video apps. Presence detection runs on the device. [Google Play](https://play.google.com/store/apps/details?id=com.ripen.app) · [Privacy](https://ramune441.github.io/ripen/privacy-policy.html)
+
+## Web services
+
+- [Charmly](https://charm-ly.com/): AI dating-profile photos that keep your face. Choose the scene, outfit and pose.
+- [Cookpal](https://cookpal-ai.com/): AI meal and recipe suggestions from the ingredients you have, with favorites and a shopping list.
+
+## Optional
+
+- [All apps (portal)](https://ramune441.github.io/): the product list in 20 languages.
+- [Sitemap](https://ramune441.github.io/sitemap.xml)

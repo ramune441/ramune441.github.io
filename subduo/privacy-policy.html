@@ -1,149 +1,943 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SubDuo Privacy Policy</title>
-  <meta name="description" content="How SubDuo handles subtitles, local vocabulary, optional AI explanations, device identifiers and service logs on Prime Video, YouTube, Netflix, Disney+ and TED.">
+  <meta name="description" content="How SubDuo handles subtitles, local vocabulary, optional AI explanations, device identifiers and service logs on Prime Video, YouTube, Netflix, Disney+ and TED. Available in 20 languages.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ramune441.github.io/subduo/privacy-policy.html">
+  <meta property="og:title" content="SubDuo Privacy Policy">
+  <meta property="og:description" content="What SubDuo keeps on your device, what is sent only when you press “Ask AI”, and how long service providers retain it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ramune441.github.io/subduo/privacy-policy.html">
+  <meta property="og:image" content="https://ramune441.github.io/subduo/images/store-image-1.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="SubDuo">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" sizes="48x48" href="icons/icon48.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+Devanagari:wght@400;500;700&family=Noto+Sans+Bengali:wght@400;500;700&family=Noto+Sans+Thai:wght@400;500;700&family=Noto+Sans+Arabic:wght@400;500;700&display=swap">
   <style>
     :root { --cy: #00A8E1; --cy-deep: #0089B8; }
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', 'Noto Sans JP', 'Noto Sans KR', 'Noto Sans SC', 'Noto Sans TC', 'Noto Sans Devanagari', 'Noto Sans Bengali', 'Noto Sans Thai', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; -webkit-font-smoothing: antialiased; }
+    /* 漢字の字形は言語ごとのフォントを先頭にする（日本語フォントのまま中国語を出さない） */
+    :lang(zh-Hans) { font-family: 'Inter', 'Noto Sans SC', sans-serif; }
+    :lang(zh-Hant) { font-family: 'Inter', 'Noto Sans TC', sans-serif; }
+    :lang(ko) { font-family: 'Inter', 'Noto Sans KR', sans-serif; }
     a { color: var(--cy-deep); }
     a:hover { color: var(--cy); }
     .header { display: flex; align-items: center; gap: 10px; max-width: 720px; margin: 0 auto; padding: 28px 20px 0; }
     .header img { width: 32px; height: 32px; border-radius: 8px; }
     .header span { font-size: 18px; font-weight: 700; color: #0F2A3F; }
-    .header .lang { margin-left: auto; display: flex; gap: 6px; }
-    .header .lang button { font-family: inherit; font-size: 12.5px; font-weight: 600; padding: 5px 12px; border-radius: 999px; border: 1px solid #cbd5e1; background: #fff; color: #475569; cursor: pointer; }
-    .header .lang button.on { background: #0F2A3F; border-color: #0F2A3F; color: #fff; }
+    .header .lang { margin-inline-start: auto; }
+    #lang-select { font-family: inherit; font-size: 13px; font-weight: 600; color: #475569; background: #fff; border: 1px solid #cbd5e1; border-radius: 999px; padding: 6px 12px; cursor: pointer; max-width: 180px; }
     .container { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
     .back { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 32px; font-size: 14px; font-weight: 500; color: #64748b; text-decoration: none; transition: color 0.2s; }
     .back:hover { color: var(--cy-deep); }
     h1 { font-size: 28px; font-weight: 800; color: #0F2A3F; margin-bottom: 8px; }
     .updated { font-size: 13px; color: #94a3b8; margin-bottom: 40px; }
     h2 { font-size: 20px; font-weight: 700; color: #0F2A3F; margin-top: 40px; margin-bottom: 16px; }
-    h3 { font-size: 16px; font-weight: 700; color: #1e293b; margin-top: 24px; margin-bottom: 8px; }
-    p, li { font-size: 15px; color: #475569; margin-bottom: 12px; }
-    ul { padding-left: 24px; }
+    p, li { font-size: 15px; color: #475569; margin-bottom: 12px; overflow-wrap: anywhere; }
+    ul { padding-inline-start: 24px; }
     strong { color: #1e293b; font-weight: 700; }
-    code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #334155; word-break: break-all; font-family: ui-monospace, Consolas, monospace; }
+    code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #334155; word-break: break-all; font-family: ui-monospace, Consolas, monospace; direction: ltr; unicode-bidi: isolate; display: inline-block; max-width: 100%; vertical-align: bottom; line-height: 1.6; }
     .box { background: #E6F6FC; border: 1px solid #B9E6F5; border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
     .box p { margin: 0; color: #0F2A3F; font-weight: 600; }
     footer { border-top: 1px solid #e2e8f0; padding: 24px 20px; text-align: center; font-size: 13px; color: #94a3b8; }
     [data-lang] { display: none; }
     [data-lang].on { display: block; }
-    @media (max-width: 480px) { .container { padding: 24px 16px 64px; } h1 { font-size: 24px; } }
+    @media (max-width: 480px) { .container { padding: 24px 16px 64px; } .header { padding: 20px 16px 0; } h1 { font-size: 24px; } }
   </style>
 </head>
 <body>
   <header class="header">
     <img src="icons/logo.svg" alt="" width="32" height="32">
     <span>SubDuo</span>
-    <div class="lang"><button type="button" data-set="en" class="on">English</button><button type="button" data-set="ja">日本語</button></div>
+    <div class="lang">
+      <select id="lang-select" aria-label="Language">
+        <option value="en" data-set="en" selected>English</option>
+        <option value="ja" data-set="ja">日本語</option>
+        <option value="zh" data-set="zh">简体中文</option>
+        <option value="zh-TW" data-set="zh-TW">繁體中文</option>
+        <option value="ko" data-set="ko">한국어</option>
+        <option value="es" data-set="es">Español</option>
+        <option value="fr" data-set="fr">Français</option>
+        <option value="de" data-set="de">Deutsch</option>
+        <option value="it" data-set="it">Italiano</option>
+        <option value="pt" data-set="pt">Português (Brasil)</option>
+        <option value="ru" data-set="ru">Русский</option>
+        <option value="hi" data-set="hi">हिन्दी</option>
+        <option value="id" data-set="id">Bahasa Indonesia</option>
+        <option value="ar" data-set="ar">العربية</option>
+        <option value="vi" data-set="vi">Tiếng Việt</option>
+        <option value="tr" data-set="tr">Türkçe</option>
+        <option value="pl" data-set="pl">Polski</option>
+        <option value="th" data-set="th">ไทย</option>
+        <option value="nl" data-set="nl">Nederlands</option>
+        <option value="bn" data-set="bn">বাংলা</option>
+      </select>
+    </div>
   </header>
 
-
-  <div class="container on" data-lang="en">
+  <div class="container on" data-lang="en" lang="en" dir="ltr">
     <a href="index.html" class="back">&larr; Back to SubDuo</a>
     <h1>SubDuo Privacy Policy</h1>
-    <p class="updated">Last updated: October 30, 2026</p>
+    <p class="updated">Last updated: November 10, 2026</p>
     <p>Ramune (the developer) provides SubDuo, a Chrome extension for language learning with subtitles on Prime Video, YouTube, Netflix, Disney+ and TED.</p>
     <div class="box"><p>Subtitle display, transcript navigation and vocabulary review work in your browser. On-device word translation uses Chrome's built-in translator when available. <strong>Only when you press “Ask AI”</strong> are the selected phrase, subtitle context and language codes sent to our explanation service. That request also uses a random device identifier and the connection's IP address for usage limits and service operation.</p></div>
-    <h2>1. Information handled on your device</h2>
+    <h2 data-sec="device">1. Information handled on your device</h2>
     <ul>
       <li>SubDuo reads the current video's subtitle tracks and downloads subtitle files from the supported site's delivery servers. It uses playback information to align subtitles, pause after a line and navigate the transcript. It does not download or store the video itself.</li>
       <li>Display settings, selected subtitle languages and UI language are saved with <code>chrome.storage.sync</code>. Chrome may sync these settings between your devices according to your Chrome account settings; the developer does not receive them.</li>
       <li>Vocabulary you choose to save is stored in <code>chrome.storage.local</code>: the phrase, its subtitle context, translations or explanations, subtitle languages, source title and URL, playback position, date and review progress. These records are not uploaded as a vocabulary collection.</li>
       <li>Local diagnostic records may contain video identifiers, playback and layout state, subtitle language information and short text snippets. They help investigate display problems and are not automatically sent to the developer.</li>
       <li>Chrome's built-in translator processes words on your device when supported. Chrome may download language packs. SubDuo does not send these translation requests to its explanation service.</li>
+      <li>Pronunciation playback (🔊) uses the voices available to Chrome's speech synthesis. SubDuo does not send this text to its explanation service. If Chrome uses a voice that Google provides online, Google processes the text under its own terms.</li>
     </ul>
-    <h2>2. Optional AI explanations</h2>
+    <h2 data-sec="ai">2. Optional AI explanations</h2>
     <p>Pressing “Ask AI” sends an HTTPS request to <code>subduo-explain.warload57.workers.dev</code>, hosted on Cloudflare. The request contains the selected phrase (up to 200 characters), its subtitle line and the other language's line at that moment (up to 1,000 characters each), their language codes, the explanation language and a random installation identifier. The network connection also reveals the requesting IP address.</p>
     <p>The Cloudflare Worker forwards the phrase, subtitle context and language instructions to OpenAI's API to generate the explanation. The installation identifier and requesting IP address are not included in the AI prompt. The request does not contain your account credentials, saved vocabulary collection, display settings, source page URL or viewing history. Do not select sensitive personal information for an AI request.</p>
-    <h2>3. Purposes, providers and retention</h2>
+    <h2 data-sec="use">3. Purposes, providers and retention</h2>
     <ul>
       <li>Information is used to show subtitles, provide the word explanation you requested, save and review vocabulary, enforce the daily AI limit, and diagnose service failures. SubDuo contains no advertising or behavioral analytics and does not sell user data.</li>
       <li>The Worker does not write submitted phrases or subtitle lines to its application logs or rate-limit database. The rate-limit record contains a daily count keyed by the random identifier (or IP address if no identifier is available) and expires 24 hours after its last update.</li>
-      <li>Operational application logs contain IP address, request time, outcome, language codes and token-usage information. Cloudflare Workers Logs currently retains logs for up to seven days depending on the service plan; Cloudflare's service and security handling is also subject to <a href="https://www.cloudflare.com/privacypolicy/">its privacy policy</a>.</li>
+      <li>Operational application logs contain IP address, request time, outcome, the day's request count, language codes and token-usage information. Cloudflare Workers Logs currently retains logs for up to seven days depending on the service plan; Cloudflare's service and security handling is also subject to <a href="https://www.cloudflare.com/privacypolicy/">its privacy policy</a>.</li>
       <li>The current OpenAI request does not disable default response storage. OpenAI's Responses API normally retains response data for at least 30 days; provider account controls and retention exceptions can change this. OpenAI's standard API policy does not use API data for model training unless the API account owner opts in. See <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI's API data controls</a> for retention, exceptions and training policy.</li>
     </ul>
-    <h2>4. Permissions</h2>
+    <h2 data-sec="perm">4. Permissions</h2>
     <ul>
-      <li><strong>storage</strong>: saving settings, vocabulary and review progress, local diagnostics and the random installation identifier.</li>
-      <li><strong>scripting</strong>: reconnecting the extension to already-open supported tabs after installation or an update.</li>
-      <li><strong>sidePanel</strong>: displaying the current video's transcript when you open it, with controls to jump to a subtitle line.</li>
-      <li><strong>Host access</strong>: the supported Prime Video/Amazon domains, YouTube, Netflix, Disney+ and TED, for detecting and retrieving subtitle tracks and controlling subtitle-related playback. SubDuo does not run on unrelated websites.</li>
+      <li data-perm="storage"><strong>storage</strong>: saving settings, vocabulary and review progress, local diagnostics and the random installation identifier.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: reconnecting the extension to already-open supported tabs after installation or an update.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: displaying the current video's transcript when you open it, with controls to jump to a subtitle line.</li>
+      <li data-perm="host"><strong>Host access</strong>: the supported Prime Video/Amazon domains, YouTube, Netflix, Disney+ and TED, for detecting and retrieving subtitle tracks and controlling subtitle-related playback. SubDuo does not run on unrelated websites.</li>
     </ul>
     <p>SubDuo does not request the Chrome history permission, camera, microphone or clipboard access. A source title/URL saved with a vocabulary item is local data from the supported video, rather than a collection of your general browsing history.</p>
-    <h2>5. Your choices and deletion</h2>
+    <h2 data-sec="choices">5. Your choices and deletion</h2>
     <p>You can use dual subtitles, on-device translation, transcript navigation and vocabulary review without pressing “Ask AI”. You can delete individual vocabulary entries or clear the vocabulary list. Extension storage remains until you clear it or remove the extension; Chrome sync and copies on other devices follow your Chrome account settings. Removing the extension does not retroactively delete provider logs or AI requests already sent. Contact us about a data request without sending additional sensitive information.</p>
-    <h2>6. Links and contact</h2>
+    <h2 data-sec="contact">6. Links and contact</h2>
     <p>The extension may open its feedback page after uninstall, or a contact, privacy or store page when you choose the corresponding link. Its own page links pass the extension version and/or UI language, not your vocabulary. Public web pages use their hosting and font providers and may have web analytics separate from the extension.</p>
     <p>Developer: Ramune. Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Updates to this policy are published here with a new date.</p>
   </div>
 
-  <div class="container" data-lang="ja">
+  <div class="container" data-lang="ja" lang="ja" dir="ltr">
     <a href="index.html?lang=ja" class="back">&larr; SubDuo に戻る</a>
     <h1>SubDuo プライバシーポリシー</h1>
-    <p class="updated">最終更新日: 2026年10月30日</p>
+    <p class="updated">最終更新日: 2026年11月10日</p>
     <p>開発者Ramuneは、Prime Video・YouTube・Netflix・Disney+・TEDの字幕を使った語学学習を支援するChrome拡張機能SubDuoを提供します。</p>
     <div class="box"><p>字幕表示・字幕一覧からの移動・単語帳の復習はブラウザ内で動作し、対応している場合はChromeの端末内翻訳で語句を訳します。<strong>「AIに聞く」を押した場合だけ</strong>、選んだ語句・字幕の文脈・言語コードを解説サービスへ送ります。この要求では、利用上限の管理とサービス運用のため、ランダムな端末識別子と接続元IPアドレスも扱います。</p></div>
-    <h2>1. 端末内で扱う情報</h2>
+    <h2 data-sec="device">1. 端末内で扱う情報</h2>
     <ul>
       <li>現在の動画の字幕トラックを検出し、対応サイト自身の配信サーバーから字幕ファイルを取得します。再生情報は字幕の同期、行末の一時停止、字幕一覧からの移動に使用します。動画本体をダウンロードして保存しません。</li>
       <li>表示設定・字幕の選択言語・UI言語は<code>chrome.storage.sync</code>に保存します。Chromeのアカウント設定に応じて利用者の端末間で同期される場合がありますが、開発者には送信されません。</li>
       <li>利用者が保存を選んだ単語帳は<code>chrome.storage.local</code>に置きます。語句・字幕の文脈・訳や解説・字幕の言語・出典の作品名とURL・再生位置・日付・復習記録を含みます。単語帳全体を外部へアップロードしません。</li>
       <li>端末内の診断記録には動画の識別情報、再生・表示状態、字幕言語、短い本文の断片などが含まれる場合があります。表示不具合の調査用で、開発者へ自動送信しません。</li>
       <li>対応する語句はChromeの組み込み翻訳で端末内処理します。Chromeが言語パックを取得する場合があります。この翻訳要求をSubDuoの解説サービスへ送ることはありません。</li>
+      <li>発音の再生（🔊）にはChromeの音声合成で使える声を使います。読み上げる文字列をSubDuoの解説サービスへ送ることはありません。Googleがオンラインで提供する声をChromeが使う場合は、Googleが同社の規約に基づいて文字列を処理します。</li>
     </ul>
-    <h2>2. 任意のAI解説</h2>
+    <h2 data-sec="ai">2. 任意のAI解説</h2>
     <p>「AIに聞く」を押すと、Cloudflare上の<code>subduo-explain.warload57.workers.dev</code>へHTTPSで要求を送ります。内容は選んだ語句（最大200文字）、その字幕行と同時刻のもう一方の字幕行（各最大1,000文字）、それぞれの言語コード、解説の言語、ランダムなインストール識別子です。通信に伴い接続元IPアドレスも処理されます。</p>
     <p>Cloudflare Workerは語句・字幕の文脈・言語指定をOpenAI APIへ渡して解説を生成します。端末識別子と利用者のIPアドレスはAIへのプロンプトに含めません。アカウントの認証情報、単語帳全体、表示設定、出典ページのURL、閲覧履歴はこの要求に含めません。機微な個人情報をAIに送る語句として選ばないでください。</p>
-    <h2>3. 用途・外部サービス・保存期間</h2>
+    <h2 data-sec="use">3. 用途・外部サービス・保存期間</h2>
     <ul>
       <li>情報は字幕表示、利用者が要求した語句の解説、単語帳の保存と復習、AIの日次上限管理、障害調査に使用します。本拡張機能には広告・行動解析を含めず、利用者のデータを販売しません。</li>
       <li>Workerのアプリケーションログと回数制限のデータベースに、送信された語句や字幕行は記録しません。回数制限はランダム識別子（利用できない場合はIPアドレス）をキーとする日ごとの回数で、最後の更新から24時間で失効します。</li>
-      <li>運用ログにはIPアドレス、要求時刻、処理結果、言語コード、トークン使用量を記録します。現在のCloudflare Workers Logsの保持期間はプランに応じて最長7日です。Cloudflare自身のサービス運用・安全対策には同社の<a href="https://www.cloudflare.com/privacypolicy/">プライバシーポリシー</a>も適用されます。</li>
+      <li>運用ログにはIPアドレス、要求時刻、処理結果、その日の要求回数、言語コード、トークン使用量を記録します。現在のCloudflare Workers Logsの保持期間はプランに応じて最長7日です。Cloudflare自身のサービス運用・安全対策には同社の<a href="https://www.cloudflare.com/privacypolicy/">プライバシーポリシー</a>も適用されます。</li>
       <li>現在のOpenAIへの要求では、既定の応答保存を無効化していません。Responses APIの既定では応答データが少なくとも30日間保存されますが、アカウント設定や保持の例外が適用される場合があります。同社の標準API方針では、APIアカウント所有者が同意した場合を除き、APIデータをモデルの学習に使用しません。保存期間・例外・学習の詳細は<a href="https://developers.openai.com/api/docs/guides/your-data">OpenAIのAPIデータ管理</a>をご覧ください。</li>
     </ul>
-    <h2>4. 権限</h2>
+    <h2 data-sec="perm">4. 権限</h2>
     <ul>
-      <li><strong>storage</strong>: 設定、単語帳と復習記録、端末内の診断記録、ランダムな端末識別子の保存。</li>
-      <li><strong>scripting</strong>: インストール・更新後に、すでに開いている対応タブへ拡張をつなぎ直すため。</li>
-      <li><strong>sidePanel</strong>: 利用者が開いたときに現在の動画の字幕一覧を表示し、字幕の行へ移動するため。</li>
-      <li><strong>対応サイトへのアクセス</strong>: Prime Videoと対象Amazonドメイン、YouTube、Netflix、Disney+、TEDの字幕トラックの検出・取得と字幕に関係する再生操作。無関係なサイトでは動作しません。</li>
+      <li data-perm="storage"><strong>storage</strong>: 設定、単語帳と復習記録、端末内の診断記録、ランダムな端末識別子の保存。</li>
+      <li data-perm="scripting"><strong>scripting</strong>: インストール・更新後に、すでに開いている対応タブへ拡張をつなぎ直すため。</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: 利用者が開いたときに現在の動画の字幕一覧を表示し、字幕の行へ移動するため。</li>
+      <li data-perm="host"><strong>対応サイトへのアクセス</strong>: Prime Videoと対象Amazonドメイン、YouTube、Netflix、Disney+、TEDの字幕トラックの検出・取得と字幕に関係する再生操作。無関係なサイトでは動作しません。</li>
     </ul>
     <p>Chromeのhistory権限、カメラ、マイク、クリップボードへのアクセスは要求しません。単語帳と一緒に保存する出典名・URLは対応動画に関する端末内データで、一般の閲覧履歴を収集するものではありません。</p>
-    <h2>5. 選択と削除</h2>
+    <h2 data-sec="choices">5. 選択と削除</h2>
     <p>「AIに聞く」を押さなくても、二言語字幕・端末内翻訳・字幕一覧・単語帳の復習を使えます。単語帳は1件ずつ、または全件を削除できます。拡張内の保存値は消去または拡張の削除まで保持され、Chrome同期と他端末上のコピーにはChromeのアカウント設定が適用されます。拡張を削除しても、すでに送ったAI要求や外部サービスのログが遡って削除されるわけではありません。データについてのお問い合わせでは、追加の機微情報を送らないでください。</p>
-    <h2>6. 外部ページと連絡先</h2>
+    <h2 data-sec="contact">6. 外部ページと連絡先</h2>
     <p>アンインストール後のアンケート、利用者が選んだ問い合わせ・ポリシー・ストアのリンクから外部ページを開く場合があります。自前ページのリンクに付ける情報は拡張の版やUI言語で、単語帳は渡しません。公開Webページでは、拡張とは別にホスティング・フォント・Web解析のサービスを利用する場合があります。</p>
     <p>開発者: Ramune。連絡先: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>。本ポリシーを変更する場合は、本ページの更新日とともに公開します。</p>
+  </div>
+
+  <div class="container" data-lang="zh" lang="zh-Hans" dir="ltr">
+    <a href="index.html?lang=zh" class="back">&larr; 返回 SubDuo</a>
+    <h1>SubDuo 隐私政策</h1>
+    <p class="updated">最后更新：2026年11月10日</p>
+    <p>Ramune（开发者）提供 SubDuo，这是一款借助 Prime Video、YouTube、Netflix、Disney+ 和 TED 上的字幕学习语言的 Chrome 扩展程序。</p>
+    <div class="box"><p>字幕显示、字幕列表跳转和生词本复习均在您的浏览器中运行。在可用时，设备端单词翻译使用 Chrome 内置翻译器。<strong>仅当您点击“询问 AI”时</strong>，所选短语、字幕上下文和语言代码才会发送至我们的解释服务。该请求还会使用随机设备标识符和连接的 IP 地址，用于使用次数限制和服务运行。</p></div>
+    <h2 data-sec="device">1. 在您的设备上处理的信息</h2>
+    <ul>
+      <li>SubDuo 读取当前视频的字幕轨道，并从所支持网站的分发服务器下载字幕文件。它使用播放信息来对齐字幕、在一行字幕结束后暂停以及在字幕列表中跳转。SubDuo 不会下载或存储视频本身。</li>
+      <li>显示设置、所选字幕语言和 UI 语言通过 <code>chrome.storage.sync</code> 保存。Chrome 可能会根据您的 Chrome 账号设置在您的设备之间同步这些设置；开发者不会接收这些设置。</li>
+      <li>您选择保存的生词存储在 <code>chrome.storage.local</code> 中，包括：短语、其字幕上下文、译文或解释、字幕语言、来源标题和 URL、播放位置、日期以及复习进度。这些记录不会作为生词本整体上传。</li>
+      <li>本地诊断记录可能包含视频标识符、播放和布局状态、字幕语言信息以及简短的文本片段。这些记录用于排查显示问题，不会自动发送给开发者。</li>
+      <li>在支持的情况下，Chrome 内置翻译器会在您的设备上处理单词。Chrome 可能会下载语言包。SubDuo 不会将这些翻译请求发送至其解释服务。</li>
+      <li>发音播放（🔊）使用 Chrome 语音合成可用的语音。SubDuo 不会将该文本发送至其解释服务。如果 Chrome 使用 Google 在线提供的语音，Google 将根据其自身条款处理该文本。</li>
+    </ul>
+    <h2 data-sec="ai">2. 可选的 AI 解释</h2>
+    <p>点击“询问 AI”后，扩展程序会向托管在 Cloudflare 上的 <code>subduo-explain.warload57.workers.dev</code> 发送 HTTPS 请求。该请求包含所选短语（最多 200 个字符）、其所在的字幕行及同一时刻另一种语言的字幕行（各最多 1,000 个字符）、它们的语言代码、解释语言以及随机安装标识符。网络连接本身也会暴露发出请求的 IP 地址。</p>
+    <p>Cloudflare Worker 将短语、字幕上下文和语言指令转发至 OpenAI 的 API 以生成解释。安装标识符和发出请求的 IP 地址不会包含在 AI 提示词中。该请求不包含您的账号凭据、已保存的生词本整体、显示设置、来源页面 URL 或观看记录。请勿选择敏感个人信息用于 AI 请求。</p>
+    <h2 data-sec="use">3. 用途、服务提供商和保留期限</h2>
+    <ul>
+      <li>信息用于显示字幕、提供您请求的单词解释、保存和复习生词、执行每日 AI 使用上限以及诊断服务故障。SubDuo 不含广告或行为分析，也不出售用户数据。</li>
+      <li>Worker 不会将提交的短语或字幕行写入其应用日志或速率限制数据库。速率限制记录包含以随机标识符（如无标识符则以 IP 地址）为键的每日计数，并在最后一次更新 24 小时后过期。</li>
+      <li>运行用应用日志包含 IP 地址、请求时间、处理结果、当日请求次数、语言代码以及 Token 用量信息。Cloudflare Workers Logs 目前根据服务套餐将日志保留最长七天；Cloudflare 的服务和安全处理还受<a href="https://www.cloudflare.com/privacypolicy/">其隐私政策</a>约束。</li>
+      <li>当前发送给 OpenAI 的请求未停用默认的响应存储。OpenAI 的 Responses API 通常会将响应数据保留至少 30 天；服务提供商的账号控制和保留例外情况可能会改变这一点。根据 OpenAI 的标准 API 政策，除非 API 账号所有者选择加入，否则不会将 API 数据用于模型训练。有关保留期限、例外情况和训练政策，请参阅<a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI 的 API 数据控制</a>。</li>
+    </ul>
+    <h2 data-sec="perm">4. 权限</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>：保存设置、生词本和复习进度、本地诊断记录以及随机安装标识符。</li>
+      <li data-perm="scripting"><strong>scripting</strong>：在安装或更新后，将扩展程序重新连接到已打开的受支持标签页。</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>：在您打开时显示当前视频的字幕列表，并提供跳转到某一字幕行的控件。</li>
+      <li data-perm="host"><strong>网站访问权限</strong>：访问受支持的 Prime Video/Amazon 域名、YouTube、Netflix、Disney+ 和 TED，用于检测和获取字幕轨道以及控制与字幕相关的播放。SubDuo 不会在无关网站上运行。</li>
+    </ul>
+    <p>SubDuo 不请求 Chrome 历史记录（history）权限，也不请求摄像头、麦克风或剪贴板访问权限。与生词一同保存的来源标题/URL 是来自受支持视频的本地数据，而不是对您一般浏览记录的收集。</p>
+    <h2 data-sec="choices">5. 您的选择与删除</h2>
+    <p>无需点击“询问 AI”，您即可使用双语字幕、设备端翻译、字幕列表跳转和生词本复习。您可以删除单个生词条目或清空生词本。扩展程序存储的数据会一直保留，直到您将其清除或移除扩展程序；Chrome 同步及其他设备上的副本遵循您的 Chrome 账号设置。移除扩展程序不会追溯删除服务提供商的日志或已发送的 AI 请求。如需就数据提出请求，请与我们联系，但请勿发送额外的敏感信息。</p>
+    <h2 data-sec="contact">6. 链接与联系方式</h2>
+    <p>扩展程序可能会在卸载后打开其反馈页面，或在您选择相应链接时打开联系、隐私或商店页面。扩展程序自身页面的链接会传递扩展程序版本和/或 UI 语言，而不会传递您的生词本。公开网页使用各自的托管和字体服务提供商，并可能使用独立于扩展程序的网站分析。</p>
+    <p>开发者：Ramune。电子邮件：<a href="mailto:warload57@gmail.com">warload57@gmail.com</a>。本政策的更新将在此处发布，并注明新的日期。</p>
+  </div>
+
+  <div class="container" data-lang="zh-TW" lang="zh-Hant" dir="ltr">
+    <a href="index.html?lang=zh-TW" class="back">&larr; 返回 SubDuo</a>
+    <h1>SubDuo 隱私權政策</h1>
+    <p class="updated">最後更新：2026年11月10日</p>
+    <p>開發者 Ramune 提供 SubDuo，這是一款利用 Prime Video、YouTube、Netflix、Disney+ 及 TED 的字幕學習語言的 Chrome 擴充功能。</p>
+    <div class="box"><p>字幕顯示、字幕列表跳轉及單字本複習均在您的瀏覽器中運作。在可用時，裝置端單字翻譯會使用 Chrome 內建翻譯工具。<strong>僅在您按下「詢問 AI」時</strong>，選取的詞句、字幕上下文及語言代碼才會傳送至我們的解釋服務。該請求亦會使用隨機裝置識別碼及連線的 IP 位址，以進行使用次數限制及服務運作。</p></div>
+    <h2 data-sec="device">1. 在您的裝置上處理的資訊</h2>
+    <ul>
+      <li>SubDuo 會讀取目前影片的字幕軌，並從支援網站的傳送伺服器下載字幕檔案。SubDuo 會使用播放資訊來對齊字幕、在一行字幕結束後暫停，以及在字幕列表中跳轉。SubDuo 不會下載或儲存影片本身。</li>
+      <li>顯示設定、選取的字幕語言及 UI 語言會透過 <code>chrome.storage.sync</code> 儲存。Chrome 可能會依您的 Chrome 帳戶設定，在您的裝置之間同步這些設定；開發者不會收到這些設定。</li>
+      <li>您選擇儲存的單字會存放於 <code>chrome.storage.local</code>，內容包括：詞句、其字幕上下文、翻譯或解釋、字幕語言、來源標題及 URL、播放位置、日期及複習進度。這些紀錄不會以單字本整體的形式上傳。</li>
+      <li>本機診斷紀錄可能包含影片識別碼、播放及版面配置狀態、字幕語言資訊及簡短的文字片段。這些紀錄用於調查顯示問題，不會自動傳送給開發者。</li>
+      <li>在支援的情況下，Chrome 內建翻譯工具會在您的裝置上處理單字。Chrome 可能會下載語言套件。SubDuo 不會將這些翻譯請求傳送至其解釋服務。</li>
+      <li>發音播放（🔊）使用 Chrome 語音合成可用的語音。SubDuo 不會將此文字傳送至其解釋服務。若 Chrome 使用 Google 線上提供的語音，Google 將依其自身條款處理該文字。</li>
+    </ul>
+    <h2 data-sec="ai">2. 選用的 AI 解釋</h2>
+    <p>按下「詢問 AI」後，擴充功能會向託管於 Cloudflare 的 <code>subduo-explain.warload57.workers.dev</code> 傳送 HTTPS 請求。請求內容包括選取的詞句（最多 200 個字元）、其所在的字幕行及同一時間另一種語言的字幕行（各最多 1,000 個字元）、各自的語言代碼、解釋語言及隨機安裝識別碼。網路連線本身亦會揭露發出請求的 IP 位址。</p>
+    <p>Cloudflare Worker 會將詞句、字幕上下文及語言指示轉送至 OpenAI 的 API 以產生解釋。安裝識別碼及發出請求的 IP 位址不會包含在 AI 提示中。該請求不包含您的帳戶憑證、已儲存的單字本整體、顯示設定、來源頁面 URL 或觀看紀錄。請勿選取敏感個人資訊進行 AI 請求。</p>
+    <h2 data-sec="use">3. 用途、服務供應商及保存期限</h2>
+    <ul>
+      <li>資訊用於顯示字幕、提供您所要求的單字解釋、儲存及複習單字、執行每日 AI 使用上限，以及診斷服務故障。SubDuo 不含廣告或行為分析，亦不出售使用者資料。</li>
+      <li>Worker 不會將提交的詞句或字幕行寫入其應用程式日誌或速率限制資料庫。速率限制紀錄包含以隨機識別碼（若無識別碼則以 IP 位址）為鍵的每日次數，並於最後一次更新 24 小時後失效。</li>
+      <li>營運用的應用程式日誌包含 IP 位址、請求時間、處理結果、當日請求次數、語言代碼及 Token 用量資訊。Cloudflare Workers Logs 目前依服務方案保存日誌最長七天；Cloudflare 的服務及安全處理亦受<a href="https://www.cloudflare.com/privacypolicy/">其隱私權政策</a>規範。</li>
+      <li>目前傳送給 OpenAI 的請求並未停用預設的回應儲存。OpenAI 的 Responses API 通常會保存回應資料至少 30 天；供應商的帳戶控制及保存例外可能會改變此情形。依據 OpenAI 的標準 API 政策，除非 API 帳戶擁有者選擇加入，否則不會將 API 資料用於模型訓練。有關保存期限、例外情形及訓練政策，請參閱<a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI 的 API 資料控制</a>。</li>
+    </ul>
+    <h2 data-sec="perm">4. 權限</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>：儲存設定、單字本及複習進度、本機診斷紀錄及隨機安裝識別碼。</li>
+      <li data-perm="scripting"><strong>scripting</strong>：在安裝或更新後，將擴充功能重新連接至已開啟的支援分頁。</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>：在您開啟時顯示目前影片的字幕列表，並提供跳至特定字幕行的控制項。</li>
+      <li data-perm="host"><strong>網站存取權</strong>：存取支援的 Prime Video/Amazon 網域、YouTube、Netflix、Disney+ 及 TED，用於偵測及擷取字幕軌，並控制與字幕相關的播放。SubDuo 不會在無關的網站上執行。</li>
+    </ul>
+    <p>SubDuo 不會要求 Chrome 瀏覽紀錄（history）權限，也不會要求攝影機、麥克風或剪貼簿存取權。與單字一併儲存的來源標題/URL 是來自支援影片的本機資料，而非對您一般瀏覽紀錄的蒐集。</p>
+    <h2 data-sec="choices">5. 您的選擇與刪除</h2>
+    <p>即使不按「詢問 AI」，您仍可使用雙語字幕、裝置端翻譯、字幕列表跳轉及單字本複習。您可以刪除個別單字項目，或清空單字本。擴充功能儲存的資料會保留至您清除資料或移除擴充功能為止；Chrome 同步及其他裝置上的副本則依您的 Chrome 帳戶設定處理。移除擴充功能不會追溯刪除供應商的日誌或已傳送的 AI 請求。如需就資料提出請求，請與我們聯絡，但請勿傳送額外的敏感資訊。</p>
+    <h2 data-sec="contact">6. 連結與聯絡方式</h2>
+    <p>擴充功能可能會在解除安裝後開啟其意見回饋頁面，或在您選擇相應連結時開啟聯絡、隱私權或商店頁面。擴充功能自有頁面的連結會傳遞擴充功能版本和/或 UI 語言，而不會傳遞您的單字本。公開網頁會使用各自的託管及字型服務供應商，並可能使用獨立於擴充功能之外的網站分析。</p>
+    <p>開發者：Ramune。電子郵件：<a href="mailto:warload57@gmail.com">warload57@gmail.com</a>。本政策如有更新，將於此處發布並標示新的日期。</p>
+  </div>
+
+  <div class="container" data-lang="ko" lang="ko" dir="ltr">
+    <a href="index.html?lang=ko" class="back">&larr; SubDuo로 돌아가기</a>
+    <h1>SubDuo 개인정보 처리방침</h1>
+    <p class="updated">최종 업데이트: 2026년 11월 10일</p>
+    <p>개발자 Ramune는 Prime Video, YouTube, Netflix, Disney+, TED의 자막으로 언어를 학습할 수 있는 Chrome 확장 프로그램 SubDuo를 제공합니다.</p>
+    <div class="box"><p>자막 표시, 자막 목록 이동, 단어장 복습은 브라우저 안에서 작동합니다. 기기 내 단어 번역은 사용 가능한 경우 Chrome 내장 번역기를 사용합니다. <strong>“AI에게 묻기”를 누른 경우에만</strong> 선택한 구절, 자막 문맥, 언어 코드가 당사의 해설 서비스로 전송됩니다. 이 요청에서는 사용량 제한과 서비스 운영을 위해 무작위 기기 식별자와 접속 IP 주소도 사용됩니다.</p></div>
+    <h2 data-sec="device">1. 기기에서 처리되는 정보</h2>
+    <ul>
+      <li>SubDuo는 현재 동영상의 자막 트랙을 읽고, 지원 사이트의 전송 서버에서 자막 파일을 내려받습니다. 재생 정보는 자막 동기화, 한 줄이 끝난 뒤 일시정지, 자막 목록 이동에 사용합니다. 동영상 자체는 내려받거나 저장하지 않습니다.</li>
+      <li>표시 설정, 선택한 자막 언어, UI 언어는 <code>chrome.storage.sync</code>에 저장됩니다. Chrome은 사용자의 Chrome 계정 설정에 따라 이 설정을 사용자의 기기 간에 동기화할 수 있으며, 개발자는 이 설정을 받지 않습니다.</li>
+      <li>사용자가 저장하기로 선택한 단어는 <code>chrome.storage.local</code>에 저장됩니다. 여기에는 구절, 해당 자막 문맥, 번역 또는 해설, 자막 언어, 출처 제목과 URL, 재생 위치, 날짜, 복습 진행 상황이 포함됩니다. 이 기록은 단어장 전체로 업로드되지 않습니다.</li>
+      <li>기기 내 진단 기록에는 동영상 식별자, 재생 및 레이아웃 상태, 자막 언어 정보, 짧은 텍스트 조각이 포함될 수 있습니다. 이 기록은 표시 문제를 조사하는 데 쓰이며 개발자에게 자동으로 전송되지 않습니다.</li>
+      <li>지원되는 경우 Chrome 내장 번역기가 기기에서 단어를 처리합니다. Chrome이 언어 팩을 내려받을 수 있습니다. SubDuo는 이러한 번역 요청을 해설 서비스로 보내지 않습니다.</li>
+      <li>발음 재생(🔊)에는 Chrome 음성 합성에서 사용할 수 있는 음성을 사용합니다. SubDuo는 이 텍스트를 해설 서비스로 보내지 않습니다. Chrome이 Google이 온라인으로 제공하는 음성을 사용하는 경우, Google이 자체 약관에 따라 해당 텍스트를 처리합니다.</li>
+    </ul>
+    <h2 data-sec="ai">2. 선택적 AI 해설</h2>
+    <p>“AI에게 묻기”를 누르면 Cloudflare에서 호스팅되는 <code>subduo-explain.warload57.workers.dev</code>로 HTTPS 요청이 전송됩니다. 요청에는 선택한 구절(최대 200자), 해당 자막 줄과 그 시점의 다른 언어 자막 줄(각각 최대 1,000자), 각각의 언어 코드, 해설 언어, 무작위 설치 식별자가 포함됩니다. 또한 네트워크 연결 과정에서 요청한 IP 주소가 드러납니다.</p>
+    <p>Cloudflare Worker는 해설을 생성하기 위해 구절, 자막 문맥, 언어 지시를 OpenAI의 API로 전달합니다. 설치 식별자와 요청한 IP 주소는 AI 프롬프트에 포함되지 않습니다. 요청에는 계정 인증 정보, 저장된 단어장 전체, 표시 설정, 출처 페이지 URL, 시청 기록이 포함되지 않습니다. 민감한 개인정보를 AI 요청 대상으로 선택하지 마십시오.</p>
+    <h2 data-sec="use">3. 이용 목적, 서비스 제공업체 및 보관 기간</h2>
+    <ul>
+      <li>정보는 자막 표시, 사용자가 요청한 단어 해설 제공, 단어 저장 및 복습, 일일 AI 이용 한도 적용, 서비스 장애 진단에 사용됩니다. SubDuo에는 광고나 행동 분석이 없으며, 사용자 데이터를 판매하지 않습니다.</li>
+      <li>Worker는 제출된 구절이나 자막 줄을 애플리케이션 로그나 요청 제한 데이터베이스에 기록하지 않습니다. 요청 제한 기록에는 무작위 식별자(식별자를 사용할 수 없는 경우 IP 주소)를 키로 하는 일일 횟수가 담기며, 마지막 업데이트 후 24시간이 지나면 만료됩니다.</li>
+      <li>운영용 애플리케이션 로그에는 IP 주소, 요청 시각, 처리 결과, 당일 요청 횟수, 언어 코드, 토큰 사용량 정보가 포함됩니다. Cloudflare Workers Logs는 현재 서비스 요금제에 따라 로그를 최대 7일간 보관하며, Cloudflare의 서비스 및 보안 관련 처리에는 <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare 개인정보 처리방침</a>도 적용됩니다.</li>
+      <li>현재 OpenAI 요청에서는 기본 응답 저장을 비활성화하지 않습니다. OpenAI의 Responses API는 일반적으로 응답 데이터를 최소 30일간 보관하며, 제공업체 계정 설정과 보관 예외에 따라 달라질 수 있습니다. OpenAI의 표준 API 정책에 따르면 API 계정 소유자가 동의(옵트인)하지 않는 한 API 데이터를 모델 학습에 사용하지 않습니다. 보관, 예외 및 학습 정책은 <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI의 API 데이터 관리</a>를 참조하십시오.</li>
+    </ul>
+    <h2 data-sec="perm">4. 권한</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: 설정, 단어장 및 복습 진행 상황, 기기 내 진단 기록, 무작위 설치 식별자 저장.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: 설치 또는 업데이트 후 이미 열려 있는 지원 탭에 확장 프로그램을 다시 연결.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: 사용자가 열 때 현재 동영상의 자막 목록을 표시하고, 자막 줄로 이동하는 컨트롤 제공.</li>
+      <li data-perm="host"><strong>사이트 접근 권한</strong>: 지원되는 Prime Video/Amazon 도메인, YouTube, Netflix, Disney+, TED에서 자막 트랙을 감지하고 가져오며 자막 관련 재생을 제어. SubDuo는 관련 없는 웹사이트에서는 실행되지 않습니다.</li>
+    </ul>
+    <p>SubDuo는 Chrome 방문 기록(history) 권한이나 카메라, 마이크, 클립보드 접근을 요청하지 않습니다. 단어와 함께 저장되는 출처 제목/URL은 지원 동영상에서 나온 기기 내 데이터이며, 사용자의 일반적인 방문 기록을 수집하는 것이 아닙니다.</p>
+    <h2 data-sec="choices">5. 사용자의 선택 및 삭제</h2>
+    <p>“AI에게 묻기”를 누르지 않아도 이중 자막, 기기 내 번역, 자막 목록 이동, 단어장 복습을 이용할 수 있습니다. 단어장 항목을 개별적으로 삭제하거나 단어장 전체를 비울 수 있습니다. 확장 프로그램 저장소의 데이터는 사용자가 지우거나 확장 프로그램을 제거할 때까지 유지되며, Chrome 동기화와 다른 기기의 사본은 사용자의 Chrome 계정 설정을 따릅니다. 확장 프로그램을 제거해도 서비스 제공업체의 로그나 이미 전송된 AI 요청이 소급하여 삭제되지는 않습니다. 데이터 관련 요청은 추가적인 민감 정보를 보내지 말고 문의해 주십시오.</p>
+    <h2 data-sec="contact">6. 링크 및 연락처</h2>
+    <p>확장 프로그램은 제거 후 피드백 페이지를 열 수 있으며, 사용자가 해당 링크를 선택하면 문의, 개인정보 또는 스토어 페이지를 열 수 있습니다. 자체 페이지 링크에는 확장 프로그램 버전 및/또는 UI 언어가 전달되며, 단어장은 전달되지 않습니다. 공개 웹페이지는 자체 호스팅 및 글꼴 제공업체를 이용하며, 확장 프로그램과는 별개로 웹 분석을 사용할 수 있습니다.</p>
+    <p>개발자: Ramune. 이메일: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. 본 방침의 변경 사항은 새 날짜와 함께 이 페이지에 게시됩니다.</p>
+  </div>
+
+  <div class="container" data-lang="es" lang="es" dir="ltr">
+    <a href="index.html?lang=es" class="back">&larr; Volver a SubDuo</a>
+    <h1>Política de privacidad de SubDuo</h1>
+    <p class="updated">Última actualización: 10 de noviembre de 2026</p>
+    <p>Ramune (el desarrollador) ofrece SubDuo, una extensión de Chrome para aprender idiomas con subtítulos en Prime Video, YouTube, Netflix, Disney+ y TED.</p>
+    <div class="box"><p>La visualización de subtítulos, la navegación por la transcripción y el repaso del vocabulario funcionan en su navegador. La traducción de palabras en el dispositivo utiliza el traductor integrado de Chrome cuando está disponible. <strong>Solo cuando usted pulsa «Preguntar a la IA»</strong> se envían la frase seleccionada, el contexto de los subtítulos y los códigos de idioma a nuestro servicio de explicaciones. Esa solicitud también utiliza un identificador aleatorio del dispositivo y la dirección IP de la conexión para los límites de uso y el funcionamiento del servicio.</p></div>
+    <h2 data-sec="device">1. Información tratada en su dispositivo</h2>
+    <ul>
+      <li>SubDuo lee las pistas de subtítulos del vídeo actual y descarga los archivos de subtítulos desde los servidores de distribución del sitio compatible. Utiliza la información de reproducción para sincronizar los subtítulos, pausar al final de una línea y navegar por la transcripción. No descarga ni almacena el vídeo en sí.</li>
+      <li>La configuración de visualización, los idiomas de subtítulos seleccionados y el idioma de la UI se guardan con <code>chrome.storage.sync</code>. Chrome puede sincronizar esta configuración entre sus dispositivos según los ajustes de su cuenta de Chrome; el desarrollador no la recibe.</li>
+      <li>El vocabulario que usted decide guardar se almacena en <code>chrome.storage.local</code>: la frase, su contexto de subtítulos, las traducciones o explicaciones, los idiomas de subtítulos, el título y la URL de origen, la posición de reproducción, la fecha y el progreso de repaso. Estos registros no se suben como colección de vocabulario.</li>
+      <li>Los registros de diagnóstico locales pueden contener identificadores de vídeo, el estado de reproducción y de diseño, información sobre los idiomas de subtítulos y fragmentos breves de texto. Sirven para investigar problemas de visualización y no se envían automáticamente al desarrollador.</li>
+      <li>El traductor integrado de Chrome procesa las palabras en su dispositivo cuando es compatible. Chrome puede descargar paquetes de idioma. SubDuo no envía estas solicitudes de traducción a su servicio de explicaciones.</li>
+      <li>La reproducción de la pronunciación (🔊) utiliza las voces disponibles para la síntesis de voz de Chrome. SubDuo no envía este texto a su servicio de explicaciones. Si Chrome utiliza una voz que Google proporciona en línea, Google trata el texto conforme a sus propias condiciones.</li>
+    </ul>
+    <h2 data-sec="ai">2. Explicaciones opcionales mediante IA</h2>
+    <p>Al pulsar «Preguntar a la IA» se envía una solicitud HTTPS a <code>subduo-explain.warload57.workers.dev</code>, alojado en Cloudflare. La solicitud contiene la frase seleccionada (hasta 200 caracteres), su línea de subtítulo y la línea del otro idioma en ese momento (hasta 1000 caracteres cada una), sus códigos de idioma, el idioma de la explicación y un identificador aleatorio de instalación. La conexión de red también revela la dirección IP desde la que se realiza la solicitud.</p>
+    <p>El Cloudflare Worker remite la frase, el contexto de los subtítulos y las instrucciones de idioma a la API de OpenAI para generar la explicación. El identificador de instalación y la dirección IP de origen no se incluyen en el prompt enviado a la IA. La solicitud no contiene las credenciales de su cuenta, su colección de vocabulario guardada, la configuración de visualización, la URL de la página de origen ni su historial de visualización. No seleccione información personal sensible para una solicitud a la IA.</p>
+    <h2 data-sec="use">3. Finalidades, proveedores y conservación</h2>
+    <ul>
+      <li>La información se utiliza para mostrar subtítulos, ofrecer la explicación de palabras que usted solicita, guardar y repasar vocabulario, aplicar el límite diario de IA y diagnosticar fallos del servicio. SubDuo no contiene publicidad ni analíticas de comportamiento y no vende datos de los usuarios.</li>
+      <li>El Worker no escribe las frases ni las líneas de subtítulo enviadas en sus registros de aplicación ni en su base de datos de límite de solicitudes. El registro de límite de solicitudes contiene un recuento diario asociado al identificador aleatorio (o a la dirección IP si no hay ningún identificador disponible) y caduca 24 horas después de su última actualización.</li>
+      <li>Los registros operativos de la aplicación contienen la dirección IP, la hora de la solicitud, el resultado, el número de solicitudes del día, los códigos de idioma e información sobre el uso de tokens. Cloudflare Workers Logs conserva actualmente los registros durante un máximo de siete días, según el plan de servicio; el tratamiento que Cloudflare realiza para la prestación y la seguridad de su servicio está sujeto además a <a href="https://www.cloudflare.com/privacypolicy/">su política de privacidad</a>.</li>
+      <li>La solicitud actual a OpenAI no desactiva el almacenamiento predeterminado de respuestas. La Responses API de OpenAI conserva normalmente los datos de las respuestas durante al menos 30 días; los controles de la cuenta del proveedor y las excepciones de conservación pueden modificarlo. La política estándar de la API de OpenAI no utiliza los datos de la API para entrenar modelos, salvo que el titular de la cuenta de la API decida expresamente participar. Consulte los <a href="https://developers.openai.com/api/docs/guides/your-data">controles de datos de la API de OpenAI</a> para conocer la conservación, las excepciones y la política de entrenamiento.</li>
+    </ul>
+    <h2 data-sec="perm">4. Permisos</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: guardar la configuración, el vocabulario y el progreso de repaso, los diagnósticos locales y el identificador aleatorio de instalación.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: volver a conectar la extensión con las pestañas compatibles ya abiertas tras la instalación o una actualización.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: mostrar la transcripción del vídeo actual cuando usted la abre, con controles para saltar a una línea de subtítulo.</li>
+      <li data-perm="host"><strong>Acceso a sitios</strong>: los dominios compatibles de Prime Video/Amazon, YouTube, Netflix, Disney+ y TED, para detectar y obtener pistas de subtítulos y controlar la reproducción relacionada con los subtítulos. SubDuo no se ejecuta en sitios web no relacionados.</li>
+    </ul>
+    <p>SubDuo no solicita el permiso de historial de Chrome ni acceso a la cámara, el micrófono o el portapapeles. El título y la URL de origen guardados con una entrada de vocabulario son datos locales del vídeo compatible, no una recopilación de su historial de navegación general.</p>
+    <h2 data-sec="choices">5. Sus opciones y eliminación de datos</h2>
+    <p>Puede usar los subtítulos duales, la traducción en el dispositivo, la navegación por la transcripción y el repaso del vocabulario sin pulsar «Preguntar a la IA». Puede eliminar entradas de vocabulario individuales o vaciar todo el vocabulario. El almacenamiento de la extensión se conserva hasta que usted lo borre o desinstale la extensión; la sincronización de Chrome y las copias en otros dispositivos se rigen por los ajustes de su cuenta de Chrome. Desinstalar la extensión no elimina retroactivamente los registros de los proveedores ni las solicitudes a la IA ya enviadas. Si desea realizar una solicitud relativa a sus datos, póngase en contacto con nosotros sin enviar información sensible adicional.</p>
+    <h2 data-sec="contact">6. Enlaces y contacto</h2>
+    <p>La extensión puede abrir su página de comentarios tras la desinstalación, o una página de contacto, de privacidad o de la tienda cuando usted elige el enlace correspondiente. Los enlaces a sus propias páginas transmiten la versión de la extensión y/o el idioma de la UI, no su vocabulario. Las páginas web públicas utilizan sus propios proveedores de alojamiento y de fuentes y pueden incluir analíticas web independientes de la extensión.</p>
+    <p>Desarrollador: Ramune. Correo electrónico: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Las actualizaciones de esta política se publican aquí con una nueva fecha.</p>
+  </div>
+
+  <div class="container" data-lang="fr" lang="fr" dir="ltr">
+    <a href="index.html?lang=fr" class="back">&larr; Retour à SubDuo</a>
+    <h1>Politique de confidentialité de SubDuo</h1>
+    <p class="updated">Dernière mise à jour : 10 novembre 2026</p>
+    <p>Ramune (le développeur) propose SubDuo, une extension Chrome d’apprentissage des langues à l’aide des sous-titres de Prime Video, YouTube, Netflix, Disney+ et TED.</p>
+    <div class="box"><p>L’affichage des sous-titres, la navigation dans la transcription et la révision du vocabulaire fonctionnent dans votre navigateur. La traduction de mots sur l’appareil utilise le traducteur intégré de Chrome lorsqu’il est disponible. <strong>Ce n’est que lorsque vous appuyez sur « Demander à l’IA »</strong> que l’expression choisie, le contexte des sous-titres et les codes de langue sont envoyés à notre service d’explication. Cette requête utilise également un identifiant aléatoire de l’appareil et l’adresse IP de la connexion, pour les limites d’utilisation et le fonctionnement du service.</p></div>
+    <h2 data-sec="device">1. Informations traitées sur votre appareil</h2>
+    <ul>
+      <li>SubDuo lit les pistes de sous-titres de la vidéo en cours et télécharge les fichiers de sous-titres depuis les serveurs de diffusion du site pris en charge. Il utilise les informations de lecture pour synchroniser les sous-titres, mettre en pause à la fin d’une ligne et naviguer dans la transcription. Il ne télécharge ni ne stocke la vidéo elle-même.</li>
+      <li>Les réglages d’affichage, les langues de sous-titres choisies et la langue de l’UI sont enregistrés avec <code>chrome.storage.sync</code>. Chrome peut synchroniser ces réglages entre vos appareils selon les paramètres de votre compte Chrome ; le développeur ne les reçoit pas.</li>
+      <li>Le vocabulaire que vous choisissez d’enregistrer est stocké dans <code>chrome.storage.local</code> : l’expression, son contexte de sous-titres, les traductions ou explications, les langues de sous-titres, le titre et l’URL d’origine, la position de lecture, la date et la progression des révisions. Ces données ne sont pas transférées en tant que collection de vocabulaire.</li>
+      <li>Les journaux de diagnostic locaux peuvent contenir des identifiants de vidéo, l’état de la lecture et de la mise en page, des informations sur les langues de sous-titres et de courts extraits de texte. Ils servent à analyser les problèmes d’affichage et ne sont pas envoyés automatiquement au développeur.</li>
+      <li>Le traducteur intégré de Chrome traite les mots sur votre appareil lorsque cela est pris en charge. Chrome peut télécharger des packs de langue. SubDuo n’envoie pas ces demandes de traduction à son service d’explication.</li>
+      <li>La lecture de la prononciation (🔊) utilise les voix disponibles pour la synthèse vocale de Chrome. SubDuo n’envoie pas ce texte à son service d’explication. Si Chrome utilise une voix fournie en ligne par Google, Google traite le texte selon ses propres conditions.</li>
+    </ul>
+    <h2 data-sec="ai">2. Explications facultatives par IA</h2>
+    <p>Appuyer sur « Demander à l’IA » envoie une requête HTTPS à <code>subduo-explain.warload57.workers.dev</code>, hébergé sur Cloudflare. La requête contient l’expression choisie (200 caractères maximum), sa ligne de sous-titre et la ligne dans l’autre langue au même moment (1 000 caractères maximum chacune), leurs codes de langue, la langue de l’explication et un identifiant aléatoire d’installation. La connexion réseau révèle en outre l’adresse IP d’où provient la requête.</p>
+    <p>Le Cloudflare Worker transmet l’expression, le contexte des sous-titres et les consignes de langue à l’API d’OpenAI afin de générer l’explication. L’identifiant d’installation et l’adresse IP d’origine ne sont pas inclus dans le prompt envoyé à l’IA. La requête ne contient ni les identifiants de connexion de votre compte, ni votre collection de vocabulaire enregistrée, ni vos réglages d’affichage, ni l’URL de la page d’origine, ni votre historique de visionnage. Ne sélectionnez pas d’informations personnelles sensibles pour une requête à l’IA.</p>
+    <h2 data-sec="use">3. Finalités, prestataires et durée de conservation</h2>
+    <ul>
+      <li>Les informations sont utilisées pour afficher les sous-titres, fournir l’explication de mot que vous avez demandée, enregistrer et réviser le vocabulaire, appliquer la limite quotidienne d’utilisation de l’IA et diagnostiquer les défaillances du service. SubDuo ne contient ni publicité ni analyse comportementale et ne vend pas les données des utilisateurs.</li>
+      <li>Le Worker n’inscrit pas les expressions ni les lignes de sous-titres transmises dans ses journaux applicatifs ni dans sa base de données de limitation des requêtes. L’enregistrement de limitation contient un compteur quotidien associé à l’identifiant aléatoire (ou à l’adresse IP si aucun identifiant n’est disponible) et expire 24 heures après sa dernière mise à jour.</li>
+      <li>Les journaux applicatifs d’exploitation contiennent l’adresse IP, l’heure de la requête, son résultat, le nombre de requêtes du jour, les codes de langue et des informations sur l’utilisation de jetons. Cloudflare Workers Logs conserve actuellement les journaux jusqu’à sept jours selon l’offre souscrite ; les traitements effectués par Cloudflare pour son service et sa sécurité sont également soumis à <a href="https://www.cloudflare.com/privacypolicy/">sa politique de confidentialité</a>.</li>
+      <li>La requête actuellement envoyée à OpenAI ne désactive pas le stockage par défaut des réponses. La Responses API d’OpenAI conserve normalement les données de réponse pendant au moins 30 jours ; les paramètres du compte du prestataire et les exceptions en matière de conservation peuvent modifier cette durée. Selon la politique standard d’OpenAI pour son API, les données de l’API ne sont pas utilisées pour entraîner des modèles, sauf si le titulaire du compte API choisit expressément d’y participer. Consultez <a href="https://developers.openai.com/api/docs/guides/your-data">les contrôles des données de l’API d’OpenAI</a> pour la conservation, les exceptions et la politique d’entraînement.</li>
+    </ul>
+    <h2 data-sec="perm">4. Autorisations</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong> : enregistrement des réglages, du vocabulaire et de la progression des révisions, des diagnostics locaux et de l’identifiant aléatoire d’installation.</li>
+      <li data-perm="scripting"><strong>scripting</strong> : reconnexion de l’extension aux onglets pris en charge déjà ouverts après l’installation ou une mise à jour.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong> : affichage de la transcription de la vidéo en cours lorsque vous l’ouvrez, avec des commandes permettant d’accéder directement à une ligne de sous-titre.</li>
+      <li data-perm="host"><strong>Accès aux sites</strong> : les domaines Prime Video/Amazon pris en charge, YouTube, Netflix, Disney+ et TED, pour détecter et récupérer les pistes de sous-titres et contrôler la lecture en lien avec les sous-titres. SubDuo ne fonctionne pas sur les sites sans rapport.</li>
+    </ul>
+    <p>SubDuo ne demande ni l’autorisation d’accès à l’historique de Chrome, ni l’accès à la caméra, au micro ou au presse-papiers. Le titre et l’URL d’origine enregistrés avec une entrée de vocabulaire sont des données locales issues de la vidéo prise en charge, et non une collecte de votre historique de navigation général.</p>
+    <h2 data-sec="choices">5. Vos choix et la suppression des données</h2>
+    <p>Vous pouvez utiliser les sous-titres doubles, la traduction sur l’appareil, la navigation dans la transcription et la révision du vocabulaire sans appuyer sur « Demander à l’IA ». Vous pouvez supprimer des entrées de vocabulaire une par une ou vider entièrement le vocabulaire. Les données stockées par l’extension sont conservées jusqu’à ce que vous les effaciez ou supprimiez l’extension ; la synchronisation Chrome et les copies sur d’autres appareils suivent les paramètres de votre compte Chrome. La suppression de l’extension n’efface pas rétroactivement les journaux des prestataires ni les requêtes déjà envoyées à l’IA. Pour toute demande relative à vos données, contactez-nous sans transmettre d’informations sensibles supplémentaires.</p>
+    <h2 data-sec="contact">6. Liens et contact</h2>
+    <p>L’extension peut ouvrir sa page de commentaires après la désinstallation, ou une page de contact, de confidentialité ou de la boutique lorsque vous choisissez le lien correspondant. Les liens vers ses propres pages transmettent la version de l’extension et/ou la langue de l’UI, mais pas votre vocabulaire. Les pages web publiques recourent à leurs propres prestataires d’hébergement et de polices et peuvent utiliser des outils d’analyse web distincts de l’extension.</p>
+    <p>Développeur : Ramune. E-mail : <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Les modifications de la présente politique sont publiées sur cette page avec une nouvelle date.</p>
+  </div>
+
+  <div class="container" data-lang="de" lang="de" dir="ltr">
+    <a href="index.html?lang=de" class="back">&larr; Zurück zu SubDuo</a>
+    <h1>Datenschutzerklärung von SubDuo</h1>
+    <p class="updated">Zuletzt aktualisiert: 10. November 2026</p>
+    <p>Ramune (der Entwickler) stellt SubDuo bereit, eine Chrome-Erweiterung zum Sprachenlernen mit Untertiteln auf Prime Video, YouTube, Netflix, Disney+ und TED.</p>
+    <div class="box"><p>Untertitelanzeige, Navigation im Transkript und Wiederholung der Vokabeln funktionieren in Ihrem Browser. Die Wortübersetzung auf dem Gerät nutzt, sofern verfügbar, den integrierten Übersetzer von Chrome. <strong>Nur wenn Sie auf „KI fragen“ klicken</strong>, werden der gewählte Ausdruck, der Untertitelkontext und die Sprachcodes an unseren Erklärdienst gesendet. Für diese Anfrage werden außerdem eine zufällige Gerätekennung und die IP-Adresse der Verbindung verwendet, um Nutzungslimits durchzusetzen und den Dienst zu betreiben.</p></div>
+    <h2 data-sec="device">1. Auf Ihrem Gerät verarbeitete Informationen</h2>
+    <ul>
+      <li>SubDuo liest die Untertitelspuren des aktuellen Videos aus und lädt Untertiteldateien von den Auslieferungsservern der unterstützten Website herunter. Wiedergabeinformationen werden genutzt, um Untertitel zu synchronisieren, nach einer Zeile anzuhalten und im Transkript zu navigieren. Das Video selbst wird weder heruntergeladen noch gespeichert.</li>
+      <li>Anzeigeeinstellungen, gewählte Untertitelsprachen und die UI-Sprache werden mit <code>chrome.storage.sync</code> gespeichert. Chrome kann diese Einstellungen entsprechend den Einstellungen Ihres Chrome-Kontos zwischen Ihren Geräten synchronisieren; der Entwickler erhält sie nicht.</li>
+      <li>Vokabeln, die Sie speichern, werden in <code>chrome.storage.local</code> abgelegt: der Ausdruck, sein Untertitelkontext, Übersetzungen oder Erklärungen, Untertitelsprachen, Titel und URL der Quelle, Wiedergabeposition, Datum und Wiederholungsfortschritt. Diese Einträge werden nicht als Vokabelsammlung hochgeladen.</li>
+      <li>Lokale Diagnoseprotokolle können Video-Kennungen, Wiedergabe- und Layoutzustand, Angaben zu Untertitelsprachen und kurze Textausschnitte enthalten. Sie dienen der Untersuchung von Anzeigeproblemen und werden nicht automatisch an den Entwickler gesendet.</li>
+      <li>Der integrierte Übersetzer von Chrome verarbeitet Wörter auf Ihrem Gerät, sofern dies unterstützt wird. Chrome lädt dafür gegebenenfalls Sprachpakete herunter. SubDuo sendet diese Übersetzungsanfragen nicht an seinen Erklärdienst.</li>
+      <li>Die Aussprachewiedergabe (🔊) verwendet die Stimmen, die der Sprachsynthese von Chrome zur Verfügung stehen. SubDuo sendet diesen Text nicht an seinen Erklärdienst. Verwendet Chrome eine von Google online bereitgestellte Stimme, verarbeitet Google den Text gemäß seinen eigenen Bedingungen.</li>
+    </ul>
+    <h2 data-sec="ai">2. Optionale KI-Erklärungen</h2>
+    <p>Wenn Sie auf „KI fragen“ klicken, wird eine HTTPS-Anfrage an <code>subduo-explain.warload57.workers.dev</code> gesendet, das bei Cloudflare gehostet wird. Die Anfrage enthält den gewählten Ausdruck (bis zu 200 Zeichen), seine Untertitelzeile und die zum selben Zeitpunkt angezeigte Zeile der anderen Sprache (jeweils bis zu 1.000 Zeichen), deren Sprachcodes, die Sprache der Erklärung und eine zufällige Installationskennung. Durch die Netzwerkverbindung wird zudem die anfragende IP-Adresse offengelegt.</p>
+    <p>Der Cloudflare Worker leitet den Ausdruck, den Untertitelkontext und die Sprachvorgaben an die API von OpenAI weiter, um die Erklärung zu erzeugen. Die Installationskennung und die anfragende IP-Adresse sind nicht Bestandteil des KI-Prompts. Die Anfrage enthält keine Zugangsdaten zu Ihrem Konto, keine gespeicherte Vokabelsammlung, keine Anzeigeeinstellungen, keine URL der Quellseite und keinen Wiedergabeverlauf. Wählen Sie für eine KI-Anfrage keine sensiblen personenbezogenen Daten aus.</p>
+    <h2 data-sec="use">3. Zwecke, Anbieter und Speicherdauer</h2>
+    <ul>
+      <li>Die Informationen werden verwendet, um Untertitel anzuzeigen, die von Ihnen angeforderte Worterklärung bereitzustellen, Vokabeln zu speichern und zu wiederholen, das tägliche KI-Limit durchzusetzen und Störungen des Dienstes zu diagnostizieren. SubDuo enthält weder Werbung noch Verhaltensanalyse und verkauft keine Nutzerdaten.</li>
+      <li>Der Worker schreibt übermittelte Ausdrücke oder Untertitelzeilen weder in seine Anwendungsprotokolle noch in seine Datenbank zur Anfragenbegrenzung. Der Eintrag zur Anfragenbegrenzung enthält einen täglichen Zähler, der der zufälligen Kennung (oder, falls keine Kennung verfügbar ist, der IP-Adresse) zugeordnet ist, und läuft 24 Stunden nach seiner letzten Aktualisierung ab.</li>
+      <li>Betriebliche Anwendungsprotokolle enthalten IP-Adresse, Zeitpunkt der Anfrage, Ergebnis, Anzahl der Anfragen des Tages, Sprachcodes und Angaben zur Token-Nutzung. Cloudflare Workers Logs speichert Protokolle derzeit je nach Tarif bis zu sieben Tage; für die Verarbeitung durch Cloudflare im Rahmen seines Dienstes und seiner Sicherheitsmaßnahmen gilt zudem <a href="https://www.cloudflare.com/privacypolicy/">dessen Datenschutzerklärung</a>.</li>
+      <li>Die aktuelle Anfrage an OpenAI deaktiviert die standardmäßige Speicherung von Antworten nicht. Die Responses API von OpenAI speichert Antwortdaten in der Regel mindestens 30 Tage; Kontoeinstellungen beim Anbieter und Ausnahmen von der Aufbewahrung können dies ändern. Nach der Standard-API-Richtlinie von OpenAI werden API-Daten nicht zum Training von Modellen verwendet, es sei denn, der Inhaber des API-Kontos entscheidet sich ausdrücklich dafür. Informationen zu Aufbewahrung, Ausnahmen und Trainingsrichtlinie finden Sie in den <a href="https://developers.openai.com/api/docs/guides/your-data">Datenkontrollen der OpenAI-API</a>.</li>
+    </ul>
+    <h2 data-sec="perm">4. Berechtigungen</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: Speichern von Einstellungen, Vokabeln und Wiederholungsfortschritt, lokalen Diagnosedaten und der zufälligen Installationskennung.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: erneutes Verbinden der Erweiterung mit bereits geöffneten unterstützten Tabs nach der Installation oder einem Update.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: Anzeige des Transkripts des aktuellen Videos, wenn Sie es öffnen, mit Steuerelementen zum Springen zu einer Untertitelzeile.</li>
+      <li data-perm="host"><strong>Websitezugriff</strong>: die unterstützten Prime Video-/Amazon-Domains, YouTube, Netflix, Disney+ und TED, um Untertitelspuren zu erkennen und abzurufen und die untertitelbezogene Wiedergabe zu steuern. SubDuo läuft nicht auf anderen, nicht zugehörigen Websites.</li>
+    </ul>
+    <p>SubDuo fordert weder die Chrome-Berechtigung für den Verlauf noch Zugriff auf Kamera, Mikrofon oder Zwischenablage an. Titel und URL der Quelle, die mit einem Vokabeleintrag gespeichert werden, sind lokale Daten zum unterstützten Video und keine Sammlung Ihres allgemeinen Browserverlaufs.</p>
+    <h2 data-sec="choices">5. Ihre Wahlmöglichkeiten und Löschung</h2>
+    <p>Sie können Doppeluntertitel, die Übersetzung auf dem Gerät, die Navigation im Transkript und die Wiederholung der Vokabeln nutzen, ohne auf „KI fragen“ zu klicken. Sie können einzelne Vokabeleinträge löschen oder alle Vokabeln auf einmal entfernen. Der Speicher der Erweiterung bleibt erhalten, bis Sie ihn leeren oder die Erweiterung entfernen; für die Chrome-Synchronisierung und Kopien auf anderen Geräten gelten die Einstellungen Ihres Chrome-Kontos. Das Entfernen der Erweiterung löscht nicht rückwirkend Protokolle der Anbieter oder bereits gesendete KI-Anfragen. Wenden Sie sich bei Anfragen zu Ihren Daten an uns, ohne zusätzliche sensible Informationen zu übermitteln.</p>
+    <h2 data-sec="contact">6. Links und Kontakt</h2>
+    <p>Die Erweiterung kann nach der Deinstallation ihre Feedbackseite öffnen oder eine Kontakt-, Datenschutz- oder Store-Seite, wenn Sie den entsprechenden Link wählen. Links zu ihren eigenen Seiten übermitteln die Version der Erweiterung und/oder die UI-Sprache, nicht Ihre Vokabeln. Öffentliche Webseiten nutzen ihre eigenen Hosting- und Schriftartenanbieter und können eine von der Erweiterung unabhängige Webanalyse verwenden.</p>
+    <p>Entwickler: Ramune. E-Mail: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Änderungen dieser Datenschutzerklärung werden hier mit neuem Datum veröffentlicht.</p>
+  </div>
+
+  <div class="container" data-lang="it" lang="it" dir="ltr">
+    <a href="index.html?lang=it" class="back">&larr; Torna a SubDuo</a>
+    <h1>Informativa sulla privacy di SubDuo</h1>
+    <p class="updated">Ultimo aggiornamento: 10 novembre 2026</p>
+    <p>Ramune (lo sviluppatore) fornisce SubDuo, un’estensione di Chrome per l’apprendimento delle lingue con i sottotitoli di Prime Video, YouTube, Netflix, Disney+ e TED.</p>
+    <div class="box"><p>La visualizzazione dei sottotitoli, la navigazione nella trascrizione e il ripasso del vocabolario avvengono nel browser dell’utente. La traduzione delle parole sul dispositivo utilizza il traduttore integrato di Chrome, se disponibile. <strong>Solo quando l’utente preme “Chiedi all’IA”</strong> l’espressione selezionata, il contesto dei sottotitoli e i codici lingua vengono inviati al nostro servizio di spiegazione. Tale richiesta utilizza inoltre un identificatore casuale del dispositivo e l’indirizzo IP della connessione per i limiti di utilizzo e il funzionamento del servizio.</p></div>
+    <h2 data-sec="device">1. Informazioni trattate sul dispositivo dell’utente</h2>
+    <ul>
+      <li>SubDuo legge le tracce dei sottotitoli del video in corso e scarica i file dei sottotitoli dai server di distribuzione del sito supportato. Utilizza le informazioni di riproduzione per sincronizzare i sottotitoli, mettere in pausa dopo una riga e navigare nella trascrizione. Non scarica né memorizza il video stesso.</li>
+      <li>Le impostazioni di visualizzazione, le lingue dei sottotitoli selezionate e la lingua della UI vengono salvate con <code>chrome.storage.sync</code>. Chrome può sincronizzare queste impostazioni tra i dispositivi dell’utente in base alle impostazioni del suo account Chrome; lo sviluppatore non le riceve.</li>
+      <li>Il vocabolario che l’utente sceglie di salvare viene memorizzato in <code>chrome.storage.local</code>: l’espressione, il relativo contesto dei sottotitoli, traduzioni o spiegazioni, lingue dei sottotitoli, titolo e URL di origine, posizione di riproduzione, data e avanzamento del ripasso. Questi dati non vengono caricati come raccolta di vocabolario.</li>
+      <li>I registri diagnostici locali possono contenere identificatori dei video, lo stato di riproduzione e di layout, informazioni sulle lingue dei sottotitoli e brevi frammenti di testo. Servono a indagare problemi di visualizzazione e non vengono inviati automaticamente allo sviluppatore.</li>
+      <li>Il traduttore integrato di Chrome elabora le parole sul dispositivo, ove supportato. Chrome può scaricare pacchetti lingua. SubDuo non invia queste richieste di traduzione al proprio servizio di spiegazione.</li>
+      <li>La riproduzione della pronuncia (🔊) utilizza le voci disponibili per la sintesi vocale di Chrome. SubDuo non invia questo testo al proprio servizio di spiegazione. Se Chrome utilizza una voce fornita online da Google, Google tratta il testo secondo i propri termini.</li>
+    </ul>
+    <h2 data-sec="ai">2. Spiegazioni facoltative tramite IA</h2>
+    <p>Premendo “Chiedi all’IA” viene inviata una richiesta HTTPS a <code>subduo-explain.warload57.workers.dev</code>, ospitato su Cloudflare. La richiesta contiene l’espressione selezionata (fino a 200 caratteri), la relativa riga di sottotitolo e la riga nell’altra lingua in quel momento (fino a 1.000 caratteri ciascuna), i rispettivi codici lingua, la lingua della spiegazione e un identificatore casuale di installazione. La connessione di rete rivela inoltre l’indirizzo IP da cui proviene la richiesta.</p>
+    <p>Il Cloudflare Worker inoltra l’espressione, il contesto dei sottotitoli e le istruzioni sulla lingua all’API di OpenAI per generare la spiegazione. L’identificatore di installazione e l’indirizzo IP di provenienza non sono inclusi nel prompt inviato all’IA. La richiesta non contiene le credenziali dell’account dell’utente, la raccolta di vocabolario salvata, le impostazioni di visualizzazione, l’URL della pagina di origine né la cronologia di visione. Si raccomanda di non selezionare informazioni personali sensibili per una richiesta all’IA.</p>
+    <h2 data-sec="use">3. Finalità, fornitori e conservazione</h2>
+    <ul>
+      <li>Le informazioni sono utilizzate per mostrare i sottotitoli, fornire la spiegazione delle parole richiesta dall’utente, salvare e ripassare il vocabolario, applicare il limite giornaliero dell’IA e diagnosticare i malfunzionamenti del servizio. SubDuo non contiene pubblicità né strumenti di analisi comportamentale e non vende i dati degli utenti.</li>
+      <li>Il Worker non scrive le espressioni o le righe di sottotitolo inviate nei propri log applicativi né nel database per la limitazione delle richieste. Il record di limitazione contiene un conteggio giornaliero associato all’identificatore casuale (o all’indirizzo IP, se non è disponibile alcun identificatore) e scade 24 ore dopo l’ultimo aggiornamento.</li>
+      <li>I log applicativi operativi contengono indirizzo IP, ora della richiesta, esito, numero di richieste del giorno, codici lingua e informazioni sull’utilizzo dei token. Cloudflare Workers Logs conserva attualmente i log per un massimo di sette giorni a seconda del piano di servizio; il trattamento effettuato da Cloudflare per il proprio servizio e la sicurezza è inoltre soggetto alla <a href="https://www.cloudflare.com/privacypolicy/">sua informativa sulla privacy</a>.</li>
+      <li>L’attuale richiesta a OpenAI non disattiva la memorizzazione predefinita delle risposte. La Responses API di OpenAI conserva normalmente i dati delle risposte per almeno 30 giorni; le impostazioni dell’account del fornitore e le eccezioni alla conservazione possono modificare tale periodo. In base alla politica standard dell’API di OpenAI, i dati dell’API non vengono utilizzati per l’addestramento dei modelli, salvo adesione esplicita del titolare dell’account API. Per conservazione, eccezioni e politica di addestramento, consultare i <a href="https://developers.openai.com/api/docs/guides/your-data">controlli dei dati dell’API di OpenAI</a>.</li>
+    </ul>
+    <h2 data-sec="perm">4. Permessi</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: salvataggio di impostazioni, vocabolario e avanzamento del ripasso, dati diagnostici locali e identificatore casuale di installazione.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: ricollegamento dell’estensione alle schede supportate già aperte dopo l’installazione o un aggiornamento.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: visualizzazione della trascrizione del video in corso quando l’utente la apre, con comandi per passare a una riga di sottotitolo.</li>
+      <li data-perm="host"><strong>Accesso ai siti</strong>: i domini supportati di Prime Video/Amazon, YouTube, Netflix, Disney+ e TED, per rilevare e recuperare le tracce dei sottotitoli e controllare la riproduzione relativa ai sottotitoli. SubDuo non viene eseguito su siti web non pertinenti.</li>
+    </ul>
+    <p>SubDuo non richiede il permesso di accesso alla cronologia di Chrome né l’accesso a fotocamera, microfono o appunti. Il titolo e l’URL di origine salvati con una voce del vocabolario sono dati locali relativi al video supportato e non costituiscono una raccolta della cronologia di navigazione generale dell’utente.</p>
+    <h2 data-sec="choices">5. Scelte dell’utente e cancellazione</h2>
+    <p>È possibile utilizzare i sottotitoli doppi, la traduzione sul dispositivo, la navigazione nella trascrizione e il ripasso del vocabolario senza premere “Chiedi all’IA”. È possibile eliminare singole voci del vocabolario o svuotare l’intero vocabolario. I dati memorizzati dall’estensione restano finché l’utente non li cancella o non rimuove l’estensione; la sincronizzazione di Chrome e le copie su altri dispositivi seguono le impostazioni dell’account Chrome dell’utente. La rimozione dell’estensione non elimina retroattivamente i log dei fornitori né le richieste all’IA già inviate. Per richieste relative ai dati è possibile contattarci, senza inviare ulteriori informazioni sensibili.</p>
+    <h2 data-sec="contact">6. Link e contatti</h2>
+    <p>L’estensione può aprire la propria pagina di feedback dopo la disinstallazione, oppure una pagina di contatto, sulla privacy o dello store quando l’utente sceglie il link corrispondente. I link alle sue pagine trasmettono la versione dell’estensione e/o la lingua della UI, non il vocabolario dell’utente. Le pagine web pubbliche si avvalgono dei propri fornitori di hosting e di font e possono utilizzare strumenti di analisi web distinti dall’estensione.</p>
+    <p>Sviluppatore: Ramune. Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Gli aggiornamenti della presente informativa vengono pubblicati in questa pagina con una nuova data.</p>
+  </div>
+
+  <div class="container" data-lang="pt" lang="pt-BR" dir="ltr">
+    <a href="index.html?lang=pt" class="back">&larr; Voltar para o SubDuo</a>
+    <h1>Política de privacidade do SubDuo</h1>
+    <p class="updated">Última atualização: 10 de novembro de 2026</p>
+    <p>Ramune (o desenvolvedor) oferece o SubDuo, uma extensão do Chrome para aprender idiomas com legendas no Prime Video, YouTube, Netflix, Disney+ e TED.</p>
+    <div class="box"><p>A exibição de legendas, a navegação pela transcrição e a revisão do vocabulário funcionam no seu navegador. A tradução de palavras no dispositivo usa o tradutor integrado do Chrome, quando disponível. <strong>Somente quando você clica em “Perguntar à IA”</strong> a expressão selecionada, o contexto das legendas e os códigos de idioma são enviados ao nosso serviço de explicações. Essa solicitação também usa um identificador aleatório do dispositivo e o endereço IP da conexão para os limites de uso e a operação do serviço.</p></div>
+    <h2 data-sec="device">1. Informações tratadas no seu dispositivo</h2>
+    <ul>
+      <li>O SubDuo lê as faixas de legenda do vídeo atual e baixa os arquivos de legenda dos servidores de distribuição do site compatível. Ele usa as informações de reprodução para sincronizar as legendas, pausar ao fim de uma linha e navegar pela transcrição. Ele não baixa nem armazena o próprio vídeo.</li>
+      <li>As configurações de exibição, os idiomas de legenda selecionados e o idioma da UI são salvos com <code>chrome.storage.sync</code>. O Chrome pode sincronizar essas configurações entre seus dispositivos de acordo com as configurações da sua conta do Chrome; o desenvolvedor não as recebe.</li>
+      <li>O vocabulário que você opta por salvar é armazenado em <code>chrome.storage.local</code>: a expressão, seu contexto de legendas, traduções ou explicações, idiomas de legenda, título e URL de origem, posição de reprodução, data e progresso de revisão. Esses registros não são enviados como uma coleção de vocabulário.</li>
+      <li>Os registros de diagnóstico locais podem conter identificadores de vídeo, estado de reprodução e de layout, informações sobre idiomas de legenda e pequenos trechos de texto. Eles ajudam a investigar problemas de exibição e não são enviados automaticamente ao desenvolvedor.</li>
+      <li>O tradutor integrado do Chrome processa palavras no seu dispositivo, quando houver suporte. O Chrome pode baixar pacotes de idioma. O SubDuo não envia essas solicitações de tradução ao seu serviço de explicações.</li>
+      <li>A reprodução da pronúncia (🔊) usa as vozes disponíveis para a síntese de voz do Chrome. O SubDuo não envia esse texto ao seu serviço de explicações. Se o Chrome usar uma voz fornecida on-line pelo Google, o Google processará o texto de acordo com os próprios termos.</li>
+    </ul>
+    <h2 data-sec="ai">2. Explicações opcionais por IA</h2>
+    <p>Clicar em “Perguntar à IA” envia uma solicitação HTTPS para <code>subduo-explain.warload57.workers.dev</code>, hospedado na Cloudflare. A solicitação contém a expressão selecionada (até 200 caracteres), sua linha de legenda e a linha do outro idioma naquele momento (até 1.000 caracteres cada), seus códigos de idioma, o idioma da explicação e um identificador aleatório de instalação. A conexão de rede também revela o endereço IP de origem da solicitação.</p>
+    <p>O Cloudflare Worker encaminha a expressão, o contexto das legendas e as instruções de idioma à API da OpenAI para gerar a explicação. O identificador de instalação e o endereço IP de origem não são incluídos no prompt enviado à IA. A solicitação não contém as credenciais da sua conta, sua coleção de vocabulário salva, as configurações de exibição, a URL da página de origem nem seu histórico de visualização. Não selecione informações pessoais sensíveis para uma solicitação à IA.</p>
+    <h2 data-sec="use">3. Finalidades, provedores e retenção</h2>
+    <ul>
+      <li>As informações são usadas para exibir legendas, fornecer a explicação de palavras que você solicitou, salvar e revisar vocabulário, aplicar o limite diário de IA e diagnosticar falhas do serviço. O SubDuo não contém publicidade nem análise comportamental e não vende dados de usuários.</li>
+      <li>O Worker não grava as expressões nem as linhas de legenda enviadas em seus logs de aplicação ou em seu banco de dados de limite de solicitações. O registro de limite contém uma contagem diária vinculada ao identificador aleatório (ou ao endereço IP, se nenhum identificador estiver disponível) e expira 24 horas após sua última atualização.</li>
+      <li>Os logs operacionais da aplicação contêm endereço IP, horário da solicitação, resultado, número de solicitações do dia, códigos de idioma e informações sobre uso de tokens. Atualmente, o Cloudflare Workers Logs retém logs por até sete dias, dependendo do plano de serviço; o tratamento realizado pela Cloudflare para seu serviço e sua segurança também está sujeito à <a href="https://www.cloudflare.com/privacypolicy/">política de privacidade dela</a>.</li>
+      <li>A solicitação atual à OpenAI não desativa o armazenamento padrão de respostas. A Responses API da OpenAI normalmente retém os dados de resposta por pelo menos 30 dias; os controles da conta do provedor e as exceções de retenção podem alterar isso. A política padrão da API da OpenAI não usa dados da API para treinar modelos, a menos que o titular da conta da API opte expressamente por isso. Consulte os <a href="https://developers.openai.com/api/docs/guides/your-data">controles de dados da API da OpenAI</a> para saber sobre retenção, exceções e política de treinamento.</li>
+    </ul>
+    <h2 data-sec="perm">4. Permissões</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: salvar configurações, vocabulário e progresso de revisão, diagnósticos locais e o identificador aleatório de instalação.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: reconectar a extensão às abas compatíveis já abertas após a instalação ou uma atualização.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: exibir a transcrição do vídeo atual quando você a abre, com controles para ir até uma linha de legenda.</li>
+      <li data-perm="host"><strong>Acesso aos sites</strong>: os domínios compatíveis do Prime Video/Amazon, YouTube, Netflix, Disney+ e TED, para detectar e obter faixas de legenda e controlar a reprodução relacionada às legendas. O SubDuo não é executado em sites não relacionados.</li>
+    </ul>
+    <p>O SubDuo não solicita a permissão de histórico do Chrome nem acesso à câmera, ao microfone ou à área de transferência. O título e a URL de origem salvos com um item de vocabulário são dados locais do vídeo compatível, e não uma coleta do seu histórico de navegação geral.</p>
+    <h2 data-sec="choices">5. Suas escolhas e exclusão</h2>
+    <p>Você pode usar legendas duplas, tradução no dispositivo, navegação pela transcrição e revisão do vocabulário sem clicar em “Perguntar à IA”. Você pode excluir itens de vocabulário individualmente ou limpar todo o vocabulário. O armazenamento da extensão permanece até que você o limpe ou remova a extensão; a sincronização do Chrome e as cópias em outros dispositivos seguem as configurações da sua conta do Chrome. Remover a extensão não exclui retroativamente os logs dos provedores nem as solicitações à IA já enviadas. Entre em contato conosco sobre solicitações relativas a dados sem enviar informações sensíveis adicionais.</p>
+    <h2 data-sec="contact">6. Links e contato</h2>
+    <p>A extensão pode abrir sua página de feedback após a desinstalação, ou uma página de contato, de privacidade ou da loja quando você escolhe o link correspondente. Os links para as próprias páginas da extensão transmitem a versão da extensão e/ou o idioma da UI, não o seu vocabulário. As páginas web públicas usam seus próprios provedores de hospedagem e de fontes e podem ter análise web separada da extensão.</p>
+    <p>Desenvolvedor: Ramune. E-mail: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. As atualizações desta política são publicadas aqui com uma nova data.</p>
+  </div>
+
+  <div class="container" data-lang="ru" lang="ru" dir="ltr">
+    <a href="index.html?lang=ru" class="back">&larr; Назад к SubDuo</a>
+    <h1>Политика конфиденциальности SubDuo</h1>
+    <p class="updated">Последнее обновление: 10 ноября 2026 г.</p>
+    <p>Ramune (разработчик) предоставляет SubDuo — расширение Chrome для изучения языков с помощью субтитров на Prime Video, YouTube, Netflix, Disney+ и TED.</p>
+    <div class="box"><p>Отображение субтитров, навигация по расшифровке и повторение слов из словаря работают в вашем браузере. Для перевода слов на устройстве используется встроенный переводчик Chrome, если он доступен. <strong>Только при нажатии «Спросить ИИ»</strong> выбранное выражение, контекст субтитров и коды языков отправляются в наш сервис объяснений. В этом запросе также используются случайный идентификатор устройства и IP-адрес подключения — для соблюдения лимитов использования и обеспечения работы сервиса.</p></div>
+    <h2 data-sec="device">1. Информация, обрабатываемая на вашем устройстве</h2>
+    <ul>
+      <li>SubDuo считывает дорожки субтитров текущего видео и загружает файлы субтитров с серверов доставки поддерживаемого сайта. Данные о воспроизведении используются для синхронизации субтитров, паузы после реплики и навигации по расшифровке. Само видео не загружается и не сохраняется.</li>
+      <li>Настройки отображения, выбранные языки субтитров и язык UI сохраняются с помощью <code>chrome.storage.sync</code>. Chrome может синхронизировать эти настройки между вашими устройствами в соответствии с настройками вашего аккаунта Chrome; разработчик их не получает.</li>
+      <li>Слова и выражения, которые вы решили сохранить в словарь, хранятся в <code>chrome.storage.local</code>: выражение, его контекст в субтитрах, переводы или объяснения, языки субтитров, название и URL источника, позиция воспроизведения, дата и прогресс повторения. Эти записи не выгружаются в виде словарной коллекции.</li>
+      <li>Локальные диагностические записи могут содержать идентификаторы видео, состояние воспроизведения и разметки, сведения о языках субтитров и короткие фрагменты текста. Они помогают расследовать проблемы с отображением и не отправляются разработчику автоматически.</li>
+      <li>Встроенный переводчик Chrome обрабатывает слова на вашем устройстве, если это поддерживается. Chrome может загружать языковые пакеты. SubDuo не отправляет эти запросы на перевод в свой сервис объяснений.</li>
+      <li>Для воспроизведения произношения (🔊) используются голоса, доступные синтезу речи Chrome. SubDuo не отправляет этот текст в свой сервис объяснений. Если Chrome использует голос, предоставляемый Google онлайн, Google обрабатывает текст в соответствии со своими условиями.</li>
+    </ul>
+    <h2 data-sec="ai">2. Необязательные объяснения ИИ</h2>
+    <p>При нажатии «Спросить ИИ» отправляется HTTPS-запрос на <code>subduo-explain.warload57.workers.dev</code>, размещённый на Cloudflare. Запрос содержит выбранное выражение (до 200 символов), строку субтитров с ним и строку на другом языке в тот же момент (каждая до 1000 символов), их коды языков, язык объяснения и случайный идентификатор установки. Сетевое подключение также раскрывает IP-адрес, с которого отправлен запрос.</p>
+    <p>Cloudflare Worker передаёт выражение, контекст субтитров и языковые инструкции в API OpenAI для создания объяснения. Идентификатор установки и IP-адрес, с которого отправлен запрос, не включаются в промпт для ИИ. Запрос не содержит учётных данных вашего аккаунта, сохранённой словарной коллекции, настроек отображения, URL исходной страницы или истории просмотра. Не выбирайте для запроса к ИИ конфиденциальную личную информацию.</p>
+    <h2 data-sec="use">3. Цели, поставщики услуг и сроки хранения</h2>
+    <ul>
+      <li>Информация используется для показа субтитров, предоставления запрошенного вами объяснения слова, сохранения и повторения слов из словаря, соблюдения дневного лимита ИИ и диагностики сбоев сервиса. SubDuo не содержит рекламы или поведенческой аналитики и не продаёт пользовательские данные.</li>
+      <li>Worker не записывает отправленные выражения или строки субтитров в журналы приложения или базу данных ограничения частоты запросов. Запись об ограничении содержит дневной счётчик, привязанный к случайному идентификатору (или к IP-адресу, если идентификатор недоступен), и истекает через 24 часа после последнего обновления.</li>
+      <li>Эксплуатационные журналы приложения содержат IP-адрес, время запроса, результат, число запросов за день, коды языков и сведения об использовании токенов. Cloudflare Workers Logs в настоящее время хранит журналы до семи дней в зависимости от тарифного плана; обработка данных самой Cloudflare в целях предоставления услуг и обеспечения безопасности также регулируется <a href="https://www.cloudflare.com/privacypolicy/">её политикой конфиденциальности</a>.</li>
+      <li>Текущий запрос к OpenAI не отключает хранение ответов по умолчанию. Responses API компании OpenAI обычно хранит данные ответов не менее 30 дней; настройки аккаунта у поставщика и исключения из правил хранения могут это изменить. Согласно стандартной политике API OpenAI, данные API не используются для обучения моделей, если владелец аккаунта API не дал на это согласия. Сроки хранения, исключения и политика обучения описаны на странице <a href="https://developers.openai.com/api/docs/guides/your-data">«Управление данными API OpenAI»</a>.</li>
+    </ul>
+    <h2 data-sec="perm">4. Разрешения</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: сохранение настроек, словаря и прогресса повторения, локальной диагностики и случайного идентификатора установки.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: повторное подключение расширения к уже открытым вкладкам поддерживаемых сайтов после установки или обновления.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: показ расшифровки текущего видео, когда вы её открываете, с элементами управления для перехода к строке субтитров.</li>
+      <li data-perm="host"><strong>Доступ к сайтам</strong>: поддерживаемые домены Prime Video/Amazon, YouTube, Netflix, Disney+ и TED — для обнаружения и получения дорожек субтитров и управления воспроизведением в части, связанной с субтитрами. SubDuo не работает на посторонних сайтах.</li>
+    </ul>
+    <p>SubDuo не запрашивает разрешение Chrome на доступ к истории, а также доступ к камере, микрофону или буферу обмена. Название/URL источника, сохранённые вместе со словарной записью, — это локальные данные о поддерживаемом видео, а не сбор вашей общей истории браузера.</p>
+    <h2 data-sec="choices">5. Ваш выбор и удаление данных</h2>
+    <p>Вы можете пользоваться двойными субтитрами, переводом на устройстве, навигацией по расшифровке и повторением слов из словаря, не нажимая «Спросить ИИ». Вы можете удалять отдельные записи словаря или очистить весь словарь. Данные в хранилище расширения сохраняются, пока вы их не очистите или не удалите расширение; синхронизация Chrome и копии на других устройствах подчиняются настройкам вашего аккаунта Chrome. Удаление расширения не удаляет задним числом журналы поставщиков услуг или уже отправленные запросы к ИИ. Обращаясь к нам с запросом, касающимся данных, не отправляйте дополнительную конфиденциальную информацию.</p>
+    <h2 data-sec="contact">6. Ссылки и контакты</h2>
+    <p>После удаления расширение может открыть свою страницу обратной связи, а также страницу контактов, политики конфиденциальности или магазина, когда вы выбираете соответствующую ссылку. Ссылки на его собственные страницы передают версию расширения и/или язык UI, но не ваш словарь. Публичные веб-страницы используют своих поставщиков хостинга и шрифтов и могут применять веб-аналитику, не связанную с расширением.</p>
+    <p>Разработчик: Ramune. Эл. почта: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Изменения этой политики публикуются здесь с указанием новой даты.</p>
+  </div>
+
+  <div class="container" data-lang="hi" lang="hi" dir="ltr">
+    <a href="index.html?lang=hi" class="back">&larr; SubDuo पर वापस जाएँ</a>
+    <h1>SubDuo गोपनीयता नीति</h1>
+    <p class="updated">अंतिम अपडेट: 10 नवंबर 2026</p>
+    <p>Ramune (डेवलपर) SubDuo प्रदान करता है, जो Prime Video, YouTube, Netflix, Disney+ और TED पर सबटाइटल के साथ भाषा सीखने के लिए एक Chrome एक्सटेंशन है।</p>
+    <div class="box"><p>सबटाइटल दिखाना, ट्रांसक्रिप्ट में नेविगेशन और शब्दकोश का दोहराव आपके ब्राउज़र में काम करते हैं। उपलब्ध होने पर, डिवाइस पर शब्द-अनुवाद के लिए Chrome के अंतर्निहित अनुवादक का उपयोग किया जाता है। <strong>केवल “AI से पूछें” दबाने पर</strong> चुना हुआ वाक्यांश, सबटाइटल का संदर्भ और भाषा कोड हमारी व्याख्या सेवा को भेजे जाते हैं। उपयोग-सीमाओं और सेवा संचालन के लिए उस अनुरोध में डिवाइस का यादृच्छिक पहचानकर्ता और कनेक्शन का IP पता भी उपयोग किया जाता है।</p></div>
+    <h2 data-sec="device">1. आपके डिवाइस पर संभाली जाने वाली जानकारी</h2>
+    <ul>
+      <li>SubDuo वर्तमान वीडियो के सबटाइटल ट्रैक पढ़ता है और समर्थित साइट के डिलीवरी सर्वर से सबटाइटल फ़ाइलें डाउनलोड करता है। यह प्लेबैक जानकारी का उपयोग सबटाइटल को समय से मिलाने, किसी पंक्ति के बाद रोकने और ट्रांसक्रिप्ट में नेविगेट करने के लिए करता है। यह वीडियो को स्वयं डाउनलोड या संग्रहीत नहीं करता।</li>
+      <li>डिस्प्ले सेटिंग, चुनी गई सबटाइटल भाषाएँ और UI भाषा <code>chrome.storage.sync</code> के साथ सहेजी जाती हैं। Chrome आपकी Chrome खाता सेटिंग के अनुसार इन सेटिंग को आपके डिवाइसों के बीच सिंक कर सकता है; डेवलपर इन्हें प्राप्त नहीं करता।</li>
+      <li>आप जिन शब्दों को सहेजना चुनते हैं, वे <code>chrome.storage.local</code> में संग्रहीत होते हैं: वाक्यांश, उसका सबटाइटल संदर्भ, अनुवाद या व्याख्याएँ, सबटाइटल भाषाएँ, स्रोत का शीर्षक और URL, प्लेबैक स्थिति, तारीख और दोहराव की प्रगति। ये रिकॉर्ड शब्दकोश संग्रह के रूप में अपलोड नहीं किए जाते।</li>
+      <li>स्थानीय निदान रिकॉर्ड में वीडियो पहचानकर्ता, प्लेबैक और लेआउट की स्थिति, सबटाइटल भाषा की जानकारी और छोटे टेक्स्ट अंश हो सकते हैं। ये डिस्प्ले से जुड़ी समस्याओं की जाँच में मदद करते हैं और डेवलपर को अपने-आप नहीं भेजे जाते।</li>
+      <li>समर्थित होने पर Chrome का अंतर्निहित अनुवादक आपके डिवाइस पर शब्दों को प्रोसेस करता है। Chrome भाषा पैक डाउनलोड कर सकता है। SubDuo इन अनुवाद अनुरोधों को अपनी व्याख्या सेवा को नहीं भेजता।</li>
+      <li>उच्चारण प्लेबैक (🔊) Chrome के स्पीच सिंथेसिस में उपलब्ध आवाज़ों का उपयोग करता है। SubDuo यह टेक्स्ट अपनी व्याख्या सेवा को नहीं भेजता। यदि Chrome, Google द्वारा ऑनलाइन प्रदान की जाने वाली किसी आवाज़ का उपयोग करता है, तो Google उस टेक्स्ट को अपनी शर्तों के अनुसार प्रोसेस करता है।</li>
+    </ul>
+    <h2 data-sec="ai">2. वैकल्पिक AI व्याख्याएँ</h2>
+    <p>“AI से पूछें” दबाने पर Cloudflare पर होस्ट किए गए <code>subduo-explain.warload57.workers.dev</code> को एक HTTPS अनुरोध भेजा जाता है। इस अनुरोध में चुना हुआ वाक्यांश (अधिकतम 200 अक्षर), उसकी सबटाइटल पंक्ति और उसी क्षण की दूसरी भाषा की पंक्ति (प्रत्येक अधिकतम 1,000 अक्षर), उनके भाषा कोड, व्याख्या की भाषा और इंस्टॉलेशन का एक यादृच्छिक पहचानकर्ता शामिल होता है। नेटवर्क कनेक्शन से अनुरोध करने वाला IP पता भी प्रकट होता है।</p>
+    <p>Cloudflare Worker व्याख्या तैयार करने के लिए वाक्यांश, सबटाइटल का संदर्भ और भाषा संबंधी निर्देश OpenAI के API को भेजता है। इंस्टॉलेशन पहचानकर्ता और अनुरोध करने वाला IP पता AI प्रॉम्प्ट में शामिल नहीं किए जाते। अनुरोध में आपके खाते के क्रेडेंशियल, सहेजा गया शब्दकोश संग्रह, डिस्प्ले सेटिंग, स्रोत पेज का URL या देखने का इतिहास शामिल नहीं होता। AI अनुरोध के लिए संवेदनशील व्यक्तिगत जानकारी न चुनें।</p>
+    <h2 data-sec="use">3. उद्देश्य, सेवा प्रदाता और प्रतिधारण अवधि</h2>
+    <ul>
+      <li>जानकारी का उपयोग सबटाइटल दिखाने, आपके द्वारा माँगी गई शब्द-व्याख्या देने, शब्दकोश सहेजने और दोहराने, दैनिक AI सीमा लागू करने और सेवा की विफलताओं का निदान करने के लिए किया जाता है। SubDuo में कोई विज्ञापन या व्यवहार-संबंधी एनालिटिक्स नहीं है और यह उपयोगकर्ता डेटा नहीं बेचता।</li>
+      <li>Worker भेजे गए वाक्यांशों या सबटाइटल पंक्तियों को अपने एप्लिकेशन लॉग या दर-सीमा डेटाबेस में नहीं लिखता। दर-सीमा रिकॉर्ड में यादृच्छिक पहचानकर्ता (या पहचानकर्ता उपलब्ध न होने पर IP पते) से जुड़ी एक दैनिक गिनती होती है, और यह अंतिम अपडेट के 24 घंटे बाद समाप्त हो जाता है।</li>
+      <li>परिचालन एप्लिकेशन लॉग में IP पता, अनुरोध का समय, परिणाम, उस दिन के अनुरोधों की संख्या, भाषा कोड और टोकन उपयोग की जानकारी होती है। Cloudflare Workers Logs वर्तमान में सेवा प्लान के आधार पर लॉग को अधिकतम सात दिनों तक रखता है; सेवा और सुरक्षा के लिए Cloudflare द्वारा किया जाने वाला प्रसंस्करण <a href="https://www.cloudflare.com/privacypolicy/">उसकी गोपनीयता नीति</a> के अधीन भी है।</li>
+      <li>OpenAI को भेजा जाने वाला वर्तमान अनुरोध डिफ़ॉल्ट रिस्पॉन्स संग्रहण को बंद नहीं करता। OpenAI का Responses API सामान्यतः रिस्पॉन्स डेटा को कम से कम 30 दिनों तक रखता है; प्रदाता की खाता सेटिंग और प्रतिधारण के अपवाद इसे बदल सकते हैं। OpenAI की मानक API नीति के अनुसार, जब तक API खाते का स्वामी सहमति (ऑप्ट-इन) न दे, API डेटा का उपयोग मॉडल प्रशिक्षण के लिए नहीं किया जाता। प्रतिधारण, अपवादों और प्रशिक्षण नीति के लिए <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI के API डेटा नियंत्रण</a> देखें।</li>
+    </ul>
+    <h2 data-sec="perm">4. अनुमतियाँ</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: सेटिंग, शब्दकोश और दोहराव की प्रगति, स्थानीय निदान रिकॉर्ड और इंस्टॉलेशन के यादृच्छिक पहचानकर्ता को सहेजना।</li>
+      <li data-perm="scripting"><strong>scripting</strong>: इंस्टॉलेशन या अपडेट के बाद एक्सटेंशन को पहले से खुले समर्थित टैब से फिर से जोड़ना।</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: आपके खोलने पर वर्तमान वीडियो का ट्रांसक्रिप्ट दिखाना, साथ में किसी सबटाइटल पंक्ति पर जाने के नियंत्रण।</li>
+      <li data-perm="host"><strong>साइट एक्सेस</strong>: समर्थित Prime Video/Amazon डोमेन, YouTube, Netflix, Disney+ और TED — सबटाइटल ट्रैक का पता लगाने और प्राप्त करने तथा सबटाइटल से जुड़े प्लेबैक को नियंत्रित करने के लिए। SubDuo असंबंधित वेबसाइटों पर नहीं चलता।</li>
+    </ul>
+    <p>SubDuo, Chrome की इतिहास (history) अनुमति या कैमरा, माइक्रोफ़ोन अथवा क्लिपबोर्ड एक्सेस का अनुरोध नहीं करता। शब्दकोश प्रविष्टि के साथ सहेजा गया स्रोत शीर्षक/URL समर्थित वीडियो से जुड़ा स्थानीय डेटा है, न कि आपके सामान्य ब्राउज़िंग इतिहास का संग्रह।</p>
+    <h2 data-sec="choices">5. आपके विकल्प और डेटा हटाना</h2>
+    <p>आप “AI से पूछें” दबाए बिना दोहरे सबटाइटल, डिवाइस पर अनुवाद, ट्रांसक्रिप्ट नेविगेशन और शब्दकोश दोहराव का उपयोग कर सकते हैं। आप शब्दकोश की अलग-अलग प्रविष्टियाँ हटा सकते हैं या पूरी शब्दकोश सूची साफ़ कर सकते हैं। एक्सटेंशन का संग्रहीत डेटा तब तक बना रहता है जब तक आप उसे साफ़ नहीं करते या एक्सटेंशन को हटा नहीं देते; Chrome सिंक और अन्य डिवाइसों पर मौजूद प्रतियाँ आपकी Chrome खाता सेटिंग के अनुसार चलती हैं। एक्सटेंशन हटाने से प्रदाताओं के लॉग या पहले से भेजे गए AI अनुरोध पूर्वव्यापी रूप से नहीं हटते। डेटा संबंधी अनुरोध के लिए हमसे संपर्क करते समय अतिरिक्त संवेदनशील जानकारी न भेजें।</p>
+    <h2 data-sec="contact">6. लिंक और संपर्क</h2>
+    <p>अनइंस्टॉल के बाद एक्सटेंशन अपना फ़ीडबैक पेज खोल सकता है, या जब आप संबंधित लिंक चुनते हैं तो संपर्क, गोपनीयता या स्टोर पेज खोल सकता है। इसके अपने पेजों के लिंक एक्सटेंशन का संस्करण और/या UI भाषा भेजते हैं, आपका शब्दकोश नहीं। सार्वजनिक वेब पेज अपने होस्टिंग और फ़ॉन्ट प्रदाताओं का उपयोग करते हैं और उनमें एक्सटेंशन से अलग वेब एनालिटिक्स हो सकता है।</p>
+    <p>डेवलपर: Ramune। ईमेल: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>। इस नीति में होने वाले बदलाव नई तारीख के साथ यहीं प्रकाशित किए जाते हैं।</p>
+  </div>
+
+  <div class="container" data-lang="id" lang="id" dir="ltr">
+    <a href="index.html?lang=id" class="back">&larr; Kembali ke SubDuo</a>
+    <h1>Kebijakan Privasi SubDuo</h1>
+    <p class="updated">Terakhir diperbarui: 10 November 2026</p>
+    <p>Ramune (pengembang) menyediakan SubDuo, ekstensi Chrome untuk belajar bahasa dengan takarir di Prime Video, YouTube, Netflix, Disney+, dan TED.</p>
+    <div class="box"><p>Tampilan takarir, navigasi transkrip, dan peninjauan kosakata berjalan di browser Anda. Terjemahan kata di perangkat menggunakan penerjemah bawaan Chrome jika tersedia. <strong>Hanya ketika Anda menekan “Tanya AI”</strong>, frasa pilihan, konteks takarir, dan kode bahasa dikirim ke layanan penjelasan kami. Permintaan tersebut juga menggunakan pengenal perangkat acak dan alamat IP koneksi untuk batas penggunaan dan operasional layanan.</p></div>
+    <h2 data-sec="device">1. Informasi yang ditangani di perangkat Anda</h2>
+    <ul>
+      <li>SubDuo membaca trek takarir video yang sedang diputar dan mengunduh file takarir dari server pengiriman situs yang didukung. SubDuo menggunakan informasi pemutaran untuk menyelaraskan takarir, menjeda setelah satu baris, dan menavigasi transkrip. SubDuo tidak mengunduh atau menyimpan video itu sendiri.</li>
+      <li>Pengaturan tampilan, bahasa takarir yang dipilih, dan bahasa UI disimpan dengan <code>chrome.storage.sync</code>. Chrome dapat menyinkronkan pengaturan ini di antara perangkat Anda sesuai dengan pengaturan akun Chrome Anda; pengembang tidak menerimanya.</li>
+      <li>Kosakata yang Anda pilih untuk disimpan tersimpan di <code>chrome.storage.local</code>: frasa, konteks takarirnya, terjemahan atau penjelasan, bahasa takarir, judul dan URL sumber, posisi pemutaran, tanggal, serta kemajuan peninjauan. Catatan ini tidak diunggah sebagai kumpulan kosakata.</li>
+      <li>Catatan diagnostik lokal dapat berisi pengenal video, status pemutaran dan tata letak, informasi bahasa takarir, dan cuplikan teks pendek. Catatan ini membantu menyelidiki masalah tampilan dan tidak dikirim secara otomatis ke pengembang.</li>
+      <li>Penerjemah bawaan Chrome memproses kata di perangkat Anda jika didukung. Chrome dapat mengunduh paket bahasa. SubDuo tidak mengirim permintaan terjemahan ini ke layanan penjelasannya.</li>
+      <li>Pemutaran pelafalan (🔊) menggunakan suara yang tersedia untuk sintesis ucapan Chrome. SubDuo tidak mengirim teks ini ke layanan penjelasannya. Jika Chrome menggunakan suara yang disediakan Google secara daring, Google memproses teks tersebut berdasarkan ketentuannya sendiri.</li>
+    </ul>
+    <h2 data-sec="ai">2. Penjelasan AI opsional</h2>
+    <p>Menekan “Tanya AI” akan mengirim permintaan HTTPS ke <code>subduo-explain.warload57.workers.dev</code> yang dihosting di Cloudflare. Permintaan tersebut berisi frasa pilihan (hingga 200 karakter), baris takarirnya dan baris bahasa lainnya pada saat itu (masing-masing hingga 1.000 karakter), kode bahasanya, bahasa penjelasan, dan pengenal instalasi acak. Koneksi jaringan juga mengungkapkan alamat IP yang mengirim permintaan.</p>
+    <p>Cloudflare Worker meneruskan frasa, konteks takarir, dan instruksi bahasa ke API OpenAI untuk menghasilkan penjelasan. Pengenal instalasi dan alamat IP pengirim permintaan tidak disertakan dalam prompt AI. Permintaan tersebut tidak berisi kredensial akun, kumpulan kosakata yang tersimpan, pengaturan tampilan, URL halaman sumber, atau riwayat tontonan Anda. Jangan memilih informasi pribadi yang sensitif untuk permintaan AI.</p>
+    <h2 data-sec="use">3. Tujuan, penyedia, dan retensi</h2>
+    <ul>
+      <li>Informasi digunakan untuk menampilkan takarir, memberikan penjelasan kata yang Anda minta, menyimpan dan meninjau kosakata, menerapkan batas harian AI, serta mendiagnosis kegagalan layanan. SubDuo tidak berisi iklan atau analitik perilaku dan tidak menjual data pengguna.</li>
+      <li>Worker tidak menuliskan frasa atau baris takarir yang dikirim ke log aplikasinya maupun basis data pembatasan laju. Catatan pembatasan laju berisi hitungan harian yang dikaitkan dengan pengenal acak (atau alamat IP jika pengenal tidak tersedia) dan kedaluwarsa 24 jam setelah pembaruan terakhirnya.</li>
+      <li>Log aplikasi operasional berisi alamat IP, waktu permintaan, hasil, jumlah permintaan hari itu, kode bahasa, dan informasi penggunaan token. Saat ini Cloudflare Workers Logs menyimpan log hingga tujuh hari, bergantung pada paket layanan; penanganan layanan dan keamanan oleh Cloudflare juga tunduk pada <a href="https://www.cloudflare.com/privacypolicy/">kebijakan privasi Cloudflare</a>.</li>
+      <li>Permintaan ke OpenAI saat ini tidak menonaktifkan penyimpanan respons bawaan. Responses API OpenAI biasanya menyimpan data respons setidaknya selama 30 hari; kontrol akun penyedia dan pengecualian retensi dapat mengubah hal ini. Kebijakan API standar OpenAI tidak menggunakan data API untuk pelatihan model kecuali pemilik akun API memilih ikut serta. Lihat <a href="https://developers.openai.com/api/docs/guides/your-data">kontrol data API OpenAI</a> untuk informasi retensi, pengecualian, dan kebijakan pelatihan.</li>
+    </ul>
+    <h2 data-sec="perm">4. Izin</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: menyimpan pengaturan, kosakata dan kemajuan peninjauan, diagnostik lokal, serta pengenal instalasi acak.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: menyambungkan kembali ekstensi ke tab yang didukung dan sudah terbuka setelah instalasi atau pembaruan.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: menampilkan transkrip video yang sedang diputar saat Anda membukanya, dengan kontrol untuk melompat ke baris takarir.</li>
+      <li data-perm="host"><strong>Akses situs</strong>: domain Prime Video/Amazon yang didukung, YouTube, Netflix, Disney+, dan TED, untuk mendeteksi dan mengambil trek takarir serta mengontrol pemutaran yang terkait dengan takarir. SubDuo tidak berjalan di situs web yang tidak terkait.</li>
+    </ul>
+    <p>SubDuo tidak meminta izin riwayat (history) Chrome, maupun akses kamera, mikrofon, atau papan klip. Judul/URL sumber yang disimpan bersama item kosakata adalah data lokal dari video yang didukung, bukan kumpulan riwayat penjelajahan umum Anda.</p>
+    <h2 data-sec="choices">5. Pilihan Anda dan penghapusan</h2>
+    <p>Anda dapat menggunakan takarir ganda, terjemahan di perangkat, navigasi transkrip, dan peninjauan kosakata tanpa menekan “Tanya AI”. Anda dapat menghapus entri kosakata satu per satu atau mengosongkan daftar kosakata. Penyimpanan ekstensi tetap ada sampai Anda mengosongkannya atau menghapus ekstensi; sinkronisasi Chrome dan salinan di perangkat lain mengikuti pengaturan akun Chrome Anda. Menghapus ekstensi tidak secara retroaktif menghapus log penyedia atau permintaan AI yang sudah terkirim. Hubungi kami terkait permintaan data tanpa mengirimkan informasi sensitif tambahan.</p>
+    <h2 data-sec="contact">6. Tautan dan kontak</h2>
+    <p>Ekstensi dapat membuka halaman masukannya setelah dicopot, atau halaman kontak, privasi, atau toko saat Anda memilih tautan yang sesuai. Tautan ke halaman milik ekstensi meneruskan versi ekstensi dan/atau bahasa UI, bukan kosakata Anda. Halaman web publik menggunakan penyedia hosting dan font masing-masing serta dapat memiliki analitik web yang terpisah dari ekstensi.</p>
+    <p>Pengembang: Ramune. Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Pembaruan kebijakan ini dipublikasikan di sini dengan tanggal baru.</p>
+  </div>
+
+  <div class="container" data-lang="ar" lang="ar" dir="rtl">
+    <a href="index.html?lang=ar" class="back">&rarr; العودة إلى SubDuo</a>
+    <h1>سياسة خصوصية SubDuo</h1>
+    <p class="updated">آخر تحديث: 10 نوفمبر 2026</p>
+    <p>يقدّم Ramune (المطوّر) إضافة SubDuo، وهي إضافة لمتصفح Chrome لتعلّم اللغات باستخدام الترجمة النصية على Prime Video وYouTube وNetflix وDisney+&lrm; وTED.</p>
+    <div class="box"><p>يعمل عرض الترجمة النصية والتنقل في نص الترجمة ومراجعة المفردات داخل متصفحك. وتستخدم ترجمة الكلمات على الجهاز المترجمَ المدمج في Chrome عند توفره. <strong>فقط عند الضغط على «اسأل الذكاء الاصطناعي»</strong> تُرسَل العبارة المختارة وسياق الترجمة ورموز اللغات إلى خدمة الشرح لدينا. ويستخدم هذا الطلب أيضًا معرّف جهاز عشوائيًا وعنوان IP الخاص بالاتصال لأغراض حدود الاستخدام وتشغيل الخدمة.</p></div>
+    <h2 data-sec="device">1. المعلومات التي تُعالَج على جهازك</h2>
+    <ul>
+      <li>تقرأ SubDuo مسارات الترجمة النصية للفيديو الحالي، وتنزّل ملفات الترجمة النصية من خوادم التوزيع الخاصة بالموقع المدعوم. وتستخدم معلومات التشغيل لمزامنة الترجمة النصية، والإيقاف المؤقت بعد السطر، والتنقل في نص الترجمة. ولا تنزّل الفيديو نفسه ولا تخزّنه.</li>
+      <li>تُحفَظ إعدادات العرض ولغات الترجمة النصية المختارة ولغة UI باستخدام <code>chrome.storage.sync</code>. وقد يزامن Chrome هذه الإعدادات بين أجهزتك وفقًا لإعدادات حسابك في Chrome؛ ولا يتلقاها المطوّر.</li>
+      <li>تُخزَّن المفردات التي تختار حفظها في <code>chrome.storage.local</code>: العبارة، وسياق الترجمة الخاص بها، والترجمات أو الشروح، ولغات الترجمة النصية، وعنوان المصدر وURL الخاص به، وموضع التشغيل، والتاريخ، وتقدّم المراجعة. ولا تُرفَع هذه السجلات بوصفها مجموعة مفردات.</li>
+      <li>قد تحتوي سجلات التشخيص المحلية على معرّفات الفيديو، وحالة التشغيل والتخطيط، ومعلومات لغة الترجمة النصية، ومقتطفات نصية قصيرة. وهي تساعد في التحقيق في مشكلات العرض، ولا تُرسَل إلى المطوّر تلقائيًا.</li>
+      <li>يعالج المترجم المدمج في Chrome الكلمات على جهازك عند دعم ذلك. وقد ينزّل Chrome حزم اللغات. ولا ترسل SubDuo طلبات الترجمة هذه إلى خدمة الشرح الخاصة بها.</li>
+      <li>يستخدم تشغيل النطق (🔊) الأصوات المتاحة لتركيب الكلام في Chrome. ولا ترسل SubDuo هذا النص إلى خدمة الشرح الخاصة بها. وإذا استخدم Chrome صوتًا توفّره Google عبر الإنترنت، فإن Google تعالج النص وفقًا لشروطها الخاصة.</li>
+    </ul>
+    <h2 data-sec="ai">2. شروح الذكاء الاصطناعي الاختيارية</h2>
+    <p>يؤدي الضغط على «اسأل الذكاء الاصطناعي» إلى إرسال طلب HTTPS إلى <code>subduo-explain.warload57.workers.dev</code> المستضاف على Cloudflare. ويحتوي الطلب على العبارة المختارة (حتى 200 حرف)، وسطر الترجمة النصية الذي وردت فيه وسطر اللغة الأخرى في اللحظة نفسها (حتى 1,000 حرف لكل منهما)، ورموز لغتيهما، ولغة الشرح، ومعرّف تثبيت عشوائي. كما يكشف اتصال الشبكة عن عنوان IP الذي صدر منه الطلب.</p>
+    <p>يمرّر Cloudflare Worker العبارة وسياق الترجمة وتعليمات اللغة إلى واجهة API الخاصة بـ OpenAI لإنشاء الشرح. ولا يُدرَج معرّف التثبيت ولا عنوان IP الذي صدر منه الطلب في موجّه الذكاء الاصطناعي. ولا يحتوي الطلب على بيانات اعتماد حسابك، أو مجموعة المفردات المحفوظة، أو إعدادات العرض، أو URL الصفحة المصدر، أو سجل المشاهدة. لا تختر معلومات شخصية حساسة لطلب الذكاء الاصطناعي.</p>
+    <h2 data-sec="use">3. الأغراض ومقدّمو الخدمات ومدة الاحتفاظ</h2>
+    <ul>
+      <li>تُستخدم المعلومات لعرض الترجمة النصية، وتقديم شرح الكلمة الذي طلبته، وحفظ المفردات ومراجعتها، وتطبيق الحد اليومي للذكاء الاصطناعي، وتشخيص أعطال الخدمة. ولا تحتوي SubDuo على إعلانات أو تحليلات سلوكية، ولا تبيع بيانات المستخدمين.</li>
+      <li>لا يكتب Worker العبارات المرسَلة أو أسطر الترجمة النصية في سجلات التطبيق أو في قاعدة بيانات تحديد معدّل الطلبات. ويحتوي سجل تحديد المعدّل على عدّاد يومي مرتبط بالمعرّف العشوائي (أو بعنوان IP إذا لم يتوفر معرّف)، وتنتهي صلاحيته بعد 24 ساعة من آخر تحديث له.</li>
+      <li>تحتوي سجلات التطبيق التشغيلية على عنوان IP، ووقت الطلب، ونتيجته، وعدد طلبات اليوم، ورموز اللغات، ومعلومات استخدام الرموز المميزة (tokens). ويحتفظ Cloudflare Workers Logs حاليًا بالسجلات لمدة تصل إلى سبعة أيام بحسب خطة الخدمة؛ كما تخضع معالجة Cloudflare المتعلقة بالخدمة والأمان <a href="https://www.cloudflare.com/privacypolicy/">لسياسة الخصوصية الخاصة بها</a>.</li>
+      <li>لا يعطّل طلب OpenAI الحالي التخزين الافتراضي للاستجابات. وتحتفظ Responses API من OpenAI عادةً ببيانات الاستجابة لمدة 30 يومًا على الأقل؛ وقد تغيّر إعدادات الحساب لدى مقدّم الخدمة واستثناءات الاحتفاظ ذلك. ووفقًا لسياسة API القياسية لدى OpenAI، لا تُستخدم بيانات API لتدريب النماذج ما لم يوافق مالك حساب API على ذلك. راجع <a href="https://developers.openai.com/api/docs/guides/your-data">عناصر التحكم في بيانات API لدى OpenAI</a> لمعرفة مدة الاحتفاظ والاستثناءات وسياسة التدريب.</li>
+    </ul>
+    <h2 data-sec="perm">4. الأذونات</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: حفظ الإعدادات والمفردات وتقدّم المراجعة وسجلات التشخيص المحلية ومعرّف التثبيت العشوائي.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: إعادة ربط الإضافة بعلامات التبويب المدعومة المفتوحة مسبقًا بعد التثبيت أو التحديث.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: عرض نص الترجمة للفيديو الحالي عند فتحه، مع عناصر تحكم للانتقال إلى سطر في الترجمة النصية.</li>
+      <li data-perm="host"><strong>الوصول إلى المواقع</strong>: نطاقات Prime Video/Amazon المدعومة وYouTube وNetflix وDisney+&lrm; وTED، لاكتشاف مسارات الترجمة النصية وجلبها والتحكم في التشغيل المرتبط بالترجمة النصية. ولا تعمل SubDuo على المواقع غير ذات الصلة.</li>
+    </ul>
+    <p>لا تطلب SubDuo إذن السجل (history) في Chrome، ولا الوصول إلى الكاميرا أو الميكروفون أو الحافظة. وعنوان المصدر/URL المحفوظ مع عنصر المفردات هو بيانات محلية من الفيديو المدعوم، وليس جمعًا لسجل تصفحك العام.</p>
+    <h2 data-sec="choices">5. خياراتك والحذف</h2>
+    <p>يمكنك استخدام الترجمة النصية المزدوجة والترجمة على الجهاز والتنقل في نص الترجمة ومراجعة المفردات دون الضغط على «اسأل الذكاء الاصطناعي». ويمكنك حذف عناصر مفردات فردية أو مسح قائمة المفردات بالكامل. وتبقى بيانات تخزين الإضافة إلى أن تمسحها أو تزيل الإضافة؛ وتخضع مزامنة Chrome والنسخ الموجودة على الأجهزة الأخرى لإعدادات حسابك في Chrome. ولا تؤدي إزالة الإضافة إلى حذف سجلات مقدّمي الخدمات أو طلبات الذكاء الاصطناعي المرسَلة مسبقًا بأثر رجعي. تواصل معنا بشأن أي طلب يتعلق بالبيانات دون إرسال معلومات حساسة إضافية.</p>
+    <h2 data-sec="contact">6. الروابط والتواصل</h2>
+    <p>قد تفتح الإضافة صفحة الملاحظات الخاصة بها بعد إلغاء التثبيت، أو صفحة التواصل أو الخصوصية أو المتجر عند اختيارك الرابط المقابل. وتمرّر روابط صفحاتها الخاصة إصدار الإضافة و/أو لغة UI، وليس مفرداتك. وتستخدم صفحات الويب العامة مزوّدي الاستضافة والخطوط الخاصين بها، وقد تتضمن تحليلات ويب منفصلة عن الإضافة.</p>
+    <p>المطوّر: Ramune. البريد الإلكتروني: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. تُنشر التحديثات على هذه السياسة هنا مع تاريخ جديد.</p>
+  </div>
+
+  <div class="container" data-lang="vi" lang="vi" dir="ltr">
+    <a href="index.html?lang=vi" class="back">&larr; Quay lại SubDuo</a>
+    <h1>Chính sách riêng tư của SubDuo</h1>
+    <p class="updated">Cập nhật lần cuối: ngày 10 tháng 11 năm 2026</p>
+    <p>Ramune (nhà phát triển) cung cấp SubDuo, một tiện ích Chrome hỗ trợ học ngoại ngữ bằng phụ đề trên Prime Video, YouTube, Netflix, Disney+ và TED.</p>
+    <div class="box"><p>Việc hiển thị phụ đề, điều hướng bản chép lời và ôn tập từ vựng hoạt động trong trình duyệt của bạn. Khi khả dụng, tính năng dịch từ trên thiết bị sử dụng trình dịch tích hợp của Chrome. <strong>Chỉ khi bạn nhấn “Hỏi AI”</strong>, cụm từ đã chọn, ngữ cảnh phụ đề và mã ngôn ngữ mới được gửi đến dịch vụ giải thích của chúng tôi. Yêu cầu đó cũng sử dụng mã thiết bị ngẫu nhiên và địa chỉ IP của kết nối để giới hạn mức sử dụng và vận hành dịch vụ.</p></div>
+    <h2 data-sec="device">1. Thông tin được xử lý trên thiết bị của bạn</h2>
+    <ul>
+      <li>SubDuo đọc các rãnh phụ đề của video hiện tại và tải tệp phụ đề xuống từ máy chủ phân phối của trang web được hỗ trợ. Tiện ích sử dụng thông tin phát lại để căn chỉnh phụ đề, tạm dừng sau một dòng và điều hướng bản chép lời. Tiện ích không tải xuống hay lưu trữ bản thân video.</li>
+      <li>Cài đặt hiển thị, ngôn ngữ phụ đề đã chọn và ngôn ngữ UI được lưu bằng <code>chrome.storage.sync</code>. Chrome có thể đồng bộ các cài đặt này giữa các thiết bị của bạn theo cài đặt tài khoản Chrome của bạn; nhà phát triển không nhận được các cài đặt này.</li>
+      <li>Từ vựng mà bạn chọn lưu được lưu trữ trong <code>chrome.storage.local</code>, gồm: cụm từ, ngữ cảnh phụ đề của cụm từ, bản dịch hoặc phần giải thích, ngôn ngữ phụ đề, tiêu đề và URL nguồn, vị trí phát, ngày và tiến độ ôn tập. Các bản ghi này không được tải lên dưới dạng một bộ sưu tập từ vựng.</li>
+      <li>Bản ghi chẩn đoán cục bộ có thể chứa mã định danh video, trạng thái phát và bố cục, thông tin ngôn ngữ phụ đề và các đoạn văn bản ngắn. Các bản ghi này giúp điều tra sự cố hiển thị và không được tự động gửi cho nhà phát triển.</li>
+      <li>Khi được hỗ trợ, trình dịch tích hợp của Chrome xử lý từ ngay trên thiết bị của bạn. Chrome có thể tải xuống gói ngôn ngữ. SubDuo không gửi các yêu cầu dịch này đến dịch vụ giải thích của mình.</li>
+      <li>Tính năng phát âm (🔊) sử dụng các giọng đọc có sẵn cho bộ tổng hợp giọng nói của Chrome. SubDuo không gửi văn bản này đến dịch vụ giải thích của mình. Nếu Chrome sử dụng giọng đọc trực tuyến do Google cung cấp, Google sẽ xử lý văn bản đó theo điều khoản riêng của Google.</li>
+    </ul>
+    <h2 data-sec="ai">2. Giải thích bằng AI (tùy chọn)</h2>
+    <p>Khi bạn nhấn “Hỏi AI”, một yêu cầu HTTPS sẽ được gửi đến <code>subduo-explain.warload57.workers.dev</code>, được lưu trữ trên Cloudflare. Yêu cầu chứa cụm từ đã chọn (tối đa 200 ký tự), dòng phụ đề chứa cụm từ đó và dòng phụ đề của ngôn ngữ còn lại tại thời điểm đó (mỗi dòng tối đa 1.000 ký tự), mã ngôn ngữ của chúng, ngôn ngữ giải thích và một mã cài đặt ngẫu nhiên. Kết nối mạng cũng làm lộ địa chỉ IP gửi yêu cầu.</p>
+    <p>Cloudflare Worker chuyển tiếp cụm từ, ngữ cảnh phụ đề và chỉ dẫn ngôn ngữ đến API của OpenAI để tạo phần giải thích. Mã cài đặt và địa chỉ IP gửi yêu cầu không được đưa vào lời nhắc (prompt) gửi cho AI. Yêu cầu không chứa thông tin đăng nhập tài khoản, toàn bộ bộ sưu tập từ vựng đã lưu, cài đặt hiển thị, URL của trang nguồn hay lịch sử xem của bạn. Vui lòng không chọn thông tin cá nhân nhạy cảm cho yêu cầu AI.</p>
+    <h2 data-sec="use">3. Mục đích, nhà cung cấp và thời gian lưu giữ</h2>
+    <ul>
+      <li>Thông tin được sử dụng để hiển thị phụ đề, cung cấp phần giải thích từ mà bạn yêu cầu, lưu và ôn tập từ vựng, áp dụng giới hạn AI hằng ngày và chẩn đoán sự cố dịch vụ. SubDuo không chứa quảng cáo hay phân tích hành vi và không bán dữ liệu người dùng.</li>
+      <li>Worker không ghi cụm từ hoặc dòng phụ đề được gửi đến vào nhật ký ứng dụng hay cơ sở dữ liệu giới hạn tần suất. Bản ghi giới hạn tần suất chứa số lượt trong ngày, gắn với mã định danh ngẫu nhiên (hoặc địa chỉ IP nếu không có mã định danh), và hết hạn sau 24 giờ kể từ lần cập nhật cuối cùng.</li>
+      <li>Nhật ký ứng dụng phục vụ vận hành chứa địa chỉ IP, thời điểm yêu cầu, kết quả xử lý, số yêu cầu trong ngày, mã ngôn ngữ và thông tin sử dụng token. Cloudflare Workers Logs hiện lưu giữ nhật ký tối đa bảy ngày tùy theo gói dịch vụ; việc xử lý liên quan đến dịch vụ và bảo mật của Cloudflare cũng tuân theo <a href="https://www.cloudflare.com/privacypolicy/">chính sách quyền riêng tư của Cloudflare</a>.</li>
+      <li>Yêu cầu hiện tại gửi đến OpenAI không tắt tính năng lưu trữ phản hồi mặc định. Responses API của OpenAI thường lưu giữ dữ liệu phản hồi trong ít nhất 30 ngày; các tùy chọn kiểm soát tài khoản của nhà cung cấp và các ngoại lệ về lưu giữ có thể thay đổi điều này. Theo chính sách API tiêu chuẩn của OpenAI, dữ liệu API không được dùng để huấn luyện mô hình trừ khi chủ tài khoản API chọn tham gia. Xem <a href="https://developers.openai.com/api/docs/guides/your-data">các tùy chọn kiểm soát dữ liệu API của OpenAI</a> để biết về thời gian lưu giữ, ngoại lệ và chính sách huấn luyện.</li>
+    </ul>
+    <h2 data-sec="perm">4. Quyền</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: lưu cài đặt, từ vựng và tiến độ ôn tập, bản ghi chẩn đoán cục bộ và mã cài đặt ngẫu nhiên.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: kết nối lại tiện ích với các thẻ được hỗ trợ đang mở sau khi cài đặt hoặc cập nhật.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: hiển thị bản chép lời của video hiện tại khi bạn mở, kèm các nút điều khiển để chuyển đến một dòng phụ đề.</li>
+      <li data-perm="host"><strong>Quyền truy cập trang web</strong>: các miền Prime Video/Amazon được hỗ trợ, YouTube, Netflix, Disney+ và TED, để phát hiện và truy xuất rãnh phụ đề cũng như điều khiển việc phát lại liên quan đến phụ đề. SubDuo không chạy trên các trang web không liên quan.</li>
+    </ul>
+    <p>SubDuo không yêu cầu quyền lịch sử (history) của Chrome hay quyền truy cập máy ảnh, micrô hoặc bảng nhớ tạm. Tiêu đề/URL nguồn được lưu cùng một mục từ vựng là dữ liệu cục bộ từ video được hỗ trợ, không phải là việc thu thập lịch sử duyệt web nói chung của bạn.</p>
+    <h2 data-sec="choices">5. Lựa chọn của bạn và việc xóa dữ liệu</h2>
+    <p>Bạn có thể sử dụng phụ đề song ngữ, dịch trên thiết bị, điều hướng bản chép lời và ôn tập từ vựng mà không cần nhấn “Hỏi AI”. Bạn có thể xóa từng mục từ vựng hoặc xóa toàn bộ danh sách từ vựng. Dữ liệu lưu trữ của tiện ích vẫn còn cho đến khi bạn xóa dữ liệu hoặc gỡ bỏ tiện ích; dữ liệu đồng bộ Chrome và bản sao trên các thiết bị khác tuân theo cài đặt tài khoản Chrome của bạn. Việc gỡ bỏ tiện ích không xóa hồi tố nhật ký của nhà cung cấp hoặc các yêu cầu AI đã được gửi. Hãy liên hệ với chúng tôi về yêu cầu liên quan đến dữ liệu mà không gửi kèm thông tin nhạy cảm bổ sung.</p>
+    <h2 data-sec="contact">6. Liên kết và liên hệ</h2>
+    <p>Tiện ích có thể mở trang phản hồi sau khi bị gỡ cài đặt, hoặc mở trang liên hệ, quyền riêng tư hay cửa hàng khi bạn chọn liên kết tương ứng. Các liên kết đến trang của chính tiện ích truyền phiên bản tiện ích và/hoặc ngôn ngữ UI, không truyền từ vựng của bạn. Các trang web công khai sử dụng nhà cung cấp dịch vụ lưu trữ và phông chữ riêng, và có thể sử dụng công cụ phân tích web tách biệt với tiện ích.</p>
+    <p>Nhà phát triển: Ramune. Email: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Các cập nhật của chính sách này được đăng tại đây kèm ngày mới.</p>
+  </div>
+
+  <div class="container" data-lang="tr" lang="tr" dir="ltr">
+    <a href="index.html?lang=tr" class="back">&larr; SubDuo'ya dön</a>
+    <h1>SubDuo Gizlilik Politikası</h1>
+    <p class="updated">Son güncelleme: 10 Kasım 2026</p>
+    <p>Geliştirici Ramune, Prime Video, YouTube, Netflix, Disney+ ve TED'deki altyazılarla dil öğrenmeye yönelik bir Chrome uzantısı olan SubDuo'yu sunar.</p>
+    <div class="box"><p>Altyazı gösterimi, altyazı dökümünde gezinme ve sözcük tekrarı tarayıcınızda çalışır. Cihaz üzerinde sözcük çevirisi, kullanılabildiğinde Chrome'un yerleşik çevirmenini kullanır. <strong>Yalnızca “Yapay zekâya sor” düğmesine bastığınızda</strong> seçili ifade, altyazı bağlamı ve dil kodları açıklama hizmetimize gönderilir. Bu istekte ayrıca kullanım sınırları ve hizmetin işletilmesi için rastgele bir cihaz tanımlayıcısı ve bağlantının IP adresi kullanılır.</p></div>
+    <h2 data-sec="device">1. Cihazınızda işlenen bilgiler</h2>
+    <ul>
+      <li>SubDuo, mevcut videonun altyazı parçalarını okur ve altyazı dosyalarını desteklenen sitenin dağıtım sunucularından indirir. Oynatma bilgilerini altyazıları hizalamak, bir satırdan sonra duraklatmak ve altyazı dökümünde gezinmek için kullanır. Videonun kendisini indirmez veya saklamaz.</li>
+      <li>Görüntüleme ayarları, seçili altyazı dilleri ve UI dili <code>chrome.storage.sync</code> ile kaydedilir. Chrome, bu ayarları Chrome hesap ayarlarınıza göre cihazlarınız arasında eşitleyebilir; geliştirici bunları almaz.</li>
+      <li>Kaydetmeyi seçtiğiniz sözcükler <code>chrome.storage.local</code> içinde saklanır: ifade, altyazı bağlamı, çeviriler veya açıklamalar, altyazı dilleri, kaynak başlığı ve URL'si, oynatma konumu, tarih ve tekrar ilerlemesi. Bu kayıtlar bir sözcük koleksiyonu olarak yüklenmez.</li>
+      <li>Yerel tanılama kayıtları video tanımlayıcıları, oynatma ve düzen durumu, altyazı dili bilgileri ve kısa metin parçaları içerebilir. Bu kayıtlar görüntüleme sorunlarının incelenmesine yardımcı olur ve geliştiriciye otomatik olarak gönderilmez.</li>
+      <li>Chrome'un yerleşik çevirmeni, desteklendiğinde sözcükleri cihazınızda işler. Chrome dil paketleri indirebilir. SubDuo bu çeviri isteklerini açıklama hizmetine göndermez.</li>
+      <li>Telaffuz oynatma (🔊), Chrome'un konuşma sentezinde kullanılabilen sesleri kullanır. SubDuo bu metni açıklama hizmetine göndermez. Chrome, Google'ın çevrim içi sağladığı bir sesi kullanırsa Google metni kendi koşullarına göre işler.</li>
+    </ul>
+    <h2 data-sec="ai">2. İsteğe bağlı yapay zekâ açıklamaları</h2>
+    <p>“Yapay zekâya sor” düğmesine basıldığında Cloudflare üzerinde barındırılan <code>subduo-explain.warload57.workers.dev</code> adresine bir HTTPS isteği gönderilir. İstek; seçili ifadeyi (en fazla 200 karakter), ifadenin geçtiği altyazı satırını ve o andaki diğer dildeki satırı (her biri en fazla 1.000 karakter), bunların dil kodlarını, açıklama dilini ve rastgele bir kurulum tanımlayıcısını içerir. Ağ bağlantısı ayrıca isteği gönderen IP adresini de ortaya koyar.</p>
+    <p>Cloudflare Worker, açıklamayı oluşturmak için ifadeyi, altyazı bağlamını ve dil talimatlarını OpenAI'nın API'sine iletir. Kurulum tanımlayıcısı ve isteği gönderen IP adresi yapay zekâ istemine dahil edilmez. İstek; hesap kimlik bilgilerinizi, kaydedilmiş sözcük koleksiyonunuzu, görüntüleme ayarlarınızı, kaynak sayfanın URL'sini veya izleme geçmişinizi içermez. Yapay zekâ isteği için hassas kişisel bilgileri seçmeyin.</p>
+    <h2 data-sec="use">3. Amaçlar, hizmet sağlayıcılar ve saklama süreleri</h2>
+    <ul>
+      <li>Bilgiler; altyazıları göstermek, istediğiniz sözcük açıklamasını sağlamak, sözcükleri kaydetmek ve tekrar etmek, günlük yapay zekâ sınırını uygulamak ve hizmet arızalarını teşhis etmek için kullanılır. SubDuo reklam veya davranışsal analiz içermez ve kullanıcı verilerini satmaz.</li>
+      <li>Worker, gönderilen ifadeleri veya altyazı satırlarını uygulama günlüklerine ya da istek sınırı veritabanına yazmaz. İstek sınırı kaydı, rastgele tanımlayıcıya (tanımlayıcı yoksa IP adresine) bağlı günlük bir sayaç içerir ve son güncellemeden 24 saat sonra sona erer.</li>
+      <li>Operasyonel uygulama günlükleri IP adresini, istek zamanını, sonucu, o günkü istek sayısını, dil kodlarını ve token kullanım bilgilerini içerir. Cloudflare Workers Logs, hizmet planına bağlı olarak günlükleri şu anda en fazla yedi gün saklar; Cloudflare'ın hizmet ve güvenlik kapsamındaki işlemleri ayrıca <a href="https://www.cloudflare.com/privacypolicy/">kendi gizlilik politikasına</a> tabidir.</li>
+      <li>Mevcut OpenAI isteği, varsayılan yanıt saklamayı devre dışı bırakmaz. OpenAI'nın Responses API'si yanıt verilerini normalde en az 30 gün saklar; sağlayıcı hesap ayarları ve saklama istisnaları bunu değiştirebilir. OpenAI'nın standart API politikasına göre, API hesabı sahibi onay vermedikçe API verileri model eğitiminde kullanılmaz. Saklama, istisnalar ve eğitim politikası için <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI'nın API veri denetimlerine</a> bakın.</li>
+    </ul>
+    <h2 data-sec="perm">4. İzinler</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: ayarları, sözcükleri ve tekrar ilerlemesini, yerel tanılama kayıtlarını ve rastgele kurulum tanımlayıcısını kaydetmek.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: kurulum veya güncellemeden sonra uzantıyı zaten açık olan desteklenen sekmelere yeniden bağlamak.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: açtığınızda mevcut videonun altyazı dökümünü, bir altyazı satırına atlamayı sağlayan kontrollerle birlikte göstermek.</li>
+      <li data-perm="host"><strong>Site erişimi</strong>: altyazı parçalarını algılamak ve almak ve altyazıyla ilgili oynatmayı kontrol etmek için desteklenen Prime Video/Amazon alan adları, YouTube, Netflix, Disney+ ve TED. SubDuo ilgisiz web sitelerinde çalışmaz.</li>
+    </ul>
+    <p>SubDuo, Chrome geçmiş iznini veya kamera, mikrofon ya da pano erişimini istemez. Bir sözcükle birlikte kaydedilen kaynak başlığı/URL, genel tarama geçmişinizin toplanması değil, desteklenen videodan elde edilen yerel veridir.</p>
+    <h2 data-sec="choices">5. Seçimleriniz ve silme</h2>
+    <p>Çift altyazıyı, cihaz üzerinde çeviriyi, altyazı dökümünde gezinmeyi ve sözcük tekrarını “Yapay zekâya sor” düğmesine basmadan kullanabilirsiniz. Tek tek sözcük kayıtlarını silebilir veya sözcük listesini tamamen temizleyebilirsiniz. Uzantı depolamasındaki veriler, siz temizleyene veya uzantıyı kaldırana kadar kalır; Chrome eşitlemesi ve diğer cihazlardaki kopyalar Chrome hesap ayarlarınıza tabidir. Uzantıyı kaldırmak, sağlayıcı günlüklerini veya önceden gönderilmiş yapay zekâ isteklerini geriye dönük olarak silmez. Bir veri talebi için bizimle iletişime geçerken ek hassas bilgi göndermeyin.</p>
+    <h2 data-sec="contact">6. Bağlantılar ve iletişim</h2>
+    <p>Uzantı, kaldırıldıktan sonra geri bildirim sayfasını veya ilgili bağlantıyı seçtiğinizde bir iletişim, gizlilik ya da mağaza sayfasını açabilir. Kendi sayfalarına verdiği bağlantılar sözcüklerinizi değil, uzantı sürümünü ve/veya UI dilini iletir. Herkese açık web sayfaları kendi barındırma ve yazı tipi sağlayıcılarını kullanır ve uzantıdan ayrı web analitiği içerebilir.</p>
+    <p>Geliştirici: Ramune. E-posta: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Bu politikadaki güncellemeler burada yeni bir tarihle yayımlanır.</p>
+  </div>
+
+  <div class="container" data-lang="pl" lang="pl" dir="ltr">
+    <a href="index.html?lang=pl" class="back">&larr; Powrót do SubDuo</a>
+    <h1>Polityka prywatności SubDuo</h1>
+    <p class="updated">Ostatnia aktualizacja: 10 listopada 2026 r.</p>
+    <p>Ramune (deweloper) udostępnia SubDuo — rozszerzenie Chrome do nauki języków z napisami w serwisach Prime Video, YouTube, Netflix, Disney+ i TED.</p>
+    <div class="box"><p>Wyświetlanie napisów, nawigacja po transkrypcji i powtórki słownictwa działają w Twojej przeglądarce. Tłumaczenie słów na urządzeniu korzysta z wbudowanego tłumacza Chrome, jeśli jest dostępny. <strong>Wyłącznie po naciśnięciu „Zapytaj AI”</strong> wybrane wyrażenie, kontekst napisów i kody języków są wysyłane do naszej usługi wyjaśnień. To żądanie wykorzystuje również losowy identyfikator urządzenia i adres IP połączenia na potrzeby limitów użycia i działania usługi.</p></div>
+    <h2 data-sec="device">1. Informacje przetwarzane na Twoim urządzeniu</h2>
+    <ul>
+      <li>SubDuo odczytuje ścieżki napisów bieżącego filmu i pobiera pliki napisów z serwerów dostarczania obsługiwanej witryny. Informacje o odtwarzaniu wykorzystuje do synchronizacji napisów, wstrzymywania po kwestii i nawigacji po transkrypcji. Nie pobiera ani nie przechowuje samego filmu.</li>
+      <li>Ustawienia wyświetlania, wybrane języki napisów i język UI są zapisywane za pomocą <code>chrome.storage.sync</code>. Chrome może synchronizować te ustawienia między Twoimi urządzeniami zgodnie z ustawieniami Twojego konta Chrome; deweloper ich nie otrzymuje.</li>
+      <li>Słownictwo, które zdecydujesz się zapisać, jest przechowywane w <code>chrome.storage.local</code>: wyrażenie, jego kontekst w napisach, tłumaczenia lub wyjaśnienia, języki napisów, tytuł i URL źródła, pozycja odtwarzania, data i postęp powtórek. Te wpisy nie są przesyłane jako zbiór słownictwa.</li>
+      <li>Lokalne zapisy diagnostyczne mogą zawierać identyfikatory filmów, stan odtwarzania i układu, informacje o językach napisów oraz krótkie fragmenty tekstu. Pomagają w badaniu problemów z wyświetlaniem i nie są automatycznie wysyłane do dewelopera.</li>
+      <li>Wbudowany tłumacz Chrome przetwarza słowa na Twoim urządzeniu, jeśli jest to obsługiwane. Chrome może pobierać pakiety językowe. SubDuo nie wysyła tych żądań tłumaczenia do swojej usługi wyjaśnień.</li>
+      <li>Odtwarzanie wymowy (🔊) korzysta z głosów dostępnych w syntezie mowy Chrome. SubDuo nie wysyła tego tekstu do swojej usługi wyjaśnień. Jeśli Chrome używa głosu udostępnianego online przez Google, Google przetwarza tekst na podstawie własnych warunków.</li>
+    </ul>
+    <h2 data-sec="ai">2. Opcjonalne wyjaśnienia AI</h2>
+    <p>Naciśnięcie „Zapytaj AI” powoduje wysłanie żądania HTTPS do <code>subduo-explain.warload57.workers.dev</code>, hostowanego w Cloudflare. Żądanie zawiera wybrane wyrażenie (do 200 znaków), wiersz napisów, w którym występuje, i wiersz w drugim języku z tego samego momentu (każdy do 1000 znaków), ich kody języków, język wyjaśnienia oraz losowy identyfikator instalacji. Połączenie sieciowe ujawnia również adres IP, z którego wysłano żądanie.</p>
+    <p>Cloudflare Worker przekazuje wyrażenie, kontekst napisów i instrukcje językowe do API OpenAI w celu wygenerowania wyjaśnienia. Identyfikator instalacji i adres IP, z którego wysłano żądanie, nie są dołączane do promptu AI. Żądanie nie zawiera danych logowania do Twojego konta, zapisanego zbioru słownictwa, ustawień wyświetlania, URL strony źródłowej ani historii oglądania. Nie zaznaczaj do zapytania AI wrażliwych danych osobowych.</p>
+    <h2 data-sec="use">3. Cele, dostawcy i okres przechowywania</h2>
+    <ul>
+      <li>Informacje są wykorzystywane do wyświetlania napisów, dostarczania wyjaśnienia słowa, o które prosisz, zapisywania i powtarzania słownictwa, egzekwowania dziennego limitu AI oraz diagnozowania awarii usługi. SubDuo nie zawiera reklam ani analityki behawioralnej i nie sprzedaje danych użytkowników.</li>
+      <li>Worker nie zapisuje przesłanych wyrażeń ani wierszy napisów w swoich logach aplikacji ani w bazie danych limitów żądań. Wpis limitu zawiera dzienny licznik powiązany z losowym identyfikatorem (lub z adresem IP, jeśli identyfikator jest niedostępny) i wygasa 24 godziny po ostatniej aktualizacji.</li>
+      <li>Operacyjne logi aplikacji zawierają adres IP, czas żądania, wynik, liczbę żądań w danym dniu, kody języków oraz informacje o zużyciu tokenów. Cloudflare Workers Logs obecnie przechowuje logi do siedmiu dni, w zależności od planu usługi; przetwarzanie danych przez Cloudflare na potrzeby usługi i bezpieczeństwa podlega również <a href="https://www.cloudflare.com/privacypolicy/">polityce prywatności tej firmy</a>.</li>
+      <li>Obecne żądanie do OpenAI nie wyłącza domyślnego przechowywania odpowiedzi. Responses API firmy OpenAI zwykle przechowuje dane odpowiedzi przez co najmniej 30 dni; ustawienia konta u dostawcy i wyjątki dotyczące przechowywania mogą to zmienić. Zgodnie ze standardową polityką API OpenAI dane API nie są wykorzystywane do trenowania modeli, chyba że właściciel konta API wyrazi na to zgodę. Informacje o przechowywaniu, wyjątkach i zasadach trenowania zawiera strona <a href="https://developers.openai.com/api/docs/guides/your-data">Kontrola danych w API OpenAI</a>.</li>
+    </ul>
+    <h2 data-sec="perm">4. Uprawnienia</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: zapisywanie ustawień, słownictwa i postępu powtórek, lokalnej diagnostyki oraz losowego identyfikatora instalacji.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: ponowne łączenie rozszerzenia z już otwartymi kartami obsługiwanych witryn po instalacji lub aktualizacji.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: wyświetlanie transkrypcji bieżącego filmu, gdy ją otworzysz, wraz z elementami sterującymi umożliwiającymi przejście do wiersza napisów.</li>
+      <li data-perm="host"><strong>Dostęp do witryn</strong>: obsługiwane domeny Prime Video/Amazon, YouTube, Netflix, Disney+ i TED — w celu wykrywania i pobierania ścieżek napisów oraz sterowania odtwarzaniem w zakresie związanym z napisami. SubDuo nie działa na niezwiązanych witrynach.</li>
+    </ul>
+    <p>SubDuo nie prosi o uprawnienie Chrome do historii ani o dostęp do kamery, mikrofonu czy schowka. Tytuł/URL źródła zapisany wraz z wpisem słownictwa to lokalne dane z obsługiwanego filmu, a nie zbiór Twojej ogólnej historii przeglądania.</p>
+    <h2 data-sec="choices">5. Twoje wybory i usuwanie danych</h2>
+    <p>Z podwójnych napisów, tłumaczenia na urządzeniu, nawigacji po transkrypcji i powtórek słownictwa możesz korzystać bez naciskania „Zapytaj AI”. Możesz usuwać pojedyncze wpisy słownictwa lub wyczyścić całą listę słownictwa. Dane w pamięci rozszerzenia pozostają do czasu ich wyczyszczenia lub usunięcia rozszerzenia; synchronizacja Chrome i kopie na innych urządzeniach podlegają ustawieniom Twojego konta Chrome. Usunięcie rozszerzenia nie powoduje wstecznego usunięcia logów dostawców ani już wysłanych zapytań AI. Kontaktując się z nami w sprawie żądania dotyczącego danych, nie przesyłaj dodatkowych informacji wrażliwych.</p>
+    <h2 data-sec="contact">6. Linki i kontakt</h2>
+    <p>Rozszerzenie może otworzyć swoją stronę opinii po odinstalowaniu, a także stronę kontaktową, stronę polityki prywatności lub stronę w sklepie, gdy wybierzesz odpowiedni link. Linki do jego własnych stron przekazują wersję rozszerzenia i/lub język UI, a nie Twoje słownictwo. Publiczne strony internetowe korzystają z własnych dostawców hostingu i czcionek i mogą stosować analitykę internetową niezależną od rozszerzenia.</p>
+    <p>Deweloper: Ramune. E-mail: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Zmiany tej polityki są publikowane tutaj wraz z nową datą.</p>
+  </div>
+
+  <div class="container" data-lang="th" lang="th" dir="ltr">
+    <a href="index.html?lang=th" class="back">&larr; กลับไปยัง SubDuo</a>
+    <h1>นโยบายความเป็นส่วนตัวของ SubDuo</h1>
+    <p class="updated">ปรับปรุงล่าสุด: 10 พฤศจิกายน 2026</p>
+    <p>Ramune (ผู้พัฒนา) ให้บริการ SubDuo ซึ่งเป็นส่วนขยาย Chrome สำหรับการเรียนภาษาด้วยคำบรรยายบน Prime Video, YouTube, Netflix, Disney+ และ TED</p>
+    <div class="box"><p>การแสดงคำบรรยาย การไปยังบรรทัดต่าง ๆ ในรายการคำบรรยาย และการทบทวนคำศัพท์ทำงานภายในเบราว์เซอร์ของคุณ การแปลคำบนอุปกรณ์ใช้ตัวแปลในตัวของ Chrome เมื่อพร้อมใช้งาน <strong>เฉพาะเมื่อคุณกด “ถาม AI” เท่านั้น</strong> ระบบจึงจะส่งวลีที่เลือก บริบทคำบรรยาย และรหัสภาษาไปยังบริการอธิบายของเรา คำขอดังกล่าวยังใช้รหัสอุปกรณ์แบบสุ่มและที่อยู่ IP ของการเชื่อมต่อเพื่อจำกัดการใช้งานและดำเนินงานบริการด้วย</p></div>
+    <h2 data-sec="device">1. ข้อมูลที่จัดการบนอุปกรณ์ของคุณ</h2>
+    <ul>
+      <li>SubDuo อ่านแทร็กคำบรรยายของวิดีโอปัจจุบัน และดาวน์โหลดไฟล์คำบรรยายจากเซิร์ฟเวอร์ส่งเนื้อหาของเว็บไซต์ที่รองรับ โดยใช้ข้อมูลการเล่นเพื่อจัดคำบรรยายให้ตรงเวลา หยุดชั่วคราวหลังจบแต่ละบรรทัด และไปยังบรรทัดต่าง ๆ ในรายการคำบรรยาย SubDuo ไม่ดาวน์โหลดหรือจัดเก็บตัววิดีโอ</li>
+      <li>การตั้งค่าการแสดงผล ภาษาคำบรรยายที่เลือก และภาษาของ UI จะบันทึกไว้ด้วย <code>chrome.storage.sync</code> Chrome อาจซิงค์การตั้งค่าเหล่านี้ระหว่างอุปกรณ์ของคุณตามการตั้งค่าบัญชี Chrome ของคุณ โดยผู้พัฒนาไม่ได้รับข้อมูลเหล่านี้</li>
+      <li>คำศัพท์ที่คุณเลือกบันทึกจะจัดเก็บไว้ใน <code>chrome.storage.local</code> ได้แก่ วลี บริบทคำบรรยายของวลีนั้น คำแปลหรือคำอธิบาย ภาษาคำบรรยาย ชื่อเรื่องและ URL ของแหล่งที่มา ตำแหน่งการเล่น วันที่ และความคืบหน้าการทบทวน ระเบียนเหล่านี้ไม่ได้ถูกอัปโหลดในรูปแบบคลังคำศัพท์</li>
+      <li>บันทึกการวินิจฉัยภายในเครื่องอาจมีตัวระบุวิดีโอ สถานะการเล่นและการจัดวาง ข้อมูลภาษาคำบรรยาย และข้อความสั้น ๆ บางส่วน บันทึกเหล่านี้ใช้เพื่อตรวจสอบปัญหาการแสดงผล และจะไม่ถูกส่งไปยังผู้พัฒนาโดยอัตโนมัติ</li>
+      <li>ตัวแปลในตัวของ Chrome ประมวลผลคำบนอุปกรณ์ของคุณเมื่อรองรับ Chrome อาจดาวน์โหลดแพ็กภาษา SubDuo ไม่ส่งคำขอแปลเหล่านี้ไปยังบริการอธิบายของตน</li>
+      <li>การเล่นเสียงออกเสียง (🔊) ใช้เสียงที่มีให้ในระบบสังเคราะห์เสียงพูดของ Chrome SubDuo ไม่ส่งข้อความนี้ไปยังบริการอธิบายของตน หาก Chrome ใช้เสียงที่ Google ให้บริการทางออนไลน์ Google จะประมวลผลข้อความดังกล่าวภายใต้ข้อกำหนดของ Google เอง</li>
+    </ul>
+    <h2 data-sec="ai">2. คำอธิบายจาก AI (ไม่บังคับ)</h2>
+    <p>การกด “ถาม AI” จะส่งคำขอ HTTPS ไปยัง <code>subduo-explain.warload57.workers.dev</code> ซึ่งโฮสต์อยู่บน Cloudflare คำขอประกอบด้วยวลีที่เลือก (ไม่เกิน 200 อักขระ) บรรทัดคำบรรยายที่มีวลีนั้นและบรรทัดคำบรรยายของอีกภาษาหนึ่ง ณ ขณะนั้น (แต่ละบรรทัดไม่เกิน 1,000 อักขระ) รหัสภาษาของบรรทัดเหล่านั้น ภาษาของคำอธิบาย และรหัสการติดตั้งแบบสุ่ม นอกจากนี้ การเชื่อมต่อเครือข่ายยังเปิดเผยที่อยู่ IP ของผู้ส่งคำขอด้วย</p>
+    <p>Cloudflare Worker ส่งต่อวลี บริบทคำบรรยาย และคำสั่งด้านภาษาไปยัง API ของ OpenAI เพื่อสร้างคำอธิบาย รหัสการติดตั้งและที่อยู่ IP ของผู้ส่งคำขอไม่ได้รวมอยู่ในพรอมต์ที่ส่งให้ AI คำขอไม่มีข้อมูลรับรองบัญชีของคุณ คลังคำศัพท์ที่บันทึกไว้ทั้งหมด การตั้งค่าการแสดงผล URL ของหน้าต้นทาง หรือประวัติการรับชม โปรดอย่าเลือกข้อมูลส่วนบุคคลที่อ่อนไหวเพื่อส่งคำขอ AI</p>
+    <h2 data-sec="use">3. วัตถุประสงค์ ผู้ให้บริการ และระยะเวลาการเก็บรักษา</h2>
+    <ul>
+      <li>ข้อมูลถูกใช้เพื่อแสดงคำบรรยาย ให้คำอธิบายคำที่คุณร้องขอ บันทึกและทบทวนคำศัพท์ บังคับใช้ขีดจำกัดการใช้ AI รายวัน และวินิจฉัยความขัดข้องของบริการ SubDuo ไม่มีโฆษณาหรือการวิเคราะห์พฤติกรรม และไม่ขายข้อมูลผู้ใช้</li>
+      <li>Worker ไม่เขียนวลีหรือบรรทัดคำบรรยายที่ส่งมาลงในบันทึกของแอปพลิเคชันหรือฐานข้อมูลการจำกัดอัตราคำขอ ระเบียนการจำกัดอัตราคำขอเก็บจำนวนครั้งรายวันโดยใช้รหัสแบบสุ่มเป็นคีย์ (หรือใช้ที่อยู่ IP หากไม่มีรหัส) และจะหมดอายุ 24 ชั่วโมงหลังการอัปเดตครั้งล่าสุด</li>
+      <li>บันทึกของแอปพลิเคชันเพื่อการดำเนินงานประกอบด้วยที่อยู่ IP เวลาที่ส่งคำขอ ผลลัพธ์ จำนวนคำขอของวันนั้น รหัสภาษา และข้อมูลการใช้โทเค็น ปัจจุบัน Cloudflare Workers Logs เก็บรักษาบันทึกไว้ไม่เกินเจ็ดวัน ขึ้นอยู่กับแพ็กเกจบริการ การจัดการด้านบริการและความปลอดภัยของ Cloudflare ยังอยู่ภายใต้<a href="https://www.cloudflare.com/privacypolicy/">นโยบายความเป็นส่วนตัวของ Cloudflare</a>ด้วย</li>
+      <li>คำขอที่ส่งไปยัง OpenAI ในปัจจุบันไม่ได้ปิดการจัดเก็บคำตอบตามค่าเริ่มต้น โดยปกติ Responses API ของ OpenAI จะเก็บรักษาข้อมูลคำตอบไว้อย่างน้อย 30 วัน ทั้งนี้ การควบคุมบัญชีของผู้ให้บริการและข้อยกเว้นด้านการเก็บรักษาอาจทำให้ระยะเวลานี้เปลี่ยนแปลงไป ตามนโยบาย API มาตรฐานของ OpenAI ข้อมูล API จะไม่ถูกนำไปใช้ฝึกโมเดล เว้นแต่เจ้าของบัญชี API เลือกเข้าร่วม ดูรายละเอียดเกี่ยวกับการเก็บรักษา ข้อยกเว้น และนโยบายการฝึกโมเดลได้ที่<a href="https://developers.openai.com/api/docs/guides/your-data">การควบคุมข้อมูล API ของ OpenAI</a></li>
+    </ul>
+    <h2 data-sec="perm">4. สิทธิ์</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: บันทึกการตั้งค่า คำศัพท์และความคืบหน้าการทบทวน บันทึกการวินิจฉัยภายในเครื่อง และรหัสการติดตั้งแบบสุ่ม</li>
+      <li data-perm="scripting"><strong>scripting</strong>: เชื่อมต่อส่วนขยายใหม่กับแท็บที่รองรับซึ่งเปิดอยู่แล้ว หลังการติดตั้งหรืออัปเดต</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: แสดงรายการคำบรรยายของวิดีโอปัจจุบันเมื่อคุณเปิด พร้อมตัวควบคุมสำหรับข้ามไปยังบรรทัดคำบรรยาย</li>
+      <li data-perm="host"><strong>สิทธิ์เข้าถึงเว็บไซต์</strong>: โดเมน Prime Video/Amazon ที่รองรับ, YouTube, Netflix, Disney+ และ TED เพื่อตรวจหาและดึงแทร็กคำบรรยาย และควบคุมการเล่นที่เกี่ยวข้องกับคำบรรยาย SubDuo ไม่ทำงานบนเว็บไซต์ที่ไม่เกี่ยวข้อง</li>
+    </ul>
+    <p>SubDuo ไม่ขอสิทธิ์ประวัติ (history) ของ Chrome หรือสิทธิ์เข้าถึงกล้อง ไมโครโฟน หรือคลิปบอร์ด ชื่อเรื่อง/URL ของแหล่งที่มาที่บันทึกพร้อมรายการคำศัพท์เป็นข้อมูลภายในเครื่องจากวิดีโอที่รองรับ ไม่ใช่การรวบรวมประวัติการท่องเว็บทั่วไปของคุณ</p>
+    <h2 data-sec="choices">5. ทางเลือกของคุณและการลบข้อมูล</h2>
+    <p>คุณสามารถใช้คำบรรยายสองภาษา การแปลบนอุปกรณ์ การไปยังบรรทัดในรายการคำบรรยาย และการทบทวนคำศัพท์ได้โดยไม่ต้องกด “ถาม AI” คุณสามารถลบรายการคำศัพท์ทีละรายการหรือล้างคลังคำศัพท์ทั้งหมดได้ ข้อมูลในพื้นที่จัดเก็บของส่วนขยายจะคงอยู่จนกว่าคุณจะล้างข้อมูลหรือนำส่วนขยายออก ส่วนการซิงค์ของ Chrome และสำเนาบนอุปกรณ์อื่นจะเป็นไปตามการตั้งค่าบัญชี Chrome ของคุณ การนำส่วนขยายออกไม่ได้ลบบันทึกของผู้ให้บริการหรือคำขอ AI ที่ส่งไปแล้วย้อนหลัง โปรดติดต่อเราเกี่ยวกับคำขอด้านข้อมูลโดยไม่ต้องส่งข้อมูลที่อ่อนไหวเพิ่มเติม</p>
+    <h2 data-sec="contact">6. ลิงก์และการติดต่อ</h2>
+    <p>ส่วนขยายอาจเปิดหน้าแสดงความคิดเห็นหลังการถอนการติดตั้ง หรือเปิดหน้าติดต่อ หน้านโยบายความเป็นส่วนตัว หรือหน้าร้านค้าเมื่อคุณเลือกลิงก์ที่เกี่ยวข้อง ลิงก์ไปยังหน้าของส่วนขยายเองจะส่งเวอร์ชันของส่วนขยายและ/หรือภาษาของ UI แต่ไม่ได้ส่งคำศัพท์ของคุณ หน้าเว็บสาธารณะใช้ผู้ให้บริการโฮสติ้งและฟอนต์ของตนเอง และอาจมีการวิเคราะห์เว็บแยกต่างหากจากส่วนขยาย</p>
+    <p>ผู้พัฒนา: Ramune อีเมล: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a> การปรับปรุงนโยบายนี้จะเผยแพร่ที่หน้านี้พร้อมวันที่ใหม่</p>
+  </div>
+
+  <div class="container" data-lang="nl" lang="nl" dir="ltr">
+    <a href="index.html?lang=nl" class="back">&larr; Terug naar SubDuo</a>
+    <h1>Privacybeleid van SubDuo</h1>
+    <p class="updated">Laatst bijgewerkt: 10 november 2026</p>
+    <p>Ramune (de ontwikkelaar) biedt SubDuo aan, een Chrome-extensie om talen te leren met ondertitels op Prime Video, YouTube, Netflix, Disney+ en TED.</p>
+    <div class="box"><p>Het weergeven van ondertitels, het navigeren door het transcript en het herhalen van de woordenschat gebeuren in uw browser. Woordvertaling op het apparaat gebruikt de ingebouwde vertaler van Chrome wanneer die beschikbaar is. <strong>Alleen wanneer u op ‘Vraag AI’ klikt</strong>, worden de gekozen uitdrukking, de ondertitelcontext en de taalcodes naar onze uitlegdienst gestuurd. Dat verzoek gebruikt ook een willekeurige apparaat-ID en het IP-adres van de verbinding voor gebruikslimieten en de werking van de dienst.</p></div>
+    <h2 data-sec="device">1. Informatie die op uw apparaat wordt verwerkt</h2>
+    <ul>
+      <li>SubDuo leest de ondertitelsporen van de huidige video en downloadt ondertitelbestanden van de leveringsservers van de ondersteunde site. Afspeelinformatie wordt gebruikt om ondertitels te synchroniseren, na een regel te pauzeren en door het transcript te navigeren. De video zelf wordt niet gedownload of opgeslagen.</li>
+      <li>Weergave-instellingen, gekozen ondertiteltalen en de UI-taal worden opgeslagen met <code>chrome.storage.sync</code>. Chrome kan deze instellingen volgens de instellingen van uw Chrome-account tussen uw apparaten synchroniseren; de ontwikkelaar ontvangt ze niet.</li>
+      <li>Woorden die u in de woordenschat opslaat, worden bewaard in <code>chrome.storage.local</code>: de uitdrukking, de bijbehorende ondertitelcontext, vertalingen of uitleg, ondertiteltalen, titel en URL van de bron, afspeelpositie, datum en herhaalvoortgang. Deze gegevens worden niet als woordenschatverzameling geüpload.</li>
+      <li>Lokale diagnostische gegevens kunnen video-ID’s, de afspeel- en lay-outstatus, informatie over ondertiteltalen en korte tekstfragmenten bevatten. Ze helpen weergaveproblemen te onderzoeken en worden niet automatisch naar de ontwikkelaar gestuurd.</li>
+      <li>De ingebouwde vertaler van Chrome verwerkt woorden op uw apparaat wanneer dat wordt ondersteund. Chrome kan taalpakketten downloaden. SubDuo stuurt deze vertaalverzoeken niet naar zijn uitlegdienst.</li>
+      <li>Het afspelen van de uitspraak (🔊) gebruikt de stemmen die beschikbaar zijn voor de spraaksynthese van Chrome. SubDuo stuurt deze tekst niet naar zijn uitlegdienst. Als Chrome een stem gebruikt die Google online aanbiedt, verwerkt Google de tekst volgens zijn eigen voorwaarden.</li>
+    </ul>
+    <h2 data-sec="ai">2. Optionele AI-uitleg</h2>
+    <p>Wanneer u op ‘Vraag AI’ klikt, wordt een HTTPS-verzoek verstuurd naar <code>subduo-explain.warload57.workers.dev</code>, gehost bij Cloudflare. Het verzoek bevat de gekozen uitdrukking (maximaal 200 tekens), de bijbehorende ondertitelregel en de regel in de andere taal op dat moment (elk maximaal 1.000 tekens), hun taalcodes, de taal van de uitleg en een willekeurige installatie-ID. Via de netwerkverbinding wordt bovendien het IP-adres van de aanvrager zichtbaar.</p>
+    <p>De Cloudflare Worker stuurt de uitdrukking, de ondertitelcontext en de taalinstructies door naar de API van OpenAI om de uitleg te genereren. De installatie-ID en het IP-adres van de aanvrager worden niet in de AI-prompt opgenomen. Het verzoek bevat geen inloggegevens van uw account, geen opgeslagen woordenschatverzameling, geen weergave-instellingen, geen URL van de bronpagina en geen kijkgeschiedenis. Selecteer geen gevoelige persoonsgegevens voor een AI-verzoek.</p>
+    <h2 data-sec="use">3. Doeleinden, aanbieders en bewaartermijnen</h2>
+    <ul>
+      <li>De informatie wordt gebruikt om ondertitels te tonen, de door u gevraagde woorduitleg te geven, woordenschat op te slaan en te herhalen, de dagelijkse AI-limiet te handhaven en storingen in de dienst te diagnosticeren. SubDuo bevat geen advertenties of gedragsanalyse en verkoopt geen gebruikersgegevens.</li>
+      <li>De Worker schrijft ingediende uitdrukkingen of ondertitelregels niet weg in zijn applicatielogboeken of in zijn database voor de verzoeklimiet. Het record voor de verzoeklimiet bevat een dagelijkse teller die is gekoppeld aan de willekeurige ID (of aan het IP-adres als er geen ID beschikbaar is) en verloopt 24 uur na de laatste update.</li>
+      <li>Operationele applicatielogboeken bevatten het IP-adres, het tijdstip van het verzoek, het resultaat, het aantal verzoeken van die dag, taalcodes en informatie over tokengebruik. Cloudflare Workers Logs bewaart logboeken momenteel maximaal zeven dagen, afhankelijk van het abonnement; de verwerking door Cloudflare voor zijn dienstverlening en beveiliging valt daarnaast onder <a href="https://www.cloudflare.com/privacypolicy/">zijn privacybeleid</a>.</li>
+      <li>Het huidige verzoek aan OpenAI schakelt de standaardopslag van antwoorden niet uit. De Responses API van OpenAI bewaart antwoordgegevens normaal gesproken ten minste 30 dagen; accountinstellingen bij de aanbieder en uitzonderingen op de bewaartermijn kunnen dit veranderen. Volgens het standaard API-beleid van OpenAI worden API-gegevens niet gebruikt om modellen te trainen, tenzij de eigenaar van het API-account daar uitdrukkelijk voor kiest. Zie <a href="https://developers.openai.com/api/docs/guides/your-data">het gegevensbeheer van de OpenAI-API</a> voor bewaartermijnen, uitzonderingen en het trainingsbeleid.</li>
+    </ul>
+    <h2 data-sec="perm">4. Machtigingen</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: opslaan van instellingen, woordenschat en herhaalvoortgang, lokale diagnostische gegevens en de willekeurige installatie-ID.</li>
+      <li data-perm="scripting"><strong>scripting</strong>: de extensie na installatie of een update opnieuw verbinden met reeds geopende ondersteunde tabbladen.</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: het transcript van de huidige video tonen wanneer u het opent, met bedieningselementen om naar een ondertitelregel te springen.</li>
+      <li data-perm="host"><strong>Sitetoegang</strong>: de ondersteunde Prime Video-/Amazon-domeinen, YouTube, Netflix, Disney+ en TED, om ondertitelsporen te detecteren en op te halen en het afspelen in verband met ondertitels te bedienen. SubDuo werkt niet op niet-gerelateerde websites.</li>
+    </ul>
+    <p>SubDuo vraagt niet om de geschiedenismachtiging van Chrome en ook niet om toegang tot camera, microfoon of klembord. Een brontitel en -URL die met een woordenschatitem worden opgeslagen, zijn lokale gegevens van de ondersteunde video en geen verzameling van uw algemene browsegeschiedenis.</p>
+    <h2 data-sec="choices">5. Uw keuzes en verwijdering</h2>
+    <p>U kunt dubbele ondertitels, vertaling op het apparaat, navigatie door het transcript en het herhalen van de woordenschat gebruiken zonder op ‘Vraag AI’ te klikken. U kunt afzonderlijke woordenschatitems verwijderen of de hele woordenschat wissen. De opslag van de extensie blijft bestaan totdat u deze wist of de extensie verwijdert; voor Chrome-synchronisatie en kopieën op andere apparaten gelden de instellingen van uw Chrome-account. Het verwijderen van de extensie wist niet met terugwerkende kracht logboeken van aanbieders of al verzonden AI-verzoeken. Neem voor een verzoek over uw gegevens contact met ons op zonder aanvullende gevoelige informatie mee te sturen.</p>
+    <h2 data-sec="contact">6. Links en contact</h2>
+    <p>De extensie kan na de-installatie haar feedbackpagina openen, of een contact-, privacy- of storepagina wanneer u de betreffende link kiest. Links naar haar eigen pagina’s geven de versie van de extensie en/of de UI-taal door, niet uw woordenschat. Openbare webpagina’s maken gebruik van hun eigen hosting- en lettertypeaanbieders en kunnen webanalyse gebruiken die los staat van de extensie.</p>
+    <p>Ontwikkelaar: Ramune. E-mail: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>. Wijzigingen in dit beleid worden hier met een nieuwe datum gepubliceerd.</p>
+  </div>
+
+  <div class="container" data-lang="bn" lang="bn" dir="ltr">
+    <a href="index.html?lang=bn" class="back">&larr; SubDuo-তে ফিরে যান</a>
+    <h1>SubDuo গোপনীয়তা নীতি</h1>
+    <p class="updated">সর্বশেষ হালনাগাদ: 10 নভেম্বর 2026</p>
+    <p>Ramune (ডেভেলপার) SubDuo প্রদান করে — Prime Video, YouTube, Netflix, Disney+ ও TED-এ সাবটাইটেলের সাহায্যে ভাষা শেখার জন্য একটি Chrome এক্সটেনশন।</p>
+    <div class="box"><p>সাবটাইটেল প্রদর্শন, সাবটাইটেল তালিকায় নেভিগেশন এবং শব্দভান্ডার পর্যালোচনা আপনার ব্রাউজারেই কাজ করে। উপলব্ধ থাকলে ডিভাইসে শব্দ-অনুবাদের জন্য Chrome-এর নিজস্ব অনুবাদক ব্যবহার করা হয়। <strong>কেবল “AI-কে জিজ্ঞাসা” চাপলেই</strong> বাছাই করা বাক্যাংশ, সাবটাইটেলের প্রসঙ্গ ও ভাষার কোড আমাদের ব্যাখ্যা পরিষেবায় পাঠানো হয়। ব্যবহারসীমা নিয়ন্ত্রণ ও পরিষেবা পরিচালনার জন্য সেই অনুরোধে একটি এলোমেলো ডিভাইস শনাক্তকারী এবং সংযোগের IP ঠিকানাও ব্যবহৃত হয়।</p></div>
+    <h2 data-sec="device">1. আপনার ডিভাইসে পরিচালিত তথ্য</h2>
+    <ul>
+      <li>SubDuo বর্তমান ভিডিওর সাবটাইটেল ট্র্যাক পড়ে এবং সমর্থিত সাইটের ডেলিভারি সার্ভার থেকে সাবটাইটেল ফাইল ডাউনলোড করে। সাবটাইটেল সময়ের সঙ্গে মেলাতে, একটি লাইনের পরে বিরতি দিতে এবং সাবটাইটেল তালিকায় নেভিগেট করতে এটি প্লেব্যাকের তথ্য ব্যবহার করে। এটি ভিডিওটি নিজে ডাউনলোড বা সংরক্ষণ করে না।</li>
+      <li>প্রদর্শন সেটিং, বেছে নেওয়া সাবটাইটেলের ভাষা এবং UI ভাষা <code>chrome.storage.sync</code> দিয়ে সংরক্ষিত হয়। আপনার Chrome অ্যাকাউন্ট সেটিং অনুযায়ী Chrome এই সেটিংগুলো আপনার ডিভাইসগুলোর মধ্যে সিঙ্ক করতে পারে; ডেভেলপার এগুলো পায় না।</li>
+      <li>আপনি যে শব্দগুলো সংরক্ষণ করতে বেছে নেন, সেগুলো <code>chrome.storage.local</code>-এ রাখা হয়: বাক্যাংশ, তার সাবটাইটেলের প্রসঙ্গ, অনুবাদ বা ব্যাখ্যা, সাবটাইটেলের ভাষা, উৎসের শিরোনাম ও URL, প্লেব্যাকের অবস্থান, তারিখ এবং পর্যালোচনার অগ্রগতি। এই রেকর্ডগুলো শব্দভান্ডার সংগ্রহ হিসেবে আপলোড করা হয় না।</li>
+      <li>স্থানীয় ডায়াগনস্টিক রেকর্ডে ভিডিও শনাক্তকারী, প্লেব্যাক ও লেআউটের অবস্থা, সাবটাইটেলের ভাষা-সংক্রান্ত তথ্য এবং লেখার ছোট অংশ থাকতে পারে। এগুলো প্রদর্শনজনিত সমস্যা অনুসন্ধানে সাহায্য করে এবং স্বয়ংক্রিয়ভাবে ডেভেলপারের কাছে পাঠানো হয় না।</li>
+      <li>সমর্থিত হলে Chrome-এর নিজস্ব অনুবাদক আপনার ডিভাইসেই শব্দ প্রক্রিয়া করে। Chrome ভাষার প্যাক ডাউনলোড করতে পারে। SubDuo এই অনুবাদের অনুরোধগুলো তার ব্যাখ্যা পরিষেবায় পাঠায় না।</li>
+      <li>উচ্চারণ শোনানো (🔊) Chrome-এর স্পিচ সিন্থেসিসে উপলব্ধ কণ্ঠস্বর ব্যবহার করে। SubDuo এই লেখা তার ব্যাখ্যা পরিষেবায় পাঠায় না। Chrome যদি Google-এর অনলাইনে দেওয়া কোনো কণ্ঠস্বর ব্যবহার করে, তবে Google নিজস্ব শর্তাবলি অনুযায়ী লেখাটি প্রক্রিয়া করে।</li>
+    </ul>
+    <h2 data-sec="ai">2. ঐচ্ছিক AI ব্যাখ্যা</h2>
+    <p>“AI-কে জিজ্ঞাসা” চাপলে Cloudflare-এ হোস্ট করা <code>subduo-explain.warload57.workers.dev</code>-এ একটি HTTPS অনুরোধ পাঠানো হয়। অনুরোধে থাকে বাছাই করা বাক্যাংশ (সর্বোচ্চ 200 অক্ষর), সেটির সাবটাইটেল লাইন ও সেই মুহূর্তের অন্য ভাষার লাইন (প্রতিটি সর্বোচ্চ 1,000 অক্ষর), সেগুলোর ভাষার কোড, ব্যাখ্যার ভাষা এবং একটি এলোমেলো ইনস্টলেশন শনাক্তকারী। নেটওয়ার্ক সংযোগের ফলে অনুরোধকারী IP ঠিকানাও প্রকাশ পায়।</p>
+    <p>ব্যাখ্যা তৈরির জন্য Cloudflare Worker বাক্যাংশ, সাবটাইটেলের প্রসঙ্গ ও ভাষা-সংক্রান্ত নির্দেশনা OpenAI-এর API-তে পাঠায়। ইনস্টলেশন শনাক্তকারী ও অনুরোধকারী IP ঠিকানা AI প্রম্পটে অন্তর্ভুক্ত করা হয় না। অনুরোধে আপনার অ্যাকাউন্টের লগইন তথ্য, সংরক্ষিত শব্দভান্ডার সংগ্রহ, প্রদর্শন সেটিং, উৎস পৃষ্ঠার URL বা দেখার ইতিহাস থাকে না। AI অনুরোধের জন্য সংবেদনশীল ব্যক্তিগত তথ্য বাছাই করবেন না।</p>
+    <h2 data-sec="use">3. উদ্দেশ্য, পরিষেবা প্রদানকারী ও সংরক্ষণকাল</h2>
+    <ul>
+      <li>তথ্য ব্যবহার করা হয় সাবটাইটেল দেখাতে, আপনার অনুরোধ করা শব্দ-ব্যাখ্যা দিতে, শব্দভান্ডার সংরক্ষণ ও পর্যালোচনা করতে, দৈনিক AI সীমা কার্যকর করতে এবং পরিষেবার ত্রুটি নির্ণয় করতে। SubDuo-তে কোনো বিজ্ঞাপন বা আচরণগত বিশ্লেষণ নেই এবং এটি ব্যবহারকারীর ডেটা বিক্রি করে না।</li>
+      <li>Worker জমা দেওয়া বাক্যাংশ বা সাবটাইটেল লাইন তার অ্যাপ্লিকেশন লগে বা অনুরোধ-সীমা ডেটাবেসে লেখে না। অনুরোধ-সীমার রেকর্ডে এলোমেলো শনাক্তকারী (শনাক্তকারী না থাকলে IP ঠিকানা) অনুযায়ী একটি দৈনিক গণনা থাকে, এবং শেষ হালনাগাদের 24 ঘণ্টা পরে এর মেয়াদ শেষ হয়।</li>
+      <li>পরিচালনাগত অ্যাপ্লিকেশন লগে থাকে IP ঠিকানা, অনুরোধের সময়, ফলাফল, সেদিনের অনুরোধের সংখ্যা, ভাষার কোড এবং টোকেন ব্যবহারের তথ্য। Cloudflare Workers Logs বর্তমানে পরিষেবা প্ল্যান অনুযায়ী সর্বোচ্চ সাত দিন পর্যন্ত লগ সংরক্ষণ করে; পরিষেবা ও নিরাপত্তার জন্য Cloudflare-এর নিজস্ব প্রক্রিয়াকরণের ক্ষেত্রে এছাড়াও <a href="https://www.cloudflare.com/privacypolicy/">তাদের গোপনীয়তা নীতি</a> প্রযোজ্য।</li>
+      <li>OpenAI-এর কাছে পাঠানো বর্তমান অনুরোধে ডিফল্ট রেসপন্স সংরক্ষণ বন্ধ করা হয় না। OpenAI-এর Responses API সাধারণত রেসপন্স ডেটা অন্তত 30 দিন সংরক্ষণ করে; প্রদানকারীর অ্যাকাউন্ট সেটিং ও সংরক্ষণের ব্যতিক্রম এতে পরিবর্তন আনতে পারে। OpenAI-এর মানক API নীতি অনুযায়ী, API অ্যাকাউন্টের মালিক সম্মতি (অপ্ট-ইন) না দিলে API ডেটা মডেল প্রশিক্ষণে ব্যবহার করা হয় না। সংরক্ষণকাল, ব্যতিক্রম ও প্রশিক্ষণ নীতি সম্পর্কে জানতে <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI-এর API ডেটা নিয়ন্ত্রণ</a> দেখুন।</li>
+    </ul>
+    <h2 data-sec="perm">4. অনুমতি</h2>
+    <ul>
+      <li data-perm="storage"><strong>storage</strong>: সেটিং, শব্দভান্ডার ও পর্যালোচনার অগ্রগতি, স্থানীয় ডায়াগনস্টিক রেকর্ড এবং এলোমেলো ইনস্টলেশন শনাক্তকারী সংরক্ষণ।</li>
+      <li data-perm="scripting"><strong>scripting</strong>: ইনস্টলেশন বা আপডেটের পরে আগে থেকে খোলা সমর্থিত ট্যাবগুলোর সঙ্গে এক্সটেনশনকে আবার সংযুক্ত করা।</li>
+      <li data-perm="sidePanel"><strong>sidePanel</strong>: আপনি খুললে বর্তমান ভিডিওর সাবটাইটেল তালিকা দেখানো, সঙ্গে কোনো সাবটাইটেল লাইনে যাওয়ার নিয়ন্ত্রণ।</li>
+      <li data-perm="host"><strong>সাইটে প্রবেশাধিকার</strong>: সাবটাইটেল ট্র্যাক শনাক্ত ও সংগ্রহ এবং সাবটাইটেল-সম্পর্কিত প্লেব্যাক নিয়ন্ত্রণের জন্য সমর্থিত Prime Video/Amazon ডোমেন, YouTube, Netflix, Disney+ ও TED। SubDuo সম্পর্কহীন ওয়েবসাইটে চলে না।</li>
+    </ul>
+    <p>SubDuo Chrome-এর ইতিহাস (history) অনুমতি, কিংবা ক্যামেরা, মাইক্রোফোন বা ক্লিপবোর্ডে প্রবেশাধিকার চায় না। শব্দভান্ডারের কোনো এন্ট্রির সঙ্গে সংরক্ষিত উৎসের শিরোনাম/URL সমর্থিত ভিডিও থেকে পাওয়া স্থানীয় ডেটা, আপনার সাধারণ ব্রাউজিং ইতিহাসের সংগ্রহ নয়।</p>
+    <h2 data-sec="choices">5. আপনার পছন্দ ও মুছে ফেলা</h2>
+    <p>“AI-কে জিজ্ঞাসা” না চেপেই আপনি দ্বৈত সাবটাইটেল, ডিভাইসে অনুবাদ, সাবটাইটেল তালিকায় নেভিগেশন ও শব্দভান্ডার পর্যালোচনা ব্যবহার করতে পারেন। আপনি শব্দভান্ডারের আলাদা আলাদা এন্ট্রি মুছতে পারেন বা পুরো শব্দভান্ডার তালিকা খালি করতে পারেন। আপনি মুছে না ফেলা বা এক্সটেনশন সরিয়ে না দেওয়া পর্যন্ত এক্সটেনশনের সংরক্ষিত ডেটা থেকে যায়; Chrome সিঙ্ক ও অন্যান্য ডিভাইসের কপি আপনার Chrome অ্যাকাউন্ট সেটিং অনুসরণ করে। এক্সটেনশন সরিয়ে দিলে প্রদানকারীর লগ বা আগে পাঠানো AI অনুরোধ ভূতাপেক্ষভাবে মুছে যায় না। ডেটা-সংক্রান্ত অনুরোধের জন্য আমাদের সঙ্গে যোগাযোগ করার সময় অতিরিক্ত সংবেদনশীল তথ্য পাঠাবেন না।</p>
+    <h2 data-sec="contact">6. লিঙ্ক ও যোগাযোগ</h2>
+    <p>আনইনস্টল করার পরে এক্সটেনশন তার মতামত পৃষ্ঠা খুলতে পারে, অথবা আপনি সংশ্লিষ্ট লিঙ্ক বেছে নিলে যোগাযোগ, গোপনীয়তা বা স্টোর পৃষ্ঠা খুলতে পারে। এর নিজস্ব পৃষ্ঠার লিঙ্কে এক্সটেনশনের সংস্করণ এবং/অথবা UI ভাষা পাঠানো হয়, আপনার শব্দভান্ডার নয়। সর্বজনীন ওয়েব পৃষ্ঠাগুলো নিজস্ব হোস্টিং ও ফন্ট প্রদানকারী ব্যবহার করে এবং সেগুলোতে এক্সটেনশন থেকে আলাদা ওয়েব অ্যানালিটিক্স থাকতে পারে।</p>
+    <p>ডেভেলপার: Ramune। ইমেল: <a href="mailto:warload57@gmail.com">warload57@gmail.com</a>। এই নীতির হালনাগাদ নতুন তারিখসহ এখানে প্রকাশ করা হয়।</p>
   </div>
 
   <footer>&copy; 2026 SubDuo by Ramune</footer>
 
   <script>
     (function () {
+      // 言語の決め方: ?lang= > 言語を選んだときの保存値（LP と共通の lp_lang）> ブラウザ言語 > 英語。
+      // 拡張は UI 言語を zh-CN / zh-TW / pt-BR などの言語タグで渡す（_locales 名の zh_CN 形式も受け付ける）。
       var blocks = document.querySelectorAll('[data-lang]');
-      var buttons = document.querySelectorAll('.lang button');
-      function set(lang) {
-        blocks.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-lang') === lang); });
-        buttons.forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-set') === lang); });
-        document.documentElement.lang = lang;
-        document.title = lang === 'ja' ? 'SubDuo プライバシーポリシー' : 'SubDuo Privacy Policy';
+      var selector = document.getElementById('lang-select');
+      var SUPPORTED = Array.prototype.map.call(blocks, function (b) { return b.getAttribute('data-lang'); });
+
+      function normalize(raw) {
+        var s = String(raw || '').trim().toLowerCase().replace(/_/g, '-');
+        if (!s) return '';
+        var parts = s.split('-');
+        if (parts[0] === 'zh') {
+          if (parts.indexOf('hant') !== -1) return 'zh-TW';
+          if (parts.indexOf('hans') !== -1) return 'zh';
+          return parts.some(function (p) { return p === 'tw' || p === 'hk' || p === 'mo'; }) ? 'zh-TW' : 'zh';
+        }
+        if (parts[0] === 'pt') return 'pt';
+        return SUPPORTED.indexOf(parts[0]) !== -1 ? parts[0] : '';
       }
-      var q = (new URLSearchParams(location.search).get('lang') || '').toLowerCase();
-      var nav = (navigator.language || '').toLowerCase();
-      set(q === 'ja' || (!q && nav.indexOf('ja') === 0) ? 'ja' : 'en');
-      buttons.forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-set')); }); });
+
+      function set(lang) {
+        var block = null;
+        blocks.forEach(function (b) {
+          var on = b.getAttribute('data-lang') === lang;
+          b.classList.toggle('on', on);
+          if (on) block = b;
+        });
+        selector.value = lang;
+        document.documentElement.lang = block.getAttribute('lang');
+        document.documentElement.dir = block.getAttribute('dir');
+        document.title = block.querySelector('h1').textContent;
+      }
+
+      var initial = '';
+      try { initial = normalize(new URLSearchParams(location.search).get('lang')); } catch (e) {}
+      if (!initial) {
+        try { initial = normalize(localStorage.getItem('lp_lang')); } catch (e) {}
+      }
+      if (!initial) initial = normalize(navigator.language) || 'en';
+      set(initial);
+
+      selector.addEventListener('change', function () {
+        var lang = selector.value;
+        try { localStorage.setItem('lp_lang', lang); } catch (e) {}
+        // 共有した URL でも同じ言語で開けるよう ?lang= を書き換える（再読み込みはしない）
+        try {
+          var url = new URL(location.href);
+          url.searchParams.set('lang', lang);
+          history.replaceState(null, '', url);
+        } catch (e) {}
+        set(lang);
+        window.scrollTo(0, 0);
+      });
     })();
   </script>
 </body>

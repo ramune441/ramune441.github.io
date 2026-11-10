@@ -1,6 +1,6 @@
 {
-  "seo_title": "Kura | Android için galeri, temizlik, yapay zekayla düzenleme ve yedek",
-  "seo_desc": "Kura, hepsi bir arada Android fotoğraf uygulaması: galeri, temizlik, yapay zekayla düzenleme, Gizli, orijinal kalitede yedek ve Google Fotoğraflar'dan taşıma.",
+  "seo_title": "Kura: hepsi bir arada fotoğraf – galeri, temizlik, YZ, yedek",
+  "seo_desc": "Kura, hepsi bir arada Android fotoğraf uygulaması: galeri, kopya ve bulanık fotoğraf temizliği, yapay zekayla düzenleme, Gizli, orijinal kalitede yedek.",
   "og_title": "Kura | Tüm fotoğrafların, tek uygulamada.",
   "og_desc": "Galeri, temizlik, yapay zekayla düzenleme, Gizli, orijinal kalitede yedekleme ve Google Fotoğraflar'dan taşıma tek Android uygulamasında. Göz atmak, ayıklamak ve silmek ücretsiz.",
   "nav_web": "Web uygulaması",
@@ -45,7 +45,7 @@
   "s4_tag": "Gizli",
   "s4_p": "Fotoğraf ve videoları Gizli alanına taşıyarak galeriden ve diğer uygulamalardan gizle. Açmak için telefonunun ekran kilidini kullan.",
   "s4_f1": "İstersen tüm uygulamayı kilitle",
-  "s4_f2": "Paylaşılan fotoğraflardan konum kaldırılır (varsayılan olarak açık)",
+  "s4_f2": "Başka uygulamalarla paylaşırken konum kaldırılır (varsayılan olarak açık)",
   "s5_tag": "Yedekleme",
   "s5_p": "Fotoğraf ve videoları yeniden sıkıştırmadan yedekle. Yer açmak için yedeklenen kopyaları telefondan kaldır; buluttan görüntülenmeye devam eder.",
   "s5_f1": "Aylık planlar: 100 GB / 500 GB / 1 TB",

@@ -8,13 +8,18 @@ FormPilot の言語別URLは `/formpilot/<lang>/`、`/guide.html`、`/privacy-po
 
 | タグ | 内容 |
 |---|---|
-| `<title>` | ページ固有。日本語ページは 60 文字以内 |
-| `meta description` | ページ固有。日本語は 120〜160 文字 |
+| `<title>` | ページ固有。60 字以内（ja・zh・zh-TW・ko・th は 32 字） |
+| `meta description` | ページ固有。155 字以内（同 90 字） |
 | `meta robots` | `index, follow`（noindex は録画・画像生成・アンケートだけ） |
 | `link canonical` | 自身の絶対 URL |
 | OGP | `og:title` `og:description` `og:type` `og:url` `og:image`（＋ LP とポータルは `:width` `:height` `:alt`）`og:locale` `og:site_name` |
 | Twitter | `twitter:card=summary_large_image` |
-| JSON-LD | ポータル＝`WebSite`＋`Person`＋`ItemList` / LP＝`SoftwareApplication`＋`FAQPage`＋`BreadcrumbList` |
+| JSON-LD | ポータル＝`WebSite`＋`Person`＋`ItemList` / LP＝`SoftwareApplication`（`installUrl`・`sameAs`・`featureList`・`screenshot`・`author`）＋`FAQPage`＋`BreadcrumbList` / 使い方＝`HowTo` |
+| hreflang | 全 20 言語＋`x-default`（英語のページ）。`zh-Hans`・`pt-BR`、ほかは言語コードのまま |
+
+言語別URLは `/<product>/<lang>/`（既定言語だけ `<lang>/` を省く。既定は Kura・SubDuo・SendReady・FormPilot が英語、足あとメーカー・Ripen・ポータル `/` が日本語）。SendReady の使い方は `/sendready-chrome/<lang>/how-to.html`。
+言語を覚える localStorage: `kura_lp_lang`・`kura_lang`（Kura の LP・法務）、`subduo_lp_lang`（SubDuo LP）、`lp_lang`（SendReady・SubDuo の他ページ）、`ripen_lp_lang`（Ripen）、`ashiato_lang`（足あとメーカー）、`formpilot_lang`（FormPilot）。
+`sitemap.xml` は生成スクリプトごとの印 `<!-- <名前>:start（…が生成） -->`〜`<!-- <名前>:end -->` の間をそのスクリプトが書き換える → コメントに `--` を書かない（XML が不正になる）。`portal/portal.test.mjs` が確かめる。
 
 Kura LP の言語別URLは `/kura/<lang>/`（`<lang>` はストア画像と同じ言語コード）、英語だけ `/kura/`。hreflang は `zh-Hans`・`pt-BR`、ほかは言語コードのまま。
 `/kura/` だけが `?lang=` > localStorage `kura_lp_lang`（言語を選ぶと保存）> ブラウザ言語 のページへ移る。各言語のページは移さない。
@@ -27,7 +32,7 @@ Kura LP の言語別URLは `/kura/<lang>/`（`<lang>` はストア画像と同�
 | `/sendready-chrome/uninstall.html` | `v` `lang` `days` `uses` `err` |
 | `/sendready-chrome/contact.html` | `lang` `v` `days` `uses` `err` |
 | `/subduo/uninstall.html` | `v` `lang` `days` `err` |
-| `/ashiato-maker/uninstall.html` | `v` `days` `visits` `runs` |
+| `/ashiato-maker/uninstall.html` | `v` `days` `visits` `runs` `ev` `evLast` `evSpan` |
 | `/ashiato-maker/contact.html` | `v` `days` `visits` `runs` `ev` `evLast` `evSpan` `app` |
 | Lovent の問い合わせ | `device` `os` |
 - 診断値は hidden `diagnostics` にまとめて送る。`lang` は hidden `language` にも入れる。
@@ -40,14 +45,15 @@ Kura LP の言語別URLは `/kura/<lang>/`（`<lang>` はストア画像と同�
 | `category` | `Bug Report` / `Feature Request` / `Other`（contact で必須） |
 | `reasons[]` | 英語の正規値（uninstall で必須）。`reasonOther` は自由記述 |
 | `content` | 5,000 文字まで（超えると 400） |
-| `email` `app` `device` `osVersion` `language` `diagnostics` | 任意 |
+| `email` `app` `device` `osVersion` `language` `diagnostics` | 任意。`app` は SubDuo が `Prime Video` `YouTube` `Netflix` `Disney+` `TED` `Other`、足あとメーカーは対応アプリ名（Badoo・OkCupid・Match を含む） |
 | `attachment` | 任意。画像・動画・PDF・テキスト、25MB まで |
 | `botcheck` | ハニーポット（空であること） |
 - Origin は ramune441.github.io / charm-ly.com / cookpal-ai.com / localhost だけ許可。IP あたり毎時 5 件・毎日 20 件。
 
-## ウェブストアへのリンクの utm（SendReady）
+## ストアへのリンクの utm
 - LP: `utm_source=sendready-lp&utm_medium=web&utm_campaign=<lang>`。ルートでその場で言語を変えたら `utm_campaign` も変える。
 - YouTube: `utm_source=youtube&utm_medium=video&utm_campaign=<lang>`。
+- SubDuo・足あとメーカーの LP: `?hl=<ストアの言語>&utm_source=subduo-lp|ashiato-lp&utm_medium=web&utm_campaign=<lang>`。JSON-LD の `installUrl`・`sameAs` はクエリなしの詳細 URL。
 
 ## 計測・認証 ID
 | 対象 | ID |

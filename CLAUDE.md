@@ -17,9 +17,9 @@ ramune441.github.io/
 └── sendready/       # SendReady
 ```
 
-新しいプロダクトを追加したら、`sitemap.xml` と ルート `index.html` のカードを忘れず更新すること。
+新しいプロダクトを追加したら、ポータル（`portal/build.mjs` の一覧と `portal/i18n.json` の20言語の文言 → `node portal/build.mjs --sitemap`）・`sitemap.xml`・`llms.txt` を忘れず更新すること。ルート `index.html` と `/<lang>/index.html` は生成物なので直接編集しない。
 
-**外部ドメインで運用するプロダクト（例: Charmly = `charm-ly.com`）** はこのリポジトリにディレクトリを持たない。`index.html` のポータルカードと JSON-LD `ItemList` のみ更新する（`sitemap.xml` は本リポジトリのドメイン外のため更新しない）。
+**外部ドメインで運用するプロダクト（例: Charmly = `charm-ly.com`）** はこのリポジトリにディレクトリを持たない。ポータルのカードと JSON-LD `ItemList`（`portal/build.mjs`・`portal/i18n.json`）と `llms.txt` のみ更新する（`sitemap.xml` は本リポジトリのドメイン外のため更新しない）。
 
 各プロダクトに含まれるファイル:
 - `index.html` — LP
