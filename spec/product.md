@@ -12,7 +12,7 @@
 | `/sendready-chrome/<lang>/` | SendReady LP の言語別ページ（19 言語） | index | yes |
 | `/sendready/contact.html` | 転送（→ `/sendready-chrome/contact.html`） | noindex | no |
 
-プロダクト: FormPilot・足あとメーカー・SendReady（Chrome）・SubDuo・Ripen（Android）・Kura（Android、LP 未作成でポータルと sitemap に載せない）。
+プロダクト: FormPilot・足あとメーカー・SendReady（Chrome）・SubDuo・Ripen（Android）・Kura（Android）。
 
 ## LP 共通
 - 構成は Hero → 対応先 → 課題 → 比較 → デモ → メリット → 機能 → 使い方 → 安全性 → 注意 → FAQ → CTA。
@@ -71,6 +71,9 @@
 - ストア画像は「ユーザー自身の困りごと → 解決」の型。製品への疑いを見出しに置かない（カルーセルは大見出しだけ読まれ、不安だけが残るため）。
 - Kura の端末内の文言はアプリの strings.xml そのもの、キャプションだけ別辞書。金庫の名前は改名中なので `{vault}` でアプリの文言を差し込む。価格は en=$、ja=円、他は USD 表記（現地通貨は Play が換算するので推測しない）。
 - Kura の売りはオールインワン（写真のことが全部 1 つのアプリでできること）。紹介とフィーチャーグラフィックの一言、短い説明、本文の冒頭はこれを言い、機能の札 5 つをその中身として見せる。スワイプを主役にしない。
+- Kura の LP も同じ売りで始め、各機能はその言語のストア画像で見せる。機能・無料の範囲・プラン・権限・送信の説明は Kura アプリの仕様に合わせ、暗号化や「何も送らない」は書かない。
+- Kura の LP は日本語を HTML に持ち、英語を `kura/i18n-lp.js` に持つ（プライバシーポリシーと同じく `?lang=` > localStorage `kura_lang` > ブラウザ言語）。画像・紹介動画・Play のリンクも表示言語に合わせる → 両言語のキーの一致は `kura/lp.test.mjs` が確かめる。
+- Kura の LP の画像は `kura/images/lp/` の WebP（ストア画像を縮めたもの）を使う。ストア画像の PNG を直接読むと 1 言語で 10MB を超えるため。
 
 ## 足あとメーカーの素材
 - デモ画像・動画は実際の Pairs 画面のキャプチャ。会員の顔写真・名前・自己紹介は必ずぼかす。

@@ -10,12 +10,15 @@ Disallow: /ashiato-maker/promo.html
 Disallow: /sendready-chrome/promo.html
 Disallow: /ripen/promo.html
 Disallow: /subduo/promo.html
+Disallow: /kura/promo.html
 
 # ストア画像生成用HTMLはインデックス対象外
 Disallow: /sendready-chrome/store-images.html
 Disallow: /subduo/store-images.html
 Disallow: /ripen/store-images.html
 Disallow: /ripen/icon-512.html
+Disallow: /kura/store-images.html
+Disallow: /kura/icon-512.html
 
 # 権限説明動画（Play Console 提出用）の生成HTMLはインデックス対象外
 Disallow: /ripen/fgs-demo/fgs-demo.html

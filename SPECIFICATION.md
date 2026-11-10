@@ -16,12 +16,12 @@ Ramune の Chrome 拡張・Android アプリ・Web サービスの LP・使い�
 ## 既知の限界
 - GitHub Pages は 301 を返せない。移転は meta refresh＋JS の転送ページで代用する。
 - SubDuo の LP は v1.0 系（4 サービス・完全ローカル）の記述のまま。拡張 v1.3（TED・語句解説と単語帳・解説サーバー）に追従していない。
+- Kura の LP とプライバシーポリシーは日本語と英語だけ（アプリとストア掲載は 20 言語）。
 
 ## 残タスク
 - SubDuo LP を拡張 v1.3 に追従させる（対応 5 サービス・Alt+クリックの語句解説・「調べた語句だけ送る」）。
 - Search Console で SendReady LP の fr / de / ko / zh / id / hi / ar / zh-TW / vi / th / bn / it / nl / pl / ru / tr のインデックス登録をリクエストする（en・ja・es・pt はリクエスト済み。1 日の上限があるので数件ずつ）。
 - Search Console の `sitemap.xml` が「取得できませんでした」のままなら原因を調べる（公開 URL は 200 で返る）。
-- Kura の LP を作り、ポータルと sitemap に載せる。
 
 ## 目次
 - [spec/product.md](spec/product.md) — ページを足す・変える、プロダクトごとの LP・素材の決まりを確かめるとき
