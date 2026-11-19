@@ -190,6 +190,22 @@ body.rtl .scr, body.rtl .cap, body.rtl #fg .left, body.rtl .intro .brand, body.r
 #fg .device { left:676px; top:54px; width:260px; padding:8px; border-radius:36px; z-index:2; }
 #fg .device .glass { border-radius:29px; }
 #fg .cam { width:10px; height:10px; top:10px; box-shadow:none; }
+/* ═════════ store video thumbnail (1280x720): the feature graphic's layout, with the freed space in place of the tags ═════════ */
+#yt { width:1280px; height:720px; margin-top:0; }
+#yt .wall { position:absolute; left:380px; top:-160px; width:1130px; display:flex; gap:18px; transform:rotate(-11deg); transform-origin:50% 0; }
+#yt .wall .col { flex:1; display:flex; flex-direction:column; gap:18px; }
+#yt .wall img { width:100%; border-radius:22px; object-fit:cover; display:block; }
+#yt .fade { position:absolute; inset:0; background:linear-gradient(90deg, var(--primary) 0, var(--primary) 42%, rgba(35,107,70,.6) 54%,
+  rgba(35,107,70,.1) 70%, rgba(35,107,70,0) 100%); }
+#yt .left { position:absolute; z-index:3; left:64px; top:0; bottom:0; width:640px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:28px; }
+#yt .brand { display:flex; align-items:center; gap:28px; direction:ltr; }
+#yt .brand svg { width:132px; height:132px; border-radius:34px; flex:none; box-shadow:0 0 0 3px rgba(255,255,255,.18), 0 20px 50px rgba(0,0,0,.25); }
+#yt .brand b { font-size:132px; line-height:1; font-weight:800; letter-spacing:-3.5px; }
+#yt .left > small { font-size:40px; line-height:1.25; font-weight:600; white-space:nowrap; overflow:hidden; max-width:100%; }
+#yt .freed { position:relative; margin-top:10px; }
+#yt .device { left:850px; top:70px; width:340px; padding:10px; border-radius:46px; z-index:2; }
+#yt .device .glass { border-radius:37px; }
+body.rtl #yt .left { direction:rtl; align-items:flex-start; }
 
 /* ═════════ the introduction (first screenshot): a wall of photos, the app in front, its four parts as tags ═════════ */
 .intro .wall { position:absolute; left:-330px; top:250px; width:1800px; display:flex; gap:22px; transform:rotate(-11deg); transform-origin:50% 0; }
@@ -237,6 +253,14 @@ body.rtl .scr, body.rtl .cap, body.rtl #fg .left, body.rtl .intro .brand, body.r
 .find b { display:block; font-size:25px; line-height:1.22; font-weight:600; }
 .find em { display:block; font-style:normal; font-size:38px; line-height:1.15; font-weight:700; letter-spacing:-.6px; color:var(--primary); white-space:nowrap; }
 body.cjk .find b { word-break:keep-all; }
+/* 1: what cleanup frees, as the session's end screen says it (the number first, then "ready to free") */
+.freed { position:absolute; z-index:4; display:flex; align-items:center; gap:24px; padding:24px 34px 24px 24px; border-radius:36px;
+  background:var(--bg); color:var(--on); box-shadow:0 34px 70px rgba(0,0,0,.4); max-width:560px; }
+.freed .dsc { width:92px; height:92px; background:var(--primaryC); color:var(--onPrimaryC); }
+.freed .dsc i { font-size:50px; }
+.freed em { display:block; font-style:normal; font-size:72px; line-height:1; font-weight:800; letter-spacing:-1.5px; color:var(--primary); white-space:nowrap; }
+.freed b { display:block; font-size:32px; line-height:1.2; font-weight:600; margin-top:6px; white-space:nowrap; }
+body.rtl .freed { direction:rtl; }
 
 /* ═════════ 3: Private — the same layout on a dark ground ═════════ */
 .shot.dark { background:radial-gradient(110% 70% at 50% 68%, #1E3B2C 0, #111613 62%, #0B0D0C 100%); }

@@ -41,6 +41,10 @@ let html = '';
 const WALL = [['p360', 'p164', 'p509', 'p292', 'p77'], ['p200', 'p516', 'p553', 'p437', 'p13'], ['p429', 'p392', 'p106', 'p565', 'p288'],
   ['p525', 'p152', 'p433', 'p450', 'p219'], ['p507', 'p488', 'p110', 'p237', 'p434'], ['p54', 'p169', 'p493', 'p327', 'p517']];
 const HEIGHTS = [300, 380, 300, 340, 300];
+// What the cleanup screenshot (2) finds; the introduction shows their sum as what Kura can free.
+const FOUND = [['content_copy', t('session_dup'), 1.9, 'primary'], ['burst_mode', t('session_similar'), 5.7, 'primary'],
+  ['blur_on', t('session_blurry'), .61, 'tertiary'], ['sd_card', t('session_large'), 6.4, 'tertiary']];
+const FREED = FOUND.reduce((sum, f) => sum + f[2], 0);
 const TAGS = `<span class="tag">${mi('photo_library')}${C.f1t}</span><span class="tag">${mi('cleaning_services')}${C.f2t}</span>
   <span class="tag">${mi('auto_fix_high')}${C.f5t}</span><span class="tag">${mi('lock')}${fill(C.f3t)}</span><span class="tag">${mi('cloud_done')}${fill(C.f4t)}</span>`;
 // The feature graphic is the introduction turned sideways: the name, the tagline and the four parts on solid green,
@@ -59,6 +63,21 @@ html += `<section class="shot" id="fg">
     ${photoCard({ src:'p401', title:t('session_today'), detail:`2023 · ${pl('stats_items', 12)}`, w:330, h:420, style:'object-position:30% 50%' })}
     <div class="foot">${mi('auto_awesome', 'mo')}${t('memories_title')}</div></div>
   <div class="heart" style="zoom:.46;left:1600px;top:500px">${mi('favorite')}</div>
+</section>`;
+// The store video's thumbnail (Play shows it first, above the screenshots): the feature graphic's name and tagline,
+// with what cleanup frees in place of the tags, large enough to read at a fifth of its size.
+const FREED_CARD = `<div class="freed"><span class="dsc">${mi('cleaning_services', 'mo')}</span>
+    <div><em>${bytes(FREED)}</em><b>${t('done_ready')}</b></div></div>`;
+html += `<section class="shot" id="yt">
+  <div class="wall">${WALL.slice(1, 5).map((col, c) => `<div class="col" style="margin-top:${[60, 0, 110, 30][c]}px">
+    ${col.map((src, i) => `<img src="${P(src)}" style="height:${HEIGHTS[(i + c) % HEIGHTS.length] * .7}px">`).join('')}</div>`).join('')}</div>
+  <div class="fade"></div>
+  <div class="left">
+    <div class="brand">${ICON_SVG('16 16 76 76')}<b>${t('app_name')}</b></div>
+    <small>${C.one}</small>
+    ${FREED_CARD}
+  </div>
+  <div class="device">${screen('photos', { w:400, h:866, cols:4, zoom:.8 })}</div>
 </section>`;
 html += `<section class="shot phone intro" id="p1">
   <div class="wall">${WALL.map((col, c) => `<div class="col" style="margin-top:${[120, 0, 200, 60, 160, 20][c]}px">
@@ -79,6 +98,7 @@ html += `<section class="shot phone intro" id="p1">
   <div class="print" style="right:22px;top:1330px;transform:rotate(6deg)">
     ${photoCard({ src:'p436', title:C.cities[2], detail:`2025 · ${pl('stats_items', 23)}`, w:320, h:300 })}
     <div class="foot">${mi('place', 'mo')}${t('places_title')}</div></div>
+  ${FREED_CARD.replace('class="freed"', 'class="freed" style="left:36px;top:1590px"')}
 </section>`;
 const shot = (id, cls, h, s, body) => `<section class="shot phone ${cls}" id="${id}">${ROOF(1300, 'left:-110px;top:40px')}
   <div class="cap"><h1>${h}</h1><p>${s}</p></div>${body}</section>`;
@@ -86,8 +106,6 @@ const device = (name, f = PHONE) => `<div class="device">${screen(name, f)}</div
 // A zoomed callout's left/top are zoomed too: top:860px at zoom 1.5 sits 1290px down the canvas.
 const callout = (extra, st) => `<div class="callout" style="${st}">${extra()}</div>`;
 // 2: sorting and cleanup in one. The photo just kept flies out of the phone; beside it, what the scan found and the burst's best.
-const FOUND = [['content_copy', t('session_dup'), 1.9, 'primary'], ['burst_mode', t('session_similar'), 5.7, 'primary'],
-  ['blur_on', t('session_blurry'), .61, 'tertiary'], ['sd_card', t('session_large'), 6.4, 'tertiary']];
 html += shot('p2', 'clean', C.h2, C.s2, `${device('swipe', { ...PHONE, zoom:1.45 })}
   <div class="fly" style="left:530px;top:500px;width:360px;height:470px;transform:rotate(13deg)"><img src="${P('p1025')}" style="object-position:50% 40%">
     ${seal(t('swipe_keep'), '#236B46', 'left', -9)}</div>
@@ -155,6 +173,8 @@ window.READY = (async () => {
   for (let s = 30; fgLine.scrollWidth > fgLine.clientWidth && s > 18; s -= .5) fgLine.style.fontSize = s + 'px';
   const fgTags = document.querySelector('#fg .tags');
   for (let s = 28; fgTags.offsetHeight > 140 && s > 18; s -= .5) fgTags.querySelectorAll('.tag').forEach(el => el.style.fontSize = s + 'px');
+  const ytLine = document.querySelector('#yt .left > small');
+  for (let s = 40; ytLine.scrollWidth > ytLine.clientWidth && s > 22; s -= .5) ytLine.style.fontSize = s + 'px';
   // A print's place name stays on one line.
   document.querySelectorAll('.print .tx b').forEach(b => shrink(b, 24));
   // The tagline stays on one line, within the brand's width (as a flex item it grows to its text); the tags stay on two rows.

@@ -32,6 +32,21 @@ test('Play titles, summaries and descriptions stay within their character limits
     }
   }
 });
+test('every language has its own release notes for the live version',()=>{
+  // Without them Play shows the English notes on every other listing.
+  assert.ok(Number.isInteger(listing.releaseNotesVersionCode));
+  for (const [lang, entry] of Object.entries(listing.locales)) {
+    assert.ok(entry.releaseNotes?.trim() && entry.releaseNotes.length <= 500,lang);
+    if (lang !== 'en') assert.notEqual(entry.releaseNotes,listing.locales.en.releaseNotes,lang);
+  }
+});
+test('the introduction and the video thumbnail show what cleanup frees',()=>{
+  // The thumbnail is the first picture on the listing; YouTube picks a frame from the film when none is set.
+  for (const lang of Object.keys(listing.locales)) assert.ok(fs.existsSync(path.join(here,'images/promo',`thumb-${lang}.jpg`)),lang);
+  const html = fs.readFileSync(path.join(here,'store-images.html'),'utf8');
+  assert.match(html,/id="yt"/);
+  assert.match(html,/t\('done_ready'\)/);
+});
 test('eight screenshots in their own order, and regional listings share one source',()=>{
   // Shown as: introduction, cleanup, AI editing, body and food editing, moving from Google Photos, backup, library, Private.
   assert.deepEqual(listing.screenshotOrder,[1,2,7,8,6,5,4,3]);

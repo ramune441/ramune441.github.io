@@ -52,7 +52,19 @@ def validate_local(data):
                 with Image.open(image) as png:
                     assert png.mode == 'RGB', (image,png.mode)
                     assert png.size == ((1024,500) if typ=='featureGraphic' else (1080,1920)), (image,png.size)
+        assert 0 < len(entry['releaseNotes']) <= 500, (lang,'releaseNotes')
     assert len(codes)==len(set(codes)), 'Duplicate Play language'
+
+def release_notes(data):
+    # Play shows "What's new" in the listing's language and falls back to the default (English) where one is missing.
+    return [{'language':code,'text':entry['releaseNotes']} for entry in data['locales'].values() for code in entry['playLanguages']]
+
+def production_release(client, edit, data):
+    track = request(client,'GET',f'{API}/{edit}/tracks/production')
+    version = str(data['releaseNotesVersionCode'])
+    release = next((r for r in track['releases'] if version in r.get('versionCodes',[])), None)
+    assert release, f'No production release with versionCode {version}'
+    return track, release
 
 def verify_edit(client, edit, data):
     actual = {item['language']:item for item in request(client,'GET',f'{API}/{edit}/listings')['listings']}
@@ -66,7 +78,10 @@ def verify_edit(client, edit, data):
                 assert [p['sha256'] for p in images] == expected, (code,typ)
             for typ in EMPTY:
                 assert not request(client,'GET',f'{API}/{edit}/listings/{code}/{typ}').get('images'), (code,typ)
-    return {'listings':len(actual),'imageSets':len(actual)*len(TYPES),'verified':True}
+    _, release = production_release(client,edit,data)
+    notes = {n['language']:n['text'] for n in release.get('releaseNotes',[])}
+    assert notes == {n['language']:n['text'] for n in release_notes(data)}, 'releaseNotes'
+    return {'listings':len(actual),'imageSets':len(actual)*len(TYPES),'releaseNotes':len(notes),'verified':True}
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -98,6 +113,10 @@ def main():
             with ThreadPoolExecutor(max_workers=4) as pool:
                 futures = [pool.submit(upload_language,lang,entry,code) for lang,entry in data['locales'].items() for code in entry['playLanguages']]
                 for task in as_completed(futures): task.result()
+            # The live release keeps its bundle and rollout; only its notes change.
+            track, release = production_release(client,edit,data)
+            release['releaseNotes'] = release_notes(data)
+            request(client,'PUT',f'{API}/{edit}/tracks/production',json=track)
             result = verify_edit(client,edit,data)
             request(client,'POST',f'{API}/{edit}:validate')
             # Preserve an unrelated pending review rather than silently cancelling it.

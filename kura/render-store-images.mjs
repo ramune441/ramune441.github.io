@@ -22,12 +22,17 @@ try {
     await page.evaluate(() => window.READY);
     const problems = await page.evaluate(() => {
       const issues = [];
-      for (const el of document.querySelectorAll('.cap, #fg .left, #fg .tags, .intro .brand, .print .foot, .find, .callout')) {
+      for (const el of document.querySelectorAll('.cap, #fg .left, #fg .tags, #yt .left, .intro .brand, .print .foot, .find, .callout')) {
         const box = el.getBoundingClientRect();
         for (const child of el.children) {
           const rect = child.getBoundingClientRect();
           if (rect.right > box.right + 2 || rect.bottom > box.bottom + 2 || rect.left < box.left - 2) issues.push('Overflow: '+child.textContent);
         }
+      }
+      // The freed-space card stays whole inside the canvas.
+      for (const el of document.querySelectorAll('.freed')) {
+        const box = el.getBoundingClientRect(), shot = el.closest('.shot').getBoundingClientRect();
+        if (box.left < shot.left || box.right > shot.right || el.scrollWidth > el.clientWidth + 1) issues.push('Overflow: ' + el.textContent.trim());
       }
       if ([...document.images].some(img => !img.complete || !img.naturalWidth)) issues.push('Missing photo');
       return issues;
@@ -38,7 +43,9 @@ try {
     for (const [selector,name] of [['#fg','store-image-feature.png'],...data.screenshotOrder.map(n=>['#p'+n,`store-image-${n}.png`])]) {
       await (await page.$(selector)).screenshot({path:path.join(dir,name),omitBackground:false});
     }
-    report[lang] = await page.evaluate(() => ({privateTitle:document.querySelector('#p3 h1').textContent,privateText:document.querySelector('#p3 .cap p').textContent,fonts:document.fonts.status}));
+    // The store video's thumbnail, uploaded to YouTube by youtube-thumbnail.mjs (JPEG under YouTube's 2 MB).
+    await (await page.$('#yt')).screenshot({path:path.join(here,'images/promo',`thumb-${lang}.jpg`),type:'jpeg',quality:90});
+    report[lang] =await page.evaluate(() => ({privateTitle:document.querySelector('#p3 h1').textContent,privateText:document.querySelector('#p3 .cap p').textContent,fonts:document.fonts.status}));
     console.log(`${lang}: ${data.screenshotOrder.length+1} images verified`);
     await page.close();
   }

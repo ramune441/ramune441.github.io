@@ -23,6 +23,9 @@ Play へは **1, 2, 7, 8, 6, 5, 4, 3** の順で上げる（紹介・片付け�
 2. `node --test kura/store-assets.test.mjs` と `python kura/publish-store.py` を実行し、文言の一致・文字数・RGB・解像度を検証する。
 3. `python kura/publish-store.py --publish` で掲載文と画像を同じ edit 内で検証して反映し（タブレット枠は空にする）、`--verify` で掲載文・画像の SHA-256 と並び順、タブレット枠が空であることを読み戻して照合する。
 
+4. 紹介動画のサムネイル（`render-store-images.mjs` が `images/promo/thumb-<lang>.jpg` に 1280×720 で書く）は `node kura/youtube-thumbnail.mjs [lang…]` で YouTube に入れる。cws-profile のアカウントを「Just One More Animal」チャンネルに切り替えてから開く（ほかのチャンネルが選ばれていると Studio が権限なしで開かない）。
+   `--publish` は `releaseNotesVersionCode` の製品版リリースの更新内容も同じ edit で 20 言語に置き換える。新しい版を出したら番号と文言を直す。
+
 認証鍵は `GOOGLE_APPLICATION_CREDENTIALS` または `~/.kura/play-service-account.json`。鍵はリポジトリへ置かない。画像・文言を確認してから送信し、審査中の場合はその審査を自動取消しせず停止する。
 
 ## 手順（言語ごとに繰り返す）
